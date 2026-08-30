@@ -1556,6 +1556,9 @@ wNestRegion:: db     ; FindNest: the region whose page the dex AREA map is showi
 ; wMapAttributes sits below the saved block, so growing that struct would shift
 ; wEventFlags and every save offset after it.
 wMapWeather:: db
+; The season vTiles2 was last built for, latched by _LoadTilesetGFX2. WRAM0 for
+; the same reason as wMapWeather: WRAMX bank 1 holds the saved block.
+wOldSeason:: db
 
 
 SECTION "16-bit WRAM home data", WRAM0

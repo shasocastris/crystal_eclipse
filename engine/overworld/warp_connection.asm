@@ -315,8 +315,15 @@ LoadMapTimeOfDay:
 	ret
 
 DeferredLoadMapGraphics:
+; Crossing a connection keeps the tileset, so this normally skips the reload.
+; A season change still has to re-patch vTiles2, so check that too.
 	call TilesetUnchanged
+	jr nz, .reload
+	ld a, [wSeason]
+	ld hl, wOldSeason
+	cp [hl]
 	jr z, .done
+.reload
 	call LoadMapTileset
 	ld a, 3
 	ld [wPendingOverworldGraphics], a

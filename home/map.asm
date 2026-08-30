@@ -1322,6 +1322,10 @@ _LoadTilesetGFX2:
 	pop af
 	ldh [rWBK], a
 
+	; vTiles2 is now whatever the current season should see.
+	ld a, [wSeason]
+	ld [wOldSeason], a
+
 	; These tilesets support dynamic per-mapgroup roof tiles.
 	ld a, [wMapTileset]
 	cp TILESET_JOHTO
