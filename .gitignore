@@ -53,3 +53,6 @@ gfx/pokemon/*/*/frames.asm
 /docs/images/greensmom.png
 /docs/images/GraniteVillage.png
 /tools/bpp2png
+
+# utils/render_overworld.py output
+/overworld/
