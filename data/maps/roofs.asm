@@ -5,6 +5,7 @@
 	const ROOF_AZALEA    ; 2
 	const ROOF_OLIVINE   ; 3
 	const ROOF_GOLDENROD ; 4
+	const ROOF_SNOW      ; 5 -- every roofed group in Johto winter
 DEF NUM_ROOFS EQU const_value
 
 MapGroupRoofs:
@@ -49,4 +50,5 @@ INCBIN "gfx/tilesets/roofs/violet.2bpp"
 INCBIN "gfx/tilesets/roofs/azalea.2bpp"
 INCBIN "gfx/tilesets/roofs/olivine.2bpp"
 INCBIN "gfx/tilesets/roofs/goldenrod.2bpp"
+INCBIN "gfx/tilesets/roofs/snow.2bpp"
 	assert_table_length NUM_ROOFS
