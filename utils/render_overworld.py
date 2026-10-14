@@ -16,6 +16,7 @@ gets a loader that mirrors how it fills VRAM and palettes:
   pokered   pret pokered hacks (Gen 1, SGB palettes), e.g. kep-hack
   pret      any other pokecrystal hack: palette maps or attribute files,
             VRAM layout and roofs read from the hack's own code
+  oldpret   the same on a pre-2018 pokecrystal layout, e.g. Pokemon Orange
 Hack-specific palette code (LoadSpecialMapPalette, SetPal_Overworld...) runs
 through a small interpreter; event flags count as unset and weather as clear.
 
@@ -40,8 +41,12 @@ BLANK_TILE = [[0] * 8 for _ in range(8)]
 # --- parsing helpers --------------------------------------------------------
 
 def read(path):
-	with open(path) as f:
-		return f.read()
+	try:
+		with open(path) as f:
+			return f.read()
+	except UnicodeDecodeError:  # older disassemblies saved as Latin-1
+		with open(path, encoding='latin-1') as f:
+			return f.read()
 
 
 def cond_true(cond):
@@ -239,10 +244,55 @@ def load_png_tiles(path):
 	return tiles
 
 
+def lz_decompress(data):
+	"""pret's LZ format (tools/lzcomp), for graphics shipped only as .lz."""
+	out = bytearray()
+	i = 0
+	while data[i] != 0xff:
+		b = data[i]
+		i += 1
+		if b >> 5 == 7:  # long command: 10-bit length
+			cmd, n = (b >> 2) & 7, ((b & 3) << 8 | data[i]) + 1
+			i += 1
+		else:
+			cmd, n = b >> 5, (b & 0x1f) + 1
+		if cmd == 0:  # literal
+			out += data[i:i + n]
+			i += n
+		elif cmd == 1:  # iterate one byte
+			out += bytes([data[i]]) * n
+			i += 1
+		elif cmd == 2:  # alternate two bytes
+			out += bytes(data[i + k % 2] for k in range(n))
+			i += 2
+		elif cmd == 3:  # zeros
+			out += bytes(n)
+		else:  # copy from earlier output: as is, bit-flipped, or backwards
+			o = data[i]
+			i += 1
+			if o & 0x80:
+				off = len(out) - (o & 0x7f) - 1
+			else:
+				off = o << 8 | data[i]
+				i += 1
+			for k in range(n):
+				if cmd == 4:
+					out.append(out[off + k])
+				elif cmd == 5:
+					out.append(int(f'{out[off + k]:08b}'[::-1], 2))
+				else:
+					out.append(out[off - k])
+	return bytes(out)
+
+
 def load_tiles(stem):
 	"""Tiles for a graphic given its path without extension."""
 	if os.path.exists(stem + '.2bpp'):
 		return load_2bpp(stem + '.2bpp')
+	if not os.path.exists(stem + '.png') and os.path.exists(stem + '.2bpp.lz'):
+		data = lz_decompress(open(stem + '.2bpp.lz', 'rb').read())
+		return [[[((data[t * 16 + y * 2] >> (7 - x)) & 1) | (((data[t * 16 + y * 2 + 1] >> (7 - x)) & 1) << 1)
+			for x in range(8)] for y in range(8)] for t in range(len(data) // 16)]
 	return load_png_tiles(stem + '.png')
 
 
@@ -627,6 +677,52 @@ class Polished(PokecrystalEngine):
 	render_inputs = CSE.render_inputs
 
 
+def parse_mapgroup_constants(path):
+	"""Pre-2018 pokecrystal: `mapgroup NAME, height, width` under `newgroup`."""
+	consts = {}
+	group = num = 0
+	for line in asm_lines(path):
+		if line.startswith('newgroup'):
+			group += 1
+			num = 0
+		elif line.startswith('mapgroup'):
+			name, h, w = args_of(line, 'mapgroup')[:3]
+			num += 1
+			consts[name] = (group, num, eval_int(w), eval_int(h))
+	return consts
+
+
+def load_old_maps(consts, blocks_path):
+	"""Maps from pre-2018 pokecrystal's maps/map_headers.asm and
+	maps/second_map_headers.asm. Connections come in the old 7-argument form
+	(dir, MAP_CONST, Label, x/y, offset, length, this map) or the newer 4."""
+	headers = {a[0]: a for a in (args_of(l, 'map_header ') for l in asm_lines('maps/map_headers.asm')
+		if l.startswith('map_header '))}
+	blocks = parse_blocks(blocks_path)
+	maps = {}
+	conns = None
+	for line in asm_lines('maps/second_map_headers.asm'):
+		if line.startswith('map_header_2'):
+			label, const = args_of(line, 'map_header_2')[:2]
+			conns = []
+			if label not in headers or label not in blocks or const not in consts:
+				continue
+			group, num, w, h = consts[const]
+			hdr = headers[label]
+			maps[label] = {
+				'label': label, 'const': const, 'group': group, 'num': num, 'w': w, 'h': h,
+				'tileset': hdr[1], 'env': hdr[2], 'palette': hdr[6], 'blocks': blocks[label],
+				'conns': conns, 'outdoor': hdr[2] in OUTDOOR_ENVS, 'header': hdr,
+			}
+		elif line.startswith('connection') and conns is not None:
+			a = args_of(line, 'connection')
+			if len(a) >= 7:
+				conns.append((a[0], a[2], eval_int(a[3]) - eval_int(a[4])))
+			else:
+				conns.append((a[0], a[1], eval_int(a[3])))
+	return maps
+
+
 class Prism(PokecrystalEngine):
 	"""Pokemon Prism's 2017 source: pre-rename pokecrystal file layout."""
 	ROOF_TILESETS = {'TILESET_NALJO_1', 'TILESET_NALJO_2', 'TILESET_NALJO_3'}
@@ -664,39 +760,7 @@ class Prism(PokecrystalEngine):
 				self.roof_groups.append(roof_files[n] if n >= 0 else None)
 
 	def load_maps(self):
-		consts = {}
-		group = num = 0
-		for line in asm_lines('constants/map_dimension_constants.asm'):
-			if line.startswith('newgroup'):
-				group += 1
-				num = 0
-			elif line.startswith('mapgroup'):
-				name, h, w = args_of(line, 'mapgroup')[:3]
-				num += 1
-				consts[name] = (group, num, eval_int(w), eval_int(h))
-		headers = {a[0]: a for a in (args_of(l, 'map_header ') for l in asm_lines('maps/map_headers.asm')
-			if l.startswith('map_header '))}
-		blocks = parse_blocks('maps/blockdata.asm')
-		maps = {}
-		conns = None
-		for line in asm_lines('maps/second_map_headers.asm'):
-			if line.startswith('map_header_2'):
-				label, const = args_of(line, 'map_header_2')[:2]
-				conns = []
-				if label not in headers or label not in blocks:
-					continue
-				group, num, w, h = consts[const]
-				hdr = headers[label]
-				maps[label] = {
-					'label': label, 'const': const, 'group': group, 'num': num, 'w': w, 'h': h,
-					'tileset': hdr[1], 'env': hdr[2], 'palette': hdr[6], 'blocks': blocks[label],
-					'conns': conns, 'outdoor': hdr[2] in OUTDOOR_ENVS, 'header': hdr,
-				}
-			elif line.startswith('connection') and conns is not None:
-				# connection dir, MAP_CONST, MapLabel, x/y, offset, strip length, this map
-				a = args_of(line, 'connection')
-				conns.append((a[0], a[2], eval_int(a[3]) - eval_int(a[4])))
-		return maps
+		return load_old_maps(parse_mapgroup_constants('constants/map_dimension_constants.asm'), 'maps/blockdata.asm')
 
 	def vram(self, m):
 		roofed = m['tileset'] in self.ROOF_TILESETS
@@ -1076,8 +1140,8 @@ def function_text(name, files):
 
 
 def find_file(label):
-	"""First .asm under engine/, home/, data/ or gfx/ defining label."""
-	for top in ('engine', 'home', 'data', 'gfx'):
+	"""First .asm under the usual code and data directories defining label."""
+	for top in ('engine', 'home', 'data', 'gfx', 'tilesets', 'predef'):
 		for root, _, names in os.walk(top):
 			for n in names:
 				if n.endswith('.asm'):
@@ -1102,15 +1166,23 @@ class Pret(PokecrystalEngine):
 		return all(os.path.exists(p) for p in ('data/maps/attributes.asm', 'data/tilesets.asm',
 			'constants/map_constants.asm'))
 
-	def __init__(self, season, time):
-		super().__init__(season, time)
+	def tileset_sources(self):
+		"""(TILESET_* -> name, label -> data file, label -> palette map)"""
 		files = {}
 		for path in ('gfx/tilesets.asm', 'data/tilesets.asm'):
 			if os.path.exists(path):
 				files.update(labelled_incbins(path))
 		palmaps = labelled_incbins('gfx/tileset_palette_maps.asm') if os.path.exists('gfx/tileset_palette_maps.asm') else {}
+		return tileset_table(), files, palmaps
+
+	def map_constants(self):
+		return parse_map_constants()
+
+	def __init__(self, season, time):
+		super().__init__(season, time)
+		table, files, palmaps = self.tileset_sources()
 		self.tilesets = {}
-		for const, name in tileset_table().items():
+		for const, name in table.items():
 			ts = {'meta': unlz(files[f'Tileset{name}Meta'])}
 			if f'Tileset{name}vTiles2GFX' in files:
 				ts['gfx'] = gfx_stem(files[f'Tileset{name}vTiles2GFX'])
@@ -1127,7 +1199,7 @@ class Pret(PokecrystalEngine):
 		self.parse_vram_layout()
 		self.parse_roofs()
 		self.parse_palettes()
-		self.consts = parse_map_constants()
+		self.consts = self.map_constants()
 		self.index = None
 		self.failures = set()
 
@@ -1219,7 +1291,8 @@ class Pret(PokecrystalEngine):
 				if line.startswith('tilepal'):
 					a = args_of(line, 'tilepal')
 					bank = eval_int(a[0])
-					entries += [bank << 3 | PAL_NAMES.index(p) for p in a[1:]]
+					# PRIORITY_ palettes only draw over sprites; same colours
+					entries += [bank << 3 | PAL_NAMES.index(p.removeprefix('PRIORITY_')) for p in a[1:]]
 			attr = bytes(entries[t] if t < len(entries) else 0 for t in meta)
 			return bytes(t & 0x7f for t in meta), attr
 		return self.cached(('meta', m['tileset']), build)
@@ -1250,7 +1323,9 @@ class Pret(PokecrystalEngine):
 			self.index = AsmIndex()
 		ctx = {'wMapTileset': m['tileset'], 'wTileset': m['tileset'], 'wMapGroup': m['group'],
 			'wMapNumber': m['num'], 'wEnvironment': m['env'], 'wPermission': m['env'],
-			'wTimeOfDayPal': t, 'wTimeOfDay': t, 'wStatusFlags': 0, 'wTimeOfDayPalFlags': 0}
+			'wTimeOfDayPal': t, 'wTimeOfDay': t, 'wStatusFlags': 0, 'wTimeOfDayPalFlags': 0,
+			# the same, under pokecrystal's names before the w prefix
+			'MapGroup': m['group'], 'MapNumber': m['num'], 'TimeOfDayPal': t}
 		routine = PaletteRoutine(self.index, ctx, self.consts, pals)
 		try:
 			carry = routine.run(entry)
@@ -1369,8 +1444,31 @@ class Pokered(PokecrystalEngine):
 		return meta, bytes(len(meta)), vram, self.pals(m)
 
 
-ENGINES = {'cse': CSE, 'peridot': Peridot, 'polished': Polished, 'prism': Prism, 'coral': Coral,
-	'pokered': Pokered, 'pret': Pret}
+class OldPret(Pret):
+	"""The generic pret loader on a pre-2018 pokecrystal layout (Pokemon
+	Orange): tilesets numbered under tilesets/, map headers in maps/."""
+
+	region_names = {}
+
+	@staticmethod
+	def detect():
+		return os.path.exists('tilesets/palette_maps.asm') and os.path.exists('maps/second_map_headers.asm')
+
+	def tileset_sources(self):
+		consts = re.findall(r'^\s*const\s+(TILESET_\w+)', read('constants/tilemap_constants.asm'), re.M)
+		names = [m.group(1) for m in (re.match(r'tileset\s+Tileset(\w+)', l) for l in asm_lines('tilesets/tileset_headers.asm')) if m]
+		table = dict(zip(consts, names[1:]))  # const_value = 1; Tileset00 is entry 0
+		return table, labelled_incbins('tilesets/data.asm'), labelled_incbins('tilesets/palette_maps.asm')
+
+	def map_constants(self):
+		return parse_mapgroup_constants('constants/map_constants.asm')
+
+	def load_maps(self):
+		return load_old_maps(self.consts, 'maps/block_data.asm')
+
+
+ENGINES = {'cse': CSE, 'peridot': Peridot, 'polished': Polished, 'oldpret': OldPret, 'prism': Prism,
+	'coral': Coral, 'pokered': Pokered, 'pret': Pret}
 
 
 # --- rendering --------------------------------------------------------------
