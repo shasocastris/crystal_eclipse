@@ -6,12 +6,18 @@ region (Johto, Kanto, an island chain...). Maps reached only by warp land in
 standalone/. Tile graphics come from built .2bpp files where they exist, so
 run `make` first; a tileset with no .2bpp is read from its .png instead.
 
-Works on this repo and, with --repo, on a few other pokecrystal-based hacks;
-each gets a loader that mirrors how its engine fills VRAM and palettes:
+Works on this repo and, with --repo, on other pret-based hacks; each engine
+gets a loader that mirrors how it fills VRAM and palettes:
   cse       CrystalShireEngine (Crystal Eclipse)
   peridot   Pokemon Peridot
   polished  Polished Crystal
   prism     Pokemon Prism (the released 2017 source)
+  coral     Polished Coral
+  pokered   pret pokered hacks (Gen 1, SGB palettes), e.g. kep-hack
+  pret      any other pokecrystal hack: palette maps or attribute files,
+            VRAM layout and roofs read from the hack's own code
+Hack-specific palette code (LoadSpecialMapPalette, SetPal_Overworld...) runs
+through a small interpreter; event flags count as unset and weather as clear.
 
 Usage: python utils/render_overworld.py [--repo DIR] [--out DIR] [--season S] [--time T]
 """
@@ -48,12 +54,33 @@ def cond_true(cond):
 		return True  # macro-body conditions and the like: take the first branch
 
 
+def expand_rept(lines):
+	"""Unroll rept/endr blocks with a literal count."""
+	out = []
+	stack = []  # (count, collected lines)
+	for line in lines:
+		word = line.split(None, 1)[0].lower() if line else ''
+		if word == 'rept':
+			try:
+				n = eval_int(line.split(None, 1)[1])
+			except Exception:
+				n = 1
+			stack.append((n, []))
+		elif word == 'endr' and stack:
+			n, body = stack.pop()
+			(stack[-1][1] if stack else out).extend(body * n)
+		else:
+			(stack[-1][1] if stack else out).append(line)
+	return out
+
+
 def asm_lines(path):
 	"""Comment-stripped, non-empty lines, skipping macro definitions and
-	untaken if/else branches (e.g. Polished Crystal's MONOCHROME palettes)."""
+	untaken if/else branches (e.g. Polished Crystal's MONOCHROME palettes),
+	with rept blocks unrolled."""
 	stack = []  # (this branch taken, some branch already taken)
-	for line in read(path).splitlines():
-		line = line.split(';', 1)[0].strip()
+	lines = [l.split(';', 1)[0].strip() for l in read(path).splitlines()]
+	for line in expand_rept(lines):
 		if not line or 'MACRO' in line:
 			continue
 		word = line.split(None, 1)[0].lower()
@@ -167,6 +194,12 @@ def parse_env_colors(path):
 			if len(row) == 8 and all(re.fullmatch(r'\$?[0-9a-fA-F]+', x) for x in row):
 				cur.append([eval_int(x) for x in row])
 	return tables
+
+
+def env_pointer_map(path):
+	"""environment name -> colour table, from the pointer table's comments
+	(`dw .OutdoorColors ; TOWN`), for hacks that added environments."""
+	return {m.group(2): m.group(1) for m in re.finditer(r'^\s*d[wr] \.(\w+)\s*;\s*(\w+)', read(path), re.M)}
 
 
 ENV_TABLE = {
@@ -287,7 +320,11 @@ def parse_roof_groups(path='data/maps/roofs.asm', files=None):
 			break
 		elif in_table and line.startswith('db'):
 			v = line[2:].strip()
-			groups.append(None if v == '-1' else unlz(files[v[len('ROOF_'):]]))
+			if re.fullmatch(r'-?\d+', v):  # numbered roofs index the INCBIN list
+				incbins = re.findall(r'INCBIN "([^"]+)"', text)
+				groups.append(unlz(incbins[int(v)]) if int(v) >= 0 else None)
+			else:
+				groups.append(unlz(files[v[len('ROOF_'):]]))
 	return groups
 
 
@@ -345,7 +382,8 @@ class PokecrystalEngine:
 		return self.cache[key]
 
 	def env_pals(self, bg_pal, env, t, season_rows=False):
-		rows = self.env_colors[ENV_TABLE[env]]
+		table = getattr(self, 'env_map', {}).get(env) or ENV_TABLE.get(env, 'DungeonColors')
+		rows = self.env_colors[table]
 		row = rows[(self.season * 4 if season_rows else 0) + t]
 		return [list(bg_pal[i]) for i in row]
 
@@ -356,7 +394,7 @@ class CSE(PokecrystalEngine):
 
 	@staticmethod
 	def detect():
-		return os.path.exists('gfx/tilesets.asm') and 'vtiles2' in read('gfx/tilesets.asm')
+		return os.path.exists('gfx/tilesets/roofs_winter.pal')
 
 	def __init__(self, season, time):
 		super().__init__(season, time)
@@ -696,7 +734,643 @@ class Prism(PokecrystalEngine):
 	render_inputs = CSE.render_inputs
 
 
-ENGINES = {'cse': CSE, 'peridot': Peridot, 'polished': Polished, 'prism': Prism}
+# --- a tiny interpreter for palette-loading routines ------------------------
+
+class Unsupported(Exception):
+	pass
+
+
+PAL_NAMES = ['GRAY', 'RED', 'GREEN', 'WATER', 'YELLOW', 'BROWN', 'ROOF', 'TEXT']
+TIME_CONSTS = {'MORN_F': 0, 'DAY_F': 1, 'NITE_F': 2, 'EVE_F': 3, 'DARKNESS_F': 3,
+	'MORN': 0, 'DAY': 1, 'NITE': 2, 'EVE': 3, 'DARKNESS': 3}
+COPY_ROUTINES = {'FarCopyWRAM', 'CopyBytes', 'FarCopyBytes', 'FarCopyColorWRAM', 'CopyBytesVRAM', 'CopyData'}
+
+
+class AsmIndex:
+	"""Every global label in the repo's .asm files, for jumping around in."""
+
+	def __init__(self):
+		self.texts = {}
+		self.code = {}
+		for root, dirs, names in os.walk('.'):
+			dirs[:] = [d for d in dirs if not d.startswith('.') and d not in ('tools', 'rgbds')]
+			for n in names:
+				if n.endswith(('.asm', '.pal')):  # some hacks label palettes inside .pal files
+					path = os.path.join(root, n)[2:]
+					try:
+						self.texts[path] = read(path)
+					except UnicodeDecodeError:
+						self.texts[path] = open(path, encoding='latin-1').read()
+		self.globals = {}
+		for path, text in self.texts.items():
+			for m in re.finditer(r'^(\w+)::?', text, re.M):
+				self.globals.setdefault(m.group(1), path)
+		self.colors = {}
+
+	def lines(self, path):
+		if path not in self.code:
+			self.code[path] = list(asm_lines(path))
+		return self.code[path]
+
+	def find(self, label, scope=None):
+		"""(path, line index) of a global label, or of .local under scope."""
+		if label.startswith('.'):
+			path, start = self.find(scope)
+			lines = self.lines(path)
+			for i in range(start + 1, len(lines)):
+				if re.match(re.escape(label) + r':?(\s|$)', lines[i]):
+					return path, i
+				if re.match(r'\w+::?(\s|$)', lines[i]):
+					break
+			raise Unsupported(f'no {scope}{label}')
+		path = self.globals.get(label)
+		if not path:
+			raise Unsupported(f'no label {label}')
+		for i, line in enumerate(self.lines(path)):
+			if re.match(re.escape(label) + r'::?(\s|$)', line):
+				return path, i
+		raise Unsupported(f'no label {label}')
+
+	def label_colors(self, label):
+		path = self.globals.get(label)
+		if not path:
+			raise Unsupported(f'no palette {label}')
+		if path not in self.colors:
+			self.colors[path] = labelled_colors(path)
+		if label not in self.colors[path]:
+			raise Unsupported(f'no palette {label}')
+		return self.colors[path][label]
+
+
+class PaletteRoutine:
+	"""Runs a routine like LoadSpecialMapPalette against one map, modelling only
+	the instructions those routines use: compares on the map's tileset, group,
+	number and environment, table offsets by time of day, and copies into the
+	BG palettes. Anything else raises Unsupported."""
+
+	def __init__(self, index, ctx, consts, base_pals, symbols=None):
+		self.index = index
+		self.ctx = ctx
+		self.consts = consts
+		self.symbols = symbols or {}
+		self.pals = [c for p in base_pals for c in p]  # 32 colours
+		self.wrote = False
+		self.sgb_pal = None  # Gen 1: the palette ID written into wPalPacket
+
+	def value(self, name):
+		name = name.strip()
+		if name in self.symbols:
+			return self.symbols[name]
+		if re.fullmatch(r'\w+\s*[-+]\s*\w+', name):
+			left, op, right = re.fullmatch(r'(\w+)\s*([-+])\s*(\w+)', name).groups()
+			l, r = self.value(left), self.value(right)
+			if isinstance(l, int) and isinstance(r, int):
+				return l + r if op == '+' else l - r
+		if re.fullmatch(r'[$%]?[0-9a-fA-F]+', name) and (name[0] in '$%' or name.isdigit()):
+			return eval_int(name)
+		if name in TIME_CONSTS:
+			return TIME_CONSTS[name]
+		if name.startswith('GROUP_') and name[6:] in self.consts:
+			return self.consts[name[6:]][0]
+		if name.startswith('MAP_') and name[4:] in self.consts:
+			return self.consts[name[4:]][1]
+		return name
+
+	def size(self, expr):
+		"""Byte count or offset: 8 palettes, 1 palettes, 4, 3 colors..."""
+		total = 0
+		for term in expr.split('+'):
+			term = term.strip()
+			m = re.fullmatch(r'(\S+)\s*(palettes?|colors?|tiles?)?', term)
+			if not m:
+				raise Unsupported(f'size {expr}')
+			n = self.value(m.group(1))
+			if isinstance(n, str) and n.startswith('PAL_BG_'):
+				n = PAL_NAMES.index(n[7:])
+			if not isinstance(n, int):
+				raise Unsupported(f'size {expr}')
+			total += n * {'palette': 8, 'palettes': 8, 'color': 2, 'colors': 2, 'tile': 16, 'tiles': 16, None: 1}[m.group(2)]
+		return total
+
+	def pointer(self, expr):
+		m = re.fullmatch(r'(\w+)\s*(.*)', expr.strip())
+		label, rest = m.group(1), m.group(2)
+		off = 0
+		for kind, n in re.findall(r'(palette|color)\s+(\w+)', rest):
+			v = self.value(n)
+			if isinstance(v, str):
+				v = PAL_NAMES.index(v[7:]) if v.startswith('PAL_BG_') else None
+			if v is None:
+				raise Unsupported(f'pointer {expr}')
+			off += v * (8 if kind == 'palette' else 2)
+		rest = re.sub(r'(palette|color)\s+\w+', '', rest).strip()
+		if rest:
+			off += self.size(rest.lstrip('+'))
+		if re.fullmatch(r'w\w*BGPals\w*', label):
+			return ('pals', off)
+		return ('label', label, off)
+
+	def copy(self, hl, de, bc):
+		if de[0] != 'pals':
+			return  # OB palettes and the like
+		if hl[0] != 'label':
+			raise Unsupported('copy source')
+		src = self.index.label_colors(hl[1])
+		s, d = hl[2] // 2, de[1] // 2
+		for i in range(bc // 2):
+			if d + i < 32 and s + i < len(src):
+				self.pals[d + i] = src[s + i]
+		self.wrote = True
+
+	def add(self, ptr, n):
+		if isinstance(ptr, int):
+			return ptr + n
+		if ptr is None:
+			raise Unsupported('arithmetic on an unknown pointer')
+		return ptr[:-1] + (ptr[-1] + n,)
+
+	def run(self, entry):
+		a = None
+		z = c = False
+		hl = de = None
+		bc = 0
+		stack = []
+		scope, _, local = entry.partition('.')
+		path, pc = self.index.find(scope)
+		if local:
+			path, pc = self.index.find('.' + local, scope)
+		for _ in range(20000):
+			pc += 1
+			lines = self.index.lines(path)
+			if pc >= len(lines):
+				raise Unsupported('ran off the end')
+			line = lines[pc]
+			m = re.match(r'(\w+)::?\s*(.*)$', line)
+			if m and not re.match(r'(ld|cp|jr|jp|call)\b', line):
+				scope = m.group(1)
+				if not m.group(2):
+					continue
+				line = m.group(2)
+			if line.startswith('.'):
+				if re.fullmatch(r'\.\w+:?', line):
+					continue
+				line = re.sub(r'^\.\w+:?\s*', '', line)
+			op, _, rest = line.partition(' ')
+			op = op.lower()
+			args = [x.strip() for x in rest.split(',')] if rest.strip() else []
+
+			def jump(target):
+				nonlocal path, pc, scope
+				if target.startswith('.'):
+					path, pc = self.index.find(target, scope)
+				else:
+					path, pc = self.index.find(target)
+					scope = target
+
+			def cond_ok(cc):
+				return {'z': z, 'nz': not z, 'c': c, 'nc': not c}[cc]
+
+			def builtin(target):
+				"""Run a known home routine; False if it is not one."""
+				nonlocal hl, a
+				if target == 'AddNTimes':
+					if not isinstance(a, int):
+						raise Unsupported('AddNTimes')
+					hl = self.add(hl, bc * a)
+				elif target in COPY_ROUTINES:
+					self.copy(hl, de, bc)
+				elif target == 'GetMapTimeOfDay':
+					a = 0
+				else:
+					return False
+				return True
+
+			if op in ('push', 'pop', 'nop', 'di', 'ei') or (op == 'ldh' and args and args[0].startswith('[')):
+				continue
+			if op in ('ld', 'ldh'):
+				dst, src = args[0], ','.join(args[1:]).strip()
+				if dst == 'a':
+					mm = re.fullmatch(r'\[(\w+)\]', src)
+					if mm and re.match(r'[rh][A-Z]', mm.group(1)):
+						a = None  # hardware registers: bank switching around the copy
+					elif mm:
+						if mm.group(1) not in self.ctx:
+							raise Unsupported(f'reads {mm.group(1)}')
+						a = self.ctx[mm.group(1)]
+					elif src.startswith('BANK(') or src.startswith('['):
+						a = None
+					else:
+						a = self.value(src)
+				elif dst == 'hl':
+					hl = self.pointer(src)
+				elif dst == 'de':
+					de = self.pointer(src)
+				elif dst == 'bc':
+					bc = self.size(src)
+				elif dst.startswith('['):
+					if dst in ('[hl]', '[hld]', '[hli]') and hl == ('label', 'wPalPacket', 1):
+						self.sgb_pal = a
+					elif dst == '[wPalPacket + 1]':
+						self.sgb_pal = a
+					continue
+				elif (dst, src) in (('l', 'a'), ('e', 'a')):
+					if not isinstance(a, int):
+						raise Unsupported(line)
+					if dst == 'l':
+						hl = a
+					else:
+						de = a
+				elif (dst, src) in (('h', '0'), ('d', '0'), ('d', 'h'), ('e', 'l'), ('h', 'd'), ('l', 'e')):
+					if (dst, src) == ('d', 'h'):
+						de = hl
+					elif (dst, src) == ('h', 'd'):
+						hl = de
+				elif dst in ('b', 'c'):
+					continue
+				else:
+					raise Unsupported(line)
+			elif op == 'add':
+				if args == ['hl', 'hl'] and isinstance(hl, int):
+					hl *= 2
+				elif args == ['hl', 'de']:
+					if isinstance(hl, int) and isinstance(de, tuple):
+						hl = self.add(de, hl)
+					else:
+						hl = self.add(hl, de if isinstance(de, int) else None)
+				elif args in (['a'], ['a', 'a']) and isinstance(a, int):
+					a *= 2
+				else:
+					raise Unsupported(line)
+			elif op == 'cp':
+				v = self.value(args[0])
+				z = a == v
+				c = isinstance(a, int) and isinstance(v, int) and a < v
+			elif op in ('and', 'maskbits'):
+				if args[0] == 'a':
+					z, c = a in (0, None), False
+				elif isinstance(a, int):
+					n = self.value(args[0].split('+')[0]) if op == 'and' else None
+					a = a & n if isinstance(n, int) else a & 3 if 'DAYTIMES' in args[0] else a
+					z, c = a == 0, False
+			elif op == 'or':
+				a, c = None, False
+			elif op == 'xor' and args == ['a']:
+				a, z, c = 0, True, False
+			elif op == 'bit':
+				z = True  # flags tested here are darkness and Flash: off outdoors
+			elif op in ('eventflagcheck', 'checkevent'):
+				z = True  # event flags are taken as unset: the world before any story event
+			elif op == 'scf':
+				c = True
+			elif op in ('inc', 'dec'):
+				d = 1 if op == 'inc' else -1
+				if args[0] == 'a' and isinstance(a, int):
+					a += d
+					z = a == 0
+				elif args[0] in ('hl', 'h'):
+					hl = self.add(hl, d * (256 if args[0] == 'h' else 1))
+				else:
+					raise Unsupported(line)
+			elif op in ('jr', 'jp', 'jmp'):
+				if len(args) == 2 and not cond_ok(args[0]):
+					continue
+				target = args[-1]
+				if target == 'hl':
+					raise Unsupported('jp hl')
+				if builtin(target):  # a tail call into a home routine
+					if not stack:
+						return c
+					path, pc, scope = stack.pop()
+				else:
+					jump(target)
+			elif op in ('call', 'farcall', 'callfar', 'rst', 'homecall'):
+				target = args[-1]
+				if len(args) == 2 and not cond_ok(args[0]):
+					continue
+				if not builtin(target):
+					stack.append((path, pc, scope))
+					jump(target)
+			elif op == 'ret':
+				if args and not cond_ok(args[0]):
+					continue
+				if not stack:
+					return c
+				path, pc, scope = stack.pop()
+			else:
+				raise Unsupported(line)
+		raise Unsupported('too many steps')
+
+
+# --- generic pret-style engines ---------------------------------------------
+
+def function_text(name, files):
+	"""Body of a global routine, up to the next global label."""
+	for path in files:
+		if not os.path.exists(path):
+			continue
+		text = read(path)
+		m = re.search(r'^' + name + r'::?.*?(?=^\w+::?|\Z)', text, re.M | re.S)
+		if m:
+			return m.group(0)
+	return ''
+
+
+def find_file(label):
+	"""First .asm under engine/, home/, data/ or gfx/ defining label."""
+	for top in ('engine', 'home', 'data', 'gfx'):
+		for root, _, names in os.walk(top):
+			for n in names:
+				if n.endswith('.asm'):
+					path = os.path.join(root, n)
+					if re.search(r'^' + label + r'::?', read(path), re.M):
+						return path
+	return None
+
+
+class Pret(PokecrystalEngine):
+	"""Any pret-based pokecrystal hack: VRAM layout, roofs and palettes are
+	read from the hack's own LoadTilesetGFX, LoadMapGroupRoof, LoadMapPals and
+	LoadSpecialMapPalette. Attributes come from per-block *_attributes.bin when
+	the hack has them, else from vanilla's per-tile palette maps."""
+
+	region_names = {'NewBarkTown': 'johto', 'PalletTown': 'kanto'}
+	SPECIAL_AFTER_ENV = False
+	ROOF_ENTRY = None
+
+	@staticmethod
+	def detect():
+		return all(os.path.exists(p) for p in ('data/maps/attributes.asm', 'data/tilesets.asm',
+			'constants/map_constants.asm'))
+
+	def __init__(self, season, time):
+		super().__init__(season, time)
+		files = {}
+		for path in ('gfx/tilesets.asm', 'data/tilesets.asm'):
+			if os.path.exists(path):
+				files.update(labelled_incbins(path))
+		palmaps = labelled_incbins('gfx/tileset_palette_maps.asm') if os.path.exists('gfx/tileset_palette_maps.asm') else {}
+		self.tilesets = {}
+		for const, name in tileset_table().items():
+			ts = {'meta': unlz(files[f'Tileset{name}Meta'])}
+			if f'Tileset{name}vTiles2GFX' in files:
+				ts['gfx'] = gfx_stem(files[f'Tileset{name}vTiles2GFX'])
+				ts['split'] = True
+			elif f'Tileset{name}GFX0' in files:  # Polished style: three parts
+				ts['parts'] = [files.get(f'Tileset{name}GFX{i}') for i in range(3)]
+			else:
+				ts['gfx'] = gfx_stem(files[f'Tileset{name}GFX'])
+			if f'Tileset{name}Attr' in files:
+				ts['attr'] = unlz(files[f'Tileset{name}Attr'])
+			else:
+				ts['palmap'] = palmaps[f'Tileset{name}PalMap']
+			self.tilesets[const] = ts
+		self.parse_vram_layout()
+		self.parse_roofs()
+		self.parse_palettes()
+		self.consts = parse_map_constants()
+		self.index = None
+		self.failures = set()
+
+	def parse_vram_layout(self):
+		body = function_text('LoadTilesetGFX', ['home/map.asm'])
+		counts = [eval_int(n) for n in re.findall(r'ld bc, (\$?\w+) tiles', body)]
+		src = re.findall(r'wDecompressScratch \+ (\$?\w+) tiles', body)
+		if len(counts) >= 2 and src:
+			self.layout = (counts[0], eval_int(src[0]), counts[1])
+		else:
+			self.layout = (127, 128, 128)
+		gfx_code = body + function_text('_LoadTilesetGFX2', ['home/map.asm'])
+		self.roof_tilesets = set(re.findall(r'^\s*cp (TILESET_\w+)', '\n'.join(
+			l.split(';')[0] for l in gfx_code.splitlines()), re.M))
+
+	def parse_roofs(self):
+		self.roof_groups = []
+		self.roof_dests = []
+		roofs = find_file('MapGroupRoofs')
+		if not roofs:
+			return
+		self.roof_groups = parse_roof_groups(roofs)
+		code = find_file('LoadMapGroupRoof')
+		body = function_text('LoadMapGroupRoof', [code])
+		self.roof_tilesets |= set(re.findall(r'cp (TILESET_\w+)', function_text('CheckIfTilesetHasRoof', [code])))
+		dests = [eval_int(n) for n in re.findall(r'vTiles2 tile (\$?\w+)', body, re.I)]
+		if len(dests) > 1:  # Peridot style: a 3x3 block, one row per dest
+			self.roof_dests = [(d, 3) for d in dests]
+		elif dests:
+			self.roof_dests = [(dests[0], 9)]
+
+	def parse_palettes(self):
+		color_file = find_file('TilesetBGPalette')
+		incs = labelled_incbins(color_file)
+		self.bg_pal = palettes_of(parse_rgb(incs['TilesetBGPalette']))
+		roof_file = incs.get('RoofPals')
+		self.roof_pal = parse_rgb(roof_file) if roof_file else []
+		env_file = find_file('EnvironmentColorsPointers') or color_file
+		self.env_colors = parse_env_colors(env_file)
+		self.env_map = env_pointer_map(env_file)
+		body = '\n'.join(l.split(';')[0] for l in function_text('LoadMapPals', [color_file]).splitlines())
+		tail = body.split('.got_pals', 1)[-1]
+		before_roof = tail.split('RoofPals', 1)[0]
+		self.roof_envs = set(re.findall(r'cp (TOWN|ROUTE|ENVIRONMENT_5|ISOLATED|PERM_5)\b', before_roof)) or {'TOWN', 'ROUTE'}
+		self.no_roof_tilesets = set(re.findall(r'cp (TILESET_\w+)', before_roof))
+		groups = len(self.roof_groups) or 1
+		self.roof_stride = 6 if len(self.roof_pal) >= groups * 6 else 4
+		self.special_entry = 'LoadSpecialMapPalette' if 'LoadSpecialMapPalette' in body else None
+
+	def vram(self, m):
+		ts = self.tilesets[m['tileset']]
+		roofed = m['tileset'] in self.roof_tilesets
+		def build():
+			vram = [None] * 512
+			if 'parts' in ts:
+				gfx0, gfx1, gfx2 = (Polished.gfx_tiles(p) for p in ts['parts'])
+				put(vram, 0, gfx0[:127])
+				put(vram, 256, gfx1[:128])
+				put(vram, 384, gfx2[:128])
+			elif ts.get('split'):
+				tiles = load_tiles(ts['gfx'])
+				put(vram, 0, tiles[0:127])
+				put(vram, 256, tiles[128:384])
+			else:
+				tiles = load_tiles(ts['gfx'])
+				n0, src1, n1 = self.layout
+				put(vram, 0, tiles[:n0])
+				put(vram, 256, tiles[src1:src1 + n1])
+			roof = self.roof_groups[m['group']] if m['group'] < len(self.roof_groups) else None
+			if roofed and roof and self.roof_dests:
+				rt = load_tiles(gfx_stem(roof))
+				i = 0
+				for dest, n in self.roof_dests:
+					put(vram, dest, rt[i:i + n])
+					i += n
+			return vram
+		return self.cached(('vram', m['tileset'], m['group'] if roofed else None), build)
+
+	def blocks_and_attrs(self, m):
+		ts = self.tilesets[m['tileset']]
+		def build():
+			meta = open(ts['meta'], 'rb').read()
+			if 'attr' in ts:
+				return meta, open(ts['attr'], 'rb').read()
+			# vanilla: a nybble per tile ID (VRAM bank << 3 | palette), and the
+			# engine clears bit 7 of every tile ID, so $80+ lands in bank 1
+			entries = []
+			for line in asm_lines(ts['palmap']):
+				if line.startswith('tilepal'):
+					a = args_of(line, 'tilepal')
+					bank = eval_int(a[0])
+					entries += [bank << 3 | PAL_NAMES.index(p) for p in a[1:]]
+			attr = bytes(entries[t] if t < len(entries) else 0 for t in meta)
+			return bytes(t & 0x7f for t in meta), attr
+		return self.cached(('meta', m['tileset']), build)
+
+	def pals(self, m):
+		t = self.time_of(m)
+		pals = self.env_pals(self.bg_pal, m['env'], t)
+		if self.special_entry:
+			if self.index is None:
+				self.index = AsmIndex()
+			pals = self.run_routine(self.special_entry, m, t, pals, self.SPECIAL_AFTER_ENV)
+		if self.ROOF_ENTRY:
+			return self.run_routine(self.ROOF_ENTRY, m, t, pals, True)
+		if m['env'] in self.roof_envs and m['tileset'] not in self.no_roof_tilesets and self.roof_pal:
+			if self.roof_stride == 6:
+				row = {0: 0, 1: 0, 2: 1, 3: 2}[t]
+			else:
+				row = 1 if t >= 2 else 0
+			base = m['group'] * self.roof_stride + row * 2
+			pals[6][1:3] = self.roof_pal[base:base + 2]
+		return pals
+
+	def run_routine(self, entry, m, t, pals, keep_writes):
+		"""Interpret one of the hack's palette routines for this map. Vanilla
+		only keeps what LoadSpecialMapPalette wrote when it returns carry;
+		hacks that call it after the environment palettes keep any write."""
+		if self.index is None:
+			self.index = AsmIndex()
+		ctx = {'wMapTileset': m['tileset'], 'wTileset': m['tileset'], 'wMapGroup': m['group'],
+			'wMapNumber': m['num'], 'wEnvironment': m['env'], 'wPermission': m['env'],
+			'wTimeOfDayPal': t, 'wTimeOfDay': t, 'wStatusFlags': 0, 'wTimeOfDayPalFlags': 0}
+		routine = PaletteRoutine(self.index, ctx, self.consts, pals)
+		try:
+			carry = routine.run(entry)
+		except Unsupported as e:
+			key = f'{m["label"]}: {e}'
+			if key not in self.failures:
+				self.failures.add(key)
+				print(f'  note: {entry} not modelled for {key}', file=sys.stderr)
+			return pals
+		if routine.wrote and (carry or keep_writes):
+			return [list(routine.pals[i:i + 4]) for i in range(0, 32, 4)]
+		return pals
+
+	def render_inputs(self, m):
+		meta, attr = self.blocks_and_attrs(m)
+		return meta, attr, self.vram(m), self.pals(m)
+
+
+class Coral(Pret):
+	"""Polished Coral: an older Polished Crystal fork. It loads the environment
+	palettes first, then lets LoadSpecialMapPalette patch them, and decides
+	roofs in LoadMapPals.normal; both run through the interpreter."""
+
+	SPECIAL_AFTER_ENV = True
+	ROOF_ENTRY = 'LoadMapPals.normal'
+
+	@staticmethod
+	def detect():
+		return os.path.isdir('maps/palettes/bgpals')
+
+	def parse_palettes(self):
+		super().parse_palettes()
+		self.special_entry = 'LoadSpecialMapPalette'
+
+
+class Pokered(PokecrystalEngine):
+	"""pret pokered hacks (Gen 1). No GBC colour: an overworld screen takes one
+	SGB palette, which SetPal_Overworld picks; that routine runs through the
+	interpreter, and the palette ID it writes into wPalPacket is looked up in
+	SuperPalettes."""
+
+	region_names = {'PalletTown': 'kanto'}
+
+	@staticmethod
+	def detect():
+		return os.path.isdir('data/maps/headers') and os.path.exists('data/sgb/sgb_palettes.asm')
+
+	def __init__(self, season, time):
+		super().__init__(season, time)
+		self.symbols = {}
+		count = 0
+		self.dims = {}
+		for line in asm_lines('constants/map_constants.asm'):
+			if line.startswith('map_const'):
+				name, w, h = args_of(line, 'map_const')[:3]
+				self.symbols[name] = count
+				self.dims[name] = (eval_int(w), eval_int(h))
+				count += 1
+			elif line.startswith('const_skip'):
+				count += 1
+			else:
+				m = re.match(r'DEF (\w+) EQU const_value', line)
+				if m:
+					self.symbols[m.group(1)] = count
+		pals = re.findall(r'^\s*const (PAL_\w+)', read('constants/palette_constants.asm'), re.M)
+		self.symbols.update({n: i for i, n in enumerate(pals)})
+		self.super_pals = palettes_of(labelled_colors('data/sgb/sgb_palettes.asm')['SuperPalettes'])
+		consts = re.findall(r'^\s*const (\w+)', read('constants/tileset_constants.asm'), re.M)
+		names = [m.group(1) for m in (re.match(r'tileset\s+(\w+)', l) for l in asm_lines('data/tilesets/tileset_headers.asm')) if m]
+		files = labelled_incbins('gfx/tilesets.asm')
+		self.tilesets = {c: {'gfx': gfx_stem(files[f'{n}_GFX']), 'blockset': files[f'{n}_Block']}
+			for c, n in zip(consts, names)}
+		self.index = None
+		self.failures = set()
+
+	def load_maps(self):
+		blocks = {k[:-len('_Blocks')]: v for k, v in labelled_incbins('maps.asm').items() if k.endswith('_Blocks')}
+		maps = {}
+		for n in sorted(os.listdir('data/maps/headers')):
+			conns = None
+			for line in asm_lines(os.path.join('data/maps/headers', n)):
+				if line.startswith('map_header'):
+					label, const, tileset = args_of(line, 'map_header')[:3]
+					conns = []
+					if label not in blocks or const not in self.dims:
+						break
+					w, h = self.dims[const]
+					maps[label] = {'label': label, 'const': const, 'id': self.symbols[const], 'w': w, 'h': h,
+						'tileset': tileset, 'blocks': blocks[label], 'conns': conns, 'group': 0, 'num': 0,
+						'outdoor': self.symbols[const] < self.symbols.get('FIRST_INDOOR_MAP', 0)}
+				elif line.startswith('connection') and conns is not None:
+					a = args_of(line, 'connection')
+					conns.append((a[0], a[1], eval_int(a[3])))
+		return dict(sorted(maps.items(), key=lambda kv: kv[1]['id']))
+
+	def pals(self, m):
+		if self.index is None:
+			self.index = AsmIndex()
+		ctx = {'wCurMap': m['id'], 'wLastMap': m['id'], 'wCurMapTileset': m['tileset']}
+		routine = PaletteRoutine(self.index, ctx, {}, [[(0, 0, 0)] * 4] * 8, self.symbols)
+		pal = self.symbols['PAL_ROUTE']
+		try:
+			routine.run('SetPal_Overworld')
+			if isinstance(routine.sgb_pal, int):
+				pal = routine.sgb_pal
+		except Unsupported as e:
+			if m['label'] not in self.failures:
+				self.failures.add(m['label'])
+				print(f'  note: SetPal_Overworld not modelled for {m["label"]}: {e}', file=sys.stderr)
+		return [list(self.super_pals[pal])] * 8
+
+	def render_inputs(self, m):
+		ts = self.tilesets[m['tileset']]
+		meta = self.cached(ts['blockset'], lambda: open(ts['blockset'], 'rb').read())
+		vram = self.cached(ts['gfx'], lambda: load_tiles(ts['gfx']) + [None] * 512)
+		return meta, bytes(len(meta)), vram, self.pals(m)
+
+
+ENGINES = {'cse': CSE, 'peridot': Peridot, 'polished': Polished, 'prism': Prism, 'coral': Coral,
+	'pokered': Pokered, 'pret': Pret}
 
 
 # --- rendering --------------------------------------------------------------
@@ -793,8 +1467,16 @@ def main():
 	name = args.engine or next((n for n, e in ENGINES.items() if e.detect()), None)
 	if name is None:
 		sys.exit(f'{args.repo}: unrecognised engine; pass --engine')
+	print(f'engine: {name}', file=sys.stderr)
 	engine = ENGINES[name](args.season, args.time)
 	maps = engine.load_maps()
+	for m in maps.values():  # a Windows-built hack may get the case wrong
+		d, f = os.path.split(m['blocks'])
+		if not os.path.exists(m['blocks']) and os.path.isdir(d or '.'):
+			m['blocks'] = next((os.path.join(d, n) for n in os.listdir(d or '.') if n.lower() == f.lower()), m['blocks'])
+	for k in [k for k, m in maps.items() if not os.path.exists(m['blocks'])]:
+		print(f'  warning: {k}: no block file {maps[k]["blocks"]}, skipped', file=sys.stderr)
+		del maps[k]
 	os.makedirs(args.out, exist_ok=True)
 
 	# Make connections undirected for grouping, so a one-way link still joins
