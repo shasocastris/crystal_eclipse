@@ -50,10 +50,10 @@
 	RGB 00,10,22, 00,07,15 ; nite
 	RGB 01,20,20, 04,13,23 ; eve
 
-; group 8 (Azalea)
-	RGB 01,27,27, 05,17,31 ; morn/day
-	RGB 00,10,22, 00,07,15 ; nite
-	RGB 01,20,20, 04,13,23 ; eve
+; group 8 (Azalea) -- walls share PAL_BG_ROOF, keep summer
+	RGB 22,20,10, 17,14,03 ; morn/day
+	RGB 11,11,05, 10,09,07 ; nite
+	RGB 19,15,08, 14,10,01 ; eve
 
 ; group 9 (Lake of Rage)
 	RGB 01,27,27, 05,17,31 ; morn/day
@@ -65,10 +65,10 @@
 	RGB 00,10,22, 00,07,15 ; nite
 	RGB 01,20,20, 04,13,23 ; eve
 
-; group 11 (Goldenrod)
-	RGB 01,27,27, 05,17,31 ; morn/day
-	RGB 00,10,22, 00,07,15 ; nite
-	RGB 01,20,20, 04,13,23 ; eve
+; group 11 (Goldenrod) -- walls share PAL_BG_ROOF, keep summer
+	RGB 25,25,00, 20,17,08 ; morn/day
+	RGB 12,12,00, 10,09,05 ; nite
+	RGB 21,19,00, 17,13,06 ; eve
 
 ; group 12 (Vermilion)
 	RGB 01,27,27, 05,17,31 ; morn/day
@@ -120,10 +120,10 @@
 	RGB 00,10,22, 00,07,15 ; nite
 	RGB 01,20,20, 04,13,23 ; eve
 
-; group 22 (Cianwood)
-	RGB 01,27,27, 05,17,31 ; morn/day
-	RGB 00,10,22, 00,07,15 ; nite
-	RGB 01,20,20, 04,13,23 ; eve
+; group 22 (Cianwood) -- walls share PAL_BG_ROOF, keep summer
+	RGB 15,10,31, 07,05,15 ; morn/day
+	RGB 06,05,17, 02,02,08 ; nite
+	RGB 13,08,23, 06,03,11 ; eve
 
 ; group 23 (Viridian)
 	RGB 01,27,27, 05,17,31 ; morn/day
