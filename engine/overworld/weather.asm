@@ -315,12 +315,31 @@ ClipWeatherSprites:
 SetWeatherOAMReservation:
 ; Hold the first 12 shadow OAM structs for as long as particles can exist.
 ; Without this _UpdateSprites would start at struct 0 and overwrite them.
+	ld a, [wOverworldWeatherCooldown]
+	and a
+	jr nz, .reserve ; the last weather's particles are still draining
 	ld a, [wCurWeather]
-	ld hl, wOverworldWeatherCooldown
-	or [hl]
-	ld hl, wStateFlags
+	and a
 	jr z, .release
+	cp OW_WEATHER_SUN
+	jr z, .release ; no particles to hold room for
+.reserve
+	ld hl, wStateFlags
+	bit FIRST_12_SPRITE_OAM_STRUCTS_RESERVED_F, [hl]
+	jr nz, .held
 	set FIRST_12_SPRITE_OAM_STRUCTS_RESERVED_F, [hl]
+	; The structs still hold the map objects drawn there last frame, and the
+	; weather code only ever clears its own particles. Hide them, or they stay
+	; on screen frozen while the map scrolls under them.
+	ld hl, wShadowOAM + WEATHER_OAM_START
+	ld de, OBJ_SIZE
+	ld b, WEATHER_OAM_STRUCTS
+.hide
+	ld [hl], OAM_YCOORD_HIDDEN
+	add hl, de
+	dec b
+	jr nz, .hide
+.held
 
 	; Textbox and menu waits park hOAMUpdate at 1 to buy VBlank time for BG
 	; work, which stops hTransferShadowOAM. Left alone that leaves particles
@@ -332,6 +351,7 @@ SetWeatherOAMReservation:
 	ret
 
 .release
+	ld hl, wStateFlags
 	res FIRST_12_SPRITE_OAM_STRUCTS_RESERVED_F, [hl]
 	ret
 
