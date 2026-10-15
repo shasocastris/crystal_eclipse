@@ -23,7 +23,7 @@ GetOvercastWeather::
 	call .ReseedIfNewDay
 
 	; Winter snows on some maps each day and leaves the rest clear over the
-	; snowy tiles. Not the Orange Islands -- they are tropical.
+	; snowy tiles. Not the Orange Islands -- they have their own table rows.
 	ld a, [wCurRegion]
 	cp ORANGE_REGION
 	jr z, .roll
@@ -42,10 +42,7 @@ GetOvercastWeather::
 	ld b, a
 
 	; The season decides how much of the hash range counts as wet.
-	ld a, [wSeason]
-	maskbits NUM_SEASONS
-	ld e, a
-	ld d, 0
+	call .SeasonTableIndex
 	ld hl, .SeasonWetness
 	add hl, de
 	ld a, b
@@ -66,10 +63,7 @@ GetOvercastWeather::
 
 .dry
 ; Sun takes the top of the hash range, so it never overlaps the wet bottom.
-	ld a, [wSeason]
-	maskbits NUM_SEASONS
-	ld e, a
-	ld d, 0
+	call .SeasonTableIndex
 	ld hl, .SeasonSun
 	add hl, de
 	ld a, [hl]
@@ -79,6 +73,21 @@ GetOvercastWeather::
 	cp [hl]
 	jr c, .none
 	ld a, OW_WEATHER_SUN
+	ret
+
+.SeasonTableIndex
+; de = the season, or the season + NUM_SEASONS in the Orange Islands, whose
+; rows follow the mainland's in each table.
+	ld a, [wSeason]
+	maskbits NUM_SEASONS
+	ld e, a
+	ld d, 0
+	ld a, [wCurRegion]
+	cp ORANGE_REGION
+	ret nz
+	ld a, e
+	add NUM_SEASONS
+	ld e, a
 	ret
 
 .ReseedIfNewDay
@@ -128,13 +137,20 @@ GetOvercastWeather::
 	ret
 
 .SeasonWetness
-; How much of the hash range is wet, per season. Winter only reaches this table
-; in the Orange Islands, where it rains like anywhere else rather than snowing.
+; How much of the hash range is wet, per season.
 	table_width 1
 	db 20 percent ; SPRING
 	db 10 percent ; SUMMER -- the clear-weather bias
 	db 35 percent ; AUTUMN -- the wettest
-	db 20 percent ; WINTER -- Orange Islands only
+	db 0          ; WINTER -- unreached, it snows instead
+	assert_table_length NUM_SEASONS
+; The Orange Islands follow the Caribbean: dry from winter into spring, wet
+; from summer, wettest in the autumn storm season.
+	table_width 1
+	db 15 percent ; SPRING
+	db 25 percent ; SUMMER
+	db 30 percent ; AUTUMN
+	db 10 percent ; WINTER
 	assert_table_length NUM_SEASONS
 
 .SeasonSun
@@ -144,4 +160,11 @@ GetOvercastWeather::
 	db 70 percent ; SUMMER -- 30% of maps
 	db 0          ; AUTUMN
 	db 0          ; WINTER
+	assert_table_length NUM_SEASONS
+; Orange Islands
+	table_width 1
+	db 80 percent ; SPRING -- 20% of maps
+	db 90 percent ; SUMMER -- 10% of maps
+	db 95 percent ; AUTUMN -- 5% of maps
+	db 75 percent ; WINTER -- 25% of maps
 	assert_table_length NUM_SEASONS
