@@ -44,13 +44,31 @@ LoadWinterTiles:
 	call IsOutdoorJohtoWinter
 	ret nz
 	ld a, [wMapTileset]
-	ld hl, WinterTilesJohto
 	cp TILESET_JOHTO
-	jr z, .loop
-	ld hl, WinterTilesJohtoModern
+	jr z, .johto
+	; Battle Tower Outside loads johto_modern's graphics.
+	cp TILESET_BATTLE_TOWER_OUTSIDE
+	jr z, .modern
 	cp TILESET_JOHTO_MODERN
 	ret nz
-.loop
+.modern
+	ld hl, WinterTilesJohtoModern
+	jr .CopyRuns
+
+.johto
+	ld hl, WinterTilesJohto
+	call .CopyRuns
+	ldh a, [rVBK]
+	push af
+	ld a, BANK(vTiles5)
+	ldh [rVBK], a
+	ld hl, WinterTilesJohtoVRAM1
+	call .CopyRuns
+	pop af
+	ldh [rVBK], a
+	ret
+
+.CopyRuns:
 	ld a, [hli]
 	and a
 	ret z
@@ -67,7 +85,7 @@ LoadWinterTiles:
 	call Get2bpp
 	pop hl
 	inc hl
-	jr .loop
+	jr .CopyRuns
 
 INCLUDE "data/maps/roofs.asm"
 INCLUDE "data/tilesets/winter_tiles.asm"

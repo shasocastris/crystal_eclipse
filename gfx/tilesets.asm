@@ -660,3 +660,13 @@ INCLUDE "data/tilesets/museum_collision.asm"
 
 TilesetMuseumAttr::
 INCBIN "data/tilesets/museum_attributes.bin.lz"
+
+
+; Aligned so Get2bpp takes the GDMA path, which the bank 1 cherry copy needs.
+SECTION "Winter Tiles GFX", ROMX, ALIGN[4]
+
+WinterTilesGFX::
+INCBIN "gfx/tilesets/seasonal/johto_winter.2bpp"
+
+WinterCherryGFX::
+INCBIN "gfx/tilesets/seasonal/johto_winter_cherry.2bpp"
