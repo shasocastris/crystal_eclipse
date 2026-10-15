@@ -144,7 +144,7 @@ ENDM
 	connection west, Route42, ROUTE_42, 0
 	connection east, Route44, ROUTE_44, 0
 
-	map_attributes LakeOfRage, LAKE_OF_RAGE, $05, SOUTH, OW_WEATHER_THUNDERSTORM
+	map_attributes LakeOfRage, LAKE_OF_RAGE, $05, SOUTH, OW_WEATHER_THUNDERSTORM | OW_WEATHER_SPRING | OW_WEATHER_SUMMER | OW_WEATHER_AUTUMN
 	connection south, Route43, ROUTE_43, 5
 
 	map_attributes BlackthornCity, BLACKTHORN_CITY, $71, SOUTH | WEST
@@ -234,7 +234,7 @@ ENDM
 	connection west, MahoganyTown, MAHOGANY_TOWN, 0
 	connection east, BlackthornCity, BLACKTHORN_CITY, -9
 
-	map_attributes Route45, ROUTE_45, $71, NORTH | WEST, OW_WEATHER_SANDSTORM
+	map_attributes Route45, ROUTE_45, $71, NORTH | WEST, OW_WEATHER_SANDSTORM | OW_WEATHER_SPRING | OW_WEATHER_SUMMER | OW_WEATHER_AUTUMN
 	connection north, BlackthornCity, BLACKTHORN_CITY, 2
 	connection west, Route46, ROUTE_46, 36
 

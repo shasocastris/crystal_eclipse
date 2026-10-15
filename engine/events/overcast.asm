@@ -22,18 +22,20 @@ GetOvercastWeather::
 
 	call .ReseedIfNewDay
 
-	; Winter is snow, and reliably rather than occasionally. This is the seasonal
-	; payoff M4 was sequenced after M2 for: it stands in for the winter tileset
-	; that M2 deferred, and a one-day-in-five flurry would not stand in for
-	; anything. Johto only -- the Orange Islands are tropical.
+	; Winter snows on some maps each day and leaves the rest clear over the
+	; snowy tiles. Not the Orange Islands -- they are tropical.
 	ld a, [wCurRegion]
-	cp JOHTO_REGION
-	jr nz, .roll
+	cp ORANGE_REGION
+	jr z, .roll
 	ld a, [wSeason]
 	maskbits NUM_SEASONS
 	cp WINTER_F
+	jr nz, .roll
+	call .HashForThisMap
+	cp OVERCAST_SNOW_CHANCE
+	jr nc, .none
 	ld a, OW_WEATHER_SNOW
-	ret z
+	ret
 
 .roll
 	call .HashForThisMap
@@ -110,10 +112,10 @@ GetOvercastWeather::
 
 .SeasonWetness
 ; How much of the hash range is wet, per season. Winter only reaches this table
-; outside Johto, where it rains like anywhere else rather than snowing.
+; in the Orange Islands, where it rains like anywhere else rather than snowing.
 	table_width 1
 	db 20 percent ; SPRING
 	db 10 percent ; SUMMER -- the clear-weather bias
 	db 35 percent ; AUTUMN -- the wettest
-	db 20 percent ; WINTER -- outside Johto only
+	db 20 percent ; WINTER -- Orange Islands only
 	assert_table_length NUM_SEASONS

@@ -43,6 +43,7 @@ DEF OW_WEATHER_WINTER EQU WINTER << 4
 ; GetOvercastWeather.SeasonWetness. This is the slice of that range which is
 ; stormy rather than merely rainy, so it must stay below the smallest of them.
 DEF OVERCAST_THUNDER_LEVEL EQU 3 percent
+DEF OVERCAST_SNOW_CHANCE   EQU 40 percent ; share of maps that snow on a winter day
 
 ; Frames SetCurrentWeather spends draining the previous weather on a change.
 DEF WEATHER_TRANSITION_LENGTH EQU 32
