@@ -26,7 +26,7 @@ RuinsOfAlphOutsideShrineCallback:
 	ifless NUM_UNOWN, .ShrineOff
 	endcallback
 .ShrineOff:
-	changeblock 6, 24, $9C ; left floor
+	changeblock 6, 24, $AD ; unactivated shrine
 	endcallback
 
 RuinsOfAlphOutsideScientistWerner_Script:
