@@ -673,3 +673,6 @@ INCBIN "gfx/tilesets/seasonal/johto_winter_cherry.2bpp"
 
 WinterParkGFX::
 INCBIN "gfx/tilesets/seasonal/park_winter.2bpp"
+
+WinterKantoGFX::
+INCBIN "gfx/tilesets/seasonal/kanto_winter.2bpp"

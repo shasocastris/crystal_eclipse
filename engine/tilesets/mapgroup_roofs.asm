@@ -16,7 +16,7 @@ LoadMapGroupRoof::
 	add hl, de
 	ld b, [hl]
 	; Winter snows the tileset's own roof too, e.g. the Ruins of Alph lab.
-	call IsOutdoorJohtoWinter
+	call IsOutdoorWinter
 	ld a, ROOF_SNOW
 	jr z, .got_roof
 	ld a, b
@@ -33,8 +33,8 @@ LoadMapGroupRoof::
 	ld hl, vTiles2 tile $0a
 	jmp Get2bpp
 
-IsOutdoorJohtoWinter:
-; Returns z if so. Johto only -- the Orange Islands are tropical.
+IsOutdoorWinter:
+; Returns z if so. Not the Orange Islands -- they are tropical.
 	ld a, [wEnvironment]
 	cp TOWN
 	jr z, .outdoor
@@ -42,21 +42,28 @@ IsOutdoorJohtoWinter:
 	ret nz
 .outdoor
 	ld a, [wCurRegion]
-	cp JOHTO_REGION
-	ret nz
+	cp ORANGE_REGION
+	jr z, .tropical
 	ld a, [wSeason]
 	maskbits NUM_SEASONS
 	cp WINTER_F
 	ret
 
+.tropical
+	or 1 ; nz
+	ret
+
 LoadWinterTiles:
-	call IsOutdoorJohtoWinter
+	call IsOutdoorWinter
 	ret nz
 	ld a, [wMapTileset]
 	cp TILESET_JOHTO
 	jr z, .johto
 	ld hl, WinterTilesPark
 	cp TILESET_PARK
+	jr z, .CopyRuns
+	ld hl, WinterTilesKanto
+	cp TILESET_KANTO
 	jr z, .CopyRuns
 	; Battle Tower Outside loads johto_modern's graphics.
 	cp TILESET_BATTLE_TOWER_OUTSIDE
@@ -99,27 +106,33 @@ LoadWinterTiles:
 	inc hl
 	jr .CopyRuns
 
-; Which winter patch the decompressed blocks carry. No tileset reaches block
-; $ff, so its last byte is free.
+; Which WinterBlockPatches row the decompressed blocks carry, 0 for none. No
+; tileset reaches block $ff, so its last byte is free.
 DEF wWinterBlocksState EQUS "(wDecompressedMetatiles + 256 * 16 - 1)"
-	const_def
-	const WINTER_BLOCKS_NONE
-	const WINTER_BLOCKS_JOHTO
-	const WINTER_BLOCKS_PARK
+
+DEF WINTER_PATCH_LENGTH EQU 5 ; db tileset, dw swaps, dw recolors
 
 GetWinterBlocksState:
-	call IsOutdoorJohtoWinter
+; Returns a = 1-based row, 0 if none; hl = the row.
+	call IsOutdoorWinter
 	jr nz, .none
 	ld a, [wMapTileset]
-	cp TILESET_JOHTO
-	ld a, WINTER_BLOCKS_JOHTO
+	ld c, a
+	ld hl, WinterBlockPatches
+	ld b, 1
+.find
+	ld a, [hl]
+	cp -1
+	jr z, .none
+	cp c
+	ld a, b
 	ret z
-	ld a, [wMapTileset]
-	cp TILESET_PARK
-	ld a, WINTER_BLOCKS_PARK
-	ret z
+	ld de, WINTER_PATCH_LENGTH
+	add hl, de
+	inc b
+	jr .find
 .none
-	xor a ; WINTER_BLOCKS_NONE
+	xor a
 	ret
 
 CheckWinterBlocks::
@@ -147,15 +160,26 @@ ApplyWinterBlocks::
 	ldh [rSVBK], a
 	ld a, c
 	ld [wWinterBlocksState], a
-	ld hl, WinterBlockSwapsJohto
-	cp WINTER_BLOCKS_JOHTO
-	call z, .SwapBlocks
-	ld a, c
-	cp WINTER_BLOCKS_PARK
-	jr nz, .done
-	ld hl, WinterBlockSwapsPark
-	call .SwapBlocks
-	call .ParkRoofs
+	and a
+	jr z, .done
+	inc hl
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	push hl
+	ld h, d
+	ld l, e
+	ld a, h
+	or l
+	call nz, .SwapBlocks
+	pop hl
+	ld a, h
+	or l
+	call nz, .Recolor
 .done
 	pop af
 	ldh [rSVBK], a
@@ -210,38 +234,44 @@ ApplyWinterBlocks::
 	add hl, bc
 	ret
 
-.ParkRoofs:
-; Roof tiles $10-$12, $20-$22 and $30-$32 drawn on RED move to GREEN.
-	ld hl, wDecompressedMetatiles
-.loop
+.Recolor:
+; hl = a WinterRecolor table. Matching cells move to PAL_BG_GREEN, whose winter
+; ramp is the icy one.
+	ld b, h
+	ld c, l
+	ld de, wDecompressedMetatiles
 	ld a, BANK(wDecompressedMetatiles)
 	ldh [rSVBK], a
+.cell
+	ld a, [de]
+	cp $80
+	jr nc, .next_cell
+	ld l, a
+	ld h, 0
+	add hl, bc
 	ld a, [hl]
-	ld b, a
-	and $0f
-	cp 3
-	jr nc, .next
-	ld a, b
-	and $f0
-	jr z, .next
-	cp $40
-	jr nc, .next
+	inc a
+	jr z, .next_cell
+	dec a
+	ld h, a
 	ld a, BANK(wDecompressedAttributes)
 	ldh [rSVBK], a
-	ld a, [hl]
-	ld b, a
-	and $0f ; VRAM bank 0 and PAL_BG_RED
-	cp PAL_BG_RED
-	jr nz, .next
-	ld a, b
+	ld a, [de]
+	and $0f ; VRAM bank 0 and the palette
+	cp h
+	jr nz, .restore_bank
+	ld a, [de]
 	and ~7
 	or PAL_BG_GREEN
-	ld [hl], a
-.next
-	inc hl
-	ld a, h
-	cp HIGH(wDecompressedMetatiles + $80 * 16)
-	jr nz, .loop
+	ld [de], a
+.restore_bank
+	ld a, BANK(wDecompressedMetatiles)
+	ldh [rSVBK], a
+.next_cell
+	inc de
+	ld a, d
+	cp HIGH(wDecompressedMetatiles + 256 * 16)
+	jr nz, .cell
 	ret
 
 INCLUDE "data/maps/roofs.asm"
