@@ -85,10 +85,10 @@
 	RGB 00,10,22, 00,07,15 ; nite
 	RGB 01,20,20, 04,13,23 ; eve
 
-; group 15 (Mount Moon Square)
-	RGB 01,27,27, 05,17,31 ; morn/day
-	RGB 00,10,22, 00,07,15 ; nite
-	RGB 01,20,20, 04,13,23 ; eve
+; group 15 (Mount Moon Square) -- the Fast Ship shares PAL_BG_ROOF, keep summer
+	RGB 14,17,31, 07,11,15 ; morn/day
+	RGB 09,13,19, 07,07,16 ; nite
+	RGB 12,13,23, 06,08,11 ; eve
 
 ; group 16 (Indigo)
 	RGB 01,27,27, 05,17,31 ; morn/day

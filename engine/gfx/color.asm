@@ -982,8 +982,7 @@ LoadMapPals:
 	cp ROUTE
 	jr nz, .no_season
 .seasonal
-	ld a, [wSeason]
-	maskbits NUM_SEASONS ; wSeason is poked by hand when testing
+	call GetPaletteSeason
 	swap a
 	add a ; season * 32, one season's block of four time-of-day rows
 	ld e, a
@@ -1060,13 +1059,18 @@ LoadMapPals:
 .outside
 ; Roofs are seasonal. Only reached for TOWN and ROUTE, which is also why no
 ; darkness guard is needed -- no TOWN or ROUTE map sets IN_DARKNESS.
+	; The Fast Ship is drawn on PAL_BG_ROOF; every harbour shows it alike.
+	ld a, [wMapTileset]
+	cp TILESET_PORT
+	ld a, MAPGROUP_FAST_SHIP
+	jr z, .got_roof_group
 	ld a, [wMapGroup]
+.got_roof_group
 	add a
 	add a
 	ld e, a
 	ld d, 0
-	ld a, [wSeason]
-	maskbits NUM_SEASONS ; wSeason is poked by hand when testing
+	call GetPaletteSeason
 	add a
 	ld c, a
 	ld b, 0
@@ -1093,6 +1097,16 @@ LoadMapPals:
 	ld bc, 4
 	ld a, BANK(wBGPals1)
 	jmp FarCopyWRAM
+
+GetPaletteSeason:
+; The Orange Islands are tropical: always summer palettes.
+	ld a, [wCurRegion]
+	cp ORANGE_REGION
+	ld a, SUMMER_F
+	ret z
+	ld a, [wSeason]
+	maskbits NUM_SEASONS ; wSeason is poked by hand when testing
+	ret
 
 INCLUDE "data/maps/environment_colors.asm"
 
