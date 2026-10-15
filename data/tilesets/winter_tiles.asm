@@ -12,11 +12,12 @@ MACRO winter_tiles_vram1
 	dw (vTiles5) tile \1
 ENDM
 
-; WinterTilesGFX mirrors johto.png rows $1x-$5x, so a tile's art sits at its
+; WinterTilesGFX mirrors johto.png rows $0x-$5x, so a tile's art sits at its
 ; own index. Modern's tree middles $13/$15 use slots johto doesn't patch.
-DEF WINTER_TILES_FIRST EQU $10
+DEF WINTER_TILES_FIRST EQU $00
 
 WinterTilesJohto:
+	winter_tiles $04, $04, 2 ; tall grass, grass
 	winter_tiles $1e, $1e, 2 ; tree top
 	winter_tiles $2b, $2b, 5 ; cliff top, tree middle
 	winter_tiles $31, $31, 4 ; traditional roof
@@ -42,6 +43,7 @@ WinterTilesJohtoVRAM1:
 ; Only tiles whose art matches johto's, plus modern's own tree middles. Its
 ; flat roof top sits at $32 and $46.
 WinterTilesJohtoModern:
+	winter_tiles $04, $04, 2 ; tall grass, grass
 	winter_tiles $13, $13, 1 ; tree middle
 	winter_tiles $15, $15, 1 ; tree middle
 	winter_tiles $1e, $1e, 2 ; tree top
