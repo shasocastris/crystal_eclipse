@@ -1,5 +1,14 @@
 LoadMapGroupRoof::
 	call LoadWinterTiles
+	; These tilesets support dynamic per-mapgroup roof tiles.
+	ld a, [wMapTileset]
+	cp TILESET_JOHTO
+	jr z, .load_roof
+	cp TILESET_JOHTO_MODERN
+	jr z, .load_roof
+	cp TILESET_BATTLE_TOWER_OUTSIDE
+	ret nz
+.load_roof
 	ld a, [wMapGroup]
 	ld e, a
 	ld d, 0
@@ -46,6 +55,9 @@ LoadWinterTiles:
 	ld a, [wMapTileset]
 	cp TILESET_JOHTO
 	jr z, .johto
+	ld hl, WinterTilesPark
+	cp TILESET_PARK
+	jr z, .CopyRuns
 	; Battle Tower Outside loads johto_modern's graphics.
 	cp TILESET_BATTLE_TOWER_OUTSIDE
 	jr z, .modern
@@ -87,81 +99,149 @@ LoadWinterTiles:
 	inc hl
 	jr .CopyRuns
 
-DEF FLOWER_BLOCK        EQU $04
-DEF WINTER_FLOWER_BLOCK EQU $ae
+; Which winter patch the decompressed blocks carry. No tileset reaches block
+; $ff, so its last byte is free.
+DEF wWinterBlocksState EQUS "(wDecompressedMetatiles + 256 * 16 - 1)"
+	const_def
+	const WINTER_BLOCKS_NONE
+	const WINTER_BLOCKS_JOHTO
+	const WINTER_BLOCKS_PARK
+
+GetWinterBlocksState:
+	call IsOutdoorJohtoWinter
+	jr nz, .none
+	ld a, [wMapTileset]
+	cp TILESET_JOHTO
+	ld a, WINTER_BLOCKS_JOHTO
+	ret z
+	ld a, [wMapTileset]
+	cp TILESET_PARK
+	ld a, WINTER_BLOCKS_PARK
+	ret z
+.none
+	xor a ; WINTER_BLOCKS_NONE
+	ret
 
 CheckWinterBlocks::
 ; Returns z if the decompressed blocks already suit this map.
-	ld a, [wMapTileset]
-	cp TILESET_JOHTO
-	jr nz, .no_work
-	call IsOutdoorJohtoWinter
-	ld c, FALSE
-	jr nz, .compare
-	inc c
-.compare
+	call GetWinterBlocksState
+	ld c, a
 	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wDecompressedMetatiles)
 	ldh [rSVBK], a
-	ld hl, wDecompressedMetatiles + FLOWER_BLOCK * 16
-	ld de, wDecompressedMetatiles + WINTER_FLOWER_BLOCK * 16
-	ld b, 16
-.loop
-	ld a, [de]
-	cp [hl]
-	jr nz, .differ
-	inc de
-	inc hl
-	dec b
-	jr nz, .loop
-.differ
-	; b is 0 only if every byte matched, i.e. the swap is in place.
+	ld a, [wWinterBlocksState]
+	ld b, a
 	pop af
 	ldh [rSVBK], a
 	ld a, b
-	and a
-	ld a, TRUE
-	jr z, .got_state
-	xor a ; FALSE
-.got_state
 	cp c
 	ret
 
-.no_work
-	xor a
-	ret
-
 ApplyWinterBlocks::
-	ld a, [wMapTileset]
-	cp TILESET_JOHTO
-	ret nz
-	call IsOutdoorJohtoWinter
-	ret nz
+	call GetWinterBlocksState
+	ld c, a
 	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wDecompressedMetatiles)
-	ld hl, wDecompressedMetatiles
-	call .copy
-	ld a, BANK(wDecompressedAttributes)
-	ld hl, wDecompressedAttributes
-	call .copy
+	ldh [rSVBK], a
+	ld a, c
+	ld [wWinterBlocksState], a
+	ld hl, WinterBlockSwapsJohto
+	cp WINTER_BLOCKS_JOHTO
+	call z, .SwapBlocks
+	ld a, c
+	cp WINTER_BLOCKS_PARK
+	jr nz, .done
+	ld hl, WinterBlockSwapsPark
+	call .SwapBlocks
+	call .ParkRoofs
+.done
 	pop af
 	ldh [rSVBK], a
 	ret
 
-.copy
-	ldh [rSVBK], a
+.SwapBlocks:
+; hl = list of (block, winter block) pairs ending in -1
+	push bc
+.swap_loop
+	ld a, [hli]
+	cp -1
+	jr z, .swapped
+	ld e, a
+	ld a, [hli]
+	ld d, a
 	push hl
-	ld bc, FLOWER_BLOCK * 16
-	add hl, bc
+	ld a, BANK(wDecompressedMetatiles)
+	call .CopyBlock
+	ld a, BANK(wDecompressedAttributes)
+	call .CopyBlock
+	pop hl
+	jr .swap_loop
+.swapped
+	pop bc
+	ret
+
+.CopyBlock:
+; Copy block d over block e in WRAM bank a.
+	assert wDecompressedMetatiles == wDecompressedAttributes
+	ldh [rSVBK], a
+	push de
+	ld l, d
+	call .BlockAddress
+	push hl
+	ld l, e
+	call .BlockAddress
 	ld d, h
 	ld e, l
 	pop hl
-	ld bc, WINTER_FLOWER_BLOCK * 16
-	add hl, bc
 	ld bc, 16
 	rst CopyBytes
+	pop de
+	ret
+
+.BlockAddress:
+	ld h, 0
+	add hl, hl
+	add hl, hl
+	add hl, hl
+	add hl, hl
+	ld bc, wDecompressedMetatiles
+	add hl, bc
+	ret
+
+.ParkRoofs:
+; Roof tiles $10-$12, $20-$22 and $30-$32 drawn on RED move to GREEN.
+	ld hl, wDecompressedMetatiles
+.loop
+	ld a, BANK(wDecompressedMetatiles)
+	ldh [rSVBK], a
+	ld a, [hl]
+	ld b, a
+	and $0f
+	cp 3
+	jr nc, .next
+	ld a, b
+	and $f0
+	jr z, .next
+	cp $40
+	jr nc, .next
+	ld a, BANK(wDecompressedAttributes)
+	ldh [rSVBK], a
+	ld a, [hl]
+	ld b, a
+	and $0f ; VRAM bank 0 and PAL_BG_RED
+	cp PAL_BG_RED
+	jr nz, .next
+	ld a, b
+	and ~7
+	or PAL_BG_GREEN
+	ld [hl], a
+.next
+	inc hl
+	ld a, h
+	cp HIGH(wDecompressedMetatiles + $80 * 16)
+	jr nz, .loop
 	ret
 
 INCLUDE "data/maps/roofs.asm"

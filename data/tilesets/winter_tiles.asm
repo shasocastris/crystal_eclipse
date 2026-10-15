@@ -60,3 +60,39 @@ WinterTilesJohtoModern:
 	winter_tiles $54, $54, 1
 	winter_tiles $5c, $5c, 1 ; rock
 	db 0
+
+MACRO winter_park_tiles
+; vTiles2 tile, WinterParkGFX tile, count
+	db \3
+	dw (WinterParkGFX) tile \2
+	dw (vTiles2) tile \1
+ENDM
+
+; WinterParkGFX mirrors park.png rows $0x-$4x. The tree trunk ($2d $2e
+; $3d $3e) keeps its brown; the roof is roofs/snow.png, ridge to eave.
+WinterTilesPark:
+	winter_park_tiles $01, $01, 1 ; grass
+	winter_park_tiles $04, $04, 1 ; tall grass
+	winter_park_tiles $0c, $0c, 4 ; tree
+	winter_park_tiles $10, $10, 3 ; roof
+	winter_park_tiles $1c, $1c, 4 ; tree
+	winter_park_tiles $20, $20, 3 ; roof
+	winter_park_tiles $2c, $2c, 1 ; tree
+	winter_park_tiles $2f, $2f, 1 ; tree
+	winter_park_tiles $30, $30, 3 ; roof
+	winter_park_tiles $3a, $3a, 2 ; tall grass
+	winter_park_tiles $3c, $3c, 1 ; tree
+	winter_park_tiles $3f, $3f, 1 ; tree
+	winter_park_tiles $4a, $4a, 2 ; tall grass
+	db 0
+
+; Blocks replaced in winter by a block drawn for it: block, winter block.
+WinterBlockSwapsJohto:
+	db $04, $ae ; flowers
+	db -1
+
+WinterBlockSwapsPark:
+	db $3c, $44 ; flower beds
+	db $3d, $45
+	db $3e, $46
+	db -1

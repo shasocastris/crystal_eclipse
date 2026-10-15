@@ -1326,16 +1326,7 @@ _LoadTilesetGFX2:
 	ld a, [wSeason]
 	ld [wOldSeason], a
 
-	; These tilesets support dynamic per-mapgroup roof tiles.
-	ld a, [wMapTileset]
-	cp TILESET_JOHTO
-	jr z, .load_roof
-	cp TILESET_JOHTO_MODERN
-	jr z, .load_roof
-	cp TILESET_BATTLE_TOWER_OUTSIDE
-	ret nz
-; fallthrough
-.load_roof
+	; Per-mapgroup roofs and seasonal tile patches.
 	farjp LoadMapGroupRoof
 
 
