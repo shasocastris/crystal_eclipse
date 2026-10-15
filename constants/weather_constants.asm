@@ -12,6 +12,7 @@
 	const OW_WEATHER_THUNDERSTORM    ; 3
 	const OW_WEATHER_SANDSTORM       ; 4
 	const OW_WEATHER_CHERRY_BLOSSOMS ; 5
+	const OW_WEATHER_SUN             ; 6
 ; Counts the real weathers only, not NONE: every table is indexed by
 ; wCurWeather - 1, so this is the table length, not the constant count.
 DEF NUM_OW_WEATHERS EQU const_value - 1

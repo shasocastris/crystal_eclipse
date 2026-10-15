@@ -15,6 +15,7 @@ LoadWeatherPal::
 	dw .rain ; thunderstorm shares rain's palette
 	dw .sand
 	dw .cherry
+	dw DoNothing ; sun has no particles
 	assert_table_length NUM_OW_WEATHERS
 
 .rain

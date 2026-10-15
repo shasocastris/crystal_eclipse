@@ -9394,6 +9394,13 @@ GetAutomaticBattleWeather:
 	ld hl, OverworldBattleWeather
 	add hl, de
 	ld a, [hl]
+	cp AUTOMATIC_SUN
+	ret nz
+	ld a, [wTimeOfDay]
+	cp NITE_F
+	ld a, AUTOMATIC_SUN
+	ret c
+	xor a ; no sun after dark
 	ret
 
 INCLUDE "data/battle/automatic_weather.asm"

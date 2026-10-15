@@ -50,7 +50,7 @@ GetOvercastWeather::
 	add hl, de
 	ld a, b
 	cp [hl]
-	jr nc, .none
+	jr nc, .dry
 
 	; Severity comes from the same hash, so a map that is stormy today stays
 	; stormy rather than flickering between the two every time it is re-entered.
@@ -62,6 +62,23 @@ GetOvercastWeather::
 
 .none
 	xor a ; OW_WEATHER_NONE
+	ret
+
+.dry
+; Sun takes the top of the hash range, so it never overlaps the wet bottom.
+	ld a, [wSeason]
+	maskbits NUM_SEASONS
+	ld e, a
+	ld d, 0
+	ld hl, .SeasonSun
+	add hl, de
+	ld a, [hl]
+	and a
+	jr z, .none ; no sun this season
+	ld a, b
+	cp [hl]
+	jr c, .none
+	ld a, OW_WEATHER_SUN
 	ret
 
 .ReseedIfNewDay
@@ -118,4 +135,13 @@ GetOvercastWeather::
 	db 10 percent ; SUMMER -- the clear-weather bias
 	db 35 percent ; AUTUMN -- the wettest
 	db 20 percent ; WINTER -- Orange Islands only
+	assert_table_length NUM_SEASONS
+
+.SeasonSun
+; Where the sunny top of the hash range starts, per season; 0 for none.
+	table_width 1
+	db 85 percent ; SPRING -- 15% of maps
+	db 70 percent ; SUMMER -- 30% of maps
+	db 0          ; AUTUMN
+	db 0          ; WINTER
 	assert_table_length NUM_SEASONS

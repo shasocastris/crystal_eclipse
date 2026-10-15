@@ -131,6 +131,7 @@ DoOverworldWeather::
 	dw DoOverworldRain
 	dw DoOverworldSandstorm
 	dw DoOverworldCherryBlossoms
+	dw DoNothing ; sun is palette only
 	assert_table_length NUM_OW_WEATHERS + 1
 
 .on_cooldown
@@ -153,6 +154,7 @@ DoOverworldWeather::
 	dw DoRainFall
 	dw DoSandFall
 	dw DoCherryBlossomFall
+	dw DoNothing ; sun
 	assert_table_length NUM_OW_WEATHERS + 1
 
 SetWeatherMenuClip::
@@ -353,6 +355,7 @@ SpawnRandomWeatherCoords::
 	dw .rain
 	dw .sand
 	dw DoNothing ; cherry blossoms' starting positions are nonrandom
+	dw DoNothing ; sun
 	assert_table_length NUM_OW_WEATHERS
 
 .sand
@@ -1414,6 +1417,13 @@ DimWeatherPals::
 	push af
 	ld a, BANK(wCurWeather)
 	ldh [rSVBK], a
+	ld a, [wCurWeather]
+	cp OW_WEATHER_SUN
+	jr nz, .dim
+	call SunPals
+	jr .done
+
+.dim
 	call _GetWeatherDimRow
 	jr nc, .done ; this weather leaves the palettes alone
 
@@ -1564,6 +1574,135 @@ _DimColor:
 	inc de
 	ret
 
+SunPals:
+; A bright day: colours pushed away from their grey and warmed a touch, by day
+; only. Each palette's darkest colour is left alone so outlines stay crisp.
+	ld a, [wTimeOfDayPal]
+	maskbits NUM_DAYTIMES
+	cp NITE_F
+	ret nc ; evening and night look as they always do
+	ld a, BANK(wBGPals1)
+	ldh [rSVBK], a
+	ld de, wBGPals1
+	ld a, 8
+.palette
+	push af
+	ld a, COLORS_PER_PALETTE - 1
+.color
+	push af
+	call _SunColor
+	pop af
+	dec a
+	jr nz, .color
+	inc de
+	inc de ; skip the darkest colour
+	pop af
+	dec a
+	jr nz, .palette
+	ret
+
+DEF SUN_LIFT_RED   EQU 2
+DEF SUN_LIFT_GREEN EQU 2
+DEF SUN_LIFT_BLUE  EQU 0
+
+_SunColor:
+; de -> a colour, advanced past it. Each channel becomes
+; v + (v - grey) * 3 / 8 + lift, where grey = (r + 2g + b) / 4.
+	push de
+	ld a, [de]
+	ld l, a
+	inc de
+	ld a, [de]
+	ld h, a
+	ld a, l
+	and %00011111
+	ld b, a ; red
+	ld a, l
+	rlca
+	rlca
+	rlca
+	and %00000111
+	ld c, a
+	ld a, h
+	and %00000011
+	rlca
+	rlca
+	rlca
+	or c
+	ld c, a ; green
+	ld a, h
+	rrca
+	rrca
+	and %00011111
+	ld l, a ; blue
+	ld a, b
+	add c
+	add c
+	add l
+	srl a
+	srl a
+	ld h, a ; grey
+	ld e, SUN_LIFT_RED
+	ld a, b
+	call .Channel
+	ld b, a
+	ld e, SUN_LIFT_GREEN
+	ld a, c
+	call .Channel
+	ld c, a
+	ld e, SUN_LIFT_BLUE
+	ld a, l
+	call .Channel
+	; pack: low = %gggrrrrr, high = %-bbbbbgg
+	rlca
+	rlca
+	and %01111100
+	ld l, a
+	ld a, c
+	rrca
+	rrca
+	rrca
+	and %00000011
+	or l
+	ld h, a
+	ld a, c
+	and %00000111
+	swap a
+	rlca
+	or b
+	pop de
+	ld [de], a
+	inc de
+	ld a, h
+	ld [de], a
+	inc de
+	ret
+
+.Channel:
+; a = channel, e = lift, h = grey. Returns the new channel, clamped to 0-31.
+	ld d, a
+	add e
+	ld e, a
+	ld a, d
+	sub h
+	ld d, a
+	add a
+	add d
+	sra a
+	sra a
+	sra a
+	add e
+	bit 7, a
+	jr z, .positive
+	xor a
+	ret
+
+.positive
+	cp 1 << 5
+	ret c
+	ld a, (1 << 5) - 1
+	ret
+
 _ScaleComponent:
 ; a = a * brightness / 8 + lift, for one five-bit component. bc -> that
 ; channel's two bytes, and is advanced past them. Preserves de and hl.
@@ -1603,6 +1742,7 @@ WeatherDimming:
 	weather_dim 4,  9, 10, 14 ; OW_WEATHER_THUNDERSTORM, the darkest and coolest
 	weather_dim 6, 20, 17, 12 ; OW_WEATHER_SANDSTORM, a warm haze rather than cool
 	weather_dim 8,  0,  0,  0 ; OW_WEATHER_CHERRY_BLOSSOMS, a clear spring day
+	weather_dim 8,  0,  0,  0 ; OW_WEATHER_SUN, brightened by SunPals instead
 	assert_table_length NUM_OW_WEATHERS + 1
 
 LoadWeatherGraphics::
@@ -1624,6 +1764,9 @@ LoadWeatherGraphics::
 	ld a, [hli]
 	ld d, a ; de = gfx pointer
 	ld c, [hl] ; c = tile count
+	ld a, c
+	and a
+	ret z ; a weather with no particles
 	ld b, BANK("Overworld Weather Graphics")
 	ld hl, vTiles0 tile WEATHER_TILE_1
 	; Get2bpp defers to Request2bpp while the LCD is on, so this is safe mid-map.
