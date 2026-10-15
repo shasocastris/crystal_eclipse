@@ -87,5 +87,82 @@ LoadWinterTiles:
 	inc hl
 	jr .CopyRuns
 
+DEF FLOWER_BLOCK        EQU $04
+DEF WINTER_FLOWER_BLOCK EQU $ae
+
+CheckWinterBlocks::
+; Returns z if the decompressed blocks already suit this map.
+	ld a, [wMapTileset]
+	cp TILESET_JOHTO
+	jr nz, .no_work
+	call IsOutdoorJohtoWinter
+	ld c, FALSE
+	jr nz, .compare
+	inc c
+.compare
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wDecompressedMetatiles)
+	ldh [rSVBK], a
+	ld hl, wDecompressedMetatiles + FLOWER_BLOCK * 16
+	ld de, wDecompressedMetatiles + WINTER_FLOWER_BLOCK * 16
+	ld b, 16
+.loop
+	ld a, [de]
+	cp [hl]
+	jr nz, .differ
+	inc de
+	inc hl
+	dec b
+	jr nz, .loop
+.differ
+	; b is 0 only if every byte matched, i.e. the swap is in place.
+	pop af
+	ldh [rSVBK], a
+	ld a, b
+	and a
+	ld a, TRUE
+	jr z, .got_state
+	xor a ; FALSE
+.got_state
+	cp c
+	ret
+
+.no_work
+	xor a
+	ret
+
+ApplyWinterBlocks::
+	ld a, [wMapTileset]
+	cp TILESET_JOHTO
+	ret nz
+	call IsOutdoorJohtoWinter
+	ret nz
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wDecompressedMetatiles)
+	ld hl, wDecompressedMetatiles
+	call .copy
+	ld a, BANK(wDecompressedAttributes)
+	ld hl, wDecompressedAttributes
+	call .copy
+	pop af
+	ldh [rSVBK], a
+	ret
+
+.copy
+	ldh [rSVBK], a
+	push hl
+	ld bc, FLOWER_BLOCK * 16
+	add hl, bc
+	ld d, h
+	ld e, l
+	pop hl
+	ld bc, WINTER_FLOWER_BLOCK * 16
+	add hl, bc
+	ld bc, 16
+	rst CopyBytes
+	ret
+
 INCLUDE "data/maps/roofs.asm"
 INCLUDE "data/tilesets/winter_tiles.asm"

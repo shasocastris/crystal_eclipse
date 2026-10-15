@@ -185,14 +185,18 @@ ForceMapMusic:
 
 DecompressMetatiles:
 	call TilesetUnchanged
+	jr nz, .decompress
+	farcall CheckWinterBlocks
 	ret z
-
+.decompress
 	ld hl, wTilesetBlocksBank
 	ld c, BANK(wDecompressedMetatiles)
 	call .Decompress
 
 	ld hl, wTilesetAttributesBank
 	ld c, BANK(wDecompressedAttributes)
+	call .Decompress
+	farjp ApplyWinterBlocks
 
 .Decompress:
 	ld a, [hli]
