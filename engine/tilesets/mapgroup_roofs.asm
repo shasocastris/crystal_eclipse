@@ -5,15 +5,15 @@ LoadMapGroupRoof::
 	ld d, 0
 	ld hl, MapGroupRoofs
 	add hl, de
-	ld a, [hl]
+	ld b, [hl]
+	; Winter snows the tileset's own roof too, e.g. the Ruins of Alph lab.
+	call IsOutdoorJohtoWinter
+	ld a, ROOF_SNOW
+	jr z, .got_roof
+	ld a, b
 	cp -1
 	ret z
-	ld b, a
-	call IsOutdoorJohtoWinter
-	jr nz, .got_roof
-	ld b, ROOF_SNOW
 .got_roof
-	ld a, b
 	ld hl, Roofs
 	ld bc, ROOF_LENGTH tiles
 	rst AddNTimes
