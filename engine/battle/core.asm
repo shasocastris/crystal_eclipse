@@ -9361,7 +9361,7 @@ GetAutomaticBattleWeather:
 .loop
 	ld a, [hli] ; group
 	and a
-	ret z ; end
+	jr z, .overworld ; end
 	cp b
 	jr nz, .wrong_group
 	ld a, [hli] ; map
@@ -9375,5 +9375,25 @@ GetAutomaticBattleWeather:
 .wrong_map
 	inc hl ; skip weather
 	jr .loop
+
+.overworld
+; Outdoors, unlisted maps fight in whatever weather is on screen.
+	ld a, [wEnvironment]
+	cp TOWN
+	jr z, .outdoor
+	cp ROUTE
+	jr z, .outdoor
+	xor a
+	ret
+
+.outdoor
+	ld a, [wCurWeather]
+	and OW_WEATHER_MASK
+	ld e, a
+	ld d, 0
+	ld hl, OverworldBattleWeather
+	add hl, de
+	ld a, [hl]
+	ret
 
 INCLUDE "data/battle/automatic_weather.asm"
