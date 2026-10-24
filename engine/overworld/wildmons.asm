@@ -445,7 +445,7 @@ _GrassWildmonLookup:
 	ld hl, GrassWildmonTables
 	call _RegionWildmonTable
 	ld bc, GRASS_WILDDATA_LENGTH
-	jmp _NormalWildmonOK ; out of jr reach, as the note by the season includes warns
+	jmp _NormalWildmonOK ; out of jr reach
 
 _WaterWildmonLookup:
 	ld hl, SwarmWaterWildMons
@@ -465,9 +465,7 @@ _RegionWildmonTable:
 ; hl: a NUM_REGIONS-entry table of `db BANK(table) / dw table`.
 ; Returns the current region's table in hl and stores its bank in wWildMonBank.
 ;
-; The bank is per entry rather than shared because the Orange tables do NOT live
-; in $0a with the Johto and Kanto ones -- freeing space there to fit them is the
-; operation that re-packs half the ROM. See the note by the season includes.
+; The bank is per entry because the Orange tables live in $75, not $0a.
 	call GetRegion
 _WildmonTableForRegion:
 ; Same, for a region the caller names rather than the one the player is in.
@@ -1093,22 +1091,21 @@ INCLUDE "data/wild/kanto_water.asm"
 ; swarm check was set up with.
 _SeasonGrassWildmonCheck:
 	ld hl, SeasonGrassTables
-	ld a, BANK(SpringGrassWildMons)
 	jr _SeasonWildmonCheck
 
 _SeasonWaterWildmonCheck:
 	ld hl, SeasonWaterTables
-	ld a, BANK(SpringWaterWildMons)
 _SeasonWildmonCheck:
-; a: bank the four seasonal tables share. If a season's table ever moves to its
-; own bank, SeasonGrassTables must carry a bank per entry instead.
-	ld [wWildMonBank], a
 	ld a, [wSeason]
 	maskbits NUM_SEASONS ; wSeason gets poked by hand in testing; never index off the end
+	ld e, a
 	add a
+	add e
 	ld e, a
 	ld d, 0
 	add hl, de
+	ld a, [hli]
+	ld [wWildMonBank], a
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -1117,25 +1114,22 @@ _SeasonWildmonCheck:
 
 SeasonGrassTables:
 ; entries correspond to SPRING_F, SUMMER_F, AUTUMN_F, WINTER_F
-	dw SpringGrassWildMons
-	dw SummerGrassWildMons
-	dw AutumnGrassWildMons
-	dw WinterGrassWildMons
+	table_width 3
+	wildmon_table SpringGrassWildMons
+	wildmon_table SummerGrassWildMons
+	wildmon_table AutumnGrassWildMons
+	wildmon_table WinterGrassWildMons
+	assert_table_length NUM_SEASONS
 
 SeasonWaterTables:
-	dw SpringWaterWildMons
-	dw SummerWaterWildMons
-	dw AutumnWaterWildMons
-	dw WinterWaterWildMons
+	table_width 3
+	wildmon_table SpringWaterWildMons
+	wildmon_table SummerWaterWildMons
+	wildmon_table AutumnWaterWildMons
+	wildmon_table WinterWaterWildMons
+	assert_table_length NUM_SEASONS
 
 INCLUDE "data/wild/swarm_grass.asm"
 INCLUDE "data/wild/swarm_water.asm"
 
-; NOTE: moving these out of bank $0a works -- wWildMonBank makes the lookup
-; bank-independent -- but freeing space in $0a makes rgblink re-pack 32 sections
-; across banks $08-$0e. That coincided with map-load corruption on 2026-08-22 and
-; is unproven either way, so the move is held back. Orange Islands wild data should
-; go in a NEW section in an empty bank, which adds rather than frees and so should
-; not trigger a re-pack.
-INCLUDE "data/wild/season_grass.asm"
-INCLUDE "data/wild/season_water.asm"
+; The seasonal tables live in their own section, "Season Wild Data", in main.asm.

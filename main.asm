@@ -713,9 +713,14 @@ INCLUDE "data/trainers/parties.asm"
 
 SECTION "Orange Wild Data", ROMX
 
-; Pinned to bank $75 in layout.link, deliberately NOT beside the Johto and Kanto
-; tables in $0a. That bank has 75 bytes free, and freeing room there is the
-; operation that re-packed 32 sections and corrupted map loads on 2026-08-22.
-; Adding a section to a roomy bank consumes space instead, so nothing moves.
+; Pinned to bank $75 in layout.link, NOT beside the Johto and Kanto tables in
+; $0a, which is full. Every wild table is read through wWildMonBank.
 INCLUDE "data/wild/orange_grass.asm"
 INCLUDE "data/wild/orange_water.asm"
+
+
+SECTION "Season Wild Data", ROMX
+
+; Pinned beside the Orange tables, in a roomy bank; bank $0a had none left.
+INCLUDE "data/wild/season_grass.asm"
+INCLUDE "data/wild/season_water.asm"

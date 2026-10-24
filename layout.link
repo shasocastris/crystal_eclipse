@@ -307,6 +307,7 @@ ROMX $74
 ROMX $75
 	"16-bit ID stuff"
 	"Orange Wild Data"
+	"Season Wild Data"
 ROMX $77
 	"Unown Font"
 	"Tileset Data 7"
