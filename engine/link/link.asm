@@ -2418,8 +2418,6 @@ SetTradeRoomBGPals:
 	call LoadTradeRoomBGPals
 	jmp SetDefaultBGPAndOBP
 
-INCLUDE "engine/movie/trade_animation.asm"
-
 CheckTimeCapsuleCompatibility:
 ; Checks to see if your party is compatible with the Gen 1 games.
 ; Returns the following in wScriptVar:
@@ -2855,21 +2853,6 @@ endc
 	ld [wLinkTimeoutFrames], a
 	ld a, l
 	ld [wLinkTimeoutFrames + 1], a
-	ret
-
-TryQuickSave:
-	ld a, [wChosenCableClubRoom]
-	push af
-	farcall Link_SaveGame
-	vc_hook Wireless_TryQuickSave_block_input_1
-	ld a, TRUE
-	jr nc, .return_result
-	vc_hook Wireless_TryQuickSave_block_input_2
-	xor a ; FALSE
-.return_result
-	ld [wScriptVar], a
-	pop af
-	ld [wChosenCableClubRoom], a
 	ret
 
 CheckOtherPlayerGender:
