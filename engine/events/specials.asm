@@ -96,11 +96,6 @@ OverworldTownMap:
 	farcall _TownMap
 	jmp ExitAllMenus
 
-DisplayLinkRecord:
-	call FadeToMenu
-	farcall _DisplayLinkRecord
-	jmp ExitAllMenus
-
 PlayersHousePC:
 	xor a
 	ld [wScriptVar], a

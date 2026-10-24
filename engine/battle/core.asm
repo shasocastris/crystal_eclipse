@@ -8607,25 +8607,6 @@ DisplayLinkBattleResult:
 .Draw:
 	db "  DRAW@"
 
-_DisplayLinkRecord:
-	ld a, BANK(sLinkBattleStats)
-	call OpenSRAM
-
-	call ReadAndPrintLinkBattleRecord
-
-	call CloseSRAM
-	hlcoord 0, 0, wAttrmap
-	xor a
-	ld bc, SCREEN_AREA
-	rst ByteFill
-	call WaitBGMap2
-	ld b, SCGB_DIPLOMA
-	call GetSGBLayout
-	call SetDefaultBGPAndOBP
-	ld c, 8
-	call DelayFrames
-	jmp WaitPressAorB_BlinkCursor
-
 ReadAndPrintLinkBattleRecord:
 	call ClearTilemap
 	call ClearSprites

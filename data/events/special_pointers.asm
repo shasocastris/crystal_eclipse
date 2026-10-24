@@ -9,24 +9,8 @@ ENDM
 SpecialsPointers::
 	add_special WarpToSpawnPoint
 
-; Communications
-	add_special SetBitsForLinkTradeRequest
-	add_special WaitForLinkedFriend
-	add_special CheckLinkTimeout_Receptionist
+; Saving
 	add_special TryQuickSave
-	add_special CheckBothSelectedSameRoom
-	add_special FailedLinkToPast
-	add_special CloseLink
-	add_special WaitForOtherPlayerToExit
-	add_special SetBitsForBattleRequest
-	add_special SetBitsForTimeCapsuleRequest
-	add_special CheckTimeCapsuleCompatibility
-	add_special EnterTimeCapsule
-	add_special TradeCenter
-	add_special Colosseum
-	add_special TimeCapsule
-	add_special CableClubCheckWhichChris
-	add_special CheckOtherPlayerGender
 
 ; Map events
 	add_special BugContestJudging
@@ -96,7 +80,6 @@ SpecialsPointers::
 	add_special PrintTodaysLuckyNumber
 	add_special SelectApricornForKurt
 	add_special NameRater
-	add_special DisplayLinkRecord
 	add_special GetFirstPokemonHappiness
 	add_special CheckFirstMonIsEgg
 	add_special RandomUnseenWildMon
