@@ -851,9 +851,6 @@ RemoveMonFromParty:
 	call CopyDataUntil
 	; Mail time!
 .finish
-	ld a, [wLinkMode]
-	and a
-	ret nz
 	; Shift mail
 	ld a, BANK(sPartyMail)
 	call OpenSRAM

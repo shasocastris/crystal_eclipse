@@ -412,10 +412,6 @@ endr
 	ret
 
 CheckTimeEvents:
-	ld a, [wLinkMode]
-	and a
-	jr nz, .nothing
-
 	ld hl, wStatusFlags2
 	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, [hl]
 	jr z, .do_daily
@@ -852,11 +848,6 @@ SelectMenuCallback:
 	end
 
 CountStep:
-	; Don't count steps in link communication rooms.
-	ld a, [wLinkMode]
-	and a
-	jr nz, .done
-
 	; If there is a special phone call, don't count the step.
 	farcall CheckSpecialPhoneCall
 	jr c, .doscript

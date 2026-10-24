@@ -301,9 +301,6 @@ endr
 	call .AppendMenuList
 .no_pokemon
 
-	ld a, [wLinkMode]
-	and a
-	jr nz, .no_pack
 	ld hl, wStatusFlags2
 	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, [hl]
 	jr nz, .no_pack
@@ -321,9 +318,6 @@ endr
 	ld a, STARTMENUITEM_STATUS
 	call .AppendMenuList
 
-	ld a, [wLinkMode]
-	and a
-	jr nz, .no_save
 	ld hl, wStatusFlags2
 	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, [hl]
 	ld a, STARTMENUITEM_QUIT

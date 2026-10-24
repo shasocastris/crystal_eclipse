@@ -77,10 +77,6 @@ EvolveAfterBattle_MasterLoop:
 	jmp .dont_evolve_check
 
 .not_region
-	ld a, [wLinkMode]
-	and a
-	jmp nz, .dont_evolve_check
-
 	ld a, b
 	cp EVOLVE_ITEM
 	jr z, .item
@@ -150,9 +146,6 @@ EvolveAfterBattle_MasterLoop:
 	ld a, [wForceEvolution]
 	and a
 	jmp z, .skip_evolution_species
-	ld a, [wLinkMode]
-	and a
-	jmp nz, .skip_evolution_species
 	jr .proceed
 
 .level
@@ -339,9 +332,6 @@ EvolveAfterBattle_MasterLoop:
 	pop de
 	pop bc
 	pop hl
-	ld a, [wLinkMode]
-	and a
-	ret nz
 	ld a, [wBattleMode]
 	and a
 	ret nz

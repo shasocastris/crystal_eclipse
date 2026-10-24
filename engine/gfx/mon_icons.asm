@@ -426,7 +426,7 @@ GetIconGFX:
 	add hl, de
 	ld de, HeldItemIcons
 	lb bc, BANK(HeldItemIcons), 2
-	call GetGFXUnlessMobile
+	call Request2bpp
 	ld a, [wCurIconTile]
 	add 10
 	ld [wCurIconTile], a
@@ -471,7 +471,7 @@ endr
 	pop hl
 
 	call GetIconBank
-	call GetGFXUnlessMobile
+	call Request2bpp
 
 	pop hl
 	ret
@@ -500,13 +500,6 @@ GetIconBank:
 .return
 	pop hl
 	ret
-
-GetGFXUnlessMobile:
-	ld a, [wLinkMode]
-	cp LINK_MOBILE
-	jmp nz, Request2bpp
-	jmp Get2bppViaHDMA
-
 
 GetStorageIcon_a:
 ; Load frame 1 icon graphics into VRAM starting from tile a

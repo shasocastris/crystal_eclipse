@@ -322,10 +322,6 @@ PlaceBattlersName:
 PlaceEnemysName::
 	push de
 
-	ld a, [wLinkMode]
-	and a
-	jr nz, .linkbattle
-
 	ld a, [wTrainerClass]
 	cp RIVAL1
 	jr z, .rival
@@ -346,10 +342,6 @@ PlaceEnemysName::
 
 .rival
 	ld de, wRivalName
-	jr PlaceCommandCharacter
-
-.linkbattle
-	ld de, wOTClassName
 	jr PlaceCommandCharacter
 
 PlaceGenderedPlayerName::
@@ -454,13 +446,7 @@ LineChar::
 Paragraph::
 	push de
 
-	ld a, [wLinkMode]
-	cp LINK_COLOSSEUM
-	jr z, .linkbattle
-	cp LINK_MOBILE
-	call nz, LoadBlinkingCursor
-; fallthrough
-.linkbattle
+	call LoadBlinkingCursor
 	call Text_WaitBGMap
 	call PromptButton
 	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY
@@ -474,18 +460,14 @@ Paragraph::
 	jmp NextChar
 
 _ContText::
-	ld a, [wLinkMode]
-	or a
-	call z, LoadBlinkingCursor
+	call LoadBlinkingCursor
 	call Text_WaitBGMap
 
 	push de
 	call PromptButton
 	pop de
 
-	ld a, [wLinkMode]
-	or a
-	call z, UnloadBlinkingCursor
+	call UnloadBlinkingCursor
 	; fallthrough
 
 _ContTextNoPause::
@@ -517,20 +499,10 @@ PlaceDexEnd::
 	ret
 
 PromptText::
-	ld a, [wLinkMode]
-	cp LINK_COLOSSEUM
-	jr z, .ok
-	cp LINK_MOBILE
-	call nz, LoadBlinkingCursor
-; fallthrough
-.ok
+	call LoadBlinkingCursor
 	call Text_WaitBGMap
 	call PromptButton
-	ld a, [wLinkMode]
-	cp LINK_COLOSSEUM
-	jr z, DoneText
-	cp LINK_MOBILE
-	call nz, UnloadBlinkingCursor
+	call UnloadBlinkingCursor
 ; fallthrough
 DoneText::
 	pop hl
@@ -785,12 +757,6 @@ TextCommand_LOW::
 
 TextCommand_PROMPT_BUTTON::
 ; wait for button press; show arrow
-	ld a, [wLinkMode]
-	cp LINK_COLOSSEUM
-	jmp z, TextCommand_WAIT_BUTTON
-	cp LINK_MOBILE
-	jmp z, TextCommand_WAIT_BUTTON
-
 	push hl
 	call LoadBlinkingCursor
 	push bc

@@ -356,19 +356,12 @@ PromptButton::
 ; Show a blinking cursor in the lower right-hand
 ; corner of a textbox and wait until A or B is
 ; pressed, afterwards, play a sound.
-	ld a, [wLinkMode]
-	and a
-	jr nz, .link
 	call .wait_input
 	push de
 	ld de, SFX_READ_TEXT_2
 	call PlaySFX
 	pop de
 	ret
-
-.link
-	ld c, 65
-	jmp DelayFrames
 
 .wait_input
 	ldh a, [hOAMUpdate]

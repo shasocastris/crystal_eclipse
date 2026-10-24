@@ -109,9 +109,6 @@ GetMonMenuString:
 
 GetMonSubmenuItems:
 	call ResetMonSubmenu
-	ld a, [wLinkMode]
-	and a
-	jr nz, .skip_moves
 	ld a, MON_MOVES
 	call GetPartyParamLocation
 	ld d, h
@@ -142,9 +139,6 @@ GetMonSubmenuItems:
 	call AddMonMenuItem
 	ld a, MONMENUITEM_MOVE
 	call AddMonMenuItem
-	ld a, [wLinkMode]
-	and a
-	jr nz, .skip2
 	push hl
 	ld a, MON_ITEM
 	call GetPartyParamLocation

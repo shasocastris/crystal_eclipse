@@ -293,10 +293,6 @@ SpecialCallWhereverYouAre:
 	ret
 
 MakePhoneCallFromPokegear:
-	; Don't do the call if you're in a link communication
-	ld a, [wLinkMode]
-	and a
-	jr nz, .OutOfArea
 	; If you're in an area without phone service, don't do the call
 	call GetMapPhoneService
 	and a

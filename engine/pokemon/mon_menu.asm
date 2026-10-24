@@ -523,15 +523,6 @@ ComposeMailMessage:
 	jmp CloseSRAM
 
 MonMailAction:
-; If in the time capsule or trade center,
-; selecting the mail only allows you to
-; read the mail.
-	ld a, [wLinkMode]
-	cp LINK_TIMECAPSULE
-	jr z, .read
-	cp LINK_TRADECENTER
-	jr z, .read
-
 ; Show the READ/TAKE/QUIT menu.
 	ld hl, .MenuHeader
 	call LoadMenuHeader
