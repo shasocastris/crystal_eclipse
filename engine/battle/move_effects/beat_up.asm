@@ -100,10 +100,6 @@ BattleCommand_BeatUp:
 	dec a
 	jr z, .wild
 
-	ld a, [wLinkMode]
-	and a
-	jr nz, .link_or_tower
-
 	ld a, [wInBattleTowerBattle]
 	and a
 	jr nz, .link_or_tower

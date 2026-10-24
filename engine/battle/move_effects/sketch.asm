@@ -1,13 +1,5 @@
 BattleCommand_Sketch:
 	call ClearLastMove
-; Don't sketch during a link battle
-	ld a, [wLinkMode]
-	and a
-	jr z, .not_linked
-	call AnimateFailedMove
-	jmp PrintNothingHappened
-
-.not_linked
 ; If the opponent has a substitute up, fail.
 	call CheckSubstituteOpp
 	jmp nz, .fail

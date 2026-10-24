@@ -20,11 +20,6 @@ GetTrainerClassName:
 	ret
 
 GetOTName:
-	ld hl, wOTPlayerName
-	ld a, [wLinkMode]
-	and a
-	jr nz, .ok
-
 	ld hl, wRivalName
 	ld a, c
 	cp RIVAL1

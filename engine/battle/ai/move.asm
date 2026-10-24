@@ -7,10 +7,6 @@ AIChooseMove:
 	dec a
 	ret z
 
-	ld a, [wLinkMode]
-	and a
-	ret nz
-
 ; No use picking a move if there's no choice.
 	farcall CheckEnemyLockedIn
 	ret nz

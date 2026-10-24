@@ -5,10 +5,6 @@ AI_SwitchOrTryItem:
 	dec a
 	ret z
 
-	ld a, [wLinkMode]
-	and a
-	ret nz
-
 	farcall CheckEnemyLockedIn
 	ret nz
 
@@ -691,9 +687,6 @@ AI_Switch:
 	farcall ResetBattleParticipants
 	xor a
 	ld [wBattleHasJustStarted], a
-	ld a, [wLinkMode]
-	and a
-	ret nz
 	scf
 	ret
 

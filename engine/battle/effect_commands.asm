@@ -9,17 +9,6 @@ DoPlayerTurn:
 
 DoEnemyTurn:
 	call SetEnemyTurn
-
-	ld a, [wLinkMode]
-	and a
-	jr z, DoTurn
-
-	ld a, [wBattleAction]
-	cp BATTLEACTION_STRUGGLE
-	jr z, DoTurn
-	cp BATTLEACTION_SWITCH1
-	ret nc
-
 	; fallthrough
 
 DoTurn:
@@ -616,12 +605,6 @@ BattleCommand_CheckObedience:
 
 	xor a
 	ld [wAlreadyDisobeyed], a
-
-	; No obedience in link battles
-	; (since no handling exists for enemy)
-	ld a, [wLinkMode]
-	and a
-	ret nz
 
 	ld a, [wInBattleTowerBattle]
 	and a
@@ -2127,10 +2110,6 @@ BattleCommand_ApplyDamage:
 	jr .damage
 
 .friendship_endure
-	ld a, [wLinkMode]
-	and a
-	jr nz, .focus_band
-
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .focus_band
@@ -6463,11 +6442,6 @@ BattleCommand_TimeBasedHealContinue:
 	call CompareBytes
 	pop bc
 	jr z, .Full
-
-; Don't factor in time of day in link battles.
-	ld a, [wLinkMode]
-	and a
-	jr nz, .Weather
 
 	ld a, [wTimeOfDay]
 	cp b

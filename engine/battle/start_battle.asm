@@ -1,16 +1,3 @@
-ShowLinkBattleParticipants:
-; If we're not in a communications room,
-; we don't need to be here.
-	ld a, [wLinkMode]
-	and a
-	ret z
-
-	call _ShowLinkBattleParticipants
-	ld c, 150
-	call DelayFrames
-	call ClearTilemap
-	jmp ClearSprites
-
 FindFirstAliveMonAndStartBattle:
 	xor a
 	ldh [hMapAnims], a
@@ -64,7 +51,7 @@ PlayBattleMusic:
 	cp NITE_F
 	jmp c, .done ; not NITE_F or EVE_F -- out of jr reach now
 	ld de, MUSIC_JOHTO_WILD_BATTLE_NIGHT
-	jmp .done
+	jr .done
 
 .orangewild
 ; The islands get a night variant like Johto's. Since M2 made NUM_DAYTIMES 4,
@@ -123,10 +110,6 @@ PlayBattleMusic:
 	jr .done
 
 .othertrainer
-	ld a, [wLinkMode]
-	and a
-	jr nz, .johtotrainer
-
 	farcall RegionCheck
 	ld a, e
 	cp KANTO_REGION

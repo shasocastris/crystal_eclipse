@@ -3,11 +3,7 @@ DoTypeCompletionBoosts:
 ; Replaces the traditional badge boost system with a type completion reward
 ; Grants 12.5% damage boost (9/8 multiplier) when all Pokémon of a type are caught
 
-	; Don't apply boost in link battles, Battle Tower, or on enemy's turn
-	ld a, [wLinkMode]
-	and a
-	ret nz
-
+	; Don't apply boost in the Battle Tower or on enemy's turn
 	ld a, [wInBattleTowerBattle]
 	and a
 	ret nz

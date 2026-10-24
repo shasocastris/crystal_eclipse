@@ -47,13 +47,6 @@ BattleText_WildFled:
 	line "fled!"
 	prompt
 
-BattleText_EnemyFled:
-	text "Enemy @"
-	text_ram wEnemyMonNickname
-	text_start
-	line "fled!"
-	prompt
-
 HurtByPoisonText:
 	text "<USER>"
 	line "is hurt by poison!"
@@ -187,11 +180,6 @@ BattleText_EnemyWasDefeated:
 	line "was defeated!"
 	prompt
 
-TiedAgainstText:
-	text "Tied against"
-	line "<ENEMY>!"
-	prompt
-
 SentSomeToMomText:
 	text "<PLAYER> got ¥@"
 	text_decimal wBattleReward, 3, 6
@@ -217,11 +205,6 @@ BattleText_MonFainted:
 BattleText_UseNextMon:
 	text "Use next #MON?"
 	done
-
-LostAgainstText:
-	text "Lost against"
-	line "<ENEMY>!"
-	prompt
 
 BattleText_EnemyIsAboutToUseWillPlayerChangeMon:
 	text "<ENEMY>"
