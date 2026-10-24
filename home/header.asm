@@ -66,7 +66,7 @@ SECTION "timer", ROM0[$0050]
 	reti
 
 SECTION "serial", ROM0[$0058]
-	jmp Serial
+	reti
 
 SECTION "joypad", ROM0[$0060]
 	jmp Joypad

@@ -50,7 +50,7 @@ VBlankHandlers:
 	dw VBlank_Cutscene
 	dw VBlank_SoundOnly
 	dw VBlank_CutsceneCGB
-	dw VBlank_Serial
+	dw VBlank_Normal ; unused
 	dw VBlank_Credits
 	dw VBlank_DMATransfer
 	dw VBlank7
@@ -273,23 +273,6 @@ VBlank_CutsceneCGB::
 	ld a, b
 	ldh [rIF], a
 	ret
-
-VBlank_Serial::
-; bg map
-; tiles
-; oam
-; joypad
-; serial
-; sound
-
-	call UpdateBGMap
-	call Serve2bppRequest
-
-	call hTransferShadowOAM
-
-	call UpdateJoypad
-
-	jmp VBlank_SoundOnly
 
 VBlank_Credits::
 ; scx

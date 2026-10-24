@@ -69,56 +69,6 @@ TradeAnimation:
 	tradeanim TradeAnim_ScrollOutRight
 	tradeanim TradeAnim_End
 
-TradeAnimationPlayer2:
-	xor a
-	ld [wUnusedTradeAnimPlayEvolutionMusic], a
-	ld hl, wOTTrademonSenderName
-	ld de, wPlayerTrademonSenderName
-	call LinkTradeAnim_LoadTradePlayerNames
-	ld hl, wOTTrademonSpecies
-	ld de, wPlayerTrademonSpecies
-	call LinkTradeAnim_LoadTradeMonSpecies
-	ld de, .script
-	jr RunTradeAnimScript
-
-.script
-	tradeanim TradeAnim_OTSendsText2
-	tradeanim TradeAnim_OTBidsFarewell
-	tradeanim TradeAnim_Wait40
-	tradeanim TradeAnim_ScrollOutRight
-	tradeanim TradeAnim_GetTrademonSFX
-	tradeanim TradeAnim_TubeToOT1
-	tradeanim TradeAnim_EnterLinkTube1
-	tradeanim TradeAnim_DropBall
-	tradeanim TradeAnim_ExitLinkTube
-	tradeanim TradeAnim_WaitAnim
-	tradeanim TradeAnim_ShowGetmonData
-	tradeanim TradeAnim_Poof
-	tradeanim TradeAnim_WaitAnim
-	tradeanim TradeAnim_FrontpicScrollStart
-	tradeanim TradeAnim_AnimateFrontpic
-	tradeanim TradeAnim_Wait180IfOTEgg
-	tradeanim TradeAnim_TextboxScrollStart
-	tradeanim TradeAnim_TakeCareOfText
-	tradeanim TradeAnim_ScrollOutRight
-
-	tradeanim TradeAnim_SetupGivemonScroll
-	tradeanim TradeAnim_ShowGivemonData
-	tradeanim TradeAnim_DoGivemonScroll
-	tradeanim TradeAnim_Wait40
-	tradeanim TradeAnim_Poof
-	tradeanim TradeAnim_RockingBall
-	tradeanim TradeAnim_EnterLinkTube1
-	tradeanim TradeAnim_WaitAnim
-	tradeanim TradeAnim_BulgeThroughTube
-	tradeanim TradeAnim_WaitAnim
-	tradeanim TradeAnim_TextboxScrollStart
-	tradeanim TradeAnim_GiveTrademonSFX
-	tradeanim TradeAnim_TubeToPlayer1
-	tradeanim TradeAnim_SentToOTText
-	tradeanim TradeAnim_ScrollOutRight
-	tradeanim TradeAnim_End
-
 RunTradeAnimScript:
 	ld hl, wTradeAnimAddress
 	ld a, e

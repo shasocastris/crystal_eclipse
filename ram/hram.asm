@@ -124,11 +124,6 @@ hLYOverrideStart:: db
 hLYOverrideEnd::   db
 
 hMobileReceive::             db
-hSerialReceivedNewData::     db
-hSerialConnectionStatus::    db
-hSerialIgnoringInitialData:: db
-hSerialSend::                db
-hSerialReceive::             db
 
 hSCX::           db
 hSCY::           db

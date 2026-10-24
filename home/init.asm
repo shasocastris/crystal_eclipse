@@ -148,9 +148,6 @@ Init::
 	; BG on
 	ldh [rLCDC], a
 
-	ld a, CONNECTION_NOT_ESTABLISHED
-	ldh [hSerialConnectionStatus], a
-
 	ld a, HIGH(vBGMap1)
 	ldh [hBGMapAddress + 1], a
 	xor a ; LOW(vBGMap1)
