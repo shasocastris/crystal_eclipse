@@ -180,6 +180,9 @@ ENDM
 	command curl                    ; ad
 	command starthail               ; ae
 	command detectitem              ; af
+	command signatureweather        ; b0
+	command innerlight              ; b1
+	command lifedew                 ; b2
 
 DEF NUM_EFFECT_COMMANDS EQU const_value - 1
 

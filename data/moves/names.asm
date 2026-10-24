@@ -263,4 +263,10 @@ MoveNames::
 	li "POISON JAB"
 	li "HYPER VOICE"
 	li "HURRICANE"
+	li "SHEER COLD"
+	li "INNER LIGHT"
+	li "ERUPTION"
+	li "STORM CALL"
+	li "LIFE DEW"
+	li "FAE BLADE"
 	assert_list_length NUM_ATTACKS

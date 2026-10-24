@@ -16,6 +16,7 @@ AI_Redundant:
 .Moves:
 	dbw EFFECT_DREAM_EATER,  .DreamEater
 	dbw EFFECT_HEAL,         .Heal
+	dbw EFFECT_LIFE_DEW,     .Heal
 	dbw EFFECT_LIGHT_SCREEN, .LightScreen
 	dbw EFFECT_MIST,         .Mist
 	dbw EFFECT_FOCUS_ENERGY, .FocusEnergy
@@ -45,6 +46,7 @@ AI_Redundant:
 	dbw EFFECT_SWAGGER,      .Swagger
 	dbw EFFECT_FUTURE_SIGHT, .FutureSight
 	dbw EFFECT_HAIL,         .Hail
+	dbw EFFECT_INNER_LIGHT,  .InnerLight
 	db -1
 
 .LightScreen:
@@ -203,3 +205,14 @@ AI_Redundant:
 .NotRedundant:
 	xor a
 	ret
+
+.InnerLight:
+	ld hl, wEnemyStatLevels
+	ld b, NUM_LEVEL_STATS
+.inner_light_loop
+	ld a, [hli]
+	cp MAX_STAT_LEVEL
+	jr c, .NotRedundant
+	dec b
+	jr nz, .inner_light_loop
+	jr .Redundant

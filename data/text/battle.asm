@@ -1058,6 +1058,11 @@ BellyDrumText:
 	cont "maximized ATTACK!"
 	prompt
 
+InnerLightText:
+	text "<USER>"
+	line "shone with power!"
+	prompt
+
 CopiedStatsText:
 	text "<USER>"
 	line "copied the stat"

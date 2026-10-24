@@ -180,4 +180,7 @@ BattleCommandPointers:
 	dw BattleCommand_Curl
 	dw BattleCommand_StartHail
 	dw BattleCommand_Detect
+	dw BattleCommand_SignatureWeather
+	dw BattleCommand_InnerLight
+	dw BattleCommand_LifeDew
 	assert_table_length NUM_EFFECT_COMMANDS

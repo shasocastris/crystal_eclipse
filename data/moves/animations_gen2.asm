@@ -121,6 +121,12 @@ BattleAnimationsGen2::
 	anim_ptr BattleAnim_Acid             ; POISON_JAB
 	anim_ptr BattleAnim_Supersonic       ; HYPER_VOICE
 	anim_ptr BattleAnim_Twister          ; HURRICANE
+	anim_ptr BattleAnim_Blizzard        ; SHEER_COLD
+	anim_ptr BattleAnim_PsychUp         ; INNER_LIGHT
+	anim_ptr BattleAnim_Magnitude       ; ERUPTION
+	anim_ptr BattleAnim_Thunder         ; STORM_CALL
+	anim_ptr BattleAnim_Moonlight       ; LIFE_DEW
+	anim_ptr BattleAnim_PlayRough       ; FAE_BLADE
 .IndirectEnd::
 
 BattleAnim_Sketch:

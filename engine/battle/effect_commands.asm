@@ -1031,7 +1031,6 @@ BattleCommand_DoTurn:
 	ret
 
 .continuousmoves
-	db EFFECT_SKY_ATTACK
 	db EFFECT_SKULL_BASH
 	db EFFECT_SOLARBEAM
 	db EFFECT_FLY
@@ -1560,6 +1559,8 @@ BattleCommand_CheckHit:
 	call GetBattleVar
 	cp EFFECT_ALWAYS_HIT
 	ret z
+	cp EFFECT_AURA_SPHERE
+	ret z
 
 	call .StatModifiers
 
@@ -1874,8 +1875,6 @@ BattleCommand_LowerSub:
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
-	cp EFFECT_SKY_ATTACK
-	jr z, .charge_turn
 	cp EFFECT_SKULL_BASH
 	jr z, .charge_turn
 	cp EFFECT_SOLARBEAM
@@ -4398,7 +4397,8 @@ CheckMist:
 	jr c, .check_mist
 	cp EFFECT_ATTACK_DOWN_HIT
 	jr c, .dont_check_mist
-	cp EFFECT_EVASION_DOWN_HIT + 1
+	assert EFFECT_ACCURACY_DOWN_2_HIT == EFFECT_EVASION_DOWN_HIT + 1
+	cp EFFECT_ACCURACY_DOWN_2_HIT + 1
 	jr c, .check_mist
 .dont_check_mist
 	xor a
@@ -5533,7 +5533,6 @@ BattleCommand_Charge:
 .move_messages
 	dw SOLARBEAM,  .BattleTookSunlightText
 	dw SKULL_BASH, .BattleLoweredHeadText
-	dw SKY_ATTACK, .BattleGlowingText
 	dw FLY,        .BattleFlewText
 	dw DIG,        .BattleDugText
 	dw -1
@@ -5544,10 +5543,6 @@ BattleCommand_Charge:
 
 .BattleLoweredHeadText:
 	text_far _BattleLoweredHeadText
-	text_end
-
-.BattleGlowingText:
-	text_far _BattleGlowingText
 	text_end
 
 .BattleFlewText:
@@ -6468,6 +6463,8 @@ INCLUDE "engine/battle/move_effects/sunny_day.asm"
 INCLUDE "engine/battle/move_effects/belly_drum.asm"
 
 INCLUDE "engine/battle/move_effects/psych_up.asm"
+
+INCLUDE "engine/battle/move_effects/signature_moves.asm"
 
 INCLUDE "engine/battle/move_effects/mirror_coat.asm"
 

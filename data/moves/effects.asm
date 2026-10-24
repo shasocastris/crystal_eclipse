@@ -645,6 +645,28 @@ SpecialDefenseDownHit:
 	statdownmessage
 	endmove
 
+AccuracyDown2Hit:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	accuracydown2
+	statdownmessage
+	endmove
+
 AccuracyDownHit:
 	checkobedience
 	usedmovetext
@@ -1072,30 +1094,6 @@ DoParalyze:
 	checkhit
 	checksafeguard
 	paralyze
-	endmove
-
-SkyAttack:
-	checkcharge
-	checkobedience
-	doturn
-	charge
-	usedmovetext
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	effectchance
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	buildopponentrage
-	flinchtarget
-	kingsrock
 	endmove
 
 Substitute:
@@ -1707,6 +1705,7 @@ SacredFire:
 	criticaltext
 	supereffectivetext
 	defrost
+	signatureweather
 	checkfaint
 	buildopponentrage
 	burntarget
@@ -2081,4 +2080,56 @@ Detect:
 	usedmovetext
 	doturn
 	detectitem
+	endmove
+
+LifeDew:
+	checkobedience
+	usedmovetext
+	doturn
+	lifedew
+	endmove
+
+Eruption:
+StormCall:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	signatureweather
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove
+
+SheerCold:
+	checkobedience
+	usedmovetext
+	doturn
+	stab
+	ohko
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	signatureweather
+	checkfaint
+	buildopponentrage
+	endmove
+
+InnerLight:
+	checkobedience
+	usedmovetext
+	doturn
+	innerlight
 	endmove

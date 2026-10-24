@@ -1,4 +1,18 @@
 BattleCommand_HealBell:
+	call CureUserPartyStatus
+	call AnimateCurrentMove
+
+	ld hl, BellChimedText
+	call StdBattleTextbox
+	; fallthrough
+
+RecalcUserStats:
+	ldh a, [hBattleTurn]
+	and a
+	jmp z, CalcPlayerStats
+	jmp CalcEnemyStats
+
+CureUserPartyStatus:
 	ld a, BATTLE_VARS_SUBSTATUS1
 	call GetBattleVarAddr
 	res SUBSTATUS_NIGHTMARE, [hl]
@@ -21,12 +35,4 @@ BattleCommand_HealBell:
 	add hl, bc
 	dec d
 	jr nz, .loop
-	call AnimateCurrentMove
-
-	ld hl, BellChimedText
-	call StdBattleTextbox
-
-	ldh a, [hBattleTurn]
-	and a
-	jmp z, CalcPlayerStats
-	jmp CalcEnemyStats
+	ret

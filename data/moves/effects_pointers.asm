@@ -75,7 +75,7 @@ MoveEffectsPointers:
 	dw SpecialDefenseDownHit
 	dw AccuracyDownHit
 	dw EvasionDownHit
-	dw SkyAttack
+	dw AccuracyDown2Hit
 	dw ConfuseHit
 	dw PoisonMultiHit
 	dw DoBurn
@@ -159,4 +159,10 @@ MoveEffectsPointers:
 	dw Hail
 	dw Detect
 	dw ConfuseHit
+	dw LifeDew
+	dw NormalHit ; EFFECT_AURA_SPHERE
+	dw Eruption
+	dw StormCall
+	dw SheerCold
+	dw InnerLight
 	assert_table_length NUM_MOVE_EFFECTS

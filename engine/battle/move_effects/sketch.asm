@@ -28,12 +28,27 @@ BattleCommand_Sketch:
 	ld b, a
 ; Fail if move is invalid or is Struggle.
 	and a
-	jr z, .fail
+	jmp z, .fail
 	push bc
 	ld bc, STRUGGLE
 	call CompareMove
 	pop bc
 	jr z, .fail
+; Fail on signature moves.
+	push hl
+	push de
+	push bc
+	ld a, b
+	call GetMoveIndexFromID
+	ld b, h
+	ld c, l
+	ld hl, SignatureMoves
+	ld de, 2
+	call IsInWordArray
+	pop bc
+	pop de
+	pop hl
+	jr c, .fail
 ; Fail if user already knows that move
 	ld c, NUM_MOVES
 .does_user_already_know_move

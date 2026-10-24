@@ -272,6 +272,12 @@ MoveDescriptionsGen2:
 	dw PoisonJabDescription
 	dw HyperVoiceDescription
 	dw HurricaneDescription
+	dw SheerColdDescription
+	dw InnerLightDescription
+	dw EruptionDescription
+	dw StormCallDescription
+	dw LifeDewDescription
+	dw FaeBladeDescription
 .IndirectEnd::
 
 InvalidMoveDescription:
@@ -786,8 +792,8 @@ LovelyKissDescription:
 	line "to fall asleep.@"
 
 SkyAttackDescription:
-	db   "1st turn: Prepare"
-	line "2nd turn: Attack@"
+	db   "Sharply cuts the"
+	line "foe's accuracy.@"
 
 TransformDescription:
 	db   "The user assumes"
@@ -898,8 +904,8 @@ Conversion2Description:
 	line "made resistant.@"
 
 AeroblastDescription:
-	db   "Has a high criti-"
-	line "cal hit ratio.@"
+	db   "A vacuum blast"
+	line "that may flinch.@"
 
 
 ReversalDescription:
@@ -1062,8 +1068,8 @@ PainSplitDescription:
 	line "HPs. Shares total.@"
 
 SacredFireDescription:
-	db   "An attack that may"
-	line "inflict a burn.@"
+	db   "May burn the foe."
+	line "Makes it sunny.@"
 
 MagnitudeDescription:
 	db   "A ground attack"
@@ -1323,8 +1329,8 @@ NightSlashDescription:
 	line "foe lets its guard down.@"
 
 AuraSphereDescription:
-	db   "Fires a sphere of"
-	line "aura. Never misses.@"
+	db   "Strikes first and"
+	line "never misses.@"
 
 DazzlingGleamDescription:
 	db   "Attacks with a"
@@ -1361,3 +1367,27 @@ HyperVoiceDescription:
 HurricaneDescription:
 	db   "Whips up a storm"
 	line "that may confuse.@"
+
+SheerColdDescription:
+	db   "A one-hit KO that"
+	line "brings hail.@"
+
+InnerLightDescription:
+	db   "Raises all stats"
+	line "to the maximum.@"
+
+EruptionDescription:
+	db   "A fiery quake that"
+	line "whips up sand.@"
+
+StormCallDescription:
+	db   "Calls lightning"
+	line "and summons rain.@"
+
+LifeDewDescription:
+	db   "Heals 1/2 HP and"
+	line "cures the party.@"
+
+FaeBladeDescription:
+	db   "A fey slash that"
+	line "inflicts status.@"

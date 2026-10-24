@@ -270,6 +270,12 @@ DEF GEN1_MOVES EQU const_value - 1
 	const POISON_JAB     ; 126
 	const HYPER_VOICE    ; 127
 	const HURRICANE      ; 128
+	const SHEER_COLD     ; 129
+	const INNER_LIGHT    ; 12a
+	const ERUPTION       ; 12b
+	const STORM_CALL     ; 12c
+	const LIFE_DEW       ; 12d
+	const FAE_BLADE      ; 12e
 DEF GEN2_MOVES EQU const_value - 1
 
 DEF NUM_ATTACKS EQU const_value - 1

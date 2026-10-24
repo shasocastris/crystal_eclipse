@@ -20,6 +20,9 @@ BattleCommand_Metronome:
 	ld hl, MetronomeExcepts
 	call IsInWordArray
 	jr c, .GetMove
+	ld hl, SignatureMoves
+	call IsInWordArray
+	jr c, .GetMove
 	ld h, b
 	ld l, c
 	call GetMoveIDFromIndex

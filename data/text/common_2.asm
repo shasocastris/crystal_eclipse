@@ -591,11 +591,6 @@ _BattleLoweredHeadText::
 	line "lowered its head!"
 	prompt
 
-_BattleGlowingText::
-	text_start
-	line "is glowing!"
-	prompt
-
 _BattleFlewText::
 	text_start
 	line "flew up high!"
