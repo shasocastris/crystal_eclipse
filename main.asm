@@ -481,8 +481,8 @@ INCLUDE "engine/battle/misc.asm"
 
 SECTION "Flee Mons", ROMX
 
-; Read far by TryEnemyFlee and FastBallMultiplier, so this need not share a bank
-; with either. It used to sit in "Battle Core", which is chronically full.
+; Read far by TryEnemyFlee, so this need not share a bank with it.
+; It used to sit in "Battle Core", which is chronically full.
 INCLUDE "data/wild/flee_mons.asm"
 
 

@@ -1,5 +1,4 @@
-FleeMons:
-; referenced by TryEnemyFlee and FastBallMultiplier
+; referenced by TryEnemyFlee
 
 SometimesFleeMons:
 	dw CHIKORITA
