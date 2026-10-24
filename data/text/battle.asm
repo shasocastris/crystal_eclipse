@@ -1071,12 +1071,6 @@ ForesawAttackText:
 	line "foresaw an attack!"
 	prompt
 
-BeatUpAttackText:
-	text_ram wStringBuffer1
-	text "'s"
-	line "attack!"
-	done
-
 PresentFailedText:
 	text "<TARGET>"
 	line "refused the gift!"
