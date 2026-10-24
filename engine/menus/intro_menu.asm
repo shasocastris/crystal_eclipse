@@ -359,7 +359,6 @@ FinishContinueFunction:
 .loop
 	xor a
 	ld [wDontPlayMapMusicOnReload], a
-	ld [wLinkMode], a
 	ld hl, wGameTimerPaused
 	set GAME_TIMER_COUNTING_F, [hl]
 	res GAME_TIMER_MOBILE_F, [hl]

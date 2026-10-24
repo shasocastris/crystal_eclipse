@@ -63,8 +63,6 @@ RunBattleTowerTrainer:
 	or 1 << IN_BATTLE_TOWER_BATTLE_F
 	ld [wInBattleTowerBattle], a
 
-	xor a
-	ld [wLinkMode], a
 	farcall StubbedTrainerRankings_Healings
 	call HealParty
 	call ReadBTTrainerParty

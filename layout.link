@@ -395,7 +395,7 @@ SRAM $00
 SRAM $01
 	"Save"
 	"Box Metadata"
-	"Link Battle Data"
+	"Unused SRAM"
 	"SRAM Hall of Fame"
 	"SRAM Crystal Data"
 	"SRAM Battle Tower"

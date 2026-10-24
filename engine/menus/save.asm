@@ -229,7 +229,6 @@ FindStackTop:
 
 ErasePreviousSave:
 	call EraseHallOfFame
-	call EraseLinkBattleStats
 	call SaveData
 	call EraseBattleTowerStatus
 	ld a, BANK(sStackTop)
@@ -241,15 +240,6 @@ ErasePreviousSave:
 	ld a, $1
 	ld [wSavedAtLeastOnce], a
 	ret
-
-EraseLinkBattleStats:
-	ld a, BANK(sLinkBattleStats)
-	call OpenSRAM
-	ld hl, sLinkBattleStats
-	ld bc, sLinkBattleStatsEnd - sLinkBattleStats
-	xor a
-	rst ByteFill
-	jmp CloseSRAM
 
 EraseHallOfFame:
 	ld a, BANK(sHallOfFame)

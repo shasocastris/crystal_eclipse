@@ -94,38 +94,6 @@ MACRO party_struct
 \1StructEnd::
 ENDM
 
-MACRO red_box_struct
-\1Species::    db
-\1HP::         dw
-\1BoxLevel::   db
-\1Status::     db
-\1Type::
-\1Type1::      db
-\1Type2::      db
-\1CatchRate::  db
-\1Moves::      ds NUM_MOVES
-\1ID::         dw
-\1Exp::        ds 3
-\1HPExp::      dw
-\1AttackExp::  dw
-\1DefenseExp:: dw
-\1SpeedExp::   dw
-\1SpecialExp:: dw
-\1DVs::        dw
-\1PP::         ds NUM_MOVES
-ENDM
-
-MACRO red_party_struct
-	red_box_struct \1
-\1Level::      db
-\1Stats::
-\1MaxHP::      dw
-\1Attack::     dw
-\1Defense::    dw
-\1Speed::      dw
-\1Special::    dw
-ENDM
-
 MACRO battle_struct
 \1Species::   db
 \1Item::      db
@@ -292,15 +260,6 @@ MACRO hall_of_fame
 	\1Mon{d:n}:: hof_mon \1Mon{d:n}
 	endr
 \1End:: dw
-ENDM
-
-MACRO link_battle_record
-\1ID::     dw
-\1Name::   ds NAME_LENGTH - 1
-\1Wins::   dw
-\1Losses:: dw
-\1Draws::  dw
-\1End::
 ENDM
 
 MACRO trademon

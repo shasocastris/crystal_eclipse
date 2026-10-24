@@ -26,7 +26,6 @@
 ; - wPokedexCaught / wPokedexSeen (see ram/wram.asm)
 ;
 ; Not indexed by species at all, despite their table lengths -- do not extend:
-; - Pokered_MonIndices (see data/pokemon/gen1_order.asm) -- gen 1 index order
 ; - PokemonTypeLists (see data/types/pokemon_type_lists.asm) -- keyed by type
 ; - PokemonEvoLines (see data/pokemon/evo_lines.asm) -- keyed by LINE_*
 	const_def 1

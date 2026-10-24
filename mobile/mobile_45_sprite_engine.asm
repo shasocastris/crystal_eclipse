@@ -426,26 +426,13 @@ Function1163c0:
 	pop af
 	ldh [rWBK], a
 	farcall HDMATransferTilemapAndAttrmap_Overworld
-	ld a, [wLinkMode]
-	cp LINK_MOBILE
-	jr z, .asm_11642a
 	ld a, $8
 	ld [wMusicFade], a
 	ld a, [wMapMusic]
 	ld [wMusicFadeID], a
 	xor a
 	ld [wMusicFadeID + 1], a
-	jr .asm_116439
 
-.asm_11642a
-	ld a, $8
-	ld [wMusicFade], a
-	ld a, LOW(MUSIC_NONE)
-	ld [wMusicFadeID], a
-	ld a, HIGH(MUSIC_NONE)
-	ld [wMusicFadeID + 1], a
-
-.asm_116439
 	xor a
 	ld [wc319], a
 	ld [wc30d], a

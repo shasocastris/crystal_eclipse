@@ -142,17 +142,10 @@ wPrevLandmark:: db
 wCurLandmark:: db
 wLandmarkSignTimer:: dw
 
-wLinkMode::
-; a LINK_* value for the link type
-	db
-
 wScriptVar:: db
 
 wPlayerNextMovement:: db
 wPlayerMovement:: db
-
-wLinkOtherPlayerGender:: db
-	ds 1
 
 wMovementObject::
 	db
@@ -473,10 +466,6 @@ wUnusedPlayerLockedMove:: db
 wCurPlayerMove:: db
 wCurEnemyMove::  db
 
-wLinkBattleRNCount::
-; how far through the prng stream
-	db
-
 wEnemyItemState:: db
 	ds 2
 wCurEnemyMoveNum:: db
@@ -598,13 +587,6 @@ wAmuletCoin:: db
 wSomeoneIsRampaging:: db
 
 wBattleEnd::
-
-
-SECTION UNION "Miscellaneous", WRAM0
-
-; link patch lists
-wPlayerPatchLists:: ds SERIAL_PATCH_LIST_LENGTH
-wOTPatchLists:: ds SERIAL_PATCH_LIST_LENGTH
 
 
 SECTION UNION "Miscellaneous", WRAM0
@@ -835,7 +817,6 @@ wPrinterStatusFlags::
 	db
 
 wHandshakeFrameDelay:: db
-wPrinterSerialFrameDelay:: db
 wPrinterSendByteOffset:: dw
 wPrinterSendByteCounter:: dw
 
@@ -928,105 +909,6 @@ SECTION UNION "Overworld Map", WRAM0
 
 ; Hall of Fame data
 wHallOfFamePokemonList:: hall_of_fame wHallOfFamePokemonList
-
-
-SECTION UNION "Overworld Map", WRAM0
-
-; raw link data
-wLinkData:: ds 1300
-wLinkDataEnd::
-
-
-SECTION UNION "Overworld Map", WRAM0
-
-; link data members
-wLinkPlayerName:: ds NAME_LENGTH
-wLinkPartyCount:: db
-wLinkPartySpecies:: ds PARTY_LENGTH
-wLinkPartyEnd:: db ; older code doesn't check PartyCount
-
-UNION
-; link player data
-wLinkPlayerData::
-; wLinkPlayerPartyMon1 - wLinkPlayerPartyMon6
-for n, 1, PARTY_LENGTH + 1
-wLinkPlayerPartyMon{d:n}:: party_struct wLinkPlayerPartyMon{d:n}
-endr
-
-wLinkPlayerPartyMonOTs::
-; wLinkPlayerPartyMon1OT - wLinkPlayerPartyMon6OT
-for n, 1, PARTY_LENGTH + 1
-wLinkPlayerPartyMon{d:n}OT:: ds NAME_LENGTH
-endr
-
-wLinkPlayerPartyMonNicknames::
-; wLinkPlayerPartyMon1Nickname - wLinkPlayerPartyMon6Nickname
-for n, 1, PARTY_LENGTH + 1
-wLinkPlayerPartyMon{d:n}Nickname:: ds MON_NAME_LENGTH
-endr
-
-NEXTU
-; time capsule party data
-wTimeCapsulePlayerData::
-; wTimeCapsulePartyMon1 - wTimeCapsulePartyMon6
-for n, 1, PARTY_LENGTH + 1
-wTimeCapsulePartyMon{d:n}:: red_party_struct wTimeCapsulePartyMon{d:n}
-endr
-
-wTimeCapsulePartyMonOTs::
-; wTimeCapsulePartyMon1OT - wTimeCapsulePartyMon6OT
-for n, 1, PARTY_LENGTH + 1
-wTimeCapsulePartyMon{d:n}OT:: ds NAME_LENGTH
-endr
-
-wTimeCapsulePartyMonNicknames::
-; wTimeCapsulePartyMon1Nickname - wTimeCapsulePartyMon6Nickname
-for n, 1, PARTY_LENGTH + 1
-wTimeCapsulePartyMon{d:n}Nickname:: ds MON_NAME_LENGTH
-endr
-
-ENDU
-
-
-SECTION UNION "Overworld Map", WRAM0
-
-; link data prep
-	ds 1000
-wCurLinkOTPartyMonTypePointer:: dw
-
-wLinkOTPartyMonTypes::
-; wLinkOTPartyMon1Type - wLinkOTPartyMon6Type
-for n, 1, PARTY_LENGTH + 1
-wLinkOTPartyMon{d:n}Type:: dw
-endr
-
-
-SECTION UNION "Overworld Map", WRAM0
-
-; link mail data
-	ds 500
-wLinkPlayerMail::
-wLinkPlayerMailPreamble:: ds SERIAL_MAIL_PREAMBLE_LENGTH
-wLinkPlayerMailMessages:: ds (MAIL_MSG_LENGTH + 1) * PARTY_LENGTH
-wLinkPlayerMailMetadata:: ds (MAIL_STRUCT_LENGTH - (MAIL_MSG_LENGTH + 1)) * PARTY_LENGTH
-wLinkPlayerMailPatchSet:: ds 100 + SERIAL_PATCH_PREAMBLE_LENGTH
-wLinkPlayerMailEnd::
-	ds 10
-wLinkOTMail::
-wLinkOTMailMessages:: ds (MAIL_MSG_LENGTH + 1) * PARTY_LENGTH
-wLinkOTMailMetadata:: ds (MAIL_STRUCT_LENGTH - (MAIL_MSG_LENGTH + 1)) * PARTY_LENGTH
-wLinkOTMailPatchSet:: ds 100 + SERIAL_PATCH_PREAMBLE_LENGTH
-wLinkOTMailPadding:: ds SERIAL_MAIL_PREAMBLE_LENGTH
-wLinkOTMailEnd::
-	ds 10
-
-
-SECTION UNION "Overworld Map", WRAM0
-
-; received link mail data
-	ds 500
-wLinkReceivedMail:: ds MAIL_STRUCT_LENGTH * PARTY_LENGTH
-wLinkReceivedMailEnd:: db
 
 
 SECTION UNION "Overworld Map", WRAM0
@@ -1219,21 +1101,6 @@ wAttrmapEnd::
 UNION
 wTileAnimBuffer:: ds 1 tiles
 ENDU
-
-; link data
-UNION
-wOtherPlayerLinkMode:: db
-wOtherPlayerLinkAction:: db
-	ds 3
-wPlayerLinkAction:: db
-wUnusedLinkAction:: db
-	ds 3
-NEXTU
-wLinkReceivedSyncBuffer:: ds 5
-wLinkPlayerSyncBuffer:: ds 5
-ENDU
-wLinkTimeoutFrames:: dw
-wLinkByteTimeout:: dw
 
 wMonType:: db
 
@@ -1453,8 +1320,6 @@ wPredefID:: db
 wPredefHL:: dw
 wPredefAddress:: dw
 wFarCallBC:: dw
-
-wUnusedLinkCommunicationByte:: db
 
 wGameTimerPaused::
 ; bit 0: game timer paused
@@ -1800,16 +1665,6 @@ SECTION UNION "Miscellaneous WRAM 1", WRAMX
 wCurTradePartyMon:: db
 wCurOTTradePartyMon:: db
 wBufferTrademonNickname:: ds MON_NAME_LENGTH
-
-
-SECTION UNION "Miscellaneous WRAM 1", WRAMX
-
-; link battle record data
-wLinkBattleRecordBuffer::
-wLinkBattleRecordName::   ds NAME_LENGTH
-wLinkBattleRecordWins::   dw
-wLinkBattleRecordLosses:: dw
-wLinkBattleRecordDraws::  dw
 
 
 SECTION UNION "Miscellaneous WRAM 1", WRAMX
@@ -2316,12 +2171,6 @@ wRestartClockHour:: db
 wRestartClockMin::  db
 
 NEXTU
-; link
-	ds 9
-wLinkBattleRNPreamble:: ds SERIAL_RN_PREAMBLE_LENGTH
-wLinkBattleRNs:: ds SERIAL_RNS_LENGTH
-
-NEXTU
 ; mobile
 wd1ef:: ds 1
 wd1f2:: ds 1
@@ -2352,15 +2201,11 @@ ENDU
 wTempEnemyMonSpecies::  db
 wTempBattleMonSpecies:: db
 
-UNION
-wOTLinkBattleRNData:: ds SERIAL_RN_PREAMBLE_LENGTH + SERIAL_RNS_LENGTH
-NEXTU
 wEnemyMon:: battle_struct wEnemyMon
 wEnemyMonBaseStats:: ds NUM_EXP_STATS
 wEnemyMonCatchRate:: db
 wEnemyMonBaseExp::   db
 wEnemyMonEnd::
-ENDU
 
 wBattleMode::
 ; 0: overworld
@@ -2503,7 +2348,6 @@ ENDU
 wd430:: ; mobile
 wBattleAction:: db
 
-wLinkBattleSentAction:: db
 wMapStatus:: db
 wMapEventStatus:: db
 
@@ -2730,9 +2574,7 @@ wFarfetchdPosition:: db
 
 ; map scene ids
 wPokecenter2FSceneID::                            db
-wTradeCenterSceneID::                             db
-wColosseumSceneID::                               db
-wTimeCapsuleSceneID::                             db
+	ds 3
 wPowerPlantSceneID::                              db
 wCeruleanGymSceneID::                             db
 wRoute25SceneID::                                 db
@@ -2806,7 +2648,7 @@ wVermilionPortSceneID::                           db
 wFastShip1FSceneID::                              db
 wFastShipB1FSceneID::                             db
 wMountMoonSquareSceneID::                         db
-wMobileTradeRoomSceneID::                         db
+	ds 1
 wValenciaPortSceneID::                            db ; M3; was wMobileBattleRoomSceneID
 wVioletCitySceneID::                              db
 wGlitterAndGraceSceneID::                         db
@@ -2884,8 +2726,7 @@ wUnusedTwoDayTimerOn:: db
 wUnusedTwoDayTimer:: db
 wUnusedTwoDayTimerStartDate:: db
 
-wMobileOrCable_LastSelection:: db
-	ds 4
+	ds 5
 wGreenhousePlot1:: db
 wGreenhousePlot2:: db
 wGreenhousePlot3:: db

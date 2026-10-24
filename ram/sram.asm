@@ -124,19 +124,9 @@ sWritingBackup:: db ; 1 if we're saving, anything else if not.
 	ds $ff
 
 
-SECTION "Link Battle Data", SRAM
+SECTION "Unused SRAM", SRAM
 
-sLinkBattleStats::
-sLinkBattleWins::   dw
-sLinkBattleLosses:: dw
-sLinkBattleDraws::  dw
-
-sLinkBattleRecord::
-; sLinkBattleRecord1 - sLinkBattleRecord5
-for n, 1, NUM_LINK_BATTLE_RECORDS + 1
-sLinkBattleRecord{d:n}:: link_battle_record sLinkBattleRecord{d:n}
-endr
-sLinkBattleStatsEnd::
+	ds $60 ; was link battle stats
 
 
 SECTION "SRAM Hall of Fame", SRAM
