@@ -2126,8 +2126,8 @@ AI_Smart_Hail:
 	ret
 
 .GoodHailMoves
-	db BLIZZARD
-	db -1 ; end
+	dw BLIZZARD
+	dw -1 ; end
 
 AI_Smart_Spikes:
 ; Greatly encourage the use of Spikes on the first turn

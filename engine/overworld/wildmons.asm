@@ -283,7 +283,7 @@ ApplyCleanseTagEffectOnEncounterRate::
 
 ChooseWildEncounter:
 	call LoadWildMonDataPointer
-	jmp nc, .nowildbattle ; out of jr reach
+	jr nc, .nowildbattle
 	call CheckEncounterRoamMon
 	jr c, .startwildbattle
 
@@ -336,13 +336,6 @@ ChooseWildEncounter:
 	inc hl
 	call GetWildMonByte
 	push af
-; If the Pokemon is encountered by surfing, we need to give the levels some variety.
-	ld a, [wBattleType]
-	cp BATTLETYPE_SUICUNE
-	cp BATTLETYPE_CELEBI
-	cp BATTLETYPE_ROAMING
-	cp BATTLETYPE_FORCEITEM
-	jr z, .ok
 ; Check if we buff the wild mon, and by how much.
 	call Random
 	cp 35 percent

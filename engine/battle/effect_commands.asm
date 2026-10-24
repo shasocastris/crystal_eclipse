@@ -2143,11 +2143,11 @@ BattleCommand_ApplyDamage:
 
 	ld b, 18 percent + 1
 	cp 220
-	jr z, .friendship_endure_checks
+	jr nc, .friendship_endure_checks
 
 	ld b, 12 percent + 1
 	cp 180
-	jr z, .friendship_endure_checks
+	jr c, .focus_band
 	; fallthrough
 .friendship_endure_checks
 	call BattleRandom
