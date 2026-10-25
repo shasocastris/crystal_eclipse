@@ -51,6 +51,7 @@ SpecialsPointers::
 	add_special GameCornerPrizeMonCheckDex
 	add_special ShowPokedexEntry
 	add_special UnusedSetSeenMon ; unused
+	add_special GetDeityMove
 	add_special WaitSFX ; bank 0
 	add_special PlayMapMusic ; bank 0
 	add_special RestartMapMusic ; bank 0
@@ -110,7 +111,7 @@ SpecialsPointers::
 	add_special CheckForBattleTowerRules
 	add_special Reset ; bank 0
 	add_special MoveTutor
-	add_special MoveTutorNoCheck
+	add_special DeityMoveTutor
 	add_special SafariZoneMoveTutor
 	add_special OmanyteChamber
 	add_special BattleTowerAction
@@ -118,13 +119,13 @@ SpecialsPointers::
 	add_special Menu_ChallengeExplanationCancel
 	add_special HoOhChamber
 	add_special CelebiShrineEvent
-	add_special CheckCaughtCelebi
 	add_special PokeSeer
 	add_special BuenasPassword
 	add_special BuenaPrize
 	add_special GiveDratini
 	add_special SampleKenjiBreakCountdown
 	add_special BeastsCheck
+	add_special BeastMetCheck
 	add_special MonCheck
 	add_special StubbedTrainerRankings_Healings
 	add_special RefreshSprites

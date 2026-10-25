@@ -1147,8 +1147,14 @@ RandomEncounter::
 	ld bc, wPlayerStruct
 	farcall ResetObject
 	pop bc
-	ld a, BANK(WildBattleScript)
+	ld a, [wBattleType]
+	cp BATTLETYPE_ROAMING
+	ld hl, RoamingBeastScript
+	jr z, .got_script
 	ld hl, WildBattleScript
+.got_script
+	assert BANK(RoamingBeastScript) == BANK(WildBattleScript)
+	ld a, BANK(WildBattleScript)
 	jr .done
 
 .ok_bug_contest
@@ -1164,6 +1170,61 @@ WildBattleScript:
 	startbattle
 	reloadmapafterbattle
 	end
+
+RoamingBeastScript::
+; A roaming beast offers its move instead of a battle.
+	callasm .Stage
+	cry 0
+	pause 15
+	callstd DeityTutorScript
+	iftrue .Fled
+	callasm .Clear
+	end
+
+.Fled:
+	opentext
+	writetext .FledText
+	waitbutton
+	closetext
+	callasm .Flee
+	end
+
+.FledText:
+	text "It dashed away!"
+	done
+
+.Stage:
+	ld a, [wTempWildMonSpecies]
+	ld [wScriptVar], a
+	xor a ; BATTLETYPE_NORMAL
+	ld [wBattleType], a
+	ret
+
+.Clear:
+; Same as BattleEnd_HandleRoamMons after a win or catch.
+	ld a, [wTempWildMonSpecies]
+	ld hl, wRoamMon1Species
+	cp [hl]
+	jr z, .got_roam_mon
+	ld hl, wRoamMon2Species
+.got_roam_mon
+	xor a
+	ld [hli], a ; species
+	inc hl ; level
+	dec a
+	assert GROUP_N_A == -1 && MAP_N_A == -1
+	ld [hli], a ; map group
+	ld [hli], a ; map number
+	xor a
+	ld [hl], a ; HP
+	jr .done
+
+.Flee:
+	farcall UpdateRoamMons
+.done
+	xor a
+	ld [wTempWildMonSpecies], a
+	ret
 
 CanEncounterWildMon::
 	ld hl, wStatusFlags

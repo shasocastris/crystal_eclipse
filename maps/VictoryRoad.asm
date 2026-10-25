@@ -122,12 +122,12 @@ Moltres:
 	cry MOLTRES
 	pause 15
 	closetext
+	loadmonindex 0, MOLTRES
+	callstd DeityTutorScript
+	iftrue .Stay
 	setevent EVENT_FOUGHT_MOLTRES
-	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
-	loadwildmon MOLTRES, 70
-	startbattle
 	disappear VICTORYROAD_MOLTRES
-	reloadmapafterbattle
+.Stay:
 	end
 
 MoltresText:

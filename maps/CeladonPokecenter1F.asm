@@ -27,8 +27,7 @@ CeladonEusine:
 	opentext
 	writetext CeladonEusineText1
 	promptbutton
-	loadmonindex 1, SUICUNE
-	special MonCheck
+	checkevent EVENT_FOUGHT_SUICUNE
 	iffalse .NoSuicune
 	special BeastsCheck
 	iftrue .HoOh
@@ -125,17 +124,15 @@ NoBeastsText:
 	text "Oh, by the way,"
 	line "<PLAYER>."
 
-	para "Have you caught"
-	line "the legendary"
-
-	para "#MON RAIKOU and"
-	line "ENTEI?"
+	para "Have you met the"
+	line "legendary #MON"
+	cont "RAIKOU and ENTEI?"
 
 	para "<……><……><……>"
 
 	para "Okay…"
 
-	para "If you catch even"
+	para "If you meet even"
 	line "one, I hope that"
 	cont "you'll inform me."
 

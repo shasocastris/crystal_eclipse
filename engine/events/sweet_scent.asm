@@ -13,6 +13,7 @@ SweetScentFromMenu:
 	waitbutton
 	callasm SweetScentEncounter
 	iffalse SweetScentNothing
+	ifequal 2, .RoamingBeast
 	checkflag ENGINE_BUG_CONTEST_TIMER
 	iftrue .BugCatchingContest
 	randomwildmon
@@ -22,6 +23,10 @@ SweetScentFromMenu:
 
 .BugCatchingContest:
 	farsjump BugCatchingContestBattleScript
+
+.RoamingBeast:
+	closetext
+	farsjump RoamingBeastScript
 
 SweetScentNothing:
 	writetext SweetScentNothingText
@@ -47,7 +52,12 @@ SweetScentEncounter:
 	farcall ChooseWildEncounter_BugContest
 
 .start_battle
-	ld a, $1
+	ld a, [wBattleType]
+	cp BATTLETYPE_ROAMING
+	ld a, 1
+	jr nz, .got_result
+	inc a
+.got_result
 	ld [wScriptVar], a
 	ret
 

@@ -32,12 +32,12 @@ Zapdos:
 	cry ZAPDOS
 	pause 15
 	closetext
+	loadmonindex 0, ZAPDOS
+	callstd DeityTutorScript
+	iftrue .Stay
 	setevent EVENT_FOUGHT_ZAPDOS
-	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
-	loadwildmon ZAPDOS, 70
-	startbattle
 	disappear ROCKTUNNELB1F_ZAPDOS
-	reloadmapafterbattle
+.Stay:
 	end
 
 ZapdosText:

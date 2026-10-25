@@ -29,12 +29,12 @@ Lugia:
 	cry LUGIA
 	pause 15
 	closetext
+	loadmonindex 0, LUGIA
+	callstd DeityTutorScript
+	iftrue .Stay
 	setevent EVENT_FOUGHT_LUGIA
-	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
-	loadwildmon LUGIA, 60
-	startbattle
 	disappear WHIRLISLANDLUGIACHAMBER_LUGIA
-	reloadmapafterbattle
+.Stay:
 	end
 
 LugiaText:

@@ -668,7 +668,7 @@ CheckEncounterRoamMon:
 	and a
 	ret
 
-UpdateRoamMons:
+UpdateRoamMons::
 	ld a, [wRoamMon1MapGroup]
 	cp GROUP_N_A
 	jr z, .SkipRaikou

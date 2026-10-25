@@ -54,7 +54,7 @@ TinTower1FNPCsCallback:
 	iftrue .FoughtSuicune
 	appear TINTOWER1F_SUICUNE
 	loadmonindex 0, RAIKOU
-	special MonCheck
+	special BeastMetCheck
 	iftrue .NoRaikou
 	appear TINTOWER1F_RAIKOU
 	sjump .CheckEntei
@@ -63,7 +63,7 @@ TinTower1FNPCsCallback:
 	disappear TINTOWER1F_RAIKOU
 .CheckEntei:
 	loadmonindex 0, ENTEI
-	special MonCheck
+	special BeastMetCheck
 	iftrue .NoEntei
 	appear TINTOWER1F_ENTEI
 	sjump .BeastsDone
@@ -92,8 +92,8 @@ TinTower1FSuicuneBattleScript:
 	applymovement PLAYER, TinTower1FPlayerEntersMovement
 	pause 15
 	loadmonindex 0, RAIKOU
-	special MonCheck
-	iftrue .Next1 ; if player caught Raikou, it doesn't appear in Tin Tower
+	special BeastMetCheck
+	iftrue .Next1 ; a beast that already taught its move stays away
 	applymovement TINTOWER1F_RAIKOU, TinTower1FRaikouApproachesMovement
 	turnobject PLAYER, LEFT
 	cry RAIKOU
@@ -105,8 +105,8 @@ TinTower1FSuicuneBattleScript:
 	waitsfx
 .Next1:
 	loadmonindex 0, ENTEI
-	special MonCheck
-	iftrue .Next2 ; if player caught Entei, it doesn't appear in Tin Tower
+	special BeastMetCheck
+	iftrue .Next2
 	applymovement TINTOWER1F_ENTEI, TinTower1FEnteiApproachesMovement
 	turnobject PLAYER, RIGHT
 	cry ENTEI
@@ -121,12 +121,12 @@ TinTower1FSuicuneBattleScript:
 	pause 10
 	applymovement PLAYER, TinTower1FPlayerBacksUpMovement
 	applymovement TINTOWER1F_SUICUNE, TinTower1FSuicuneApproachesMovement
+TinTower1FSuicuneScript:
 	cry SUICUNE
 	pause 20
-	loadwildmon SUICUNE, 50
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SUICUNE
-	startbattle
-	dontrestartmapmusic
+	loadmonindex 0, SUICUNE
+	callstd DeityTutorScript
+	iftrue .Stay
 	disappear TINTOWER1F_SUICUNE
 	setevent EVENT_FOUGHT_SUICUNE
 	setevent EVENT_SAW_SUICUNE_ON_ROUTE_42
@@ -137,7 +137,6 @@ TinTower1FSuicuneBattleScript:
 	setmapscene CIANWOOD_CITY, SCENE_CIANWOODCITY_NOOP
 	setscene SCENE_TINTOWER1F_NOOP
 	clearevent EVENT_SET_WHEN_FOUGHT_HO_OH
-	reloadmapafterbattle
 	pause 20
 	turnobject PLAYER, DOWN
 	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
@@ -172,6 +171,7 @@ TinTower1FSuicuneBattleScript:
 	special FadeOutMusic
 	pause 20
 	playmapmusic
+.Stay:
 	end
 
 TinTower1FSage1Script:
@@ -318,16 +318,13 @@ TinTower1FKarenSuicuneText:
 	text "KAREN: Awesome!"
 	line "Too awesome, even!"
 
-	para "I've never seen a"
-	line "battle that great."
+	para "SUICUNE shared its"
+	line "power with you."
 
 	para "That was truly"
 	line "inspiring to see."
 
-	para "SUICUNE was tough,"
-	line "but you were even"
-
-	para "more incredible,"
+	para "It trusted you,"
 	line "<PLAYER>."
 
 	para "I heard SUICUNE's"
@@ -542,7 +539,7 @@ TinTower1F_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  9,  9, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TIN_TOWER_1F_SUICUNE
+	object_event  9,  9, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TinTower1FSuicuneScript, EVENT_TIN_TOWER_1F_SUICUNE
 	object_event  7,  9, SPRITE_RAIKOU, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TIN_TOWER_1F_RAIKOU
 	object_event 12,  9, SPRITE_ENTEI, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TIN_TOWER_1F_ENTEI
 	object_event  8,  3, SPRITE_KAREN, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TinTower1FKaren, EVENT_TIN_TOWER_1F_KAREN

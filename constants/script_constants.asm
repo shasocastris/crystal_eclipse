@@ -289,6 +289,15 @@ DEF NUM_DECODESCS EQU const_value
 	const SHUCKIE_REFUSED   ; 1
 	const SHUCKIE_RETURNED  ; 2
 
+; DeityMoveTutor return values
+	const_def
+	const DEITYTUTOR_TAUGHT    ; 0
+	const DEITYTUTOR_CANCEL    ; 1
+	const DEITYTUTOR_EGG       ; 2
+	const DEITYTUTOR_NOT_HAPPY ; 3
+	const DEITYTUTOR_KNOWS     ; 4
+	const DEITYTUTOR_DECLINED  ; 5
+
 ; CheckPartyFullAfterContest return values
 	const_def
 	const BUGCONTEST_CAUGHT_MON ; 0

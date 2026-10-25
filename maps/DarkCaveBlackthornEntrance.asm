@@ -34,12 +34,12 @@ Mew:
 	cry MEW
 	pause 15
 	closetext
+	loadmonindex 0, MEW
+	callstd DeityTutorScript
+	iftrue .Stay
 	setevent EVENT_FOUGHT_MEW
-	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
-	loadwildmon MEW, 30
-	startbattle
 	disappear DARKCAVEBLACKTHORNENTRANCE_MEW
-	reloadmapafterbattle
+.Stay:
 	end
 
 MewText:

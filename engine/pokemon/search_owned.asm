@@ -1,33 +1,43 @@
 BeastsCheck:
-; Check if the player owns all three legendary beasts.
-; They must exist in either party or PC, and have the player's OT and ID.
-; Return the result in wScriptVar.
+; Return TRUE in wScriptVar if the player has met all three legendary beasts:
+; Suicune at Tin Tower, and Raikou and Entei once they stop roaming.
+	ld de, EVENT_FOUGHT_SUICUNE
+	ld b, CHECK_FLAG
+	call EventFlagAction
+	jr z, BeastMetCheck.done
+	ld a, [wRoamMon1Species]
+	ld hl, wRoamMon2Species
+	or [hl]
+	jr BeastMetCheck.released
 
-	ld hl, RAIKOU
-	call GetPokemonIDFromIndex
-	ld [wScriptVar], a
-	call CheckOwnMonAnywhere
-	jr nc, .notexist
-
-	ld hl, ENTEI
-	call GetPokemonIDFromIndex
-	ld [wScriptVar], a
-	call CheckOwnMonAnywhere
-	jr nc, .notexist
-
-	ld hl, SUICUNE
-	call GetPokemonIDFromIndex
-	ld [wScriptVar], a
-	call CheckOwnMonAnywhere
-	jr nc, .notexist
-
-	; they exist
-	ld a, 1
-	ld [wScriptVar], a
-	ret
-
-.notexist
+BeastMetCheck:
+; Return TRUE in wScriptVar if the roaming beast in wScriptVar was released
+; and has stopped roaming (it taught its move, or an old save beat or caught it).
+	ld a, [wScriptVar]
+	ld hl, wRoamMon1Species
+	cp [hl]
+	jr z, .not_met
+	ld hl, wRoamMon2Species
+	cp [hl]
+	jr z, .not_met
 	xor a
+.released
+	push af
+	ld de, EVENT_RELEASED_THE_BEASTS
+	ld b, CHECK_FLAG
+	call EventFlagAction
+	pop bc
+	jr z, .done
+	ld a, b
+	add $ff ; carry if still roaming
+	sbc a
+	inc a
+	assert TRUE == 1
+	jr .done
+
+.not_met
+	xor a
+.done
 	ld [wScriptVar], a
 	ret
 

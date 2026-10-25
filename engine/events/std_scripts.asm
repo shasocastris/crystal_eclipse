@@ -54,6 +54,7 @@ StdScripts::
 	add_stdscript GameCornerCoinVendorScript
 	add_stdscript HappinessCheckScript
 	add_stdscript MysteryGiftCarrieScript
+	add_stdscript DeityTutorScript
 
 PokecenterNurseScript:
 ; EVENT_WELCOMED_TO_POKECOM_CENTER is never set
@@ -1895,3 +1896,80 @@ MysteryGiftCarrieScript:
 	callasm MysteryGiftNPC
 	verbosegiveitem ITEM_FROM_MEM
 	end
+
+DeityTutorScript:
+; wScriptVar: the deity's species, with no textbox open.
+; Returns DEITYTUTOR_TAUGHT (0) in wScriptVar if it taught its move.
+; Text and yesorno leave wPutativeTMHMMove alone, so it holds the move meanwhile.
+	getmonname STRING_BUFFER_4, 0
+	refreshscreen
+	pokepic 0
+	waitbutton
+	closepokepic
+	special GetDeityMove
+	writemem wPutativeTMHMMove
+	opentext
+	writetext .AskText
+	yesorno
+	iffalse .refused
+	readmem wPutativeTMHMMove
+	special DeityMoveTutor
+	ifequal DEITYTUTOR_TAUGHT, .taught
+	ifequal DEITYTUTOR_NOT_HAPPY, .not_happy
+	ifequal DEITYTUTOR_EGG, .egg
+	closetext
+	end
+
+.refused
+	closetext
+	setval DEITYTUTOR_CANCEL
+	end
+
+.taught
+	writetext .TaughtText
+	sjump .close
+
+.not_happy
+	writetext .NotHappyText
+	sjump .close
+
+.egg
+	writetext .EggText
+.close
+	waitbutton
+	closetext
+	end
+
+.AskText:
+	text_ram wStringBuffer4
+	text " will"
+	line "teach @"
+	text_ram wStringBuffer3
+	text "."
+
+	para "It teaches it only"
+	line "once. If it is"
+	cont "forgotten, it is"
+	cont "lost for good."
+
+	para "Teach it to one"
+	line "of your #MON?"
+	done
+
+.TaughtText:
+	text "Its gift given, it"
+	line "was gone."
+	done
+
+.NotHappyText:
+	text "It turned away."
+
+	para "It will teach only"
+	line "a #MON that"
+	cont "loves you fully."
+	done
+
+.EggText:
+	text "An EGG can't learn"
+	line "anything yet."
+	done

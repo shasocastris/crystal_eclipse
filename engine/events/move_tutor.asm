@@ -88,53 +88,92 @@ CheckCanLearnMoveTutorMove:
 	menu_coords 0, 12, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
 
 
-MoveTutorNoCheck:
-; Like MoveTutor but skips compatibility checking.
-; Reads move from wScriptVar, teaches to chosen mon.
+DeityMoveTutor:
+; Teach the move in wScriptVar to a party mon with max happiness.
+; Returns a DEITYTUTOR_* code in wScriptVar.
 	call FadeToMenu
 	call ClearBGPalettes
 	call ClearScreen
 	call DelayFrame
 	ld b, SCGB_PACKPALS
 	call GetSGBLayout
-	xor a
-	ld [wItemAttributeValue], a
+	farcall LoadPartyMenuGFX
+	farcall InitPartyMenuWithCancel
+	farcall InitPartyMenuGFX
+	ld a, PARTYMENUACTION_CHOOSE_POKEMON
+	ld [wPartyMenuActionText], a
+	farcall WritePartyMenuTilemap
+	farcall PlacePartyMenuText
+	call WaitBGMap
+	call SetDefaultBGPAndOBP
+	call DelayFrame
+	farcall PartyMenuSelect
+	ld a, DEITYTUTOR_CANCEL
+	jr c, .done
+
+	ld a, [wCurPartySpecies]
+	call IsAPokemon
+	ld a, DEITYTUTOR_EGG
+	jr c, .done
+
+	ld a, MON_HAPPINESS
+	call GetPartyParamLocation
+	ld a, [hl]
+	inc a
+	ld a, DEITYTUTOR_NOT_HAPPY
+	jr nz, .done
+
 	ld a, [wScriptVar]
 	ld [wNamedObjectIndex], a
 	ld [wPutativeTMHMMove], a
 	call GetMoveName
 	call CopyName1
-	farcall ChooseMonToLearnTMHM
-	jr c, .cancel
-
-.enter_loop:
-	; Skip CanLearnTMHMMove — go straight to learning
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMonNicknames
 	call GetNickname
-
 	farcall KnowsMove
-	jr c, .already_knows
+	ld a, DEITYTUTOR_KNOWS
+	jr c, .done
 
 	predef LearnMove
 	ld a, b
 	and a
-	jr z, .didnt_learn
-
-	ld c, HAPPINESS_LEARNMOVE
-	farcall ChangeHappiness
-	xor a ; FALSE = success
+	ld a, DEITYTUTOR_DECLINED
+	jr z, .done
+	assert DEITYTUTOR_TAUGHT == 0
+	xor a
+.done
 	ld [wScriptVar], a
-	jr .quit
-
-.already_knows:
-.didnt_learn:
-	farcall ChooseMonToLearnTMHM_NoRefresh
-	jr c, .cancel
-	jr .enter_loop
-
-.cancel:
-	ld a, -1
-	ld [wScriptVar], a
-.quit:
 	jmp CloseSubmenu
+
+GetDeityMove:
+; wScriptVar: a deity's species. Marks it seen, then returns its move in
+; wScriptVar, named in wStringBuffer3.
+	ld a, [wScriptVar]
+	push af
+	call SetSeenMon
+	pop af
+	call GetPokemonIndexFromID
+	ld b, h
+	ld c, l
+	ld hl, DeityTutorMoves
+	ld de, 4
+	call IsInWordArray
+	ret nc
+	inc hl
+	inc hl
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	call GetMoveIDFromIndex
+	ld [wScriptVar], a
+	ld [wNamedObjectIndex], a
+	call GetMoveName
+	ld h, d
+	ld l, e
+	ld de, wStringBuffer3
+	ld bc, MOVE_NAME_LENGTH
+	rst CopyBytes
+	ret
+
+INCLUDE "data/events/deity_tutor_moves.asm"
