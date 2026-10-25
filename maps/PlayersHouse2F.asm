@@ -181,6 +181,8 @@ if DEF(_DEBUG)
 	givepokemove ROCK_SMASH, wPartyMon3, 1
 	givepokemove HEADBUTT,   wPartyMon3, 2
 	givepokemove WATERFALL,  wPartyMon3, 3
+	loadmem wPartyMon2Happiness, $ff
+	loadmem wPartyMon3Happiness, $ff
 	; misc pokemon for testing
 	givepoke DUDUNSPARC, 50, EXP_SHARE
 	givepokemove HIDDEN_POWER,    wPartyMon4, 3

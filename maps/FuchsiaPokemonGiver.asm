@@ -68,7 +68,7 @@ CheckPartyFullForGift::
 	ret
 
 SetKangaskhanMoves::
-; Writes a custom moveset + PP to the last party mon.
+; Writes a custom moveset + PP and happiness to the last party mon.
 	ld a, [wPartyCount]
 	dec a
 	ld [wCurPartyMon], a
@@ -110,6 +110,11 @@ SetKangaskhanMoves::
 	ld e, l
 	pop hl
 	predef FillPP
+
+	; happy enough to obey at any level
+	ld a, MON_HAPPINESS
+	call GetPartyParamLocation
+	ld [hl], OBEY_HAPPINESS_3
 	ret
 
 SageIntroText:

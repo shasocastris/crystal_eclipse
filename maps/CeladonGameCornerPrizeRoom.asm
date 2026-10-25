@@ -189,7 +189,7 @@ CeladonGameCornerPrizeRoomPokemonVendor:
 	waitbutton
 	loadmonindex 3, LARVITAR
 	special GameCornerPrizeMonCheckDex
-	givepoke LARVITAR, 40
+	givepoke LARVITAR, 25
 	takecoins CELADONGAMECORNERPRIZEROOM_LARVITAR_COINS
 	sjump .loop
 

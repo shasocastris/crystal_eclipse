@@ -603,70 +603,35 @@ BattleCommand_CheckObedience:
 	and a
 	ret nz
 
-	xor a
-	ld [wAlreadyDisobeyed], a
-
 	ld a, [wInBattleTowerBattle]
 	and a
 	ret nz
 
-	; If the Pokémon's Trainer ID doesn't match the player's,
-	; some conditions need to be met.
-	ld a, MON_OT_ID
-	call BattlePartyAttr
-
-	ld a, [wPlayerID]
-	cp [hl]
-	jr nz, .obeylevel
-	inc hl
-	ld a, [wPlayerID + 1]
-	cp [hl]
-	ret z
-
-.obeylevel
-	; The maximum obedience level is constrained by owned badges:
-	ld hl, wJohtoBadges
-
-	; risingbadge
-	bit RISINGBADGE, [hl]
+	; The maximum obedience level is set by happiness:
+	ld a, [wBattleMonHappiness]
+	ld b, a
+	cp OBEY_HAPPINESS_3
 	ld a, MAX_LEVEL + 1
-	jr nz, .getlevel
-
-	; stormbadge
-	bit STORMBADGE, [hl]
-	ld a, 70
-	jr nz, .getlevel
-
-	; fogbadge
-	bit FOGBADGE, [hl]
-	ld a, 50
-	jr nz, .getlevel
-
-	; hivebadge
-	bit HIVEBADGE, [hl]
-	ld a, 30
-	jr nz, .getlevel
-
-	; no badges
-	ld a, 10
+	jr nc, .getlevel
+	ld a, b
+	cp OBEY_HAPPINESS_2
+	ld a, OBEY_LEVEL_2
+	jr nc, .getlevel
+	ld a, b
+	cp OBEY_HAPPINESS_1
+	; a = carry ? OBEY_LEVEL_0 : OBEY_LEVEL_1
+	sbc a
+	and LOW(OBEY_LEVEL_0 - OBEY_LEVEL_1)
+	add OBEY_LEVEL_1
 
 .getlevel
-; c = obedience level
-; d = monster level
-; b = c + d
-
-	ld b, a
+; c = obedience level; d = monster level; b = d
 	ld c, a
-
 	ld a, [wBattleMonLevel]
 	ld d, a
-
-	add b
+	; Change probability of disobeying from p = lvl/(lvl+M) to p = (lvl-M)/lvl, where M is maximum obedience level
+	;add b    ; add max level to range of random values
 	ld b, a
-
-; No overflow (this should never happen)
-	jr nc, .checklevel
-	ld b, $ff
 
 .checklevel
 ; If the monster's level is lower than the obedience level, it will obey.
@@ -674,7 +639,7 @@ BattleCommand_CheckObedience:
 	cp d
 	ret nc
 
-; Random number from 0 to obedience level + monster level
+; Random number from 0 to monster level
 .rand1
 	call BattleRandom
 	swap a
@@ -691,7 +656,7 @@ BattleCommand_CheckObedience:
 	call IgnoreSleepOnly
 	ret c
 
-; Another random number from 0 to obedience level + monster level
+; Another random number from 0 to monster level
 .rand2
 	call BattleRandom
 	cp b
