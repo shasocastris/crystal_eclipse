@@ -272,7 +272,6 @@ FireTypeSpecies:
 	dw MAGMAR
 	dw MAGMORTAR
 	dw FLAREON
-	dw MOLTRES
 	dw CYNDAQUIL
 	dw QUILAVA
 	dw TYPHLOSION

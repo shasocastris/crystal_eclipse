@@ -14,7 +14,7 @@ GameFreakGameDesignerScript:
 	opentext
 	writetext GameFreakGameDesignerText
 	readvar VAR_DEXUNCAUGHT
-	ifless 3, .CompletedPokedex ; ignore Mew and Celebi
+	ifless 11, .CompletedPokedex ; the 10 deities are never caught
 	waitbutton
 	closetext
 	end

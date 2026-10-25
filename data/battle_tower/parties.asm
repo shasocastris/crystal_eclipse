@@ -2271,28 +2271,28 @@ BattleTowerMons:
 	bigdw 127 ; SDef
 	dname "KUROBAtuTO", MON_NAME_LENGTH
 
-	dw ZAPDOS
+	dw AMPHAROS
 	dw MIRACLEBERRY
-	dw DRILL_PECK, THUNDERBOLT, THUNDER_WAVE, HYPER_BEAM
+	dw THUNDERBOLT, FIRE_PUNCH, THUNDER_WAVE, HYPER_BEAM
 
 	dw 0 ; OT ID
 	bigdt 125000 ; Exp
 	db 213, 224, 213, 200, 224, 224 ; EVs
 	db 0, 0, 0, 0 ; padding
 	dn 15, 13, 13, 14 ; DVs
-	db 20, 15, 20, 5 ; PP
+	db 15, 15, 20, 5 ; PP
 	db 0 ; Happiness
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 50 ; Level
 	db 0, 0 ; Status
 	bigdw 190 ; HP
 	bigdw 190 ; Max HP
-	bigdw 137 ; Atk
-	bigdw 129 ; Def
-	bigdw 143 ; Spd
-	bigdw 171 ; SAtk
-	bigdw 136 ; SDef
-	dname "SANDA-", MON_NAME_LENGTH
+	bigdw 123 ; Atk
+	bigdw 119 ; Def
+	bigdw 98 ; Spd
+	bigdw 162 ; SAtk
+	bigdw 137 ; SDef
+	dname "AMPHAROS", MON_NAME_LENGTH
 
 	dw SKARMORY
 	dw GOLD_BERRY
@@ -2409,28 +2409,28 @@ BattleTowerMons:
 	bigdw 135 ; SDef
 	dname "GIyaRADOSU", MON_NAME_LENGTH
 
-	dw ARTICUNO
+	dw MAMOSWINE
 	dw GOLD_BERRY
-	dw BLIZZARD, HYPER_BEAM, ROAR, ICY_WIND
+	dw BLIZZARD, HYPER_BEAM, EARTHQUAKE, ICY_WIND
 
 	dw 0 ; OT ID
 	bigdt 125000 ; Exp
 	db 200, 200, 200, 200, 200, 200 ; EVs
 	db 0, 0, 0, 0 ; padding
 	dn 4, 5, 5, 6 ; DVs
-	db 5, 5, 20, 15 ; PP
+	db 5, 5, 10, 15 ; PP
 	db 0 ; Happiness
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 50 ; Level
 	db 0, 0 ; Status
-	bigdw 181 ; HP
-	bigdw 181 ; Max HP
-	bigdw 119 ; Atk
-	bigdw 135 ; Def
-	bigdw 120 ; Spd
-	bigdw 131 ; SAtk
-	bigdw 161 ; SDef
-	dname "HURI-ZA-", MON_NAME_LENGTH
+	bigdw 201 ; HP
+	bigdw 201 ; Max HP
+	bigdw 164 ; Atk
+	bigdw 115 ; Def
+	bigdw 115 ; Spd
+	bigdw 106 ; SAtk
+	bigdw 96 ; SDef
+	dname "MAMOSWINE", MON_NAME_LENGTH
 
 
 ; BattleTowerMons group 6
@@ -2550,28 +2550,28 @@ BattleTowerMons:
 	bigdw 158 ; SDef
 	dname "KAIRIKI-", MON_NAME_LENGTH
 
-	dw ZAPDOS
+	dw LANTURN
 	dw MINT_BERRY
-	dw REST, DRILL_PECK, THUNDERBOLT, THUNDER_WAVE
+	dw REST, SURF, THUNDERBOLT, THUNDER_WAVE
 
 	dw 0 ; OT ID
 	bigdt 216000 ; Exp
 	db 224, 213, 224, 235, 224, 224 ; EVs
 	db 0, 0, 0, 0 ; padding
 	dn 13, 13, 15, 13 ; DVs
-	db 10, 20, 15, 20 ; PP
+	db 10, 15, 15, 20 ; PP
 	db 100 ; Happiness
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 60 ; Level
 	db 0, 0 ; Status
-	bigdw 229 ; HP
-	bigdw 229 ; Max HP
-	bigdw 160 ; Atk
-	bigdw 155 ; Def
-	bigdw 177 ; Spd
-	bigdw 203 ; SAtk
-	bigdw 161 ; SDef
-	dname "SANDA-", MON_NAME_LENGTH
+	bigdw 271 ; HP
+	bigdw 271 ; Max HP
+	bigdw 122 ; Atk
+	bigdw 123 ; Def
+	bigdw 138 ; Spd
+	bigdw 145 ; SAtk
+	bigdw 145 ; SDef
+	dname "LANTURN", MON_NAME_LENGTH
 
 	dw WOBBUFFET
 	dw GOLD_BERRY
@@ -3082,28 +3082,28 @@ BattleTowerMons:
 	bigdw 203 ; SDef
 	dname "BANGIRASU", MON_NAME_LENGTH
 
-	dw ZAPDOS
+	dw ELECTIVIRE
 	dw GOLD_BERRY
-	dw THUNDERBOLT, DRILL_PECK, THUNDER_WAVE, HYPER_BEAM
+	dw THUNDERBOLT, CROSS_CHOP, BODY_SLAM, HYPER_BEAM
 
 	dw 0 ; OT ID
 	bigdt 343000 ; Exp
 	db 213, 224, 224, 213, 213, 213 ; EVs
 	db 0, 0, 0, 0 ; padding
 	dn 13, 11, 13, 15 ; DVs
-	db 15, 20, 20, 5 ; PP
+	db 15, 5, 15, 5 ; PP
 	db 100 ; Happiness
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 70 ; Level
 	db 0, 0 ; Status
-	bigdw 264 ; HP
-	bigdw 264 ; Max HP
-	bigdw 187 ; Atk
-	bigdw 177 ; Def
-	bigdw 200 ; Spd
-	bigdw 238 ; SAtk
-	bigdw 189 ; SDef
-	dname "SANDA-", MON_NAME_LENGTH
+	bigdw 243 ; HP
+	bigdw 243 ; Max HP
+	bigdw 234 ; Atk
+	bigdw 153 ; Def
+	bigdw 193 ; Spd
+	bigdw 196 ; SAtk
+	bigdw 182 ; SDef
+	dname "ELECTIVIRE", MON_NAME_LENGTH
 
 	dw EXEGGUTOR
 	dw MIRACLEBERRY
@@ -3729,28 +3729,28 @@ BattleTowerMons:
 	bigdw 185 ; SDef
 	dname "EA-MUDO", MON_NAME_LENGTH
 
-	dw MOLTRES
+	dw CHARIZARD
 	dw CHARCOAL
-	dw FLAMETHROWER, SKY_ATTACK, STEEL_WING, HYPER_BEAM
+	dw FLAMETHROWER, AIR_SLASH, STEEL_WING, HYPER_BEAM
 
 	dw 0 ; OT ID
 	bigdt 512000 ; Exp
 	db 224, 200, 224, 200, 224, 224 ; EVs
 	db 0, 0, 0, 0 ; padding
 	dn 13, 13, 15, 14 ; DVs
-	db 15, 5, 25, 5 ; PP
+	db 15, 15, 25, 5 ; PP
 	db 100 ; Happiness
 	db 0, 0, 0 ; Pokerus, Caught data
 	db 80 ; Level
 	db 0, 0 ; Status
-	bigdw 300 ; HP
-	bigdw 300 ; Max HP
-	bigdw 225 ; Atk
-	bigdw 213 ; Def
-	bigdw 213 ; Spd
-	bigdw 271 ; SAtk
-	bigdw 207 ; SDef
-	dname "HUaIYA-", MON_NAME_LENGTH
+	bigdw 282 ; HP
+	bigdw 282 ; Max HP
+	bigdw 200 ; Atk
+	bigdw 195 ; Def
+	bigdw 229 ; Spd
+	bigdw 246 ; SAtk
+	bigdw 208 ; SDef
+	dname "CHARIZARD", MON_NAME_LENGTH
 
 	dw AERODACTYL
 	dw MIRACLEBERRY
