@@ -1,94 +1,44 @@
-BattleAnimationsGen1::
+BattleAnimationsPart1::
 	anim_ptr BattleAnim_Dummy
-	anim_ptr BattleAnim_KarateChop
-	anim_ptr BattleAnim_CometPunch
-	anim_ptr BattleAnim_MegaPunch
-	anim_ptr BattleAnim_PayDay
-	anim_ptr BattleAnim_FirePunch
-	anim_ptr BattleAnim_IcePunch
-	anim_ptr BattleAnim_Thunderpunch
-	anim_ptr BattleAnim_Scratch
-	anim_ptr BattleAnim_RazorWind
-	anim_ptr BattleAnim_SwordsDance
-	anim_ptr BattleAnim_Cut
-	anim_ptr BattleAnim_Gust
-	anim_ptr BattleAnim_WingAttack
-	anim_ptr BattleAnim_Fly
-	anim_ptr BattleAnim_Bind
-	anim_ptr BattleAnim_Slam
-	anim_ptr BattleAnim_VineWhip
-	anim_ptr BattleAnim_Stomp
-	anim_ptr BattleAnim_DoubleKick
-	anim_ptr BattleAnim_MegaKick
-	anim_ptr BattleAnim_RollingKick
-	anim_ptr BattleAnim_Headbutt
-	anim_ptr BattleAnim_HornAttack
-	anim_ptr BattleAnim_FurySwipes
-	anim_ptr BattleAnim_BodySlam
-	anim_ptr BattleAnim_Wrap
-	anim_ptr BattleAnim_TakeDown
+	; NORMAL
+	anim_ptr BattleAnim_Selfdestruct
 	anim_ptr BattleAnim_Thrash
 	anim_ptr BattleAnim_DoubleEdge
-	anim_ptr BattleAnim_PoisonSting
-	anim_ptr BattleAnim_Twineedle
-	anim_ptr BattleAnim_PinMissile
+	anim_ptr BattleAnim_TakeDown
+	anim_ptr BattleAnim_BodySlam
+	anim_ptr BattleAnim_Slam
+	anim_ptr BattleAnim_HyperFang
+	anim_ptr BattleAnim_Extremespeed
+	anim_ptr BattleAnim_Headbutt
+	anim_ptr BattleAnim_Slash
+	anim_ptr BattleAnim_Stomp
+	anim_ptr BattleAnim_HornAttack
+	anim_ptr BattleAnim_PayDay
+	anim_ptr BattleAnim_Scratch
+	anim_ptr BattleAnim_QuickAttack
+	anim_ptr BattleAnim_FalseSwipe
+	anim_ptr BattleAnim_Rage
+	anim_ptr BattleAnim_RapidSpin
+	anim_ptr BattleAnim_FurySwipes
+	anim_ptr BattleAnim_Wrap
+	anim_ptr BattleAnim_SuperFang
+	anim_ptr BattleAnim_Flail
+	anim_ptr BattleAnim_Return
+	anim_ptr BattleAnim_Present
+	anim_ptr BattleAnim_HyperBeam
+	anim_ptr BattleAnim_Supersonic       ; HYPER_VOICE
+	anim_ptr BattleAnim_TriAttack
+	anim_ptr BattleAnim_HiddenPower
+	anim_ptr BattleAnim_Swift
+	anim_ptr BattleAnim_Sonicboom
+	anim_ptr BattleAnim_SwordsDance
 	anim_ptr BattleAnim_Leer
-	anim_ptr BattleAnim_Bite
 	anim_ptr BattleAnim_Growl
 	anim_ptr BattleAnim_Roar
 	anim_ptr BattleAnim_Sing
 	anim_ptr BattleAnim_Supersonic
-	anim_ptr BattleAnim_Sonicboom
 	anim_ptr BattleAnim_Disable
-	anim_ptr BattleAnim_Acid
-	anim_ptr BattleAnim_Ember
-	anim_ptr BattleAnim_Flamethrower
-	anim_ptr BattleAnim_Mist
-	anim_ptr BattleAnim_WaterGun
-	anim_ptr BattleAnim_HydroPump
-	anim_ptr BattleAnim_Surf
-	anim_ptr BattleAnim_IceBeam
-	anim_ptr BattleAnim_Blizzard
-	anim_ptr BattleAnim_Psybeam
-	anim_ptr BattleAnim_Bubblebeam
-	anim_ptr BattleAnim_AuroraBeam
-	anim_ptr BattleAnim_HyperBeam
-	anim_ptr BattleAnim_Peck
-	anim_ptr BattleAnim_DrillPeck
-	anim_ptr BattleAnim_Submission
-	anim_ptr BattleAnim_Counter
-	anim_ptr BattleAnim_SeismicToss
-	anim_ptr BattleAnim_Strength
-	anim_ptr BattleAnim_Absorb
-	anim_ptr BattleAnim_MegaDrain
-	anim_ptr BattleAnim_LeechSeed
 	anim_ptr BattleAnim_Growth
-	anim_ptr BattleAnim_RazorLeaf
-	anim_ptr BattleAnim_Solarbeam
-	anim_ptr BattleAnim_Poisonpowder
-	anim_ptr BattleAnim_StunSpore
-	anim_ptr BattleAnim_SleepPowder
-	anim_ptr BattleAnim_PetalDance
-	anim_ptr BattleAnim_StringShot
-	anim_ptr BattleAnim_DragonRage
-	anim_ptr BattleAnim_FireSpin
-	anim_ptr BattleAnim_Thundershock
-	anim_ptr BattleAnim_Thunderbolt
-	anim_ptr BattleAnim_ThunderWave
-	anim_ptr BattleAnim_Thunder
-	anim_ptr BattleAnim_RockThrow
-	anim_ptr BattleAnim_Earthquake
-	anim_ptr BattleAnim_Dig
-	anim_ptr BattleAnim_Toxic
-	anim_ptr BattleAnim_Confusion
-	anim_ptr BattleAnim_PsychicM
-	anim_ptr BattleAnim_Hypnosis
-	anim_ptr BattleAnim_Meditate
-	anim_ptr BattleAnim_Agility
-	anim_ptr BattleAnim_QuickAttack
-	anim_ptr BattleAnim_Rage
-	anim_ptr BattleAnim_Teleport
-	anim_ptr BattleAnim_NightShade
 	anim_ptr BattleAnim_Mimic
 	anim_ptr BattleAnim_Screech
 	anim_ptr BattleAnim_DoubleTeam
@@ -96,51 +46,111 @@ BattleAnimationsGen1::
 	anim_ptr BattleAnim_Harden
 	anim_ptr BattleAnim_Minimize
 	anim_ptr BattleAnim_Smokescreen
-	anim_ptr BattleAnim_ConfuseRay
 	anim_ptr BattleAnim_DefenseCurl
-	anim_ptr BattleAnim_Barrier
-	anim_ptr BattleAnim_LightScreen
-	anim_ptr BattleAnim_Haze
-	anim_ptr BattleAnim_Reflect
 	anim_ptr BattleAnim_FocusEnergy
 	anim_ptr BattleAnim_Metronome
-	anim_ptr BattleAnim_MirrorMove
-	anim_ptr BattleAnim_Selfdestruct
-	anim_ptr BattleAnim_Lick
-	anim_ptr BattleAnim_Sludge
-	anim_ptr BattleAnim_BoneClub
-	anim_ptr BattleAnim_FireBlast
-	anim_ptr BattleAnim_Waterfall
-	anim_ptr BattleAnim_Clamp
-	anim_ptr BattleAnim_Swift
-	anim_ptr BattleAnim_SkullBash
-	anim_ptr BattleAnim_SpikeCannon
-	anim_ptr BattleAnim_Constrict
-	anim_ptr BattleAnim_Amnesia
 	anim_ptr BattleAnim_Softboiled
-	anim_ptr BattleAnim_HiJumpKick
 	anim_ptr BattleAnim_Glare
-	anim_ptr BattleAnim_DreamEater
-	anim_ptr BattleAnim_LeechLife
 	anim_ptr BattleAnim_LovelyKiss
-	anim_ptr BattleAnim_SkyAttack
 	anim_ptr BattleAnim_Transform
-	anim_ptr BattleAnim_Bubble
-	anim_ptr BattleAnim_Spore
 	anim_ptr BattleAnim_Flash
-	anim_ptr BattleAnim_Psywave
 	anim_ptr BattleAnim_Splash
-	anim_ptr BattleAnim_Crabhammer
-	anim_ptr BattleAnim_Bonemerang
-	anim_ptr BattleAnim_Rest
-	anim_ptr BattleAnim_RockSlide
-	anim_ptr BattleAnim_HyperFang
 	anim_ptr BattleAnim_Conversion
-	anim_ptr BattleAnim_TriAttack
-	anim_ptr BattleAnim_SuperFang
-	anim_ptr BattleAnim_Slash
 	anim_ptr BattleAnim_Substitute
+	anim_ptr BattleAnim_Sketch
+	anim_ptr BattleAnim_Conversion2
+	anim_ptr BattleAnim_Protect
+	anim_ptr BattleAnim_ScaryFace
+	anim_ptr BattleAnim_BellyDrum
+	anim_ptr BattleAnim_Foresight
+	anim_ptr BattleAnim_PerishSong
+	anim_ptr BattleAnim_LockOn
+	anim_ptr BattleAnim_Endure
+	anim_ptr BattleAnim_Swagger
+	anim_ptr BattleAnim_MeanLook
+	anim_ptr BattleAnim_Attract
+	anim_ptr BattleAnim_SleepTalk
+	anim_ptr BattleAnim_HealBell
+	anim_ptr BattleAnim_Safeguard
+	anim_ptr BattleAnim_PainSplit
+	anim_ptr BattleAnim_BatonPass
+	anim_ptr BattleAnim_Encore
+	anim_ptr BattleAnim_SweetScent
+	anim_ptr BattleAnim_MorningSun
+	anim_ptr BattleAnim_PsychUp
 	anim_ptr BattleAnim_Struggle
+	; FIGHTING
+	anim_ptr BattleAnim_MegaKick
+	anim_ptr BattleAnim_Dynamicpunch
+	anim_ptr BattleAnim_CrossChop
+	anim_ptr BattleAnim_HiJumpKick
+	anim_ptr BattleAnim_Submission
+	anim_ptr BattleAnim_Strength
+	anim_ptr BattleAnim_CrossChop        ; DRAIN_PUNCH
+	anim_ptr BattleAnim_VitalThrow
+	anim_ptr BattleAnim_RollingKick
+	anim_ptr BattleAnim_KarateChop
+	anim_ptr BattleAnim_MachPunch
+	anim_ptr BattleAnim_DoubleKick
+	anim_ptr BattleAnim_Counter
+	anim_ptr BattleAnim_SeismicToss
+	anim_ptr BattleAnim_Reversal
+	anim_ptr BattleAnim_ZapCannon        ; AURA_SPHERE
+	anim_ptr BattleAnim_ZapCannon        ; FOCUS_BLAST
+	anim_ptr BattleAnim_Detect
+	; FLYING
+	anim_ptr BattleAnim_SkyAttack
+	anim_ptr BattleAnim_WingAttack       ; BRAVE_BIRD
+	anim_ptr BattleAnim_DrillPeck
+	anim_ptr BattleAnim_Fly
+	anim_ptr BattleAnim_WingAttack
+	anim_ptr BattleAnim_FaintAttack      ; AERIAL_ACE
+	anim_ptr BattleAnim_Peck
+	anim_ptr BattleAnim_Twister          ; HURRICANE
+	anim_ptr BattleAnim_WingAttack       ; AIR_SLASH
+	anim_ptr BattleAnim_Gust
+	anim_ptr BattleAnim_RazorWind
+	anim_ptr BattleAnim_MirrorMove
+	; POISON
+	anim_ptr BattleAnim_SludgeBomb       ; GUNK_SHOT
+	anim_ptr BattleAnim_Acid             ; POISON_JAB
+	anim_ptr BattleAnim_PoisonSting
+	anim_ptr BattleAnim_SludgeBomb
+	anim_ptr BattleAnim_Sludge
+	anim_ptr BattleAnim_Acid
+	anim_ptr BattleAnim_Poisonpowder
+	anim_ptr BattleAnim_Toxic
+	; GROUND
+	anim_ptr BattleAnim_Magnitude       ; ERUPTION
+	anim_ptr BattleAnim_Earthquake
+	anim_ptr BattleAnim_BoneClub
+	anim_ptr BattleAnim_Dig
+	anim_ptr BattleAnim_Magnitude        ; BULLDOZE
+	anim_ptr BattleAnim_Bonemerang
+	anim_ptr BattleAnim_Magnitude
+	anim_ptr BattleAnim_Magnitude        ; EARTH_POWER
+	anim_ptr BattleAnim_MudSlap
+	anim_ptr BattleAnim_Spikes
+	; ROCK
+	anim_ptr BattleAnim_BoneRush         ; STONE_EDGE
+	anim_ptr BattleAnim_RockSlide
+	anim_ptr BattleAnim_RockThrow
+	anim_ptr BattleAnim_Rollout
+	anim_ptr BattleAnim_PinMissile       ; ROCK_BLAST
+	anim_ptr BattleAnim_Ancientpower     ; POWER_GEM
+	anim_ptr BattleAnim_Ancientpower
+	anim_ptr BattleAnim_Sandstorm
+	; BUG
+	anim_ptr BattleAnim_Megahorn
+	anim_ptr BattleAnim_Cut              ; X_SCISSOR
+	anim_ptr BattleAnim_LeechLife
+	anim_ptr BattleAnim_Cut
+	anim_ptr BattleAnim_Twineedle
+	anim_ptr BattleAnim_Bind
+	anim_ptr BattleAnim_PinMissile
+	anim_ptr BattleAnim_FuryCutter
+	anim_ptr BattleAnim_CottonSpore      ; BUG_BUZZ
+	anim_ptr BattleAnim_StringShot
 .IndirectEnd::
 
 BattleAnim_Dummy::

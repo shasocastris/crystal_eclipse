@@ -1,100 +1,50 @@
 MoveDescriptions::
 ; entries correspond to move ids (see constants/move_constants.asm)
 	indirect_table 2, 1
-	indirect_entries GEN1_MOVES, MoveDescriptionsGen1
-	indirect_entries GEN2_MOVES, MoveDescriptionsGen2
+	indirect_entries MOVE_TABLE_SPLIT, MoveDescriptionsPart1
+	indirect_entries NUM_ATTACKS, MoveDescriptionsPart2
 	indirect_table_end
 
-MoveDescriptionsGen1:
-	dw KarateChopDescription
-	dw CometPunchDescription
-	dw MegaPunchDescription
-	dw PayDayDescription
-	dw FirePunchDescription
-	dw IcePunchDescription
-	dw ThunderpunchDescription
-	dw ScratchDescription
-	dw RazorWindDescription
-	dw SwordsDanceDescription
-	dw CutDescription
-	dw GustDescription
-	dw WingAttackDescription
-	dw FlyDescription
-	dw BindDescription
-	dw SlamDescription
-	dw VineWhipDescription
-	dw StompDescription
-	dw DoubleKickDescription
-	dw MegaKickDescription
-	dw RollingKickDescription
-	dw HeadbuttDescription
-	dw HornAttackDescription
-	dw FurySwipesDescription
-	dw BodySlamDescription
-	dw WrapDescription
-	dw TakeDownDescription
+MoveDescriptionsPart1:
+	; NORMAL
+	dw SelfdestructDescription
 	dw ThrashDescription
 	dw DoubleEdgeDescription
-	dw PoisonStingDescription
-	dw TwineedleDescription
-	dw PinMissileDescription
+	dw TakeDownDescription
+	dw BodySlamDescription
+	dw SlamDescription
+	dw HyperFangDescription
+	dw ExtremespeedDescription
+	dw HeadbuttDescription
+	dw SlashDescription
+	dw StompDescription
+	dw HornAttackDescription
+	dw PayDayDescription
+	dw ScratchDescription
+	dw QuickAttackDescription
+	dw FalseSwipeDescription
+	dw RageDescription
+	dw RapidSpinDescription
+	dw FurySwipesDescription
+	dw WrapDescription
+	dw SuperFangDescription
+	dw FlailDescription
+	dw ReturnDescription
+	dw PresentDescription
+	dw HyperBeamDescription
+	dw HyperVoiceDescription
+	dw TriAttackDescription
+	dw HiddenPowerDescription
+	dw SwiftDescription
+	dw SonicboomDescription
+	dw SwordsDanceDescription
 	dw LeerDescription
-	dw BiteDescription
 	dw GrowlDescription
 	dw RoarDescription
 	dw SingDescription
 	dw SupersonicDescription
-	dw SonicboomDescription
 	dw DisableDescription
-	dw AcidDescription
-	dw EmberDescription
-	dw FlamethrowerDescription
-	dw MistDescription
-	dw WaterGunDescription
-	dw HydroPumpDescription
-	dw SurfDescription
-	dw IceBeamDescription
-	dw BlizzardDescription
-	dw PsybeamDescription
-	dw BubblebeamDescription
-	dw AuroraBeamDescription
-	dw HyperBeamDescription
-	dw PeckDescription
-	dw DrillPeckDescription
-	dw SubmissionDescription
-	dw CounterDescription
-	dw SeismicTossDescription
-	dw StrengthDescription
-	dw AbsorbDescription
-	dw MegaDrainDescription
-	dw LeechSeedDescription
 	dw GrowthDescription
-	dw RazorLeafDescription
-	dw SolarbeamDescription
-	dw PoisonpowderDescription
-	dw StunSporeDescription
-	dw SleepPowderDescription
-	dw PetalDanceDescription
-	dw StringShotDescription
-	dw DragonRageDescription
-	dw FireSpinDescription
-	dw ThundershockDescription
-	dw ThunderboltDescription
-	dw ThunderWaveDescription
-	dw ThunderDescription
-	dw RockThrowDescription
-	dw EarthquakeDescription
-	dw DigDescription
-	dw ToxicDescription
-	dw ConfusionDescription
-	dw PsychicMDescription
-	dw HypnosisDescription
-	dw MeditateDescription
-	dw AgilityDescription
-	dw QuickAttackDescription
-	dw RageDescription
-	dw TeleportDescription
-	dw NightShadeDescription
 	dw MimicDescription
 	dw ScreechDescription
 	dw DoubleTeamDescription
@@ -102,182 +52,251 @@ MoveDescriptionsGen1:
 	dw HardenDescription
 	dw MinimizeDescription
 	dw SmokescreenDescription
-	dw ConfuseRayDescription
 	dw DefenseCurlDescription
-	dw BarrierDescription
-	dw LightScreenDescription
-	dw HazeDescription
-	dw ReflectDescription
 	dw FocusEnergyDescription
 	dw MetronomeDescription
-	dw MirrorMoveDescription
-	dw SelfdestructDescription
-	dw LickDescription
-	dw SludgeDescription
-	dw BoneClubDescription
-	dw FireBlastDescription
-	dw WaterfallDescription
-	dw ClampDescription
-	dw SwiftDescription
-	dw SkullBashDescription
-	dw SpikeCannonDescription
-	dw ConstrictDescription
-	dw AmnesiaDescription
 	dw SoftboiledDescription
-	dw HiJumpKickDescription
 	dw GlareDescription
-	dw DreamEaterDescription
-	dw LeechLifeDescription
 	dw LovelyKissDescription
-	dw SkyAttackDescription
 	dw TransformDescription
-	dw BubbleDescription
-	dw SporeDescription
 	dw FlashDescription
-	dw PsywaveDescription
 	dw SplashDescription
-	dw CrabhammerDescription
-	dw BonemerangDescription
-	dw RestDescription
-	dw RockSlideDescription
-	dw HyperFangDescription
 	dw ConversionDescription
-	dw TriAttackDescription
-	dw SuperFangDescription
-	dw SlashDescription
 	dw SubstituteDescription
-	dw StruggleDescription
-.IndirectEnd::
-
-MoveDescriptionsGen2:
 	dw SketchDescription
-	dw ThiefDescription
-	dw NightmareDescription
-	dw FlameWheelDescription
-	dw CurseDescription
-	dw FlailDescription
 	dw Conversion2Description
-	dw AeroblastDescription
-	dw ReversalDescription
-	dw SpiteDescription
-	dw PowderSnowDescription
 	dw ProtectDescription
-	dw MachPunchDescription
 	dw ScaryFaceDescription
-	dw FaintAttackDescription
-	dw SweetKissDescription
 	dw BellyDrumDescription
-	dw SludgeBombDescription
-	dw MudSlapDescription
-	dw OctazookaDescription
-	dw SpikesDescription
-	dw ZapCannonDescription
 	dw ForesightDescription
-	dw DestinyBondDescription
 	dw PerishSongDescription
-	dw IcyWindDescription
-	dw DetectDescription
 	dw LockOnDescription
-	dw OutrageDescription
-	dw SandstormDescription
-	dw GigaDrainDescription
 	dw EndureDescription
-	dw CharmDescription
-	dw RolloutDescription
-	dw FalseSwipeDescription
 	dw SwaggerDescription
-	dw SparkDescription
-	dw FuryCutterDescription
-	dw SteelWingDescription
 	dw MeanLookDescription
 	dw AttractDescription
 	dw SleepTalkDescription
 	dw HealBellDescription
-	dw ReturnDescription
-	dw PresentDescription
 	dw SafeguardDescription
 	dw PainSplitDescription
-	dw SacredFireDescription
-	dw MagnitudeDescription
-	dw DynamicpunchDescription
-	dw MegahornDescription
-	dw DragonbreathDescription
 	dw BatonPassDescription
 	dw EncoreDescription
-	dw PursuitDescription
-	dw RapidSpinDescription
 	dw SweetScentDescription
-	dw IronTailDescription
-	dw MetalClawDescription
-	dw VitalThrowDescription
 	dw MorningSunDescription
-	dw SynthesisDescription
-	dw MoonlightDescription
-	dw HiddenPowerDescription
-	dw CrossChopDescription
-	dw TwisterDescription
-	dw RainDanceDescription
-	dw SunnyDayDescription
-	dw CrunchDescription
-	dw MirrorCoatDescription
 	dw PsychUpDescription
-	dw ExtremespeedDescription
-	dw AncientpowerDescription
-	dw ShadowBallDescription
-	dw FutureSightDescription
-	dw RockSmashDescription
-	dw WhirlpoolDescription
-	dw MoonblastDescription
-	dw PlayRoughDescription
-	dw WillOWispDescription
-	dw SuddenChillDescription
-	dw HailDescription
-	dw DragonClawDescription
-	dw DragonPulseDescription
-	dw AerialAceDescription
-	dw AirSlashDescription
-	dw BraveBirdDescription
-	dw ShadowClawDescription
-	dw IronHeadDescription
-	dw FlashCannonDescription
-	dw BulletPunchDescription
-	dw StoneEdgeDescription
-	dw PowerGemDescription
-	dw RockBlastDescription
-	dw EarthPowerDescription
-	dw BulldozeDescription
-	dw IceShardDescription
-	dw IcicleCrashDescription
-	dw WildChargeDescription
-	dw ScaldDescription
-	dw AquaJetDescription
-	dw AquaTailDescription
-	dw WaterPulseDescription
-	dw EnergyBallDescription
-	dw SeedBombDescription
-	dw PowerWhipDescription
+	dw StruggleDescription
+	; FIGHTING
+	dw MegaKickDescription
+	dw DynamicpunchDescription
+	dw CrossChopDescription
+	dw HiJumpKickDescription
+	dw SubmissionDescription
+	dw StrengthDescription
 	dw DrainPunchDescription
-	dw FocusBlastDescription
-	dw XScissorDescription
-	dw BugBuzzDescription
-	dw DarkPulseDescription
-	dw NightSlashDescription
+	dw VitalThrowDescription
+	dw RollingKickDescription
+	dw KarateChopDescription
+	dw MachPunchDescription
+	dw DoubleKickDescription
+	dw CounterDescription
+	dw SeismicTossDescription
+	dw ReversalDescription
 	dw AuraSphereDescription
-	dw DazzlingGleamDescription
-	dw DisarmVoiceDescription
-	dw DrainKissDescription
-	dw ZenHeadbuttDescription
-	dw ExtrasensoryDescription
+	dw FocusBlastDescription
+	dw DetectDescription
+	; FLYING
+	dw SkyAttackDescription
+	dw BraveBirdDescription
+	dw DrillPeckDescription
+	dw FlyDescription
+	dw WingAttackDescription
+	dw AerialAceDescription
+	dw PeckDescription
+	dw HurricaneDescription
+	dw AirSlashDescription
+	dw GustDescription
+	dw RazorWindDescription
+	dw MirrorMoveDescription
+	; POISON
 	dw GunkShotDescription
 	dw PoisonJabDescription
-	dw HyperVoiceDescription
-	dw HurricaneDescription
-	dw SheerColdDescription
-	dw InnerLightDescription
+	dw PoisonStingDescription
+	dw SludgeBombDescription
+	dw SludgeDescription
+	dw AcidDescription
+	dw PoisonpowderDescription
+	dw ToxicDescription
+	; GROUND
 	dw EruptionDescription
-	dw StormCallDescription
+	dw EarthquakeDescription
+	dw BoneClubDescription
+	dw DigDescription
+	dw BulldozeDescription
+	dw BonemerangDescription
+	dw MagnitudeDescription
+	dw EarthPowerDescription
+	dw MudSlapDescription
+	dw SpikesDescription
+	; ROCK
+	dw StoneEdgeDescription
+	dw RockSlideDescription
+	dw RockThrowDescription
+	dw RolloutDescription
+	dw RockBlastDescription
+	dw PowerGemDescription
+	dw AncientpowerDescription
+	dw SandstormDescription
+	; BUG
+	dw MegahornDescription
+	dw XScissorDescription
+	dw LeechLifeDescription
+	dw CutDescription
+	dw TwineedleDescription
+	dw BindDescription
+	dw PinMissileDescription
+	dw FuryCutterDescription
+	dw BugBuzzDescription
+	dw StringShotDescription
+.IndirectEnd::
+
+MoveDescriptionsPart2:
+	; GHOST
+	dw ShadowClawDescription
+	dw LickDescription
+	dw DreamEaterDescription
+	dw ShadowBallDescription
+	dw NightShadeDescription
+	dw ConfuseRayDescription
+	dw NightmareDescription
+	dw SpiteDescription
+	dw DestinyBondDescription
+	; STEEL
+	dw SkullBashDescription
+	dw IronTailDescription
+	dw IronHeadDescription
+	dw SteelWingDescription
+	dw MetalClawDescription
+	dw RockSmashDescription
+	dw BulletPunchDescription
+	dw SpikeCannonDescription
+	dw ClampDescription
+	dw FlashCannonDescription
+	; CURSE_TYPE
+	dw CurseDescription
+	; FIRE
+	dw SacredFireDescription
+	dw FirePunchDescription
+	dw FlameWheelDescription
+	dw FireBlastDescription
+	dw FlamethrowerDescription
+	dw EmberDescription
+	dw FireSpinDescription
+	dw SunnyDayDescription
+	dw WillOWispDescription
+	; WATER
+	dw CrabhammerDescription
+	dw AquaTailDescription
+	dw WaterfallDescription
+	dw AquaJetDescription
+	dw HydroPumpDescription
+	dw SurfDescription
+	dw ScaldDescription
+	dw BubblebeamDescription
+	dw OctazookaDescription
+	dw WaterPulseDescription
+	dw WaterGunDescription
+	dw BubbleDescription
+	dw WhirlpoolDescription
+	dw RainDanceDescription
 	dw LifeDewDescription
+	; GRASS
+	dw PowerWhipDescription
+	dw SeedBombDescription
+	dw RazorLeafDescription
+	dw VineWhipDescription
+	dw ConstrictDescription
+	dw SolarbeamDescription
+	dw PetalDanceDescription
+	dw EnergyBallDescription
+	dw GigaDrainDescription
+	dw MegaDrainDescription
+	dw AbsorbDescription
+	dw LeechSeedDescription
+	dw StunSporeDescription
+	dw SleepPowderDescription
+	dw SporeDescription
+	dw SynthesisDescription
+	; ELECTRIC
+	dw WildChargeDescription
+	dw ThunderpunchDescription
+	dw SparkDescription
+	dw StormCallDescription
+	dw ThunderDescription
+	dw ZapCannonDescription
+	dw ThunderboltDescription
+	dw ThundershockDescription
+	dw ThunderWaveDescription
+	dw InnerLightDescription
+	; PSYCHIC_TYPE
+	dw ZenHeadbuttDescription
+	dw PsychicMDescription
+	dw FutureSightDescription
+	dw ExtrasensoryDescription
+	dw PsybeamDescription
+	dw ConfusionDescription
+	dw PsywaveDescription
+	dw MirrorCoatDescription
+	dw HypnosisDescription
+	dw MeditateDescription
+	dw AgilityDescription
+	dw TeleportDescription
+	dw BarrierDescription
+	dw LightScreenDescription
+	dw ReflectDescription
+	dw AmnesiaDescription
+	dw RestDescription
+	; ICE
+	dw IcicleCrashDescription
+	dw IcePunchDescription
+	dw IceShardDescription
+	dw BlizzardDescription
+	dw IceBeamDescription
+	dw AuroraBeamDescription
+	dw IcyWindDescription
+	dw PowderSnowDescription
+	dw SheerColdDescription
+	dw MistDescription
+	dw HazeDescription
+	dw SuddenChillDescription
+	dw HailDescription
+	; DRAGON
+	dw OutrageDescription
+	dw DragonClawDescription
+	dw AeroblastDescription
+	dw DragonPulseDescription
+	dw DragonbreathDescription
+	dw DragonRageDescription
+	dw TwisterDescription
+	; DARK
+	dw CrunchDescription
+	dw NightSlashDescription
+	dw BiteDescription
+	dw FaintAttackDescription
+	dw ThiefDescription
+	dw PursuitDescription
+	dw DarkPulseDescription
+	; FAIRY
 	dw FaeBladeDescription
+	dw PlayRoughDescription
+	dw MegaPunchDescription
+	dw CometPunchDescription
+	dw MoonblastDescription
+	dw DazzlingGleamDescription
+	dw DrainKissDescription
+	dw DisarmVoiceDescription
+	dw SweetKissDescription
+	dw CharmDescription
+	dw MoonlightDescription
 .IndirectEnd::
 
 InvalidMoveDescription:
