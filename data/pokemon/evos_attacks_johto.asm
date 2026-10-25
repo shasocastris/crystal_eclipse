@@ -348,7 +348,7 @@ HoothootEvosAttacks:
 	dbw 38, MIRROR_MOVE
 	dbw 41, TAKE_DOWN
 	dbw 44, HYPER_VOICE
-	dbw 47, SKY_ATTACK
+	dbw 47, DRILL_PECK
 	dbw 50, DREAM_EATER
 	db 0 ; no more level-up moves
 
@@ -370,7 +370,7 @@ NoctowlEvosAttacks:
 	dbw 45, MIRROR_MOVE
 	dbw 49, TAKE_DOWN
 	dbw 53, HYPER_VOICE
-	dbw 58, SKY_ATTACK
+	dbw 58, DRILL_PECK
 	dbw 63, DREAM_EATER
 	db 0 ; no more level-up moves
 
@@ -993,7 +993,6 @@ MurkrowEvosAttacks:
 	dbw 36, DRILL_PECK
 	dbw 41, THIEF
 	dbw 46, MIRROR_MOVE
-	dbw 51, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 SlowkingEvosAttacks:
@@ -1493,7 +1492,6 @@ SkarmoryEvosAttacks:
 	dbw 37, MUD_SLAP
 	dbw 43, IRON_HEAD
 	dbw 48, STEEL_WING
-	dbw 53, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 HoundourEvosAttacks:
@@ -1749,7 +1747,7 @@ BlisseyEvosAttacks:
 	dbw 48, METRONOME
 	dbw 53, DOUBLE_EDGE
 	dbw 58, DEFENSE_CURL
-	dbw 63, AURA_SPHERE
+	dbw 63, DAZZLING_GLEAM
 	dbw 68, HEAL_BELL
 	dbw 73, LIGHT_SCREEN
 	db 0 ; no more level-up moves
