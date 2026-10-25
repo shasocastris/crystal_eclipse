@@ -1,45 +1,23 @@
 BeastsCheck:
-; Return TRUE in wScriptVar if the player has met all three legendary beasts:
-; Suicune at Tin Tower, and Raikou and Entei once they stop roaming.
+; Return TRUE in wScriptVar if all three legendary beasts have taught their move.
+	xor a
+	ld [wScriptVar], a
 	ld de, EVENT_FOUGHT_SUICUNE
-	ld b, CHECK_FLAG
-	call EventFlagAction
-	jr z, BeastMetCheck.done
-	ld a, [wRoamMon1Species]
-	ld hl, wRoamMon2Species
-	or [hl]
-	jr BeastMetCheck.released
-
-BeastMetCheck:
-; Return TRUE in wScriptVar if the roaming beast in wScriptVar was released
-; and has stopped roaming (it taught its move, or an old save beat or caught it).
-	ld a, [wScriptVar]
-	ld hl, wRoamMon1Species
-	cp [hl]
-	jr z, .not_met
-	ld hl, wRoamMon2Species
-	cp [hl]
-	jr z, .not_met
-	xor a
-.released
-	push af
-	ld de, EVENT_RELEASED_THE_BEASTS
-	ld b, CHECK_FLAG
-	call EventFlagAction
-	pop bc
-	jr z, .done
-	ld a, b
-	add $ff ; carry if still roaming
-	sbc a
-	inc a
-	assert TRUE == 1
-	jr .done
-
-.not_met
-	xor a
-.done
+	call .CheckFlag
+	ret z
+	ld de, EVENT_FOUGHT_RAIKOU
+	call .CheckFlag
+	ret z
+	ld de, EVENT_FOUGHT_ENTEI
+	call .CheckFlag
+	ret z
+	ld a, TRUE
 	ld [wScriptVar], a
 	ret
+
+.CheckFlag:
+	ld b, CHECK_FLAG
+	jmp EventFlagAction
 
 MonCheck:
 ; Check if the player owns any Pokémon of the species in wScriptVar.

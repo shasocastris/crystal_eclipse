@@ -2,7 +2,7 @@
 	const DARKCAVEBLACKTHORNENTRANCE_PHARMACIST
 	const DARKCAVEBLACKTHORNENTRANCE_POKE_BALL1
 	const DARKCAVEBLACKTHORNENTRANCE_POKE_BALL2
-	const DARKCAVEBLACKTHORNENTRANCE_MEW
+	const DARKCAVEBLACKTHORNENTRANCE_ENTEI
 	const DARKCAVEBLACKTHORNENTRANCE_BLACKBELT
 	const DARKCAVEBLACKTHORNENTRANCE_SUPER_NERD
 
@@ -10,40 +10,40 @@ DarkCaveBlackthornEntrance_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, DarkCaveMewCallback
+	callback MAPCALLBACK_OBJECTS, DarkCaveEnteiCallback
 
-DarkCaveMewCallback:
-	checkevent EVENT_FOUGHT_MEW
+DarkCaveEnteiCallback:
+	checkevent EVENT_FOUGHT_ENTEI
 	iftrue .NoAppear
-	checkevent EVENT_BEAT_ELITE_FOUR_REMATCH
+	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .Appear
 	sjump .NoAppear
 
 .Appear:
-	appear DARKCAVEBLACKTHORNENTRANCE_MEW
+	appear DARKCAVEBLACKTHORNENTRANCE_ENTEI
 	endcallback
 
 .NoAppear:
-	disappear DARKCAVEBLACKTHORNENTRANCE_MEW
+	disappear DARKCAVEBLACKTHORNENTRANCE_ENTEI
 	endcallback
 
-Mew:
+Entei:
 	faceplayer
 	opentext
-	writetext MewText
-	cry MEW
+	writetext EnteiText
+	cry ENTEI
 	pause 15
 	closetext
-	loadmonindex 0, MEW
+	loadmonindex 0, ENTEI
 	callstd DeityTutorScript
 	iftrue .Stay
-	setevent EVENT_FOUGHT_MEW
-	disappear DARKCAVEBLACKTHORNENTRANCE_MEW
+	setevent EVENT_FOUGHT_ENTEI
+	disappear DARKCAVEBLACKTHORNENTRANCE_ENTEI
 .Stay:
 	end
 
-MewText:
-	text "Mew!"
+EnteiText:
+	text "Grroooar!"
 	done
 
 DarkCaveBlackthornEntrancePharmacistScript:
@@ -200,6 +200,6 @@ DarkCaveBlackthornEntrance_MapEvents:
 	object_event  7,  3, SPRITE_PHARMACIST, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DarkCaveBlackthornEntrancePharmacistScript, -1
 	object_event 21, 24, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, DarkCaveBlackthornEntranceRevive, EVENT_DARK_CAVE_BLACKTHORN_ENTRANCE_REVIVE
 	object_event  7, 22, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, DarkCaveBlackthornEntranceMistStone, EVENT_DARK_CAVE_BLACKTHORN_ENTRANCE_MIST_STONE
-	object_event 15, 10, SPRITE_MEW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Mew, EVENT_DARK_CAVE_MEW
+	object_event 15, 10, SPRITE_ENTEI, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Entei, EVENT_DARK_CAVE_ENTEI
 	object_event 22, 21, SPRITE_BLACK_BELT, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerBlackbeltDomun, -1
 	object_event  8, 13, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSuperNerdDave, -1

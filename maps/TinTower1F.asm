@@ -53,8 +53,7 @@ TinTower1FNPCsCallback:
 	checkevent EVENT_FOUGHT_SUICUNE
 	iftrue .FoughtSuicune
 	appear TINTOWER1F_SUICUNE
-	loadmonindex 0, RAIKOU
-	special BeastMetCheck
+	checkevent EVENT_FOUGHT_RAIKOU
 	iftrue .NoRaikou
 	appear TINTOWER1F_RAIKOU
 	sjump .CheckEntei
@@ -62,8 +61,7 @@ TinTower1FNPCsCallback:
 .NoRaikou:
 	disappear TINTOWER1F_RAIKOU
 .CheckEntei:
-	loadmonindex 0, ENTEI
-	special BeastMetCheck
+	checkevent EVENT_FOUGHT_ENTEI
 	iftrue .NoEntei
 	appear TINTOWER1F_ENTEI
 	sjump .BeastsDone
@@ -91,8 +89,7 @@ TinTower1FStairsCallback:
 TinTower1FSuicuneBattleScript:
 	applymovement PLAYER, TinTower1FPlayerEntersMovement
 	pause 15
-	loadmonindex 0, RAIKOU
-	special BeastMetCheck
+	checkevent EVENT_FOUGHT_RAIKOU
 	iftrue .Next1 ; a beast that already taught its move stays away
 	applymovement TINTOWER1F_RAIKOU, TinTower1FRaikouApproachesMovement
 	turnobject PLAYER, LEFT
@@ -104,8 +101,7 @@ TinTower1FSuicuneBattleScript:
 	playsound SFX_EXIT_BUILDING
 	waitsfx
 .Next1:
-	loadmonindex 0, ENTEI
-	special BeastMetCheck
+	checkevent EVENT_FOUGHT_ENTEI
 	iftrue .Next2
 	applymovement TINTOWER1F_ENTEI, TinTower1FEnteiApproachesMovement
 	turnobject PLAYER, RIGHT

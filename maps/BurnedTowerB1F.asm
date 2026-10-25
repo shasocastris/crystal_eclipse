@@ -8,6 +8,7 @@
 	const BURNEDTOWERB1F_SUICUNE2
 	const BURNEDTOWERB1F_POKE_BALL
 	const BURNEDTOWERB1F_KAREN
+	const BURNEDTOWERB1F_RAIKOU
 
 BurnedTowerB1F_MapScripts:
 	def_scene_scripts
@@ -16,6 +17,7 @@ BurnedTowerB1F_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_TILES, BurnedTowerB1FLadderCallback
+	callback MAPCALLBACK_OBJECTS, BurnedTowerB1FRaikouCallback
 
 BurnedTowerB1FNoop1Scene:
 	end
@@ -29,6 +31,38 @@ BurnedTowerB1FLadderCallback:
 	changeblock 6, 14, $02 ; floor
 .HideLadder:
 	endcallback
+
+BurnedTowerB1FRaikouCallback:
+	checkevent EVENT_FOUGHT_RAIKOU
+	iftrue .NoAppear
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .Appear
+.NoAppear:
+	disappear BURNEDTOWERB1F_RAIKOU
+	endcallback
+
+.Appear:
+	appear BURNEDTOWERB1F_RAIKOU
+	endcallback
+
+BurnedTowerB1FRaikou:
+	faceplayer
+	opentext
+	writetext BurnedTowerB1FRaikouText
+	cry RAIKOU
+	pause 15
+	closetext
+	loadmonindex 0, RAIKOU
+	callstd DeityTutorScript
+	iftrue .Stay
+	setevent EVENT_FOUGHT_RAIKOU
+	disappear BURNEDTOWERB1F_RAIKOU
+.Stay:
+	end
+
+BurnedTowerB1FRaikouText:
+	text "Gyaroooh!"
+	done
 
 ReleaseTheBeasts:
 	playmusic MUSIC_NONE
@@ -81,7 +115,6 @@ ReleaseTheBeasts:
 	special RestartMapMusic
 	setscene SCENE_BURNEDTOWERB1F_NOOP
 	setevent EVENT_RELEASED_THE_BEASTS
-	special InitRoamMons
 	setmapscene ECRUTEAK_GYM, SCENE_ECRUTEAKGYM_NOOP
 	setmapscene CIANWOOD_CITY, SCENE_CIANWOODCITY_SUICUNE_AND_KAREN
 	clearevent EVENT_SAW_SUICUNE_AT_CIANWOOD_CITY
@@ -237,3 +270,4 @@ BurnedTowerB1F_MapEvents:
 	object_event 10,  4, SPRITE_SUICUNE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_BURNED_TOWER_B1F_BEASTS_2
 	object_event 16,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, BurnedTowerB1FTMEndure, EVENT_BURNED_TOWER_B1F_TM_ENDURE
 	object_event 10, 12, SPRITE_KAREN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BurnedTowerB1FKaren, EVENT_KAREN_IN_BURNED_TOWER
+	object_event  7,  3, SPRITE_RAIKOU, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, BurnedTowerB1FRaikou, EVENT_BURNED_TOWER_B1F_RAIKOU
