@@ -298,6 +298,14 @@ DEF NUM_DECODESCS EQU const_value
 	const DEITYTUTOR_KNOWS     ; 4
 	const DEITYTUTOR_DECLINED  ; 5
 
+; PerfectMonSelect return values
+	const_def
+	const PERFECTMON_CANCEL  ; 0
+	const PERFECTMON_EGG     ; 1
+	const PERFECTMON_UNOWN   ; 2
+	const PERFECTMON_ALREADY ; 3
+	const PERFECTMON_OK      ; 4
+
 ; CheckPartyFullAfterContest return values
 	const_def
 	const BUGCONTEST_CAUGHT_MON ; 0

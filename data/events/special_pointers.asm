@@ -137,3 +137,5 @@ SpecialsPointers::
 	add_special MoveReminding
 
 	add_special FadeInPalettes_EnableDynNoApply
+	add_special PerfectMonSelect
+	add_special PerfectMonApply

@@ -488,6 +488,7 @@ INCLUDE "engine/tilesets/tileset_anims.asm"
 INCLUDE "engine/events/npc_trade.asm"
 INCLUDE "engine/events/mom_phone.asm"
 INCLUDE "engine/events/safari_move_tutor.asm"
+INCLUDE "engine/events/perfect_mon.asm"
 INCLUDE "engine/events/quick_save.asm"
 
 

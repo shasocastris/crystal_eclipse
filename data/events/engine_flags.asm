@@ -127,7 +127,7 @@ EngineFlags:
 	engine_flag wDailyFlags3, DAILYFLAGS3_MYSTERY_GIFT_F
 	engine_flag wDailyFlags3, DAILYFLAGS3_CIANWOOD_PHOTOGRAPH_F
 	engine_flag wDailyFlags3, DAILYFLAGS3_OLIVINE_RESTAURANT_F
-	engine_flag wDailyFlags3, DAILYFLAGS3_UNUSED_FLAG_3
+	engine_flag wDailyFlags3, DAILYFLAGS3_PERFECT_MON_COACH_F
 	engine_flag wDailyFlags3, DAILYFLAGS3_UNUSED_FLAG_4
 	engine_flag wDailyFlags3, DAILYFLAGS3_UNUSED_FLAG_5
 	engine_flag wDailyFlags3, DAILYFLAGS3_UNUSED_FLAG_6

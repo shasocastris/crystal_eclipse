@@ -390,7 +390,7 @@ DEF CELEBIEVENT_FOREST_IS_RESTLESS_F EQU 2
 	const DAILYFLAGS3_MYSTERY_GIFT_F                      ; 0
 	const DAILYFLAGS3_CIANWOOD_PHOTOGRAPH_F               ; 1
 	const DAILYFLAGS3_OLIVINE_RESTAURANT_F                ; 2
-	const DAILYFLAGS3_UNUSED_FLAG_3                       ; 3
+	const DAILYFLAGS3_PERFECT_MON_COACH_F                 ; 3
 	const DAILYFLAGS3_UNUSED_FLAG_4                       ; 4
 	const DAILYFLAGS3_UNUSED_FLAG_5                       ; 5
 	const DAILYFLAGS3_UNUSED_FLAG_6                       ; 6
