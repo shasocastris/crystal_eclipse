@@ -283,34 +283,17 @@ ResetBattleTowerTrainersSRAM:
 	jmp CloseSRAM
 
 BattleTower_GiveReward:
+; sBattleTowerReward holds an offset from HP_UP, not an item ID: IDs don't survive in SRAM.
+	assert CARBOS == HP_UP + 3 && LOW(CARBOS) > LOW(HP_UP)
 	ld a, BANK(sBattleTowerReward)
 	call OpenSRAM
-
 	ld a, [sBattleTowerReward]
 	call CloseSRAM
-	ld [wScriptVar], a
-	ld hl, wNumItems
-	ld a, [hli]
-	cp MAX_ITEMS
-	ret c
-	ld b, MAX_ITEMS
-	ld a, [wScriptVar]
-	ld c, a
-.loop
-	ld a, [hli]
-	cp c
-	jr nz, .next
-	ld a, [hl]
-	cp 95
-	ret c
-.next
-	inc hl
-	dec b
-	jr nz, .loop
-	push hl
-	ld hl, POTION
+	and %11
+	add LOW(HP_UP)
+	ld l, a
+	ld h, HIGH(HP_UP)
 	call GetItemIDFromIndex
-	pop hl
 	ld [wScriptVar], a
 	ret
 
@@ -332,16 +315,9 @@ BattleTower_SaveOptions:
 	farjp SaveOptions
 
 BattleTower_RandomlyChooseReward:
-; Generate a random stat boosting item.
-	ld a, 4
+; Pick a random stat boosting item, stored as an offset from HP_UP.
+	ld a, CARBOS - HP_UP + 1
 	call RandomRange
-	push bc
-	ld hl, HP_UP
-	ld b, 0
-	ld c, a
-	add hl, bc
-	pop bc
-	call GetItemIDFromIndex
 	push af
 	ld a, BANK(sBattleTowerReward)
 	call OpenSRAM

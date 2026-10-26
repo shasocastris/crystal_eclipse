@@ -142,15 +142,6 @@ ItemTableGarbageCollection:
 	pop af
 	ldh [rSVBK], a
 
-	ldh a, [hSRAMBank]
-	push af
-	ld a, BANK(sBattleTowerReward)
-	call OpenSRAM
-	___conversion_bitmap_check_values .set_bit, \
-		sBattleTowerReward
-	pop af
-	call OpenSRAM
-
 	pop de
 	ret
 
