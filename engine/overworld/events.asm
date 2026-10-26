@@ -975,14 +975,13 @@ WarpToNewMapScript:
 	end
 
 MaybeRestoreSurfState:
-	ld a, [wWarpedWhileSurfing]
+	ld hl, wWaterWarpState
+	ld a, [hl]
 	and a
-	ret z                        ; not a surf warp, do nothing
-	xor a
-	ld [wWarpedWhileSurfing], a  ; clear the flag immediately
-	ld a, [wSurfingPlayerState]  ; PLAYER_SURF or PLAYER_SURF_PIKA, set when surf started
+	ret z ; not a water warp
+	ld [hl], 0
 	ld [wPlayerState], a
-	jmp UpdatePlayerSprite       ; update sprite to surfing form, then ret via jp
+	jmp UpdatePlayerSprite
 
 FallIntoMapScript:
 	newloadmap MAPSETUP_FALL

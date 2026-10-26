@@ -450,24 +450,6 @@ endc
 	jr nz, .not_warp
 
 .matched_edge_warp
-	; Set flag based on tile type only — no second write needed
-	ld a, [wPlayerTileCollision]
-	cp COLL_WARP_SURF_DOWN
-	jr z, .set_surf_warp_flag
-	cp COLL_WARP_SURF_UP
-	jr z, .set_surf_warp_flag
-	cp COLL_WARP_SURF_LEFT
-	jr z, .set_surf_warp_flag
-	cp COLL_WARP_SURF_RIGHT
-	jr nz, .clear_surf_warp_flag
-.set_surf_warp_flag
-	ld a, TRUE
-	ld [wWarpedWhileSurfing], a
-	jr .check_warp_direction
-.clear_surf_warp_flag
-	xor a
-	ld [wWarpedWhileSurfing], a
-.check_warp_direction
 	ld a, TRUE
 	ld [wWalkingIntoEdgeWarp], a
 	ld a, [wWalkingDirection]
@@ -482,6 +464,8 @@ endc
 	call WarpCheck
 	jr nc, .not_warp
 
+	call .WaterWarpState
+	ld [wWaterWarpState], a
 	call .StandInPlace
 	scf
 	ld a, PLAYERMOVEMENT_WARP
@@ -489,6 +473,24 @@ endc
 
 .not_warp
 	xor a ; PLAYERMOVEMENT_NORMAL
+	ret
+
+.WaterWarpState:
+; a = wPlayerState on a water warp tile, else 0
+	ld a, [wPlayerTileCollision]
+	cp COLL_WARP_SURF_DOWN
+	jr z, .water_warp
+	cp COLL_WARP_SURF_UP
+	jr z, .water_warp
+	cp COLL_WARP_SURF_LEFT
+	jr z, .water_warp
+	cp COLL_WARP_SURF_RIGHT
+	jr z, .water_warp
+	xor a
+	ret
+
+.water_warp
+	ld a, [wPlayerState]
 	ret
 
 .EdgeWarps:

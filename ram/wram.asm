@@ -1422,6 +1422,9 @@ wMapWeather:: db
 ; The season vTiles2 was last built for, latched by _LoadTilesetGFX2. WRAM0 for
 ; the same reason as wMapWeather: WRAMX bank 1 holds the saved block.
 wOldSeason:: db
+; The player state to restore after a water warp, 0 if none. Outside every union:
+; scratch bytes were stale when the next door warp read them.
+wWaterWarpState:: db
 
 
 SECTION "16-bit WRAM home data", WRAM0
@@ -1788,7 +1791,7 @@ wFacingDirection:: db
 wWalkingX:: db
 wWalkingY:: db
 wWalkingTileCollision:: db
-wWarpedWhileSurfing:: db
+	ds 1 ; was wWarpedWhileSurfing, now wWaterWarpState
 	ds 5 ; was wWalkingOnBridge + ds 4; the bridge scene byte is the only state needed
 wPlayerTurningDirection:: db
 
