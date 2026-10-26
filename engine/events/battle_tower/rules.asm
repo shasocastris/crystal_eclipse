@@ -153,34 +153,24 @@ CheckBTRule_PartySpeciesAreUnique:
 	ld hl, wPartyMon1Species
 ; fallthrough
 CheckPartyValueIsUnique:
-	ld de, wPartyCount
-	ld a, [de]
-	inc de
+	ld a, [wPartyCount]
 	dec a
 	jr z, .done
 	ld b, a
 .loop
 	push hl
-	push de
 	ld c, b
-	call .isegg
-	jr z, .next
 	ld a, [hl]
 	and a
 	jr z, .next
 .loop2
 	call .nextmon
-	call .isegg
-	jr z, .next2
 	cp [hl]
 	jr z, .gotcha
-
-.next2
 	dec c
 	jr nz, .loop2
 
 .next
-	pop de
 	pop hl
 	call .nextmon
 	dec b
@@ -191,7 +181,6 @@ CheckPartyValueIsUnique:
 	ret
 
 .gotcha
-	pop de
 	pop hl
 	scf
 	ret
@@ -200,12 +189,7 @@ CheckPartyValueIsUnique:
 	push bc
 	ld bc, PARTYMON_STRUCT_LENGTH
 	add hl, bc
-	inc de
 	pop bc
-	ret
-
-.isegg
-	or 1
 	ret
 
 CheckBTRule_PartyItemsAreUnique:
