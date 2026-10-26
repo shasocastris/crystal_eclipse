@@ -167,7 +167,10 @@ TinTower1FSuicuneScript:
 	special FadeOutMusic
 	pause 20
 	playmapmusic
+	end
+
 .Stay:
+	setscene SCENE_TINTOWER1F_NOOP
 	end
 
 TinTower1FSage1Script:
