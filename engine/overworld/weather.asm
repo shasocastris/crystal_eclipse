@@ -132,6 +132,7 @@ DoOverworldWeather::
 	dw DoOverworldSandstorm
 	dw DoOverworldCherryBlossoms
 	dw DoNothing ; sun is palette only
+	dw DoNothing ; overcast is palette only
 	assert_table_length NUM_OW_WEATHERS + 1
 
 .on_cooldown
@@ -155,6 +156,7 @@ DoOverworldWeather::
 	dw DoSandFall
 	dw DoCherryBlossomFall
 	dw DoNothing ; sun
+	dw DoNothing ; overcast
 	assert_table_length NUM_OW_WEATHERS + 1
 
 SetWeatherMenuClip::
@@ -323,6 +325,8 @@ SetWeatherOAMReservation:
 	jr z, .release
 	cp OW_WEATHER_SUN
 	jr z, .release ; no particles to hold room for
+	cp OW_WEATHER_OVERCAST
+	jr z, .release
 .reserve
 	ld hl, wStateFlags
 	bit FIRST_12_SPRITE_OAM_STRUCTS_RESERVED_F, [hl]
@@ -376,6 +380,7 @@ SpawnRandomWeatherCoords::
 	dw .sand
 	dw DoNothing ; cherry blossoms' starting positions are nonrandom
 	dw DoNothing ; sun
+	dw DoNothing ; overcast
 	assert_table_length NUM_OW_WEATHERS
 
 .sand
@@ -1763,6 +1768,7 @@ WeatherDimming:
 	weather_dim 6, 20, 17, 12 ; OW_WEATHER_SANDSTORM, a warm haze rather than cool
 	weather_dim 8,  0,  0,  0 ; OW_WEATHER_CHERRY_BLOSSOMS, a clear spring day
 	weather_dim 8,  0,  0,  0 ; OW_WEATHER_SUN, brightened by SunPals instead
+	weather_dim 6, 14, 15, 18 ; OW_WEATHER_OVERCAST, grey but lighter than rain
 	assert_table_length NUM_OW_WEATHERS + 1
 
 LoadWeatherGraphics::

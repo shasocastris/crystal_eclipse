@@ -56,11 +56,22 @@ VermilionPortSailorAtGangwayScript:
 	opentext
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	iftrue VermilionPortAlreadyRodeScript
-; Both approach paths sjump here after the ticket check, so asking once here
-; covers the sailor, the coord event and talking to the gangway directly.
+; The ORANGE PASS sails the express any day. Only a player who could also take
+; the S.S.AQUA today is asked which.
+	checkitem ORANGE_PASS
+	iffalse .BoardAqua
+	checkitem S_S_TICKET
+	iffalse VermilionPortValenciaExpressScript
+	readvar VAR_WEEKDAY
+	ifequal WEDNESDAY, .AskExpress
+	ifequal SUNDAY, .AskExpress
+	sjump VermilionPortValenciaExpressScript
+
+.AskExpress:
 	writetext VermilionPortAskExpressText
 	yesorno
 	iftrue VermilionPortValenciaExpressScript
+.BoardAqua:
 	writetext VermilionPortDepartingText
 	waitbutton
 	closetext
@@ -127,6 +138,8 @@ VermilionPortWalkUpToShipScript:
 	iftrue .skip
 	turnobject PLAYER, LEFT
 	opentext
+	checkitem ORANGE_PASS
+	iftrue .OrangePass
 	readvar VAR_WEEKDAY
 	ifequal MONDAY, .NextShipWednesday
 	ifequal TUESDAY, .NextShipWednesday
@@ -141,11 +154,19 @@ VermilionPortWalkUpToShipScript:
 	checkitem S_S_TICKET
 	iffalse .NoTicket
 	writetext VermilionPortSSTicketText
+.Board:
 	waitbutton
 	closetext
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
 	applymovement PLAYER, VermilionPortApproachFastShipMovement
 	sjump VermilionPortSailorAtGangwayScript
+
+.OrangePass:
+	writetext VermilionPortAskBoardingText
+	yesorno
+	iffalse VermilionPortNotRidingMoveAwayScript
+	writetext VermilionPortOrangePassText
+	sjump .Board
 
 .NoTicket:
 	writetext VermilionPortNoTicketText
@@ -189,6 +210,8 @@ VermilionPortSailorScript:
 	opentext
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	iftrue VermilionPortAlreadyRodeScript
+	checkitem ORANGE_PASS
+	iftrue .OrangePass
 	readvar VAR_WEEKDAY
 	ifequal MONDAY, .NextShipWednesday
 	ifequal TUESDAY, .NextShipWednesday
@@ -203,11 +226,19 @@ VermilionPortSailorScript:
 	checkitem S_S_TICKET
 	iffalse .NoTicket
 	writetext VermilionPortSSTicketText
+.Board:
 	waitbutton
 	closetext
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
 	applymovement PLAYER, VermilionPortApproachFastShipRightMovement
 	sjump VermilionPortSailorAtGangwayScript
+
+.OrangePass:
+	writetext VermilionPortAskBoardingText
+	yesorno
+	iffalse VermilionPortNotRidingScript
+	writetext VermilionPortOrangePassText
+	sjump .Board
 
 .NoTicket:
 	writetext VermilionPortNoTicketText
@@ -320,6 +351,14 @@ VermilionPortComeAgainText:
 VermilionPortSSTicketText:
 	text "<PLAYER> flashed"
 	line "the S.S.TICKET."
+
+	para "That's it."
+	line "Thank you!"
+	done
+
+VermilionPortOrangePassText:
+	text "<PLAYER> flashed"
+	line "the ORANGE PASS."
 
 	para "That's it."
 	line "Thank you!"

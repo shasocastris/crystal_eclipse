@@ -63,10 +63,51 @@ Oak:
 	sjump .CheckPokedex
 
 OaksAssistant1Script:
-	jumptextfaceplayer OaksAssistant1Text
+	faceplayer
+	opentext
+	checkitem ORANGE_PASS
+	iftrue .GotPass
+	writetext OaksAssistant1OrangePassText
+	promptbutton
+	verbosegiveitem ORANGE_PASS
+	iffalse .NoRoom
+.GotPass:
+	writetext OaksAssistant1ExpressText
+	waitbutton
+.NoRoom:
+	closetext
+	end
 
 OaksAssistant2Script:
-	jumptextfaceplayer OaksAssistant2Text
+	faceplayer
+	opentext
+	checkflag ENGINE_WEATHER_MAP
+	iftrue .GotUpgrade
+	checkflag ENGINE_MAP_CARD
+	iffalse .NoMapCard
+	writetext OaksAssistant2UpgradeText
+	promptbutton
+	getstring STRING_BUFFER_4, .WeatherMapName
+	scall .ReceiveItem
+	setflag ENGINE_WEATHER_MAP
+.GotUpgrade:
+	writetext OaksAssistant2WeatherMapText
+	waitbutton
+	closetext
+	end
+
+.NoMapCard:
+	writetext OaksAssistant2Text
+	waitbutton
+	closetext
+	end
+
+.ReceiveItem:
+	jumpstd ReceiveItemScript
+	end
+
+.WeatherMapName:
+	db "WEATHER MAP@"
 
 OaksAssistant3Script:
 	jumptextfaceplayer OaksAssistant3Text
@@ -253,6 +294,44 @@ OaksAssistant1Text:
 
 	para "It's a shame--I'd"
 	line "like to hear it."
+	done
+
+OaksAssistant1OrangePassText:
+	text "The PROF is study-"
+	line "ing #MON on the"
+	cont "ORANGE ISLANDS."
+
+	para "He'd like you to"
+	line "see them, too."
+	cont "Here, take this!"
+	done
+
+OaksAssistant1ExpressText:
+	text "Show the ORANGE"
+	line "PASS at VERMILION"
+	cont "PORT."
+
+	para "The express to"
+	line "VALENCIA ISLAND"
+	cont "sails every day."
+	done
+
+OaksAssistant2UpgradeText:
+	text "I study the way"
+	line "weather moves over"
+	cont "KANTO and JOHTO."
+
+	para "Let me add my"
+	line "data to your MAP"
+	cont "CARD."
+	done
+
+OaksAssistant2WeatherMapText:
+	text "Your #GEAR MAP"
+	line "now shows today's"
+
+	para "weather wherever"
+	line "you point it."
 	done
 
 OaksAssistant2Text:

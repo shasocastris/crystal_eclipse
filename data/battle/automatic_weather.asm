@@ -39,6 +39,7 @@ OverworldBattleWeather:
 	db AUTOMATIC_SANDSTORM ; OW_WEATHER_SANDSTORM
 	db 0                   ; OW_WEATHER_CHERRY_BLOSSOMS
 	db AUTOMATIC_SUN       ; OW_WEATHER_SUN, by day only
+	db 0                   ; OW_WEATHER_OVERCAST, overworld only
 	assert_table_length NUM_OW_WEATHERS + 1
 
 AutomaticWeatherEffects:

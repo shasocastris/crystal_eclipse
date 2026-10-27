@@ -16,6 +16,7 @@ LoadWeatherPal::
 	dw .sand
 	dw .cherry
 	dw DoNothing ; sun has no particles
+	dw DoNothing ; overcast has no particles
 	assert_table_length NUM_OW_WEATHERS
 
 .rain

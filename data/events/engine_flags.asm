@@ -36,7 +36,7 @@ EngineFlags:
 	engine_flag wStatusFlags2, STATUSFLAGS2_SAFARI_GAME_F
 	engine_flag wStatusFlags2, STATUSFLAGS2_ROCKETS_IN_RADIO_TOWER_F
 	engine_flag wStatusFlags2, STATUSFLAGS2_BIKE_SHOP_CALL_F
-	engine_flag wStatusFlags2, STATUSFLAGS2_UNUSED_5_F
+	engine_flag wStatusFlags2, STATUSFLAGS2_CROSS_REGION_FLY_F
 	engine_flag wStatusFlags2, STATUSFLAGS2_REACHED_GOLDENROD_F
 	engine_flag wStatusFlags2, STATUSFLAGS2_ROCKETS_IN_MAHOGANY_F
 
@@ -220,5 +220,6 @@ EngineFlags:
 	engine_flag wSeasonalFlags, SEASONALFLAGS_UNUSED_FLAG_7
 	engine_flag wVisitedSpawns, SPAWN_VALENCIA
 	engine_flag wVisitedSpawns, SPAWN_SHAMOUTI
+	engine_flag wPokegearFlags, POKEGEAR_WEATHER_MAP_F
 
 	assert_table_length NUM_ENGINE_FLAGS

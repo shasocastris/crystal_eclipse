@@ -71,19 +71,19 @@ ValenciaPortWalkUpToShipScript:
 	writetext ValenciaPortAskBoardingText
 	yesorno
 	iffalse ValenciaPortNotRidingMoveAwayScript
-	writetext ValenciaPortAskTicketText
+	writetext ValenciaPortAskPassText
 	promptbutton
-	checkitem S_S_TICKET
-	iffalse .NoTicket
-	writetext ValenciaPortSSTicketText
+	checkitem ORANGE_PASS
+	iffalse .NoPass
+	writetext ValenciaPortOrangePassText
 	waitbutton
 	closetext
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
 	applymovement PLAYER, ValenciaPortApproachFastShipMovement
 	sjump ValenciaPortSailorAtGangwayScript
 
-.NoTicket:
-	writetext ValenciaPortNoTicketText
+.NoPass:
+	writetext ValenciaPortNoPassText
 	waitbutton
 	closetext
 	applymovement PLAYER, ValenciaPortCannotEnterFastShipMovement
@@ -113,19 +113,19 @@ ValenciaPortSailorScript:
 	writetext ValenciaPortAskBoardingText
 	yesorno
 	iffalse ValenciaPortNotRidingScript
-	writetext ValenciaPortAskTicketText
+	writetext ValenciaPortAskPassText
 	promptbutton
-	checkitem S_S_TICKET
-	iffalse .NoTicket
-	writetext ValenciaPortSSTicketText
+	checkitem ORANGE_PASS
+	iffalse .NoPass
+	writetext ValenciaPortOrangePassText
 	waitbutton
 	closetext
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
 	applymovement PLAYER, ValenciaPortApproachFastShipRightMovement
 	sjump ValenciaPortSailorAtGangwayScript
 
-.NoTicket:
-	writetext ValenciaPortNoTicketText
+.NoPass:
+	writetext ValenciaPortNoPassText
 	waitbutton
 	closetext
 	end
@@ -188,9 +188,9 @@ ValenciaPortAskBoardingText:
 	line "ing today?"
 	done
 
-ValenciaPortAskTicketText:
+ValenciaPortAskPassText:
 	text "May I see your"
-	line "S.S.TICKET?"
+	line "ORANGE PASS?"
 	done
 
 ValenciaPortComeAgainText:
@@ -198,26 +198,26 @@ ValenciaPortComeAgainText:
 	line "again!"
 	done
 
-ValenciaPortSSTicketText:
+ValenciaPortOrangePassText:
 	text "<PLAYER> flashed"
-	line "the S.S.TICKET."
+	line "the ORANGE PASS."
 
 	para "That's it."
 	line "Thank you!"
 	done
 
-ValenciaPortNoTicketText:
+ValenciaPortNoPassText:
 	text "<PLAYER> tried to"
-	line "show the S.S."
-	cont "TICKET…"
+	line "show the ORANGE"
+	cont "PASS…"
 
-	para "…But no TICKET!"
+	para "…But no PASS!"
 
 	para "Sorry!"
 	line "You may board only"
 
 	para "if you have an"
-	line "S.S.TICKET."
+	line "ORANGE PASS."
 	done
 
 ValenciaPortSuperNerdText:

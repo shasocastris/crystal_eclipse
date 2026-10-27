@@ -1,5 +1,6 @@
 GetOvercastWeather::
-; Today's weather for the map that was just loaded, in a, or OW_WEATHER_NONE.
+; Today's rolled weather for a map, in a, or OW_WEATHER_NONE.
+; b = map group, c = map number, d = environment, e = region
 ;
 ; The source stores four chosen (intensity, group, map) triples, a day, and a
 ; live intensity -- fourteen saved bytes. M0 reserved six. So rather than store
@@ -8,43 +9,56 @@ GetOvercastWeather::
 ; is stable for the whole day, identical after a reload, and independent between
 ; maps -- and it needs no per-map table at all, which suits a project that spent
 ; M3 and M4 getting away from hardcoded map ids.
-	ld a, [wEnvironment]
+	ld a, d
 	call CheckOutdoorMap
 	jr nz, .none
 
 	; As in the source, no weather before the player has any context for it.
+	push bc
+	push de
 	ld de, EVENT_AZALEA_TOWN_SLOWPOKES
 	ld b, CHECK_FLAG
 	call EventFlagAction
 	ld a, c
+	pop de
+	pop bc
 	and a
 	jr z, .none
 
 	call .ReseedIfNewDay
 
-	; Winter snows on some maps each day and leaves the rest clear over the
-	; snowy tiles. Not the Orange Islands -- they have their own table rows.
-	ld a, [wCurRegion]
-	cp ORANGE_REGION
-	jr z, .roll
+	; From here d is the row of the season tables: the season, or the season
+	; + NUM_SEASONS in the Orange Islands, whose rows follow the mainland's.
 	ld a, [wSeason]
 	maskbits NUM_SEASONS
+	ld d, a
+	ld a, e
+	cp ORANGE_REGION
+	jr z, .orange
+
+	; Winter snows on some maps each day and leaves the rest clear over the
+	; snowy tiles. Not the Orange Islands -- they have their own table rows.
+	ld a, d
 	cp WINTER_F
 	jr nz, .roll
 	call .HashForThisMap
+	ld b, a
 	cp OVERCAST_SNOW_CHANCE
-	jr nc, .none
+	jr nc, .dry
 	ld a, OW_WEATHER_SNOW
 	ret
 
+.orange
+	ld a, d
+	add NUM_SEASONS
+	ld d, a
 .roll
 	call .HashForThisMap
 	ld b, a
 
 	; The season decides how much of the hash range counts as wet.
-	call .SeasonTableIndex
 	ld hl, .SeasonWetness
-	add hl, de
+	call .SeasonRow
 	ld a, b
 	cp [hl]
 	jr nc, .dry
@@ -62,10 +76,17 @@ GetOvercastWeather::
 	ret
 
 .dry
+; Just above the wet band, or winter's snow, comes a dry but overcast one.
+	ld hl, .SeasonOvercast
+	call .SeasonRow
+	ld a, b
+	cp [hl]
+	ld a, OW_WEATHER_OVERCAST
+	ret c
+
 ; Sun takes the top of the hash range, so it never overlaps the wet bottom.
-	call .SeasonTableIndex
 	ld hl, .SeasonSun
-	add hl, de
+	call .SeasonRow
 	ld a, [hl]
 	and a
 	jr z, .none ; no sun this season
@@ -75,19 +96,13 @@ GetOvercastWeather::
 	ld a, OW_WEATHER_SUN
 	ret
 
-.SeasonTableIndex
-; de = the season, or the season + NUM_SEASONS in the Orange Islands, whose
-; rows follow the mainland's in each table.
-	ld a, [wSeason]
-	maskbits NUM_SEASONS
-	ld e, a
-	ld d, 0
-	ld a, [wCurRegion]
-	cp ORANGE_REGION
-	ret nz
-	ld a, e
-	add NUM_SEASONS
-	ld e, a
+.SeasonRow
+; hl += d
+	ld a, d
+	add l
+	ld l, a
+	ret nc
+	inc h
 	ret
 
 .ReseedIfNewDay
@@ -119,21 +134,19 @@ GetOvercastWeather::
 	rlca
 	rlca
 	rlca ; rotate right 5
-	ld hl, wMapGroup
-	add [hl]
-	ld b, a
+	add b ; map group
+	ld l, a
 	rrca
 	rrca
 	rrca ; rotate right 3
-	xor b
+	xor l
 	rlca
 	rlca
 	rlca ; rotate right 5
-	ld hl, wMapNumber
-	add [hl]
-	ld b, a
+	add c ; map number
+	ld l, a
 	rrca ; rotate right 1
-	add b
+	add l
 	ret
 
 .SeasonWetness
@@ -151,6 +164,23 @@ GetOvercastWeather::
 	db 25 percent ; SUMMER
 	db 30 percent ; AUTUMN
 	db 10 percent ; WINTER
+	assert_table_length NUM_SEASONS
+
+.SeasonOvercast
+; Where the overcast band ends, per season: it starts where the wet band (or
+; winter's snow) does, and must end below .SeasonSun.
+	table_width 1
+	db 35 percent ; SPRING -- 15% of maps
+	db 20 percent ; SUMMER -- 10% of maps
+	db 55 percent ; AUTUMN -- 20% of maps
+	db 60 percent ; WINTER -- 20% of maps, above the 40% that snow
+	assert_table_length NUM_SEASONS
+; Orange Islands
+	table_width 1
+	db 25 percent ; SPRING -- 10% of maps
+	db 35 percent ; SUMMER -- 10% of maps
+	db 45 percent ; AUTUMN -- 15% of maps
+	db 20 percent ; WINTER -- 10% of maps
 	assert_table_length NUM_SEASONS
 
 .SeasonSun

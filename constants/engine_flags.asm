@@ -28,7 +28,7 @@
 	const ENGINE_SAFARI_ZONE
 	const ENGINE_ROCKETS_IN_RADIO_TOWER
 	const ENGINE_BIKE_SHOP_CALL_ENABLED
-	const ENGINE_UNUSED_STATUSFLAGS2_5
+	const ENGINE_CROSS_REGION_FLY
 	const ENGINE_REACHED_GOLDENROD
 	const ENGINE_ROCKETS_IN_MAHOGANY
 ; wBikeFlags
@@ -215,4 +215,6 @@
 ; renumbers everything after it. The data row below must stay in lockstep.
 	const ENGINE_FLYPOINT_VALENCIA
 	const ENGINE_FLYPOINT_SHAMOUTI
+; wPokegearFlags
+	const ENGINE_WEATHER_MAP
 DEF NUM_ENGINE_FLAGS EQU const_value

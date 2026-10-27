@@ -15,4 +15,5 @@ WeatherGraphics:
 	weather_gfx SandGFX, 2          ; OW_WEATHER_SANDSTORM (two grain scatters)
 	weather_gfx CherryBlossomGFX, 1 ; OW_WEATHER_CHERRY_BLOSSOMS
 	weather_gfx 0, 0                ; OW_WEATHER_SUN, palette only
+	weather_gfx 0, 0                ; OW_WEATHER_OVERCAST, palette only
 	assert_table_length NUM_OW_WEATHERS

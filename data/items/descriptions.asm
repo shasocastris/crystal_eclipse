@@ -222,6 +222,7 @@ ItemDescriptionsKeyItems:
 	dw RainbowWingDesc  ; 0115
 	dw PokeFluteDesc    ; 0116
 	dw JackhammerDesc   ; 0117
+	dw OrangePassDesc   ; 0118
 .IndirectEnd:
 
 ItemDescriptionsBalls:
@@ -920,6 +921,10 @@ PokeFluteDesc:
 JackhammerDesc:
 	db   "Smashes boulders"
 	next "and loose rocks.@"
+
+OrangePassDesc:
+	db   "A pass for the"
+	next "ORANGE express.@"
 
 MasterBallDesc:
 	db   "The best BALL. It"

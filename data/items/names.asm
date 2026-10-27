@@ -211,6 +211,7 @@ KeyItemNames::
 	li "RAINBOW WING" ; 0115
 	li "POKé FLUTE"   ; 0116
 	li "JACKHAMMER"   ; 0117
+	li "ORANGE PASS"  ; 0118
 	assert_list_length NUM_KEY_ITEM_POCKET
 
 BallNames::

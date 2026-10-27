@@ -2,6 +2,7 @@
 	const SILVERCAVEPOKECENTER1F_NURSE
 	const SILVERCAVEPOKECENTER1F_GRANNY
 	const SILVERCAVEPOKECENTER1F_COACH
+	const SILVERCAVEPOKECENTER1F_GENTLEMAN
 
 DEF SILVERCAVEPOKECENTER1F_COACH_FEE EQU STAR_PIECE ; also named in the coach's text
 
@@ -15,6 +16,24 @@ SilverCavePokecenter1FNurseScript:
 
 SilverCavePokecenter1FGrannyScript:
 	jumptextfaceplayer SilverCavePokecenter1FGrannyText
+
+SilverCavePokecenter1FGentlemanScript:
+	faceplayer
+	opentext
+	checkflag ENGINE_CROSS_REGION_FLY
+	iftrue .Taught
+	writetext SilverCavePokecenter1FGentlemanIntroText
+	promptbutton
+	setflag ENGINE_CROSS_REGION_FLY
+	writetext SilverCavePokecenter1FGentlemanFlyText
+	playsound SFX_GET_BADGE
+	waitsfx
+	promptbutton
+.Taught:
+	writetext SilverCavePokecenter1FGentlemanAfterText
+	waitbutton
+	closetext
+	end
 
 SilverCavePokecenter1FCoachScript:
 	faceplayer
@@ -182,6 +201,36 @@ SilverCavePokecenter1FCoachRefusedText:
 	text "Come back anytime."
 	done
 
+SilverCavePokecenter1FGentlemanIntroText:
+	text "From the peak of"
+	line "MT.SILVER, you can"
+
+	para "see JOHTO and"
+	line "KANTO at once."
+
+	para "Your #MON flew"
+	line "far to reach this"
+	cont "here, didn't they?"
+
+	para "Let me show them"
+	line "the way across the"
+	cont "mountains."
+	done
+
+SilverCavePokecenter1FGentlemanFlyText:
+	text "<PLAYER>'s #MON"
+	line "can now FLY"
+	cont "between regions!"
+	done
+
+SilverCavePokecenter1FGentlemanAfterText:
+	text "On the FLY map,"
+	line "press LEFT or"
+
+	para "RIGHT to cross to"
+	line "the other region."
+	done
+
 SilverCavePokecenter1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -198,3 +247,4 @@ SilverCavePokecenter1F_MapEvents:
 	object_event  3,  1, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilverCavePokecenter1FNurseScript, -1
 	object_event  1,  5, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_LEFT, 2, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilverCavePokecenter1FGrannyScript, -1
 	object_event  7,  2, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilverCavePokecenter1FCoachScript, -1
+	object_event  7,  6, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilverCavePokecenter1FGentlemanScript, -1

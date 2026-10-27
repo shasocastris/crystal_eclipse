@@ -1526,6 +1526,8 @@ NEXTU
 wTownMapCursorCoordinates:: dw
 wStartFlypoint:: db
 wEndFlypoint:: db
+wFlyMapPage:: db ; region drawn
+wFlyMapPlayerLandmark:: db
 ENDU
 
 

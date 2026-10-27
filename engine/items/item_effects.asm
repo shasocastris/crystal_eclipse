@@ -242,6 +242,7 @@ ItemEffectsKeyItems:
 	dw NoEffect           ; RAINBOW_WING
 	dw PokeFluteEffect    ; POKE_FLUTE
 	dw JackhammerEffect   ; JACKHAMMER
+	dw NoEffect           ; ORANGE_PASS
 .IndirectEnd:
 
 ItemEffectsBalls:

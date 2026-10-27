@@ -734,6 +734,7 @@ PokegearMap_InitCursor:
 
 PokegearMap_UpdateLandmarkName:
 	push af
+	call PokegearMap_PlaceWeather
 	hlcoord 8, 0
 	lb bc, 2, 12
 	call ClearBox
@@ -759,6 +760,58 @@ PokegearMap_UpdateCursorPosition:
 	add hl, bc
 	ld [hl], d
 	ret
+
+PokegearMap_PlaceWeather:
+; With the weather upgrade, label landmark a with today's weather, on the
+; bottom edge of the map in the corner its region's own label leaves free.
+	ld e, a
+	ld a, [wPokegearFlags]
+	bit POKEGEAR_WEATHER_MAP_F, a
+	ret z
+	ld a, e
+	call RegionForLandmark
+	and a ; JOHTO_REGION
+	hlcoord 1, 16
+	jr z, .got_coord
+	hlcoord 14, 16
+.got_coord
+	push hl
+	farcall GetLandmarkWeather
+	inc a ; -1, no outdoor map, is the first name
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, .Names
+	add hl, de
+	ld a, [hli]
+	ld d, [hl]
+	ld e, a
+	pop hl
+	jmp PlaceString
+
+.Names:
+; Five letters each, so that every name covers the last.
+	table_width 2
+	dw .NoSky
+	dw .Clear  ; OW_WEATHER_NONE
+	dw .Rain   ; OW_WEATHER_RAIN
+	dw .Snow   ; OW_WEATHER_SNOW
+	dw .Storm  ; OW_WEATHER_THUNDERSTORM
+	dw .Sand   ; OW_WEATHER_SANDSTORM
+	dw .Bloom  ; OW_WEATHER_CHERRY_BLOSSOMS
+	dw .Sun    ; OW_WEATHER_SUN
+	dw .Cloud  ; OW_WEATHER_OVERCAST
+	assert_table_length NUM_OW_WEATHERS + 2
+
+.NoSky: db "-----@"
+.Clear: db "CLEAR@"
+.Rain:  db "RAINY@"
+.Snow:  db "SNOWY@"
+.Storm: db "STORM@"
+.Sand:  db "DUSTY@"
+.Bloom: db "BLOOM@"
+.Sun:   db "SUNNY@"
+.Cloud: db "CLOUD@"
 
 TownMap_GetKantoLandmarkLimits:
 	ld a, [wStatusFlags]
@@ -2091,7 +2144,48 @@ _FlyMap:
 	ld a, [hl]
 	and PAD_DOWN
 	jr nz, .ScrollPrev
+	ld a, [hl]
+	and PAD_LEFT | PAD_RIGHT
+	ret z
+; Cross-region Fly: LEFT and RIGHT swap between Johto and Kanto, landing on the
+; new region's first visited flypoint. Never from the Orange Islands, which are
+; reached by boat.
+	ld a, [wStatusFlags2]
+	bit STATUSFLAGS2_CROSS_REGION_FLY_F, a
+	ret z
+	ld a, [wFlyMapPage]
+	cp ORANGE_REGION
+	ret z
+	and a ; JOHTO_REGION
+	lb de, KANTO_FLYPOINT_LAST, KANTO_FLYPOINT
+	jr z, .SwitchRegion
+	lb de, KANTO_FLYPOINT - 1, JOHTO_FLYPOINT
+.SwitchRegion:
+	ld hl, wTownMapPlayerIconLandmark
+	ld a, [hl]
+	push af
+	ld [hl], e
+.FindVisited:
+	call CheckIfVisitedFlypoint
+	jr nz, .Switched
+	ld a, [hl]
+	cp d
+	jr z, .NoneVisited
+	inc [hl]
+	jr .FindVisited
+
+.NoneVisited:
+	pop af
+	ld [hl], a
 	ret
+
+.Switched:
+	pop af
+	ld a, e
+	ld [wStartFlypoint], a
+	ld a, d
+	ld [wEndFlypoint], a
+	jr .Finally
 
 ; Both scans give up after one full pass rather than retrying forever. With no
 ; visited flypoint in [wStartFlypoint, wEndFlypoint] the original spun here with
@@ -2141,11 +2235,56 @@ _FlyMap:
 	ret
 
 .Finally:
+	call FlyMap_FollowCursorPage
 	call TownMapBubble
 	call WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
 	ret
+
+FlyMap_FollowCursorPage:
+; Redraw the page when cross-region Fly has moved the cursor to the other
+; mainland region.
+	ld a, [wFlyMapPage]
+	cp ORANGE_REGION
+	ret z
+	assert JOHTO_REGION == 0 && KANTO_REGION == 1
+	ld a, [wTownMapPlayerIconLandmark]
+	cp KANTO_FLYPOINT
+	sbc a
+	inc a
+	ld hl, wFlyMapPage
+	cp [hl]
+	ret z
+	ld [hl], a
+	push af
+	farcall ClearSpriteAnims
+	call ClearSprites
+	pop af
+	push af
+	and a ; JOHTO_REGION
+	jr nz, .kanto
+	call FillJohtoMap
+	jr .filled
+.kanto
+	call FillKantoMap
+.filled
+	call TownMapBubble
+	call TownMapPals
+	call TownMapMon
+	ld a, c
+	ld [wTownMapCursorCoordinates], a
+	ld a, b
+	ld [wTownMapCursorCoordinates + 1], a
+	ld a, [wFlyMapPlayerLandmark]
+	call RegionForLandmark
+	ld b, a
+	pop af
+	cp b
+	ld a, [wFlyMapPlayerLandmark]
+	call z, TownMapPlayerIcon
+	hlbgcoord 0, 0
+	jmp TownMapBGUpdate
 
 TownMapBubble:
 ; Draw the bubble containing the location text in the town map HUD
@@ -2272,6 +2411,7 @@ FlyMap:
 	ld c, a
 	call GetWorldMapLocation
 .CheckRegion:
+	ld [wFlyMapPlayerLandmark], a
 	cp ORANGE_LANDMARK
 	jr nc, .OrangeFlyMap
 	cp KANTO_LANDMARK
@@ -2286,6 +2426,7 @@ FlyMap:
 	ld [wEndFlypoint], a
 ; Fill out the map
 	call FillJohtoMap
+	xor a ; JOHTO_REGION
 	call .MapHud
 	pop af
 	jmp TownMapPlayerIcon
@@ -2307,6 +2448,7 @@ FlyMap:
 	ld a, ORANGE_FLYPOINT_LAST ; last Orange flypoint
 	ld [wEndFlypoint], a
 	call FillOrangeMap
+	ld a, ORANGE_REGION
 	call .MapHud
 	pop af
 	jmp TownMapPlayerIcon
@@ -2333,6 +2475,7 @@ FlyMap:
 	ld [wTownMapPlayerIconLandmark], a ; last one is default (Indigo Plateau)
 ; Fill out the map
 	call FillKantoMap
+	ld a, KANTO_REGION
 	call .MapHud
 	pop af
 	jmp TownMapPlayerIcon
@@ -2346,7 +2489,10 @@ FlyMap:
 	ld [wEndFlypoint], a
 	call FillJohtoMap
 	pop af
+	xor a ; JOHTO_REGION
 .MapHud:
+; a = the region of the page drawn
+	ld [wFlyMapPage], a
 	call TownMapBubble
 	call TownMapPals
 	hlbgcoord 0, 0 ; BG Map 0
