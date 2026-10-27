@@ -173,12 +173,7 @@ SageGavePokemonText:
 
 	para "Don't let her age"
 	line "fool you. She hits"
-	cont "like a landslide"
-	cont "and guards her"
-	cont "team like her own."
-
-	para "That's what a"
-	line "mother does."
+	cont "like a landslide."
 	done
 
 SagePartyFullText:
@@ -203,12 +198,9 @@ SageAfterGaveText:
 	text "How is KANGASKHAN"
 	line "doing?"
 
-	para "I bet she's"
-	line "protecting your"
-	cont "whole team by now."
-
-	para "Old habits die"
-	line "hard, you know."
+	para "I bet she still"
+	line "hits like a"
+	cont "landslide."
 	done
 
 FuchsiaPokemonGiver_MapEvents:
