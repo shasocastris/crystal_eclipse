@@ -184,9 +184,9 @@ InitDayOfWeek::
 	farjp AlignStartDayToSpring
 
 InitTime::
-; Clock reset. Deliberately does NOT re-align: it exists to let the player
-; correct an existing calendar, not to restart it.
-	farjp _InitTime
+; Clock reset. Keeps the current season rather than re-aligning to SPRING: it
+; exists to let the player correct an existing calendar, not to restart it.
+	farjp ResetClockKeepSeason
 
 ClearClock::
 	xor a

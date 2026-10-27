@@ -47,26 +47,47 @@ AlignStartDayToSpring::
 ; Add the multiple of 7 that reaches the next SPRING. Multiples of 7 preserve the
 ; day of the week, so the Lucky Number reset and Buena's password are unaffected,
 ; and wStartDay is already saved, so this costs no save-format change.
+	ld b, SPRING_F
+AlignStartDayToSeason:
+; b = the season wanted
+	push bc
 	call UpdateTime ; refresh wCurDay against the wStartDay _InitTime just set
 	call GetSeason
-	and a
-	ret z ; already SPRING
-; Wind forward to the next SPRING. The nudge is always a whole number of weeks,
+	pop bc
+	sub b
+	ret z ; already there
+; Wind forward to the wanted season. The nudge is always a whole number of weeks,
 ; which is what keeps the day of the week intact -- the player picks a weekday in
 ; the Mom scene, and wCurDay mod 7 is what stores it. Do not "simplify" this to
 ; SEASON_CYCLE_DAYS - (wCurDay mod SEASON_CYCLE_DAYS): that also lands on SPRING,
 ; but forces wCurDay to a multiple of 28 and silently resets the weekday.
+	assert NUM_SEASONS == 4
+	cpl
+	inc a
+	and NUM_SEASONS - 1 ; seasons forward: 1, 2 or 3
 	ld b, a
-	ld a, SEASON_CYCLE_DAYS
-.back_to_spring
-	sub 7
+	xor a
+.weeks
+	add 7
 	dec b
-	jr nz, .back_to_spring ; 21, 14 or 7
+	jr nz, .weeks ; 7, 14 or 21
 	ld hl, wStartDay
 	add [hl]
 	ld [hl], a
 	call UpdateTime
 	jr GetSeason
+
+ResetClockKeepSeason::
+; Clock reset. _InitTime rebuilds wStartDay from the weekday alone, dropping the
+; whole weeks that place the calendar in its season, so the season jumped to
+; wherever the RTC's day count happened to fall -- and the next Sunday rollover
+; then looked skipped, doubled or missing. Put back the weeks that keep the save
+; in the season it was in; the next one still starts on Sunday at midnight.
+	ld a, [wSeason]
+	push af
+	farcall _InitTime
+	pop bc ; b = the season before the reset
+	jr AlignStartDayToSeason
 
 ClearDailyTimers:
 	xor a
