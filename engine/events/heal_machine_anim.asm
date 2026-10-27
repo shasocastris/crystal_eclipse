@@ -21,8 +21,25 @@ HealMachineAnim:
 	ldh a, [rOBP1]
 	ld [wHealMachineTempOBP1], a
 	call .DoJumptableFunctions
+	; DMG only: on CGB the anim uses OB palette 7, and rOBP1 may be stale
 	ld a, [wHealMachineTempOBP1]
-	jmp DmgToCgbObjPal1
+	ldh [rOBP1], a
+	; give OB palette 7 back to the NPC that owns it, if any
+	call IsCGB
+	ret z
+	ld hl, wUsedObjectPals
+	ld a, BANK(wUsedObjectPals)
+	call GetFarWRAMByte
+	bit 7, a
+	ret z
+	ld hl, wOBPals1 palette 7
+	ld de, wOBPals2 palette 7
+	ld bc, 1 palettes
+	ld a, BANK(wOBPals2)
+	call FarCopyWRAM
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	ret
 
 .DoJumptableFunctions:
 	xor a
