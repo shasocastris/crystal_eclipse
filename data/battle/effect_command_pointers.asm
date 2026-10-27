@@ -183,4 +183,5 @@ BattleCommandPointers:
 	dw BattleCommand_SignatureWeather
 	dw BattleCommand_InnerLight
 	dw BattleCommand_LifeDew
+	dw BattleCommand_FaeBlade
 	assert_table_length NUM_EFFECT_COMMANDS

@@ -165,4 +165,5 @@ MoveEffectsPointers:
 	dw StormCall
 	dw SheerCold
 	dw InnerLight
+	dw FaeBlade
 	assert_table_length NUM_MOVE_EFFECTS

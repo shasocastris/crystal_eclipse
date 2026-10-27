@@ -306,7 +306,7 @@ MovesPart2:
 	move EFFECT_PURSUIT,            40, DARK,          PHYSICAL, 100, 20,   0      ;PURSUIT
 	move EFFECT_FLINCH_HIT,         80, DARK,          SPECIAL,  100, 15,  20      ;DARK_PULSE
 	; FAIRY
-	move EFFECT_TRI_ATTACK,        140, FAIRY,         PHYSICAL, 100, 10, 100      ;FAE_BLADE
+	move EFFECT_FAE_BLADE,         140, FAIRY,         PHYSICAL, 100, 10, 100      ;FAE_BLADE
 	move EFFECT_ATTACK_DOWN_HIT,    90, FAIRY,         PHYSICAL,  90, 10,  10      ;PLAY_ROUGH
 	move EFFECT_NORMAL_HIT,         80, FAIRY,         PHYSICAL,  85, 20,   0      ;MEGA_PUNCH
 	move EFFECT_MULTI_HIT,          18, FAIRY,         PHYSICAL,  85, 15,   0      ;COMET_PUNCH

@@ -83,6 +83,73 @@ BattleCommand_LifeDew:
 	ld hl, LifeDewText
 	jmp StdBattleTextbox
 
+BattleCommand_FaeBlade:
+; faeblade
+; PAR, FRZ, BRN, PSN, SLP or confusion, 1/6 each; confusion if the target has a status.
+	call BattleCommand_EffectChance
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVar
+	and a
+	jmp nz, BattleCommand_ConfuseTarget
+.loop
+	call BattleRandom
+	and %111
+	cp 6
+	jr nc, .loop
+	ld hl, .StatusCommands
+	jmp JumpTable
+
+.StatusCommands:
+	dw BattleCommand_ParalyzeTarget
+	dw BattleCommand_FreezeTarget
+	dw BattleCommand_BurnTarget
+	dw BattleCommand_PoisonTarget
+	dw FaeBladeSleepTarget
+	dw BattleCommand_ConfuseTarget
+
+FaeBladeSleepTarget:
+; A secondary sleep: silent when it can't land, like the other *Target commands.
+	call CheckSubstituteOpp
+	ret nz
+	call GetOpponentItem
+	ld a, b
+	cp HELD_PREVENT_SLEEP
+	ret z
+	ld a, [wEffectFailed]
+	and a
+	ret nz
+	call SafeCheckSafeguard
+	ret nz
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVarAddr
+	ld a, [hl]
+	and a
+	ret nz
+	ld d, h
+	ld e, l
+	ld b, SLP_MASK
+	ld a, [wInBattleTowerBattle]
+	and a
+	jr z, .random_loop
+	ld b, %011
+.random_loop
+	call BattleRandom
+	and b
+	jr z, .random_loop
+	cp SLP_MASK
+	jr z, .random_loop
+	inc a
+	ld [de], a
+	ld de, ANIM_SLP
+	call PlayOpponentBattleAnim
+	call UpdateOpponentInParty
+	call RefreshBattleHuds
+	ld hl, FellAsleepText
+	call StdBattleTextbox
+	farcall UseHeldStatusHealingItem
+	jmp z, OpponentCantMove
+	ret
+
 LifeDewRefillPP:
 ; Refill the user's PP; the party copy too, as BattleCommand_DoTurn spends it.
 	ld hl, wBattleMonMoves
