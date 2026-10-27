@@ -663,6 +663,14 @@ BellChimedText:
 	line ""
 	prompt
 
+LifeDewText:
+	text "<USER>"
+	line "was fully healed!"
+
+	para "Its team's status"
+	line "was cured!"
+	prompt
+
 FellAsleepText:
 	text "<TARGET>"
 	line "fell asleep!"

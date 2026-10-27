@@ -70,6 +70,104 @@ BattleCommand_LifeDew:
 ; lifedew
 	call CureUserPartyStatus
 	call RecalcUserStats
-	jmp BattleCommand_Heal
+	call LifeDewRefillPP
+	ld hl, GetMaxHP
+	call CallBattleCore
+	call AnimateCurrentMove
+	call BattleCommand_SwitchTurn
+	ld hl, RestoreHP
+	call CallBattleCore
+	call BattleCommand_SwitchTurn
+	call UpdateUserInParty
+	call RefreshBattleHuds
+	ld hl, LifeDewText
+	jmp StdBattleTextbox
+
+LifeDewRefillPP:
+; Refill the user's PP; the party copy too, as BattleCommand_DoTurn spends it.
+	ld hl, wBattleMonMoves
+	ld de, wBattleMonPP
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_battle_mon
+	ld hl, wEnemyMonMoves
+	ld de, wEnemyMonPP
+.got_battle_mon
+	call .Refill
+	ld a, BATTLE_VARS_SUBSTATUS5
+	call GetBattleVar
+	bit SUBSTATUS_TRANSFORMED, a
+	ret nz
+	ldh a, [hBattleTurn]
+	and a
+	ld hl, wPartyMon1Moves
+	ld a, [wCurBattleMon]
+	jr z, .got_party_mon
+	ld a, [wBattleMode]
+	dec a
+	ret z ; wild
+	ld hl, wOTPartyMon1Moves
+	ld a, [wCurOTMon]
+.got_party_mon
+	call GetPartyLocation
+	push hl
+	ld bc, MON_PP - MON_MOVES
+	add hl, bc
+	ld d, h
+	ld e, l
+	pop hl
+	; fallthrough
+
+.Refill:
+; hl = moves, de = PP. Each PP Up adds base / 5, at most 7, as in ComputeMaxPP.
+	ld b, NUM_MOVES
+.loop
+	ld a, [hli]
+	and a
+	ret z
+	push hl
+	push bc
+	push de
+	ld l, a
+	ld a, MOVE_PP
+	call GetMoveAttribute
+	pop de
+	ld b, a
+	ld c, -1
+.divide
+	inc c
+	sub 5
+	jr nc, .divide
+	ld a, c
+	cp 8
+	jr c, .got_bonus
+	ld a, 7
+.got_bonus
+	ld c, a
+	ld a, [de]
+	and PP_UP_MASK
+	ld h, a
+	rlca
+	rlca
+	and a
+	jr z, .got_max
+.add_bonus
+	push af
+	ld a, b
+	add c
+	ld b, a
+	pop af
+	dec a
+	jr nz, .add_bonus
+.got_max
+	ld a, h
+	or b
+	ld [de], a
+	inc de
+	pop bc
+	pop hl
+	dec b
+	jr nz, .loop
+	ret
 
 INCLUDE "data/moves/signature_moves.asm"

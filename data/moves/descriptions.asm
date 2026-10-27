@@ -1404,7 +1404,7 @@ StormCallDescription:
 	line "and summons rain.@"
 
 LifeDewDescription:
-	db   "Heals 1/2 HP and"
+	db   "Fully heals user,"
 	line "cures the party.@"
 
 FaeBladeDescription:
