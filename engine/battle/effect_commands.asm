@@ -1652,9 +1652,9 @@ BattleCommand_CheckHit:
 	ret z
 
 	bit SUBSTATUS_FLYING, a
-	ld hl, .FlyMoves
-	jr z, .check_move_in_list
 	ld hl, .DigMoves
+	jr z, .check_move_in_list
+	ld hl, .FlyMoves
 .check_move_in_list
 	; returns z (and a = 0) if the current move is in a given list, or nz (and a = 1) if not
 	ld a, BATTLE_VARS_MOVE_ANIM
@@ -1668,6 +1668,7 @@ BattleCommand_CheckHit:
 	dw GUST
 	dw THUNDER
 	dw TWISTER
+	dw HURRICANE
 	dw -1
 
 .DigMoves:
