@@ -31,6 +31,15 @@ gfx/pokemon/*/*/frames.asm
 # tool binaries
 *.exe
 
+# local rgbds builds (make RGBDS=rgbds-x.y.z/)
+/rgbds-*/
+
+# IDE settings
+/.idea/
+
+# local helper scripts
+/palgrab.py
+
 # precompiled python
 *.pyc
 *$py.class
@@ -44,15 +53,11 @@ gfx/pokemon/*/*/frames.asm
 *.sg1
 
 # random files
-/docs/no_pokemon_center_design.md
-/docs/pseudo_abilities.md
-/docs/images/pokemon_tiles.png
-/docs/images/Lorelai.png
-/docs/images/koga.png
-/docs/images/karen.png
-/docs/images/greensmom.png
-/docs/images/GraniteVillage.png
 /tools/bpp2png
+
+# local notes, research and the regression harness
+# (files already tracked here stay tracked)
+/docs/
 
 # utils/render_overworld.py output
 /overworld/
