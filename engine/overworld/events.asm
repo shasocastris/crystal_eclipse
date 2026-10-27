@@ -905,10 +905,10 @@ DoRepelStep:
 	ld [wRepelEffect], a
 	ret nz
 
-	ld a, [wRepelType]
+	farcall SetCurItemToRepel
+	ld a, [wCurItem]
 	and a
 	jr z, .wore_off
-	ld [wCurItem], a
 	ld hl, wNumItems
 	call CheckItem
 	ld a, BANK(RepelWoreOffScript)

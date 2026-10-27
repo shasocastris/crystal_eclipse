@@ -2133,15 +2133,15 @@ EscapeRopeEffect:
 	ret
 
 SuperRepelEffect:
-	ld b, 200
+	lb bc, 200, SUPER_REPEL - REPEL + 1
 	jr UseRepel
 
 MaxRepelEffect:
-	ld b, 250
+	lb bc, 250, MAX_REPEL - REPEL + 1
 	jr UseRepel
 
 RepelEffect:
-	ld b, 100
+	lb bc, 100, 1
 
 UseRepel:
 	ld a, [wRepelEffect]
@@ -2151,7 +2151,7 @@ UseRepel:
 
 	ld a, b
 	ld [wRepelEffect], a
-	ld a, [wCurItem]
+	ld a, c
 	ld [wRepelType], a
 	jmp UseItemText
 
