@@ -82,6 +82,7 @@ if DEF(_DEBUG)
 	giveitem KINGS_ROCK
 	giveitem AMULET_COIN
 	giveitem SCOPE_LENS
+	giveitem STAR_PIECE, 10
 	giveitem POKE_FLUTE
 	giveitem SQUIRTBOTTLE
 	giveitem EXP_SHARE
