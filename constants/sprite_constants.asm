@@ -199,6 +199,8 @@ DEF SPRITE_POKEMON EQU const_value
 	const SPRITE_WEEZING ; ca
 	const SPRITE_VENOMOTH ; cb
 	const SPRITE_FORRETRESS ; cc
+	const SPRITE_RAIKOU_MON ; cd
+	const SPRITE_ENTEI_MON ; ce
 DEF NUM_POKEMON_SPRITES EQU const_value - SPRITE_POKEMON
 
 ; special GetMonSprite values (see engine/overworld/overworld.asm)

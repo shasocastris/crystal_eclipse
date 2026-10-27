@@ -63,3 +63,5 @@ SpriteMons:
 	dw WEEZING
 	dw VENOMOTH
 	dw FORRETRESS
+	dw RAIKOU
+	dw ENTEI
