@@ -2650,7 +2650,7 @@ wVermilionPortSceneID::                           db
 wFastShip1FSceneID::                              db
 wFastShipB1FSceneID::                             db
 wMountMoonSquareSceneID::                         db
-	ds 1
+wRoute38EcruteakGateSceneID::                     db
 wValenciaPortSceneID::                            db ; M3; was wMobileBattleRoomSceneID
 wVioletCitySceneID::                              db
 wGlitterAndGraceSceneID::                         db

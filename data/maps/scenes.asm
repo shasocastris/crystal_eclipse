@@ -88,4 +88,5 @@ MapScenes::
 	scene_var CERULEAN_BASE_2,                             wCeruleanBase2SceneID
 	scene_var BLACKTHORN_CITY,                             wBlackthornCitySceneID
 	scene_var ROUTE_45,                                    wRoute45SceneID
+	scene_var ROUTE_38_ECRUTEAK_GATE,                      wRoute38EcruteakGateSceneID
 	db -1 ; end

@@ -15,8 +15,29 @@
 
 Route38EcruteakGate_MapScripts:
 	def_scene_scripts
+	scene_script Route38EcruteakGateCheckHuntScene, SCENE_ROUTE38ECRUTEAKGATE_CHECK_HUNT
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, Route38EcruteakGateOfficerCallback
+
+Route38EcruteakGateOfficerCallback:
+	checkevent EVENT_HEALED_MOOMOO
+	iftrue .ShowOfficer
+	setevent EVENT_ROUTE38_GATE_OFFICER
+	endcallback
+
+.ShowOfficer:
+	clearevent EVENT_ROUTE38_GATE_OFFICER
+	endcallback
+
+Route38EcruteakGateCheckHuntScene:
+	checkflag ENGINE_WILD_HUNT
+	iftrue .Usher
+	end
+
+.Usher:
+	sdefer Route38EcruteakGateMortyUsherScript
+	end
 
 Route38EcruteakGateRanger1Script:
 	faceplayer
@@ -51,18 +72,27 @@ Route38EcruteakGateMortyScript:
 	sjump .MustSayYes
 .BeginQuellingWildHunt:
 	writetext MortyText_Accepted
-    waitbutton
-    closetext
-    setevent EVENT_TAUROS_HERD_LEADER
-    follow ROUTE38ECRUTEAKGATE_MORTY, PLAYER
+	waitbutton
+	closetext
+	setevent EVENT_TAUROS_HERD_LEADER
+	setscene SCENE_ROUTE38ECRUTEAKGATE_CHECK_HUNT
+	follow ROUTE38ECRUTEAKGATE_MORTY, PLAYER
 	applymovement ROUTE38ECRUTEAKGATE_MORTY, Route38GateFollowMorty_MovementData
 	stopfollow
+Route38EcruteakGateWarpToHuntScript:
 	special FadeOutToWhite
 	playsound SFX_ENTER_DOOR
 	waitsfx
 	warp ROUTE_38, 35, 8
 	applymovement PLAYER, Route38TurnPlayerLeft_MovementData
 	end
+
+Route38EcruteakGateMortyUsherScript:
+	opentext
+	writetext Route38EcruteakGateMortyUsherText
+	waitbutton
+	closetext
+	sjump Route38EcruteakGateWarpToHuntScript
 
 Route38EcruteakGateKimonoGirlScript:
 	jumptextfaceplayer Route38EcruteakGateKimonoGirlText
@@ -211,6 +241,18 @@ MortyText_Refused:
 	para "Are you ready?"
 	done
 
+Route38EcruteakGateMortyUsherText:
+	text "MORTY: <PLAY_G>!"
+	line "Are you all right?"
+
+	para "The herd is still"
+	line "loose. ECRUTEAK"
+	cont "needs you!"
+
+	para "I'll take you back"
+	line "to ROUTE 38."
+	done
+
 MortyText_Accepted:
 	text "Ok, don't hold"
 	line "back!"
@@ -241,7 +283,7 @@ Route38EcruteakGateTealKimonoGirlText:
 
 Route38EcruteakGateKimonoGirlOlderSistersText:
 	text "Our older sisters"
-	line "are hear as well."
+	line "are here as well."
 
 	para "Their EEVEELUTIONS"
 	line "are rare and quite"
@@ -285,10 +327,10 @@ Route38EcruteakGate_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  3,  5, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateRanger1Script, EVENT_ROUTE38_GATE_RANGERS
-	object_event  4,  4, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateRanger2Script, EVENT_ROUTE38_GATE_RANGERS
-	object_event  7,  5, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateRanger3Script, EVENT_ROUTE38_GATE_RANGERS
-	object_event  5,  2, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateOfficerScript, EVENT_QUELLED_WILD_HUNT
+	object_event  3,  5, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateRanger1Script, EVENT_HEALED_MOOMOO
+	object_event  4,  4, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateRanger2Script, EVENT_HEALED_MOOMOO
+	object_event  7,  5, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateRanger3Script, EVENT_HEALED_MOOMOO
+	object_event  5,  2, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateOfficerScript, EVENT_ROUTE38_GATE_OFFICER
 	object_event  3,  4, SPRITE_MORTY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateMortyScript, EVENT_ECRUTEAK_WILD_HUNT
 	object_event  8,  6, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateTealKimonoGirlOlderSistersScript, EVENT_ECRUTEAK_WILD_HUNT
 	object_event  7,  4, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_YELLOW, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateKimonoGirlScript, EVENT_ECRUTEAK_WILD_HUNT

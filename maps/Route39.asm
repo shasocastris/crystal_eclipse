@@ -24,6 +24,19 @@ Route39_MapScripts:
 	scene_script Route39FNoop3Scene, SCENE_ROUTE39_NOOP
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, Route39WildHuntSceneCallback
+
+Route39WildHuntSceneCallback:
+	checkflag ENGINE_WILD_HUNT
+	iffalse .NoHunt
+	checkevent EVENT_FOUGHT_WILD_HUNT_TAUROS_17 ; herd leader
+	iftrue .NoHunt
+	setscene SCENE_ROUTE39_WILD_HUNT
+	endcallback
+
+.NoHunt:
+	setscene SCENE_ROUTE39_NOOP
+	endcallback
 
 Route39FNoop1Scene:
 	end
@@ -192,6 +205,7 @@ WildHuntTaurosHerdLeaderScript:
 	applymovement ROUTE39_TAUROS_HERD_LEADER, Route39TaurosHerdLeaderMovement
 	showemote EMOTE_SAD, ROUTE39_TAUROS_HERD_LEADER, 30
 	setevent EVENT_TAUROS_HERD_LEADER
+	setevent EVENT_FOUGHT_WILD_HUNT_TAUROS_17
 	loadvar VAR_BATTLETYPE, BATTLETYPE_WILD_HUNT
 	loadwildmon TAUROS, 45
 	startbattle

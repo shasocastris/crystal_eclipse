@@ -49,7 +49,6 @@ MoomooScript:
 	waitbutton
 	closetext
 	setevent EVENT_HEALED_MOOMOO
-	setscene SCENE_ROUTE39_WILD_HUNT
 	clearevent EVENT_QUELLED_WILD_HUNT
 	setevent EVENT_ECRUTEAK_WILD_HUNT
 	clearflag ENGINE_WILD_HUNT
