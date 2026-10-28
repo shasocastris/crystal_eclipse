@@ -634,7 +634,7 @@ PokeBallEffect:
 
 	ld a, [wPartyCount]
 	cp PARTY_LENGTH
-	jr z, .SendToPC
+	jmp z, .SendToPC
 
 	xor a ; PARTYMON
 	ld [wMonType], a
@@ -689,8 +689,19 @@ PokeBallEffect:
 	call LoadStandardFont
 
 	pop hl
+	push hl
 	ld de, wStringBuffer1
 	call InitName
+
+	ld a, [wPartyCount]
+	dec a
+	ld hl, wPartyMon1Happiness
+	ld bc, PARTYMON_STRUCT_LENGTH
+	rst AddNTimes
+	ld d, h
+	ld e, l
+	pop hl
+	farcall GiveNicknameHappiness
 
 	jmp .return_from_capture
 
@@ -740,6 +751,10 @@ PokeBallEffect:
 	ld hl, wBufferMonNickname
 	ld de, wStringBuffer1
 	call InitName
+
+	ld hl, wBufferMonNickname
+	ld de, wBufferMonHappiness
+	farcall GiveNicknameHappiness
 
 .SkipBoxMonNickname:
 	ld hl, wBufferMonNickname

@@ -1309,8 +1309,43 @@ InitNickname:
 	ld b, NAME_MON
 	farcall NamingScreen
 	pop hl
+	push hl
 	ld de, wStringBuffer1
 	call InitName
+	ld a, [wMonType]
+	and a ; PARTYMON
+	ld de, wBufferMonHappiness
+	jr nz, .got_happiness
+	ld a, [wCurPartyMon]
+	ld hl, wPartyMon1Happiness
+	call GetPartyLocation
+	ld d, h
+	ld e, l
+.got_happiness
+	pop hl
+	call GiveNicknameHappiness
 	ld a, $4 ; ExitAllMenus is in bank 0; maybe it used to be in bank 4
 	ld hl, ExitAllMenus
 	jmp FarCall_hl
+
+GiveNicknameHappiness:
+; Raise the happiness at de to NICKNAME_HAPPINESS if the nickname at hl
+; differs from the species name in wStringBuffer1.
+	ld bc, wStringBuffer1
+.loop
+	ld a, [bc]
+	cp [hl]
+	jr nz, .nicknamed
+	inc bc
+	inc hl
+	cp '@'
+	jr nz, .loop
+	ret
+
+.nicknamed
+	ld a, [de]
+	cp NICKNAME_HAPPINESS
+	ret nc
+	ld a, NICKNAME_HAPPINESS
+	ld [de], a
+	ret

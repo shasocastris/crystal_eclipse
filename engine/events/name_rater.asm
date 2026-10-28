@@ -3,12 +3,12 @@ _NameRater:
 	ld hl, NameRaterHelloText
 	call PrintText
 	call YesNoBox
-	jr c, .cancel
+	jmp c, .cancel
 ; Select a Pokemon from your party
 	ld hl, NameRaterWhichMonText
 	call PrintText
 	farcall SelectMonFromParty
-	jr c, .cancel
+	jmp c, .cancel
 ; He can't rename a Pokemon you got from a trade.
 	call GetCurNickname
 	call CheckIfMonIsYourOT
@@ -49,6 +49,16 @@ _NameRater:
 	ld hl, wStringBuffer2
 	ld bc, MON_NAME_LENGTH
 	rst CopyBytes
+	ld a, [wCurPartySpecies]
+	ld [wNamedObjectIndex], a
+	call GetPokemonName
+	ld a, [wCurPartyMon]
+	ld hl, wPartyMon1Happiness
+	call GetPartyLocation
+	ld d, h
+	ld e, l
+	ld hl, wStringBuffer2
+	farcall GiveNicknameHappiness
 	ld hl, NameRaterFinishedText
 
 .samename
