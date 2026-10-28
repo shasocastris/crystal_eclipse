@@ -10,9 +10,54 @@ RooftopSale_SelectQuantityToBuy:
 	ld [wBuySellItemPrice + 0], a
 	ld a, e
 	ld [wBuySellItemPrice + 1], a
+	call Buy_CapQuantityToMoney
 	ld hl, BuyItem_MenuHeader
 	call LoadMenuHeader
 	jr Toss_Sell_Loop
+
+Buy_CapQuantityToMoney:
+; Lower wItemQuantity to how many of price de the player can afford.
+; Keeps it at least 1, so buying one too many still says "not enough money".
+	ld a, d
+	or e
+	ret z
+	xor a
+	ld b, a
+	ld h, a
+	ld l, a
+	ld c, a
+.loop
+	; bhl += price
+	ld a, l
+	add e
+	ld l, a
+	ld a, h
+	adc d
+	ld h, a
+	jr nc, .compare
+	inc b
+.compare
+	ld a, [wMoney + 2]
+	sub l
+	ld a, [wMoney + 1]
+	sbc h
+	ld a, [wMoney]
+	sbc b
+	jr c, .done
+	inc c
+	ld a, [wItemQuantity]
+	cp c
+	jr nz, .loop
+	ret
+
+.done
+	ld a, c
+	and a
+	jr nz, .got_quantity
+	inc a
+.got_quantity
+	ld [wItemQuantity], a
+	ret
 
 SelectQuantityToSell:
 	farcall GetItemPrice
