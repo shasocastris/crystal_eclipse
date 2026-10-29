@@ -9,6 +9,7 @@
 	const ROUTE30_FRUIT_TREE1
 	const ROUTE30_FRUIT_TREE2
 	const ROUTE30_COOLTRAINER_F
+	const ROUTE30_KIMONO_GIRL
 	const ROUTE30_POKE_BALL1
 	const ROUTE30_POKE_BALL2
 	const ROUTE30_POKE_BALL3
@@ -210,6 +211,16 @@ Route30YoungsterScript:
 Route30CooltrainerFScript:
 	jumptextfaceplayer Route30CooltrainerFText
 
+TrainerKimonoGirlHana:
+	trainer KIMONO_GIRL, HANA, EVENT_BEAT_KIMONO_GIRL_HANA, KimonoGirlHanaSeenText, KimonoGirlHanaBeatenText, 0, .Script
+
+.Script:
+	opentext
+	writetext KimonoGirlHanaAfterBattleText
+	waitbutton
+	closetext
+	end
+
 Route30Sign:
 	jumptext Route30SignText
 
@@ -381,6 +392,30 @@ Route30CooltrainerFText:
 	cont "prepare to battle."
 	done
 
+KimonoGirlHanaSeenText:
+	text "Oh! Few find their"
+	line "way this deep"
+	cont "into the woods."
+
+	para "My LEAFEON and I"
+	line "train here, away"
+	cont "from the city."
+
+	para "Will you join our"
+	line "dance?"
+	done
+
+KimonoGirlHanaBeatenText:
+	text "Like a leaf"
+	line "upon the wind…"
+	done
+
+KimonoGirlHanaAfterBattleText:
+	text "Here, LEAFEON can"
+	line "rest in the sun"
+	cont "and grow strong."
+	done
+
 Route30SignText:
 	text "ROUTE 30"
 
@@ -452,6 +487,7 @@ Route30_MapEvents:
 	object_event  5, 39, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30FruitTree1, -1
 	object_event 11,  5, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30FruitTree2, -1
 	object_event  2, 13, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30CooltrainerFScript, -1
+	object_event 22, 42, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 0, TrainerKimonoGirlHana, -1
 	object_event  8, 35, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route30Antidote, EVENT_ROUTE_30_ANTIDOTE
 	object_event 23, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route30FullHeal, EVENT_ROUTE_30_FULL_HEAL
 	object_event 25, 57, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, 0, 0, 0, -1

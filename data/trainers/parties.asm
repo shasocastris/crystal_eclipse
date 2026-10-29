@@ -7661,10 +7661,20 @@ KimonoGirlGroup:
 	dw ICE_BEAM, SWEET_KISS, SLEEP_TALK, REST
 	db -1 ; end
 
-	next_list_item ; KIMONO_GIRL (8), unused ???
-	db "HANA@", TRAINERTYPE_NORMAL
-	db 24
+	next_list_item ; KIMONO_GIRL (8), Route 30
+	db "HANA@", TRAINERTYPE_ITEM_MOVES
+	db 49
 	dw EEVEE
+	dw FOCUS_BAND
+	dw GROWTH, BATON_PASS, TAKE_DOWN, QUICK_ATTACK
+	db 49
+	dw LEAFEON
+	dw MIRACLE_SEED
+	dw GIGA_DRAIN, LEECH_SEED, DOUBLE_TEAM, SWIFT
+	db 51
+	dw LEAFEON
+	dw LEFTOVERS
+	dw SEED_BOMB, SUNNY_DAY, SYNTHESIS, BODY_SLAM
 	db -1 ; end
 
 	end_list_items

@@ -721,7 +721,7 @@ DEF KRIS EQU __trainer_class__
 	const KUNI
 	const MIKI
 	const YUKI ; unused, Glaceon, Ice Path
-	const HANA ; unused, Leafeon, Viridian Forest
+	const HANA ; Leafeon, Route 30
 
 	trainerclass TWINS ; 3f
 	const AMYANDMAY1
