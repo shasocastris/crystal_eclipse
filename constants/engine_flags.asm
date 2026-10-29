@@ -202,7 +202,7 @@
 ; Appended at the END of this list on purpose. These constants are assigned
 ; sequentially and EngineFlags is indexed by them, so inserting mid-list
 ; renumbers every flag after it.
-	const ENGINE_ROUTE_30_SEASON_WATCHER
+	const ENGINE_SEASONAL_UNUSED_0
 	const ENGINE_SEASONAL_UNUSED_1
 	const ENGINE_SEASONAL_UNUSED_2
 	const ENGINE_SEASONAL_UNUSED_3

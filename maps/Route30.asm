@@ -9,7 +9,6 @@
 	const ROUTE30_FRUIT_TREE1
 	const ROUTE30_FRUIT_TREE2
 	const ROUTE30_COOLTRAINER_F
-	const ROUTE30_GRAMPS
 	const ROUTE30_POKE_BALL1
 	const ROUTE30_POKE_BALL2
 	const ROUTE30_POKE_BALL3
@@ -184,54 +183,32 @@ Route30YoungsterScript:
 	end
 
 .CompletedEggQuest:
-	writetext Route30YoungsterText_EveryoneIsBattling
-	waitbutton
-	closetext
-	end
-
-Route30CooltrainerFScript:
-	jumptextfaceplayer Route30CooltrainerFText
-
-Route30SeasonWatcherScript:
-	faceplayer
-	opentext
-	checkflag ENGINE_ROUTE_30_SEASON_WATCHER
-	iftrue .Seasons
-	setflag ENGINE_ROUTE_30_SEASON_WATCHER
-	writetext Route30SeasonWatcherTurnedText
-	waitbutton
-.Seasons:
 	checkseason SPRING
 	iftrue .Spring
 	checkseason SUMMER
 	iftrue .Summer
 	checkseason AUTUMN
 	iftrue .Autumn
-	writetext Route30SeasonWatcherWinterText
-	waitbutton
-	closetext
-	end
+	writetext Route30YoungsterWinterText
+	sjump .Done
 
 .Spring:
-	writetext Route30SeasonWatcherSpringText
-	waitbutton
-	closetext
-	end
+	writetext Route30YoungsterSpringText
+	sjump .Done
 
 .Summer:
-	writetext Route30SeasonWatcherSummerText
-	waitbutton
-	closetext
-	end
+	writetext Route30YoungsterSummerText
+	sjump .Done
 
 .Autumn:
-	writetext Route30SeasonWatcherAutumnText
+	writetext Route30YoungsterAutumnText
+.Done:
 	waitbutton
 	closetext
 	end
 
-Route30ForagerScript:
-	jumptextfaceplayer Route30ForagerText
+Route30CooltrainerFScript:
+	jumptextfaceplayer Route30CooltrainerFText
 
 Route30Sign:
 	jumptext Route30SignText
@@ -365,10 +342,35 @@ Route30YoungsterText_DirectionsToMrPokemonsHouse:
 	cont "farther ahead."
 	done
 
-Route30YoungsterText_EveryoneIsBattling:
-	text "Everyone's having"
-	line "fun battling!"
-	cont "You should too!"
+Route30YoungsterSpringText:
+	text "I'm really looking"
+	line "forward to a sunny"
+	cont "SUMMER!"
+	done
+
+Route30YoungsterSummerText:
+	text "Phew, it's hot!"
+
+	para "I can't wait for"
+	line "cool AUTUMN"
+	cont "breezes."
+	done
+
+Route30YoungsterAutumnText:
+	text "The leaves are"
+	line "falling."
+
+	para "I hope we get lots"
+	line "of snow this"
+	cont "WINTER!"
+	done
+
+Route30YoungsterWinterText:
+	text "Brr! It's cold."
+
+	para "SPRING flowers"
+	line "can't come soon"
+	cont "enough!"
 	done
 
 Route30CooltrainerFText:
@@ -377,51 +379,6 @@ Route30CooltrainerFText:
 	para "But if you look"
 	line "one in the eyes,"
 	cont "prepare to battle."
-	done
-
-Route30SeasonWatcherTurnedText:
-	text "Season's turned"
-	line "since I last"
-	cont "saw you."
-	done
-
-Route30SeasonWatcherSpringText:
-	text "The berry trees"
-	line "are budding."
-
-	para "Give them a few"
-	line "weeks yet."
-	done
-
-Route30SeasonWatcherSummerText:
-	text "Hot one today."
-
-	para "The BUG #MON"
-	line "never stop."
-	done
-
-Route30SeasonWatcherAutumnText:
-	text "Berries are in."
-
-	para "Best picking"
-	line "of the year."
-	done
-
-Route30SeasonWatcherWinterText:
-	text "Trees are bare."
-
-	para "Not much out"
-	line "here but wind."
-	done
-
-Route30ForagerText:
-	text "Mild weather"
-	line "brings me out"
-	cont "here to forage."
-
-	para "You won't see me"
-	line "in the heat or"
-	cont "the snow."
 	done
 
 Route30SignText:
@@ -495,8 +452,6 @@ Route30_MapEvents:
 	object_event  5, 39, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30FruitTree1, -1
 	object_event 11,  5, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30FruitTree2, -1
 	object_event  2, 13, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route30CooltrainerFScript, -1
-	object_event 12, 43, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route30SeasonWatcherScript, -1
-	object_event 13, 43, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route30ForagerScript, -1, SPRING | AUTUMN
 	object_event  8, 35, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route30Antidote, EVENT_ROUTE_30_ANTIDOTE
 	object_event 23, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route30FullHeal, EVENT_ROUTE_30_FULL_HEAL
 	object_event 25, 57, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, 0, 0, 0, -1

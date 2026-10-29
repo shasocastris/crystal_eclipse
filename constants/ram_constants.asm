@@ -176,7 +176,7 @@ DEF SEASON_CYCLE_DAYS EQU NUM_SEASONS * 7
 ; Cleared by CheckDailyResetTimer, but only on a rollover that changes the
 ; season, so these fire once per season rather than once per day.
 	const_def
-	const SEASONALFLAGS_ROUTE_30_SEASON_WATCHER_F ; 0
+	const SEASONALFLAGS_UNUSED_FLAG_0             ; 0
 	const SEASONALFLAGS_UNUSED_FLAG_1             ; 1
 	const SEASONALFLAGS_UNUSED_FLAG_2             ; 2
 	const SEASONALFLAGS_UNUSED_FLAG_3             ; 3

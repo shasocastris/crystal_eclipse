@@ -210,7 +210,7 @@ EngineFlags:
 
 	engine_flag wPlayerSpriteSetupFlags, PLAYERSPRITESETUP_FEMALE_TO_MALE_F
 
-	engine_flag wSeasonalFlags, SEASONALFLAGS_ROUTE_30_SEASON_WATCHER_F
+	engine_flag wSeasonalFlags, SEASONALFLAGS_UNUSED_FLAG_0
 	engine_flag wSeasonalFlags, SEASONALFLAGS_UNUSED_FLAG_1
 	engine_flag wSeasonalFlags, SEASONALFLAGS_UNUSED_FLAG_2
 	engine_flag wSeasonalFlags, SEASONALFLAGS_UNUSED_FLAG_3
