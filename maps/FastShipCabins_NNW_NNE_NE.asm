@@ -80,7 +80,7 @@ FastShipLazySailorScript:
 	waitbutton
 	closetext
 	winlosstext SailorStanlyBeatenText, 0
-	loadtrainer SAILOR, STANLY
+	loadtrainer GRUNTM, GRUNTM_41
 	startbattle
 	reloadmap
 	setevent EVENT_BEAT_SAILOR_STANLY
@@ -194,30 +194,28 @@ HikerNolandAfterBattleText:
 	done
 
 SailorStanlySeenText:
-	text "Yeah, I'm a sail-"
-	line "or, all right."
+	text "Huh? This cabin's"
+	line "off limits, kid!"
 
-	para "I wasn't goofing"
-	line "off!"
+	para "…Ugh, who am I"
+	line "kidding? I'm no"
+	cont "sailor!"
 
-	para "This cabin was"
-	line "vacant, so I just"
-	cont "took a quick nap!"
-
-	para "Ah, forget it!"
-	line "Let's battle!"
+	para "TEAM ROCKET's"
+	line "taking this tub"
+	cont "to KANTO!"
 	done
 
 SailorStanlyBeatenText:
-	text "Sorry! It's all my"
-	line "fault!"
+	text "Gah! My cover's"
+	line "blown!"
 	done
 
 SailorStanlyAfterBattleText:
-	text "Being a sailor, I"
-	line "have to do phys-"
-	cont "ical labor. It's"
-	cont "exhausting!"
+	text "Too late, kid!"
+
+	para "The boss already"
+	line "has the CAPTAIN!"
 	done
 
 GentlemanEdwardSeenText:

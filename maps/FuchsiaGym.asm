@@ -54,6 +54,18 @@ FuchsiaGymJanineScript:
 	iffalse .AfterTM
 	setevent EVENT_GOT_TM06_TOXIC
 .AfterTM:
+	checkevent EVENT_FAST_SHIP_FIRST_TIME
+	iffalse .ApplyMyself
+	checkevent EVENT_GOT_METAL_COAT_FROM_GRANDPA_ON_SS_AQUA
+	iftrue .SavedShip
+	writetext JanineText_FatherSawYouFall
+	promptbutton
+	sjump .ApplyMyself
+
+.SavedShip:
+	writetext JanineText_FatherPraisedYou
+	promptbutton
+.ApplyMyself:
 	writetext JanineText_ApplyMyself
 	waitbutton
 	closetext
@@ -317,6 +329,24 @@ JanineText_ToxicSpeech:
 
 	para "steadily saps the"
 	line "victim's HP."
+	done
+
+JanineText_FatherPraisedYou:
+	text "JANINE: FATHER"
+	line "told me you saved"
+	cont "the S.S.AQUA."
+
+	para "He never praises"
+	line "anyone like that!"
+	done
+
+JanineText_FatherSawYouFall:
+	text "JANINE: FATHER"
+	line "told me about the"
+	cont "S.S.AQUA."
+
+	para "He said you fought"
+	line "until you dropped."
 	done
 
 JanineText_ApplyMyself:

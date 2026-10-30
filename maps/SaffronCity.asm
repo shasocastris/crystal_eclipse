@@ -54,7 +54,20 @@ SaffronCityCooltrainerMScript:
 	jumptextfaceplayer SaffronCityCooltrainerMText
 
 SaffronCityCooltrainerFScript:
-	jumptextfaceplayer SaffronCityCooltrainerFText
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_ROCKET_EXECUTIVEM_3
+	iftrue .RocketGone
+	writetext SaffronCityCooltrainerFText
+	waitbutton
+	closetext
+	end
+
+.RocketGone:
+	writetext SaffronCityCooltrainerFText_RocketGone
+	waitbutton
+	closetext
+	end
 
 SaffronCityFisherScript:
 	faceplayer
@@ -73,13 +86,39 @@ SaffronCityFisherScript:
 	end
 
 SaffronCityYoungster1Script:
-	jumptextfaceplayer SaffronCityYoungster1Text
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_ROCKET_EXECUTIVEM_3
+	iftrue .RocketGone
+	writetext SaffronCityYoungster1Text
+	waitbutton
+	closetext
+	end
+
+.RocketGone:
+	writetext SaffronCityYoungster1Text_RocketGone
+	waitbutton
+	closetext
+	end
 
 SaffronCityYoungster2Script:
 	jumptextfaceplayer SaffronCityYoungster2Text
 
 SaffronCityLass2Script:
-	jumptextfaceplayer SaffronCityLass2Text
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_ROCKET_EXECUTIVEM_3
+	iftrue .RocketGone
+	writetext SaffronCityLass2Text
+	waitbutton
+	closetext
+	end
+
+.RocketGone:
+	writetext SaffronCityLass2Text_RocketGone
+	waitbutton
+	closetext
+	end
 
 SaffronCitySign:
 	jumptext SaffronCitySignText
@@ -164,11 +203,27 @@ SaffronCityCooltrainerFText:
 	line "famous for #MON"
 	cont "merchandise."
 
-	para "In the past, TEAM"
-	line "ROCKET wanted the"
+	para "Three years ago,"
+	line "TEAM ROCKET took"
+	cont "it over."
 
-	para "company because of"
-	line "that."
+	para "Now men in black"
+	line "are back in town."
+
+	para "SILPH has doubled"
+	line "its guards."
+	done
+
+SaffronCityCooltrainerFText_RocketGone:
+	text "This is SILPH CO.,"
+	line "famous for #MON"
+	cont "merchandise."
+
+	para "I heard a trainer"
+	line "just chased TEAM"
+
+	para "ROCKET out of town"
+	line "again!"
 	done
 
 SaffronCityFisherText:
@@ -193,11 +248,24 @@ SaffronCityFisherText_ReturnedMachinePart:
 	done
 
 SaffronCityYoungster1Text:
-	text "Going into an"
-	line "alley for the"
+	text "Trucks from the"
+	line "VERMILION docks"
+	cont "come by at night."
 
-	para "first time makes"
-	line "me sorta anxious."
+	para "They unload crates"
+	line "by the UNDERGROUND"
+	cont "entrance."
+
+	para "It makes me sorta"
+	line "anxious."
+	done
+
+SaffronCityYoungster1Text_RocketGone:
+	text "The night trucks"
+	line "stopped coming."
+
+	para "Finally, I can get"
+	line "some sleep!"
 	done
 
 SaffronCityYoungster2Text:
@@ -212,16 +280,25 @@ SaffronCityYoungster2Text:
 	done
 
 SaffronCityLass2Text:
-	text "Our city was"
-	line "featured on a"
-	cont "radio program."
+	text "When TEAM ROCKET"
+	line "took SILPH three"
 
-	para "It's nice to hear"
-	line "praise for your"
+	para "years ago, nobody"
+	line "noticed in time."
 
-	para "city, but it's a"
-	line "bit embarrassing"
-	cont "too."
+	para "I swore I'd notice"
+	line "the next time."
+
+	para "…And I'm noticing"
+	line "things again."
+	done
+
+SaffronCityLass2Text_RocketGone:
+	text "It's quiet in town"
+	line "again."
+
+	para "Still, I'll keep"
+	line "my eyes open."
 	done
 
 SaffronCitySignText:

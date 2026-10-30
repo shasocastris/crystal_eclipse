@@ -374,6 +374,9 @@ DEF KRIS EQU __trainer_class__
 	const GRUNTM_36
 	const GRUNTM_37
 	const GRUNTM_38
+	const GRUNTM_39
+	const GRUNTM_40
+	const GRUNTM_41
 
 	trainerclass GENTLEMAN ; 25
 	const PRESTON

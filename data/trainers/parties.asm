@@ -4044,6 +4044,38 @@ GruntMGroup:
 	dw ARBOK
 	db -1 ; end
 
+	next_list_item ; GRUNTM (39), SS Aqua
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 56
+	dw RATICATE
+	db 56
+	dw GOLBAT
+	db 57
+	dw MUK
+	db -1 ; end
+
+	next_list_item ; GRUNTM (40), SS Aqua
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 56
+	dw ARBOK
+	db 57
+	dw WEEZING
+	db 57
+	dw HOUNDOOM
+	db -1 ; end
+
+	next_list_item ; GRUNTM (41), SS Aqua, posing as a sailor
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 56
+	dw GOLBAT
+	db 57
+	dw MACHOKE
+	db 57
+	dw RATICATE
+	db 58
+	dw ARBOK
+	db -1 ; end
+
 	end_list_items
 
 GentlemanGroup:
