@@ -83,7 +83,6 @@ FastShipLazySailorScript:
 	loadtrainer SAILOR, STANLY
 	startbattle
 	reloadmap
-	special HealParty
 	setevent EVENT_BEAT_SAILOR_STANLY
 	opentext
 	writetext SailorStanlyAfterBattleText

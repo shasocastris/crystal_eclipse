@@ -50,6 +50,8 @@ TrainerGuitaristClyde:
 	end
 
 FastShipBed:
+	checkevent EVENT_SS_AQUA_RAID
+	iftrue .NoRest
 	opentext
 	writetext FastShipBedText1
 	waitbutton
@@ -94,6 +96,9 @@ FastShipBed:
 	closetext
 	setevent EVENT_FAST_SHIP_HAS_ARRIVED
 	end
+
+.NoRest:
+	jumptext FastShipBedNoRestText
 
 FastShipCabinsNorthwestCabinTrashcan:
 	jumpstd TrashCanScript
@@ -183,6 +188,11 @@ FastShipBedText1:
 FastShipBedText2:
 	text "Ah, refreshed and"
 	line "restored!"
+	done
+
+FastShipBedNoRestText:
+	text "This is no time"
+	line "to rest!"
 	done
 
 FastShipArrivedOlivineText:

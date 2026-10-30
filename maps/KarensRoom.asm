@@ -118,6 +118,14 @@ KarenScript_KarenBeforeText:
 	para "You're <PLAYER>?"
 	line "How amusing."
 
+	para "The one who threw"
+	line "TEAM ROCKET out of"
+	cont "the RADIO TOWER."
+
+	para "People who treat"
+	line "#MON as tools"
+	cont "deserve to lose."
+
 	para "I love dark-type"
 	line "#MON."
 

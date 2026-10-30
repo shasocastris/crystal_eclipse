@@ -6274,6 +6274,20 @@ ExecutiveMGroup:
 	dw PSYCHIC_M, SHADOW_BALL, FLAMETHROWER, ICE_BEAM
 	db -1 ; end
 
+	next_list_item ; EXECUTIVEM (5), SS Aqua
+	db "PETREL@", TRAINERTYPE_NORMAL
+	db 59
+	dw GOLBAT
+	db 59
+	dw RATICATE
+	db 60
+	dw WEEZING
+	db 60
+	dw ARBOK
+	db 61
+	dw HOUNDOOM
+	db -1 ; end
+
 	end_list_items
 
 PsychicGroup:

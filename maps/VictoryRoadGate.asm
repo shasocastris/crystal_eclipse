@@ -71,6 +71,19 @@ VictoryRoadGateEightBadgesText:
 	text "Oh! The eight"
 	line "BADGES of JOHTO!"
 
+	para "But the LEAGUE is"
+	line "closed for now."
+
+	para "TEAM ROCKET has"
+	line "the CHAMPION busy."
+
+	para "Wait… You're the"
+	line "trainer who freed"
+	cont "the RADIO TOWER!"
+
+	para "I'll contact LANCE"
+	line "right away."
+
 	para "Please, go right"
 	line "on through!"
 	done

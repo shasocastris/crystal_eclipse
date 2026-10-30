@@ -115,6 +115,14 @@ WillScript_WillBeforeText:
 	text "Welcome to #MON"
 	line "LEAGUE, <PLAYER>."
 
+	para "The LEAGUE is"
+	line "closed, but LANCE"
+	cont "called us back."
+
+	para "He says you drove"
+	line "TEAM ROCKET out of"
+	cont "GOLDENROD."
+
 	para "Allow me to intro-"
 	line "duce myself. I am"
 	cont "WILL."

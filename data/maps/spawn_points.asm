@@ -42,6 +42,8 @@ SpawnPoints:
 	spawn VALENCIA_ISLAND,             9,  6
 	spawn SHAMOUTI_ISLAND,            16, 19
 
+	spawn VERMILION_PORT,              7, 16
+
 	spawn N_A,                        -1, -1
 
 	assert_table_length NUM_SPAWNS + 1

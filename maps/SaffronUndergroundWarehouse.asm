@@ -158,7 +158,7 @@ SaffronUndergroundWarehousePetrelScript:
 	end
 
 PetrelWarehouseBeforeText:
-	text "Well."
+	text "Well. You again."
 
 	para "I heard PROTON"
 	line "got himself caught"

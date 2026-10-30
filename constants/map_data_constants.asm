@@ -114,6 +114,8 @@ DEF NUM_FISHGROUPS EQU const_value - 1
 ; orange islands
 	const SPAWN_VALENCIA
 	const SPAWN_SHAMOUTI
+; s.s.aqua raid whiteout
+	const SPAWN_VERMILION_PORT
 DEF NUM_SPAWNS EQU const_value
 
 DEF SPAWN_N_A EQU -1

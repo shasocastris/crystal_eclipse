@@ -10,6 +10,7 @@
 	const FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_POKEFAN_M2
 	const FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_POKEFAN_F
 	const FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_SUPER_NERD
+	const FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_PETREL
 
 FastShipCabins_SE_SSE_CaptainsCabin_MapScripts:
 	def_scene_scripts
@@ -21,7 +22,7 @@ SSAquaCaptain:
 	opentext
 	checkevent EVENT_FAST_SHIP_FIRST_TIME
 	iftrue .LaterTrip
-	writetext SSAquaCaptainExhaustingText
+	writetext SSAquaCaptainRescuedText
 	waitbutton
 	closetext
 	end
@@ -32,22 +33,72 @@ SSAquaCaptain:
 	closetext
 	end
 
-SSAquaGranddaughterBefore:
-	turnobject FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_TWIN2, RIGHT
+SSAquaCaptainsCabinPetrelScript:
+	checkevent EVENT_FAST_SHIP_PETREL
+	iftrue .Done
+	checkevent EVENT_FAST_SHIP_FIRST_TIME
+	iftrue .Done
+	special FadeOutMusic
+	turnobject PLAYER, UP
+	showemote EMOTE_SHOCK, FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_PETREL, 15
+	playmusic MUSIC_ROCKET_ENCOUNTER
 	opentext
-	writetext SSAquaGranddaughterCaptainPlayWithMeText
+	writetext PetrelShipBeforeText
 	waitbutton
 	closetext
-	faceplayer
+	winlosstext PetrelShipWinText, 0
+	setlasttalked FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_PETREL
+	loadtrainer EXECUTIVEM, EXECUTIVEM_5
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
+	startbattle
+	reloadmapafterbattle
 	opentext
-	writetext SSAquaGranddaughterHasToFindGrandpaText
+	writetext PetrelShipAfterText
+	waitbutton
+	closetext
+	disappear FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_PETREL
+	special RestartMapMusic
+	opentext
+	writetext PetrelShipSmokeBallText
+	waitbutton
+	writetext SSAquaCaptainRescuedText
+	waitbutton
+	closetext
+	sjump SSAquaGranddaughterReunion
+
+.Done:
+	end
+
+SSAquaGranddaughterBefore:
+	faceplayer
+SSAquaGranddaughterReunion:
+	opentext
+	writetext SSAquaGranddaughterRescuedText
 	waitbutton
 	closetext
 	special FadeOutToBlack
 	special ReloadSpritesNoPalettes
 	callasm DisableDynPalUpdates
 	disappear FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_TWIN2
-	applymovement PLAYER, SSAquaCaptainsCabinWarpsToGrandpasCabinMovement
+; the player can be anywhere in the cabin, so walk them to the grandpa's door
+.WalkX:
+	readvar VAR_XCOORD
+	ifequal 2, .WalkY
+	ifless 2, .StepRight
+	applymovement PLAYER, SSAquaPlayerStepLeftMovement
+	sjump .WalkX
+
+.StepRight:
+	applymovement PLAYER, SSAquaPlayerStepRightMovement
+	sjump .WalkX
+
+.WalkY:
+	readvar VAR_YCOORD
+	ifequal 19, .AtGrandpasCabin
+	applymovement PLAYER, SSAquaPlayerStepUpMovement
+	sjump .WalkY
+
+.AtGrandpasCabin:
 	moveobject FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_TWIN1, 3, 19
 	appear FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_TWIN1
 	turnobject PLAYER, UP
@@ -212,13 +263,15 @@ TrainerSuperNerdShawn:
 FastShipCaptainsCabinTrashcan:
 	jumpstd TrashCanScript
 
-SSAquaCaptainsCabinWarpsToGrandpasCabinMovement:
+SSAquaPlayerStepLeftMovement:
+	big_step LEFT
+	step_end
+
+SSAquaPlayerStepRightMovement:
 	big_step RIGHT
-	big_step UP
-	big_step UP
-	big_step UP
-	big_step UP
-	big_step UP
+	step_end
+
+SSAquaPlayerStepUpMovement:
 	big_step UP
 	step_end
 
@@ -232,13 +285,14 @@ SSAquaGrandpaApproachesPlayerMovement:
 	step DOWN
 	step_end
 
-SSAquaCaptainExhaustingText:
-	text "Whew! Thanks for"
-	line "coming along."
+SSAquaCaptainRescuedText:
+	text "CAPTAIN: Thank"
+	line "goodness!"
 
-	para "Keeping that lit-"
-	line "tle girl amused"
-	cont "was exhausting."
+	para "That man took my"
+	line "cabin and forced"
+	cont "me to carry his"
+	cont "stolen #MON!"
 	done
 
 SSAquaCaptainHowDoYouLikeText:
@@ -268,12 +322,12 @@ SSAquaCantFindGranddaughterText:
 
 SSAquaEntertainedGranddaughterText:
 	text "<PLAY_G>, was it?"
-	line "I heard you enter-"
-	cont "tained my grand-"
-	cont "daughter."
+	line "You saved my"
+	cont "granddaughter from"
+	cont "those crooks!"
 
-	para "I want to thank"
-	line "you for that."
+	para "I can't thank you"
+	line "enough."
 	done
 
 SSAquaGrandpaHaveThisText:
@@ -286,43 +340,34 @@ SSAquaGrandpaTravellingText:
 	line "around the world."
 	done
 
-SSAquaGranddaughterCaptainPlayWithMeText:
-	text "CAPTAIN, play with"
-	line "me, please?"
 
-	para "I'm bored! I want"
-	line "to play more!"
-	done
+SSAquaGranddaughterRescuedText:
+	text "Is the scary man"
+	line "gone?"
 
-SSAquaGranddaughterHasToFindGrandpaText:
-	text "Hi! Will you play"
-	line "with me?"
-
-	para "…Oh!"
-
-	para "Grandpa's worried"
-	line "about me?"
-
-	para "I have to go!"
+	para "Grandpa must be so"
+	line "worried!"
 
 	para "I have to go find"
 	line "Grandpa!"
 	done
 
 SSAquaGranddaughterWasPlayingMText:
-	text "Grandpa, here I"
-	line "am! I was playing"
+	text "Grandpa! A scary"
+	line "man locked me up"
 
-	para "with the CAPTAIN"
-	line "and this guy!"
+	para "with the CAPTAIN,"
+	line "but this guy came"
+	cont "and saved us!"
 	done
 
 SSAquaGranddaughterWasPlayingFText:
-	text "Grandpa, here I"
-	line "am! I was playing"
+	text "Grandpa! A scary"
+	line "man locked me up"
 
-	para "with the CAPTAIN"
-	line "and this big girl!"
+	para "with the CAPTAIN,"
+	line "but this girl came"
+	cont "and saved us!"
 	done
 
 SSAquaGranddaughterHadFunText:
@@ -448,6 +493,54 @@ SuperNerdShawnAfterBattleText:
 	cont "the situation."
 	done
 
+PetrelShipBeforeText:
+	text "Hey! No passengers"
+	line "past this point!"
+
+	para "…Hm? You're the"
+	line "kid who wrecked"
+	cont "the RADIO TOWER!"
+
+	para "Then there's no"
+	line "need for this"
+	cont "silly disguise."
+
+	para "I'm PETREL of TEAM"
+	line "ROCKET!"
+
+	para "This ship and its"
+	line "CAPTAIN are taking"
+	cont "my cargo to KANTO,"
+	cont "like it or not!"
+
+	para "And the little"
+	line "girl? Insurance."
+
+	para "You won't ruin"
+	line "this one, kid!"
+	done
+
+PetrelShipWinText:
+	text "Not again…!"
+	done
+
+PetrelShipAfterText:
+	text "Fine. Keep the"
+	line "cargo."
+
+	para "There's plenty"
+	line "more where that"
+	cont "came from."
+
+	para "We'll meet again"
+	line "in KANTO, kid."
+	done
+
+PetrelShipSmokeBallText:
+	text "PETREL disappeared"
+	line "with a SMOKE BALL!"
+	done
+
 SSAquaHasArrivedVermilionText:
 	text "FAST SHIP S.S.AQUA"
 	line "has arrived in"
@@ -466,6 +559,16 @@ FastShipCabins_SE_SSE_CaptainsCabin_MapEvents:
 	warp_event  3, 33, FAST_SHIP_1F, 10
 
 	def_coord_events
+	coord_event  0, 29, -1, SSAquaCaptainsCabinPetrelScript
+	coord_event  1, 29, -1, SSAquaCaptainsCabinPetrelScript
+	coord_event  2, 29, -1, SSAquaCaptainsCabinPetrelScript
+	coord_event  3, 29, -1, SSAquaCaptainsCabinPetrelScript
+	coord_event  4, 29, -1, SSAquaCaptainsCabinPetrelScript
+	coord_event  5, 29, -1, SSAquaCaptainsCabinPetrelScript
+	coord_event  6, 29, -1, SSAquaCaptainsCabinPetrelScript
+	coord_event  7, 29, -1, SSAquaCaptainsCabinPetrelScript
+	coord_event  8, 29, -1, SSAquaCaptainsCabinPetrelScript
+	coord_event  9, 29, -1, SSAquaCaptainsCabinPetrelScript
 
 	def_bg_events
 	bg_event  4, 25, BGEVENT_READ, FastShipCaptainsCabinTrashcan
@@ -474,7 +577,7 @@ FastShipCabins_SE_SSE_CaptainsCabin_MapEvents:
 	object_event  3, 25, SPRITE_CAPTAIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SSAquaCaptain, -1
 	object_event  2, 17, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SSAquaGrandpa, EVENT_FAST_SHIP_CABINS_SE_SSE_GENTLEMAN
 	object_event  3, 17, SPRITE_TWIN, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAquaGranddaughterAfter, EVENT_FAST_SHIP_CABINS_SE_SSE_CAPTAINS_CABIN_TWIN_1
-	object_event  2, 25, SPRITE_TWIN, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAquaGranddaughterBefore, EVENT_FAST_SHIP_CABINS_SE_SSE_CAPTAINS_CABIN_TWIN_2
+	object_event  2, 25, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAquaGranddaughterBefore, EVENT_FAST_SHIP_CABINS_SE_SSE_CAPTAINS_CABIN_TWIN_2
 	object_event  5,  6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerPokefanmColin, EVENT_FAST_SHIP_PASSENGERS_FIRST_TRIP
 	object_event  2,  4, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsMegandpeg1, EVENT_FAST_SHIP_PASSENGERS_FIRST_TRIP
 	object_event  3,  4, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsMegandpeg2, EVENT_FAST_SHIP_PASSENGERS_FIRST_TRIP
@@ -482,3 +585,4 @@ FastShipCabins_SE_SSE_CaptainsCabin_MapEvents:
 	object_event  2,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmJeremy, EVENT_FAST_SHIP_PASSENGERS_WESTBOUND
 	object_event  5,  5, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerPokefanfGeorgia, EVENT_FAST_SHIP_PASSENGERS_WESTBOUND
 	object_event  1, 15, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerSuperNerdShawn, EVENT_FAST_SHIP_PASSENGERS_EASTBOUND
+	object_event  5, 27, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_FAST_SHIP_PETREL

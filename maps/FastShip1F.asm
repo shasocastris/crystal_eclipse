@@ -29,14 +29,18 @@ FastShip1FEnterShipScript:
 	pause 30
 	playsound SFX_BOAT
 	earthquake 30
-	blackoutmod FAST_SHIP_CABINS_SW_SSW_NW
 	clearevent EVENT_FAST_SHIP_HAS_ARRIVED
 	checkevent EVENT_FAST_SHIP_FIRST_TIME
 	iftrue .SkipGrandpa
+; the raid voyage: a whiteout ends it on Vermilion's pier, not in a cabin
+	setevent EVENT_SS_AQUA_RAID
+	blackoutmod VERMILION_PORT
+	setmapscene VERMILION_PORT, SCENE_VERMILIONPORT_RAID_BLACKOUT
 	setscene SCENE_FASTSHIP1F_MEET_GRANDPA
 	end
 
 .SkipGrandpa:
+	blackoutmod FAST_SHIP_CABINS_SW_SSW_NW
 	setscene SCENE_FASTSHIP1F_NOOP
 	end
 
