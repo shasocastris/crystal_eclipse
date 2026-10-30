@@ -2806,7 +2806,7 @@ wVisitedSpawns:: flag_array NUM_SPAWNS
 ; INTENTIONALLY UNUSED. When NUM_SPAWNS grows, flag_array above grows with it,
 ; so delete one byte here per byte gained to keep everything after this point
 ; at the same save offset. Must stay adjacent to wVisitedSpawns.
-	ds 3
+	ds 4
 
 wDigWarpNumber:: db
 wDigMapGroup::   db
