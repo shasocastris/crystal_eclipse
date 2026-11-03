@@ -36,7 +36,6 @@ TrainerHouseReceptionistScript:
 	winlosstext TrainerHouseB1FCalBeatenText, 0
 	setlasttalked TRAINERHOUSEB1F_CHRIS
 	loadtrainer CAL, CAL1
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_VIRIDIAN_TRAINER_HOUSE_CLEARED

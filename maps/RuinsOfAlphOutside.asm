@@ -198,7 +198,6 @@ ShrineFight:
 	winlosstext RuinsOfAlphOutsideBossWinText, 0
 	setlasttalked RUINSOFALPHOUTSIDE_ROCKET_GIRL
 	loadtrainer EXECUTIVEF, EXECUTIVEF_2
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	setevent EVENT_DEFEATED_RUINS_OF_ALPH_ROCKETS
 	setevent EVENT_RUINS_OF_ALPH_RESEARCH_CENTER_ROCKET

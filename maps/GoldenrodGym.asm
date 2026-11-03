@@ -40,7 +40,6 @@ GoldenrodGymWhitneyScript:
 	closetext
 	winlosstext WhitneyShouldntBeSoSeriousText, WhitneyLossText
 	loadtrainer WHITNEY, WHITNEY1
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_WHITNEY
@@ -103,7 +102,6 @@ WhitneyRematchScript:
 	closetext
 	winlosstext WhitneyRematchWinLossText, WhitneyLossText
 	loadtrainer WHITNEY, WHITNEY2
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 .RematchDone

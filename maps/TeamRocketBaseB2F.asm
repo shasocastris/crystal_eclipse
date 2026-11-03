@@ -96,7 +96,6 @@ RocketBaseBossFScript:
 	winlosstext RocketBaseBossWinText, 0
 	setlasttalked TEAMROCKETBASEB2F_ROCKET_GIRL
 	loadtrainer EXECUTIVEF, EXECUTIVEF_1
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	disappear TEAMROCKETBASEB2F_DRAGON
 	setevent EVENT_TEAM_ROCKET_BASE_B2F_EXECUTIVE

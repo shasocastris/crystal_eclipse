@@ -133,7 +133,6 @@ CeruleanGymMistyScript:
 	closetext
 	winlosstext MistyWinLossText, MistyLossText
 	loadtrainer MISTY, MISTY1
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_MISTY
@@ -161,7 +160,6 @@ MistyRematchScript:
 	closetext
 	winlosstext MistyRematchWinLossText, MistyLossText
 	loadtrainer MISTY, MISTY2
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_MISTY_REMATCH

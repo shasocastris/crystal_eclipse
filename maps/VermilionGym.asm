@@ -22,7 +22,6 @@ VermilionGymSurgeScript:
 	closetext
 	winlosstext LtSurgeWinLossText, LtSurgeLossText
 	loadtrainer LT_SURGE, LT_SURGE1
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_LTSURGE
@@ -55,7 +54,6 @@ LtSurgeRematchScript:
 	closetext
 	winlosstext LtSurgeRematchWinLossText, LtSurgeLossText
 	loadtrainer LT_SURGE, LT_SURGE2
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_SURGE_REMATCH

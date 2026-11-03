@@ -23,7 +23,6 @@ SeafoamGymBlaineScript:
 	closetext
 	winlosstext BlaineWinLossText, BlaineLossText
 	loadtrainer BLAINE, BLAINE1
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	iftrue .ReturnAfterBattle
 	appear SEAFOAMGYM_GYM_GUIDE
@@ -56,7 +55,6 @@ BlaineRematchScript:
     closetext
     winlosstext BlaineRematchWinLossText, BlaineLossText
     loadtrainer BLAINE, BLAINE2
-    loadvar VAR_BATTLETYPE, BATTLETYPE_SET
     startbattle
     reloadmapafterbattle
     setevent EVENT_BLAINE_REMATCH

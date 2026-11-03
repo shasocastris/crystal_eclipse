@@ -60,7 +60,6 @@ LancesRoomLanceScript:
 	winlosstext LanceBattleWinText, LanceLossText
 	setlasttalked LANCESROOM_LANCE
 	loadtrainer CHAMPION, LANCE1
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
@@ -138,7 +137,6 @@ LanceRematchScript:
 	winlosstext LanceBeatenRematchText, LanceLossText
 	setlasttalked LANCESROOM_LANCE
 	loadtrainer CHAMPION, LANCE2
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle

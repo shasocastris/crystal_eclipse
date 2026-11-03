@@ -47,7 +47,6 @@ CianwoodGymChuckScript:
 	closetext
 	winlosstext ChuckWinLossText, ChuckLossText
 	loadtrainer CHUCK, CHUCK1
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_CHUCK
@@ -93,7 +92,6 @@ ChuckRematchScript:
 	closetext
 	winlosstext ChuckRematchWinLossText, ChuckLossText
 	loadtrainer CHUCK, CHUCK2
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_CHUCK_REMATCH

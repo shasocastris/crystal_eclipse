@@ -81,7 +81,6 @@ JanineRematchScript:
 	closetext
 	winlosstext JanineRematchWinLossText, JanineLossText
 	loadtrainer JANINE, JANINE2
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_JANINE_REMATCH

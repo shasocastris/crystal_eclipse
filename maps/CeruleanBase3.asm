@@ -98,7 +98,6 @@ CeruleanBase3ArcherApproachScript:
 	winlosstext ArcherBase3WinText, 0
 	setlasttalked CERULEANBASE3_ARCHER
 	loadtrainer EXECUTIVEM, EXECUTIVEM_4
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ROCKET_EXECUTIVEM_4

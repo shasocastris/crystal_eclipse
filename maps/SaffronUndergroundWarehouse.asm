@@ -137,7 +137,6 @@ SaffronUndergroundWarehousePetrelScript:
 	winlosstext PetrelWarehouseWinText, 0
 	setlasttalked SAFFRONUNDERGROUNDWAREHOUSE_PETREL
 	loadtrainer EXECUTIVEM, EXECUTIVEM_3
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ROCKET_EXECUTIVEM_3

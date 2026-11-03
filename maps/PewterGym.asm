@@ -20,7 +20,6 @@ PewterGymBrockScript:
 	closetext
 	winlosstext BrockWinLossText, BrockLossText
 	loadtrainer BROCK, BROCK1
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BROCK
@@ -51,7 +50,6 @@ BrockRematchScript:
 	closetext
 	winlosstext BrockRematchWinLossText, BrockLossText
 	loadtrainer BROCK, BROCK2
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BROCK_REMATCH

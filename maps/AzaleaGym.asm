@@ -33,7 +33,6 @@ AzaleaGymBugsyScript:
 	closetext
 	winlosstext BugsyText_ResearchIncomplete, BugsyLossText
 	loadtrainer BUGSY, BUGSY1
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BUGSY
@@ -79,7 +78,6 @@ BugsyRematchScript:
 	closetext
 	winlosstext BugsyRematchWinLossText, BugsyLossText
 	loadtrainer BUGSY, BUGSY2
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BUGSY_REMATCH

@@ -30,7 +30,6 @@ VioletGymFalknerScript:
 	closetext
 	winlosstext FalknerWinLossText, FalknerLossText
 	loadtrainer FALKNER, FALKNER1
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_FALKNER
@@ -80,7 +79,6 @@ FalknerRematchScript:
 	closetext
 	winlosstext FalknerRematchWinLossText, FalknerLossText
 	loadtrainer FALKNER, FALKNER2
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_FALKNER_REMATCH

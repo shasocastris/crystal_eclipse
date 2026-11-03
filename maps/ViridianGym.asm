@@ -19,7 +19,6 @@ ViridianGymBlueScript:
 	closetext
 	winlosstext LeaderBlueWinText, LeaderBlueLossText
 	loadtrainer BLUE, BLUE1
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BLUE
@@ -49,7 +48,6 @@ BlueRematchScript:
     closetext
     winlosstext BlueRematchWinLossText, LeaderBlueLossText
     loadtrainer BLUE, BLUE2
-    loadvar VAR_BATTLETYPE, BATTLETYPE_SET
     startbattle
     reloadmapafterbattle
     setevent EVENT_BLUE_REMATCH

@@ -144,7 +144,6 @@ LavRadioTower5FProtonScript:
 	winlosstext ProtonWinText, 0
 	setlasttalked LAVRADIOTOWER5F_PROTON
 	loadtrainer EXECUTIVEM, EXECUTIVEM_2
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	disappear LAVRADIOTOWER5F_GRUNT_1
 	disappear LAVRADIOTOWER5F_GRUNT_2

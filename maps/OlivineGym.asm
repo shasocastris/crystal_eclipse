@@ -30,7 +30,6 @@ OlivineGymJasmineScript:
 	closetext
 	winlosstext Jasmine_BetterTrainer, JasmineLossText
 	loadtrainer JASMINE, JASMINE1
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_JASMINE
@@ -74,7 +73,6 @@ JasmineRematchScript:
 	closetext
 	winlosstext JasmineRematchWinLossText, JasmineLossText
 	loadtrainer JASMINE, JASMINE2
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_JASMINE_REMATCH

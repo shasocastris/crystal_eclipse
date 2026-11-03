@@ -52,7 +52,6 @@ KogaScript_Battle:
 	closetext
 	winlosstext KogaScript_KogaBeatenText, KogaLossText
 	loadtrainer KOGA, KOGA1
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_KOGA
@@ -76,7 +75,6 @@ KogaScript_Battle:
     closetext
     winlosstext KogaScript_KogaBeatenText, KogaLossText
     loadtrainer KOGA, KOGA2
-    loadvar VAR_BATTLETYPE, BATTLETYPE_SET
     startbattle
     reloadmapafterbattle
     setevent EVENT_BEAT_ELITE_4_KOGA
