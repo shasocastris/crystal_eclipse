@@ -795,7 +795,7 @@ LoadOrangePage:
 	; caught level
 	; Limited to between 1 and 63 since it's a 6-bit quantity.
 	ld a, [wTempMonCaughtLevel]
-	and EXP_MASK
+	and CAUGHT_LEVEL_MASK
 	jr z, .unknown_level
 	cp CAUGHT_EGG_LEVEL ; egg marker value
 	jr nz, .print
