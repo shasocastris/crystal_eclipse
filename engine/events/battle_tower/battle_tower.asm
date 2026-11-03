@@ -53,11 +53,6 @@ _BattleTowerBattle:
 	dw DoNothing ; SkipBattleTowerTrainer
 
 RunBattleTowerTrainer:
-	ld a, [wOptions]
-	push af
-	ld hl, wOptions
-	set BATTLE_SHIFT, [hl] ; SET MODE
-
 	ld a, [wInBattleTowerBattle]
 	push af
 	or 1 << IN_BATTLE_TOWER_BATTLE_F
@@ -90,8 +85,6 @@ RunBattleTowerTrainer:
 .lost
 	pop af
 	ld [wInBattleTowerBattle], a
-	pop af
-	ld [wOptions], a
 	ld a, TRUE
 	ld [wBattleTowerBattleEnded], a
 	ret

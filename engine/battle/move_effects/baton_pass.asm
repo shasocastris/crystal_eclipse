@@ -51,7 +51,7 @@ BattleCommand_BatonPass:
 ; Passed enemy PartyMon entrance
 	xor a
 	ld [wEnemySwitchMonIndex], a
-	ld hl, EnemySwitch_SetMode
+	ld hl, EnemySwitch
 	call CallBattleCore
 	ld hl, ResetBattleParticipants
 	call CallBattleCore

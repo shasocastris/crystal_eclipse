@@ -206,17 +206,6 @@ BattleText_UseNextMon:
 	text "Use next #MON?"
 	done
 
-BattleText_EnemyIsAboutToUseWillPlayerChangeMon:
-	text "<ENEMY>"
-	line "is about to use"
-	cont "@"
-	text_ram wEnemyMonNickname
-	text "."
-
-	para "Will <PLAYER>"
-	line "change #MON?"
-	done
-
 BattleText_EnemySentOut:
 	text "<ENEMY>"
 	line "sent out"
