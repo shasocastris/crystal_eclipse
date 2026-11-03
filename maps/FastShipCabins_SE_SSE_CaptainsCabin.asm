@@ -49,7 +49,6 @@ SSAquaCaptainsCabinPetrelScript:
 	winlosstext PetrelShipWinText, 0
 	setlasttalked FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_PETREL
 	loadtrainer EXECUTIVEM, EXECUTIVEM_5
-	loadvar VAR_BATTLETYPE, BATTLETYPE_SET
 	startbattle
 	reloadmapafterbattle
 	opentext
