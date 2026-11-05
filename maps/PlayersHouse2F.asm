@@ -168,14 +168,14 @@ if DEF(_DEBUG)
 	; post-e4
 	setflag ENGINE_CREDITS_SKIP
 	; good party
-	givepoke MEWTWO, 100, BRIGHTPOWDER
-	givepokemove HURRICANE,      wPartyMon1, 0
-	givepokemove RAIN_DANCE,     wPartyMon1, 1
-	givepokemove POISON_JAB,     wPartyMon1, 2
-	givepokemove HYPER_VOICE,    wPartyMon1, 3
+	givepoke MEWTWO, 100, CLEANSE_TAG
+	givepokemove PSYCHIC_M,      wPartyMon1, 0
+	givepokemove AURA_SPHERE,    wPartyMon1, 1
+	givepokemove FAE_BLADE,      wPartyMon1, 2
+	givepokemove STORM_CALL,     wPartyMon1, 3
 	loadmem wPartyMon1Happiness, $ff
 	; hm slaves
-	givepoke MEW, 100, LEFTOVERS
+	givepoke MEW, 100, BRIGHTPOWDER
 	givepoke LANTURN, 100, LEFTOVERS
 	givepokemove FLY,        wPartyMon2, 0
 	givepokemove SURF,       wPartyMon2, 1
