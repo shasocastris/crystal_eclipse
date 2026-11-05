@@ -1,5 +1,6 @@
 	object_const_def
 	const SEAFOAM_CAVES_ARTICUNO
+	const SEAFOAM_CAVES_POKE_BALL1
 
 SeafoamCaves_MapScripts:
 	def_scene_scripts
@@ -41,6 +42,9 @@ ArticunoText:
 	text "Gyaaas!"
 	done
 
+SeafoamCavesRazorClaw:
+	itemball RAZOR_CLAW
+
 SeafoamCaves_MapEvents:
 	db 0, 0 ; filler
 
@@ -53,3 +57,4 @@ SeafoamCaves_MapEvents:
 
 	def_object_events
 	object_event 10,  6, SPRITE_ARTICUNO, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Articuno, EVENT_SEAFOAM_CAVES_ARTICUNO
+	object_event  5,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SeafoamCavesRazorClaw, EVENT_SEAFOAM_CAVES_RAZOR_CLAW

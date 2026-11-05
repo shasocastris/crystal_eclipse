@@ -4,6 +4,7 @@
 	const POKEMONMANSION_ROCK3
 	const POKEMONMANSION_ROCK4
 	const POKEMONMANSION_MEWTWO
+	const POKEMONMANSION_POKE_BALL1
 
 PokemonMansion_MapScripts:
 	def_scene_scripts
@@ -52,6 +53,9 @@ PokemonMansionMewtwoText:
 PokemonMansionRock:
 	jumpstd SmashRockScript
 
+PokemonMansionDubiousDisc:
+	itemball DUBIOUS_DISC
+
 PokemonMansion_MapEvents:
 	db 0, 0 ; filler
 
@@ -69,3 +73,4 @@ PokemonMansion_MapEvents:
 	object_event 27, 12, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokemonMansionRock, -1
 	object_event  8,  6, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokemonMansionRock, -1
 	object_event  4, 13, SPRITE_MONSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, PokemonMansionMewtwo, EVENT_TOHJO_FALLS_MEWTWO
+	object_event  2,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PokemonMansionDubiousDisc, EVENT_POKEMON_MANSION_DUBIOUS_DISC

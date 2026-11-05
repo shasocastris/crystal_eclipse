@@ -380,13 +380,13 @@
 	const EVENT_JOEY_ASKED_FOR_PHONE_NUMBER
 	const EVENT_VERMILION_PORT_KOGA ; was unused in Crystal
 	const EVENT_WADE_ASKED_FOR_PHONE_NUMBER
-	const_skip ; unused in Crystal
+	const EVENT_SAFARI_ZONE_PROTECTOR ; was unused in Crystal
 	const EVENT_RALPH_ASKED_FOR_PHONE_NUMBER
-	const_skip ; unused in Crystal
+	const EVENT_POKEMON_MANSION_DUBIOUS_DISC ; was unused in Crystal
 	const EVENT_LIZ_ASKED_FOR_PHONE_NUMBER
-	const_skip ; unused in Crystal
+	const EVENT_SEAFOAM_CAVES_RAZOR_CLAW ; was unused in Crystal
 	const EVENT_ANTHONY_ASKED_FOR_PHONE_NUMBER
-	const_skip ; unused in Crystal
+	const EVENT_ROCK_TUNNEL_B1F_RAZOR_CLAW ; was unused in Crystal
 	const EVENT_TODD_ASKED_FOR_PHONE_NUMBER
 	const_skip ; unused in Crystal
 	const EVENT_GINA_ASKED_FOR_PHONE_NUMBER
