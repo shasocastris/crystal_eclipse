@@ -104,6 +104,7 @@ HonchkrowEvosAttacks:
 
 LeafeonEvosAttacks:
 	db 0 ; no more evolutions
+	dbw LEARN_EVO_MOVE, RAZOR_LEAF
 	dbw 1, SCRATCH
 	dbw 1, LEER
 	dbw 9, MUD_SLAP
@@ -175,6 +176,7 @@ RhyperiorEvosAttacks:
 
 SylveonEvosAttacks:
 	db 0 ; no more evolutions
+	dbw LEARN_EVO_MOVE, DISARM_VOICE
 	dbw 1, SCRATCH
 	dbw 1, LEER
 	dbw 9, MUD_SLAP
@@ -232,6 +234,7 @@ YanmegaEvosAttacks:
 
 GlaceonEvosAttacks:
 	db 0 ; no more evolutions
+	dbw LEARN_EVO_MOVE, ICY_WIND
 	dbw 1, SCRATCH
 	dbw 1, LEER
 	dbw 9, ICY_WIND
