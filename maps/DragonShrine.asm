@@ -641,7 +641,11 @@ DragonShrineRisingBadgeExplanationText:
 	line "move for climbing"
 	cont "waterfalls."
 
-	para "Also, all #MON"
+	para "And don't forget"
+	line "to keep caring for"
+	cont "your #MON."
+
+	para "That's how they"
 	line "will recognize you"
 
 	para "as a trainer and"

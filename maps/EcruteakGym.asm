@@ -261,13 +261,8 @@ Text_ReceivedFogBadge:
 
 MortyText_FogBadgeSpeech:
 	text "By having FOG-"
-	line "BADGE, #MON up"
-
-	para "to L50 will obey"
-	line "you."
-
-	para "Also, #MON that"
-	line "know ROCK SMASH"
+	line "BADGE, #MON who"
+	cont "know ROCK SMASH"
 
 	para "will be able to"
 	line "use that move"

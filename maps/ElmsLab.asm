@@ -1453,13 +1453,13 @@ ElmsLabTravelTip5Text:
 
 	para "Travel Tip 5:"
 
-	para "Some trainers are"
-	line "more likely to"
-	cont "exchange phone"
-	cont "numbers after they"
-	cont "know you share an"
-	cont "interest in"
-	cont "certain #MON."
+	para "High level #MON"
+	line "only obey if they"
+	cont "are happy with"
+	cont "their trainer."
+
+	para "Nicknaming them"
+	line "seems to help."
 	done
 
 ElmsLabTravelTip6Text:
