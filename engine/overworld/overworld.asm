@@ -136,7 +136,8 @@ LoadMiscTiles:
 .outdoor
 	call LoadEmote
 	; Returns immediately unless wCurWeather is set.
-	farjp LoadWeatherGraphics
+	xcall LoadWeatherGraphics
+	ret
 
 SafeGetSprite:
 	push hl

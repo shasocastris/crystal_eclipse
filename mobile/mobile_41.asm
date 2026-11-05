@@ -261,12 +261,12 @@ StubbedTrainerRankings_TrainerBattles:
 StubbedTrainerRankings_HallOfFame::
 	ret ; no-optimize Stub function (Plans for functions in the future)
 	ld hl, sTrainerRankingHOFEntries
-	jmp StubbedTrainerRankings_Increment3Byte
+	jr StubbedTrainerRankings_Increment3Byte
 
 StubbedTrainerRankings_WildMonsCaught:
 	ret ; no-optimize Stub function (Plans for functions in the future)
 	ld hl, sTrainerRankingWildMonsCaught
-	jmp StubbedTrainerRankings_Increment3Byte
+	jr StubbedTrainerRankings_Increment3Byte
 
 StubbedTrainerRankings_HookedEncounters:
 	ret ; no-optimize Stub function (Plans for functions in the future)

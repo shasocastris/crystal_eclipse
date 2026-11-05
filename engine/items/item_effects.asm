@@ -701,7 +701,7 @@ PokeBallEffect:
 	ld d, h
 	ld e, l
 	pop hl
-	farcall GiveNicknameHappiness
+	call GiveNicknameHappiness
 
 	jmp .return_from_capture
 
@@ -754,7 +754,7 @@ PokeBallEffect:
 
 	ld hl, wBufferMonNickname
 	ld de, wBufferMonHappiness
-	farcall GiveNicknameHappiness
+	call GiveNicknameHappiness
 
 .SkipBoxMonNickname:
 	ld hl, wBufferMonNickname
