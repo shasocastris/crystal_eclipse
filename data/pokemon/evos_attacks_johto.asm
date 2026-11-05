@@ -1122,7 +1122,7 @@ DunsparceEvosAttacks:
 	db 0 ; no more level-up moves
 
 GligarEvosAttacks:
-	dbww EVOLVE_ITEM, MOON_STONE, GLISCOR
+	dbww EVOLVE_ITEM, RAZOR_CLAW, GLISCOR
 	db 0 ; no more evolutions
 	dbw 1, POISON_STING
 	dbw 6, MUD_SLAP
@@ -1273,7 +1273,7 @@ HeracrossEvosAttacks:
 	db 0 ; no more level-up moves
 
 SneaselEvosAttacks:
-	dbww EVOLVE_ITEM, MOON_STONE, WEAVILE
+	dbww EVOLVE_ITEM, RAZOR_CLAW, WEAVILE
 	db 0 ; no more evolutions
 	dbw 1, SCRATCH
 	dbw 1, LEER

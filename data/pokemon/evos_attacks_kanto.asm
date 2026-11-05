@@ -2280,7 +2280,7 @@ RhyhornEvosAttacks:
 	db 0 ; no more level-up moves
 
 RhydonEvosAttacks:
-	dbww EVOLVE_ITEM, SUN_STONE, RHYPERIOR
+	dbww EVOLVE_ITEM, PROTECTOR, RHYPERIOR
 	db 0 ; no more evolutions
 	dbw 1, HORN_ATTACK
 	dbw 1, LEER
@@ -2639,7 +2639,7 @@ EeveeEvosAttacks:
 	dbbw EVOLVE_HAPPINESS, TR_MORNDAY, ESPEON
 	dbbw EVOLVE_HAPPINESS, TR_EVENITE, UMBREON
 	dbww EVOLVE_ITEM, LEAF_STONE, LEAFEON
-	dbww EVOLVE_ITEM, MOON_STONE, SYLVEON
+	dbww EVOLVE_ITEM, SUN_STONE, SYLVEON
 	dbww EVOLVE_ITEM, MIST_STONE, GLACEON
 	db 0 ; no more evolutions
 	dbw 1, SCRATCH
