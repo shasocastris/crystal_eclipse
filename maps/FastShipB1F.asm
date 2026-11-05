@@ -91,12 +91,13 @@ FastShipB1FSailorScript:
 	closetext
 	end
 
-TrainerSailorJeff:
-	trainer SAILOR, JEFF, EVENT_BEAT_SAILOR_JEFF, SailorJeffSeenText, SailorJeffBeatenText, 0, .Script
+; the hold's grunts reuse the first-trip sailor's and juggler's beaten flags
+TrainerGruntMHold1:
+	trainer GRUNTM, GRUNTM_39, EVENT_BEAT_SAILOR_JEFF, GruntMHold1SeenText, GruntMHold1BeatenText, 0, .Script
 
 .Script:
 	opentext
-	writetext SailorJeffAfterBattleText
+	writetext GruntMHold1AfterBattleText
 	waitbutton
 	closetext
 	end
@@ -111,12 +112,12 @@ TrainerPicnickerDebra:
 	closetext
 	end
 
-TrainerJugglerFritz:
-	trainer JUGGLER, FRITZ, EVENT_BEAT_JUGGLER_FRITZ, JugglerFritzSeenText, JugglerFritzBeatenText, 0, .Script
+TrainerGruntMHold2:
+	trainer GRUNTM, GRUNTM_40, EVENT_BEAT_JUGGLER_FRITZ, GruntMHold2SeenText, GruntMHold2BeatenText, 0, .Script
 
 .Script:
 	opentext
-	writetext JugglerFritzAfterBattleText
+	writetext GruntMHold2AfterBattleText
 	waitbutton
 	closetext
 	end
@@ -209,39 +210,45 @@ FastShipB1FSailorBlocksLeftMovement:
 	step_end
 
 FastShipB1FOnDutySailorText:
-	text "Hey, kid. Could I"
-	line "get you to look"
-	cont "for my buddy?"
+	text "Hey, kid. Have you"
+	line "seen the new guy?"
 
-	para "He's goofing off"
-	line "somewhere, that"
-	cont "lazy bum!"
+	para "He signed on in"
+	line "OLIVINE, but he"
+	cont "never showed up"
+	cont "for his shift."
 
-	para "I want to go find"
-	line "him, but I'm on"
-	cont "duty right now."
+	para "I can't leave my"
+	line "post to find him."
 	done
 
 FastShipB1FOnDutySailorRefusedText:
-	text "Oh, gee…"
+	text "Still no sign of"
+	line "him?"
 
-	para "The CAPTAIN will"
-	line "be furious…"
+	para "The CAPTAIN isn't"
+	line "answering his door"
+	cont "either…"
 	done
 
 FastShipB1FOnDutySailorThanksText:
-	text "Thanks, kid!"
-	line "I chewed him out"
+	text "A ROCKET in our"
+	line "crew?!"
 
-	para "good so he'll quit"
-	line "slacking off!"
+	para "And the CAPTAIN"
+	line "is in trouble?"
+
+	para "Go! I'll keep any"
+	line "more of them from"
+	cont "getting past me!"
 	done
 
 FastShipB1FOnDutySailorSawLittleGirlText:
 	text "A little girl?"
 
-	para "I may have seen"
-	line "her go by here."
+	para "She ran toward the"
+	line "CAPTAIN's cabin"
+	cont "earlier!"
 	done
 
 FastShipB1FOnDutySailorDirectionsText:
@@ -253,21 +260,19 @@ FastShipB1FOnDutySailorDirectionsText:
 	cont "CAPTAIN's cabin."
 	done
 
-SailorJeffSeenText:
-	text "Nothing beats a"
-	line "battle when I'm"
-	cont "on my break."
+GruntMHold1SeenText:
+	text "Hey! Nobody comes"
+	line "down to the hold!"
 	done
 
-SailorJeffBeatenText:
-	text "Win or lose, my"
-	line "break's over!"
+GruntMHold1BeatenText:
+	text "Blast it!"
 	done
 
-SailorJeffAfterBattleText:
-	text "I guess I can't"
-	line "win if I don't get"
-	cont "serious."
+GruntMHold1AfterBattleText:
+	text "You'll never find"
+	line "where we stashed"
+	cont "the #MON!"
 	done
 
 PicnickerDebraSeenText:
@@ -281,29 +286,28 @@ PicnickerDebraBeatenText:
 	done
 
 PicnickerDebraAfterBattleText:
-	text "SAFFRON, CELADON…"
-	line "I hear there are"
+	text "I saw men in black"
+	line "carrying crates"
+	cont "down here."
 
-	para "many big cities"
-	line "in KANTO."
+	para "Are they part of"
+	line "the crew?"
 	done
 
-JugglerFritzSeenText:
-	text "Urrf…"
-	line "I'm seasick!"
+GruntMHold2SeenText:
+	text "Get lost, kid!"
+	line "This cargo isn't"
+	cont "for your eyes!"
 	done
 
-JugglerFritzBeatenText:
-	text "I can't move any-"
-	line "more…"
+GruntMHold2BeatenText:
+	text "Our shipment…!"
 	done
 
-JugglerFritzAfterBattleText:
-	text "No more ships for"
-	line "me. Next time,"
-
-	para "I'm taking the"
-	line "MAGNET TRAIN."
+GruntMHold2AfterBattleText:
+	text "These #MON will"
+	line "fetch a fortune"
+	cont "in KANTO!"
 	done
 
 SailorGarrettSeenText:
@@ -453,9 +457,9 @@ FastShipB1F_MapEvents:
 	def_object_events
 	object_event 30,  6, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, FastShipB1FSailorScript, EVENT_FAST_SHIP_B1F_SAILOR_LEFT
 	object_event 31,  6, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, FastShipB1FSailorScript, EVENT_FAST_SHIP_B1F_SAILOR_RIGHT
-	object_event  9, 11, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSailorJeff, EVENT_FAST_SHIP_PASSENGERS_FIRST_TRIP
+	object_event  9, 11, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntMHold1, EVENT_FAST_SHIP_PASSENGERS_FIRST_TRIP
 	object_event  6,  4, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerPicnickerDebra, EVENT_FAST_SHIP_PASSENGERS_FIRST_TRIP
-	object_event 26,  9, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerJugglerFritz, EVENT_FAST_SHIP_PASSENGERS_FIRST_TRIP
+	object_event 26,  9, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerGruntMHold2, EVENT_FAST_SHIP_PASSENGERS_FIRST_TRIP
 	object_event 17,  4, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSailorGarrett, EVENT_FAST_SHIP_PASSENGERS_EASTBOUND
 	object_event 25,  8, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerFisherJonah, EVENT_FAST_SHIP_PASSENGERS_EASTBOUND
 	object_event 15, 11, SPRITE_BLACK_BELT, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBlackbeltWai, EVENT_FAST_SHIP_PASSENGERS_EASTBOUND

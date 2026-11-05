@@ -124,6 +124,8 @@ DanceTheaterRockSmashGuy:
 	sjump .GetRockSmash
 
 .KimonoGirlsUndefeated:
+	checkevent EVENT_QUELLED_WILD_HUNT
+	iftrue RockSmashGuyWildHunt
 	checkflag ENGINE_PLAYER_IS_FEMALE
 	iftrue .PlayerIsFemale
 	writetext RockSmashGuyLadGiftText
@@ -148,7 +150,15 @@ DanceTheaterRockSmashGuy:
 	end
 
 RockSmashGuyAlreadyGaveRockSmash:
+	checkevent EVENT_QUELLED_WILD_HUNT
+	iftrue RockSmashGuyWildHunt
 	writetext RockSmashGuyElegantKimonoGirlsText
+	waitbutton
+	closetext
+	end
+
+RockSmashGuyWildHunt:
+	writetext RockSmashGuyWildHuntText
 	waitbutton
 	closetext
 	end
@@ -170,10 +180,20 @@ DanceTheaterRhydon:
 	ret
 
 DanceTheaterCooltrainerMScript:
+	checkevent EVENT_QUELLED_WILD_HUNT
+	iftrue .WildHunt
 	jumptextfaceplayer DanceTheaterCooltrainerMText
 
+.WildHunt:
+	jumptextfaceplayer DanceTheaterCooltrainerMText_WildHunt
+
 DanceTheaterGrannyScript:
+	checkevent EVENT_QUELLED_WILD_HUNT
+	iftrue .WildHunt
 	jumptextfaceplayer DanceTheaterGrannyText
+
+.WildHunt:
+	jumptextfaceplayer DanceTheaterGrannyText_WildHunt
 
 DanceTheaterFancyPanel:
 	jumptext DanceTheaterFancyPanelText
@@ -430,6 +450,20 @@ RockSmashGuyElegantKimonoGirlsText:
 	cont "the KIMONO GIRLS…"
 	done
 
+RockSmashGuyWildHuntText:
+	text "But they've all"
+	line "gone to the ROUTE"
+	cont "38 gate."
+
+	para "They're holding"
+	line "back the WILD"
+	cont "HUNT with MORTY."
+
+	para "No dancing until"
+	line "ECRUTEAK is safe,"
+	cont "I suppose."
+	done
+
 RhydonText:
 	text "RHYDON: Gugooh"
 	line "gugogooh!"
@@ -447,6 +481,32 @@ DanceTheaterCooltrainerMText:
 	para "Is he trying to"
 	line "make a mining and"
 	cont "dancing #MON?"
+	done
+
+DanceTheaterCooltrainerMText_WildHunt:
+	text "The KIMONO GIRLS"
+	line "left in a hurry."
+
+	para "They took their"
+	line "EEVEELUTIONS to"
+	cont "the ROUTE 38 gate."
+
+	para "Even that man and"
+	line "his RHYDON wanted"
+	cont "to help, but MORTY"
+	cont "said to stay put."
+	done
+
+DanceTheaterGrannyText_WildHunt:
+	text "The KIMONO GIRLS"
+	line "are out defending"
+	cont "the city."
+
+	para "I told you they"
+	line "keep us safe."
+
+	para "I pray they all"
+	line "come home safely…"
 	done
 
 DanceTheaterGrannyText:

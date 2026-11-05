@@ -374,11 +374,11 @@
 	const EVENT_BETH_ASKED_FOR_PHONE_NUMBER
 	const EVENT_BURNED_TOWER_B1F_RAIKOU ; was unused in Crystal
 	const EVENT_JOSE_ASKED_FOR_PHONE_NUMBER
-	const_skip ; unused in Crystal
+	const EVENT_FAST_SHIP_PETREL ; was unused in Crystal
 	const EVENT_REENA_ASKED_FOR_PHONE_NUMBER
-	const_skip ; unused in Crystal
+	const EVENT_SS_AQUA_RAID ; was unused in Crystal
 	const EVENT_JOEY_ASKED_FOR_PHONE_NUMBER
-	const_skip ; unused in Crystal
+	const EVENT_VERMILION_PORT_KOGA ; was unused in Crystal
 	const EVENT_WADE_ASKED_FOR_PHONE_NUMBER
 	const_skip ; unused in Crystal
 	const EVENT_RALPH_ASKED_FOR_PHONE_NUMBER

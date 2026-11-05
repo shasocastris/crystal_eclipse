@@ -121,6 +121,13 @@ BrunoScript_BrunoBeforeText:
 	para "That is how we"
 	line "became strong."
 
+	para "You stood against"
+	line "TEAM ROCKET when"
+	cont "others ran."
+
+	para "That takes power"
+	line "of its own."
+
 	para "Can you withstand"
 	line "our power?"
 

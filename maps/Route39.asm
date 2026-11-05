@@ -574,13 +574,12 @@ PokefanfJaimeAfterBattleText:
 
 	para "Training here has"
 	line "made us even"
-	cont "closer than before."
+	cont "closer than ever."
 	done
 
 JaimeGivesParalyzGuardText:
-	text "After going through"
-	line "that crisis, you"
-	cont "deserve this."
+	text "After that crisis,"
+	line "you deserve this."
 
 	para "It will keep your"
 	line "#MON from"

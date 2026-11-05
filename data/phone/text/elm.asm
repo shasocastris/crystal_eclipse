@@ -250,3 +250,19 @@ ElmPhoneGiftText:
 
 	para "See you later!"
 	done
+
+ElmPhoneSSTicketText:
+	text "Hello, <PLAY_G>?"
+
+	para "PROF.OAK told me"
+	line "what happened at"
+	cont "the LEAGUE."
+
+	para "These rumors about"
+	line "TEAM ROCKET worry"
+	cont "me too."
+
+	para "Could you come by"
+	line "my LAB? I have"
+	cont "something for you."
+	done

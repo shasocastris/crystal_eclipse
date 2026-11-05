@@ -106,6 +106,18 @@ Route38EcruteakGateTealKimonoGirlOlderSistersScript:
 Route38EcruteakGateTealKimonoGirlMortyScript:
 	jumptextfaceplayer Route38EcruteakGateKimonoGirlMortyText
 
+Route38EcruteakGateFlareonKimonoGirlScript:
+	jumptextfaceplayer Route38EcruteakGateFlareonKimonoGirlText
+
+Route38EcruteakGateVaporeonKimonoGirlScript:
+	jumptextfaceplayer Route38EcruteakGateVaporeonKimonoGirlText
+
+Route38EcruteakGateUmbreonKimonoGirlScript:
+	jumptextfaceplayer Route38EcruteakGateUmbreonKimonoGirlText
+
+Route38EcruteakGateSylveonKimonoGirlScript:
+	jumptextfaceplayer Route38EcruteakGateSylveonKimonoGirlText
+
 Route38EcruteakGateOfficerScript:
 	jumptextfaceplayer Route38EcruteakGateOfficerText
 
@@ -301,6 +313,40 @@ Route38EcruteakGateKimonoGirlMortyText:
 	line "burden."
 	done
 
+Route38EcruteakGateFlareonKimonoGirlText:
+	text "FLAREON and I will"
+	line "hold the line by"
+	cont "TIN TOWER."
+	done
+
+Route38EcruteakGateVaporeonKimonoGirlText:
+	text "I said I hoped I'd"
+	line "be ready to defend"
+	cont "ECRUTEAK."
+
+	para "I didn't think it"
+	line "would be so soon."
+	done
+
+Route38EcruteakGateUmbreonKimonoGirlText:
+	text "My wolfsbane"
+	line "didn't ward off"
+	cont "this hunt."
+
+	para "UMBREON and I will"
+	line "patrol ROUTE 37."
+	done
+
+Route38EcruteakGateSylveonKimonoGirlText:
+	text "SYLVEON's ribbons"
+	line "can soothe angry"
+	cont "#MON."
+
+	para "But there are far"
+	line "too many of them"
+	cont "to calm alone."
+	done
+
 Route38EcruteakGateOfficerText:
 	text "Where did you say"
 	line "you're from?"
@@ -327,16 +373,16 @@ Route38EcruteakGate_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  3,  5, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateRanger1Script, EVENT_HEALED_MOOMOO
-	object_event  4,  4, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateRanger2Script, EVENT_HEALED_MOOMOO
-	object_event  7,  5, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateRanger3Script, EVENT_HEALED_MOOMOO
+	object_event  3,  5, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateRanger1Script, EVENT_BEAT_PRYCE
+	object_event  4,  4, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateRanger2Script, EVENT_BEAT_PRYCE
+	object_event  7,  5, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateRanger3Script, EVENT_BEAT_PRYCE
 	object_event  5,  2, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateOfficerScript, EVENT_ROUTE38_GATE_OFFICER
 	object_event  3,  4, SPRITE_MORTY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateMortyScript, EVENT_ECRUTEAK_WILD_HUNT
-	object_event  8,  6, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateTealKimonoGirlOlderSistersScript, EVENT_ECRUTEAK_WILD_HUNT
+	object_event  8,  6, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateFlareonKimonoGirlScript, EVENT_ECRUTEAK_WILD_HUNT
 	object_event  7,  4, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_YELLOW, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateKimonoGirlScript, EVENT_ECRUTEAK_WILD_HUNT
-	object_event  1,  3, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateKimonoGirlScript, EVENT_ECRUTEAK_WILD_HUNT
-	object_event  9,  3, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateTealKimonoGirlOlderSistersScript, EVENT_ECRUTEAK_WILD_HUNT
-	object_event  1,  6, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateKimonoGirlScript, EVENT_ECRUTEAK_WILD_HUNT
+	object_event  1,  3, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateTealKimonoGirlOlderSistersScript, EVENT_ECRUTEAK_WILD_HUNT
+	object_event  9,  3, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateVaporeonKimonoGirlScript, EVENT_ECRUTEAK_WILD_HUNT
+	object_event  1,  6, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateSylveonKimonoGirlScript, EVENT_ECRUTEAK_WILD_HUNT
 	object_event  4,  5, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_TEAL, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateTealKimonoGirlScript, EVENT_ECRUTEAK_WILD_HUNT
-	object_event  8,  3, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLACK, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateKimonoGirlScript, EVENT_ECRUTEAK_WILD_HUNT
+	object_event  8,  3, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLACK, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateUmbreonKimonoGirlScript, EVENT_ECRUTEAK_WILD_HUNT
 	object_event  6,  4, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PURPLE, OBJECTTYPE_SCRIPT, 0, Route38EcruteakGateTealKimonoGirlMortyScript, EVENT_ECRUTEAK_WILD_HUNT

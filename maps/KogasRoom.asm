@@ -118,6 +118,15 @@ KogaScript_KogaBeforeText:
 	para "I live in shadows,"
 	line "a ninja!"
 
+	para "My spies tell me"
+	line "ROCKET is stirring"
+	cont "in KANTO again."
+
+	para "Before I hunt"
+	line "them, let me test"
+	cont "the one who drove"
+	cont "them from JOHTO!"
+
 	para "My intricate style"
 	line "will confound and"
 	cont "destroy you!"

@@ -261,6 +261,14 @@ LanceBattleIntroText:
 	para "would eventually"
 	line "reach me here."
 
+	para "The LEAGUE may be"
+	line "closed, but after"
+	cont "MAHOGANY and the"
+	cont "RADIO TOWER,"
+
+	para "I wasn't about to"
+	line "turn you away."
+
 	para "There's no need"
 	line "for words now."
 
@@ -423,10 +431,10 @@ LanceRematchCongratulationsText:
 
 LancesRoomMaryOhNoOakText:
 	text "MARY: Oh, no!"
-	line "It's all over!"
+	line "We're too late!"
 
-	para "PROF.OAK, if you"
-	line "weren't so slow…"
+	para "PROF.OAK, hurry!"
+	line "This can't wait!"
 	done
 
 LancesRoomOakCongratulationsText:
@@ -436,36 +444,33 @@ LancesRoomOakCongratulationsText:
 	para "It's been a long"
 	line "while."
 
-	para "You certainly look"
-	line "more impressive."
+	para "Congratulations"
+	line "on your victory!"
 
-	para "Your conquest of"
-	line "the LEAGUE is just"
-	cont "fantastic!"
+	para "I'm sorry to burst"
+	line "in like this, but"
+	cont "there's news."
 
-	para "Your dedication,"
-	line "trust and love for"
+	para "There are rumors"
+	line "of TEAM ROCKET in"
+	cont "KANTO."
 
-	para "your #MON made"
-	line "this happen."
+	para "#MON have gone"
+	line "missing near the"
+	cont "ports."
 
-	para "Your #MON were"
-	line "outstanding too."
-
-	para "Because they be-"
-	line "lieved in you as a"
-
-	para "trainer, they per-"
-	line "severed."
-
-	para "Congratulations,"
-	line "<PLAY_G>!"
+	para "LANCE, <PLAY_G>…"
+	line "I wanted to hear"
+	cont "what you both make"
+	cont "of it."
 	done
 
 LancesRoomMaryInterviewText:
-	text "MARY: Let's inter-"
-	line "view the brand new"
-	cont "CHAMPION!"
+	text "MARY: <PLAY_G>,"
+	line "you fought ROCKET"
+	cont "in GOLDENROD!"
+
+	para "What do you think?"
 	done
 
 LancesRoomNoisyText:
@@ -479,8 +484,8 @@ LancesRoomNoisyText:
 
 LancesRoomMaryNoInterviewText:
 	text "MARY: Oh, wait!"
-	line "We haven't done"
-	cont "the interview!"
+	line "We never got your"
+	cont "answer!"
 
 	para "Maybe I'll catch"
 	line "<PLAY_G> the next"

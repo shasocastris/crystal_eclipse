@@ -509,12 +509,12 @@ LassDanaMoomooMilkText:
 	cont "TAUROS herd."
 
 	para "That's why their"
-	line "milk is so special!"
+	line "milk is special!"
 	done
 
 BeautyValerieSeenText:
 	text "After seeing those"
-	line "aggressive #MON,"
+	line "angry #MON,"
 
 	para "I really appreci-"
 	line "ate kind trainers!"

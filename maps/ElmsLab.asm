@@ -1238,30 +1238,26 @@ ElmGiveTicketText1:
 	text "ELM: <PLAY_G>!"
 	line "There you are!"
 
-	para "I called because I"
-	line "have something for"
-	cont "you."
+	para "If TEAM ROCKET is"
+	line "back in KANTO,"
+	cont "someone has to"
+	cont "find out."
 
-	para "See? It's an"
+	para "Would you go and"
+	line "see if the rumors"
+	cont "are true?"
+
+	para "Here, take this"
 	line "S.S.TICKET."
-
-	para "Now you can catch"
-	line "#MON in KANTO."
 	done
 
 ElmGiveTicketText2:
 	text "The ship departs"
 	line "from OLIVINE CITY."
 
-	para "But you knew that"
-	line "already, <PLAY_G>."
-
-	para "After all, you've"
-	line "traveled all over"
-	cont "with your #MON."
-
-	para "Give my regards to"
-	line "PROF.OAK in KANTO!"
+	para "Be careful, and"
+	line "give my regards to"
+	cont "PROF.OAK in KANTO!"
 	done
 
 AideText_GiveYouPotion:
