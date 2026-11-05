@@ -191,7 +191,7 @@ if DEF(_DEBUG)
 	givepoke DUDUNSPARC, 50, EXP_SHARE
 	givepokemove HIDDEN_POWER,    wPartyMon4, 3
 	givepoke URSALUNA, 50, MIRACLE_SEED
-	givepokemove CONVERSION,      wPartyMon5, 0
+	givepokemove DIG,      wPartyMon5, 0
 	givepokemove HIDDEN_POWER,    wPartyMon5, 1
 	givepokemove BATON_PASS,    wPartyMon5, 2
 	givepokemove BARRIER, wPartyMon5, 3
