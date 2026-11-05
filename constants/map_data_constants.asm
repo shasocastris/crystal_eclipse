@@ -116,6 +116,8 @@ DEF NUM_FISHGROUPS EQU const_value - 1
 	const SPAWN_SHAMOUTI
 ; s.s.aqua raid whiteout
 	const SPAWN_VERMILION_PORT
+; rematch after whiting out to Red
+	const SPAWN_SILVER_CAVE_RED
 DEF NUM_SPAWNS EQU const_value
 
 DEF SPAWN_N_A EQU -1

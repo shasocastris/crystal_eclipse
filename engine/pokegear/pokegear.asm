@@ -1454,6 +1454,8 @@ AnimateTuningKnob:
 	inc [hl]
 .update
 UpdateRadioStation:
+	farcall IsInSilverCave
+	jr c, .out_of_area
 	ld hl, wRadioTuningKnob
 	ld d, [hl]
 	ld hl, RadioChannels
@@ -1469,6 +1471,17 @@ UpdateRadioStation:
 
 .nostation
 	jmp NoRadioStation
+
+.out_of_area
+	call NoRadioStation
+	xor a
+	ldh [hBGMapMode], a
+	hlcoord 1, 14
+	ld de, RadioOutOfAreaString
+	rst PlaceString
+	ld a, $1
+	ldh [hBGMapMode], a
+	ret
 
 .foundstation
 	ld a, [hli]
@@ -1801,6 +1814,8 @@ LullabyMusicName:     db "Lullaby Music@"
 PlacesAndPeopleName:  db "Places & People@"
 LetsAllSingName:      db "Let's All Sing!@"
 PokeFluteStationName: db "# FLUTE@"
+
+RadioOutOfAreaString: db "You're out of the<NEXT>broadcast area.@"
 
 _TownMap:
 	ld hl, wOptions

@@ -44,6 +44,8 @@ SpawnPoints:
 
 	spawn VERMILION_PORT,              7, 16
 
+	spawn SILVER_CAVE_ROOM_3,          9, 10
+
 	spawn N_A,                        -1, -1
 
 	assert_table_length NUM_SPAWNS + 1

@@ -3,8 +3,25 @@
 
 SilverCaveRoom3_MapScripts:
 	def_scene_scripts
+	scene_script SilverCaveRoom3NoopScene,       SCENE_SILVERCAVEROOM3_NOOP
+	scene_script SilverCaveRoom3RedRematchScene, SCENE_SILVERCAVEROOM3_RED_REMATCH
 
 	def_callbacks
+
+SilverCaveRoom3NoopScene:
+	end
+
+SilverCaveRoom3RedRematchScene:
+	sdefer SilverCaveRoom3RedRematchScript
+	end
+
+; Whiting out to Red respawns the player beside him, healed.
+SilverCaveRoom3RedRematchScript:
+	setscene SCENE_SILVERCAVEROOM3_NOOP
+	blackoutmod SILVER_CAVE_OUTSIDE
+	turnobject PLAYER, RIGHT
+	turnobject SILVERCAVEROOM3_RED, LEFT
+	end
 
 Red:
 	special FadeOutMusic
@@ -13,11 +30,15 @@ Red:
 	writetext RedSeenText
 	waitbutton
 	closetext
-	winlosstext RedWinLossText, RedWinLossText
+	blackoutmod SILVER_CAVE_ROOM_3
+	setscene SCENE_SILVERCAVEROOM3_RED_REMATCH
+	winlosstext RedWinLossText, RedRematchText
 	loadtrainer RED, RED1
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
+	setscene SCENE_SILVERCAVEROOM3_NOOP
+	blackoutmod SILVER_CAVE_OUTSIDE
 	special FadeOutMusic
 	opentext
 	writetext RedLeavesText
@@ -41,6 +62,12 @@ RedSeenText:
 
 RedWinLossText:
 	text "…"
+	done
+
+RedRematchText:
+	text "Have some POTIONS…"
+	line "and we can fight"
+	cont "again…"
 	done
 
 RedLeavesText:
