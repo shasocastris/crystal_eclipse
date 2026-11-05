@@ -42,11 +42,28 @@ SSAquaCaptainsCabinPetrelScript:
 	turnobject PLAYER, UP
 	showemote EMOTE_SHOCK, FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_PETREL, 15
 	playmusic MUSIC_ROCKET_ENCOUNTER
+; Petrel steps into row 28 at x=5, then walks along it to stand over the player
+	applymovement FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_PETREL, SSAquaPetrelStepDownMovement
+	readvar VAR_XCOORD
+.PetrelApproach:
+	ifequal 5, .PetrelArrived
+	ifless 5, .PetrelStepLeft
+	applymovement FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_PETREL, SSAquaPetrelStepRightMovement
+	addval -1
+	sjump .PetrelApproach
+
+.PetrelStepLeft:
+	applymovement FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_PETREL, SSAquaPetrelStepLeftMovement
+	addval 1
+	sjump .PetrelApproach
+
+.PetrelArrived:
+	turnobject FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_PETREL, DOWN
 	opentext
 	writetext PetrelShipBeforeText
 	waitbutton
 	closetext
-	winlosstext PetrelShipWinText, 0
+	winlosstext PetrelShipWinText, PetrelShipLossText
 	setlasttalked FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_PETREL
 	loadtrainer EXECUTIVEM, EXECUTIVEM_5
 	startbattle
@@ -55,7 +72,11 @@ SSAquaCaptainsCabinPetrelScript:
 	writetext PetrelShipAfterText
 	waitbutton
 	closetext
+	special FadeOutToBlack
+	special ReloadSpritesNoPalettes
 	disappear FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_PETREL
+	pause 15
+	special FadeInFromBlack
 	special RestartMapMusic
 	opentext
 	writetext PetrelShipSmokeBallText
@@ -272,6 +293,18 @@ SSAquaPlayerStepRightMovement:
 
 SSAquaPlayerStepUpMovement:
 	big_step UP
+	step_end
+
+SSAquaPetrelStepDownMovement:
+	step DOWN
+	step_end
+
+SSAquaPetrelStepLeftMovement:
+	step LEFT
+	step_end
+
+SSAquaPetrelStepRightMovement:
+	step RIGHT
 	step_end
 
 SSAquaGranddaughterEntersCabinMovement:
@@ -498,7 +531,8 @@ PetrelShipBeforeText:
 
 	para "…Hm? You're the"
 	line "kid who wrecked"
-	cont "the RADIO TOWER!"
+	cont "the secret base in"
+	cont "MAHOGANY TOWN!"
 
 	para "Then there's no"
 	line "need for this"
@@ -521,6 +555,13 @@ PetrelShipBeforeText:
 
 PetrelShipWinText:
 	text "Not again…!"
+	done
+
+PetrelShipLossText:
+	text "Ha! Some hero."
+
+	para "Sleep it off, kid."
+	line "This ship is ours!"
 	done
 
 PetrelShipAfterText:

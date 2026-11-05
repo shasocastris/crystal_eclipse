@@ -135,24 +135,8 @@ VermilionPortSailorAtGangwayScript:
 	opentext
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	iftrue VermilionPortAlreadyRodeScript
-; The ORANGE PASS sails the express any day. Only a player who could also take
-; the S.S.AQUA today is asked which.
-	checkitem ORANGE_PASS
-	iffalse .BoardAqua
-	checkitem S_S_TICKET
-	iffalse VermilionPortValenciaExpressScript
-	checkevent EVENT_FAST_SHIP_FIRST_TIME
-	iffalse VermilionPortValenciaExpressScript
-	readvar VAR_WEEKDAY
-	ifequal WEDNESDAY, .AskExpress
-	ifequal SUNDAY, .AskExpress
-	sjump VermilionPortValenciaExpressScript
-
-.AskExpress:
-	writetext VermilionPortAskExpressText
-	yesorno
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
 	iftrue VermilionPortValenciaExpressScript
-.BoardAqua:
 	writetext VermilionPortDepartingText
 	waitbutton
 	closetext
@@ -219,80 +203,14 @@ VermilionPortWalkUpToShipScript:
 	iftrue .skip
 	turnobject PLAYER, LEFT
 	opentext
-	checkitem ORANGE_PASS
-	iftrue .OrangePass
-	checkevent EVENT_FAST_SHIP_FIRST_TIME
-	iffalse .FirstRunFromOlivine
-	readvar VAR_WEEKDAY
-	ifequal MONDAY, .NextShipWednesday
-	ifequal TUESDAY, .NextShipWednesday
-	ifequal THURSDAY, .NextShipSunday
-	ifequal FRIDAY, .NextShipSunday
-	ifequal SATURDAY, .NextShipSunday
-	writetext VermilionPortAskBoardingText
-	yesorno
-	iffalse VermilionPortNotRidingMoveAwayScript
-	writetext VermilionPortAskTicketText
-	promptbutton
-	checkitem S_S_TICKET
-	iffalse .NoTicket
-	writetext VermilionPortSSTicketText
-.Board:
-	waitbutton
-	closetext
-	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	scall VermilionPortCheckInScript
+	iffalse .TurnedAway
 	applymovement PLAYER, VermilionPortApproachFastShipMovement
 	sjump VermilionPortSailorAtGangwayScript
 
-.OrangePass:
-	writetext VermilionPortAskBoardingText
-	yesorno
-	iffalse VermilionPortNotRidingMoveAwayScript
-	writetext VermilionPortOrangePassText
-	sjump .Board
-
-.NoTicket:
-	writetext VermilionPortNoTicketText
-	waitbutton
-	closetext
+.TurnedAway:
 	applymovement PLAYER, VermilionPortCannotEnterFastShipMovement
-	end
-
-.NextShipWednesday:
-	writetext VermilionPortSailWednesdayText
-	waitbutton
-	closetext
-	applymovement PLAYER, VermilionPortCannotEnterFastShipMovement
-	end
-
-.NextShipSunday:
-	writetext VermilionPortSailSundayText
-	waitbutton
-	closetext
-	applymovement PLAYER, VermilionPortCannotEnterFastShipMovement
-	end
-
-.FirstRunFromOlivine:
-	writetext VermilionPortFirstRunText
-	waitbutton
-	closetext
-	applymovement PLAYER, VermilionPortCannotEnterFastShipMovement
-	end
-
 .skip:
-	end
-
-VermilionPortNotRidingScript:
-	writetext VermilionPortComeAgainText
-	waitbutton
-	closetext
-	end
-
-VermilionPortNotRidingMoveAwayScript:
-	writetext VermilionPortComeAgainText
-	waitbutton
-	closetext
-	applymovement PLAYER, VermilionPortCannotEnterFastShipMovement
 	end
 
 VermilionPortSailorScript:
@@ -300,8 +218,49 @@ VermilionPortSailorScript:
 	opentext
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	iftrue VermilionPortAlreadyRodeScript
+	scall VermilionPortCheckInScript
+	iffalse .TurnedAway
+	applymovement PLAYER, VermilionPortApproachFastShipRightMovement
+	sjump VermilionPortSailorAtGangwayScript
+
+.TurnedAway:
+	end
+
+; Returns TRUE if the player boards; RELOAD_3 set means the express.
+; S.S.AQUA: Wed/Sun with the S.S.TICKET. Express: any day with the ORANGE PASS.
+VermilionPortCheckInScript:
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
 	checkitem ORANGE_PASS
-	iftrue .OrangePass
+	iffalse .AquaOnly
+	writetext VermilionPortAskBoardingText
+	checkitem S_S_TICKET
+	iffalse .AskExpress
+	checkevent EVENT_FAST_SHIP_FIRST_TIME
+	iffalse .AskExpress
+	readvar VAR_WEEKDAY
+	ifequal WEDNESDAY, .ChooseDestination
+	ifequal SUNDAY, .ChooseDestination
+.AskExpress:
+	yesorno
+	iffalse .Declined
+.Express:
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	writetext VermilionPortOrangePassText
+	sjump .Board
+
+.ChooseDestination:
+	loadmenu VermilionPortDestinationMenuHeader
+	verticalmenu
+	closewindow
+	ifequal 1, .Olivine
+	ifequal 2, .Express
+	sjump .Declined
+
+.Olivine:
+	writetext VermilionPortSSTicketText
+	sjump .Board
+
+.AquaOnly:
 	checkevent EVENT_FAST_SHIP_FIRST_TIME
 	iffalse .FirstRunFromOlivine
 	readvar VAR_WEEKDAY
@@ -312,7 +271,7 @@ VermilionPortSailorScript:
 	ifequal SATURDAY, .NextShipSunday
 	writetext VermilionPortAskBoardingText
 	yesorno
-	iffalse VermilionPortNotRidingScript
+	iffalse .Declined
 	writetext VermilionPortAskTicketText
 	promptbutton
 	checkitem S_S_TICKET
@@ -322,39 +281,45 @@ VermilionPortSailorScript:
 	waitbutton
 	closetext
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
-	applymovement PLAYER, VermilionPortApproachFastShipRightMovement
-	sjump VermilionPortSailorAtGangwayScript
+	setval TRUE
+	end
 
-.OrangePass:
-	writetext VermilionPortAskBoardingText
-	yesorno
-	iffalse VermilionPortNotRidingScript
-	writetext VermilionPortOrangePassText
-	sjump .Board
+.Declined:
+	writetext VermilionPortComeAgainText
+	sjump .TurnedAway
 
 .NoTicket:
 	writetext VermilionPortNoTicketText
-	waitbutton
-	closetext
-	end
+	sjump .TurnedAway
 
 .NextShipWednesday:
 	writetext VermilionPortSailWednesdayText
-	waitbutton
-	closetext
-	end
+	sjump .TurnedAway
 
 .NextShipSunday:
 	writetext VermilionPortSailSundayText
-	waitbutton
-	closetext
-	end
+	sjump .TurnedAway
 
 .FirstRunFromOlivine:
 	writetext VermilionPortFirstRunText
+.TurnedAway:
 	waitbutton
 	closetext
+	setval FALSE
 	end
+
+VermilionPortDestinationMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 9, 4, 19, TEXTBOX_Y - 1
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR ; flags
+	db 3 ; items
+	db "OLIVINE@"
+	db "VALENCIA@"
+	db "CANCEL@"
 
 VermilionPortSuperNerdScript:
 	faceplayer
@@ -377,6 +342,7 @@ VermilionPortLeaveFastShipMovement:
 
 VermilionPortKogaWalksDownMovement:
 	step LEFT
+	step LEFT
 	step DOWN
 	step DOWN
 	step DOWN
@@ -389,7 +355,8 @@ VermilionPortKogaWalksBackMovement:
 	step UP
 	step UP
 	step RIGHT
-	turn_head DOWN
+	step RIGHT
+	turn_head LEFT
 	step_end
 
 VermilionPortCannotEnterFastShipMovement:
@@ -505,17 +472,6 @@ VermilionPortDepartingText:
 	cont "on board."
 	done
 
-VermilionPortAskExpressText:
-	text "The S.S.AQUA"
-	line "sails for JOHTO."
-
-	para "We also run an"
-	line "express to the"
-	cont "ORANGE ISLANDS."
-
-	para "Take the express?"
-	done
-
 VermilionPortExpressDepartingText:
 	text "The express is"
 	line "leaving now!"
@@ -613,5 +569,5 @@ VermilionPort_MapEvents:
 	object_event  7, 17, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSailorAtGangwayScript, EVENT_VERMILION_PORT_SAILOR_AT_GANGWAY
 	object_event  6, 11, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSailorScript, -1
 	object_event 11, 11, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSuperNerdScript, -1
-	object_event  8, 11, SPRITE_KOGA, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, VermilionPortKogaScript, EVENT_VERMILION_PORT_KOGA
-	object_event  8, 10, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, VermilionPortRangerScript, EVENT_VERMILION_PORT_KOGA
+	object_event  9, 11, SPRITE_KOGA, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, VermilionPortKogaScript, EVENT_VERMILION_PORT_KOGA
+	object_event  9, 10, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, VermilionPortRangerScript, EVENT_VERMILION_PORT_KOGA
