@@ -2160,6 +2160,10 @@ RepelEffect:
 	lb bc, 100, 1
 
 UseRepel:
+	farcall IsInSilverCave
+	ld hl, RepelDoesntWorkHereText
+	jmp c, PrintText
+
 	ld a, [wRepelEffect]
 	and a
 	ld hl, RepelUsedEarlierIsStillInEffectText
@@ -2173,6 +2177,10 @@ UseRepel:
 
 RepelUsedEarlierIsStillInEffectText:
 	text_far _RepelUsedEarlierIsStillInEffectText
+	text_end
+
+RepelDoesntWorkHereText:
+	text_far _RepelDoesntWorkHereText
 	text_end
 
 XAccuracyEffect:

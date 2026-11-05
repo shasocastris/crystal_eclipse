@@ -70,6 +70,7 @@ MapScenes::
 	scene_var TEAM_ROCKET_BASE_B3F,                        wTeamRocketBaseB3FSceneID
 	scene_var GOLDENROD_UNDERGROUND_ENTRANCES,             wGoldenrodUndergroundEntrancesSceneID
 	scene_var SILVER_CAVE_ROOM_3,                          wSilverCaveRoom3SceneID ; unused
+	scene_var SILVER_CAVE_ROOM_1,                          wSilverCaveRoom1SceneID
 	scene_var VICTORY_ROAD,                                wVictoryRoadSceneID
 	scene_var DRAGONS_DEN_B1F,                             wDragonsDenB1FSceneID
 	scene_var DRAGON_SHRINE,                               wDragonShrineSceneID

@@ -935,10 +935,13 @@ EscapeRopeOrDig:
 	ret
 
 .FailDig:
+	farcall IsInSilverCave
+	jr c, .silvercave
 	ld a, [wEscapeRopeOrDigType]
 	cp $2
 	jr nz, .failescaperope
 	ld hl, .CantUseDigText
+.print_fail
 	call MenuTextbox
 	call WaitPressAorB_BlinkCursor
 	call CloseWindow
@@ -946,6 +949,21 @@ EscapeRopeOrDig:
 .failescaperope
 	ld a, JUMPTABLE_EXIT
 	ret
+
+.silvercave
+	ld a, [wEscapeRopeOrDigType]
+	cp $2
+	jr z, .silvercave_text
+	; Suppress OAK's "isn't the time" line for the Escape Rope.
+	ld a, 1
+	ld [wUsingHMItem], a
+.silvercave_text
+	ld hl, .CantEscapeSilverCaveText
+	jr .print_fail
+
+.CantEscapeSilverCaveText:
+	text_far _CantEscapeSilverCaveText
+	text_end
 
 .UseDigText:
 	text_far _UseDigText

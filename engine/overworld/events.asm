@@ -901,8 +901,11 @@ DoRepelStep:
 	and a
 	ret z
 
-	dec a
-	ld [wRepelEffect], a
+	; Silver Cave suppresses Repel, so don't spend its steps there.
+	farcall IsInSilverCave
+	jr c, .paused
+	ld hl, wRepelEffect
+	dec [hl]
 	ret nz
 
 	farcall SetCurItemToRepel
@@ -923,6 +926,10 @@ DoRepelStep:
 .got_script
 	call CallScript
 	scf
+	ret
+
+.paused
+	and a
 	ret
 
 DoPlayerEvent:

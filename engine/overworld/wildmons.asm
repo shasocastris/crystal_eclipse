@@ -396,6 +396,8 @@ CheckRepelEffect::
 	ld a, [wRepelEffect]
 	and a
 	jr z, .encounter
+	call IsInSilverCave
+	jr c, .encounter
 ; Get the first Pokemon in your party that isn't fainted.
 	ld hl, wPartyMon1HP
 	ld bc, PARTYMON_STRUCT_LENGTH - 1
@@ -420,6 +422,29 @@ endr
 
 .encounter
 	scf
+	ret
+
+IsInSilverCave::
+; Returns carry inside Silver Cave (no Repel, Dig or Escape Rope). Clobbers a.
+	assert GROUP_SILVER_CAVE_UNDERBELLY == GROUP_SILVER_CAVE_ROOM_1
+	assert MAP_SILVER_CAVE_ROOM_2 == MAP_SILVER_CAVE_ROOM_1 + 1
+	assert MAP_SILVER_CAVE_ROOM_3 == MAP_SILVER_CAVE_ROOM_1 + 2
+	assert MAP_SILVER_CAVE_ITEM_ROOMS == MAP_SILVER_CAVE_ROOM_1 + 3
+	ld a, [wMapGroup]
+	cp GROUP_SILVER_CAVE_ROOM_1
+	jr nz, .no
+	ld a, [wMapNumber]
+	cp MAP_SILVER_CAVE_UNDERBELLY
+	jr z, .yes
+	cp MAP_SILVER_CAVE_ROOM_1
+	jr c, .no
+	cp MAP_SILVER_CAVE_ITEM_ROOMS + 1
+	ret
+.yes
+	scf
+	ret
+.no
+	and a
 	ret
 
 LoadWildMonDataPointer:

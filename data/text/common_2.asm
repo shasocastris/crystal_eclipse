@@ -274,6 +274,16 @@ _CantUseDigText::
 	line "here."
 	done
 
+_CantEscapeSilverCaveText::
+	text "It didn't work!"
+
+	para "There are no paths"
+	line "out…"
+
+;	para "This mountain will"
+;	line "not let you leave."
+	done
+
 _TeleportReturnText::
 	text "Return to the last"
 	line "#MON CENTER."

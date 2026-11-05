@@ -2606,7 +2606,7 @@ wRoute36NationalParkGateSceneID::                 db
 wAzaleaTownSceneID::                              db
 wGoldenrodGymSceneID::                            db
 wGoldenrodMagnetTrainStationSceneID::             db
-wGoldenrodPokecenter1FSceneID::                   db
+wSilverCaveRoom1SceneID::                         db ; was wGoldenrodPokecenter1FSceneID
 wOlivineCitySceneID::                             db
 wRoute34SceneID::                                 db
 wRoute34IlexForestGateSceneID::                   db

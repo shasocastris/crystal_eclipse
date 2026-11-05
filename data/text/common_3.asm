@@ -895,6 +895,15 @@ _RepelUsedEarlierIsStillInEffectText::
 	cont "in effect."
 	prompt
 
+_RepelDoesntWorkHereText::
+	text "The REPEL has no"
+	line "effect here…"
+
+	para "Something in this"
+	line "cave is too strong"
+	cont "for it to work!"
+	prompt
+
 _PlayedFluteText::
 	text "Played the #"
 	line "FLUTE."

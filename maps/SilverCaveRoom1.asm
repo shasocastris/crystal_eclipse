@@ -6,8 +6,36 @@
 
 SilverCaveRoom1_MapScripts:
 	def_scene_scripts
+	scene_script SilverCaveRoom1NoopScene,       SCENE_SILVERCAVEROOM1_NOOP
+	scene_script SilverCaveRoom1RepelWarnScene,  SCENE_SILVERCAVEROOM1_REPEL_WARNING
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, SilverCaveRoom1RepelCheckCallback
+
+SilverCaveRoom1RepelCheckCallback:
+	readmem wRepelEffect
+	iffalse .no_repel
+	setscene SCENE_SILVERCAVEROOM1_REPEL_WARNING
+	endcallback
+
+.no_repel
+	setscene SCENE_SILVERCAVEROOM1_NOOP
+	endcallback
+
+SilverCaveRoom1NoopScene:
+	end
+
+SilverCaveRoom1RepelWarnScene:
+	sdefer SilverCaveRoom1RepelWarnScript
+	end
+
+SilverCaveRoom1RepelWarnScript:
+	setscene SCENE_SILVERCAVEROOM1_NOOP
+	opentext
+	writetext SilverCaveRoom1RepelWarnText
+	waitbutton
+	closetext
+	end
 
 SilverCaveRoom1MaxElixer:
 	itemball MAX_ELIXER
@@ -26,6 +54,14 @@ SilverCaveRoom1HiddenDireHit:
 
 SilverCaveRoom1HiddenUltraBall:
 	hiddenitem ULTRA_BALL, EVENT_SILVER_CAVE_ROOM_1_HIDDEN_ULTRA_BALL
+
+SilverCaveRoom1RepelWarnText:
+	text "A heavy presence"
+	line "fills the cave…"
+
+	para "Your REPEL has"
+	line "stopped working!"
+	done
 
 SilverCaveRoom1_MapEvents:
 	db 0, 0 ; filler
