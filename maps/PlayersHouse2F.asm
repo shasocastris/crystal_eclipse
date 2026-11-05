@@ -83,6 +83,9 @@ if DEF(_DEBUG)
 	giveitem AMULET_COIN
 	giveitem SCOPE_LENS
 	giveitem STAR_PIECE, 10
+	giveitem DUBIOUS_DISC
+	giveitem RAZOR_CLAW, 2
+	giveitem PROTECTOR
 	giveitem POKE_FLUTE
 	giveitem SQUIRTBOTTLE
 	giveitem EXP_SHARE
@@ -199,6 +202,10 @@ if DEF(_DEBUG)
 	givepoke DRATINI, 54
 	givepoke DRATINI, 54
 	givepoke CORSOLA_KANTO, 36
+	givepoke RHYDON, 50
+	givepoke SNEASEL, 15
+	givepoke GLIGAR, 15
+	givepoke PORYGON2, 35
 	; intro events
 	addcellnum PHONE_MOM
 	setmapscene PLAYERS_HOUSE_1F, $1
