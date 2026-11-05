@@ -2633,14 +2633,19 @@ DittoEvosAttacks:
 	db 0 ; no more level-up moves
 
 EeveeEvosAttacks:
+	; Location entries come first so they win over Espeon/Umbreon.
+	db   EVOLVE_LOCATION
+	map_id ILEX_FOREST
+	dbbw EVOLVE_LEVEL, 1, LEAFEON
+	db   EVOLVE_LOCATION
+	map_id ICE_PATH_B3F
+	dbbw EVOLVE_LEVEL, 1, GLACEON
 	dbww EVOLVE_ITEM, THUNDERSTONE, JOLTEON
 	dbww EVOLVE_ITEM, WATER_STONE, VAPOREON
 	dbww EVOLVE_ITEM, FIRE_STONE, FLAREON
 	dbbw EVOLVE_HAPPINESS, TR_MORNDAY, ESPEON
 	dbbw EVOLVE_HAPPINESS, TR_EVENITE, UMBREON
-	dbww EVOLVE_ITEM, LEAF_STONE, LEAFEON
 	dbww EVOLVE_ITEM, SUN_STONE, SYLVEON
-	dbww EVOLVE_ITEM, MIST_STONE, GLACEON
 	db 0 ; no more evolutions
 	dbw 1, SCRATCH
 	dbw 1, LEER

@@ -51,11 +51,17 @@ KimonoGirlYukiAfterBattleText:
 	para "My sisters chose"
 	line "FIRE, WATER,"
 	cont "ELECTRIC, PSYCHIC,"
-	cont "GRASS, FAIRY and "
+	cont "GRASS, FAIRY and"
 	cont "DARK."
 
 	para "I chose the still"
 	line "beauty of ICE."
+
+	para "Let an EEVEE grow"
+	line "stronger on this"
+	cont "very floor, and"
+	cont "it'll become"
+	cont "GLACEON."
 
 	para "The path ahead"
 	line "leads to"

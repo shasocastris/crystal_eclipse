@@ -63,20 +63,28 @@ EvolveAfterBattle_MasterLoop:
 
 	ld b, a
 
+	cp EVOLVE_LOCATION
+	jr z, .location
 	cp EVOLVE_REGION
-	jr nz, .not_region
+	jr nz, .not_gate
 	call GetNextEvoAttackByte
 	ld b, a
 	ld a, [wCurRegion]
 	cp b
 	jr z, .loop ; in region: evaluate the entry it guards
-	call GetNextEvoAttackByte ; out of region: skip that entry entirely
+.skip_gated_entry
+	call GetNextEvoAttackByte ; gate failed: skip that entry entirely
 	ld b, a
 	and a
 	jr z, EvolveAfterBattle_MasterLoop
 	jmp .dont_evolve_check
 
-.not_region
+.location
+	call CheckEvoLocation
+	jr z, .loop
+	jr .skip_gated_entry
+
+.not_gate
 	ld a, b
 	cp EVOLVE_ITEM
 	jr z, .item
@@ -610,10 +618,14 @@ SkipEvolutions::
 	and a
 	ret z
 	cp EVOLVE_REGION
-	jr nz, .not_region
-	inc hl ; a 2-byte gate, and it does not terminate the block
+	jr z, .region
+	cp EVOLVE_LOCATION
+	jr nz, .not_gate
+	inc hl ; location gates are 3 bytes
+.region
+	inc hl ; region gates are 2; neither terminates the block
 	jr SkipEvolutions
-.not_region
+.not_gate
 	cp EVOLVE_LEVEL
 	jr z, .no_extra_skip
 	cp EVOLVE_HAPPINESS
@@ -639,6 +651,8 @@ DetermineEvolutionItemResults::
 	ret z
 	cp EVOLVE_REGION
 	jr z, .region
+	cp EVOLVE_LOCATION
+	jr z, .location
 	cp EVOLVE_LEVEL
 	jr z, .skip_species_parameter_byte
 	cp EVOLVE_HAPPINESS
@@ -655,13 +669,19 @@ DetermineEvolutionItemResults::
 	ld e, l
 	ret
 
+.location
+	call CheckEvoLocation
+	jr z, .loop
+	jr .skip_gated_entry
+
 .region
 	call GetNextEvoAttackByte
 	ld b, a
 	ld a, [wCurRegion]
 	cp b
 	jr z, .loop ; in region: let the entry it guards answer for itself
-	call GetNextEvoAttackByte ; out of region: skip it without matching the item
+.skip_gated_entry
+	call GetNextEvoAttackByte ; gate failed: skip it without matching the item
 	and a
 	ret z
 	cp EVOLVE_LEVEL
@@ -695,6 +715,24 @@ GetEvoItem:
 	call GetItemIDFromIndex
 	ld b, a
 	pop hl
+	ret
+
+CheckEvoLocation:
+; Consumes a location gate's map group and number. z if the player is there.
+; Uses only a and b: DetermineEvolutionItemResults' callers need c and de.
+	call GetNextEvoAttackByte
+	ld b, a
+	ld a, [wMapGroup]
+	cp b
+	jr nz, .wrong_group
+	call GetNextEvoAttackByte
+	ld b, a
+	ld a, [wMapNumber]
+	cp b
+	ret
+
+.wrong_group
+	inc hl ; skip the map number; inc hl leaves nz intact
 	ret
 
 GetEvoLevel:

@@ -5,9 +5,13 @@ SECTION "Evolutions and Attacks Pointers", ROMX
 ; Evos+attacks data structure:
 ; - Evolution methods:
 ;    * dbbw EVOLVE_LEVEL, level, species
-;    * dbbw EVOLVE_ITEM, used item, species
+;    * dbww EVOLVE_ITEM, used item, species
 ;    * dbbw EVOLVE_HAPPINESS, TR_* constant (ANYTIME, MORNDAY, EVENITE), species
 ;    * dbbbw EVOLVE_STAT, level, ATK_*_DEF constant (LT, GT, EQ), species
+; - Gates, each guarding the one method entry after it:
+;    * db EVOLVE_REGION, region
+;    * db EVOLVE_LOCATION + map_id MAP
+; - The first entry that matches wins.
 ; - db 0 ; no more evolutions
 ; - Learnset (in increasing level order):
 ;    * dbw level, move
