@@ -82,7 +82,7 @@ FastShipLazySailorScript:
 	winlosstext SailorStanlyBeatenText, 0
 	loadtrainer GRUNTM, GRUNTM_41
 	startbattle
-	reloadmap
+	reloadmapafterbattle
 	setevent EVENT_BEAT_SAILOR_STANLY
 	opentext
 	writetext SailorStanlyAfterBattleText

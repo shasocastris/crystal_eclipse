@@ -181,11 +181,10 @@ VioletPokecenter1FYoungsterText:
 	para "trainer they don't"
 	line "respect."
 
-	para "Without the right"
-	line "GYM BADGES, they"
-
-	para "will just do as"
-	line "they please."
+	para "A strong #MON"
+	line "won't listen until"
+	cont "it's happy with"
+	cont "its trainer."
 	done
 
 VioletPokecenter1F_MapEvents:

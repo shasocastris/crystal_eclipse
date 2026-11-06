@@ -56,7 +56,7 @@ FuchsiaGymJanineScript:
 .AfterTM:
 	checkevent EVENT_FAST_SHIP_FIRST_TIME
 	iffalse .ApplyMyself
-	checkevent EVENT_GOT_METAL_COAT_FROM_GRANDPA_ON_SS_AQUA
+	checkevent EVENT_SAVED_SS_AQUA
 	iftrue .SavedShip
 	writetext JanineText_FatherSawYouFall
 	promptbutton

@@ -69,6 +69,7 @@ BattleCommand_InnerLight:
 BattleCommand_LifeDew:
 ; lifedew
 	call CureUserPartyStatus
+	push af
 	call RecalcUserStats
 	call LifeDewRefillPP
 	ld hl, GetMaxHP
@@ -81,6 +82,10 @@ BattleCommand_LifeDew:
 	call UpdateUserInParty
 	call RefreshBattleHuds
 	ld hl, LifeDewText
+	call StdBattleTextbox
+	pop af
+	ret z
+	ld hl, LifeDewCuredText
 	jmp StdBattleTextbox
 
 BattleCommand_FaeBlade:
@@ -91,11 +96,8 @@ BattleCommand_FaeBlade:
 	call GetBattleVar
 	and a
 	jmp nz, BattleCommand_ConfuseTarget
-.loop
-	call BattleRandom
-	and %111
-	cp 6
-	jr nc, .loop
+	ld a, 6 ; not mask-and-retry: an immediate reroll correlates with the miss
+	call RandomRange
 	ld hl, .StatusCommands
 	jmp JumpTable
 

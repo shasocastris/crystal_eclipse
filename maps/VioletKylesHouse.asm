@@ -23,11 +23,11 @@ VioletKylesHousePokefanMText:
 	line "in a trade grows"
 	cont "quickly."
 
-	para "But if you don't"
-	line "have the right GYM"
-
-	para "BADGE, they may"
-	line "disobey you."
+	para "But traded or not,"
+	line "a strong #MON"
+	cont "won't obey until"
+	cont "it's happy with"
+	cont "you."
 	done
 
 VioletKylesHouse_MapEvents:

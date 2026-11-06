@@ -787,9 +787,10 @@ IlexForestApprenticeAfterText:
 	line "whole bunch!"
 
 	para "My boss's #MON"
-	line "won't obey me be-"
-	cont "cause I don't have"
-	cont "a BADGE."
+	line "won't obey me."
+
+	para "I guess it just"
+	line "doesn't like me."
 	done
 
 Text_ItsTheMissingPokemon:

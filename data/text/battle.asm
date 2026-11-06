@@ -655,8 +655,10 @@ BellChimedText:
 LifeDewText:
 	text "<USER>"
 	line "was fully healed!"
+	prompt
 
-	para "Its team's status"
+LifeDewCuredText:
+	text "Its team's status"
 	line "was cured!"
 	prompt
 

@@ -68,6 +68,7 @@ SSAquaCaptainsCabinPetrelScript:
 	loadtrainer EXECUTIVEM, EXECUTIVEM_5
 	startbattle
 	reloadmapafterbattle
+	setevent EVENT_SAVED_SS_AQUA
 	opentext
 	writetext PetrelShipAfterText
 	waitbutton

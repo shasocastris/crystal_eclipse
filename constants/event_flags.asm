@@ -388,7 +388,7 @@
 	const EVENT_ANTHONY_ASKED_FOR_PHONE_NUMBER
 	const EVENT_ROCK_TUNNEL_B1F_RAZOR_CLAW ; was unused in Crystal
 	const EVENT_TODD_ASKED_FOR_PHONE_NUMBER
-	const_skip ; unused in Crystal
+	const EVENT_SAVED_SS_AQUA ; was unused in Crystal
 	const EVENT_GINA_ASKED_FOR_PHONE_NUMBER
 	const_skip ; unused in Crystal
 	const EVENT_IRWIN_ASKED_FOR_PHONE_NUMBER
