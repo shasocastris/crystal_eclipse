@@ -3649,8 +3649,13 @@ BattleCommand_PoisonTarget:
 	ld a, [wTypeModifier]
 	and EFFECTIVENESS_MASK
 	ret z
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_FAE_BLADE ; Fae Blade ignores type immunity
+	jr z, .not_immune
 	call CheckIfTargetIsPoisonType
 	ret z
+.not_immune
 	call GetOpponentItem
 	ld a, b
 	cp HELD_PREVENT_POISON
@@ -5731,6 +5736,8 @@ BattleCommand_FinishConfusingTarget:
 	jr z, .got_effect
 	cp EFFECT_SNORE
 	jr z, .got_effect
+	cp EFFECT_FAE_BLADE
+	jr z, .got_effect
 	cp EFFECT_SWAGGER
 	call nz, AnimateCurrentMove
 ; fallthough
@@ -5822,9 +5829,14 @@ BattleCommand_Paralyze:
 CheckMoveTypeMatchesTarget:
 ; Compare move type to opponent type.
 ; Return z if matching the opponent type,
-; unless the move is Normal (Tri Attack).
+; unless the move is Normal (Tri Attack) or Fae Blade.
 
 	push hl
+
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_FAE_BLADE
+	jr z, .normal
 
 	ld hl, wEnemyMonType1
 	ldh a, [hBattleTurn]

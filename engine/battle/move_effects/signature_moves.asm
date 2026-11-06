@@ -91,11 +91,8 @@ BattleCommand_FaeBlade:
 	call GetBattleVar
 	and a
 	jmp nz, BattleCommand_ConfuseTarget
-.loop
-	call BattleRandom
-	and %111
-	cp 6
-	jr nc, .loop
+	ld a, 6 ; not mask-and-retry: an immediate reroll correlates with the miss
+	call RandomRange
 	ld hl, .StatusCommands
 	jmp JumpTable
 
