@@ -69,6 +69,7 @@ BattleCommand_InnerLight:
 BattleCommand_LifeDew:
 ; lifedew
 	call CureUserPartyStatus
+	push af
 	call RecalcUserStats
 	call LifeDewRefillPP
 	ld hl, GetMaxHP
@@ -81,6 +82,10 @@ BattleCommand_LifeDew:
 	call UpdateUserInParty
 	call RefreshBattleHuds
 	ld hl, LifeDewText
+	call StdBattleTextbox
+	pop af
+	ret z
+	ld hl, LifeDewCuredText
 	jmp StdBattleTextbox
 
 BattleCommand_FaeBlade:

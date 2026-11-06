@@ -13,26 +13,42 @@ RecalcUserStats:
 	jmp CalcEnemyStats
 
 CureUserPartyStatus:
+; Returns nz if any status was cured.
 	ld a, BATTLE_VARS_SUBSTATUS1
 	call GetBattleVarAddr
 	res SUBSTATUS_NIGHTMARE, [hl]
+	ld a, BATTLE_VARS_SUBSTATUS5
+	call GetBattleVarAddr
+	res SUBSTATUS_TOXIC, [hl]
 	ld de, wPartyMon1Status
+	ld a, [wPartyCount]
+	ld b, a
 	ldh a, [hBattleTurn]
 	and a
-	jr z, .got_status
+	jr z, .got_party
 	ld de, wOTPartyMon1Status
-.got_status
+	ld a, [wOTPartyCount]
+	ld b, a
+	ld a, [wBattleMode]
+	cp WILD_BATTLE
+	jr nz, .got_party
+	ld b, 0 ; a wild mon has no team
+.got_party
 	ld a, BATTLE_VARS_STATUS
 	call GetBattleVarAddr
-	xor a
-	ld [hl], a
+	ld a, [hl]
+	ld [hl], 0
 	ld h, d
 	ld l, e
-	ld bc, PARTYMON_STRUCT_LENGTH
-	ld d, PARTY_LENGTH
+	ld de, PARTYMON_STRUCT_LENGTH
+	inc b
+	jr .next
 .loop
-	ld [hl], a
-	add hl, bc
-	dec d
+	or [hl]
+	ld [hl], 0
+	add hl, de
+.next
+	dec b
 	jr nz, .loop
+	and a
 	ret
