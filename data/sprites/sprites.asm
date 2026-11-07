@@ -140,4 +140,6 @@ OverworldSprites:
 	overworld_sprite UnownXSpriteGFX, 12, WALKING_SPRITE, PAL_OW_GRAY
 	overworld_sprite UnownYSpriteGFX, 12, WALKING_SPRITE, PAL_OW_GRAY
 	overworld_sprite UnownZSpriteGFX, 12, WALKING_SPRITE, PAL_OW_GRAY
+	; GetSprite and _GetSpritePalette replace this with the lead mon's
+	overworld_sprite FollowerPlaceholderSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
 	assert_table_length NUM_OVERWORLD_SPRITES

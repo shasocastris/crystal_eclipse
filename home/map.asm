@@ -445,7 +445,10 @@ ReadObjectEvents::
 	push hl
 	call ClearObjectStructs
 	pop de
-	ld hl, wMap1Object
+	; map object 1 is the follower, so map events start at 2
+	ld a, -1
+	ld [wMap1Object], a
+	ld hl, wMap2Object
 	ld a, [de]
 	inc de
 	ld [wCurMapObjectEventCount], a
@@ -457,13 +460,13 @@ ReadObjectEvents::
 	ld a, [wCurMapObjectEventCount]
 	call CopyMapObjectEvents
 
-; get NUM_OBJECTS - [wCurMapObjectEventCount] - 1
+; get NUM_OBJECTS - [wCurMapObjectEventCount] - 2
 	ld a, [wCurMapObjectEventCount]
-	cp NUM_OBJECTS - 1
+	cp NUM_OBJECTS - 2
 	jr nc, .skip
-	; a = NUM_OBJECTS - 1 - a
+	; a = NUM_OBJECTS - 2 - a
 	cpl
-	add NUM_OBJECTS - 1 + 1
+	add NUM_OBJECTS - 2 + 1
 	inc hl
 ; Fill the remaining sprite IDs and y coords with 0 and -1, respectively
 	ld bc, MAPOBJECT_LENGTH
@@ -508,8 +511,9 @@ CopyMapObjectEvents::
 	ret
 
 ClearObjectStructs::
-	ld hl, wObject1Struct
-	ld bc, OBJECT_LENGTH * (NUM_OBJECT_STRUCTS - 1)
+; struct 1 belongs to the follower
+	ld hl, wObject2Struct
+	ld bc, OBJECT_LENGTH * (NUM_OBJECT_STRUCTS - 2)
 	xor a
 	jmp ByteFill
 

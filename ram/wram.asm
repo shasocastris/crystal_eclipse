@@ -130,12 +130,13 @@ wMapTimeOfDay:: db
 
 wPalFlags:: db
 
-	ds 2
+wFollowerSpriteID:: db
+wFollowerPartyNum:: db
 
 wPrinterConnectionOpen:: db
 wPrinterOpcode:: db
 
-	ds 1
+wFollowerNextMovement:: db
 
 wDisableTextAcceleration:: db
 wPrevLandmark:: db
@@ -2479,7 +2480,7 @@ wNeededPalIndex:: db
 
 wMapObjects::
 wPlayerObject:: map_object wPlayer ; player is map object 0
-; wMap1Object - wMap17Object
+; wMap1Object (follower), wMap2Object - wMap18Object
 for n, 1, NUM_OBJECTS
 wMap{d:n}Object:: map_object wMap{d:n}
 endr
@@ -2728,7 +2729,8 @@ wUnusedTwoDayTimerOn:: db
 wUnusedTwoDayTimer:: db
 wUnusedTwoDayTimerStartDate:: db
 
-	ds 5
+wFollowerFlags:: db
+	ds 4
 wGreenhousePlot1:: db
 wGreenhousePlot2:: db
 wGreenhousePlot3:: db

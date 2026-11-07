@@ -78,6 +78,7 @@ RefreshSprites::
 	ldh [hUsedSpriteIndex], a
 	call ReloadSpriteIndex
 	call LoadMiscTiles
+	farcall RefreshFollowerPalette
 	jmp PopBCDEHL
 
 ReloadSpriteIndex::
@@ -146,6 +147,11 @@ SafeGetSprite:
 	ret
 
 GetSprite::
+	cp SPRITE_FOLLOWER
+	jr nz, .not_follower
+	farjp GetFollowerSpriteData
+
+.not_follower
 	call GetMonSprite
 	ret c
 
@@ -264,6 +270,11 @@ _DoesSpriteHaveFacings::
 
 _GetSpritePalette::
 	ld a, c
+	cp SPRITE_FOLLOWER
+	jr nz, .not_follower
+	farjp GetFollowerPalette
+
+.not_follower
 	call GetMonSprite
 	jr c, .is_pokemon
 

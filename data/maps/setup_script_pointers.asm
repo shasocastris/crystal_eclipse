@@ -65,3 +65,5 @@ MapSetupCommands:
 	add_mapsetup DeferredLoadMapGraphics ; 32
 	add_mapsetup ClearWeather ; 33
 	add_mapsetup SetCurrentWeather ; 34
+	add_mapsetup MapPlayerCoordWarped ; 35
+	add_mapsetup MapPlayerCoordConnected ; 36

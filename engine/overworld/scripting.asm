@@ -234,6 +234,10 @@ ScriptCommandTable:
 	dw Script_givepokemove               ; ae
 	dw Script_loadmoveindex              ; af
 	dw Script_checkseason                ; ad
+	dw Script_freezefollower             ; ae
+	dw Script_unfreezefollower           ; af
+	dw Script_getfollowerdirection       ; b0
+	dw Script_followcry                  ; b1
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -747,23 +751,13 @@ Script_cry:
 	call LoadScriptPokemonID
 	jmp PlayMonCry
 
-GetScriptObject:
-	and a ; PLAYER?
-	ret z
-	cp LAST_TALKED
-	ret z
-	dec a
-	ret
-
 Script_setlasttalked:
 	rst GetScriptByte
-	call GetScriptObject
 	ldh [hLastTalked], a
 	ret
 
 Script_applymovement:
 	rst GetScriptByte
-	call GetScriptObject
 	ld c, a
 
 ApplyMovement:
@@ -817,14 +811,12 @@ Script_faceplayer:
 
 Script_faceobject:
 	rst GetScriptByte
-	call GetScriptObject
 	cp LAST_TALKED
 	jr c, .ok
 	ldh a, [hLastTalked]
 .ok
 	ld e, a
 	rst GetScriptByte
-	call GetScriptObject
 	cp LAST_TALKED
 	jr nz, .ok2
 	ldh a, [hLastTalked]
@@ -843,7 +835,6 @@ Script_faceobject:
 
 Script_turnobject:
 	rst GetScriptByte
-	call GetScriptObject
 	cp LAST_TALKED
 	jr nz, .ok
 	ldh a, [hLastTalked]
@@ -909,7 +900,6 @@ Script_variablesprite:
 
 Script_appear:
 	rst GetScriptByte
-	call GetScriptObject
 	call UnmaskCopyMapObjectStruct
 	ldh a, [hMapObjectIndex]
 	ld b, 0 ; clear
@@ -917,7 +907,6 @@ Script_appear:
 
 Script_disappear:
 	rst GetScriptByte
-	call GetScriptObject
 	cp LAST_TALKED
 	jr nz, .ok
 	ldh a, [hLastTalked]
@@ -949,10 +938,8 @@ ApplyEventActionAppearDisappear:
 
 Script_follow:
 	rst GetScriptByte
-	call GetScriptObject
 	ld b, a
 	rst GetScriptByte
-	call GetScriptObject
 	ld c, a
 	farjp StartFollow
 
@@ -961,7 +948,6 @@ Script_stopfollow:
 
 Script_moveobject:
 	rst GetScriptByte
-	call GetScriptObject
 	ld b, a
 	rst GetScriptByte
 	add 4
@@ -973,7 +959,6 @@ Script_moveobject:
 
 Script_writeobjectxy:
 	rst GetScriptByte
-	call GetScriptObject
 	cp LAST_TALKED
 	jr nz, .ok
 	ldh a, [hLastTalked]
@@ -983,10 +968,8 @@ Script_writeobjectxy:
 
 Script_follownotexact:
 	rst GetScriptByte
-	call GetScriptObject
 	ld b, a
 	rst GetScriptByte
-	call GetScriptObject
 	ld c, a
 	farjp FollowNotExact
 
@@ -1003,7 +986,6 @@ Script_showemote:
 	rst GetScriptByte
 	ld [wScriptVar], a
 	rst GetScriptByte
-	call GetScriptObject
 	cp LAST_TALKED
 	jr z, .ok
 	ldh [hLastTalked], a
@@ -2409,3 +2391,32 @@ Script_loadmoveindex:
 	call GetMoveIDFromIndex
 	ld [wScriptVar], a
 	ret
+
+Script_freezefollower:
+	ld bc, wObject1Struct
+	call DoesObjectHaveASprite
+	ret z
+	ld hl, OBJECT_FLAGS2
+	add hl, bc
+	set FROZEN_F, [hl]
+	ld hl, wFollowerFlags
+	set FOLLOWER_FROZEN_F, [hl]
+	ret
+
+Script_unfreezefollower:
+	ld bc, wObject1Struct
+	call DoesObjectHaveASprite
+	ret z
+	ld hl, OBJECT_FLAGS2
+	add hl, bc
+	res FROZEN_F, [hl]
+	ld hl, wFollowerFlags
+	res FOLLOWER_FROZEN_F, [hl]
+	ret
+
+Script_getfollowerdirection:
+	jmp Script_GetFollowerDirectionFromPlayer
+
+Script_followcry:
+	ld a, [wFollowerSpriteID]
+	jmp PlayMonCry

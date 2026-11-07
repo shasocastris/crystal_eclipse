@@ -1,5 +1,9 @@
 ; Functions handling map objects.
 
+FollowerScriptHome::
+; Object scripts run in the map's script bank, so this hop lives in ROM0.
+	farsjump FollowerScript
+
 GetSpritePalette::
 	push hl
 	push de
@@ -441,16 +445,23 @@ rept NUM_SPRITEMOVEDATA_FIELDS
 endr
 	ld b, h
 	ld c, l
+	ld a, e
 	pop de
 
+; following objects keep their current facing
+	cp SPRITEMOVEDATA_FOLLOWNOTEXACT
+	jr z, .skip_facing
+	cp SPRITEMOVEDATA_FOLLOWEROBJ
+	jr z, .skip_facing
 	ld a, [bc]
-	inc bc
 	rlca
 	rlca
 	maskbits NUM_DIRECTIONS, 2
 	ld hl, OBJECT_DIRECTION
 	add hl, de
 	ld [hl], a
+.skip_facing
+	inc bc
 
 	ld a, [bc]
 	inc bc
@@ -460,6 +471,21 @@ endr
 
 	ld a, [bc]
 	inc bc
+	ld l, a
+; the follower stays hidden while wFollowerFlags says so (e.g. surfing)
+	push hl
+	ld hl, OBJECT_SPRITE
+	add hl, de
+	ld a, [hl]
+	pop hl
+	cp SPRITE_FOLLOWER
+	ld a, l
+	jr nz, .got_flags1
+	ld a, [wFollowerFlags]
+	assert FOLLOWER_INVISIBLE == INVISIBLE
+	and FOLLOWER_INVISIBLE
+	or l
+.got_flags1
 	ld hl, OBJECT_FLAGS1
 	add hl, de
 	ld [hl], a

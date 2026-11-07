@@ -32,6 +32,13 @@ CheckObjectFlag:
 	ld a, [hl]
 	and a
 	jr z, .masked
+; no follower until the player has a party
+	cp SPRITE_FOLLOWER
+	jr nz, .not_follower
+	ld a, [wPartyCount]
+	and a
+	jr z, .masked
+.not_follower
 	ld hl, MAPOBJECT_EVENT_FLAG
 	add hl, bc
 	ld a, [hli]

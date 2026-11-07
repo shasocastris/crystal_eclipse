@@ -1104,4 +1104,24 @@ MACRO checkseason
 	db \1 ; season
 ENDM
 
+	const freezefollower_command ; $ae
+MACRO freezefollower
+	db freezefollower_command
+ENDM
+
+	const unfreezefollower_command ; $af
+MACRO unfreezefollower
+	db unfreezefollower_command
+ENDM
+
+	const getfollowerdirection_command ; $b0
+MACRO getfollowerdirection
+	db getfollowerdirection_command
+ENDM
+
+	const followcry_command ; $b1
+MACRO followcry
+	db followcry_command
+ENDM
+
 DEF NUM_EVENT_COMMANDS EQU const_value

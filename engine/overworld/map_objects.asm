@@ -324,9 +324,66 @@ GetNextTile:
 	push bc
 	call GetCoordTileCollision
 	pop bc
+	push de
+	push af
+	call UpdateFollowerVisibility
+	pop af
+	pop de
 	ld hl, OBJECT_TILE_COLLISION
 	add hl, bc
 	ld [hl], a
+	ret
+
+UpdateFollowerVisibility:
+; a = collision of the tile object bc is stepping onto
+	ld e, a
+	ldh a, [hMapObjectIndex]
+	and a ; PLAYER?
+	jr z, .player_step
+	cp FOLLOWER
+	ret nz
+; the follower hides on water and comes back on land
+	ld hl, OBJECT_TILE_COLLISION
+	add hl, bc
+	ld a, [hl]
+	call GetTilePermission
+	ld d, a
+	ld a, e
+	call GetTilePermission
+	cp d
+	ret z
+	ld hl, OBJECT_FLAGS1
+	add hl, bc
+	ld de, wFollowerFlags
+	and a
+	assert LAND_TILE == 0
+	jr z, .show
+	cp WATER_TILE
+	ret nz
+	set INVISIBLE_F, [hl]
+	ld a, [de]
+	set FOLLOWER_INVISIBLE_F, a
+	ld [de], a
+	ret
+
+.player_step
+; after a warp, the follower reappears on the player's first step
+	ld hl, wFollowerFlags
+	bit FOLLOWER_INVISIBLE_ONE_STEP_F, [hl]
+	ret z
+	res FOLLOWER_INVISIBLE_ONE_STEP_F, [hl]
+	ld a, [wPlayerState]
+	cp PLAYER_SURF
+	ret z
+	cp PLAYER_SURF_PIKA
+	ret z
+	ld de, wFollowerFlags
+	ld hl, wObject1Struct + OBJECT_FLAGS1
+.show
+	res INVISIBLE_F, [hl]
+	ld a, [de]
+	res FOLLOWER_INVISIBLE_F, a
+	ld [de], a
 	ret
 
 AddStepVector:
@@ -548,6 +605,7 @@ StepFunction_FromMovement:
 	dw MovementFunction_SpinCounterclockwise ; 19
 	dw MovementFunction_BoulderDust          ; 1a
 	dw MovementFunction_ShakingGrass         ; 1b
+	dw MovementFunction_FollowerObj          ; 1c
 	assert_table_length NUM_SPRITEMOVEFN
 
 MovementFunction_RandomWalkY:
@@ -690,7 +748,126 @@ MovementFunction_Strength:
 	ld [hl], STANDING
 	ret
 
+MovementFunction_FollowerObj:
+	ld a, [wFollowerFlags]
+	bit FOLLOWER_FROZEN_F, a
+	jr z, .follow
+	ld hl, OBJECT_ACTION
+	add hl, bc
+	ld [hl], OBJECT_ACTION_STAND
+	ret
+
+.follow
+	call .CheckBackedInto
+	jr c, .got_step
+	call MoveFollowNotExact
+	ret nc
+.got_step
+	push af
+	ld a, [wFollowerNextMovement]
+	cp FOLLOWERMOVE_NUM_TYPES
+	jr c, .got_movement
+	xor a
+.got_movement
+	ld e, a
+	ld d, 0
+	ld hl, .StepFunctions
+	add hl, de
+	add hl, de
+	add hl, de
+	ld a, [hli]
+	ld [wFollowerNextMovement], a
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	pop af
+	jp hl
+
+.StepFunctions:
+; next movement, step function
+	table_width 3
+	dbw FOLLOWERMOVE_NORMAL,   .NormalStep ; FOLLOWERMOVE_NORMAL
+	dbw FOLLOWERMOVE_NORMAL,   SlideStep   ; FOLLOWERMOVE_SLIDE
+	dbw FOLLOWERMOVE_NORMAL,   .BigStep    ; FOLLOWERMOVE_BIG_STEP
+	dbw FOLLOWERMOVE_STILL,    .TurnHead   ; FOLLOWERMOVE_STILL
+	dbw FOLLOWERMOVE_BIG_STEP, .TurnHead   ; FOLLOWERMOVE_PREPARE_JUMP
+	assert_table_length FOLLOWERMOVE_NUM_TYPES
+
+.NormalStep:
+	ld d, OBJECT_ACTION_STEP
+	jmp NormalStep
+
+.BigStep:
+; the player hopped a ledge: jump two tiles to catch up
+	ld e, a
+	xor a
+	ld [wFollowerNextMovement], a
+	ld d, STEP_BIKE << 2
+	ld a, [wPlayerStepType]
+	cp STEP_TYPE_PLAYER_JUMP
+	jr z, .regular
+	ld a, [wPlayerState]
+	cp PLAYER_BIKE
+	jr z, .jump
+	ld a, [wPlayerTileCollision]
+	cp COLL_ICE
+	jr z, .jump
+.regular
+	ld a, [wCurInput]
+	and B_BUTTON
+	jr nz, .jump
+	ld d, STEP_RUN << 2
+.jump
+	push de
+	ld de, SFX_JUMP_OVER_LEDGE
+	call PlaySFX
+	pop de
+	ld a, e
+	and %00000011
+	or d
+	jmp JumpStep
+
+.TurnHead:
+	and %00000011
+	add a
+	add a
+	jmp TurnHead
+
+.CheckBackedInto:
+; A cutscene backing the player up (fix_facing) onto the follower pushes it
+; back the same way instead of swapping it in front of the player.
+	ld a, [wPlayerStruct + OBJECT_FLAGS1]
+	bit FIXED_FACING_F, a
+	ret z ; nc
+	ld a, [wPlayerWalking]
+	cp STANDING
+	ret z ; nc
+	ld a, [wPlayerMapX]
+	ld hl, OBJECT_MAP_X
+	add hl, bc
+	cp [hl]
+	jr nz, .not_backed_into
+	ld a, [wPlayerMapY]
+	ld hl, OBJECT_MAP_Y
+	add hl, bc
+	cp [hl]
+	jr nz, .not_backed_into
+	ld a, [wPlayerWalking]
+	scf
+	ret
+
+.not_backed_into
+	and a
+	ret
+
 MovementFunction_FollowNotExact:
+	call MoveFollowNotExact
+	ret nc
+	ld d, OBJECT_ACTION_STEP
+	jmp NormalStep
+
+MoveFollowNotExact:
+; Return carry and the step to take in a if the leader moved.
 	ld hl, OBJECT_MAP_X
 	add hl, bc
 	ld d, [hl]
@@ -737,7 +914,8 @@ MovementFunction_FollowNotExact:
 	and %00001100
 	or d
 	pop bc
-	jmp NormalStep
+	scf
+	ret
 
 .standing
 	pop bc
@@ -747,6 +925,7 @@ MovementFunction_FollowNotExact:
 	ld hl, OBJECT_ACTION
 	add hl, bc
 	ld [hl], OBJECT_ACTION_STAND
+	and a
 	ret
 
 MovementFunction_BigStanding:
@@ -1145,6 +1324,10 @@ StepFunction_NPCJump:
 	ld hl, OBJECT_STEP_TYPE
 	add hl, bc
 	ld [hl], STEP_TYPE_FROM_MOVEMENT
+	xor a
+	ld hl, OBJECT_SPRITE_Y_OFFSET
+	add hl, bc
+	ld [hl], a
 	ret
 
 StepFunction_PlayerJump:
@@ -1176,6 +1359,8 @@ StepFunction_PlayerJump:
 	jmp ObjectStep_IncAnonJumptableIndex
 
 .initland
+	ld a, FOLLOWERMOVE_STILL
+	ld [wFollowerNextMovement], a
 	call GetNextTile
 	ld hl, wPlayerStepFlags
 	set PLAYERSTEP_START_F, [hl]
@@ -1187,6 +1372,8 @@ StepFunction_PlayerJump:
 	add hl, bc
 	dec [hl]
 	ret nz
+	ld a, FOLLOWERMOVE_PREPARE_JUMP
+	ld [wFollowerNextMovement], a
 	ld hl, wPlayerStepFlags
 	set PLAYERSTEP_STOP_F, [hl]
 	call CopyCoordsTileToLastCoordsTile
@@ -2455,7 +2642,11 @@ SpawnInCustomFacing:
 SpawnInFacingDown:
 	xor a ; DOWN
 _ContinueSpawnFacing:
+	push af
 	ld bc, wPlayerStruct
+	call SetSpriteDirection
+	pop af
+	ld bc, wObject1Struct
 	jmp SetSpriteDirection
 
 StartFollow::
@@ -2543,6 +2734,15 @@ FreezeAllObjects:
 	inc a
 	cp NUM_OBJECT_STRUCTS
 	jr nz, .loop
+; the follower keeps following during scripts unless a script froze it
+	ld a, [wFollowerFlags]
+	bit FOLLOWER_FROZEN_F, a
+	ret nz
+	ld a, [wObject1MovementType]
+	cp SPRITEMOVEDATA_FOLLOWEROBJ
+	ret nz
+	ld hl, wObject1Struct + OBJECT_FLAGS2
+	res FROZEN_F, [hl]
 	ret
 
 _UnfreezeFollowerObject::

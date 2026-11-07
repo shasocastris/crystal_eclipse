@@ -22,6 +22,13 @@ SpawnPlayer:
 	ld a, PLAYER
 	ld hl, PlayerObjectTemplate
 	call CopyPlayerObjectTemplate
+	ld a, FOLLOWER
+	ld hl, FollowObjTemplate
+	call CopyPlayerObjectTemplate
+	ld b, FOLLOWER
+	call PlayerSpawn_ConvertCoords
+	xor a
+	ld [wFollowerNextMovement], a
 	ld b, PLAYER
 	call PlayerSpawn_ConvertCoords
 	ld a, PLAYER_OBJECT
@@ -59,6 +66,9 @@ PlayerObjectTemplate:
 ; Shorter than the actual amount copied by two bytes.
 ; Said bytes seem to be unused.
 	object_event -4, -4, SPRITE_CHRIS, SPRITEMOVEDATA_PLAYER, 15, 15, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, 0, -1
+
+FollowObjTemplate:
+	object_event -4, -4, SPRITE_FOLLOWER, SPRITEMOVEDATA_FOLLOWNOTEXACT, 15, 15, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FollowerScriptHome, -1
 
 CopyDECoordsToMapObject::
 	push de
@@ -101,6 +111,71 @@ WriteObjectXY::
 	and a
 	ret
 
+MapPlayerCoordWarped:
+; the follower reappears behind the player after their first step
+	ld hl, wFollowerFlags
+	set FOLLOWER_INVISIBLE_F, [hl]
+	set FOLLOWER_INVISIBLE_ONE_STEP_F, [hl]
+	call RefreshPlayerCoords
+	lb bc, PLAYER, FOLLOWER
+	call MoveToObject
+	jr MatchFollowerDirection
+
+MapPlayerCoordConnected:
+; put the follower one step behind the player
+	call RefreshPlayerCoords
+	lb bc, PLAYER, FOLLOWER
+	call MoveToObject
+	ld b, FOLLOWER
+	call GetObjectCoord
+	ld a, [wPlayerStepDirection]
+	and a
+	jr z, .south
+	dec a
+	jr z, .north
+	dec a
+	jr z, .west
+	dec a
+	jr nz, .done
+; east
+	dec b
+	jr .move
+
+.south
+	dec c
+	jr .move
+
+.north
+	inc c
+	jr .move
+
+.west
+	inc b
+.move
+	ld a, FOLLOWER
+	call MoveToCoord
+	call MatchFollowerDirection
+.done
+	; fallthrough
+
+RefreshFollowingCoords::
+	lb bc, PLAYER, FOLLOWER
+	call FollowNotExact
+	ret c
+	ld hl, OBJECT_MOVEMENT_TYPE
+	add hl, de
+	ld [hl], SPRITEMOVEDATA_FOLLOWEROBJ
+	ret
+
+MatchFollowerDirection:
+	ld a, PLAYER
+	call GetObjectStruct
+	ld hl, OBJECT_DIRECTION
+	add hl, bc
+	ld a, [hl]
+	ld [wObject1Direction], a
+	ret
+
 RefreshPlayerCoords:
 	ld a, [wXCoord]
 	add 4
@@ -134,8 +209,17 @@ CopyObjectStruct::
 	and a
 	ret nz ; masked
 
-	ld hl, wObjectStructs + OBJECT_LENGTH * 1
-	ld a, 1
+; the follower always gets struct 1
+	ldh a, [hMapObjectIndex]
+	cp FOLLOWER
+	jr nz, .find_slot
+	ldh [hObjectStructIndex], a
+	ld hl, wObject1Struct
+	jr .done
+
+.find_slot
+	ld hl, wObjectStructs + OBJECT_LENGTH * 2
+	ld a, 2
 	ld de, OBJECT_LENGTH
 .loop
 	ldh [hObjectStructIndex], a
@@ -589,6 +673,58 @@ SurfStartStep:
 	db D_UP,    0, -1
 	db D_LEFT,  0, -1
 	db D_RIGHT, 0, -1
+
+MoveToObject:
+; Move map object c to map object b's coords.
+	push bc
+	ld a, c
+	call GetMapObject
+	ld d, b
+	ld e, c
+	pop bc
+	ld a, b
+	call GetMapObject
+	ld hl, MAPOBJECT_X_COORD
+	add hl, bc
+	ld a, [hl]
+	ld hl, MAPOBJECT_X_COORD
+	add hl, de
+	ld [hl], a
+	ld hl, MAPOBJECT_Y_COORD
+	add hl, bc
+	ld a, [hl]
+	ld hl, MAPOBJECT_Y_COORD
+	add hl, de
+	ld [hl], a
+	ret
+
+GetObjectCoord:
+; Return map object b's coords in b, c.
+	ld a, b
+	call GetMapObject
+	ld hl, MAPOBJECT_X_COORD
+	add hl, bc
+	ld a, [hl]
+	ld hl, MAPOBJECT_Y_COORD
+	add hl, bc
+	ld c, [hl]
+	ld b, a
+	ret
+
+MoveToCoord:
+; Move map object a to coords b, c.
+	push bc
+	call GetMapObject
+	ld d, b
+	ld e, c
+	pop bc
+	ld hl, MAPOBJECT_X_COORD
+	add hl, de
+	ld [hl], b
+	ld hl, MAPOBJECT_Y_COORD
+	add hl, de
+	ld [hl], c
+	ret
 
 FollowNotExact::
 	push bc

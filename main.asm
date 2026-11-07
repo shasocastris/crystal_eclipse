@@ -721,3 +721,8 @@ SECTION "Season Wild Data", ROMX
 ; Pinned beside the Orange tables, in a roomy bank; bank $0a had none left.
 INCLUDE "data/wild/season_grass.asm"
 INCLUDE "data/wild/season_water.asm"
+
+
+SECTION "Follower", ROMX
+
+INCLUDE "engine/events/follower.asm"

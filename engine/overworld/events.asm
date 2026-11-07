@@ -93,6 +93,7 @@ EnterMap:
 	xor a
 	ld [wPoisonStepCount], a
 .dontresetpoison
+	farcall RefreshFollowingCoords
 
 	xor a ; end map entry
 	ldh [hMapEntryMethod], a
@@ -194,6 +195,59 @@ HandleMapBackground:
 	farcall _UpdateSprites
 	farcall ScrollScreen
 	farjp PlaceMapNameSign
+
+Script_GetFollowerDirectionFromPlayer::
+	call GetFollowerDirectionFromPlayer
+	ld a, c
+	ld [wScriptVar], a
+	ret
+
+CheckFollowerBlocksSight::
+; c = direction of a trainer facing the player.
+; Return z if the follower stands between them.
+	ld a, [wObject1Sprite]
+	and a
+	jr z, .clear
+	ld a, [wObject1Struct + OBJECT_FLAGS1]
+	bit INVISIBLE_F, a
+	jr nz, .clear
+	push bc
+	call GetFollowerDirectionFromPlayer
+	ld a, c
+	pop bc
+	xor 1 ; opposite direction
+	add a
+	add a
+	cp c
+	ret
+
+.clear
+	or 1
+	ret
+
+GetFollowerDirectionFromPlayer::
+; Return the follower's direction from the player in c (STANDING if same tile).
+	ld a, [wObject1MapX]
+	ld b, a
+	ld a, [wPlayerMapX]
+	cp b
+	jr z, .check_y
+	ld c, RIGHT
+	ret c
+	ld c, LEFT
+	ret
+
+.check_y
+	ld a, [wObject1MapY]
+	ld b, a
+	ld a, [wPlayerMapY]
+	cp b
+	ld c, STANDING
+	ret z
+	ld c, DOWN
+	ret c
+	ld c, UP
+	ret
 
 CheckPlayerState:
 	ld a, [wPlayerStepFlags]

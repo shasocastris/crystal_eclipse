@@ -132,6 +132,7 @@
 	const SPRITE_UNOWN_X ; 80
 	const SPRITE_UNOWN_Y ; 81
 	const SPRITE_UNOWN_Z ; 82
+	const SPRITE_FOLLOWER ; 83
 DEF NUM_OVERWORLD_SPRITES EQU const_value - 1
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)
