@@ -59,6 +59,7 @@ SaffronMagnetTrainStationOfficerScript:
 	end
 
 Script_ArriveFromGoldenrod:
+	stowfollower
 	applymovement SAFFRONMAGNETTRAINSTATION_OFFICER, SaffronMagnetTrainStationOfficerApproachTrainDoorMovement
 	applymovement PLAYER, SaffronMagnetTrainStationPlayerLeaveTrainAndEnterStationMovement
 	applymovement SAFFRONMAGNETTRAINSTATION_OFFICER, SaffronMagnetTrainStationOfficerReturnToBoardingGateMovement
@@ -66,6 +67,7 @@ Script_ArriveFromGoldenrod:
 	writetext SaffronMagnetTrainStationOfficerArrivedInSaffronText
 	waitbutton
 	closetext
+	appearfolloweronestep
 	end
 
 SaffronMagnetTrainStationGymGuideScript:

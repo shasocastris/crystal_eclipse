@@ -1581,7 +1581,14 @@ CherryBlossomInteraction:
 
 GetFirstAliveMon::
 ; Return the species of the first party mon that has HP and isn't an egg
-; in a with nz, and its party index in e. Return z and a = 0 if none.
+; in a with nz, and its party index in e. If they've all fainted (a loss
+; that doesn't white out), the first non-egg. Return z and a = 0 if none.
+	ld d, 0
+	call .Search
+	ret nz
+	inc d
+.Search:
+; d = 0: skip fainted mons
 	ld hl, wPartySpecies
 	ld bc, wPartyMon1HP
 	ld e, 0
@@ -1589,9 +1596,12 @@ GetFirstAliveMon::
 	ld a, [hli]
 	cp -1
 	jr z, .none
-	ld d, a
 	cp EGG
 	jr z, .next
+	push af
+	ld a, d
+	and a
+	jr nz, .found
 	ld a, [bc]
 	inc bc
 	push hl
@@ -1600,11 +1610,14 @@ GetFirstAliveMon::
 	or h
 	pop hl
 	dec bc
-	jr z, .next
-	ld a, d
+	jr z, .fainted
+.found
+	pop af
 	and a
 	ret
 
+.fainted
+	pop af
 .next
 	inc e
 	push hl
@@ -1639,8 +1652,27 @@ GetFollowerSpriteData::
 	jr nc, .got_index
 	ld b, h
 	ld c, l
+	ld a, l
+	cp LOW(UNOWN - 1)
+	jr nz, .got_index
+	ld a, h
+	cp HIGH(UNOWN - 1)
+	jr nz, .got_index
+	ld a, [wFollowerPartyNum]
+	ld hl, wPartyMon1DVs
+	ld bc, PARTYMON_STRUCT_LENGTH
+	rst AddNTimes
+	predef GetUnownLetter
+	ld a, [wUnownLetter]
+	dec a
+	ld c, a
+	ld b, 0
+	ld hl, UnownFollowingSpritePointers
+	jr .got_table
+
 .got_index
 	ld hl, FollowingSpritePointers
+.got_table
 	add hl, bc
 	add hl, bc
 	add hl, bc
@@ -1681,6 +1713,21 @@ GetFollowerPalette::
 	ret
 
 INCLUDE "data/pokemon/follower_pals.asm"
+
+RefreshFollowerIfLeadChanged::
+; A script can change the party (Day-Care, trades, gifts); show the new lead.
+	ld a, [wObject1Sprite]
+	cp SPRITE_FOLLOWER
+	ret nz
+	call GetFirstAliveMon
+	ld hl, wFollowerSpriteID
+	cp [hl]
+	jr nz, .changed
+	ld a, [wFollowerPartyNum]
+	cp e
+	ret z
+.changed
+	farjp RefreshSprites
 
 RefreshFollowerPalette::
 ; The lead mon can change in a menu; give the follower its new colours.

@@ -79,6 +79,7 @@ LancesRoomLanceScript:
 	turnobject LANCESROOM_LANCE, DOWN
 	pause 10
 	turnobject PLAYER, DOWN
+	stowfollower
 	appear LANCESROOM_MARY
 	applymovement LANCESROOM_MARY, LancesRoomMovementData_MaryRushesIn
 	opentext
@@ -160,6 +161,7 @@ LanceRematchScript:
 	writetext LanceRematchCongratulationsText
 	waitbutton
 	closetext
+	stowfollower
 	follow LANCESROOM_LANCE, PLAYER
 	applymovement LANCESROOM_LANCE, LancesRoomMovementData_LanceLeadsPlayerToHallOfFame
 	stopfollow

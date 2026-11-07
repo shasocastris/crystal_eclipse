@@ -2158,6 +2158,7 @@ Script_end:
 	ld [wScriptMode], a
 	ld hl, wScriptFlags
 	res UNUSED_SCRIPT_FLAG_0, [hl]
+	farcall RefreshFollowerIfLeadChanged
 	jmp StopScript
 
 Script_endcallback:
@@ -2206,6 +2207,7 @@ Script_endall:
 	ld [wScriptMode], a
 	ld hl, wScriptFlags
 	res UNUSED_SCRIPT_FLAG_0, [hl]
+	farcall RefreshFollowerIfLeadChanged
 	jmp StopScript
 
 Script_halloffame:

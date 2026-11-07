@@ -194,6 +194,7 @@ _SilentStowFollower::
 	set FOLLOWER_INVISIBLE_F, [hl]
 	set FOLLOWER_IN_POKEBALL_F, [hl]
 	res FOLLOWER_INVISIBLE_ONE_STEP_F, [hl]
+	res FOLLOWER_ON_WATER_F, [hl]
 	ld hl, wObject1Struct + OBJECT_FLAGS1
 	set INVISIBLE_F, [hl]
 	ret
@@ -213,7 +214,15 @@ _SaveFollowerCoords::
 	ret
 
 _AppearFollowerOneStep::
-; hide the follower under the player; it leaves its ball on their next step
+; hide the follower under the player; it leaves its ball on their next step.
+; A follower still out (nothing stowed it) stays where it is.
+	ld a, [wObject1Sprite]
+	and a
+	jr z, .hidden
+	ld a, [wObject1Struct + OBJECT_FLAGS1]
+	bit INVISIBLE_F, a
+	ret z
+.hidden
 	call RefreshPlayerCoords
 	lb bc, PLAYER, FOLLOWER
 	call MoveToObject

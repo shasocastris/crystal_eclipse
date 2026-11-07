@@ -1129,6 +1129,14 @@ MACRO stowfollower
 	db stowfollower_command
 ENDM
 
+MACRO stowfollowerif
+; stow only if the follower stands to \1 (UP/DOWN/LEFT/RIGHT) of the player
+	getfollowerdirection
+	ifnotequal \1, .stowfollowerif_skip\@
+	stowfollower
+.stowfollowerif_skip\@
+ENDM
+
 	const silentstowfollower_command ; $b3
 MACRO silentstowfollower
 	db silentstowfollower_command

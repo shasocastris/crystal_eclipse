@@ -25,12 +25,14 @@ Route27Noop2Scene:
 FirstStepIntoKantoLeftScene:
 	turnobject ROUTE27_FISHER, LEFT
 	showemote EMOTE_SHOCK, ROUTE27_FISHER, 15
+	stowfollowerif RIGHT
 	applymovement ROUTE27_FISHER, Route27FisherStepLeftTwiceMovement
 	sjump FirstStepIntoKantoScene_Continue
 
 FirstStepIntoKantoRightScene:
 	turnobject ROUTE27_FISHER, LEFT
 	showemote EMOTE_SHOCK, ROUTE27_FISHER, 15
+	stowfollowerif RIGHT
 	applymovement ROUTE27_FISHER, Route27FisherStepLeftOnceMovement
 FirstStepIntoKantoScene_Continue:
 	turnobject PLAYER, RIGHT
@@ -41,6 +43,7 @@ FirstStepIntoKantoScene_Continue:
 	waitbutton
 	closetext
 	setscene SCENE_ROUTE27_NOOP
+	appearfolloweronestep
 	end
 
 Route27FisherScript:

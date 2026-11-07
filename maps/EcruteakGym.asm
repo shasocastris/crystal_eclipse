@@ -113,6 +113,7 @@ EcruteakGymClosed:
 	writetext EcruteakGymClosedText
 	waitbutton
 	closetext
+	stowfollower
 	follow PLAYER, ECRUTEAKGYM_GRAMPS
 	applymovement PLAYER, EcruteakGymPlayerSlowStepDownMovement
 	stopfollow

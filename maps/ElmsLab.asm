@@ -457,17 +457,21 @@ ElmJumpRightScript:
 	end
 
 AideScript_WalkPotion1:
+	stowfollowerif DOWN
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight1
 	turnobject PLAYER, DOWN
 	scall AideScript_GivePotion
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft1
+	appearfolloweronestep
 	end
 
 AideScript_WalkPotion2:
+	stowfollowerif DOWN
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight2
 	turnobject PLAYER, DOWN
 	scall AideScript_GivePotion
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft2
+	appearfolloweronestep
 	end
 
 AideScript_GivePotion:
@@ -484,17 +488,21 @@ AideScript_GivePotion:
 	end
 
 AideScript_WalkBalls1:
+	stowfollowerif DOWN
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight1
 	turnobject PLAYER, DOWN
 	scall AideScript_GiveYouBalls
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft1
+	appearfolloweronestep
 	end
 
 AideScript_WalkBalls2:
+	stowfollowerif DOWN
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight2
 	turnobject PLAYER, DOWN
 	scall AideScript_GiveYouBalls
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft2
+	appearfolloweronestep
 	end
 
 AideScript_GiveYouBalls:

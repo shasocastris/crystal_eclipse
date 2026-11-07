@@ -65,6 +65,7 @@ CianwoodCitySuicuneAndKaren:
 	checkevent EVENT_FOUGHT_KAREN_AT_CIANWOOD
 	iftrue .Done
 	setevent EVENT_FOUGHT_KAREN_AT_CIANWOOD
+	stowfollower
 	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
 	appear CIANWOODCITY_KAREN
 	applymovement CIANWOODCITY_KAREN, CianwoodCityKarenApproachMovement
@@ -91,6 +92,7 @@ CianwoodCitySuicuneAndKaren:
 	special HealParty
 	playmapmusic
 	pause 10
+	appearfolloweronestep
 .Done:
 	end
 

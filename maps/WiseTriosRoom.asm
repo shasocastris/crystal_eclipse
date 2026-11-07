@@ -54,6 +54,7 @@ WiseTriosRoom_CannotEnterTinTowerScript:
 	turnobject WISETRIOSROOM_SAGE3, UP
 	turnobject PLAYER, DOWN
 	showemote EMOTE_SHOCK, WISETRIOSROOM_SAGE3, 20
+	stowfollower
 	follow PLAYER, WISETRIOSROOM_SAGE3
 	applymovement PLAYER, WiseTriosRoomSageBlocksPlayerMovement
 	stopfollow
@@ -64,6 +65,7 @@ WiseTriosRoom_CannotEnterTinTowerScript:
 	closetext
 	applymovement WISETRIOSROOM_SAGE3, WiseTriosRoomSageReturnsMovement
 	turnobject WISETRIOSROOM_SAGE3, LEFT
+	appearfolloweronestep
 	end
 
 TrainerSageGaku:

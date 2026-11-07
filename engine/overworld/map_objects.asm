@@ -352,37 +352,61 @@ UpdateFollowerVisibility:
 	call GetTilePermission
 	cp d
 	ret z
-	ld hl, OBJECT_FLAGS1
-	add hl, bc
-	ld de, wFollowerFlags
+	ld hl, wFollowerFlags
 	and a
 	assert LAND_TILE == 0
-	jr z, FollowerLeaveBall
+	jr z, .to_land
 	cp WATER_TILE
 	ret nz
+	bit FOLLOWER_INVISIBLE_F, [hl]
+	ret nz ; already in its ball
+	set FOLLOWER_INVISIBLE_F, [hl]
+	set FOLLOWER_IN_POKEBALL_F, [hl]
+	set FOLLOWER_ON_WATER_F, [hl]
 	ld hl, OBJECT_FLAGS1
 	add hl, bc
 	set INVISIBLE_F, [hl]
-	ld hl, wFollowerFlags
+	jr SpawnPokeballClosing
+
+.to_land
+; only if the water put it away, not a script or the bike
+	bit FOLLOWER_ON_WATER_F, [hl]
+	ret z
+	jr FollowerLeaveBall
+
+.on_bike
+; stays in its ball until the player gets off (BikeFunction)
+	res FOLLOWER_INVISIBLE_ONE_STEP_F, [hl]
+	bit FOLLOWER_INVISIBLE_F, [hl]
 	set FOLLOWER_INVISIBLE_F, [hl]
 	set FOLLOWER_IN_POKEBALL_F, [hl]
+	ret nz
+	ld hl, wObject1Struct + OBJECT_FLAGS1
+	set INVISIBLE_F, [hl]
 	jr SpawnPokeballClosing
 
 .player_step
 ; after a warp, the follower reappears on the player's first step
 	ld hl, wFollowerFlags
+	ld a, [wPlayerState]
+	cp PLAYER_BIKE
+	jr z, .on_bike
 	bit FOLLOWER_INVISIBLE_ONE_STEP_F, [hl]
 	ret z
 	res FOLLOWER_INVISIBLE_ONE_STEP_F, [hl]
-	ld a, [wPlayerState]
 	cp PLAYER_SURF
-	ret z
+	jr z, .surfing
 	cp PLAYER_SURF_PIKA
-	ret z
-; fallthrough
+	jr nz, FollowerLeaveBall
+.surfing
+; it comes out when they reach land
+	set FOLLOWER_ON_WATER_F, [hl]
+	ret
+
 FollowerLeaveBall::
 ; Show a hidden follower, out of its Poké Ball if it's in one.
 	ld hl, wFollowerFlags
+	res FOLLOWER_ON_WATER_F, [hl]
 	bit FOLLOWER_INVISIBLE_F, [hl]
 	ret z
 	res FOLLOWER_INVISIBLE_F, [hl]

@@ -41,12 +41,14 @@ EcruteakPokcenter1FBillExplainsWildHuntScript:
 	waitbutton
 	closetext
 	turnobject PLAYER, DOWN
+	stowfollower
 	applymovement ECRUTEAKPOKECENTER1F_BILL, EcruteakPokecenter1FBillMovement2
 	playsound SFX_EXIT_BUILDING
 	disappear ECRUTEAKPOKECENTER1F_BILL
 	clearevent EVENT_MET_BILL
 	setscene SCENE_ECRUTEAKPOKECENTER1F_NOOP
 	waitsfx
+	appearfolloweronestep
 	end
 
 EcruteakPokecenter1FNurseScript:

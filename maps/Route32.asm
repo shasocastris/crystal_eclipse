@@ -102,6 +102,7 @@ Route32CooltrainerMStopsYouScene:
 	writetext Route32CooltrainerMText_WhatsTheHurry
 	waitbutton
 	closetext
+	stowfollower
 	follow PLAYER, ROUTE32_COOLTRAINER_M
 	applymovement PLAYER, Movement_Route32CooltrainerMPushesYouBackToViolet
 	stopfollow
@@ -109,6 +110,7 @@ Route32CooltrainerMStopsYouScene:
 	scall Route32CooltrainerMContinueScene
 	applymovement ROUTE32_COOLTRAINER_M, Movement_Route32CooltrainerMReset1
 	applymovement ROUTE32_COOLTRAINER_M, Movement_Route32CooltrainerMReset2
+	appearfolloweronestep
 	end
 
 Route32RoarTMGuyScript:

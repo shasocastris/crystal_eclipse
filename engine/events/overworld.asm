@@ -1894,6 +1894,7 @@ BikeFunction:
 	jr .CannotUseBike
 
 .GetOnBike:
+	farcall _StowFollower
 	ld hl, Script_GetOnBike
 	ld de, Script_GetOnBike_Register
 	call .CheckIfRegistered
@@ -1915,6 +1916,7 @@ BikeFunction:
 	ld hl, wBikeFlags
 	bit BIKEFLAGS_ALWAYS_ON_BIKE_F, [hl]
 	jr nz, .CantGetOffBike
+	farcall _AppearFollowerOneStep
 	ld hl, Script_GetOffBike
 	ld de, Script_GetOffBike_Register
 	call .CheckIfRegistered

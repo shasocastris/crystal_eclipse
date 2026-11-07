@@ -63,6 +63,7 @@ RocketBaseBossFScript:
 	closetext
 	turnobject PLAYER, DOWN
 	showemote EMOTE_SHOCK, PLAYER, 15
+	stowfollower
 	applymovement PLAYER, RocketBasePlayerApproachesBossFMovement
 	playmusic MUSIC_ROCKET_ENCOUNTER
 	applymovement TEAMROCKETBASEB2F_ROCKET_GIRL, RocketBaseBossFApproachesPlayerMovement
@@ -139,6 +140,7 @@ RocketBaseBossFScript:
 	closetext
 	applymovement TEAMROCKETBASEB2F_LANCE, RocketBaseLanceApproachesElectrodesMovement
 	disappear TEAMROCKETBASEB2F_LANCE
+	appearfolloweronestep
 
 RocketBaseCantLeaveScript:
 	applymovement PLAYER, RocketBasePlayerCantLeaveElectrodesMovement

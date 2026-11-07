@@ -25,6 +25,7 @@ OlivineCityFlypointCallback:
 OlivineCityRivalSceneTop:
 	turnobject PLAYER, LEFT
 	showemote EMOTE_SHOCK, PLAYER, 15
+	stowfollower
 	special FadeOutMusic
 	pause 15
 	playsound SFX_ENTER_DOOR
@@ -44,11 +45,13 @@ OlivineCityRivalSceneTop:
 	special RestartMapMusic
 	variablesprite SPRITE_OLIVINE_RIVAL, SPRITE_SWIMMER_GUY
 	special LoadUsedSpritesGFX
+	appearfolloweronestep
 	end
 
 OlivineCityRivalSceneBottom:
 	turnobject PLAYER, LEFT
 	showemote EMOTE_SHOCK, PLAYER, 15
+	stowfollower
 	special FadeOutMusic
 	pause 15
 	playsound SFX_ENTER_DOOR
@@ -68,6 +71,7 @@ OlivineCityRivalSceneBottom:
 	special RestartMapMusic
 	variablesprite SPRITE_OLIVINE_RIVAL, SPRITE_SWIMMER_GUY
 	special LoadUsedSpritesGFX
+	appearfolloweronestep
 	end
 
 OlivineCitySailor1Script:

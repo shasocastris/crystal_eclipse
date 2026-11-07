@@ -103,6 +103,7 @@ CherrygroveRivalSceneSouth:
 CherrygroveRivalSceneNorth:
 	turnobject PLAYER, RIGHT
 	showemote EMOTE_SHOCK, PLAYER, 15
+	stowfollower
 	special FadeOutMusic
 	pause 15
 	appear CHERRYGROVECITY_RIVAL
@@ -172,6 +173,7 @@ CherrygroveRivalSceneNorth:
 	setscene SCENE_CHERRYGROVECITY_NOOP
 	special HealParty
 	playmapmusic
+	appearfolloweronestep
 	end
 
 CherrygroveTeacherScript:

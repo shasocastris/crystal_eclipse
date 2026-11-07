@@ -40,6 +40,7 @@ SecurityCamera1a:
 	checkevent EVENT_TEAM_ROCKET_BASE_POPULATION
 	iftrue NoSecurityCamera
 	showemote EMOTE_SHOCK, PLAYER, 15
+	stowfollower
 	playmusic MUSIC_ROCKET_ENCOUNTER
 	moveobject TEAMROCKETBASEB1F_ROCKET1, 19, 2
 	appear TEAMROCKETBASEB1F_ROCKET1
@@ -56,6 +57,7 @@ SecurityCamera1a:
 	scall TrainerCameraGrunt2
 	ifequal TRUE, NoSecurityCamera
 	setevent EVENT_SECURITY_CAMERA_1
+	appearfolloweronestep
 	end
 
 SecurityCamera1b:
@@ -65,6 +67,7 @@ SecurityCamera1b:
 	checkevent EVENT_TEAM_ROCKET_BASE_POPULATION
 	iftrue NoSecurityCamera
 	showemote EMOTE_SHOCK, PLAYER, 15
+	stowfollower
 	playmusic MUSIC_ROCKET_ENCOUNTER
 	moveobject TEAMROCKETBASEB1F_ROCKET1, 19, 3
 	appear TEAMROCKETBASEB1F_ROCKET1
@@ -81,6 +84,7 @@ SecurityCamera1b:
 	scall TrainerCameraGrunt2
 	ifequal TRUE, NoSecurityCamera
 	setevent EVENT_SECURITY_CAMERA_1
+	appearfolloweronestep
 	end
 
 SecurityCamera2a:
@@ -90,6 +94,7 @@ SecurityCamera2a:
 	checkevent EVENT_TEAM_ROCKET_BASE_POPULATION
 	iftrue NoSecurityCamera
 	showemote EMOTE_SHOCK, PLAYER, 15
+	stowfollower
 	playmusic MUSIC_ROCKET_ENCOUNTER
 	moveobject TEAMROCKETBASEB1F_ROCKET1, 4, 7
 	appear TEAMROCKETBASEB1F_ROCKET1
@@ -107,6 +112,7 @@ SecurityCamera2a:
 	scall TrainerCameraGrunt2
 	ifequal TRUE, NoSecurityCamera
 	setevent EVENT_SECURITY_CAMERA_2
+	appearfolloweronestep
 	end
 
 SecurityCamera2b:
@@ -116,6 +122,7 @@ SecurityCamera2b:
 	checkevent EVENT_TEAM_ROCKET_BASE_POPULATION
 	iftrue NoSecurityCamera
 	showemote EMOTE_SHOCK, PLAYER, 15
+	stowfollower
 	playmusic MUSIC_ROCKET_ENCOUNTER
 	moveobject TEAMROCKETBASEB1F_ROCKET1, 4, 8
 	appear TEAMROCKETBASEB1F_ROCKET1
@@ -133,6 +140,7 @@ SecurityCamera2b:
 	scall TrainerCameraGrunt2
 	ifequal TRUE, NoSecurityCamera
 	setevent EVENT_SECURITY_CAMERA_2
+	appearfolloweronestep
 	end
 
 SecurityCamera3a:
@@ -142,6 +150,7 @@ SecurityCamera3a:
 	checkevent EVENT_TEAM_ROCKET_BASE_POPULATION
 	iftrue NoSecurityCamera
 	showemote EMOTE_SHOCK, PLAYER, 15
+	stowfollower
 	playmusic MUSIC_ROCKET_ENCOUNTER
 	moveobject TEAMROCKETBASEB1F_ROCKET1, 19, 6
 	appear TEAMROCKETBASEB1F_ROCKET1
@@ -159,6 +168,7 @@ SecurityCamera3a:
 	scall TrainerCameraGrunt2
 	ifequal TRUE, NoSecurityCamera
 	setevent EVENT_SECURITY_CAMERA_3
+	appearfolloweronestep
 	end
 
 SecurityCamera3b:
@@ -168,6 +178,7 @@ SecurityCamera3b:
 	checkevent EVENT_TEAM_ROCKET_BASE_POPULATION
 	iftrue NoSecurityCamera
 	showemote EMOTE_SHOCK, PLAYER, 15
+	stowfollower
 	playmusic MUSIC_ROCKET_ENCOUNTER
 	moveobject TEAMROCKETBASEB1F_ROCKET1, 19, 7
 	appear TEAMROCKETBASEB1F_ROCKET1
@@ -185,6 +196,7 @@ SecurityCamera3b:
 	scall TrainerCameraGrunt2
 	ifequal TRUE, NoSecurityCamera
 	setevent EVENT_SECURITY_CAMERA_3
+	appearfolloweronestep
 	end
 
 SecurityCamera4:
@@ -194,6 +206,7 @@ SecurityCamera4:
 	checkevent EVENT_TEAM_ROCKET_BASE_POPULATION
 	iftrue NoSecurityCamera
 	showemote EMOTE_SHOCK, PLAYER, 15
+	stowfollower
 	playmusic MUSIC_ROCKET_ENCOUNTER
 	moveobject TEAMROCKETBASEB1F_ROCKET1, 17, 16
 	appear TEAMROCKETBASEB1F_ROCKET1
@@ -211,6 +224,7 @@ SecurityCamera4:
 	scall TrainerCameraGrunt2
 	ifequal TRUE, NoSecurityCamera
 	setevent EVENT_SECURITY_CAMERA_4
+	appearfolloweronestep
 	end
 
 SecurityCamera5:
@@ -220,6 +234,7 @@ SecurityCamera5:
 	checkevent EVENT_TEAM_ROCKET_BASE_POPULATION
 	iftrue NoSecurityCamera
 	showemote EMOTE_SHOCK, PLAYER, 15
+	stowfollower
 	playmusic MUSIC_ROCKET_ENCOUNTER
 	moveobject TEAMROCKETBASEB1F_ROCKET1, 3, 16
 	appear TEAMROCKETBASEB1F_ROCKET1
@@ -237,9 +252,11 @@ SecurityCamera5:
 	scall TrainerCameraGrunt2
 	ifequal TRUE, NoSecurityCamera
 	setevent EVENT_SECURITY_CAMERA_5
+	appearfolloweronestep
 	end
 
 NoSecurityCamera:
+	appearfolloweronestep
 	end
 
 TrainerCameraGrunt1:

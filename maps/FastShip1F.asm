@@ -125,6 +125,7 @@ WorriedGrandpaSceneRight:
 	moveobject FASTSHIP1F_GENTLEMAN, 20, 6
 
 WorriedGrandpaSceneLeft:
+	stowfollower
 	appear FASTSHIP1F_GENTLEMAN
 	applymovement FASTSHIP1F_GENTLEMAN, FastShip1F_GrandpaRunsInMovement
 	playsound SFX_TACKLE
@@ -138,6 +139,7 @@ WorriedGrandpaSceneLeft:
 	applymovement FASTSHIP1F_GENTLEMAN, FastShip1F_GrandpaRunsOutMovement
 	disappear FASTSHIP1F_GENTLEMAN
 	setscene SCENE_FASTSHIP1F_NOOP
+	appearfolloweronestep
 	end
 
 FastShip1F_SailorStepAsideMovement:
@@ -158,6 +160,7 @@ FastShip1F_SailorStepAsideDownMovement:
 FastShip1F_PlayerEntersShipMovement:
 	step DOWN
 	step DOWN
+	step DOWN ; the follower clears the door
 	turn_head DOWN
 	step_end
 

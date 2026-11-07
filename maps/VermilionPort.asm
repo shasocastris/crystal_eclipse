@@ -48,6 +48,7 @@ VermilionPortKogaCallback:
 	endcallback
 
 VermilionPortLeaveShipScript:
+	stowfollower
 	applymovement PLAYER, VermilionPortLeaveFastShipMovement
 	appear VERMILIONPORT_SAILOR1
 	setscene SCENE_VERMILIONPORT_ASK_ENTER_SHIP
@@ -68,6 +69,7 @@ VermilionPortLeaveShipScript:
 	setevent EVENT_FAST_SHIP_FIRST_TIME
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	blackoutmod VERMILION_CITY
+	appearfolloweronestep
 	end
 
 ; Whiting out on the raid voyage lands the player on the pier, and Koga has
@@ -123,11 +125,13 @@ VermilionPortLeaveExpressScript:
 ; The express never enters the S.S.AQUA, so unlike the arrival above it must not
 ; set any EVENT_FAST_SHIP_* -- those spawn the first-trip trainers and the
 ; post-quest grandpa and granddaughter.
+	stowfollower
 	applymovement PLAYER, VermilionPortLeaveFastShipMovement
 	appear VERMILIONPORT_SAILOR1
 	setscene SCENE_VERMILIONPORT_ASK_ENTER_SHIP
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	blackoutmod VERMILION_CITY
+	appearfolloweronestep
 	end
 
 VermilionPortSailorAtGangwayScript:

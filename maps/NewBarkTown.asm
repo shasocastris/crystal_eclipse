@@ -30,6 +30,7 @@ NewBarkTown_TeacherStopsYouScene1:
 	waitbutton
 	closetext
 	turnobject PLAYER, RIGHT
+	stowfollower
 	applymovement NEWBARKTOWN_TEACHER, NewBarkTown_TeacherRunsToYouMovement1
 	opentext
 	writetext Text_WhatDoYouThinkYoureDoing
@@ -43,6 +44,7 @@ NewBarkTown_TeacherStopsYouScene1:
 	waitbutton
 	closetext
 	special RestartMapMusic
+	appearfolloweronestep
 	end
 
 NewBarkTown_TeacherStopsYouScene2:
@@ -53,6 +55,7 @@ NewBarkTown_TeacherStopsYouScene2:
 	waitbutton
 	closetext
 	turnobject PLAYER, RIGHT
+	stowfollower
 	applymovement NEWBARKTOWN_TEACHER, NewBarkTown_TeacherRunsToYouMovement2
 	turnobject PLAYER, UP
 	opentext
@@ -67,6 +70,7 @@ NewBarkTown_TeacherStopsYouScene2:
 	waitbutton
 	closetext
 	special RestartMapMusic
+	appearfolloweronestep
 	end
 
 NewBarkTownTeacherScript:
@@ -114,6 +118,7 @@ NewBarkTownRivalScript:
 	writetext NewBarkTownRivalText2
 	waitbutton
 	closetext
+	stowfollower
 	follow PLAYER, NEWBARKTOWN_RIVAL
 	applymovement PLAYER, NewBarkTown_RivalPushesYouAwayMovement
 	stopfollow
@@ -123,6 +128,7 @@ NewBarkTownRivalScript:
 	playsound SFX_TACKLE
 	applymovement PLAYER, NewBarkTown_RivalShovesYouOutMovement
 	applymovement NEWBARKTOWN_RIVAL, NewBarkTown_RivalReturnsToTheShadowsMovement
+	appearfolloweronestep
 	end
 
 NewBarkTownSign:

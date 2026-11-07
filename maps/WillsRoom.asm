@@ -107,6 +107,7 @@ WillsRoom_EnterMovement:
 	step UP
 	step UP
 	step UP
+	step UP ; the follower clears the closing door
 	step_end
 
 WillScript_WillBeforeText:

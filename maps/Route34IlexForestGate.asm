@@ -29,6 +29,7 @@ Route34IlexForestGateCelebiEvent:
 	showemote EMOTE_SHOCK, ROUTE34ILEXFORESTGATE_TEACHER2, 20
 	turnobject ROUTE34ILEXFORESTGATE_TEACHER2, LEFT
 	turnobject PLAYER, RIGHT
+	stowfollower
 	follow PLAYER, ROUTE34ILEXFORESTGATE_TEACHER2
 	applymovement PLAYER, Route34IlexForestGateTeacherBlocksPlayerMovement
 	stopfollow
@@ -38,6 +39,7 @@ Route34IlexForestGateCelebiEvent:
 	waitbutton
 	closetext
 	applymovement ROUTE34ILEXFORESTGATE_TEACHER2, Route34IlexForestGateTeacherReturnsMovement
+	appearfolloweronestep
 .skip:
 	end
 

@@ -81,6 +81,7 @@ ResearchCenterClosed:
 	writetext ResearchCenterClosedText
 	waitbutton
 	closetext
+	stowfollower
 	follow PLAYER, RUINSOFALPHRESEARCHCENTER_ROCKET3
 	applymovement PLAYER, ResearchCenterPlayerSlowStepDownMovement
 	stopfollow
@@ -92,6 +93,7 @@ ResearchCenterClosed:
 
 RuinsOfAlphResearchCenterElmScript:
 	appear RUINSOFALPHRESEARCHCENTER_ELM
+	stowfollower
 	applymovement PLAYER, ResearchCenterPlayerApproachesElmMovement
     turnobject PLAYER, RIGHT
 	opentext
@@ -131,6 +133,7 @@ RuinsOfAlphResearchCenterElmScript:
 	waitsfx
 	setmapscene RUINS_OF_ALPH_RESEARCH_CENTER, SCENE_RUINSOFALPHRESEARCHCENTER_NOOP
 	setevent EVENT_ELM_NOT_AT_RUINS_RESEARCH_CENTER
+	appearfolloweronestep
 	end
 
 RuinsOfAlphResearchCenterBookshelf:

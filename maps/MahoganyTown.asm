@@ -27,12 +27,14 @@ MahoganyTownFlypointCallback:
 MahoganyTownTryARageCandyBarScript:
 	showemote EMOTE_SHOCK, MAHOGANYTOWN_POKEFAN_M, 15
 	applymovement MAHOGANYTOWN_POKEFAN_M, MahoganyTownRageCandyBarMerchantBlocksYouMovement
+	stowfollower
 	follow PLAYER, MAHOGANYTOWN_POKEFAN_M
 	applymovement PLAYER, MahoganyTownPlayerStepLeftMovement
 	stopfollow
 	turnobject PLAYER, RIGHT
 	scall RageCandyBarMerchantScript
 	applymovement MAHOGANYTOWN_POKEFAN_M, MahoganyTownRageCandyBarMerchantReturnsMovement
+	appearfolloweronestep
 	end
 
 MahoganyTownPokefanMScript:

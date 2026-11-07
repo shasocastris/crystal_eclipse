@@ -94,6 +94,7 @@ MrPokemonsHouse_OakScript:
 	waitbutton
 	closetext
 	turnobject PLAYER, DOWN
+	stowfollower
 	applymovement MRPOKEMONSHOUSE_OAK, MrPokemonsHouse_OakExits
 	playsound SFX_EXIT_BUILDING
 	disappear MRPOKEMONSHOUSE_OAK
@@ -113,6 +114,7 @@ MrPokemonsHouse_OakScript:
 	pause 60
 	special FadeInFromBlack
 	special RestartMapMusic
+	appearfolloweronestep
 	opentext
 	writetext MrPokemonText_UsePokedexOnMurkrow
 	waitbutton

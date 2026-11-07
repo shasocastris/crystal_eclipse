@@ -31,6 +31,7 @@ VictoryRoadRivalLeft:
 	moveobject VICTORYROAD_RIVAL, 18, 11
 	turnobject PLAYER, DOWN
 	showemote EMOTE_SHOCK, PLAYER, 15
+	stowfollower
 	special FadeOutMusic
 	pause 15
 	appear VICTORYROAD_RIVAL
@@ -40,11 +41,13 @@ VictoryRoadRivalLeft:
 	disappear VICTORYROAD_RIVAL
 	setscene SCENE_VICTORYROAD_NOOP
 	playmapmusic
+	appearfolloweronestep
 	end
 
 VictoryRoadRivalRight:
 	turnobject PLAYER, DOWN
 	showemote EMOTE_SHOCK, PLAYER, 15
+	stowfollower
 	special FadeOutMusic
 	pause 15
 	appear VICTORYROAD_RIVAL
@@ -54,6 +57,7 @@ VictoryRoadRivalRight:
 	disappear VICTORYROAD_RIVAL
 	setscene SCENE_VICTORYROAD_NOOP
 	playmapmusic
+	appearfolloweronestep
 	end
 
 VictoryRoadRivalNext:

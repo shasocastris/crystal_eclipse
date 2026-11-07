@@ -64,6 +64,7 @@ LanceGetPasswordScript:
 RocketBaseRival:
 	turnobject PLAYER, LEFT
 	showemote EMOTE_SHOCK, PLAYER, 15
+	stowfollower
 	special FadeOutMusic
 	appear TEAMROCKETBASEB3F_RIVAL
 	applymovement TEAMROCKETBASEB3F_RIVAL, RocketBaseRivalEnterMovement
@@ -79,6 +80,7 @@ RocketBaseRival:
 	disappear TEAMROCKETBASEB3F_RIVAL
 	setscene SCENE_TEAMROCKETBASEB3F_ROCKET_BOSS
 	special RestartMapMusic
+	appearfolloweronestep
 	end
 
 TeamRocketBaseB3FRocketScript:
@@ -91,6 +93,7 @@ RocketBaseBossLeft:
 RocketBaseBossRight:
 	applymovement PLAYER, RocketBasePlayerApproachesBossRightMovement
 RocketBaseBoss:
+	stowfollower
 	pause 30
 	showemote EMOTE_SHOCK, TEAMROCKETBASEB3F_ROCKET1, 15
 	playmusic MUSIC_ROCKET_ENCOUNTER
@@ -115,6 +118,7 @@ RocketBaseBoss:
 	applymovement TEAMROCKETBASEB3F_ROCKET1, RocketBaseBossLeavesMovement
 	disappear TEAMROCKETBASEB3F_ROCKET1
 	setscene SCENE_TEAMROCKETBASEB3F_NOOP
+	appearfolloweronestep
 	end
 
 RocketBaseMurkrow:
