@@ -177,8 +177,22 @@ MatchFollowerDirection:
 	ret
 
 _StowFollower::
+; return the follower to its Poké Ball
+	ld a, [wObject1Struct + OBJECT_FLAGS1]
+	push af
+	call _SilentStowFollower
+	pop af
+	bit INVISIBLE_F, a
+	ret nz ; already hidden
+	ld a, [wObject1Sprite]
+	and a
+	ret z
+	farjp SpawnPokeballClosing
+
+_SilentStowFollower::
 	ld hl, wFollowerFlags
 	set FOLLOWER_INVISIBLE_F, [hl]
+	set FOLLOWER_IN_POKEBALL_F, [hl]
 	res FOLLOWER_INVISIBLE_ONE_STEP_F, [hl]
 	ld hl, wObject1Struct + OBJECT_FLAGS1
 	set INVISIBLE_F, [hl]
@@ -199,21 +213,30 @@ _SaveFollowerCoords::
 	ret
 
 _AppearFollowerOneStep::
-; hide the follower under the player until their next step
+; hide the follower under the player; it leaves its ball on their next step
 	call RefreshPlayerCoords
 	lb bc, PLAYER, FOLLOWER
 	call MoveToObject
 	ld hl, wFollowerFlags
-	set FOLLOWER_INVISIBLE_F, [hl]
-	set FOLLOWER_INVISIBLE_ONE_STEP_F, [hl]
+	ld a, [hl]
+	or FOLLOWER_INVISIBLE | 1 << FOLLOWER_INVISIBLE_ONE_STEP_F | 1 << FOLLOWER_IN_POKEBALL_F
+	ld [hl], a
 	call CopyFollowerStruct
 	jr MatchFollowerDirection
 
 _AppearFollower::
-; show the follower at its map object's coords
+; send the follower out of its ball at its map object's coords
 	ld hl, wFollowerFlags
-	res FOLLOWER_INVISIBLE_F, [hl]
-	res FOLLOWER_INVISIBLE_ONE_STEP_F, [hl]
+	ld a, [hl]
+	or FOLLOWER_INVISIBLE | 1 << FOLLOWER_IN_POKEBALL_F
+	res FOLLOWER_INVISIBLE_ONE_STEP_F, a
+	ld [hl], a
+	call CopyFollowerStruct
+	ld a, [wObject1Sprite]
+	and a
+	ret z
+	farjp FollowerLeaveBall
+
 CopyFollowerStruct:
 ; rebuild the follower's struct, reloading the lead mon's sprite
 	ld a, [wPartyCount]

@@ -127,6 +127,8 @@ LoadMiscTiles:
 	bit SPRITES_SKIP_WALKING_GFX_F, a
 	ret nz
 
+	ld c, EMOTE_POKE_BALL
+	call LoadEmote
 	ld c, EMOTE_SHADOW
 	call LoadEmote
 	call GetMapEnvironment

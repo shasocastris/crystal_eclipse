@@ -357,14 +357,16 @@ UpdateFollowerVisibility:
 	ld de, wFollowerFlags
 	and a
 	assert LAND_TILE == 0
-	jr z, .show
+	jr z, FollowerLeaveBall
 	cp WATER_TILE
 	ret nz
+	ld hl, OBJECT_FLAGS1
+	add hl, bc
 	set INVISIBLE_F, [hl]
-	ld a, [de]
-	set FOLLOWER_INVISIBLE_F, a
-	ld [de], a
-	ret
+	ld hl, wFollowerFlags
+	set FOLLOWER_INVISIBLE_F, [hl]
+	set FOLLOWER_IN_POKEBALL_F, [hl]
+	jr SpawnPokeballClosing
 
 .player_step
 ; after a warp, the follower reappears on the player's first step
@@ -377,14 +379,46 @@ UpdateFollowerVisibility:
 	ret z
 	cp PLAYER_SURF_PIKA
 	ret z
-	ld de, wFollowerFlags
+; fallthrough
+FollowerLeaveBall::
+; Show a hidden follower, out of its Poké Ball if it's in one.
+	ld hl, wFollowerFlags
+	bit FOLLOWER_INVISIBLE_F, [hl]
+	ret z
+	res FOLLOWER_INVISIBLE_F, [hl]
+	bit FOLLOWER_IN_POKEBALL_F, [hl]
+	res FOLLOWER_IN_POKEBALL_F, [hl]
+	jr nz, SpawnPokeballOpening
+ShowFollower:
 	ld hl, wObject1Struct + OBJECT_FLAGS1
-.show
 	res INVISIBLE_F, [hl]
-	ld a, [de]
-	res FOLLOWER_INVISIBLE_F, a
-	ld [de], a
 	ret
+
+; wFollowerFlags hold the follower's final state as soon as a ball
+; animation starts, so a map reload mid-animation lands on it.
+
+SpawnPokeballOpening::
+	call FindFirstEmptyObjectStruct
+	jr nc, ShowFollower
+	ld de, PokeballOpeningObject
+	jr SpawnPokeball
+
+SpawnPokeballClosing::
+	ld de, PokeballClosingObject
+SpawnPokeball:
+	push bc
+	ld bc, wObject1Struct
+	call CopyTempObjectData
+	call InitTempObject
+	pop bc
+	ret
+
+PokeballOpeningObject:
+	; vtile, palette, movement
+	db $80 | FOLLOWER_POKE_BALL_TILE, PAL_OW_POKE_BALL, SPRITEMOVEDATA_POKEBALL_OPENING
+
+PokeballClosingObject:
+	db $80 | FOLLOWER_POKE_BALL_TILE, PAL_OW_POKE_BALL, SPRITEMOVEDATA_POKEBALL_CLOSING
 
 AddStepVector:
 	call GetStepVector
@@ -606,6 +640,8 @@ StepFunction_FromMovement:
 	dw MovementFunction_BoulderDust          ; 1a
 	dw MovementFunction_ShakingGrass         ; 1b
 	dw MovementFunction_FollowerObj          ; 1c
+	dw MovementFunction_PokeballOpening      ; 1d
+	dw MovementFunction_PokeballClosing      ; 1e
 	assert_table_length NUM_SPRITEMOVEFN
 
 MovementFunction_RandomWalkY:
@@ -1144,6 +1180,24 @@ MovementFunction_ShakingGrass:
 	ld [hl], STEP_TYPE_TRACKING_OBJECT
 	ret
 
+MovementFunction_PokeballOpening:
+	ld e, STEP_TYPE_POKEBALL_OPENING
+	jr InitPokeballMovement
+
+MovementFunction_PokeballClosing:
+	ld e, STEP_TYPE_POKEBALL_CLOSING
+InitPokeballMovement:
+	ld hl, OBJECT_STEP_TYPE
+	add hl, bc
+	ld [hl], e
+	ld hl, OBJECT_STEP_DURATION
+	add hl, bc
+	ld [hl], 4
+	ld hl, OBJECT_RANGE
+	add hl, bc
+	ld [hl], FOLLOWER
+	; fallthrough
+
 InitMovementField1dField1e:
 	ld hl, OBJECT_RANGE
 	add hl, bc
@@ -1282,6 +1336,8 @@ StepTypesJumptable:
 	dw StepFunction_Delete          ; 18
 	dw StepFunction_SkyfallTop      ; 19
 	dw StepFunction_NPCJumpInPlace  ; 1a
+	dw StepFunction_PokeballOpening ; 1b
+	dw StepFunction_PokeballClosing ; 1c
 	assert_table_length NUM_STEP_TYPES
 
 WaitStep_InPlace:
@@ -1329,6 +1385,68 @@ StepFunction_NPCJump:
 	ld hl, OBJECT_SPRITE_Y_OFFSET
 	add hl, bc
 	ld [hl], a
+	ret
+
+StepFunction_PokeballOpening:
+	ld de, .Frames
+	call PokeballStep
+	ret nz
+; unless a script stowed it again meanwhile
+	ld a, [wFollowerFlags]
+	bit FOLLOWER_INVISIBLE_F, a
+	call z, ShowFollower
+	jmp DeleteMapObject
+
+.Frames:
+	db OW_LEFT, OW_UP, OW_DOWN ; closed, opening, open
+
+StepFunction_PokeballClosing:
+	ld de, .Frames
+	call PokeballStep
+	ret nz
+	jmp DeleteMapObject
+
+.Frames:
+	db OW_DOWN, OW_UP, OW_LEFT ; open, closing, closed
+
+PokeballStep:
+; Show ball frame [de + step index] for 4 frames each over the follower.
+; Return z after the last one.
+	ld hl, OBJECT_STEP_INDEX
+	add hl, bc
+	ld a, [hl]
+	add e
+	ld e, a
+	adc d
+	sub e
+	ld d, a
+	ld a, [de]
+	ld hl, OBJECT_DIRECTION
+	add hl, bc
+	ld [hl], a
+	ld hl, OBJECT_1D
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld de, OBJECT_SPRITE_X
+	add hl, de
+	ld a, [hli]
+	ld e, [hl] ; OBJECT_SPRITE_Y
+	ld hl, OBJECT_SPRITE_X
+	add hl, bc
+	ld [hli], a
+	ld [hl], e ; OBJECT_SPRITE_Y
+	ld hl, OBJECT_STEP_DURATION
+	add hl, bc
+	dec [hl]
+	ret nz
+	ld [hl], 4
+	ld hl, OBJECT_STEP_INDEX
+	add hl, bc
+	inc [hl]
+	ld a, [hl]
+	cp 3
 	ret
 
 StepFunction_NPCJumpInPlace:

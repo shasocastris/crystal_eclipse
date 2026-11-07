@@ -2427,11 +2427,19 @@ Script_followcry:
 	jmp PlayMonCry
 
 Script_stowfollower:
+	farcall _StowFollower
+	jr WaitForFollowerBall
+
 Script_silentstowfollower:
-	farjp _StowFollower
+	farjp _SilentStowFollower
 
 Script_appearfollower:
-	farjp _AppearFollower
+	farcall _AppearFollower
+WaitForFollowerBall:
+; let the ball animation play (3 frames of 4)
+	ld a, 13
+	ld [wScriptDelay], a
+	jmp Script_deactivatefacing.no_time
 
 Script_appearfolloweronestep:
 	farjp _AppearFollowerOneStep

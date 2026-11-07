@@ -38,6 +38,7 @@ DEF OBJECT_PAL_INDEX        rb ; 21
 DEF OBJECT_LENGTH EQU _RS
 DEF NUM_OBJECT_STRUCTS EQU 13 ; see wObjectStructs
 DEF FIRST_VRAM1_OBJECT_STRUCT EQU 8
+DEF FOLLOWER_POKE_BALL_TILE EQU $64 ; 12 free VRAM0 tiles between weather and the heal machine
 
 ; object_struct OBJECT_DIRECTION values
 DEF OW_DOWN  EQU DOWN  << 2
@@ -151,6 +152,8 @@ DEF MAPOBJECT_SCREEN_HEIGHT EQU (SCREEN_HEIGHT / 2) + 2
 	const SPRITEMOVEDATA_GRASS                ; 23
 	const SPRITEMOVEDATA_SWIM_WANDER          ; 24
 	const SPRITEMOVEDATA_FOLLOWEROBJ          ; 25
+	const SPRITEMOVEDATA_POKEBALL_OPENING     ; 26
+	const SPRITEMOVEDATA_POKEBALL_CLOSING     ; 27
 DEF NUM_SPRITEMOVEDATA EQU const_value
 
 ; StepFunction_FromMovement.Pointers indexes (see engine/overworld/map_objects.asm)
@@ -184,6 +187,8 @@ DEF NUM_SPRITEMOVEDATA EQU const_value
 	const SPRITEMOVEFN_BOULDERDUST           ; 1a
 	const SPRITEMOVEFN_GRASS                 ; 1b
 	const SPRITEMOVEFN_FOLLOWER_OBJ          ; 1c
+	const SPRITEMOVEFN_POKEBALL_OPENING      ; 1d
+	const SPRITEMOVEFN_POKEBALL_CLOSING      ; 1e
 DEF NUM_SPRITEMOVEFN EQU const_value
 
 ; StepTypesJumptable indexes (see engine/overworld/map_objects.asm)
@@ -215,6 +220,8 @@ DEF NUM_SPRITEMOVEFN EQU const_value
 	const STEP_TYPE_DELETE           ; 18
 	const STEP_TYPE_SKYFALL_TOP      ; 19
 	const STEP_TYPE_NPC_JUMP_IN_PLACE ; 1a
+	const STEP_TYPE_POKEBALL_OPENING  ; 1b
+	const STEP_TYPE_POKEBALL_CLOSING  ; 1c
 DEF NUM_STEP_TYPES EQU const_value
 
 ; ObjectActionPairPointers indexes (see engine/overworld/map_object_action.asm)
