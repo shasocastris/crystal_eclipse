@@ -78,65 +78,42 @@ CopySpritePal::
 	push hl
 	push de
 	ld a, [wNeededPalIndex]
-	sub FIRST_COPY_BG_PAL
-	jr c, .not_copy_bg
-	ld hl, wBGPals1
-	ld bc, 1 palettes
-	rst AddNTimes
-	jr .got_pal
-
-.not_copy_bg
-	; check darkness
-	push hl
-	push de
-	call GetMapTimeOfDay
-	pop de
-	pop hl
-	or ~IN_DARKNESS
-	inc a
-	jr nz, .not_darkness
-	ld a, [wStatusFlags]
-	bit STATUSFLAGS_FLASH_F, a ; Flash
-	jr nz, .not_darkness
-	ld a, [wPalFlags]
-	bit USE_DAYTIME_PAL_F, a
-	jr nz, .not_darkness
-	ld a, [wNeededPalIndex]
-	cp NUM_OW_TIME_OF_DAY_PALS
-	jr nc, .not_darkness
-	ld hl, DarknessOBPalette
-	ld bc, 1 palettes
-	rst AddNTimes
-	jr .got_pal
-
-.not_darkness
-	ld a, [wNeededPalIndex]
-	cp NUM_OW_TIME_OF_DAY_PALS
-	jr c, .time_of_day_pal
-	ld hl, SingleObjectPals - NUM_OW_TIME_OF_DAY_PALS palettes
-	ld bc, 1 palettes
-	rst AddNTimes
-	jr .got_pal
-
-.time_of_day_pal
-	ld hl, MapObjectPals
-	ld bc, 1 palettes
-	rst AddNTimes
-.check_daytimes
-	ld a, [wPalFlags]
-	bit USE_DAYTIME_PAL_F, a
-	ld a, 1
-	jr nz, .daytime
-	ld a, [wTimeOfDayPal]
-.daytime
-	maskbits NUM_DAYTIMES
-	ld bc, NUM_OW_TIME_OF_DAY_PALS palettes
-	rst AddNTimes
-.got_pal
-	pop de
-	push de ; where the palette is going, for the dim below
+	cp FIRST_FOLLOWER_PAIR_PAL
+	jr nc, .pair
+	call GetSpritePalSource
 	ld bc, 1 palettes
 	call FarCopyColorWRAM
+	jr .got_pal
+
+.pair
+; hue1 fills colours 1 and 2, then hue2 replaces colour 2
+	sub FIRST_FOLLOWER_PAIR_PAL
+	push af
+	swap a
+	and $f
+	call GetSpritePalSource
+	ld bc, 1 palettes
+	call FarCopyColorWRAM
+	pop af
+	and $f
+	call GetSpritePalSource
+	ld bc, 2 colors
+	add hl, bc
+	pop de
+	push de
+	push hl
+	ld h, d
+	ld l, e
+	inc de
+	inc de
+	ld c, 2 colors
+	add hl, bc
+	ld c, 1 colors
+	call FarCopyColorWRAM
+	pop hl
+	ld c, 1 colors
+	call FarCopyColorWRAM
+.got_pal
 	pop de
 	; Map objects have to darken with the map, or they stand out against it.
 	farcall DimSpritePal
@@ -150,6 +127,63 @@ CopySpritePal::
 	pop af
 	pop bc
 	pop hl
+	ret
+
+GetSpritePalSource:
+; a = PAL_OW_* index; returns hl = its colours for this map and time of day.
+	push de
+	ld e, a
+	sub FIRST_COPY_BG_PAL
+	jr c, .not_copy_bg
+	ld hl, wBGPals1
+	jr .add
+
+.not_copy_bg
+	push de
+	call GetMapTimeOfDay
+	pop de
+	or ~IN_DARKNESS
+	inc a
+	jr nz, .not_darkness
+	ld a, [wStatusFlags]
+	bit STATUSFLAGS_FLASH_F, a ; Flash
+	jr nz, .not_darkness
+	ld a, [wPalFlags]
+	bit USE_DAYTIME_PAL_F, a
+	jr nz, .not_darkness
+	ld a, e
+	cp NUM_OW_TIME_OF_DAY_PALS
+	jr nc, .not_darkness
+	ld hl, DarknessOBPalette
+	jr .add
+
+.not_darkness
+	ld a, e
+	cp NUM_OW_TIME_OF_DAY_PALS
+	jr c, .time_of_day_pal
+	sub NUM_OW_TIME_OF_DAY_PALS
+	ld hl, SingleObjectPals
+	jr .add
+
+.time_of_day_pal
+	ld hl, MapObjectPals
+	ld bc, 1 palettes
+	rst AddNTimes
+	ld a, [wPalFlags]
+	bit USE_DAYTIME_PAL_F, a
+	ld a, 1
+	jr nz, .daytime
+	ld a, [wTimeOfDayPal]
+.daytime
+	maskbits NUM_DAYTIMES
+	ld bc, NUM_OW_TIME_OF_DAY_PALS palettes
+	jr .add_n
+
+.add
+	ld bc, 1 palettes
+.add_n
+	rst AddNTimes
+	pop de
 	ret
 
 ApplyOBPals:

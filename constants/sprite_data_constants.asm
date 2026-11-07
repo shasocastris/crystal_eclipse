@@ -64,6 +64,10 @@ DEF FIRST_COPY_BG_PAL EQU const_value
 DEF NUM_OW_BG_COPY_PALS EQU const_value - NUM_OW_INDIVIDUAL_PALS
 DEF NUM_OW_PALS EQU const_value
 
+; Two-hue follower palettes: $30 + hue1 * 16 + hue2, composed by CopySpritePal.
+DEF FIRST_FOLLOWER_PAIR_PAL EQU $30
+	assert NUM_OW_PALS <= FIRST_FOLLOWER_PAIR_PAL
+
 ; ⚠️ Hardware OB palette slot (0-7), NOT a MapObjectPals index like the PAL_OW_*
 ; constants above. The two numbering spaces are unrelated -- PAL_OW_PINK also
 ; happens to be 6, and means something completely different.

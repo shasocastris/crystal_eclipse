@@ -1656,41 +1656,31 @@ GetFollowerSpriteData::
 	ret
 
 GetFollowerPalette::
-; Return the lead mon's overworld palette (PAL_OW_*) in c.
-; Uses its party menu icon colours, shiny included.
+; Return the lead mon's overworld palette in c, shiny included.
 	call GetFirstAliveMon
 	ld c, PAL_OW_RED
 	ret z
-	ld b, a
-	ld a, [wCurPartySpecies]
-	push af
-	ld a, b
-	ld [wCurPartySpecies], a
+	call GetPokemonIndexFromID
+	dec hl
+	add hl, hl
+	ld bc, FollowerPals
+	add hl, bc
+	push hl
 	ld a, e
 	ld hl, wPartyMon1DVs
 	ld bc, PARTYMON_STRUCT_LENGTH
 	rst AddNTimes
-	farcall GetMenuMonIconPalette
-	ld e, a
-	ld d, 0
-	ld hl, .IconToOWPals
-	add hl, de
+	ld b, h
+	ld c, l
+	farcall CheckShininess
+	pop hl
+	jr nc, .got_pal
+	inc hl
+.got_pal
 	ld c, [hl]
-	pop af
-	ld [wCurPartySpecies], a
 	ret
 
-.IconToOWPals:
-; entries correspond to PAL_ICON_* constants
-	db PAL_OW_RED
-	db PAL_OW_BLUE
-	db PAL_OW_GREEN
-	db PAL_OW_BROWN
-	db PAL_OW_PINK
-	db PAL_OW_GRAY
-	db PAL_OW_TEAL
-	db PAL_OW_PURPLE
-	assert @ - .IconToOWPals == PAL_ICON_PURPLE + 1
+INCLUDE "data/pokemon/follower_pals.asm"
 
 RefreshFollowerPalette::
 ; The lead mon can change in a menu; give the follower its new colours.
