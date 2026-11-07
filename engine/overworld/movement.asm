@@ -95,6 +95,7 @@ MovementPointers:
 	dw Movement_bike_step_up          ; 5b
 	dw Movement_bike_step_left        ; 5c
 	dw Movement_bike_step_right       ; 5d
+	dw Movement_jump_in_place         ; 5e
 	assert_table_length NUM_MOVEMENT_CMDS
 
 Movement_teleport_from:
@@ -805,4 +806,20 @@ JumpStep:
 	ld hl, OBJECT_STEP_TYPE
 	add hl, bc
 	ld [hl], STEP_TYPE_PLAYER_JUMP
+	ret
+
+Movement_jump_in_place:
+	ld hl, OBJECT_STEP_DURATION
+	add hl, bc
+	ld [hl], 4
+	ld hl, OBJECT_JUMP_HEIGHT
+	add hl, bc
+	ld [hl], 0
+	ld hl, OBJECT_ACTION
+	add hl, bc
+	ld [hl], OBJECT_ACTION_STEP
+	call SpawnShadow
+	ld hl, OBJECT_STEP_TYPE
+	add hl, bc
+	ld [hl], STEP_TYPE_NPC_JUMP_IN_PLACE
 	ret

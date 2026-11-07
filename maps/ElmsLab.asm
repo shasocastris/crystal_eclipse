@@ -245,6 +245,7 @@ DidntChooseStarterScript:
 	end
 
 ElmDirectionsScript:
+	appearfolloweronestep
 	turnobject PLAYER, UP
 if !DEF(_DEBUG)
 	opentext

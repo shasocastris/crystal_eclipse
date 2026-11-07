@@ -214,6 +214,7 @@ DEF NUM_SPRITEMOVEFN EQU const_value
 	const STEP_TYPE_17               ; 17
 	const STEP_TYPE_DELETE           ; 18
 	const STEP_TYPE_SKYFALL_TOP      ; 19
+	const STEP_TYPE_NPC_JUMP_IN_PLACE ; 1a
 DEF NUM_STEP_TYPES EQU const_value
 
 ; ObjectActionPairPointers indexes (see engine/overworld/map_object_action.asm)

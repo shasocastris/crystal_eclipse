@@ -238,6 +238,11 @@ ScriptCommandTable:
 	dw Script_unfreezefollower           ; af
 	dw Script_getfollowerdirection       ; b0
 	dw Script_followcry                  ; b1
+	dw Script_stowfollower               ; b2
+	dw Script_silentstowfollower         ; b3
+	dw Script_appearfollower             ; b4
+	dw Script_appearfolloweronestep      ; b5
+	dw Script_savefollowercoords         ; b6
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -1149,7 +1154,7 @@ Script_memcall:
 	ld d, [hl]
 	ld e, a
 	; fallthrough
-ScriptCall:
+ScriptCall::
 	ld hl, wScriptStackSize
 	ld a, [hl]
 	cp 5
@@ -2420,3 +2425,16 @@ Script_getfollowerdirection:
 Script_followcry:
 	ld a, [wFollowerSpriteID]
 	jmp PlayMonCry
+
+Script_stowfollower:
+Script_silentstowfollower:
+	farjp _StowFollower
+
+Script_appearfollower:
+	farjp _AppearFollower
+
+Script_appearfolloweronestep:
+	farjp _AppearFollowerOneStep
+
+Script_savefollowercoords:
+	farjp _SaveFollowerCoords

@@ -1124,4 +1124,29 @@ MACRO followcry
 	db followcry_command
 ENDM
 
+	const stowfollower_command ; $b2
+MACRO stowfollower
+	db stowfollower_command
+ENDM
+
+	const silentstowfollower_command ; $b3
+MACRO silentstowfollower
+	db silentstowfollower_command
+ENDM
+
+	const appearfollower_command ; $b4
+MACRO appearfollower
+	db appearfollower_command
+ENDM
+
+	const appearfolloweronestep_command ; $b5
+MACRO appearfolloweronestep
+	db appearfolloweronestep_command
+ENDM
+
+	const savefollowercoords_command ; $b6
+MACRO savefollowercoords
+	db savefollowercoords_command
+ENDM
+
 DEF NUM_EVENT_COMMANDS EQU const_value

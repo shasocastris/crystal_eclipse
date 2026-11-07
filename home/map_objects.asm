@@ -473,11 +473,7 @@ endr
 	inc bc
 	ld l, a
 ; the follower stays hidden while wFollowerFlags says so (e.g. surfing)
-	push hl
-	ld hl, OBJECT_SPRITE
-	add hl, de
-	ld a, [hl]
-	pop hl
+	ld a, [wTempObjectCopySprite]
 	cp SPRITE_FOLLOWER
 	ld a, l
 	jr nz, .got_flags1

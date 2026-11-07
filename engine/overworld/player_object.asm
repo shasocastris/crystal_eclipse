@@ -68,7 +68,7 @@ PlayerObjectTemplate:
 	object_event -4, -4, SPRITE_CHRIS, SPRITEMOVEDATA_PLAYER, 15, 15, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, 0, -1
 
 FollowObjTemplate:
-	object_event -4, -4, SPRITE_FOLLOWER, SPRITEMOVEDATA_FOLLOWNOTEXACT, 15, 15, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FollowerScriptHome, -1
+	object_event -4, -4, SPRITE_FOLLOWER, SPRITEMOVEDATA_FOLLOWEROBJ, 15, 15, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FollowerScriptHome, -1
 
 CopyDECoordsToMapObject::
 	push de
@@ -175,6 +175,56 @@ MatchFollowerDirection:
 	ld a, [hl]
 	ld [wObject1Direction], a
 	ret
+
+_StowFollower::
+	ld hl, wFollowerFlags
+	set FOLLOWER_INVISIBLE_F, [hl]
+	res FOLLOWER_INVISIBLE_ONE_STEP_F, [hl]
+	ld hl, wObject1Struct + OBJECT_FLAGS1
+	set INVISIBLE_F, [hl]
+	ret
+
+_SaveFollowerCoords::
+; appearfollower will put the follower back where it stands now
+	ld a, FOLLOWER
+	call GetMapObject
+	ld hl, MAPOBJECT_X_COORD
+	add hl, bc
+	ld a, [wObject1MapX]
+	ld [hl], a
+	ld hl, MAPOBJECT_Y_COORD
+	add hl, bc
+	ld a, [wObject1MapY]
+	ld [hl], a
+	ret
+
+_AppearFollowerOneStep::
+; hide the follower under the player until their next step
+	call RefreshPlayerCoords
+	lb bc, PLAYER, FOLLOWER
+	call MoveToObject
+	ld hl, wFollowerFlags
+	set FOLLOWER_INVISIBLE_F, [hl]
+	set FOLLOWER_INVISIBLE_ONE_STEP_F, [hl]
+	call CopyFollowerStruct
+	jr MatchFollowerDirection
+
+_AppearFollower::
+; show the follower at its map object's coords
+	ld hl, wFollowerFlags
+	res FOLLOWER_INVISIBLE_F, [hl]
+	res FOLLOWER_INVISIBLE_ONE_STEP_F, [hl]
+CopyFollowerStruct:
+; rebuild the follower's struct, reloading the lead mon's sprite
+	ld a, [wPartyCount]
+	and a
+	ret z
+	ld a, FOLLOWER
+	call DeleteObjectStruct
+	ld a, FOLLOWER
+	call UnmaskCopyMapObjectStruct
+	call RefreshFollowingCoords
+	farjp _UpdateSprites
 
 RefreshPlayerCoords:
 	ld a, [wXCoord]
