@@ -247,12 +247,11 @@ _AppearFollower::
 	farjp FollowerLeaveBall
 
 CopyFollowerStruct:
-; rebuild the follower's struct, reloading the lead mon's sprite
-	ld a, [wPartyCount]
-	and a
-	ret z
+; rebuild the follower's struct, reloading its sprite; none if none is able
 	ld a, FOLLOWER
 	call DeleteObjectStruct
+	farcall GetFollowerMon
+	ret z
 	ld a, FOLLOWER
 	call UnmaskCopyMapObjectStruct
 	call RefreshFollowingCoords

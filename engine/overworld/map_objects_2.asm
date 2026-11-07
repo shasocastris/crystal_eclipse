@@ -32,11 +32,12 @@ CheckObjectFlag:
 	ld a, [hl]
 	and a
 	jr z, .masked
-; no follower until the player has a party
+; no follower unless one is chosen and able (not fainted or an egg)
 	cp SPRITE_FOLLOWER
 	jr nz, .not_follower
-	ld a, [wPartyCount]
-	and a
+	push bc
+	farcall GetFollowerMon
+	pop bc
 	jr z, .masked
 .not_follower
 	ld hl, MAPOBJECT_EVENT_FLAG

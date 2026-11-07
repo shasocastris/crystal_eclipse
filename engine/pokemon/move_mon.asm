@@ -794,6 +794,9 @@ RemoveMonFromParty:
 	dec a
 	ld [hli], a
 	ld a, [wCurPartyMon]
+	ld b, a
+	farcall FollowerSlotRemoved
+	ld a, [wCurPartyMon]
 	ld c, a
 	ld b, 0
 	add hl, bc

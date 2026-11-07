@@ -269,6 +269,7 @@ SwapPartyMons:
 	dec c
 	dec e
 	ld d, c
+	farcall FollowerSlotSwapped
 
 	; Swap partymon struct
 	ld hl, wPartyMon1
@@ -600,12 +601,21 @@ SetStorageBoxPointer:
 	jr nz, .not_empty
 
 	; First, shift this partymon to the end, effectively shifting everything
-	; past it upwards.
+	; past it upwards. FollowerSlotRemoved moves the follower, not the swaps.
+	ld a, [wFollowerSlot]
+	push af
+	push bc
 	call ShiftPartySlotToEnd
+	pop bc
+	pop af
+	ld [wFollowerSlot], a
 
 	; Then delete the partymon.
 	ld hl, wPartyCount
 	dec [hl]
+	dec c
+	ld b, c
+	farcall FollowerSlotRemoved
 	ld c, [hl]
 	ld b, 0
 	ld hl, wPartySpecies

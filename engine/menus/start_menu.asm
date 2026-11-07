@@ -93,6 +93,7 @@ StartMenu::
 	call ExitMenu
 .ReturnEnd2:
 	call CloseText
+	farcall RefreshFollowerIfLeadChanged ; SELECT in the party menu, Revive
 	jmp UpdateTimePals
 
 .GetInput:
@@ -496,10 +497,13 @@ StartMenu_Pokemon:
 
 .menunoreload
 	farcall WritePartyMenuTilemap
+	farcall PlacePartyFollowerMarks
 	farcall PlacePartyMenuText
 	call WaitBGMap
 	call SetDefaultBGPAndOBP
 	call DelayFrame
+	ld a, PAD_A | PAD_B | PAD_SELECT ; SELECT picks the follower
+	ld [wMenuJoypadFilter], a
 	farcall PartyMenuSelect
 	jr c, .return ; if cancelled or pressed B
 

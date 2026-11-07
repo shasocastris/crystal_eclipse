@@ -2730,7 +2730,8 @@ wUnusedTwoDayTimer:: db
 wUnusedTwoDayTimerStartDate:: db
 
 wFollowerFlags:: db
-	ds 4
+wFollowerSlot:: db ; party index of the chosen follower, or FOLLOWER_NONE
+	ds 3
 wGreenhousePlot1:: db
 wGreenhousePlot2:: db
 wGreenhousePlot3:: db

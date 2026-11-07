@@ -8,6 +8,9 @@ _SwitchPartyMons:
 	ld [wSwitchMonTo], a
 	cp b
 	ret z
+	ld e, a
+	ld d, b
+	farcall FollowerSlotSwapped
 	call .SwapMonAndMail
 	ld a, [wSwitchMonFrom]
 	call .ClearSprite

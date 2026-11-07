@@ -1579,63 +1579,104 @@ CherryBlossomInteraction:
 	cont "petals fall."
 	done
 
-GetFirstAliveMon::
-; Return the species of the first party mon that has HP and isn't an egg
-; in a with nz, and its party index in e. If they've all fainted (a loss
-; that doesn't white out), the first non-egg. Return z and a = 0 if none.
-	ld d, 0
-	call .Search
-	ret nz
-	inc d
-.Search:
-; d = 0: skip fainted mons
-	ld hl, wPartySpecies
-	ld bc, wPartyMon1HP
-	ld e, 0
-.loop
-	ld a, [hli]
-	cp -1
-	jr z, .none
+GetFollowerMon::
+; Return the chosen follower's species in a with nz, and its party index in e.
+; Return z and a = 0 if there is none, or it's an egg or fainted.
+	ld a, [wFollowerSlot]
+	ld e, a
+	ld hl, wPartyCount
+	cp [hl]
+	jr nc, .none ; FOLLOWER_NONE, or past the end (Bug-Catching Contest)
+	inc hl
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld a, [hl]
 	cp EGG
-	jr z, .next
+	jr z, .none
 	push af
-	ld a, d
-	and a
-	jr nz, .found
-	ld a, [bc]
-	inc bc
-	push hl
-	ld h, a
-	ld a, [bc]
-	or h
-	pop hl
-	dec bc
+	ld a, e
+	ld hl, wPartyMon1HP
+	ld bc, PARTYMON_STRUCT_LENGTH
+	rst AddNTimes
+	ld a, [hli]
+	or [hl]
 	jr z, .fainted
-.found
 	pop af
 	and a
 	ret
 
 .fainted
 	pop af
-.next
-	inc e
-	push hl
-	ld hl, PARTYMON_STRUCT_LENGTH
-	add hl, bc
-	ld b, h
-	ld c, l
-	pop hl
-	jr .loop
-
 .none
 	xor a
+	ret
+
+FollowerSlotRemoved::
+; Party mon b was removed and wPartyCount lowered. The same mon keeps following;
+; if it was the one removed, the mon now in its slot does (the one above if it
+; was last).
+	push hl
+	ld hl, wFollowerSlot
+	ld a, [hl]
+	cp FOLLOWER_NONE
+	jr z, .done
+	cp b
+	jr c, .done
+	jr nz, .up
+	ld a, [wPartyCount]
+	cp b
+	jr nz, .done
+.up
+	dec [hl]
+.done
+	pop hl
+	ret
+
+FollowerSlotSwapped::
+; Party mons d and e traded places; the follower goes with its mon.
+	push hl
+	ld hl, wFollowerSlot
+	ld a, [hl]
+	cp d
+	jr nz, .not_d
+	ld [hl], e
+	jr .done
+.not_d
+	cp e
+	jr nz, .done
+	ld [hl], d
+.done
+	pop hl
+	ret
+
+ToggleFollowerSlot::
+; SELECT in the party menu: party mon a follows, or stops if it already was.
+; Eggs can't follow: return carry.
+	ld e, a
+	ld c, a
+	ld b, 0
+	ld hl, wPartySpecies
+	add hl, bc
+	ld a, [hl]
+	cp EGG
+	scf
+	ret z
+	ld hl, wFollowerSlot
+	ld a, [hl]
+	cp e
+	ld a, e
+	jr nz, .set
+	ld a, FOLLOWER_NONE
+.set
+	ld [hl], a
+	and a
 	ret
 
 GetFollowerSpriteData::
 ; GetSprite for SPRITE_FOLLOWER: return the lead mon's walking sprite
 ; at b:de, its length in c, and WALKING_SPRITE in l, with carry.
-	call GetFirstAliveMon
+	call GetFollowerMon
 	ld [wFollowerSpriteID], a
 	ld a, e
 	ld [wFollowerPartyNum], a
@@ -1689,7 +1730,7 @@ GetFollowerSpriteData::
 
 GetFollowerPalette::
 ; Return the lead mon's overworld palette in c, shiny included.
-	call GetFirstAliveMon
+	call GetFollowerMon
 	ld c, PAL_OW_RED
 	ret z
 	call GetPokemonIndexFromID
@@ -1715,11 +1756,16 @@ GetFollowerPalette::
 INCLUDE "data/pokemon/follower_pals.asm"
 
 RefreshFollowerIfLeadChanged::
-; A script can change the party (Day-Care, trades, gifts); show the new lead.
+; A script or menu can change the party or the choice (Day-Care, healing,
+; SELECT in the party menu): show the chosen follower, or put it away.
+	call GetFollowerMon
+	ld d, a
 	ld a, [wObject1Sprite]
 	cp SPRITE_FOLLOWER
-	ret nz
-	call GetFirstAliveMon
+	jr nz, .not_out
+	ld a, d
+	and a
+	jr z, .put_away
 	ld hl, wFollowerSpriteID
 	cp [hl]
 	jr nz, .changed
@@ -1728,6 +1774,17 @@ RefreshFollowerIfLeadChanged::
 	ret z
 .changed
 	farjp RefreshSprites
+
+.not_out
+; comes out of its ball on the next step
+	ld a, d
+	and a
+	ret z
+	farjp _AppearFollowerOneStep
+
+.put_away
+	ld a, FOLLOWER
+	jmp DeleteObjectStruct
 
 RefreshFollowerPalette::
 ; The lead mon can change in a menu; give the follower its new colours.

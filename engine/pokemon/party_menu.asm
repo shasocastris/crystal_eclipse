@@ -623,6 +623,9 @@ PartyMenu2DMenuData:
 PartyMenuSelect:
 ; sets carry if exitted menu.
 	call StaticMenuJoypad
+	ldh a, [hJoyLast]
+	bit B_PAD_SELECT, a
+	jr nz, .select
 	call PlaceHollowCursor
 	ld a, [wPartyCount]
 	inc a
@@ -656,6 +659,51 @@ PartyMenuSelect:
 	call PlaySFX
 	call WaitSFX
 	scf
+	ret
+
+.select
+; choose the follower (only the start menu lets SELECT through)
+	ld a, [wPartyCount]
+	ld b, a
+	ld a, [wMenuCursorY]
+	dec a
+	cp b
+	jr nc, .cant_follow ; CANCEL
+	farcall ToggleFollowerSlot
+	jr c, .cant_follow
+	call PlacePartyFollowerMarks
+	call WaitBGMap
+	ld de, SFX_READ_TEXT_2
+	jr .select_sfx
+
+.cant_follow
+	ld de, SFX_WRONG
+.select_sfx
+	call PlaySFX
+	call WaitSFX
+	jr PartyMenuSelect
+
+PlacePartyFollowerMarks::
+; an F under the nickname of the mon chosen to follow
+	ld a, [wPartyCount]
+	and a
+	ret z
+	ld c, a
+	ld a, [wFollowerSlot]
+	ld b, a
+	hlcoord 3, 2
+	ld de, SCREEN_WIDTH * 2
+.loop
+	ld [hl], ' '
+	ld a, b
+	and a
+	jr nz, .next
+	ld [hl], 'F'
+.next
+	dec b
+	add hl, de
+	dec c
+	jr nz, .loop
 	ret
 
 PlacePartyMenuText:
