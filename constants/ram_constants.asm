@@ -38,6 +38,7 @@ DEF FOLLOWER_INVISIBLE EQU 1 << FOLLOWER_INVISIBLE_F
 
 ; wFollowerSlot::
 DEF FOLLOWER_NONE EQU -1
+DEF FOLLOWER_MARK_TILE EQU $70 ; party menu F, over the unused "<DO>" tile
 
 ; wGameTimerPaused::
 DEF GAME_TIMER_COUNTING_F EQU 0

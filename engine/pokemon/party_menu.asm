@@ -33,6 +33,10 @@ InitPartyMenuLayout:
 
 LoadPartyMenuGFX:
 	call LoadFontsBattleExtra
+	ld de, FollowerMarkGFX
+	ld hl, vTiles2 tile FOLLOWER_MARK_TILE
+	lb bc, BANK(FollowerMarkGFX), 1
+	call Get2bppViaHDMA
 	farcall InitPartyMenuPalettes
 	farjp ClearSpriteAnims2
 
@@ -684,27 +688,30 @@ PartyMenuSelect:
 	jr PartyMenuSelect
 
 PlacePartyFollowerMarks::
-; an F under the nickname of the mon chosen to follow
+; a boxed F under the nickname of the mon chosen to follow
 	ld a, [wPartyCount]
 	and a
 	ret z
 	ld c, a
 	ld a, [wFollowerSlot]
 	ld b, a
-	hlcoord 3, 2
+	hlcoord 4, 2
 	ld de, SCREEN_WIDTH * 2
 .loop
 	ld [hl], ' '
 	ld a, b
 	and a
 	jr nz, .next
-	ld [hl], 'F'
+	ld [hl], FOLLOWER_MARK_TILE
 .next
 	dec b
 	add hl, de
 	dec c
 	jr nz, .loop
 	ret
+
+FollowerMarkGFX:
+INCBIN "gfx/stats/follower.2bpp"
 
 PlacePartyMenuText:
 	hlcoord 0, 14
