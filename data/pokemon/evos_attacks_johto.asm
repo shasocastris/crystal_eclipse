@@ -1886,16 +1886,10 @@ HoOhEvosAttacks:
 
 CelebiEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, LEECH_SEED
-	dbw 1, CONFUSION
-	dbw 1, RECOVER
-	dbw 1, HEAL_BELL
-	dbw 10, SAFEGUARD
-	dbw 20, ANCIENTPOWER
-	dbw 30, FUTURE_SIGHT
-	dbw 35, ENERGY_BALL
-	dbw 40, BATON_PASS
-	dbw 50, PERISH_SONG
+	dbw 1, GIGA_DRAIN
+	dbw 1, PSYCHIC_M
+	dbw 1, STRENGTH
+	dbw 1, ANCIENTPOWER
 	db 0 ; no more level-up moves
 
 ENDSECTION

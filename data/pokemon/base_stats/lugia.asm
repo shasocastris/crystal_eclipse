@@ -7,7 +7,7 @@
 	db PSYCHIC_TYPE, DRAGON ; type
 	db 3 ; catch rate
 	db 220 ; base exp
-	dw SACRED_ASH, SACRED_ASH ; items
+	dw MYSTIC_DEW, MYSTIC_DEW ; items
 	db GENDER_UNKNOWN ; gender ratio
 	INCBIN "gfx/pokemon/lugia/front.dimensions"
 	dw NULL, NULL ; unused (beta front/back pics)
