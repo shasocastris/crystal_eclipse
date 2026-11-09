@@ -123,6 +123,7 @@ RockItemEncounter:
 	dbw 2, KINGS_ROCK
 	dbw 2, THICK_CLUB
 	dbw 2, METAL_POWDER
+	dbw 2, IRON_PLATE
 	db -1
 
 TreeItemEncounter:

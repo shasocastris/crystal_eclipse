@@ -7,7 +7,7 @@
 	db DRAGON, DRAGON ; type
 	db 15 ; catch rate
 	db 67 ; base exp
-	dw NO_ITEM, DRAGON_SCALE ; items
+	dw NO_ITEM, DRAGON_FANG ; items
 	db GENDER_F50 ; gender ratio
 	INCBIN "gfx/pokemon/dratini/front.dimensions"
 	dw NULL, NULL ; unused (beta front/back pics)

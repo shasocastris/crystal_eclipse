@@ -7,7 +7,7 @@
 	db DRAGON, FLYING ; type
 	db 15 ; catch rate
 	db 218 ; base exp
-	dw NO_ITEM, DRAGON_SCALE ; items
+	dw NO_ITEM, DRAGON_FANG ; items
 	db GENDER_F50 ; gender ratio
 	INCBIN "gfx/pokemon/dragonite/front.dimensions" ; shares Dragonite's sprite
 	dw NULL, NULL ; unused (beta front/back pics)
