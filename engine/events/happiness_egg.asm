@@ -46,19 +46,32 @@ ChangeHappiness:
 	add hl, bc
 	ld d, 0
 	add hl, de
-	ld a, [hl]
-	cp $64 ; why not $80?
+	ld b, [hl]
 	pop de
-
-	ld a, [de]
+	ld a, b
+	cp $64 ; why not $80?
 	jr nc, .negative
-	add [hl]
+	push de
+	push bc
+	farcall GetFollowerMon
+	ld a, e
+	pop bc
+	pop de
+	jr z, .gain
+	ld hl, wCurPartyMon
+	cp [hl]
+	jr nz, .gain
+	sla b ; the follower gains double
+.gain
+	ld a, [de]
+	add b
 	jr nc, .done
 	ld a, -1
 	jr .done
 
 .negative
-	add [hl]
+	ld a, [de]
+	add b
 	jr c, .done
 	xor a
 
