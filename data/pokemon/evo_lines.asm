@@ -246,7 +246,7 @@ TentacoolLine:  dw TENTACOOL, TENTACRUEL, -1
 GeodudeLine:    dw GEODUDE, GRAVELER, GOLEM, -1
 PonytaLine:     dw PONYTA, RAPIDASH, -1
 MagnemiteLine:  dw MAGNEMITE, MAGNETON, -1
-FarfetchDLine:  dw FARFETCH_D, -1 ; no evolution
+FarfetchDLine:  dw FARFETCH_D, SIRFETCH_D, -1
 DoduoLine:      dw DODUO, DODRIO, -1
 SeelLine:       dw SEEL, DEWGONG, -1
 OnixLine:       dw ONIX, STEELIX, -1

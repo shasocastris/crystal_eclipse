@@ -1058,57 +1058,39 @@ BattleCommand_Critical:
 	ld c, 0
 	ld b, [hl]
 	call GetPokemonIndexFromID
+	push bc
+	ld b, h
+	ld c, l
+	ld de, 2
+	ld hl, LuckyPunchSpecies
+	call IsInWordArray
+	ld de, LUCKY_PUNCH
+	jr c, .check_item
+	ld de, 2
+	ld hl, StickSpecies
+	call IsInWordArray
+	ld de, STICK
+	jr nc, .no_item
 
-	ld a, l
-	sub LOW(CHANSEY)
-	if HIGH(CHANSEY) == 0
-		or h
-	else
-		jr nz, .Farfetchd
-		if HIGH(CHANSEY) == 1
-			dec h
-		else
-			ld a, h
-			cp HIGH(CHANSEY)
-		endc
-	endc
-	jr nz, .Farfetchd
+.check_item
+	pop bc
+	push bc
 	ld a, b
-	push hl
 	call GetItemIndexFromID
-	cphl16 LUCKY_PUNCH
-	pop hl
-	jr nz, .FocusEnergy
+	ld a, l
+	cp e
+	jr nz, .no_item
+	ld a, h
+	cp d
+	jr nz, .no_item
+	pop bc
 
 ; +2 critical level
 	ld c, 2
 	jr .Tally
 
-.Farfetchd:
-	ld a, l
-	sub LOW(FARFETCH_D)
-	if HIGH(FARFETCH_D) == 0
-		or h
-	else
-		jr nz, .FocusEnergy
-		if HIGH(FARFETCH_D) == 1
-			dec h
-		else
-			ld a, h
-			cp HIGH(FARFETCH_D)
-		endc
-	endc
-	jr nz, .FocusEnergy
-	ld a, b
-	push hl
-	call GetItemIndexFromID
-	cphl16 STICK
-	pop hl
-	jr nz, .FocusEnergy
-
-; +2 critical level
-	ld c, 2
-	jr .Tally
+.no_item
+	pop bc
 
 .FocusEnergy:
 	ld a, BATTLE_VARS_SUBSTATUS4
@@ -1157,6 +1139,12 @@ BattleCommand_Critical:
 	ld a, 1
 	ld [wCriticalHit], a
 	ret
+
+LuckyPunchSpecies:
+	dw CHANSEY, BLISSEY, -1
+
+StickSpecies:
+	dw FARFETCH_D, SIRFETCH_D, -1
 
 INCLUDE "data/moves/critical_hit_moves.asm"
 
@@ -2711,23 +2699,17 @@ CheckDamageStatsCritical:
 ThickClubBoost:
 ; Return in hl the stat value at hl.
 
-; If the attacking monster is Cubone or Marowak and
+; If the attacking monster is in the Cubone line and
 ; it's holding a Thick Club, double it.
 	push bc
 	push de
-	ld bc, CUBONE
+	ld bc, ThickClubSpecies
 	push hl
 	ld hl, THICK_CLUB
 	call GetItemIDFromIndex
 	ld d, a
 	pop hl
 	call SpeciesItemBoost
-	if MAROWAK == (CUBONE + 1)
-		inc bc
-	else
-		ld bc, MAROWAK
-	endc
-	call DoubleStatIfSpeciesHoldingItem
 	pop de
 	pop bc
 	ret
@@ -2735,11 +2717,11 @@ ThickClubBoost:
 LightBallBoost:
 ; Return in hl the stat value at hl.
 
-; If the attacking monster is Pikachu and it's
-; holding a Light Ball, double it.
+; If the attacking monster is in the Pikachu line and
+; it's holding a Light Ball, double it.
 	push bc
 	push de
-	ld bc, PIKACHU
+	ld bc, LightBallSpecies
 	push hl
 	ld hl, LIGHT_BALL
 	call GetItemIDFromIndex
@@ -2750,22 +2732,24 @@ LightBallBoost:
 	pop bc
 	ret
 
+ThickClubSpecies:
+	dw CUBONE, MAROWAK, -1
+
+LightBallSpecies:
+	dw PICHU, PIKACHU, RAICHU, RAICHU_ORANGE, -1
+
 SpeciesItemBoost:
 ; Return in hl the stat value at hl.
 
-; If the attacking monster is species bc and
-; it's holding item d, double it.
+; If the attacking monster is in species list bc and
+; it's holding item d, double it. Clobbers bc.
 
 	ld a, [hli]
 	ld l, [hl]
 	ld h, a
-	; fallthrough
-
-DoubleStatIfSpeciesHoldingItem:
-; If the attacking monster is species bc and
-; it's holding item d, double the stat in hl.
 
 	push hl
+	push de
 	ld a, MON_SPECIES
 	call BattlePartyAttr
 
@@ -2777,13 +2761,17 @@ DoubleStatIfSpeciesHoldingItem:
 .CompareSpecies:
 
 	call GetPokemonIndexFromID
-	ld a, h
-	cp b
-	ld a, l
+	ld d, b
+	ld e, c
+	ld b, h
+	ld c, l
+	ld h, d
+	ld l, e
+	ld de, 2
+	call IsInWordArray
+	pop de
 	pop hl
-	ret nz
-	cp c
-	ret nz
+	ret nc
 
 	push hl
 	call GetUserItem
