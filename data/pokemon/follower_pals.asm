@@ -274,7 +274,7 @@ FollowerPals:
 	follower_pals BROWN,        GRAY          ; ELECTIVIRE
 	follower_pals RED,          BROWN         ; MAGMORTAR
 	follower_pals BROWN,        PINK          ; AMBIPOM
-	follower_pals PURPLE,       GRAY          ; ANNIHILAPE
+	follower_pals WHITE,        GRAY          ; ANNIHILAPE
 	follower_pals PURPLE,       GRAY          ; HONCHKROW
 	follower_pals GREEN,        BROWN         ; LEAFEON
 	follower_pals PINK,         GRAY          ; LICKILICKY
@@ -295,8 +295,8 @@ FollowerPals:
 	follower_pals RED,          BLUE          ; FARIGIRAF
 	follower_pals BROWN,        PINK          ; DUDUNSPARC
 	follower_pals BROWN,        GREEN         ; URSALUNA
-	follower_pals GRAY,         PURPLE        ; CURSOLA
-	follower_pals GRAY,         PURPLE        ; CORSOLA_KANTO
+	follower_pals WHITE,        WHITE_PURPLE  ; CURSOLA
+	follower_pals WHITE,        WHITE_PURPLE  ; CORSOLA_KANTO
 	follower_pals BROWN,        RED           ; RAICHU_ORANGE
 	follower_pals BLUE,         TEAL          ; DRAGONITE_KANTO
 	assert_table_length NUM_POKEMON_AND_VARIANTS

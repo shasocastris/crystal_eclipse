@@ -255,7 +255,7 @@ FollowingSpritePointers:
 	dba ElectivireFollowerGFX    ; ELECTIVIRE
 	dba MagmortarFollowerGFX     ; MAGMORTAR
 	dba AmbipomFollowerGFX       ; AMBIPOM
-	dba PrimeapeFollowerGFX      ; ANNIHILAPE (borrowed, needs art)
+	dba AnnihilapeFollowerGFX    ; ANNIHILAPE
 	dba HonchkrowFollowerGFX     ; HONCHKROW
 	dba LeafeonFollowerGFX       ; LEAFEON
 	dba LickilickyFollowerGFX    ; LICKILICKY
@@ -270,14 +270,14 @@ FollowingSpritePointers:
 	dba GliscorFollowerGFX       ; GLISCOR
 	dba MagnezoneFollowerGFX     ; MAGNEZONE
 	dba PorygonzFollowerGFX      ; PORYGON_Z
-	dba FarfetchDFollowerGFX     ; SIRFETCH_D (borrowed, needs art)
+	dba SirfetchDFollowerGFX     ; SIRFETCH_D
 	dba TangrowthFollowerGFX     ; TANGROWTH
-	dba StantlerFollowerGFX      ; WYRDEER (borrowed, needs art)
-	dba GirafarigFollowerGFX     ; FARIGIRAF (borrowed, needs art)
+	dba WyrdeerFollowerGFX       ; WYRDEER
+	dba FarigirafFollowerGFX     ; FARIGIRAF
 	dba DudunsparsFollowerGFX    ; DUDUNSPARC
-	dba UrsaringFollowerGFX      ; URSALUNA (borrowed, needs art)
-	dba CorsolaFollowerGFX       ; CURSOLA (borrowed, needs art)
-	dba CorsolaFollowerGFX       ; CORSOLA_KANTO (borrowed, needs art)
+	dba UrsalunaFollowerGFX      ; URSALUNA
+	dba CursolaFollowerGFX       ; CURSOLA
+	dba CorsolaKantoFollowerGFX  ; CORSOLA_KANTO
 	dba RaichuAlolanFollowerGFX  ; RAICHU_ORANGE
 	dba DragoniteFollowerGFX     ; DRAGONITE_KANTO (borrowed, needs art)
 	assert_table_length NUM_POKEMON_AND_VARIANTS

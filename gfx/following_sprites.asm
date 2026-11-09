@@ -764,6 +764,9 @@ MagmortarFollowerGFX:: INCBIN "gfx/following/magmortar.2bpp"
 SECTION "Follower ambipom", ROMX
 AmbipomFollowerGFX:: INCBIN "gfx/following/ambipom.2bpp"
 
+SECTION "Follower annihilape", ROMX
+AnnihilapeFollowerGFX:: INCBIN "gfx/following/annihilape.2bpp"
+
 SECTION "Follower honchkrow", ROMX
 HonchkrowFollowerGFX:: INCBIN "gfx/following/honchkrow.2bpp"
 
@@ -806,11 +809,29 @@ MagnezoneFollowerGFX:: INCBIN "gfx/following/magnezone.2bpp"
 SECTION "Follower porygonz", ROMX
 PorygonzFollowerGFX:: INCBIN "gfx/following/porygonz.2bpp"
 
+SECTION "Follower sirfetch_d", ROMX
+SirfetchDFollowerGFX:: INCBIN "gfx/following/sirfetch_d.2bpp"
+
 SECTION "Follower tangrowth", ROMX
 TangrowthFollowerGFX:: INCBIN "gfx/following/tangrowth.2bpp"
 
+SECTION "Follower wyrdeer", ROMX
+WyrdeerFollowerGFX:: INCBIN "gfx/following/wyrdeer.2bpp"
+
+SECTION "Follower farigiraf", ROMX
+FarigirafFollowerGFX:: INCBIN "gfx/following/farigiraf.2bpp"
+
 SECTION "Follower dudunspars", ROMX
 DudunsparsFollowerGFX:: INCBIN "gfx/following/dudunspars.2bpp"
+
+SECTION "Follower ursaluna", ROMX
+UrsalunaFollowerGFX:: INCBIN "gfx/following/ursaluna.2bpp"
+
+SECTION "Follower cursola", ROMX
+CursolaFollowerGFX:: INCBIN "gfx/following/cursola.2bpp"
+
+SECTION "Follower corsola_kanto", ROMX
+CorsolaKantoFollowerGFX:: INCBIN "gfx/following/corsola_kanto.2bpp"
 
 SECTION "Follower raichu_alolan", ROMX
 RaichuAlolanFollowerGFX:: INCBIN "gfx/following/raichu_alolan.2bpp"
