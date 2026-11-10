@@ -95,6 +95,8 @@ ReloadSpriteIndex::
 	ld a, [hl]
 	and a
 	jr z, .done
+	cp -1 ; temp object (emote, Poké Ball) with a fixed vtile
+	jr z, .done
 	bit 7, b
 	jr z, .continue
 	cp b
