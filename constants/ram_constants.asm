@@ -405,7 +405,7 @@ DEF CELEBIEVENT_FOREST_IS_RESTLESS_F EQU 2
 	const DAILYFLAGS3_CIANWOOD_PHOTOGRAPH_F               ; 1
 	const DAILYFLAGS3_OLIVINE_RESTAURANT_F                ; 2
 	const DAILYFLAGS3_PERFECT_MON_COACH_F                 ; 3
-	const DAILYFLAGS3_UNUSED_FLAG_4                       ; 4
+	const DAILYFLAGS3_SAFFRON_HOTEL_F                     ; 4
 	const DAILYFLAGS3_UNUSED_FLAG_5                       ; 5
 	const DAILYFLAGS3_UNUSED_FLAG_6                       ; 6
 	const DAILYFLAGS3_UNUSED_FLAG_7                       ; 7

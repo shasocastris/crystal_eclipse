@@ -13,6 +13,8 @@ SaffronHotel_MapScripts:
 SaffronHotelReceptionistScript:
 	faceplayer
 	opentext
+	checkflag ENGINE_SAFFRON_HOTEL
+	iftrue .AlreadyStayed
 	writetext SaffronHotelReceptionistWelcomeText
 	yesorno
 	iffalse .Refused
@@ -27,6 +29,7 @@ SaffronHotelReceptionistScript:
 	iftrue .Cancelled
 	takemoney YOUR_MONEY, 9800
 	special RestaurantHappiness
+	setflag ENGINE_SAFFRON_HOTEL
 	reloadmap
 	opentext
 	writetext SaffronHotelReceptionistSeeYouThenText
@@ -47,6 +50,12 @@ SaffronHotelReceptionistScript:
 	reloadmap
 	opentext
 	writetext SaffronHotelReceptionistCancelledText
+	waitbutton
+	closetext
+	end
+
+.AlreadyStayed
+	writetext SaffronHotelReceptionistAlreadyStayedText
 	waitbutton
 	closetext
 	end
@@ -108,6 +117,14 @@ SaffronHotelReceptionistThanksText:
 	line "staying with us!"
 
 	para "Please come again."
+	done
+
+SaffronHotelReceptionistAlreadyStayedText:
+	text "I hope you enjoyed"
+	line "your stay."
+
+	para "Please come again"
+	line "soon."
 	done
 
 SaffronHotelReceptionistCancelledText:

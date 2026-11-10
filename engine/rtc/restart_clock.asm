@@ -43,7 +43,11 @@ HotelSetCheckoutTime:
 	ld e, FALSE
 	call RestartClock_Common
 	ld [wScriptVar], a
-	ret
+	and a
+	ret nz
+; take any day rollover the new time causes now, so the script's daily flag
+; isn't cleared by the next overworld tick
+	farjp CheckDailyResetTimer
 
 RestartClock:
 ; If we're here, we had an RTC overflow.
