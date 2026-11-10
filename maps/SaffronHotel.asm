@@ -1,6 +1,9 @@
 	object_const_def
 	const SAFFRONHOTEL_RECEPTIONIST
 	const SAFFRONHOTEL_CLERK
+	const SAFFRONHOTEL_GENTLEMAN
+	const SAFFRONHOTEL_BEAUTY
+	const SAFFRONHOTEL_SUPER_NERD
 
 SaffronHotel_MapScripts:
 	def_scene_scripts
@@ -12,6 +15,15 @@ SaffronHotelReceptionistScript:
 
 SaffronHotelClerkScript:
 	jumptextfaceplayer SaffronHotelClerkText
+
+SaffronHotelGentlemanScript:
+	jumptextfaceplayer SaffronHotelGentlemanText
+
+SaffronHotelBeautyScript:
+	jumptextfaceplayer SaffronHotelBeautyText
+
+SaffronHotelSuperNerdScript:
+	jumptextfaceplayer SaffronHotelSuperNerdText
 
 SaffronHotelReceptionistText:
 	text "Welcome to the"
@@ -30,6 +42,24 @@ SaffronHotelClerkText:
 	cont "SILPH CO."
 	done
 
+SaffronHotelGentlemanText:
+	text "This lobby is a"
+	line "fine place to rest"
+	cont "my old legs."
+	done
+
+SaffronHotelBeautyText:
+	text "I came to SAFFRON"
+	line "to see the GYM"
+	cont "LEADER, SABRINA."
+	done
+
+SaffronHotelSuperNerdText:
+	text "I have a meeting"
+	line "at SILPH CO. in"
+	cont "the morning."
+	done
+
 SaffronHotel_MapEvents:
 	db 0, 0 ; filler
 
@@ -44,3 +74,6 @@ SaffronHotel_MapEvents:
 	def_object_events
 	object_event  6,  3, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronHotelReceptionistScript, -1
 	object_event  3,  2, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronHotelClerkScript, -1
+	object_event  0,  4, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronHotelGentlemanScript, -1
+	object_event 11,  4, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronHotelBeautyScript, -1
+	object_event  8,  6, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronHotelSuperNerdScript, -1
