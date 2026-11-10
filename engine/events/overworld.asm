@@ -1401,7 +1401,7 @@ HeadbuttFromMenuScript:
 HeadbuttScript:
 	callasm GetPartyNickname
 	writetext UseHeadbuttText
-
+.shake
 	refreshmap
 	callasm ShakeHeadbuttTree
 
@@ -1424,10 +1424,19 @@ HeadbuttScript:
 TryHeadbuttOW::
 	ld hl, HEADBUTT
 	call CheckPartyMoveIndex
-	jr c, .no
+	jr c, .bike
 
 	ld a, BANK(AskHeadbuttScript)
 	ld hl, AskHeadbuttScript
+	jr .call_script
+
+.bike
+	ld a, [wPlayerState]
+	cp PLAYER_BIKE
+	jr nz, .no
+	ld a, BANK(AskBikeHeadbuttScript)
+	ld hl, AskBikeHeadbuttScript
+.call_script
 	call CallScript
 	scf
 	ret
@@ -1446,6 +1455,26 @@ AskHeadbuttScript:
 
 AskHeadbuttText:
 	text_far _AskHeadbuttText
+	text_end
+
+AskBikeHeadbuttScript:
+	opentext
+	writetext AskBikeHeadbuttText
+	yesorno
+	iffalse .no
+	writetext BikeHeadbuttText
+	sjump HeadbuttScript.shake
+
+.no
+	closetext
+	end
+
+AskBikeHeadbuttText:
+	text_far _AskBikeHeadbuttText
+	text_end
+
+BikeHeadbuttText:
+	text_far _BikeHeadbuttText
 	text_end
 
 RockSmashFunction:

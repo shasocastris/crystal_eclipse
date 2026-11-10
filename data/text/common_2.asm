@@ -371,6 +371,19 @@ _AskHeadbuttText::
 	line "it?"
 	done
 
+_AskBikeHeadbuttText::
+	text "A #MON could be"
+	line "in this tree."
+
+	para "Ram it with the"
+	line "BICYCLE?"
+	done
+
+_BikeHeadbuttText::
+	text "<PLAYER> rammed the"
+	line "tree!"
+	prompt
+
 _UseRockSmashText::
 	text_ram wStringBuffer2
 	text " used"

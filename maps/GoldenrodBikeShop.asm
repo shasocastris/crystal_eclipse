@@ -1,5 +1,6 @@
 	object_const_def
 	const GOLDENRODBIKESHOP_CLERK
+	const GOLDENRODBIKESHOP_BUG_CATCHER
 
 GoldenrodBikeShop_MapScripts:
 	def_scene_scripts
@@ -32,6 +33,22 @@ GoldenrodBikeShopClerkScript:
 
 .Refused:
 	writetext GoldenrodBikeShopClerkRefusedText
+	waitbutton
+	closetext
+	end
+
+GoldenrodBikeShopBugCatcherScript:
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_BICYCLE
+	iftrue .GotBicycle
+	writetext GoldenrodBikeShopBugCatcherWantText
+	waitbutton
+	closetext
+	end
+
+.GotBicycle:
+	writetext GoldenrodBikeShopBugCatcherJealousText
 	waitbutton
 	closetext
 	end
@@ -80,6 +97,28 @@ GoldenrodBikeShopClerkRefusedText:
 	cont "people…"
 	done
 
+GoldenrodBikeShopBugCatcherWantText:
+	text "I want a BICYCLE"
+	line "so bad!"
+
+	para "If you ride one"
+	line "into a tree, it"
+	cont "shakes like a"
+	cont "HEADBUTT!"
+
+	para "No #MON needed"
+	line "to knock down the"
+	cont "ones up there!"
+	done
+
+GoldenrodBikeShopBugCatcherJealousText:
+	text "You got a BICYCLE?"
+	line "No fair!"
+
+	para "Go ram some trees"
+	line "for me, OK?"
+	done
+
 GoldenrodBikeShopBicycleText:
 	text "It's a shiny new"
 	line "BICYCLE!"
@@ -107,3 +146,4 @@ GoldenrodBikeShop_MapEvents:
 
 	def_object_events
 	object_event  7,  2, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodBikeShopClerkScript, -1
+	object_event  4,  5, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodBikeShopBugCatcherScript, -1
