@@ -317,6 +317,12 @@ NationalParkTMDig:
 NationalParkHiddenFullHeal:
 	hiddenitem FULL_HEAL, EVENT_NATIONAL_PARK_HIDDEN_FULL_HEAL
 
+NationalParkHiddenHyperPotion:
+	hiddenitem HYPER_POTION, EVENT_NATIONAL_PARK_HIDDEN_HYPER_POTION
+
+NationalParkHiddenPPUp:
+	hiddenitem PP_UP, EVENT_NATIONAL_PARK_HIDDEN_PP_UP
+
 NationalParkLassText:
 	text "Look! Check out my"
 	line "bag!"
@@ -610,6 +616,8 @@ NationalPark_MapEvents:
 	bg_event 14, 44, BGEVENT_READ, NationalParkRelaxationSquareSign
 	bg_event 27, 31, BGEVENT_READ, NationalParkBattleNoticeSign
 	bg_event  6, 47, BGEVENT_ITEM, NationalParkHiddenFullHeal
+	bg_event 15, 48, BGEVENT_ITEM, NationalParkHiddenHyperPotion
+	bg_event 35, 20, BGEVENT_ITEM, NationalParkHiddenPPUp
 	bg_event 12,  4, BGEVENT_READ, NationalParkTrainerTipsSign
 
 	def_object_events
