@@ -514,6 +514,7 @@ ENDM
 	map_const ROUTE_5_SAFFRON_GATE,                         5,  4 ; 14
 	map_const ROUTE_5_CLEANSE_TAG_HOUSE,                    4,  4 ; 15
 	map_const SAFFRON_GAME_STOP,                            6,  4 ; 16
+	map_const SAFFRON_HOTEL,                                7,  4 ; 17
 	endgroup
 
 	newgroup CHERRYGROVE                                          ; 26

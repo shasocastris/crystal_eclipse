@@ -42,6 +42,7 @@ SpecialsPointers::
 	add_special FadeOutToBlack
 	add_special FadeInPalettes
 	add_special FadeInFromBlack
+	add_special SmoothFadeOutToBlack
 	add_special ReloadSpritesNoPalettes ; bank 0
 	add_special ClearBGPalettes ; bank 0
 	add_special UpdateTimePals ; bank 0
@@ -99,6 +100,7 @@ SpecialsPointers::
 	add_special FadeOutMusic
 	add_special CianwoodPhotograph
 	add_special RestaurantHappiness
+	add_special HotelSetCheckoutTime
 	add_special CountCompletedTypes
 	add_special CountGroupCompleted
 	add_special Diploma

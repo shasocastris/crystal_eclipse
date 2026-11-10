@@ -119,6 +119,10 @@ FadeOutToWhite::
 	ld c, 10
 	jmp FadeToWhite
 
+SmoothFadeOutToBlack:
+	ld c, 10
+	jmp FadeToBlack
+
 BattleTowerFade:
 	call FillWhiteBGColor
 	ld c, $9

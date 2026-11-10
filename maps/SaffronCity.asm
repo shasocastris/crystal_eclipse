@@ -357,6 +357,7 @@ SaffronCity_MapEvents:
 	warp_event 17, 33, ROUTE_6_SAFFRON_GATE, 2
 	warp_event 39, 22, ROUTE_8_SAFFRON_GATE, 1
 	warp_event 39, 23, ROUTE_8_SAFFRON_GATE, 2
+	warp_event 28, 21, SAFFRON_HOTEL, 1
 
 	def_coord_events
 

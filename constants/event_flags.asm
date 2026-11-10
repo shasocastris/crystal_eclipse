@@ -390,13 +390,13 @@
 	const EVENT_TODD_ASKED_FOR_PHONE_NUMBER
 	const EVENT_SAVED_SS_AQUA ; was unused in Crystal
 	const EVENT_GINA_ASKED_FOR_PHONE_NUMBER
-	const_skip ; unused in Crystal
+	const EVENT_SAFFRON_HOTEL_SPRING_GUESTS ; set = hidden
 	const EVENT_IRWIN_ASKED_FOR_PHONE_NUMBER
-	const_skip ; unused in Crystal
+	const EVENT_SAFFRON_HOTEL_SUMMER_GUESTS
 	const EVENT_ARNIE_ASKED_FOR_PHONE_NUMBER
-	const_skip ; unused in Crystal
+	const EVENT_SAFFRON_HOTEL_AUTUMN_GUESTS
 	const EVENT_ALAN_ASKED_FOR_PHONE_NUMBER
-	const_skip ; unused in Crystal
+	const EVENT_SAFFRON_HOTEL_WINTER_GUESTS
 	const_skip ; unused
 	const_skip ; unused
 	const EVENT_DANA_ASKED_FOR_PHONE_NUMBER
