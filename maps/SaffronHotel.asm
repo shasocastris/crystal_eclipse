@@ -11,7 +11,57 @@ SaffronHotel_MapScripts:
 	def_callbacks
 
 SaffronHotelReceptionistScript:
-	jumptextfaceplayer SaffronHotelReceptionistText
+	faceplayer
+	opentext
+	writetext SaffronHotelReceptionistWelcomeText
+	yesorno
+	iffalse .Refused
+	checkmoney YOUR_MONEY, 9800
+	ifequal HAVE_LESS, .NotEnoughMoney
+	writetext SaffronHotelReceptionistEnjoyStayText
+	promptbutton
+	writetext SaffronHotelReceptionistCheckOutWhenText
+	waitbutton
+	closetext
+	special HotelSetCheckoutTime
+	iftrue .Cancelled
+	takemoney YOUR_MONEY, 9800
+	special RestaurantHappiness
+	reloadmap
+	opentext
+	writetext SaffronHotelReceptionistSeeYouThenText
+	waitbutton
+	closetext
+	special SmoothFadeOutToBlack
+	playsound SFX_ENTER_DOOR
+	pause 30
+	waitsfx
+	reloadmap
+	opentext
+	writetext SaffronHotelReceptionistThanksText
+	waitbutton
+	closetext
+	end
+
+.Cancelled
+	reloadmap
+	opentext
+	writetext SaffronHotelReceptionistCancelledText
+	waitbutton
+	closetext
+	end
+
+.NotEnoughMoney
+	writetext SaffronHotelReceptionistNotEnoughText
+	waitbutton
+	closetext
+	end
+
+.Refused
+	writetext SaffronHotelReceptionistRefusedText
+	waitbutton
+	closetext
+	end
 
 SaffronHotelClerkScript:
 	jumptextfaceplayer SaffronHotelClerkText
@@ -25,13 +75,57 @@ SaffronHotelBeautyScript:
 SaffronHotelSuperNerdScript:
 	jumptextfaceplayer SaffronHotelSuperNerdText
 
-SaffronHotelReceptionistText:
+SaffronHotelReceptionistWelcomeText:
 	text "Welcome to the"
 	line "SAFFRON HOTEL."
 
-	para "I'm sorry, but"
-	line "we're fully booked"
-	cont "tonight."
+	para "A room is ¥9800"
+	line "a night."
+
+	para "Would you like to"
+	line "check in?"
+	done
+
+SaffronHotelReceptionistEnjoyStayText:
+	text "Thank you! We hope"
+	line "your #MON will"
+	cont "also enjoy their"
+	cont "stay."
+	done
+
+SaffronHotelReceptionistCheckOutWhenText:
+	text "When will you be"
+	line "checking out?"
+	done
+
+SaffronHotelReceptionistSeeYouThenText:
+	text "Very good. I'll"
+	line "see you then!"
+	done
+
+SaffronHotelReceptionistThanksText:
+	text "Thank you for"
+	line "staying with us!"
+
+	para "Please come again."
+	done
+
+SaffronHotelReceptionistCancelledText:
+	text "Changed your mind?"
+
+	para "Please come again"
+	line "anytime."
+	done
+
+SaffronHotelReceptionistNotEnoughText:
+	text "I'm sorry, but you"
+	line "don't have enough"
+	cont "money on hand."
+	done
+
+SaffronHotelReceptionistRefusedText:
+	text "We hope to see you"
+	line "again soon."
 	done
 
 SaffronHotelClerkText:

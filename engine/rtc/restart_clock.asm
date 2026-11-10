@@ -35,19 +35,47 @@ ENDM
 	wraparound_time wRestartClockHour, 24, 12
 	wraparound_time wRestartClockMin,  60, 15
 
+HotelSetCheckoutTime:
+; Saffron Hotel check-out: the clock screen without the "has been reset" note.
+; wScriptVar = TRUE if the player cancelled.
+	call LoadStandardFont ; the map's tiles sit where the font goes
+	call LoadFontsExtra
+	ld e, FALSE
+	call RestartClock_Common
+	ld [wScriptVar], a
+	ret
+
 RestartClock:
 ; If we're here, we had an RTC overflow.
+	ld e, TRUE
+RestartClock_Common:
+; e = TRUE to confirm with "The clock has been reset."
+	push de
 	farcall BlankScreen ; screen needs to be blank first
+	pop de
 	ld hl, wOptions
 	ld a, [hl]
 	push af
 	set NO_TEXT_SCROLL, [hl]
+	push de
 	call LoadStandardMenuHeader
 	call ClearTilemap
 	ld hl, .ClockSetWithControlPadText
 	call PrintText
 	call .SetClock
+	pop de
+	and a
+	jr nz, .exit
+	dec e
+	jr nz, .exit
+	ld hl, .ClockHasResetText
+	call PrintText
+	call WaitPressAorB_BlinkCursor
+	xor a ; FALSE
+.exit
+	push af
 	call ExitMenu
+	pop af
 	pop bc
 	ld hl, wOptions
 	ld [hl], b
@@ -96,9 +124,6 @@ RestartClock:
 	ld [wStringBuffer2 + 3], a
 	call InitTime
 	call .PrintTime
-	ld hl, .ClockHasResetText
-	call PrintText
-	call WaitPressAorB_BlinkCursor
 	xor a ; FALSE
 	ret
 
