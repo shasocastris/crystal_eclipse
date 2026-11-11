@@ -267,6 +267,10 @@ DEF KRIS EQU __trainer_class__
 	const DARIN
 	const LOGAN
 	const TRAVIS
+	const IVOR
+	const BRANT
+	const KAIDO1
+	const KAIDO2
 
 	trainerclass COOLTRAINERF ; 21
 	const GWEN
@@ -294,6 +298,7 @@ DEF KRIS EQU __trainer_class__
 	const KELSEY
 	const NINA
 	const AMBER
+	const RUE
 
 	trainerclass BEAUTY ; 22
 	const VICTORIA
@@ -565,6 +570,7 @@ DEF KRIS EQU __trainer_class__
 	const DUNCAN
 	const EDDIE
 	const COREY
+	const SLADE
 
 	trainerclass FIREBREATHER ; 32
 	const OTIS
@@ -594,6 +600,7 @@ DEF KRIS EQU __trainer_class__
 	const LUNG
 	const TAKESHI
 	const WAI
+	const GOZO
 
 	trainerclass EXECUTIVEM ; 35
 	const EXECUTIVEM_1
@@ -700,6 +707,7 @@ DEF KRIS EQU __trainer_class__
 	const DOUGLAS
 	const DAMON
 	const VINCE
+	const COLT
 
 	trainerclass POKEFANM ; 3d
 	const WILLIAM

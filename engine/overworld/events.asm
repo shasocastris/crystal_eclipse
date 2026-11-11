@@ -1041,6 +1041,10 @@ MaybeRestoreSurfState:
 	and a
 	ret z ; not a water warp
 	ld [hl], 0
+	ld b, a
+	call CheckOnWater
+	ret nz ; came ashore
+	ld a, b
 	ld [wPlayerState], a
 	jmp UpdatePlayerSprite
 

@@ -3,6 +3,7 @@
 	const DRAGONSHRINE_ELDER2
 	const DRAGONSHRINE_ELDER3
 	const DRAGONSHRINE_CLAIR
+	const DRAGONSHRINE_KAIDO
 
 DragonShrine_MapScripts:
 	def_scene_scripts
@@ -10,6 +11,87 @@ DragonShrine_MapScripts:
 	scene_script DragonShrineNoopScene,     SCENE_DRAGONSHRINE_NOOP
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, DragonShrineKaidoCallback
+
+DragonShrineKaidoCallback:
+; Kaido is here once he has left the Ice Path Hollow.
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+	checkevent EVENT_ICE_PATH_HOLLOW_KAIDO
+	iffalse .Done
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+.Done:
+	endcallback
+
+DragonShrineKaidoScript:
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_HORSEA_FROM_KAIDO
+	iftrue .After
+	writetext DragonShrineKaidoText
+	waitbutton
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .PartyFull
+	writetext DragonShrineKaidoReceivedHorseaText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	givepoke HORSEA, 5, DRAGON_SCALE
+	setevent EVENT_GOT_HORSEA_FROM_KAIDO
+	writetext DragonShrineKaidoScaleText
+	waitbutton
+	closetext
+	end
+
+.PartyFull:
+	writetext DragonShrineKaidoPartyFullText
+	waitbutton
+	closetext
+	end
+
+.After:
+	writetext DragonShrineKaidoAfterText
+	waitbutton
+	closetext
+	end
+
+DragonShrineKaidoText:
+	text "<PLAYER>. I asked"
+	line "him."
+
+	para "He didn't test me."
+	line "He handed me a"
+	cont "broom."
+
+	para "My KINGDRA had a"
+	line "child while I"
+	cont "wasn't looking."
+
+	para "Take it. Raise it"
+	line "for company."
+	done
+
+DragonShrineKaidoReceivedHorseaText:
+	text "<PLAYER> received"
+	line "HORSEA!"
+	done
+
+DragonShrineKaidoScaleText:
+	text "It holds its"
+	line "mother's SCALE."
+
+	para "It'll know when."
+	done
+
+DragonShrineKaidoPartyFullText:
+	text "Your party is"
+	line "full. It can wait."
+	done
+
+DragonShrineKaidoAfterText:
+	text "Sweeping is harder"
+	line "than winning."
+
+	para "I like it."
+	done
 
 DragonShrineTakeTestScene:
 	sdefer DragonShrineTakeTestScript
@@ -675,3 +757,4 @@ DragonShrine_MapEvents:
 	object_event  2,  4, SPRITE_ELDER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DragonShrineElder2Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  7,  4, SPRITE_ELDER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DragonShrineElder3Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  4,  8, SPRITE_CLAIR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_DRAGON_SHRINE_CLAIR
+	object_event  7,  6, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, DragonShrineKaidoScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
