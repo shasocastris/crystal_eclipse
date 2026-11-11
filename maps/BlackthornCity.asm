@@ -381,6 +381,11 @@ BlackthornCity_MapEvents:
 	coord_event 11, 38, 1, BlackthornBridgeSurfTrigger
 	coord_event 12, 39, 1, BlackthornBridgeSurfTrigger
 	coord_event 13, 39, 1, BlackthornBridgeSurfTrigger
+	; Water entries: the river's west end and below the Hollow's cave mouth.
+	coord_event  7, 37, 1, BlackthornBridgeSurfTrigger
+	coord_event  8, 37, 1, BlackthornBridgeSurfTrigger
+	coord_event 45, 25, 1, BlackthornBridgeSurfTrigger
+	coord_event 46, 25, 1, BlackthornBridgeSurfTrigger
 
 	def_bg_events
 	bg_event 34, 24, BGEVENT_READ, BlackthornCitySign
