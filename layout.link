@@ -49,6 +49,7 @@ ROMX $05
 ROMX $06
 	"Tileset Data 1"
 	"Prism tilemap copy functions"
+	"Trade Animation"
 ROMX $07
 	"Roofs"
 	"Tileset Data 2"

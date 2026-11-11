@@ -2872,6 +2872,70 @@ CooltrainerMGroup:
 	dw DRAGONITE
 	db -1 ; end
 
+	next_list_item ; COOLTRAINERM (23), Ice Path Hollow
+	db "IVOR@", TRAINERTYPE_NORMAL
+	db 53
+	dw GYARADOS
+	db 53
+	dw STEELIX
+	db 54
+	dw DRAGONAIR
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERM (24), Ice Path Hollow
+	db "BRANT@", TRAINERTYPE_NORMAL
+	db 53
+	dw AERODACTYL
+	db 53
+	dw HOUNDOOM
+	db 54
+	dw DRAGONAIR
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERM (25), Ice Path Hollow
+	db "KAIDO@", TRAINERTYPE_ITEM
+	db 55
+	dw GLISCOR
+	dw NO_ITEM
+	db 55
+	dw SCIZOR
+	dw NO_ITEM
+	db 56
+	dw WEAVILE
+	dw NO_ITEM
+	db 56
+	dw MAMOSWINE
+	dw NO_ITEM
+	db 57
+	dw KINGDRA
+	dw NO_ITEM
+	db 58
+	dw DRAGONAIR
+	dw BERSERK_GENE
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERM (26), Ice Path Hollow rematch
+	db "KAIDO@", TRAINERTYPE_ITEM
+	db 70
+	dw GLISCOR
+	dw NO_ITEM
+	db 70
+	dw SCIZOR
+	dw NO_ITEM
+	db 71
+	dw WEAVILE
+	dw NO_ITEM
+	db 71
+	dw MAMOSWINE
+	dw NO_ITEM
+	db 72
+	dw KINGDRA
+	dw NO_ITEM
+	db 73
+	dw DRAGONAIR
+	dw BERSERK_GENE
+	db -1 ; end
+
 	end_list_items
 
 CooltrainerFGroup:
@@ -3187,6 +3251,16 @@ CooltrainerFGroup:
 	dw STARMIE
 	db 74
 	dw ALAKAZAM
+	db -1 ; end
+
+	next_list_item ; COOLTRAINERF (26), Ice Path Hollow
+	db "RUE@", TRAINERTYPE_NORMAL
+	db 52
+	dw SEADRA
+	db 52
+	dw GLIGAR
+	db 53
+	dw JYNX
 	db -1 ; end
 
 	end_list_items
@@ -5939,6 +6013,16 @@ BurglarGroup:
 	dw WEEZING
 	db -1 ; end
 
+	next_list_item ; BURGLAR (4), Ice Path Hollow
+	db "SLADE@", TRAINERTYPE_NORMAL
+	db 51
+	dw MURKROW
+	db 52
+	dw QWILFISH
+	db 53
+	dw SNEASEL
+	db -1 ; end
+
 	end_list_items
 
 FirebreatherGroup:
@@ -6233,6 +6317,16 @@ BlackbeltGroup:
 	dw PRIMEAPE
 	db 58
 	dw URSARING
+	db -1 ; end
+
+	next_list_item ; BLACKBELT_T (10), Ice Path Hollow
+	db "GOZO@", TRAINERTYPE_NORMAL
+	db 52
+	dw MACHAMP
+	db 52
+	dw URSARING
+	db 53
+	dw PILOSWINE
 	db -1 ; end
 
 	end_list_items
@@ -7359,6 +7453,16 @@ BoarderGroup:
 	dw TENTACRUEL
 	db 49
 	dw DELIBIRD
+	db -1 ; end
+
+	next_list_item ; BOARDER (6), Ice Path Hollow
+	db "COLT@", TRAINERTYPE_NORMAL
+	db 51
+	dw DELIBIRD
+	db 52
+	dw PILOSWINE
+	db 52
+	dw SNEASEL
 	db -1 ; end
 
 	end_list_items

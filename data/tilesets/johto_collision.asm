@@ -167,8 +167,8 @@
 	tilecoll UP_WALL, UP_WALL, FLOOR, FLOOR ; a6
 	tilecoll WALL, WALL, WATER, WATER ; a7
 	tilecoll WATER, WALL, WATER, WARP_SURF_RIGHT ; a8
-	tilecoll WALL, WALL, WALL, WATER ; a9
-	tilecoll WALL, WALL, WATER, WALL ; aa
+	tilecoll WALL, WALL, WALL, WARP_SURF_UP ; a9
+	tilecoll WALL, WALL, WARP_SURF_UP, WALL ; aa
 	tilecoll WATER, WATER, DOWN_BUOY, DOWN_BUOY ; ab
 	tilecoll CHERRY_LEAVES, CHERRY_LEAVES, WALL, WALL ; ac
 	tilecoll WALL, WALL, WALL, WALL ; ad

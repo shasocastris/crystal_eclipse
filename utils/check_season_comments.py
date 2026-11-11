@@ -61,6 +61,9 @@ def check(colpath, kind, basepaths):
         name, mask, body = m.group(1), m.group(2).strip(), m.group(3)
 
         if name not in base:
+            # A map with no base entry is fine if it never falls through.
+            if mask.replace(" ", "") == "ANYSEASON" and not re.search(r'[\s,]-\s*,', body):
+                continue
             problems.append(
                 f"{colpath}: {name} has no entry in the base table. A sentinel column "
                 f"would fall through to nothing.")

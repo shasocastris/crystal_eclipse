@@ -542,3 +542,10 @@ INCLUDE "maps/ShamoutiIsland.asm"
 INCLUDE "maps/ShamoutiCave.asm"
 
 ENDSECTION
+
+
+SECTION "Map Scripts 30", ROMX
+
+INCLUDE "maps/IcePathHollow.asm"
+
+ENDSECTION

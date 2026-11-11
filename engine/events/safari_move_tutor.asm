@@ -20,7 +20,16 @@ DEF SAFARI_TUTOR_ALREADY_KNOWS   EQU 3
 DEF SAFARI_TUTOR_NO_ROOM         EQU 4
 DEF SAFARI_TUTOR_CANCEL          EQU 5
 
+OutrageMoveTutor:
+; Same flow and result codes, but teaches OUTRAGE to the species in
+; OutrageTutorSpecies with no evolution-line gate.
+	ld a, TRUE
+	jr SafariZoneMoveTutor.start
+
 SafariZoneMoveTutor:
+	xor a
+.start
+	push af ; which tutor
 	; Run everything in one menu submenu (FadeToMenu..CloseSubmenu) so the party
 	; picker and LearnMove's move-forget UI render in the menu layer instead of
 	; under the overworld map/sprites.
@@ -46,12 +55,23 @@ SafariZoneMoveTutor:
 	call SetDefaultBGPAndOBP
 	call DelayFrame
 	farcall PartyMenuSelect
+	pop bc ; b = which tutor; flags kept
 	jr c, .cancel
 
 	; Reject eggs / non-Pokemon selections.
 	ld a, [wCurPartySpecies]
 	call IsAPokemon
 	jr c, .no_move
+
+	ld a, b
+	and a
+	jr z, .safari
+	call CheckOutrageTutorSpecies
+	jr nc, .no_move
+	ld de, OUTRAGE
+	jr .teach
+
+.safari
 
 	call GetSafariZoneMoveTutorMove ; carry = found; de = move index; b = LINE_* id
 	jr nc, .no_move
@@ -65,6 +85,7 @@ SafariZoneMoveTutor:
 
 .line_complete:
 	pop de ; de = move index
+.teach
 	; Convert the 16-bit move index to the dynamic 8-bit runtime ID.
 	ld h, d
 	ld l, e
@@ -164,6 +185,50 @@ GetSafariZoneMoveTutorMove:
 .not_found:
 	and a ; carry clear
 	ret
+
+; Output: carry set if wCurPartySpecies is in OutrageTutorSpecies.
+CheckOutrageTutorSpecies:
+	ld a, [wCurPartySpecies]
+	call GetPokemonIndexFromID
+	ld d, h
+	ld e, l
+	ld hl, OutrageTutorSpecies
+.loop
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	ld b, a
+	and c
+	inc a
+	ret z ; $ffff terminator; carry is clear
+	ld a, c
+	cp e
+	jr nz, .loop
+	ld a, b
+	cp d
+	jr nz, .loop
+	scf
+	ret
+
+OutrageTutorSpecies:
+	dw CHARMANDER
+	dw CHARMELEON
+	dw CHARIZARD
+	dw GROWLITHE
+	dw ARCANINE
+	dw GYARADOS
+	dw AERODACTYL
+	dw DRATINI
+	dw DRAGONAIR
+	dw DRAGONITE
+	dw DRAGONITE_KANTO
+	dw HORSEA
+	dw SEADRA
+	dw KINGDRA
+	dw LARVITAR
+	dw PUPITAR
+	dw TYRANITAR
+	dw -1
 
 ; Check that every species in a given evolutionary line has been caught.
 ; Input: b = LINE_* id
