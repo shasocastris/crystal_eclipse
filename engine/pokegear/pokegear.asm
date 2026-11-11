@@ -442,12 +442,8 @@ PokegearClock_Joypad:
 	call .UpdateClock
 	ld hl, hJoyLast
 	ld a, [hl]
-	and PAD_A | PAD_B | PAD_START ; Pressing A, B, or START exits Pokégear
+	and PAD_A | PAD_B | PAD_START | PAD_SELECT
 	jr nz, .quit
-
-	ld a, [hl]
-	and PAD_SELECT
-	jr nz, .clockreset
 
 	ld a, [hl]
 	and PAD_RIGHT
@@ -456,11 +452,6 @@ PokegearClock_Joypad:
 	bit POKEGEAR_MAP_CARD_F, a
 	jr z, .no_map_card
 	lb bc, POKEGEARCARD_MAP, POKEGEARSTATE_MAPCHECKREGION
-	jr .done
-
-.clockreset
-	farcall RestartClock
-	call InitPokegearTilemap ; needed incase exit without setting the time
 	jr .done
 
 .no_map_card

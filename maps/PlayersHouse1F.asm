@@ -230,10 +230,6 @@ MomGivesPokegearText:
 	text "#MON GEAR, or"
 	line "just #GEAR."
 
-	para "It let's you reset"
-	line "the clock. You"
-	cont "just press SELECT!"
-
 	para "Oh, the day of the"
 	line "week isn't set."
 
