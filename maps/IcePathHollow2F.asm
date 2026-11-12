@@ -14,7 +14,7 @@
 	const ICEPATHHOLLOW_POKE_BALL4
 	const ICEPATHHOLLOW_ROCK
 
-IcePathHollow_MapScripts:
+IcePathHollow2F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
@@ -301,6 +301,12 @@ IcePathHollowRock:
 
 IcePathHollowHiddenMaxRevive:
 	hiddenitem MAX_REVIVE, EVENT_ICE_PATH_HOLLOW_HIDDEN_MAX_REVIVE
+
+IcePathHollowHiddenNugget:
+	hiddenitem NUGGET, EVENT_ICE_PATH_HOLLOW_HIDDEN_NUGGET
+
+IcePathHollowHiddenNevermeltice:
+	hiddenitem NEVERMELTICE, EVENT_ICE_PATH_HOLLOW_HIDDEN_NEVERMELTICE
 
 BlackbeltGozoSeenText:
 	text "You came up the"
@@ -631,24 +637,26 @@ IcePathHollowTallyWallPassedText:
 	line "KAIDO - ASKED."
 	done
 
-IcePathHollow_MapEvents:
+IcePathHollow2F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 16, 37, BLACKTHORN_CITY, 9
+	warp_event 17, 37, ICE_PATH_HOLLOW_1F, 3
 
 	def_coord_events
 
 	def_bg_events
-	bg_event 15, 36, BGEVENT_READ, IcePathHollowWarningSign
-	bg_event 27,  8, BGEVENT_READ, IcePathHollowTallyWall
-	bg_event 33,  6, BGEVENT_ITEM, IcePathHollowHiddenMaxRevive
+	bg_event 18, 36, BGEVENT_READ, IcePathHollowWarningSign
+	bg_event 16,  7, BGEVENT_READ, IcePathHollowTallyWall
+	bg_event 33,  5, BGEVENT_ITEM, IcePathHollowHiddenMaxRevive
+	bg_event  5, 33, BGEVENT_ITEM, IcePathHollowHiddenNugget
+	bg_event 21, 19, BGEVENT_ITEM, IcePathHollowHiddenNevermeltice
 
 	def_object_events
-	object_event 16, 34, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerBlackbeltGozo, -1
-	object_event  7, 30, SPRITE_PHARMACIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerBurglarSlade, -1
-	object_event 30, 30, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfRue, -1
-	object_event  9, 27, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerBoarderColt, -1
+	object_event 16, 36, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerBlackbeltGozo, -1
+	object_event 11, 33, SPRITE_PHARMACIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerBurglarSlade, -1
+	object_event 30, 29, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfRue, -1
+	object_event  9, 26, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerBoarderColt, -1
 	object_event 13,  9, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerCooltrainermIvor, -1
 	object_event 23, 10, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerCooltrainermBrant, -1
 	object_event 16,  3, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, IcePathHollowKaidoScript, EVENT_ICE_PATH_HOLLOW_KAIDO

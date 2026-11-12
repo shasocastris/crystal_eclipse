@@ -395,6 +395,7 @@ DEF KRIS EQU __trainer_class__
 	const CLARISSA
     const NOELLE
 	const FLORA
+	const GRETA
 
 	trainerclass TEACHER ; 27
 	const TUSCANY
@@ -470,6 +471,7 @@ DEF KRIS EQU __trainer_class__
 	const JAMES
 	const LEWIS
 	const PARKER
+	const LARS
 
 	trainerclass SWIMMERF ; 2b
 	const ELAINE
@@ -581,6 +583,7 @@ DEF KRIS EQU __trainer_class__
 	const WALT
 	const RAY
 	const LYLE
+	const KNUT
 
 	trainerclass JUGGLER ; 33
 	const IRWIN1
@@ -708,6 +711,7 @@ DEF KRIS EQU __trainer_class__
 	const DAMON
 	const VINCE
 	const COLT
+	const NILS
 
 	trainerclass POKEFANM ; 3d
 	const WILLIAM

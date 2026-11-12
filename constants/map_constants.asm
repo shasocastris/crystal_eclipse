@@ -166,7 +166,8 @@ ENDM
 	map_const CERULEAN_BASE_2,                             15, 15 ; 94
 	map_const CERULEAN_BASE_3,                              6,  6 ; 94
 	map_const POKEMON_MANSION,                             15, 13 ; 94
-	map_const ICE_PATH_HOLLOW,                             18, 20 ; 103
+	map_const ICE_PATH_HOLLOW_2F,                          18, 20 ; 103
+	map_const ICE_PATH_HOLLOW_1F,                          16, 18 ; 104
 	endgroup
 
 	newgroup ECRUTEAK                                             ;  4

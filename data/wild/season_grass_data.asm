@@ -219,7 +219,36 @@
 	end_season_grass
 
 	; no base table: bank $0a is full, so every season is listed here
-	def_season_grass ICE_PATH_HOLLOW, ANYSEASON
+	def_season_grass ICE_PATH_HOLLOW_2F, ANYSEASON
+	;          SPRING          SUMMER          AUTUMN          WINTER
+	seasonrate 10,             10,             10,             10
+	; morn
+	seasonmon  50, SNEASEL,    50, SNEASEL,    51, SNEASEL,    50, SNEASEL
+	seasonmon  50, PILOSWINE,  50, PILOSWINE,  51, PILOSWINE,  51, PILOSWINE
+	seasonmon  49, GOLBAT,     49, GOLBAT,     50, GOLBAT,     50, DELIBIRD
+	seasonmon  50, DELIBIRD,   50, DELIBIRD,   51, DELIBIRD,   51, JYNX
+	seasonmon  51, GLIGAR,     51, GLIGAR,     52, GLIGAR,     52, PILOSWINE
+	seasonmon  51, JYNX,       51, JYNX,       52, URSARING,   52, GLIGAR
+	seasonmon  52, JYNX,       52, JYNX,       53, URSARING,   53, WEAVILE
+	; day
+	seasonmon  50, SNEASEL,    50, SNEASEL,    51, SNEASEL,    50, SNEASEL
+	seasonmon  50, PILOSWINE,  50, PILOSWINE,  51, PILOSWINE,  51, PILOSWINE
+	seasonmon  49, GOLBAT,     49, GOLBAT,     50, GOLBAT,     50, DELIBIRD
+	seasonmon  50, DELIBIRD,   50, DELIBIRD,   51, DELIBIRD,   51, JYNX
+	seasonmon  51, GLIGAR,     51, GLIGAR,     52, GLIGAR,     52, PILOSWINE
+	seasonmon  51, JYNX,       51, JYNX,       52, URSARING,   52, GLIGAR
+	seasonmon  52, JYNX,       52, JYNX,       53, URSARING,   53, WEAVILE
+	; nite
+	seasonmon  50, SNEASEL,    50, SNEASEL,    51, SNEASEL,    50, SNEASEL
+	seasonmon  51, SNEASEL,    51, SNEASEL,    52, SNEASEL,    51, SNEASEL
+	seasonmon  49, GOLBAT,     49, GOLBAT,     50, MURKROW,    50, DELIBIRD
+	seasonmon  50, MURKROW,    50, MURKROW,    51, GOLBAT,     51, JYNX
+	seasonmon  51, GLIGAR,     51, GLIGAR,     52, GLIGAR,     52, PILOSWINE
+	seasonmon  51, PILOSWINE,  51, PILOSWINE,  52, PILOSWINE,  52, GLIGAR
+	seasonmon  52, JYNX,       52, JYNX,       53, URSARING,   53, WEAVILE
+	end_season_grass
+
+	def_season_grass ICE_PATH_HOLLOW_1F, ANYSEASON
 	;          SPRING          SUMMER          AUTUMN          WINTER
 	seasonrate 10,             10,             10,             10
 	; morn

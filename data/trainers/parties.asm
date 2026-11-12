@@ -4256,6 +4256,14 @@ SkierGroup:
 	dw FUTURE_SIGHT, QUICK_ATTACK, AURORA_BEAM, PRESENT
 	db -1 ; end
 
+	next_list_item ; SKIER (5), Ice Path Hollow 1F
+	db "GRETA@", TRAINERTYPE_NORMAL
+	db 49
+	dw JYNX
+	db 50
+	dw CLOYSTER
+	db -1 ; end
+
 	end_list_items
 
 TeacherGroup:
@@ -5019,6 +5027,14 @@ SwimmerMGroup:
 	dw SEADRA
 	db 72
 	dw LANTURN
+	db -1 ; end
+
+	next_list_item ; SWIMMERM (22), Ice Path Hollow 1F
+	db "LARS@", TRAINERTYPE_NORMAL
+	db 49
+	dw DEWGONG
+	db 50
+	dw POLIWRATH
 	db -1 ; end
 
 	end_list_items
@@ -6106,6 +6122,14 @@ FirebreatherGroup:
 	dw FLAREON
 	db 58
 	dw RAPIDASH
+	db -1 ; end
+
+	next_list_item ; FIREBREATHER (9), Ice Path Hollow 1F
+	db "KNUT@", TRAINERTYPE_NORMAL
+	db 50
+	dw MAGMAR
+	db 51
+	dw HOUNDOOM
 	db -1 ; end
 
 	end_list_items
@@ -7462,6 +7486,16 @@ BoarderGroup:
 	db 52
 	dw PILOSWINE
 	db 52
+	dw SNEASEL
+	db -1 ; end
+
+	next_list_item ; BOARDER (7), Ice Path Hollow 1F
+	db "NILS@", TRAINERTYPE_NORMAL
+	db 49
+	dw PILOSWINE
+	db 49
+	dw DEWGONG
+	db 50
 	dw SNEASEL
 	db -1 ; end
 

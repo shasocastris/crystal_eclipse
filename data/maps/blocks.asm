@@ -1010,7 +1010,10 @@ ShamoutiIsland_Blocks:
 ShamoutiCave_Blocks:
 	INCBIN "maps/ShamoutiCave.ablk"
 
-IcePathHollow_Blocks:
-	INCBIN "maps/IcePathHollow.ablk"
+IcePathHollow2F_Blocks:
+	INCBIN "maps/IcePathHollow2F.ablk"
+
+IcePathHollow1F_Blocks:
+	INCBIN "maps/IcePathHollow1F.ablk"
 
 ENDSECTION

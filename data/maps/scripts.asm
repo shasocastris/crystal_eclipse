@@ -546,6 +546,7 @@ ENDSECTION
 
 SECTION "Map Scripts 30", ROMX
 
-INCLUDE "maps/IcePathHollow.asm"
+INCLUDE "maps/IcePathHollow2F.asm"
+INCLUDE "maps/IcePathHollow1F.asm"
 
 ENDSECTION

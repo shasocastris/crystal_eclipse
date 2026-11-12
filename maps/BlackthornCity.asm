@@ -355,8 +355,8 @@ BlackthornCity_MapEvents:
 	warp_event  9, 29, MOVE_DELETERS_HOUSE, 1
 	warp_event 36,  9, ICE_PATH_1F, 2
 	warp_event 20,  1, DRAGONS_DEN_1F, 1
-	warp_event 45, 23, ICE_PATH_HOLLOW, 1
-	warp_event 46, 23, ICE_PATH_HOLLOW, 1
+	warp_event 45, 23, ICE_PATH_HOLLOW_1F, 1
+	warp_event 46, 23, ICE_PATH_HOLLOW_1F, 2
 
 	def_coord_events
 	; The bridge deck covers tiles x = 12-13, y = 34-37; the river runs east-west beneath it.

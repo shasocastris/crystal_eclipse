@@ -35,3 +35,11 @@
 	seasonmon  10, SEAKING, -, -,   11, SEAKING, 10, SEEL     ; 10, SEAKING
 	end_season_water
 
+	; no base table, so every season is listed here
+	def_season_water ICE_PATH_HOLLOW_1F, ANYSEASON
+	;          SPRING        SUMMER        AUTUMN        WINTER
+	seasonrate 6,            6,            6,            8
+	seasonmon  48, SEEL,     48, SEEL,     49, SEEL,     50, DEWGONG
+	seasonmon  50, DEWGONG,  50, DEWGONG,  51, DEWGONG,  52, DEWGONG
+	seasonmon  50, SEEL,     50, SEEL,     51, SEEL,     51, SEEL
+	end_season_water
