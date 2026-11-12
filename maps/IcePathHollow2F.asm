@@ -104,11 +104,10 @@ IcePathHollowKaidoScript:
 	writetext IcePathHollowKaidoCompanyText
 	waitbutton
 	closetext
-	special FadeOutToBlack
-	special ReloadSpritesNoPalettes
+	special SmoothFadeOutToBlack
 	disappear ICEPATHHOLLOW_KAIDO
 	pause 30
-	special FadeInFromBlack
+	reloadmap
 	end
 
 .Winning:
