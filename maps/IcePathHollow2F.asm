@@ -242,15 +242,13 @@ IcePathHollowMedicScript:
 	yesorno
 	iffalse .Refused
 	closetext
-	special FadeOutToBlack
-	special ReloadSpritesNoPalettes
+	special SmoothFadeOutToBlack
 	special StubbedTrainerRankings_Healings
 	playmusic MUSIC_HEAL
 	special HealParty
 	pause 60
-	special FadeInFromBlack
-	special RestartMapMusic
 	setflag ENGINE_ICE_PATH_HOLLOW_MEDIC
+	reloadmap
 	opentext
 	writetext IcePathHollowMedicHealedText
 	waitbutton
