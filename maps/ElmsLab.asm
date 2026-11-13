@@ -233,9 +233,7 @@ ChikoritaPokeBallScript:
 	playsound SFX_CAUGHT_MON
 	waitsfx
 	promptbutton
-	givepoke CELEBI, 5, LEFTOVERS
-	loadmem wPartyMon1DVs, $ff
-	loadmem wPartyMon1DVs + 1, $ff
+	givepoke CHIKORITA, 5, BERRY
 	closetext
 	applymovement PLAYER, AfterChikoritaMovement
 	sjump ElmDirectionsScript
