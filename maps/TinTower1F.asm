@@ -90,7 +90,7 @@ TinTower1FSuicuneBattleScript:
 	applymovement PLAYER, TinTower1FPlayerEntersMovement
 	pause 15
 	checkevent EVENT_FOUGHT_RAIKOU
-	iftrue .Next1 ; a beast that already taught its move stays away
+	iftrue .Next1 ; a beast already fought stays away
 	applymovement TINTOWER1F_RAIKOU, TinTower1FRaikouApproachesMovement
 	turnobject PLAYER, LEFT
 	cry RAIKOU
@@ -117,12 +117,12 @@ TinTower1FSuicuneBattleScript:
 	pause 10
 	applymovement PLAYER, TinTower1FPlayerBacksUpMovement
 	applymovement TINTOWER1F_SUICUNE, TinTower1FSuicuneApproachesMovement
-TinTower1FSuicuneScript:
 	cry SUICUNE
 	pause 20
-	loadmonindex 0, SUICUNE
-	callstd DeityTutorScript
-	iftrue .Stay
+	loadwildmon SUICUNE, 50
+	loadvar VAR_BATTLETYPE, BATTLETYPE_SUICUNE
+	startbattle
+	dontrestartmapmusic
 	disappear TINTOWER1F_SUICUNE
 	setevent EVENT_FOUGHT_SUICUNE
 	setevent EVENT_SAW_SUICUNE_ON_ROUTE_42
@@ -133,6 +133,7 @@ TinTower1FSuicuneScript:
 	setmapscene CIANWOOD_CITY, SCENE_CIANWOODCITY_NOOP
 	setscene SCENE_TINTOWER1F_NOOP
 	clearevent EVENT_SET_WHEN_FOUGHT_HO_OH
+	reloadmapafterbattle
 	pause 20
 	turnobject PLAYER, DOWN
 	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
@@ -167,10 +168,6 @@ TinTower1FSuicuneScript:
 	special FadeOutMusic
 	pause 20
 	playmapmusic
-	end
-
-.Stay:
-	setscene SCENE_TINTOWER1F_NOOP
 	end
 
 TinTower1FSage1Script:
@@ -317,13 +314,16 @@ TinTower1FKarenSuicuneText:
 	text "KAREN: Awesome!"
 	line "Too awesome, even!"
 
-	para "SUICUNE shared its"
-	line "power with you."
+	para "I've never seen a"
+	line "battle that great."
 
 	para "That was truly"
 	line "inspiring to see."
 
-	para "It trusted you,"
+	para "SUICUNE was tough,"
+	line "but you were even"
+
+	para "more incredible,"
 	line "<PLAYER>."
 
 	para "I heard SUICUNE's"
@@ -538,7 +538,7 @@ TinTower1F_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  9,  9, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TinTower1FSuicuneScript, EVENT_TIN_TOWER_1F_SUICUNE
+	object_event  9,  9, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TIN_TOWER_1F_SUICUNE
 	object_event  7,  9, SPRITE_RAIKOU, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TIN_TOWER_1F_RAIKOU
 	object_event 12,  9, SPRITE_ENTEI, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TIN_TOWER_1F_ENTEI
 	object_event  8,  3, SPRITE_KAREN, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TinTower1FKaren, EVENT_TIN_TOWER_1F_KAREN

@@ -30,12 +30,12 @@ Articuno:
 	cry ARTICUNO
 	pause 15
 	closetext
-	loadmonindex 0, ARTICUNO
-	callstd DeityTutorScript
-	iftrue .Stay
 	setevent EVENT_FOUGHT_ARTICUNO
+	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
+	loadwildmon ARTICUNO, 70
+	startbattle
 	disappear SEAFOAM_CAVES_ARTICUNO
-.Stay:
+	reloadmapafterbattle
 	end
 
 ArticunoText:

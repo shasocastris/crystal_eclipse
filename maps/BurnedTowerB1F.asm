@@ -52,12 +52,12 @@ BurnedTowerB1FRaikou:
 	cry RAIKOU
 	pause 15
 	closetext
-	loadmonindex 0, RAIKOU
-	callstd DeityTutorScript
-	iftrue .Stay
 	setevent EVENT_FOUGHT_RAIKOU
+	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
+	loadwildmon RAIKOU, 50
+	startbattle
 	disappear BURNEDTOWERB1F_RAIKOU
-.Stay:
+	reloadmapafterbattle
 	end
 
 BurnedTowerB1FRaikouText:

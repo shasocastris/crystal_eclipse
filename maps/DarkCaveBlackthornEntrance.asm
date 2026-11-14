@@ -34,12 +34,12 @@ Entei:
 	cry ENTEI
 	pause 15
 	closetext
-	loadmonindex 0, ENTEI
-	callstd DeityTutorScript
-	iftrue .Stay
 	setevent EVENT_FOUGHT_ENTEI
+	loadvar VAR_BATTLETYPE, BATTLETYPE_FORCEITEM
+	loadwildmon ENTEI, 50
+	startbattle
 	disappear DARKCAVEBLACKTHORNENTRANCE_ENTEI
-.Stay:
+	reloadmapafterbattle
 	end
 
 EnteiText:

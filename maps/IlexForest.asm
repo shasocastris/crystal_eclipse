@@ -467,6 +467,11 @@ IlexForestShrineScript:
 	end
 
 .CelebiEvent:
+	takeitem GS_BALL
+	clearevent EVENT_FOREST_IS_RESTLESS
+	setevent EVENT_AZALEA_TOWN_KURT
+	disappear ILEXFOREST_LASS
+	clearevent EVENT_ROUTE_34_ILEX_FOREST_GATE_LASS
 	writetext Text_InsertGSBall
 	waitbutton
 	closetext
@@ -479,33 +484,21 @@ IlexForestShrineScript:
 	pause 20
 	clearflag ENGINE_FOREST_IS_RESTLESS
 	special CelebiShrineEvent
-	loadmonindex 0, CELEBI
-	callstd DeityTutorScript
-	iftrue .CelebiLeft
-	takeitem GS_BALL
-	clearevent EVENT_FOREST_IS_RESTLESS
-	setevent EVENT_AZALEA_TOWN_KURT
-	disappear ILEXFOREST_LASS
-	clearevent EVENT_ROUTE_34_ILEX_FOREST_GATE_LASS
-	playmapmusic
+	loadwildmon CELEBI, 30
+	startbattle
+	reloadmapafterbattle
 	pause 20
+	special CheckCaughtCelebi
+	iffalse .DidntCatchCelebi
 	appear ILEXFOREST_KURT
 	applymovement ILEXFOREST_KURT, IlexForestKurtStepsUpMovement
 	opentext
-	writetext Text_KurtSawCelebi
+	writetext Text_KurtCaughtCelebi
 	waitbutton
 	closetext
 	applymovement ILEXFOREST_KURT, IlexForestKurtStepsDownMovement
 	disappear ILEXFOREST_KURT
-	end
-
-.CelebiLeft:
-	setflag ENGINE_FOREST_IS_RESTLESS
-	playmapmusic
-	opentext
-	writetext Text_TookBackGSBall
-	waitbutton
-	closetext
+.DidntCatchCelebi:
 	end
 
 MovementData_Farfetchd_Pos1_Pos2:
@@ -917,12 +910,7 @@ Text_InsertGSBall:
 	line "GS BALL."
 	done
 
-Text_TookBackGSBall:
-	text "<PLAYER> took back"
-	line "the GS BALL."
-	done
-
-Text_KurtSawCelebi:
+Text_KurtCaughtCelebi:
 	text "Whew, wasn't that"
 	line "something!"
 
