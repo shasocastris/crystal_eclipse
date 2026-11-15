@@ -623,6 +623,7 @@ NatuEvosAttacks:
 
 XatuEvosAttacks:
 	db 0 ; no more evolutions
+	dbw LEARN_EVO_MOVE, PSYBEAM
 	dbw 1, LEER
 	dbw 1, PECK
 	dbw 5, QUICK_ATTACK
