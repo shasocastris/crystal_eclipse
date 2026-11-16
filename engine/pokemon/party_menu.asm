@@ -404,10 +404,13 @@ PlacePartyMonGender:
 .loop
 	push bc
 	push hl
-	call PartyMenuCheckEgg
-	jr z, .next
-	ld [wCurPartySpecies], a
 	push hl
+	ld hl, wPartySpecies
+	ld e, b
+	ld d, 0
+	add hl, de
+	ld a, [hl]
+	ld [wCurPartySpecies], a
 	ld a, b
 	ld [wCurPartyMon], a
 	xor a
@@ -422,8 +425,6 @@ PlacePartyMonGender:
 .got_gender
 	pop hl
 	rst PlaceString
-
-.next
 	pop hl
 	ld de, 2 * SCREEN_WIDTH
 	add hl, de
