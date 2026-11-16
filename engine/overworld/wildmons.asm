@@ -452,6 +452,8 @@ LoadWildMonDataPointer:
 	jr z, _WaterWildmonLookup
 
 _GrassWildmonLookup:
+	call _WildHuntGrassWildmonCheck
+	ret c
 	ld hl, SwarmGrassWildMons
 	ld a, BANK(SwarmGrassWildMons)
 	ld [wWildMonBank], a
@@ -1147,6 +1149,19 @@ SeasonWaterTables:
 	wildmon_table WinterWaterWildMons
 	assert_table_length NUM_SEASONS
 
+; Runs before the swarm and season checks, so the hunt wins over both.
+_WildHuntGrassWildmonCheck:
+	ld a, [wStatusFlags2]
+	and 1 << STATUSFLAGS2_WILD_HUNT
+	ret z
+	ld hl, WildHuntGrassWildMons
+	ld a, BANK(WildHuntGrassWildMons)
+	ld [wWildMonBank], a
+	ld bc, GRASS_WILDDATA_LENGTH
+	call CopyCurrMapDE
+	jmp LookUpWildmonsForMapDE
+
+INCLUDE "data/wild/wild_hunt_grass.asm"
 INCLUDE "data/wild/swarm_grass.asm"
 INCLUDE "data/wild/swarm_water.asm"
 
