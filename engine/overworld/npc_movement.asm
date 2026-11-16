@@ -253,11 +253,21 @@ CheckFacingObject::
 	ldh [hMapObjectIndex], a
 	call IsNPCAtCoord
 	ret nc
+; a follower in its ball isn't there to talk to or to block Surf
+	ldh a, [hObjectStructIndex]
+	cp FOLLOWER
+	jr nz, .visible
+	ld hl, OBJECT_FLAGS1
+	add hl, bc
+	bit INVISIBLE_F, [hl]
+	jr nz, .no
+.visible
 	ld hl, OBJECT_WALKING
 	add hl, bc
 	ld a, [hl]
 	cp STANDING
 	jr z, .standing
+.no
 	xor a
 	ret
 
