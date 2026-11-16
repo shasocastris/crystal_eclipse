@@ -52,6 +52,7 @@ MoomooScript:
 	clearevent EVENT_QUELLED_WILD_HUNT
 	setevent EVENT_ECRUTEAK_WILD_HUNT
 	clearflag ENGINE_WILD_HUNT
+	stowfollowerif DOWN
 	showemote EMOTE_SHOCK, ROUTE39BARN_WHITNEY, 30
 	applymovement ROUTE39BARN_WHITNEY, Route39BarnWhitneyMovement
 	turnobject ROUTE39BARN_WHITNEY, UP
@@ -65,6 +66,7 @@ MoomooScript:
 	playsound SFX_EXIT_BUILDING
 	disappear ROUTE39BARN_WHITNEY
 	waitsfx
+	appearfolloweronestep
 	end
 
 .NoBerriesInBag:
