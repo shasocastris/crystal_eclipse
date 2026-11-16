@@ -197,6 +197,7 @@ WildHuntTauros16:
 WildHuntTaurosHerdLeaderScript:
 	turnobject PLAYER, RIGHT
 	showemote EMOTE_SHOCK, PLAYER, 15
+	stowfollowerif RIGHT
 	special FadeOutMusic
 	cry TAUROS
 	pause 15
@@ -212,6 +213,7 @@ WildHuntTaurosHerdLeaderScript:
 	disappear ROUTE39_TAUROS_HERD_LEADER
 	reloadmapafterbattle
 	setscene SCENE_ROUTE39_NOOP
+	appearfolloweronestep
 	end
 
 Route39Miltank:
