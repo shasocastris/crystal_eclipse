@@ -1061,11 +1061,17 @@ LoadMapPals:
 ; darkness guard is needed -- no TOWN or ROUTE map sets IN_DARKNESS.
 	; The Fast Ship is drawn on PAL_BG_ROOF; every harbour shows it alike.
 	ld a, [wMapTileset]
+	ld b, MAPGROUP_FAST_SHIP
 	cp TILESET_PORT
-	ld a, MAPGROUP_FAST_SHIP
+	jr z, .got_roof_group
+	; The park's fountain rim is its only ROOF tile: light blue.
+	ld b, MAPGROUP_CERULEAN
+	cp TILESET_PARK
 	jr z, .got_roof_group
 	ld a, [wMapGroup]
+	ld b, a
 .got_roof_group
+	ld a, b
 	add a
 	add a
 	ld e, a
