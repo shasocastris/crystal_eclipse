@@ -135,13 +135,14 @@ LoadRandomBattleTowerMon:
 	ld h, b
 	ld l, c
 	call GetPokemonIDFromIndex
-	ld hl, wTempSpecies
-	ld [hl], a
+	; keep the ID in c: wTempSpecies is in WRAM bank 1, but bank 2 is paged in
+	ld c, a
 	; check if it matches any of the current trainer's first two Pokémon (no need to check for the last one)
 	ld a, [wBT_OTMon1]
-	cp [hl]
+	cp c
 	jr z, .pop_and_retry
 	ld a, [wBT_OTMon2]
+	cp c
 .pop_and_retry
 	pop de
 	pop hl
@@ -155,8 +156,9 @@ LoadRandomBattleTowerMon:
 	cp [hl]
 	jr z, .FindARandomBattleTowerMon
 
-	; reserve and load the converted species from wTempSpecies, manually load item and moves, and copy everything else
+	; reserve and load the converted species from c, manually load item and moves, and copy everything else
 	push hl
+	ld h, c
 	ld l, LOCKED_MON_ID_BATTLE_TOWER_1
 	; LOCKED_MOVE_ID_BATTLE_TOWER_MON1_MOVE1 rotated right 2
 	lb bc, LOCKED_ITEM_ID_BATTLE_TOWER_1, (LOCKED_MOVE_ID_BATTLE_TOWER_MON1_MOVE1 >> 2) | ((LOCKED_MOVE_ID_BATTLE_TOWER_MON1_MOVE1 & 3) << 6)
@@ -171,7 +173,7 @@ LoadRandomBattleTowerMon:
 	inc l
 	inc c
 .got_index
-	ld a, [wTempSpecies]
+	ld a, h
 	ld [de], a
 	inc de
 	call LockPokemonID
@@ -211,17 +213,29 @@ LoadRandomBattleTowerMon:
 	rst CopyBytes
 
 	; rename the Pokémon to its default name (overriding the transliterated Japanese nicknames)
+	; straight from ROM: GetPokemonName uses WRAM bank 1
 	push de
 	ld hl, -MON_NAME_LENGTH
 	add hl, de
 	push hl
-	; wNamedObjectIndexBuffer = wTempSpecies
-	call GetPokemonName
-	ld h, d
-	ld l, e
+	ld bc, MON_NAME_LENGTH - NICKNAMED_MON_STRUCT_LENGTH
+	add hl, bc
+	ld a, [hl] ; species
+	call GetPokemonIndexFromID
+	ld d, h
+	ld e, l
+	add hl, hl
+	add hl, hl
+	add hl, de
+	add hl, hl
+	ld de, PokemonNames - (MON_NAME_LENGTH - 1)
+	add hl, de
 	pop de
-	ld bc, MON_NAME_LENGTH
-	rst CopyBytes
+	ld a, BANK(PokemonNames)
+	ld bc, MON_NAME_LENGTH - 1
+	call FarCopyBytes
+	ld a, '@'
+	ld [de], a
 	pop de
 
 	pop bc
