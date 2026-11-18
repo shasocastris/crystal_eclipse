@@ -36,11 +36,16 @@ SaffronGymSabrinaScript:
 	waitsfx
 	setflag ENGINE_MARSHBADGE
 	writetext SabrinaMarshBadgeText
-	waitbutton
-	closetext
-	end
-
+	promptbutton
 .FightDone:
+	checkevent EVENT_GOT_TM09_PSYCH_UP
+	iftrue .GotPsychUp
+	writetext SabrinaExplainTMText
+	promptbutton
+	verbosegiveitem TM_PSYCH_UP
+	iffalse .GotPsychUp
+	setevent EVENT_GOT_TM09_PSYCH_UP
+.GotPsychUp:
 	writetext SabrinaFightDoneText
 	waitbutton
 	closetext
@@ -217,6 +222,17 @@ SabrinaMarshBadgeText:
 	para "You will become a"
 	line "celebrated and"
 	cont "beloved CHAMPION!"
+	done
+
+SabrinaExplainTMText:
+	text "SABRINA: Take this"
+	line "TM as well."
+
+	para "It's PSYCH UP."
+
+	para "It greatly boosts"
+	line "the damage of your"
+	cont "SPECIAL attacks."
 	done
 
 SabrinaFightDoneText:
