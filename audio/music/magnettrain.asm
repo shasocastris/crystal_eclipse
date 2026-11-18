@@ -16,48 +16,13 @@ Music_MagnetTrain_Ch1:
 	rest 16
 	volume_envelope 11, 7
 	octave 4
-	note D_, 1
-	note C_, 1
-	octave 3
-	note G_, 1
-	octave 4
-	note C_, 1
-	note D_, 1
-	note C_, 1
-	octave 3
-	note G_, 1
-	octave 4
-	note C_, 1
-	note D_, 1
-	note C_, 1
-	octave 3
-	note G_, 1
-	octave 4
-	note C_, 1
-	note D_, 1
-	note C_, 1
-	octave 3
-	note G_, 1
-	octave 4
-	note C_, 1
-	note E_, 1
-	note C_, 1
-	octave 3
-	note A_, 1
-	octave 4
-	note C_, 1
-	note E_, 1
-	note C_, 1
-	octave 3
-	note A_, 1
-	octave 4
-	note C_, 1
-	note E_, 1
-	note C_, 1
-	octave 3
-	note A_, 1
-	octave 4
-	note C_, 1
+	sound_call Music_MagnetTrain_Ditty2
+	sound_call Music_MagnetTrain_Ditty2
+	sound_call Music_MagnetTrain_Ditty2
+	sound_call Music_MagnetTrain_Ditty2
+	sound_call Music_MagnetTrain_Ditty3
+	sound_call Music_MagnetTrain_Ditty3
+	sound_call Music_MagnetTrain_Ditty3
 	note E_, 1
 	note C_, 1
 	note_type 6, 11, 7
@@ -155,70 +120,10 @@ Music_MagnetTrain_Ch3:
 	note D#, 1
 	note G_, 1
 	note C_, 1
-	octave 2
-	note D_, 1
-	octave 3
-	note D_, 1
-	octave 2
-	note D_, 1
-	octave 3
-	note D_, 1
-	octave 2
-	note D_, 1
-	octave 3
-	note D_, 1
-	octave 2
-	note D_, 1
-	octave 3
-	note D_, 1
-	octave 2
-	note D_, 1
-	octave 3
-	note D_, 1
-	octave 2
-	note D_, 1
-	octave 3
-	note D_, 1
-	octave 2
-	note D_, 1
-	octave 3
-	note D_, 1
-	octave 2
-	note D_, 1
-	octave 3
-	note D_, 1
-	octave 2
-	note D_, 1
-	octave 3
-	note D_, 1
-	octave 2
-	note D_, 1
-	octave 3
-	note D_, 1
-	octave 2
-	note D_, 1
-	octave 3
-	note D_, 1
-	octave 2
-	note D_, 1
-	octave 3
-	note D_, 1
-	octave 2
-	note D_, 1
-	octave 3
-	note D_, 1
-	octave 2
-	note D_, 1
-	octave 3
-	note D_, 1
-	octave 2
-	note D_, 1
-	octave 3
-	note D_, 1
-	octave 2
-	note D_, 1
-	octave 3
-	note D_, 1
+	sound_call Music_MagnetTrain_Ditty1
+	sound_call Music_MagnetTrain_Ditty1
+	sound_call Music_MagnetTrain_Ditty1
+	sound_call Music_MagnetTrain_Ditty1
 	octave 2
 	note D_, 16
 	sound_ret
@@ -263,4 +168,41 @@ Music_MagnetTrain_Ch4:
 	drum_note 8, 2
 	drum_note 8, 2
 	drum_note 8, 2
+	sound_ret
+
+Music_MagnetTrain_Ditty3:
+	note E_, 1
+	note C_, 1
+	octave 3
+	note A_, 1
+	octave 4
+	note C_, 1
+	sound_ret
+
+Music_MagnetTrain_Ditty2:
+	note D_, 1
+	note C_, 1
+	octave 3
+	note G_, 1
+	octave 4
+	note C_, 1
+	sound_ret
+
+Music_MagnetTrain_Ditty1:
+	octave 2
+	note D_, 1
+	octave 3
+	note D_, 1
+	octave 2
+	note D_, 1
+	octave 3
+	note D_, 1
+	octave 2
+	note D_, 1
+	octave 3
+	note D_, 1
+	octave 2
+	note D_, 1
+	octave 3
+	note D_, 1
 	sound_ret

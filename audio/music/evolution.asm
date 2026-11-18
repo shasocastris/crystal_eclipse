@@ -13,14 +13,8 @@ Music_Evolution_Ch1:
 	duty_cycle 2
 	note_type 12, 9, 2
 	octave 3
-	pitch_slide 1, 4, A_
-	note C_, 1
-	pitch_slide 1, 4, A_
-	note G_, 1
-	pitch_slide 1, 4, A_
-	note C_, 1
-	pitch_slide 1, 4, A_
-	note G_, 1
+	sound_call Music_Evolution_Ditty1
+	sound_call Music_Evolution_Ditty1
 	rest 4
 	duty_cycle 3
 	stereo_panning FALSE, TRUE
@@ -201,3 +195,10 @@ Music_Evolution_Ch4:
 	drum_note 5, 2
 	drum_note 5, 2
 	sound_loop 0, .mainloop
+
+Music_Evolution_Ditty1:
+	pitch_slide 1, 4, A_
+	note C_, 1
+	pitch_slide 1, 4, A_
+	note G_, 1
+	sound_ret

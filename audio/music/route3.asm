@@ -15,21 +15,7 @@ Music_Route3_Ch1:
 	vibrato 20, 0, 6
 	octave 3
 	note C#, 1
-	note E_, 1
-	note C#, 1
-	note E_, 1
-	note A_, 1
-	note E_, 1
-	note C#, 1
-	note E_, 1
-	note A_, 1
-	note E_, 1
-	note C#, 1
-	note E_, 1
-	note C#, 1
-	note E_, 1
-	note C#, 1
-	note E_, 1
+	sound_call Music_Route3_Ditty1
 	note A_, 1
 	note F_, 1
 	note D_, 1
@@ -48,90 +34,12 @@ Music_Route3_Ch1:
 	note G#, 1
 .mainloop:
 	sound_call .sub1
-	note G_, 1
-	note D_, 1
-	octave 2
-	note B_, 1
-	octave 3
-	note D_, 1
-	note G_, 1
-	note D_, 1
-	octave 2
-	note B_, 1
-	octave 3
-	note D_, 1
-	note G_, 1
-	note D_, 1
-	octave 2
-	note B_, 1
-	octave 3
-	note D_, 1
-	octave 2
-	note B_, 1
-	octave 3
-	note D_, 1
-	octave 2
-	note B_, 1
-	octave 3
-	note D_, 1
+	sound_call Music_Route3_Ditty2
 	note A_, 1
-	note E_, 1
-	note C#, 1
-	note E_, 1
+	sound_call Music_Route3_Ditty1
 	note A_, 1
-	note E_, 1
-	note C#, 1
-	note E_, 1
-	note A_, 1
-	note E_, 1
-	note C#, 1
-	note E_, 1
-	note C#, 1
-	note E_, 1
-	note C#, 1
-	note E_, 1
-	note A_, 1
-	note E_, 1
-	note C#, 1
-	note E_, 1
-	note A_, 1
-	note E_, 1
-	note C#, 1
-	note E_, 1
-	note A_, 1
-	note E_, 1
-	note C#, 1
-	note E_, 1
-	note C#, 1
-	note E_, 1
-	note C#, 1
-	note E_, 1
-	note G_, 1
-	note D_, 1
-	octave 2
-	note B_, 1
-	octave 3
-	note D_, 1
-	note G_, 1
-	note D_, 1
-	octave 2
-	note B_, 1
-	octave 3
-	note D_, 1
-	note G_, 1
-	note D_, 1
-	octave 2
-	note B_, 1
-	octave 3
-	note D_, 1
-	octave 2
-	note B_, 1
-	octave 3
-	note D_, 1
-	octave 2
-	note B_, 1
-	octave 3
-	note D_, 1
+	sound_call Music_Route3_Ditty1
+	sound_call Music_Route3_Ditty2
 	volume_envelope 6, -7
 	note G_, 1
 	note D_, 1
@@ -501,3 +409,50 @@ Music_Route3_Ch4:
 	drum_note 2, 1
 	drum_note 2, 1
 	sound_loop 0, .mainloop
+
+Music_Route3_Ditty1:
+	note E_, 1
+	note C#, 1
+	note E_, 1
+	note A_, 1
+	note E_, 1
+	note C#, 1
+	note E_, 1
+	note A_, 1
+	note E_, 1
+	note C#, 1
+	note E_, 1
+	note C#, 1
+	note E_, 1
+	note C#, 1
+	note E_, 1
+	sound_ret
+
+Music_Route3_Ditty2:
+	note G_, 1
+	note D_, 1
+	octave 2
+	note B_, 1
+	octave 3
+	note D_, 1
+	note G_, 1
+	note D_, 1
+	octave 2
+	note B_, 1
+	octave 3
+	note D_, 1
+	note G_, 1
+	note D_, 1
+	octave 2
+	note B_, 1
+	octave 3
+	note D_, 1
+	octave 2
+	note B_, 1
+	octave 3
+	note D_, 1
+	octave 2
+	note B_, 1
+	octave 3
+	note D_, 1
+	sound_ret

@@ -14,16 +14,7 @@ Music_ProfOaksPokemonTalk_Ch1:
 	duty_cycle 1
 	note_type 12, 9, 4
 	rest 8
-	octave 3
-	note B_, 1
-	octave 4
-	note C#, 1
-	note D#, 1
-	note E_, 1
-	note C#, 1
-	note D#, 1
-	note E_, 1
-	note F#, 1
+	sound_call Music_ProfOaksPokemonTalk_Ditty1
 .mainloop:
 	note D#, 6
 	note C#, 1
@@ -138,16 +129,7 @@ Music_ProfOaksPokemonTalk_Ch2:
 	duty_cycle 3
 	note_type 12, 10, 7
 	stereo_panning TRUE, TRUE
-	octave 3
-	note B_, 1
-	octave 4
-	note C#, 1
-	note D#, 1
-	note E_, 1
-	note C#, 1
-	note D#, 1
-	note E_, 1
-	note F#, 1
+	sound_call Music_ProfOaksPokemonTalk_Ditty1
 	note D#, 1
 	note E_, 1
 	note F#, 1
@@ -306,3 +288,16 @@ Music_ProfOaksPokemonTalk_Ch3:
 	note A#, 1
 	rest 1
 	sound_loop 0, .mainloop
+
+Music_ProfOaksPokemonTalk_Ditty1:
+	octave 3
+	note B_, 1
+	octave 4
+	note C#, 1
+	note D#, 1
+	note E_, 1
+	note C#, 1
+	note D#, 1
+	note E_, 1
+	note F#, 1
+	sound_ret

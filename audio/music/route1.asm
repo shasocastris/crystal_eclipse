@@ -13,17 +13,7 @@ Music_Route1_Ch1:
 	vibrato 22, 1, 1
 	duty_cycle 3
 	note_type 12, 8, 3
-	octave 4
-	note D_, 1
-	note E_, 1
-	note F#, 2
-	note F#, 2
-	note D_, 2
-	octave 3
-	note A_, 2
-	octave 4
-	note B_, 2
-	note A_, 2
+	sound_call Music_Route1_Ditty2
 	note G_, 2
 	note F#, 2
 	note D_, 2
@@ -36,17 +26,7 @@ Music_Route1_Ch1:
 	note E_, 2
 	note G_, 1
 	note E_, 1
-	octave 4
-	note D_, 1
-	note E_, 1
-	note F#, 2
-	note F#, 2
-	note D_, 2
-	octave 3
-	note A_, 2
-	octave 4
-	note B_, 2
-	note A_, 2
+	sound_call Music_Route1_Ditty2
 	note G_, 3
 	note E_, 1
 	note E_, 2
@@ -222,14 +202,7 @@ Music_Route1_Ch2:
 	sound_call .sub3
 	note C#, 2
 	note E_, 2
-	note D_, 2
-	volume_envelope 8, 1
-	note F#, 2
-	note F#, 2
-	volume_envelope 8, 2
-	octave 4
-	note D_, 1
-	note E_, 1
+	sound_call Music_Route1_Ditty3
 	duty_cycle 2
 .mainloop:
 	volume_envelope 8, 2
@@ -281,11 +254,7 @@ Music_Route1_Ch2:
 	note A_, 2
 	octave 4
 	note B_, 4
-	note_type 8, 9, 2
-	note C#, 1
-	note D_, 1
-	note C#, 1
-	note_type 12, 9, 2
+	sound_call Music_Route1_Ditty4
 	octave 3
 	note B_, 1
 	octave 4
@@ -304,23 +273,12 @@ Music_Route1_Ch2:
 	note F#, 1
 	note G_, 1
 	sound_call .sub3
-	note_type 8, 9, 2
-	note C#, 1
-	note D_, 1
-	note C#, 1
-	note_type 12, 9, 2
+	sound_call Music_Route1_Ditty4
 	octave 4
 	note B_, 1
 	octave 5
 	note C#, 1
-	note D_, 2
-	volume_envelope 8, 1
-	note F#, 2
-	note F#, 2
-	volume_envelope 8, 2
-	octave 4
-	note D_, 1
-	note E_, 1
+	sound_call Music_Route1_Ditty3
 	sound_loop 0, .mainloop
 
 .sub1:
@@ -468,44 +426,18 @@ Music_Route1_Ch3:
 	rest 1
 	octave 4
 	note C#, 2
-	octave 2
-	note B_, 1
-	rest 1
-	octave 3
-	note B_, 2
-	octave 2
-	note A_, 1
-	rest 1
-	octave 3
-	note A_, 2
+	sound_call Music_Route1_Ditty1
 	note D_, 1
 	rest 1
 	octave 4
 	note D_, 2
-	octave 2
-	note A_, 1
-	rest 1
-	octave 3
-	note A_, 2
-	octave 2
-	note B_, 1
-	rest 1
-	octave 3
-	note B_, 2
-	octave 2
-	note A_, 1
-	rest 1
-	octave 3
-	note A_, 2
+	sound_call Music_Route1_Ditty5
+	sound_call Music_Route1_Ditty1
 	note C#, 1
 	rest 1
 	octave 4
 	note C#, 2
-	octave 2
-	note A_, 1
-	rest 1
-	octave 3
-	note A_, 2
+	sound_call Music_Route1_Ditty5
 	octave 2
 	note B_, 1
 	rest 1
@@ -520,11 +452,7 @@ Music_Route1_Ch3:
 	rest 1
 	octave 4
 	note C#, 2
-	octave 2
-	note A_, 1
-	rest 1
-	octave 3
-	note A_, 2
+	sound_call Music_Route1_Ditty5
 	octave 4
 	note D_, 2
 	note C#, 1
@@ -548,11 +476,7 @@ Music_Route1_Ch3:
 	rest 1
 	octave 3
 	note F#, 2
-	octave 2
-	note A_, 1
-	rest 1
-	octave 3
-	note A_, 2
+	sound_call Music_Route1_Ditty5
 	octave 4
 	note D_, 2
 	octave 3
@@ -573,16 +497,7 @@ Music_Route1_Ch3:
 	rest 1
 	octave 4
 	note C#, 2
-	octave 2
-	note B_, 1
-	rest 1
-	octave 3
-	note B_, 2
-	octave 2
-	note A_, 1
-	rest 1
-	octave 3
-	note A_, 2
+	sound_call Music_Route1_Ditty1
 	octave 2
 	note G_, 1
 	rest 1
@@ -645,3 +560,50 @@ Music_Route1_Ch3:
 	note A_, 1
 	rest 3
 	sound_loop 0, .mainloop
+
+Music_Route1_Ditty4:
+	note_type 8, 9, 2
+	note C#, 1
+	note D_, 1
+	note C#, 1
+	note_type 12, 9, 2
+	sound_ret
+
+Music_Route1_Ditty3:
+	note D_, 2
+	volume_envelope 8, 1
+	note F#, 2
+	note F#, 2
+	volume_envelope 8, 2
+	octave 4
+	note D_, 1
+	note E_, 1
+	sound_ret
+
+Music_Route1_Ditty1:
+	octave 2
+	note B_, 1
+	rest 1
+	octave 3
+	note B_, 2
+Music_Route1_Ditty5:
+	octave 2
+	note A_, 1
+	rest 1
+	octave 3
+	note A_, 2
+	sound_ret
+
+Music_Route1_Ditty2:
+	octave 4
+	note D_, 1
+	note E_, 1
+	note F#, 2
+	note F#, 2
+	note D_, 2
+	octave 3
+	note A_, 2
+	octave 4
+	note B_, 2
+	note A_, 2
+	sound_ret

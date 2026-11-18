@@ -242,7 +242,6 @@ IcePathHollowMedicScript:
 	iffalse .Refused
 	closetext
 	special SmoothFadeOutToBlack
-	special StubbedTrainerRankings_Healings
 	playmusic MUSIC_HEAL
 	special HealParty
 	pause 60

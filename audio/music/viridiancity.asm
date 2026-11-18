@@ -55,16 +55,7 @@ Music_ViridianCity_Ch1:
 	note D_, 2
 	octave 3
 	note B_, 2
-	note F#, 2
-	note E_, 2
-	note F#, 1
-	rest 1
-	note A_, 1
-	rest 3
-	note F#, 2
-	note A_, 1
-	rest 1
-	octave 4
+	sound_call Music_ViridianCity_Ditty1
 	note C#, 1
 	rest 1
 	rest 2
@@ -125,16 +116,7 @@ Music_ViridianCity_Ch1:
 	note D_, 2
 	note G_, 2
 	octave 3
-	note F#, 2
-	note E_, 2
-	note F#, 1
-	rest 1
-	note A_, 1
-	rest 3
-	note F#, 2
-	note A_, 1
-	rest 1
-	octave 4
+	sound_call Music_ViridianCity_Ditty1
 	note C_, 1
 	rest 1
 	rest 2
@@ -277,11 +259,7 @@ Music_ViridianCity_Ch2:
 	note_type 12, 11, 7
 	stereo_panning TRUE, FALSE
 	octave 2
-	note D_, 4
-	rest 2
-	note A_, 1
-	rest 1
-	note A_, 4
+	sound_call Music_ViridianCity_Ditty2
 	rest 4
 	note D_, 4
 	rest 2
@@ -294,11 +272,7 @@ Music_ViridianCity_Ch2:
 	octave 2
 	note A_, 1
 	rest 1
-	note D_, 4
-	rest 2
-	note A_, 1
-	rest 1
-	note A_, 4
+	sound_call Music_ViridianCity_Ditty2
 	rest 2
 	note E_, 1
 	rest 1
@@ -341,11 +315,7 @@ Music_ViridianCity_Ch2:
 	note E_, 2
 	note B_, 2
 	note G_, 4
-	note D_, 4
-	rest 2
-	note A_, 1
-	rest 1
-	note A_, 4
+	sound_call Music_ViridianCity_Ditty2
 	note C_, 2
 	note C#, 2
 	rest 2
@@ -389,11 +359,7 @@ Music_ViridianCity_Ch2:
 	rest 2
 	note G_, 1
 	rest 1
-	note D_, 4
-	rest 2
-	note A_, 1
-	rest 1
-	note A_, 4
+	sound_call Music_ViridianCity_Ditty2
 	rest 2
 	note D_, 1
 	rest 1
@@ -780,4 +746,25 @@ Music_ViridianCity_Ch4:
 	drum_note 3, 2
 	drum_note 3, 2
 	drum_note 7, 2
+	sound_ret
+
+Music_ViridianCity_Ditty2:
+	note D_, 4
+	rest 2
+	note A_, 1
+	rest 1
+	note A_, 4
+	sound_ret
+
+Music_ViridianCity_Ditty1:
+	note F#, 2
+	note E_, 2
+	note F#, 1
+	rest 1
+	note A_, 1
+	rest 3
+	note F#, 2
+	note A_, 1
+	rest 1
+	octave 4
 	sound_ret

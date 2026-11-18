@@ -436,11 +436,6 @@ HeldItemIcons:
 INCBIN "gfx/stats/mail.2bpp"
 INCBIN "gfx/stats/item.2bpp"
 
-GetIcon_de:
-; Load icon graphics into VRAM starting from tile de.
-	ld l, e
-	ld h, d
-	jr GetIcon
 
 GetIcon_a:
 ; Load icon graphics into VRAM starting from tile a.

@@ -931,11 +931,6 @@ Pokedex_ReloadDexGFX:
 ; that VRAM has to call this on the way out: Unown mode always did, and the AREA
 ; map now must too, because the Town Map tileset grew to 80 tiles and reaches
 ; $4f -- it used to stop at $2f and miss the Pokedex entirely.
-	call Pokedex_CheckSGB
-	jr nz, .decompress
-	farjp LoadSGBPokedexGFX2
-
-.decompress
 	ld hl, PokedexLZ
 	ld de, vTiles2 tile $31
 	lb bc, BANK(PokedexLZ), 58
@@ -2857,12 +2852,6 @@ Pokedex_LoadGFX:
 	ld hl, vTiles2 tile $60
 	ld bc, $20 tiles
 	call Pokedex_InvertTiles
-	call Pokedex_CheckSGB
-	jr nz, .LoadPokedexLZ
-	farcall LoadSGBPokedexGFX
-	jr .LoadPokedexSlowpokeLZ
-
-.LoadPokedexLZ:
 	ld hl, PokedexLZ
 	ld de, vTiles2 tile $31
 	call Decompress
@@ -2896,14 +2885,6 @@ INCBIN "gfx/pokedex/pokedex.2bpp.lz"
 
 PokedexSlowpokeLZ:
 INCBIN "gfx/pokedex/slowpoke.2bpp.lz"
-
-Pokedex_CheckSGB:
-	ldh a, [hCGB]
-	or a
-	ret nz
-	ldh a, [hSGB]
-	dec a
-	ret
 
 Pokedex_LoadUnownFont:
 	ld a, BANK(sScratch)

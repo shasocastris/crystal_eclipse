@@ -40,14 +40,7 @@ Music_RocketTheme_Ch1:
 	octave 4
 	note F_, 1
 	note F#, 3
-	note F_, 2
-	rest 2
-	note D#, 2
-	rest 2
-	note C_, 2
-	note D_, 2
-	note D#, 2
-	note C_, 2
+	sound_call Music_RocketTheme_Ditty1
 	octave 3
 	note A#, 2
 	note G_, 2
@@ -65,14 +58,7 @@ Music_RocketTheme_Ch1:
 	octave 3
 	note F#, 1
 	note G_, 3
-	note F_, 2
-	rest 2
-	note D#, 2
-	rest 2
-	note C_, 2
-	note D_, 2
-	note D#, 2
-	note C_, 2
+	sound_call Music_RocketTheme_Ditty1
 	octave 2
 	note A#, 2
 	note G_, 2
@@ -473,3 +459,14 @@ Music_RocketTheme_Ch4:
 	sound_call Music_LookRocket_Ch4.sub1
 	sound_call Music_LookRocket_Ch4.sub1
 	sound_loop 0, .mainloop
+
+Music_RocketTheme_Ditty1:
+	note F_, 2
+	rest 2
+	note D#, 2
+	rest 2
+	note C_, 2
+	note D_, 2
+	note D#, 2
+	note C_, 2
+	sound_ret

@@ -2724,22 +2724,6 @@ ChannelPointers:
 	dw wChannel8
 	assert_table_length NUM_CHANNELS
 
-ClearChannels::
-; runs ClearChannel for all 4 channels
-	ld hl, rAUDVOL ; channel control registers
-	xor a
-	ld [hli], a ; rAUDVOL  ; volume/vin
-	ld [hli], a ; rAUDTERM ; sfx channels
-	ld a, $80 ; all channels on
-	ld [hli], a ; rAUDENA  ; music channels
-	ld hl, AUD1RAM
-
-	ld e, NUM_MUSIC_CHANS
-.loop
-	call ClearChannel
-	dec e
-	jr nz, .loop
-	ret
 
 ClearChannel:
 ; input: hl = beginning hw sound register (AUD1RAM, AUD2RAM, AUD3RAM, AUD4RAM)

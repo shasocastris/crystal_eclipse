@@ -228,34 +228,12 @@ Music_GymLeaderVictory_Ch3:
 	stereo_panning TRUE, FALSE
 .mainloop:
 .loop1:
-	note D_, 2
-	rest 4
-	octave 2
-	note A_, 2
-	octave 3
-	note C#, 2
-	rest 4
-	octave 2
-	note A_, 2
-	note B_, 2
-	rest 4
-	note G_, 2
+	sound_call Music_GymLeaderVictory_Ditty1
 	note A_, 2
 	rest 2
 	octave 3
 	note C#, 4
-	note D_, 2
-	rest 4
-	octave 2
-	note A_, 2
-	octave 3
-	note C#, 2
-	rest 4
-	octave 2
-	note A_, 2
-	note B_, 2
-	rest 4
-	note G_, 2
+	sound_call Music_GymLeaderVictory_Ditty1
 	octave 3
 	note D_, 2
 	rest 6
@@ -420,4 +398,19 @@ Music_GymLeaderVictory_Ch4:
 	drum_note 3, 2
 	drum_note 4, 2
 	sound_loop 3, .sub1loop1
+	sound_ret
+
+Music_GymLeaderVictory_Ditty1:
+	note D_, 2
+	rest 4
+	octave 2
+	note A_, 2
+	octave 3
+	note C#, 2
+	rest 4
+	octave 2
+	note A_, 2
+	note B_, 2
+	rest 4
+	note G_, 2
 	sound_ret

@@ -17,23 +17,9 @@ Music_Surf_Ch1:
 	volume_envelope 7, 3
 	octave 3
 	note F_, 1
-	rest 1
-	note D#, 1
-	rest 1
-	volume_envelope 7, 3
-	note F_, 1
-	rest 1
-	note D#, 1
-	rest 1
+	sound_call Music_Surf_Ditty1
 	note G#, 1
-	rest 1
-	note D#, 1
-	rest 1
-	volume_envelope 7, 3
-	note F_, 1
-	rest 1
-	note D#, 1
-	rest 1
+	sound_call Music_Surf_Ditty1
 	note F_, 1
 	rest 1
 	note D#, 1
@@ -613,14 +599,7 @@ Music_Surf_Ch3:
 	note D_, 4
 	note D#, 4
 	note_type 6, 1, 3
-	note D_, 1
-	note D#, 15
-	note D_, 4
-	note C_, 4
-	octave 5
-	note D_, 16
-	octave 6
-	note D_, 8
+	sound_call Music_Surf_Ditty2
 	note_type 12, 1, 3
 	octave 5
 	note A#, 12
@@ -641,14 +620,7 @@ Music_Surf_Ch3:
 	note D_, 4
 	note D#, 4
 	note_type 6, 1, 4
-	note D_, 1
-	note D#, 15
-	note D_, 4
-	note C_, 4
-	octave 5
-	note D_, 16
-	octave 6
-	note D_, 8
+	sound_call Music_Surf_Ditty2
 	note_type 12, 1, 4
 	octave 5
 	note A#, 12
@@ -720,4 +692,26 @@ Music_Surf_Ch3:
 	rest 3
 	note G#, 1
 	rest 3
+	sound_ret
+
+Music_Surf_Ditty2:
+	note D_, 1
+	note D#, 15
+	note D_, 4
+	note C_, 4
+	octave 5
+	note D_, 16
+	octave 6
+	note D_, 8
+	sound_ret
+
+Music_Surf_Ditty1:
+	rest 1
+	note D#, 1
+	rest 1
+	volume_envelope 7, 3
+	note F_, 1
+	rest 1
+	note D#, 1
+	rest 1
 	sound_ret

@@ -116,21 +116,11 @@ Music_LookKimonoGirl_Ch2:
 	note E_, 1
 	note D_, 1
 	octave 4
-	note B_, 1
-	note A_, 1
-	note B_, 1
-	note A_, 1
-	note E_, 1
-	note D_, 1
+	sound_call Music_LookKimonoGirl_Ditty1
 	note E_, 1
 	note D_, 1
 	octave 3
-	note B_, 1
-	note A_, 1
-	note B_, 1
-	note A_, 1
-	note E_, 1
-	note D_, 1
+	sound_call Music_LookKimonoGirl_Ditty1
 	sound_call .sub1
 	octave 5
 	note F_, 1
@@ -145,12 +135,7 @@ Music_LookKimonoGirl_Ch2:
 	note F_, 1
 	note D_, 1
 	octave 3
-	note B_, 1
-	note A_, 1
-	note B_, 1
-	note A_, 1
-	note E_, 1
-	note D_, 1
+	sound_call Music_LookKimonoGirl_Ditty1
 	sound_call .sub1
 	sound_loop 0, .mainloop
 
@@ -264,3 +249,12 @@ Music_LookKimonoGirl_Ch3:
 	note D_, 8
 	note E_, 8
 	sound_loop 0, .mainloop
+
+Music_LookKimonoGirl_Ditty1:
+	note B_, 1
+	note A_, 1
+	note B_, 1
+	note A_, 1
+	note E_, 1
+	note D_, 1
+	sound_ret

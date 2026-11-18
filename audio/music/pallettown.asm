@@ -125,19 +125,9 @@ Music_PalletTown_Ch2:
 	stereo_panning TRUE, FALSE
 .mainloop:
 	note_type 12, 8, 8
-	octave 1
-	note G_, 2
-	note B_, 2
-	octave 2
-	note D_, 2
-	note G_, 6
+	sound_call Music_PalletTown_Ditty1
 	note F#, 4
-	octave 1
-	note G_, 2
-	note B_, 2
-	octave 2
-	note D_, 2
-	note G_, 6
+	sound_call Music_PalletTown_Ditty1
 	octave 1
 	note B_, 4
 	octave 2
@@ -155,12 +145,7 @@ Music_PalletTown_Ch2:
 	rest 4
 	note D_, 4
 	note F#, 4
-	octave 1
-	note G_, 2
-	note B_, 2
-	octave 2
-	note D_, 2
-	note G_, 6
+	sound_call Music_PalletTown_Ditty1
 	note F#, 4
 	note E_, 2
 	note D_, 2
@@ -356,3 +341,12 @@ Music_PalletTown_Ch3:
 	note B_, 8
 	note A_, 8
 	sound_loop 0, .mainloop
+
+Music_PalletTown_Ditty1:
+	octave 1
+	note G_, 2
+	note B_, 2
+	octave 2
+	note D_, 2
+	note G_, 6
+	sound_ret

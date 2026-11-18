@@ -22,19 +22,6 @@ SaveMenu:
 	scf
 	ret
 
-SaveAfterLinkTrade:
-	call PauseGameLogic
-	call StageRTCTimeForSave
-	call SavePokemonData
-	call SaveIndexTables
-	call SaveChecksum
-	call SaveBackupPokemonData
-	call SaveBackupIndexTables
-	call SaveBackupChecksum
-	farcall BackupPartyMonMail
-	call SaveRTC
-	jr ResumeGameLogic
-
 Link_SaveGame:
 	call AskOverwriteSaveFile
 	ret c
@@ -215,17 +202,6 @@ CopyStorageSystem:
 	rst CopyBytes
 	jmp CloseSRAM
 
-
-FindStackTop:
-; Find the furthest point that sp has traversed to.
-; This is distinct from the current value of sp.
-	ld hl, wStackBottom
-.loop
-	ld a, [hl]
-	or a
-	ret nz
-	inc hl
-	jr .loop
 
 ErasePreviousSave:
 	call EraseHallOfFame

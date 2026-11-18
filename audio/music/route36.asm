@@ -336,30 +336,8 @@ Music_Route36_Ch3:
 	note D#, 2
 	note E_, 2
 .mainloop:
-	note F_, 4
-	note C_, 2
-	note F_, 4
-	note C_, 2
-	note F_, 2
-	note C_, 2
-	note G_, 4
-	note D#, 2
-	note G_, 4
-	note D#, 2
-	note G_, 2
-	note D#, 2
-	note F_, 4
-	note C_, 2
-	note F_, 4
-	note C_, 2
-	note F_, 2
-	note C_, 2
-	note G_, 4
-	note D#, 2
-	note G_, 4
-	note D#, 2
-	note G_, 2
-	note D#, 2
+	sound_call Music_Route36_Ditty2
+	sound_call Music_Route36_Ditty2
 	note A_, 4
 	note F_, 2
 	note A_, 4
@@ -390,52 +368,10 @@ Music_Route36_Ch3:
 	octave 2
 	note A_, 2
 	octave 3
-	note F#, 4
-	note D_, 2
-	note F#, 4
-	note D_, 2
-	note F#, 2
-	note D_, 2
-	note G_, 4
-	note E_, 2
-	note G_, 4
-	note E_, 2
-	note G_, 2
-	note E_, 2
-	note F#, 4
-	note D_, 2
-	note F#, 4
-	note D_, 2
-	note F#, 2
-	note D_, 2
-	note F#, 4
-	note D_, 2
-	note F#, 4
-	note D_, 2
+	sound_call Music_Route36_Ditty1
 	note E_, 2
 	note A_, 2
-	note F#, 4
-	note D_, 2
-	note F#, 4
-	note D_, 2
-	note F#, 2
-	note D_, 2
-	note G_, 4
-	note E_, 2
-	note G_, 4
-	note E_, 2
-	note G_, 2
-	note E_, 2
-	note F#, 4
-	note D_, 2
-	note F#, 4
-	note D_, 2
-	note F#, 2
-	note D_, 2
-	note F#, 4
-	note D_, 2
-	note F#, 4
-	note D_, 2
+	sound_call Music_Route36_Ditty1
 	note F#, 2
 	note D_, 2
 	note G_, 4
@@ -519,4 +455,44 @@ Music_Route36_Ch4:
 	drum_note 10, 1
 	drum_note 10, 1
 	drum_speed 12
+	sound_ret
+
+Music_Route36_Ditty2:
+	note F_, 4
+	note C_, 2
+	note F_, 4
+	note C_, 2
+	note F_, 2
+	note C_, 2
+	note G_, 4
+	note D#, 2
+	note G_, 4
+	note D#, 2
+	note G_, 2
+	note D#, 2
+	sound_ret
+
+Music_Route36_Ditty1:
+	note F#, 4
+	note D_, 2
+	note F#, 4
+	note D_, 2
+	note F#, 2
+	note D_, 2
+	note G_, 4
+	note E_, 2
+	note G_, 4
+	note E_, 2
+	note G_, 2
+	note E_, 2
+	note F#, 4
+	note D_, 2
+	note F#, 4
+	note D_, 2
+	note F#, 2
+	note D_, 2
+	note F#, 4
+	note D_, 2
+	note F#, 4
+	note D_, 2
 	sound_ret

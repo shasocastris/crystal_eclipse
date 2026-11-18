@@ -46,6 +46,11 @@ SECTION "Load Map Part", ROMX
 INCLUDE "engine/overworld/player_step.asm"
 INCLUDE "engine/overworld/load_map_part.asm"
 
+
+SECTION "Load Map Blocks", ROMX
+
+INCLUDE "engine/overworld/load_map_blocks.asm"
+
 SECTION "bank4", ROMX
 
 INCLUDE "engine/items/pack.asm"
@@ -518,14 +523,9 @@ SECTION "Title", ROMX
 INCLUDE "engine/movie/title.asm"
 
 
-SECTION "mobile45", ROMX
+SECTION "Battle Tower Room Menu", ROMX
 
-INCLUDE "mobile/mobile_45_sprite_engine.asm"
-
-
-SECTION "mobile46", ROMX
-
-INCLUDE "mobile/mobile_46.asm"
+INCLUDE "engine/events/battle_tower/room_menu.asm"
 
 
 SECTION "Battle Tower", ROMX

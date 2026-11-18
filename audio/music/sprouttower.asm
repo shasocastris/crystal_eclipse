@@ -52,14 +52,7 @@ Music_SproutTower_Ch1:
 	volume_envelope 10, 7
 	note C_, 16
 	volume_envelope 10, 3
-	note F_, 4
-	note F_, 4
-	note F#, 4
-	note F#, 4
-	note F_, 4
-	note F_, 4
-	note D#, 4
-	note D#, 4
+	sound_call Music_SproutTower_Ditty2
 	sound_loop 0, .mainloop
 
 Music_SproutTower_Ch2:
@@ -68,14 +61,7 @@ Music_SproutTower_Ch2:
 	vibrato 8, 4, 8
 	note_type 12, 11, 2
 	octave 3
-	note F_, 4
-	note F_, 4
-	note F#, 4
-	note F#, 4
-	note F_, 4
-	note F_, 4
-	note D#, 4
-	note D#, 4
+	sound_call Music_SproutTower_Ditty2
 .mainloop:
 	volume_envelope 11, 5
 	octave 4
@@ -143,21 +129,9 @@ Music_SproutTower_Ch3:
 	vibrato 20, 14, 8
 	note_type 12, 1, 4
 	octave 3
-	note F_, 2
-	rest 2
-	note C_, 2
-	note F_, 2
+	sound_call Music_SproutTower_Ditty1
 	note F#, 2
-	note D#, 2
-	rest 2
-	note F#, 2
-	note F_, 2
-	rest 2
-	note C_, 2
-	note F_, 2
-	note F#, 2
-	note D#, 2
-	rest 2
+	sound_call Music_SproutTower_Ditty1
 	note F#, 2
 	stereo_panning TRUE, FALSE
 .mainloop:
@@ -168,13 +142,7 @@ Music_SproutTower_Ch3:
 	note D#, 2
 	rest 2
 	note F#, 2
-	note F_, 2
-	rest 2
-	note C_, 2
-	note F_, 2
-	note F#, 2
-	note D#, 2
-	rest 2
+	sound_call Music_SproutTower_Ditty1
 	note F_, 2
 	note D#, 2
 	rest 2
@@ -186,13 +154,7 @@ Music_SproutTower_Ch3:
 	note D#, 2
 	rest 2
 	note F#, 2
-	note F_, 2
-	rest 2
-	note C_, 2
-	note F_, 2
-	note F#, 2
-	note D#, 2
-	rest 2
+	sound_call Music_SproutTower_Ditty1
 	note F#, 2
 	note F_, 8
 	note F#, 4
@@ -201,21 +163,9 @@ Music_SproutTower_Ch3:
 	note F_, 4
 	note F#, 4
 	note F_, 16
+	sound_call Music_SproutTower_Ditty1
 	note F_, 2
-	rest 2
-	note C_, 2
-	note F_, 2
-	note F#, 2
-	note D#, 2
-	rest 2
-	note F_, 2
-	note F_, 2
-	rest 2
-	note C_, 2
-	note F_, 2
-	note F#, 2
-	note D#, 2
-	rest 2
+	sound_call Music_SproutTower_Ditty1
 	note F_, 2
 	sound_loop 0, .mainloop
 
@@ -241,3 +191,24 @@ Music_SproutTower_Ch4:
 	stereo_panning TRUE, TRUE
 	drum_note 7, 4
 	sound_loop 0, .mainloop
+
+Music_SproutTower_Ditty1:
+	note F_, 2
+	rest 2
+	note C_, 2
+	note F_, 2
+	note F#, 2
+	note D#, 2
+	rest 2
+	sound_ret
+
+Music_SproutTower_Ditty2:
+	note F_, 4
+	note F_, 4
+	note F#, 4
+	note F#, 4
+	note F_, 4
+	note F_, 4
+	note D#, 4
+	note D#, 4
+	sound_ret

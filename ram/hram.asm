@@ -160,7 +160,7 @@ hBattleTurn::
 
 hCGBPalUpdate:: db
 hCGB::          db
-hSGB::          db
+	ds 1 ; was hSGB
 
 hDMATransfer:: db
 hMobile:: db

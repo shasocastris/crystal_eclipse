@@ -19,24 +19,8 @@ Music_ContestResults_Ch1:
 	note G_, 1
 	rest 3
 	note G_, 1
-	rest 1
-	rest 2
-	note A_, 1
-	rest 3
-	note A_, 1
-	rest 3
-	note A_, 1
-	rest 3
-	note A_, 1
-	rest 1
-	rest 2
-	note A_, 1
-	rest 3
-	note A_, 1
-	rest 3
-	note A_, 1
-	rest 3
-	note A_, 1
+	sound_call Music_ContestResults_Ditty2
+	sound_call Music_ContestResults_Ditty2
 	rest 1
 	rest 2
 	note B_, 1
@@ -72,16 +56,7 @@ Music_ContestResults_Ch2:
 	octave 3
 	note E_, 1
 	rest 1
-	octave 2
-	note D_, 2
-	octave 3
-	note F_, 1
-	rest 1
-	octave 1
-	note A_, 2
-	octave 3
-	note F_, 1
-	rest 1
+	sound_call Music_ContestResults_Ditty1
 	octave 1
 	note B_, 2
 	octave 3
@@ -93,16 +68,7 @@ Music_ContestResults_Ch2:
 	note F_, 1
 	rest 1
 .loop1:
-	octave 2
-	note D_, 2
-	octave 3
-	note F_, 1
-	rest 1
-	octave 1
-	note A_, 2
-	octave 3
-	note F_, 1
-	rest 1
+	sound_call Music_ContestResults_Ditty1
 	sound_loop 2, .loop1
 	octave 2
 	note G_, 2
@@ -172,3 +138,28 @@ Music_ContestResults_Ch4:
 	drum_note 8, 1
 	drum_note 8, 1
 	sound_loop 0, .mainloop
+
+Music_ContestResults_Ditty2:
+	rest 1
+	rest 2
+	note A_, 1
+	rest 3
+	note A_, 1
+	rest 3
+	note A_, 1
+	rest 3
+	note A_, 1
+	sound_ret
+
+Music_ContestResults_Ditty1:
+	octave 2
+	note D_, 2
+	octave 3
+	note F_, 1
+	rest 1
+	octave 1
+	note A_, 2
+	octave 3
+	note F_, 1
+	rest 1
+	sound_ret

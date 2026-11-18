@@ -198,15 +198,7 @@ Music_LakeOfRage_Ch3:
 	note E_, 4
 .mainloop:
 	octave 3
-	note D_, 4
-	octave 2
-	note A_, 2
-	octave 3
-	note D_, 4
-	octave 2
-	note A_, 2
-	octave 3
-	note D_, 2
+	sound_call Music_LakeOfRage_Ditty2
 	note E_, 2
 	note F_, 4
 	note C_, 2
@@ -243,19 +235,7 @@ Music_LakeOfRage_Ch3:
 	note E_, 4
 	note C_, 2
 	note E_, 2
-	note C_, 2
-	note G_, 4
-	note C_, 2
-	note G_, 4
-	note C_, 2
-	note G_, 2
-	note C_, 2
-	note F#, 4
-	note D_, 2
-	note F#, 4
-	note D_, 2
-	note F#, 2
-	note D_, 2
+	sound_call Music_LakeOfRage_Ditty1
 	note A_, 2
 	note D_, 2
 	note F#, 2
@@ -270,28 +250,8 @@ Music_LakeOfRage_Ch3:
 	note G_, 4
 	note C_, 2
 	note G_, 2
-	note C_, 2
-	note G_, 4
-	note C_, 2
-	note G_, 4
-	note C_, 2
-	note G_, 2
-	note C_, 2
-	note F#, 4
-	note D_, 2
-	note F#, 4
-	note D_, 2
-	note F#, 2
-	note D_, 2
-	note D_, 4
-	octave 2
-	note A_, 2
-	octave 3
-	note D_, 4
-	octave 2
-	note A_, 2
-	octave 3
-	note D_, 2
+	sound_call Music_LakeOfRage_Ditty1
+	sound_call Music_LakeOfRage_Ditty2
 	octave 2
 	note A_, 2
 	sound_loop 0, .mainloop
@@ -321,3 +281,31 @@ Music_LakeOfRage_Ch4:
 	drum_note 3, 1
 	drum_note 3, 1
 	sound_loop 0, .mainloop
+
+Music_LakeOfRage_Ditty2:
+	note D_, 4
+	octave 2
+	note A_, 2
+	octave 3
+	note D_, 4
+	octave 2
+	note A_, 2
+	octave 3
+	note D_, 2
+	sound_ret
+
+Music_LakeOfRage_Ditty1:
+	note C_, 2
+	note G_, 4
+	note C_, 2
+	note G_, 4
+	note C_, 2
+	note G_, 2
+	note C_, 2
+	note F#, 4
+	note D_, 2
+	note F#, 4
+	note D_, 2
+	note F#, 2
+	note D_, 2
+	sound_ret

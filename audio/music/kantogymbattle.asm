@@ -47,40 +47,14 @@ Music_KantoGymBattle_Ch1:
 	note B_, 1
 	note A#, 1
 	note B_, 1
-	note A#, 2
-	note A#, 6
-	note A#, 2
-	note A#, 6
-	note A#, 2
-	note A#, 8
-	volume_envelope 11, 7
-	note B_, 2
-	volume_envelope 11, 2
-	note A#, 2
-	note A#, 6
-	note A#, 2
-	note A#, 6
-	note A#, 2
+	sound_call Music_KantoGymBattle_Ditty4
 	note A#, 8
 	volume_envelope 11, 7
 	octave 3
 	note E_, 2
 	volume_envelope 11, 2
 	octave 2
-	note A#, 2
-	note A#, 6
-	note A#, 2
-	note A#, 6
-	note A#, 2
-	note A#, 8
-	volume_envelope 11, 7
-	note B_, 2
-	volume_envelope 11, 2
-	note A#, 2
-	note A#, 6
-	note A#, 2
-	note A#, 6
-	note A#, 2
+	sound_call Music_KantoGymBattle_Ditty4
 	volume_envelope 11, 4
 	octave 3
 	note E_, 4
@@ -105,64 +79,15 @@ Music_KantoGymBattle_Ch1:
 	note G#, 10
 	octave 3
 	note E_, 6
-	volume_envelope 11, 2
-	note D#, 2
-	note D#, 2
-	note G_, 1
-	note E_, 1
-	note D#, 1
-	note G_, 1
-	note D#, 2
-	note D#, 2
-	note A#, 1
-	note G#, 1
-	note E_, 1
-	note A#, 1
-	note D#, 2
-	note D#, 2
-	note B_, 1
-	note A#, 1
-	note G#, 1
-	note B_, 1
+	sound_call Music_KantoGymBattle_Ditty1
 	note D#, 2
 	volume_envelope 11, 7
 	note E_, 2
-	volume_envelope 11, 2
-	note D#, 2
-	note D#, 2
-	note G_, 1
-	note E_, 1
-	note D#, 1
-	note G_, 1
-	note D#, 2
-	note D#, 2
-	note A#, 1
-	note G#, 1
-	note E_, 1
-	note A#, 1
-	note D#, 2
-	note D#, 2
-	note B_, 1
-	note A#, 1
-	note G#, 1
-	note B_, 1
+	sound_call Music_KantoGymBattle_Ditty1
 	note G#, 2
 	volume_envelope 11, 5
 	note B_, 2
-	note D#, 2
-	note C#, 2
-	octave 2
-	note A#, 4
-	note D#, 2
-	note G#, 2
-	note B_, 2
-	octave 3
-	note E_, 2
-	note D#, 4
-	note C#, 2
-	octave 2
-	note A#, 2
-	note A#, 2
+	sound_call Music_KantoGymBattle_Ditty5
 	note D#, 2
 	note A#, 2
 	octave 3
@@ -175,20 +100,7 @@ Music_KantoGymBattle_Ch1:
 	note B_, 6
 	volume_envelope 11, 5
 	octave 3
-	note D#, 2
-	note C#, 2
-	octave 2
-	note A#, 4
-	note D#, 2
-	note G#, 2
-	note B_, 2
-	octave 3
-	note E_, 2
-	note D#, 4
-	note C#, 2
-	octave 2
-	note A#, 2
-	note A#, 2
+	sound_call Music_KantoGymBattle_Ditty5
 	note G#, 2
 	note A#, 2
 	octave 3
@@ -267,47 +179,11 @@ Music_KantoGymBattle_Ch2:
 	sound_loop 8, .loop1
 	octave 3
 .loop2:
-	volume_envelope 12, 2
-	note D#, 2
-	note D#, 2
-	note F#, 1
-	note E_, 1
-	note D#, 1
-	note F#, 1
-	note D#, 2
-	note D#, 2
-	note A#, 1
-	note G#, 1
-	note F#, 1
-	note A#, 1
-	note D#, 2
-	note D#, 2
-	note B_, 1
-	note A#, 1
-	note G#, 1
-	note B_, 1
+	sound_call Music_KantoGymBattle_Ditty2
 	note D_, 2
 	volume_envelope 12, 7
 	note E_, 2
-	volume_envelope 12, 2
-	note D#, 2
-	note D#, 2
-	note F#, 1
-	note E_, 1
-	note D#, 1
-	note F#, 1
-	note D#, 2
-	note D#, 2
-	note A#, 1
-	note G#, 1
-	note F#, 1
-	note A#, 1
-	note D#, 2
-	note D#, 2
-	note B_, 1
-	note A#, 1
-	note G#, 1
-	note B_, 1
+	sound_call Music_KantoGymBattle_Ditty2
 	note G#, 2
 	volume_envelope 12, 7
 	note B_, 2
@@ -453,16 +329,7 @@ Music_KantoGymBattle_Ch3:
 	note D#, 1
 	rest 1
 	note F#, 4
-	note D#, 1
-	rest 1
-	note D#, 1
-	rest 1
-	note A#, 4
-	note D#, 1
-	rest 1
-	note D#, 1
-	rest 1
-	note B_, 4
+	sound_call Music_KantoGymBattle_Ditty3
 	note D_, 1
 	rest 1
 	note F_, 2
@@ -471,16 +338,7 @@ Music_KantoGymBattle_Ch3:
 	note D#, 1
 	rest 1
 	note F#, 4
-	note D#, 1
-	rest 1
-	note D#, 1
-	rest 1
-	note A#, 4
-	note D#, 1
-	rest 1
-	note D#, 1
-	rest 1
-	note B_, 4
+	sound_call Music_KantoGymBattle_Ditty3
 	note D#, 1
 	rest 1
 	note E_, 2
@@ -524,16 +382,7 @@ Music_KantoGymBattle_Ch3:
 	octave 2
 	note B_, 2
 .loop7:
-	note D#, 1
-	rest 1
-	note D#, 1
-	rest 1
-	note A#, 4
-	note D#, 1
-	rest 1
-	note D#, 1
-	rest 1
-	note B_, 4
+	sound_call Music_KantoGymBattle_Ditty3
 	note D#, 1
 	rest 1
 	note D#, 1
@@ -610,3 +459,94 @@ Music_KantoGymBattle_Ch3:
 	note D#, 2
 	note F_, 2
 	sound_loop 0, .mainloop
+
+Music_KantoGymBattle_Ditty3:
+	note D#, 1
+	rest 1
+	note D#, 1
+	rest 1
+	note A#, 4
+	note D#, 1
+	rest 1
+	note D#, 1
+	rest 1
+	note B_, 4
+	sound_ret
+
+Music_KantoGymBattle_Ditty5:
+	note D#, 2
+	note C#, 2
+	octave 2
+	note A#, 4
+	note D#, 2
+	note G#, 2
+	note B_, 2
+	octave 3
+	note E_, 2
+	note D#, 4
+	note C#, 2
+	octave 2
+	note A#, 2
+	note A#, 2
+	sound_ret
+
+Music_KantoGymBattle_Ditty4:
+	note A#, 2
+	note A#, 6
+	note A#, 2
+	note A#, 6
+	note A#, 2
+	note A#, 8
+	volume_envelope 11, 7
+	note B_, 2
+	volume_envelope 11, 2
+	note A#, 2
+	note A#, 6
+	note A#, 2
+	note A#, 6
+	note A#, 2
+	sound_ret
+
+Music_KantoGymBattle_Ditty2:
+	volume_envelope 12, 2
+	note D#, 2
+	note D#, 2
+	note F#, 1
+	note E_, 1
+	note D#, 1
+	note F#, 1
+	note D#, 2
+	note D#, 2
+	note A#, 1
+	note G#, 1
+	note F#, 1
+	note A#, 1
+	note D#, 2
+	note D#, 2
+	note B_, 1
+	note A#, 1
+	note G#, 1
+	note B_, 1
+	sound_ret
+
+Music_KantoGymBattle_Ditty1:
+	volume_envelope 11, 2
+	note D#, 2
+	note D#, 2
+	note G_, 1
+	note E_, 1
+	note D#, 1
+	note G_, 1
+	note D#, 2
+	note D#, 2
+	note A#, 1
+	note G#, 1
+	note E_, 1
+	note A#, 1
+	note D#, 2
+	note D#, 2
+	note B_, 1
+	note A#, 1
+	note G#, 1
+	note B_, 1
+	sound_ret

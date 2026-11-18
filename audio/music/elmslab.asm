@@ -159,24 +159,9 @@ Music_ElmsLab_Ch1:
 	note E_, 4
 	volume_envelope 11, 4
 	octave 3
-	note A_, 2
-	note F_, 2
-	octave 4
-	note C_, 2
-	octave 3
-	note F_, 2
-	note A_, 2
-	note F_, 2
-	octave 4
-	note C_, 2
-	octave 3
-	note F_, 2
-	note A_, 2
-	note F_, 2
-	octave 4
-	note C_, 2
-	octave 3
-	note F_, 2
+	sound_call Music_ElmsLab_Ditty3
+	sound_call Music_ElmsLab_Ditty3
+	sound_call Music_ElmsLab_Ditty3
 	note A_, 2
 	volume_envelope 11, 2
 	note F_, 2
@@ -357,36 +342,14 @@ Music_ElmsLab_Ch3:
 	rest 14
 	octave 3
 	note C_, 2
-	note F_, 2
-	note A_, 2
-	note C_, 2
-	note A_, 2
-	note F_, 2
-	note A_, 2
-	note C_, 2
-	note A_, 2
-	note F_, 2
-	note A_, 2
-	note C_, 2
-	note A_, 2
-	note F_, 2
+	sound_call Music_ElmsLab_Ditty1
+	sound_call Music_ElmsLab_Ditty2
 	note C_, 2
 	note D_, 2
 	note E_, 2
 .mainloop:
-	note F_, 2
-	note A_, 2
-	note C_, 2
-	note A_, 2
-	note F_, 2
-	note A_, 2
-	note C_, 2
-	note A_, 2
-	note F_, 2
-	note A_, 2
-	note C_, 2
-	note A_, 2
-	note F_, 2
+	sound_call Music_ElmsLab_Ditty1
+	sound_call Music_ElmsLab_Ditty2
 	note A_, 2
 	note E_, 2
 	octave 4
@@ -402,11 +365,7 @@ Music_ElmsLab_Ch3:
 	note A_, 2
 	note D_, 2
 	note E_, 2
-	note F_, 2
-	note A_, 2
-	note C_, 2
-	note A_, 2
-	note F_, 2
+	sound_call Music_ElmsLab_Ditty2
 	note C_, 2
 	note D_, 2
 	note E_, 2
@@ -453,14 +412,7 @@ Music_ElmsLab_Ch3:
 	octave 3
 	note A#, 4
 	note G_, 4
-	note F_, 2
-	note A_, 2
-	note C_, 2
-	note A_, 2
-	note F_, 2
-	note A_, 2
-	note C_, 2
-	note A_, 2
+	sound_call Music_ElmsLab_Ditty1
 	note G_, 2
 	note A#, 2
 	note D_, 2
@@ -477,22 +429,11 @@ Music_ElmsLab_Ch3:
 	note G_, 2
 	note C_, 2
 	note G_, 2
-	note F_, 2
-	note A_, 2
-	note C_, 2
-	note A_, 2
-	note F_, 2
+	sound_call Music_ElmsLab_Ditty2
 	note A_, 2
 	note G_, 2
 	note E_, 2
-	note F_, 2
-	note A_, 2
-	note C_, 2
-	note A_, 2
-	note F_, 2
-	note A_, 2
-	note C_, 2
-	note A_, 2
+	sound_call Music_ElmsLab_Ditty1
 	note G_, 2
 	note A#, 2
 	note D_, 2
@@ -509,19 +450,8 @@ Music_ElmsLab_Ch3:
 	note F_, 4
 	note F#, 4
 	note G_, 4
-	note F_, 2
-	note A_, 2
-	note C_, 2
-	note A_, 2
-	note F_, 2
-	note A_, 2
-	note C_, 2
-	note A_, 2
-	note F_, 2
-	note A_, 2
-	note C_, 2
-	note A_, 2
-	note F_, 2
+	sound_call Music_ElmsLab_Ditty1
+	sound_call Music_ElmsLab_Ditty2
 	note C_, 2
 	note F_, 2
 	note A_, 2
@@ -536,3 +466,31 @@ Music_ElmsLab_Ch4:
 .mainloop:
 	drum_note 8, 4
 	sound_loop 0, .mainloop
+
+Music_ElmsLab_Ditty2:
+	note F_, 2
+	note A_, 2
+	note C_, 2
+	note A_, 2
+	note F_, 2
+	sound_ret
+
+Music_ElmsLab_Ditty3:
+	note A_, 2
+	note F_, 2
+	octave 4
+	note C_, 2
+	octave 3
+	note F_, 2
+	sound_ret
+
+Music_ElmsLab_Ditty1:
+	note F_, 2
+	note A_, 2
+	note C_, 2
+	note A_, 2
+	note F_, 2
+	note A_, 2
+	note C_, 2
+	note A_, 2
+	sound_ret

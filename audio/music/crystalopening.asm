@@ -52,22 +52,8 @@ Music_CrystalOpening_Ch1:
 	note B_, 2
 	octave 3
 	note E_, 2
-	note F#, 2
-	note E_, 2
-	octave 2
-	note B_, 2
-	note F#, 2
-	note B_, 2
-	octave 3
-	note E_, 2
-	note F#, 2
-	note E_, 2
-	octave 2
-	note B_, 2
-	note F#, 2
-	note B_, 2
-	octave 3
-	note E_, 2
+	sound_call Music_CrystalOpening_Ditty3
+	sound_call Music_CrystalOpening_Ditty3
 	octave 2
 	note D_, 8
 	octave 3
@@ -180,32 +166,8 @@ Music_CrystalOpening_Ch2:
 Music_CrystalOpening_Ch3:
 	note_type 12, 1, 6
 	octave 1
-	note B_, 4
-	note_type 6, 1, 6
-	note B_, 1
-	note A#, 1
-	note A_, 1
-	note G#, 1
-	note G_, 1
-	note F#, 1
-	note F_, 1
-	note E_, 1
-	note_type 12, 1, 6
-	note B_, 4
-	note B_, 4
-	note B_, 4
-	note_type 6, 1, 6
-	note B_, 1
-	note A#, 1
-	note A_, 1
-	note G#, 1
-	note G_, 1
-	note F#, 1
-	note F_, 1
-	note E_, 1
-	note_type 12, 1, 6
-	note B_, 4
-	note B_, 4
+	sound_call Music_CrystalOpening_Ditty1
+	sound_call Music_CrystalOpening_Ditty1
 	octave 2
 	note B_, 8
 	note F#, 8
@@ -248,23 +210,14 @@ Music_CrystalOpening_Ch4:
 	rest 16
 	rest 12
 	octave 2
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
+	sound_call Music_CrystalOpening_Ditty2
 	drum_note 3, 4
 	drum_speed 8
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
+	sound_call Music_CrystalOpening_Ditty2
 	drum_note 2, 1
 	drum_note 2, 1
 	drum_note 3, 6
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
+	sound_call Music_CrystalOpening_Ditty2
 	drum_note 2, 1
 	drum_note 2, 1
 	drum_note 3, 3
@@ -303,20 +256,11 @@ Music_CrystalOpening_Ch4:
 	drum_note 2, 2
 	drum_note 10, 2
 	drum_note 3, 2
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
+	sound_call Music_CrystalOpening_Ditty2
 	drum_note 3, 4
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
+	sound_call Music_CrystalOpening_Ditty2
 	drum_note 3, 4
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
+	sound_call Music_CrystalOpening_Ditty2
 	drum_note 10, 1
 	drum_note 8, 1
 	drum_note 3, 1
@@ -357,4 +301,38 @@ Music_CrystalOpening_Ch4:
 	rest 6
 	rest 16
 	rest 16
+	sound_ret
+
+Music_CrystalOpening_Ditty2:
+	drum_note 2, 1
+	drum_note 2, 1
+	drum_note 2, 1
+	drum_note 2, 1
+	sound_ret
+
+Music_CrystalOpening_Ditty3:
+	note F#, 2
+	note E_, 2
+	octave 2
+	note B_, 2
+	note F#, 2
+	note B_, 2
+	octave 3
+	note E_, 2
+	sound_ret
+
+Music_CrystalOpening_Ditty1:
+	note B_, 4
+	note_type 6, 1, 6
+	note B_, 1
+	note A#, 1
+	note A_, 1
+	note G#, 1
+	note G_, 1
+	note F#, 1
+	note F_, 1
+	note E_, 1
+	note_type 12, 1, 6
+	note B_, 4
+	note B_, 4
 	sound_ret

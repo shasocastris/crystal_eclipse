@@ -51,34 +51,6 @@ _ClockHasResetText::
 	line "reset."
 	done
 
-_LinkTimeoutText::
-	text "Too much time has"
-	line "elapsed. Please"
-	cont "try again."
-	prompt
-
-_LinkTradeCantBattleText::
-	text "If you trade that"
-	line "#MON, you won't"
-	cont "be able to battle."
-	prompt
-
-_LinkAbnormalMonText::
-	text "Your friend's"
-	line "@"
-	text_ram wStringBuffer1
-	text " appears"
-	cont "to be abnormal!"
-	prompt
-
-_LinkAskTradeForText::
-	text "Trade @"
-	text_ram wBufferTrademonNickname
-	text_start
-	line "for @"
-	text_ram wStringBuffer1
-	text "?"
-	done
 
 _WouldYouLikeToSaveTheGameText::
 	text "Would you like to"
@@ -110,13 +82,6 @@ _ObjectEventText::
 	text "Object event"
 	done
 
-_BGEventText::
-	text "BG event"
-	done
-
-_CoordinatesEventText::
-	text "Coordinates event"
-	done
 
 _ReceivedItemText::
 	text "<PLAYER> received"

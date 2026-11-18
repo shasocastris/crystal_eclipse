@@ -19,34 +19,12 @@ Music_RocketHideout_Ch1:
 	sound_loop 4, .loop1
 .loop2:
 	octave 2
-	note D#, 2
-	rest 2
-	note A#, 4
-	note A_, 2
-	rest 6
-	note D#, 2
-	note A#, 4
-	note A_, 2
-	rest 8
+	sound_call Music_RocketHideout_Ditty1
 	sound_loop 2, .loop2
-	octave 3
-	note A#, 2
-	note A_, 2
-	note F_, 2
-	note F#, 2
-	octave 4
+	sound_call Music_RocketHideout_Ditty4
 	note C#, 2
 	note C_, 2
-	note C#, 2
-	note C_, 2
-	octave 3
-	note A#, 2
-	note A_, 2
-	note F_, 2
-	note F#, 2
-	octave 4
-	note C#, 2
-	note C_, 2
+	sound_call Music_RocketHideout_Ditty4
 	octave 3
 	note A#, 2
 	note A_, 2
@@ -69,24 +47,10 @@ Music_RocketHideout_Ch1:
 	note D#, 2
 	note F_, 2
 	octave 4
-	note C_, 2
-	octave 3
-	note B_, 2
-	note G_, 2
-	note G#, 2
-	octave 4
+	sound_call Music_RocketHideout_Ditty5
 	note D#, 2
 	note D_, 2
-	note D#, 2
-	note D_, 2
-	note C_, 2
-	octave 3
-	note B_, 2
-	note G_, 2
-	note G#, 2
-	octave 4
-	note D#, 2
-	note D_, 2
+	sound_call Music_RocketHideout_Ditty5
 	note C_, 2
 	octave 3
 	note B_, 2
@@ -128,24 +92,8 @@ Music_RocketHideout_Ch2:
 	stereo_panning FALSE, TRUE
 .mainloop:
 	octave 2
-	note D#, 2
-	rest 2
-	note A#, 4
-	note A_, 2
-	rest 6
-	note D#, 2
-	note A#, 4
-	note A_, 2
-	rest 8
-	note D#, 2
-	rest 2
-	note A#, 4
-	note A_, 2
-	rest 6
-	note D#, 2
-	note A#, 4
-	note A_, 2
-	rest 8
+	sound_call Music_RocketHideout_Ditty1
+	sound_call Music_RocketHideout_Ditty1
 	octave 3
 	note D#, 12
 	note A#, 2
@@ -181,45 +129,11 @@ Music_RocketHideout_Ch2:
 	note E_, 4
 	note C#, 8
 	note C_, 8
+	sound_call Music_RocketHideout_Ditty3
+	sound_call Music_RocketHideout_Ditty3
 	octave 2
-	note C#, 2
-	rest 2
-	note G#, 4
-	note G_, 2
-	rest 6
-	volume_envelope 12, 7
-	octave 3
-	note C#, 16
-	volume_envelope 12, 4
-	octave 2
-	note C#, 2
-	rest 2
-	note G#, 4
-	note G_, 2
-	rest 6
-	volume_envelope 12, 7
-	octave 3
-	note C#, 16
-	volume_envelope 12, 4
-	octave 2
-	note C#, 2
-	rest 2
-	note G#, 4
-	note G_, 2
-	rest 6
-	note C#, 2
-	note G#, 4
-	note G_, 2
-	rest 8
-	note C#, 2
-	rest 2
-	note G#, 4
-	note G_, 2
-	rest 6
-	note C#, 2
-	note G#, 4
-	note G_, 2
-	rest 8
+	sound_call Music_RocketHideout_Ditty2
+	sound_call Music_RocketHideout_Ditty2
 	sound_loop 0, .mainloop
 
 Music_RocketHideout_Ch3:
@@ -227,15 +141,7 @@ Music_RocketHideout_Ch3:
 .mainloop:
 .loop1:
 	octave 2
-	note D#, 2
-	rest 2
-	note A#, 4
-	note A_, 2
-	rest 6
-	note D#, 2
-	note A#, 4
-	note A_, 2
-	rest 8
+	sound_call Music_RocketHideout_Ditty1
 	sound_loop 6, .loop1
 .loop2:
 	note F_, 2
@@ -263,15 +169,7 @@ Music_RocketHideout_Ch3:
 	sound_loop 2, .loop3
 .loop4:
 	octave 2
-	note C#, 2
-	rest 2
-	note G#, 4
-	note G_, 2
-	rest 6
-	note C#, 2
-	note G#, 4
-	note G_, 2
-	rest 8
+	sound_call Music_RocketHideout_Ditty2
 	sound_loop 2, .loop4
 	sound_loop 0, .mainloop
 
@@ -307,4 +205,63 @@ Music_RocketHideout_Ch4:
 	drum_note 4, 1
 	stereo_panning TRUE, FALSE
 	drum_note 10, 4
+	sound_ret
+
+Music_RocketHideout_Ditty5:
+	note C_, 2
+	octave 3
+	note B_, 2
+	note G_, 2
+	note G#, 2
+	octave 4
+	note D#, 2
+	note D_, 2
+	sound_ret
+
+Music_RocketHideout_Ditty4:
+	octave 3
+	note A#, 2
+	note A_, 2
+	note F_, 2
+	note F#, 2
+	octave 4
+	note C#, 2
+	note C_, 2
+	sound_ret
+
+Music_RocketHideout_Ditty2:
+	note C#, 2
+	rest 2
+	note G#, 4
+	note G_, 2
+	rest 6
+	note C#, 2
+	note G#, 4
+	note G_, 2
+	rest 8
+	sound_ret
+
+Music_RocketHideout_Ditty1:
+	note D#, 2
+	rest 2
+	note A#, 4
+	note A_, 2
+	rest 6
+	note D#, 2
+	note A#, 4
+	note A_, 2
+	rest 8
+	sound_ret
+
+Music_RocketHideout_Ditty3:
+	octave 2
+	note C#, 2
+	rest 2
+	note G#, 4
+	note G_, 2
+	rest 6
+	volume_envelope 12, 7
+	octave 3
+	note C#, 16
+	volume_envelope 12, 4
 	sound_ret

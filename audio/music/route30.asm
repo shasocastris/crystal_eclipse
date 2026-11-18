@@ -310,96 +310,41 @@ Music_Route30_Ch3:
 	rest 3
 	note G_, 1
 	rest 5
-	note G_, 1
-	note G_, 1
-	note G_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note G_, 1
-	rest 1
+	sound_call Music_Route30_Ditty2
 .mainloop:
 	note G_, 1
 	rest 1
 	note B_, 2
 	rest 2
-	note G_, 1
-	note G_, 1
-	note G_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note G_, 1
-	rest 1
+	sound_call Music_Route30_Ditty2
 	note F_, 1
 	rest 1
 	octave 3
 	note D_, 2
 	note A_, 2
 	octave 2
-	note F_, 1
-	note F_, 1
-	note F_, 1
-	rest 1
-	octave 3
-	note C_, 2
-	octave 2
-	note F_, 1
-	rest 1
+	sound_call Music_Route30_Ditty5
 	note F#, 1
 	rest 1
 	note G_, 1
 	rest 1
 	note B_, 2
 	octave 3
-	note D_, 2
-	octave 2
-	note G_, 1
-	note G_, 1
-	note G_, 1
-	rest 1
-	octave 3
-	note D_, 2
-	octave 2
-	note G_, 1
-	rest 1
-	note G_, 1
-	rest 1
+	sound_call Music_Route30_Ditty3
 	note G_, 1
 	rest 1
 	octave 3
 	note E_, 2
 	note D_, 2
 	octave 2
-	note G_, 1
-	note G_, 1
-	note G_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note G_, 1
-	rest 1
+	sound_call Music_Route30_Ditty2
 	note F_, 1
 	rest 1
 	octave 3
 	note C_, 2
 	octave 2
 	note A_, 2
-	note F_, 1
-	note F_, 1
-	note F_, 1
-	rest 1
-	octave 3
-	note C_, 2
-	octave 2
-	note F_, 1
-	rest 1
+	sound_call Music_Route30_Ditty5
 	note F_, 1
 	rest 1
 	note F_, 1
@@ -423,15 +368,7 @@ Music_Route30_Ch3:
 	octave 3
 	note G_, 2
 	octave 2
-	note G_, 1
-	note G_, 1
-	note G_, 1
-	rest 1
-	note B_, 2
-	note G_, 1
-	rest 1
-	note G_, 1
-	rest 1
+	sound_call Music_Route30_Ditty4
 	note G_, 1
 	rest 1
 	octave 4
@@ -448,38 +385,7 @@ Music_Route30_Ch3:
 	octave 2
 	note G_, 2
 	note G#, 2
-	note A_, 1
-	rest 1
-	octave 3
-	note C_, 2
-	octave 2
-	note B_, 2
-	note A_, 1
-	note A_, 1
-	note A_, 1
-	rest 1
-	octave 3
-	note D_, 2
-	octave 2
-	note A_, 1
-	rest 1
-	note B_, 1
-	rest 1
-	octave 3
-	note C_, 1
-	rest 1
-	note F_, 2
-	note E_, 2
-	note C_, 1
-	note C_, 1
-	note C_, 1
-	rest 1
-	note A_, 2
-	note C_, 1
-	rest 1
-	note C_, 1
-	rest 1
-	octave 2
+	sound_call Music_Route30_Ditty1
 	note B_, 1
 	rest 1
 	octave 3
@@ -500,80 +406,20 @@ Music_Route30_Ch3:
 	rest 1
 	note B_, 2
 	note A_, 2
-	note G_, 1
-	note G_, 1
-	note G_, 1
-	rest 1
-	note B_, 2
-	note G_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note A_, 1
-	rest 1
-	octave 3
-	note C_, 2
-	octave 2
-	note B_, 2
-	note A_, 1
-	note A_, 1
-	note A_, 1
-	rest 1
-	octave 3
-	note D_, 2
-	octave 2
-	note A_, 1
-	rest 1
-	note B_, 1
-	rest 1
-	octave 3
-	note C_, 1
-	rest 1
-	note F_, 2
-	note E_, 2
-	note C_, 1
-	note C_, 1
-	note C_, 1
-	rest 1
-	note A_, 2
-	note C_, 1
-	rest 1
-	note C_, 1
-	rest 1
-	octave 2
+	sound_call Music_Route30_Ditty4
+	sound_call Music_Route30_Ditty1
 	note G_, 1
 	rest 1
 	octave 3
 	note C_, 2
 	note D_, 2
 	octave 2
-	note G_, 1
-	note G_, 1
-	note G_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note G_, 1
-	rest 1
+	sound_call Music_Route30_Ditty2
 	note G_, 1
 	rest 1
 	octave 3
 	note E_, 2
-	note D_, 2
-	octave 2
-	note G_, 1
-	note G_, 1
-	note G_, 1
-	rest 1
-	octave 3
-	note D_, 2
-	octave 2
-	note G_, 1
-	rest 1
-	note G_, 1
-	rest 1
+	sound_call Music_Route30_Ditty3
 	sound_loop 0, .mainloop
 
 Music_Route30_Ch4:
@@ -667,4 +513,92 @@ Music_Route30_Ch4:
 	drum_note 3, 1
 	drum_note 3, 1
 	drum_speed 12
+	sound_ret
+
+Music_Route30_Ditty5:
+	note F_, 1
+	note F_, 1
+	note F_, 1
+	rest 1
+	octave 3
+	note C_, 2
+	octave 2
+	note F_, 1
+	rest 1
+	sound_ret
+
+Music_Route30_Ditty4:
+	note G_, 1
+	note G_, 1
+	note G_, 1
+	rest 1
+	note B_, 2
+	note G_, 1
+	rest 1
+	note G_, 1
+	rest 1
+	sound_ret
+
+Music_Route30_Ditty2:
+	note G_, 1
+	note G_, 1
+	note G_, 1
+	rest 1
+	note G_, 1
+	rest 1
+	note G_, 1
+	rest 1
+	note G_, 1
+	rest 1
+	sound_ret
+
+Music_Route30_Ditty3:
+	note D_, 2
+	octave 2
+	note G_, 1
+	note G_, 1
+	note G_, 1
+	rest 1
+	octave 3
+	note D_, 2
+	octave 2
+	note G_, 1
+	rest 1
+	note G_, 1
+	rest 1
+	sound_ret
+
+Music_Route30_Ditty1:
+	note A_, 1
+	rest 1
+	octave 3
+	note C_, 2
+	octave 2
+	note B_, 2
+	note A_, 1
+	note A_, 1
+	note A_, 1
+	rest 1
+	octave 3
+	note D_, 2
+	octave 2
+	note A_, 1
+	rest 1
+	note B_, 1
+	rest 1
+	octave 3
+	note C_, 1
+	rest 1
+	note F_, 2
+	note E_, 2
+	note C_, 1
+	note C_, 1
+	note C_, 1
+	rest 1
+	note A_, 2
+	note C_, 1
+	rest 1
+	note C_, 1
+	rest 1
+	octave 2
 	sound_ret

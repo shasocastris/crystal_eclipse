@@ -285,16 +285,6 @@ OakGSBallText:
 	cont "knows what it is."
 	done
 
-OaksAssistant1Text:
-	text "The PROF's #MON"
-	line "TALK radio program"
-
-	para "isn't aired here"
-	line "in KANTO."
-
-	para "It's a shame--I'd"
-	line "like to hear it."
-	done
 
 OaksAssistant1OrangePassText:
 	text "The PROF is study-"

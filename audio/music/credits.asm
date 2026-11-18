@@ -57,28 +57,13 @@ Music_Credits_Ch1:
 	sound_call .sub2
 	volume_envelope 9, 7
 	sound_call .sub3
-	octave 3
-	note B_, 2
-	octave 4
-	note G_, 2
-	note D_, 2
-	note G_, 2
+	sound_call Music_Credits_Ditty4
 	note F_, 2
 	note G_, 2
 	note D_, 2
 	note G_, 2
-	octave 3
-	note B_, 2
-	octave 4
-	note G_, 2
-	note D_, 2
-	note G_, 2
-	octave 3
-	note B_, 2
-	octave 4
-	note G_, 2
-	note D_, 2
-	note G_, 2
+	sound_call Music_Credits_Ditty4
+	sound_call Music_Credits_Ditty4
 	octave 3
 	note G_, 2
 	octave 4
@@ -261,12 +246,7 @@ Music_Credits_Ch1:
 	note G_, 1
 	rest 1
 	octave 2
-	note C_, 1
-	rest 1
-	note C_, 1
-	rest 1
-	note C#, 1
-	rest 1
+	sound_call Music_Credits_Ditty2
 	note_type 12, 10, 7
 	octave 2
 	note D_, 1
@@ -750,21 +730,11 @@ Music_Credits_Ch2:
 	octave 5
 	note D_, 12
 	note_type 8, 12, 7
-	note C_, 1
-	rest 1
-	note C_, 1
-	rest 1
-	note C#, 1
-	rest 1
+	sound_call Music_Credits_Ditty2
 	note_type 12, 12, 7
 	note D_, 12
 	note_type 8, 12, 7
-	note C_, 1
-	rest 1
-	note C_, 1
-	rest 1
-	note C#, 1
-	rest 1
+	sound_call Music_Credits_Ditty2
 	note D_, 9
 	note_type 12, 12, 7
 	octave 4
@@ -794,12 +764,7 @@ Music_Credits_Ch2:
 	rest 1
 	note C_, 1
 	rest 1
-	note C_, 1
-	rest 1
-	note C_, 1
-	rest 1
-	note C#, 1
-	rest 1
+	sound_call Music_Credits_Ditty2
 	note_type 12, 12, 7
 	note D_, 1
 	rest 7
@@ -976,32 +941,12 @@ Music_Credits_Ch3:
 	vibrato 22, 2, 3
 	note_type 12, 3, 4
 	stereo_panning TRUE, TRUE
-	octave 6
-	note G_, 1
-	note D_, 1
-	note C_, 1
-	octave 5
-	note G_, 1
-	octave 6
-	note G_, 1
-	note D_, 1
-	note C_, 1
-	octave 5
-	note G_, 1
+	sound_call Music_Credits_Ditty3
+	sound_call Music_Credits_Ditty3
 	volume_envelope 2, 4
-	octave 6
-	note G_, 1
-	note D_, 1
-	note C_, 1
-	octave 5
-	note G_, 1
+	sound_call Music_Credits_Ditty3
 	volume_envelope 1, 4
-	octave 6
-	note G_, 1
-	note D_, 1
-	note C_, 1
-	octave 5
-	note G_, 1
+	sound_call Music_Credits_Ditty3
 	octave 6
 	note G_, 1
 	note D_, 1
@@ -1465,17 +1410,7 @@ Music_Credits_Ch4:
 	sound_call .sub1
 	sound_call .sub2
 .loop1:
-	drum_note 11, 2
-	drum_note 8, 1
-	drum_note 8, 1
-	drum_note 3, 2
-	drum_note 8, 1
-	drum_note 8, 1
-	drum_note 11, 2
-	drum_note 8, 1
-	drum_note 8, 1
-	drum_note 3, 2
-	drum_note 7, 2
+	sound_call Music_Credits_Ditty1
 	sound_loop 7, .loop1
 	drum_note 9, 1
 	drum_note 8, 1
@@ -1493,17 +1428,7 @@ Music_Credits_Ch4:
 	drum_note 3, 1
 	drum_note 3, 1
 .loop2:
-	drum_note 11, 2
-	drum_note 8, 1
-	drum_note 8, 1
-	drum_note 3, 2
-	drum_note 8, 1
-	drum_note 8, 1
-	drum_note 11, 2
-	drum_note 8, 1
-	drum_note 8, 1
-	drum_note 3, 2
-	drum_note 7, 2
+	sound_call Music_Credits_Ditty1
 	sound_loop 7, .loop2
 	drum_note 9, 1
 	drum_note 8, 1
@@ -1527,17 +1452,7 @@ Music_Credits_Ch4:
 	sound_call .sub1
 	sound_call .sub2
 .loop3:
-	drum_note 11, 2
-	drum_note 8, 1
-	drum_note 8, 1
-	drum_note 3, 2
-	drum_note 8, 1
-	drum_note 8, 1
-	drum_note 11, 2
-	drum_note 8, 1
-	drum_note 8, 1
-	drum_note 3, 2
-	drum_note 7, 2
+	sound_call Music_Credits_Ditty1
 	sound_loop 7, .loop3
 	drum_note 9, 1
 	drum_note 8, 1
@@ -1672,4 +1587,45 @@ Music_Credits_Ch4:
 	drum_note 3, 1
 	drum_note 11, 1
 	drum_note 3, 1
+	sound_ret
+
+Music_Credits_Ditty4:
+	octave 3
+	note B_, 2
+	octave 4
+	note G_, 2
+	note D_, 2
+	note G_, 2
+	sound_ret
+
+Music_Credits_Ditty3:
+	octave 6
+	note G_, 1
+	note D_, 1
+	note C_, 1
+	octave 5
+	note G_, 1
+	sound_ret
+
+Music_Credits_Ditty2:
+	note C_, 1
+	rest 1
+	note C_, 1
+	rest 1
+	note C#, 1
+	rest 1
+	sound_ret
+
+Music_Credits_Ditty1:
+	drum_note 11, 2
+	drum_note 8, 1
+	drum_note 8, 1
+	drum_note 3, 2
+	drum_note 8, 1
+	drum_note 8, 1
+	drum_note 11, 2
+	drum_note 8, 1
+	drum_note 8, 1
+	drum_note 3, 2
+	drum_note 7, 2
 	sound_ret

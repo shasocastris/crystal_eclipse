@@ -157,17 +157,7 @@ Music_DarkCave_Ch2:
 	rest 8
 	stereo_panning TRUE, TRUE
 	volume_envelope 12, 7
-	octave 5
-	note C_, 8
-	volume_envelope 12, 4
-	note D_, 2
-	note C_, 2
-	octave 4
-	note A#, 2
-	note G_, 4
-	note A#, 2
-	octave 5
-	note D_, 4
+	sound_call Music_DarkCave_Ditty3
 	volume_envelope 11, 0
 	note C#, 4
 	volume_envelope 11, 7
@@ -175,20 +165,7 @@ Music_DarkCave_Ch2:
 	volume_envelope 5, -1
 	note C_, 8
 	volume_envelope 12, 7
-	note C_, 8
-	rest 8
-	volume_envelope 12, 7
-	note C_, 8
-	volume_envelope 12, 4
-	note D_, 2
-	note C_, 2
-	octave 4
-	note A#, 2
-	note G_, 2
-	note G_, 2
-	note A#, 2
-	octave 5
-	note D_, 4
+	sound_call Music_DarkCave_Ditty2
 	volume_envelope 12, 7
 	note C#, 12
 	volume_envelope 12, 3
@@ -201,23 +178,7 @@ Music_DarkCave_Ch2:
 	stereo_panning FALSE, TRUE
 	volume_envelope 12, 4
 	octave 4
-	note F_, 4
-	note D#, 2
-	note D_, 2
-	note D#, 4
-	note D_, 2
-	note C_, 2
-	note D_, 2
-	note C_, 2
-	octave 3
-	note A#, 2
-	octave 4
-	note C_, 2
-	note D_, 4
-	note C_, 2
-	octave 3
-	note A#, 2
-	octave 4
+	sound_call Music_DarkCave_Ditty1
 	note C#, 8
 	octave 3
 	note A#, 8
@@ -230,23 +191,7 @@ Music_DarkCave_Ch2:
 	note A#, 2
 	octave 4
 	note C_, 8
-	note F_, 4
-	note D#, 2
-	note D_, 2
-	note D#, 4
-	note D_, 2
-	note C_, 2
-	note D_, 2
-	note C_, 2
-	octave 3
-	note A#, 2
-	octave 4
-	note C_, 2
-	note D_, 4
-	note C_, 2
-	octave 3
-	note A#, 2
-	octave 4
+	sound_call Music_DarkCave_Ditty1
 	note C#, 4
 	note C_, 2
 	note C#, 2
@@ -256,24 +201,10 @@ Music_DarkCave_Ch2:
 	note A#, 2
 	octave 4
 	note C#, 2
-	volume_envelope 11, 0
-	note C_, 8
-	volume_envelope 11, 7
-	note C_, 8
-	volume_envelope 12, 7
+	sound_call Music_DarkCave_Ditty5
 	stereo_panning TRUE, TRUE
 	rest 8
-	octave 5
-	note C_, 8
-	volume_envelope 12, 4
-	note D_, 2
-	note C_, 2
-	octave 4
-	note A#, 2
-	note G_, 4
-	note A#, 2
-	octave 5
-	note D_, 4
+	sound_call Music_DarkCave_Ditty3
 	volume_envelope 4, -1
 	note C#, 8
 	volume_envelope 12, 7
@@ -281,29 +212,12 @@ Music_DarkCave_Ch2:
 	volume_envelope 11, 0
 	note C_, 8
 	volume_envelope 11, 7
-	note C_, 8
-	rest 8
-	volume_envelope 12, 7
-	note C_, 8
-	volume_envelope 12, 4
-	note D_, 2
-	note C_, 2
-	octave 4
-	note A#, 2
-	note G_, 2
-	note G_, 2
-	note A#, 2
-	octave 5
-	note D_, 4
+	sound_call Music_DarkCave_Ditty2
 	volume_envelope 11, 0
 	note C#, 8
 	volume_envelope 11, 7
 	note C#, 8
-	volume_envelope 11, 0
-	note C_, 8
-	volume_envelope 11, 7
-	note C_, 8
-	volume_envelope 12, 7
+	sound_call Music_DarkCave_Ditty5
 	rest 16
 	stereo_panning FALSE, TRUE
 	rest 8
@@ -358,26 +272,10 @@ Music_DarkCave_Ch3:
 	sound_call .sub3
 	sound_loop 7, .loop2
 	sound_call .sub2
-	octave 3
-	note C_, 4
-	note G_, 2
-	note D#, 4
-	note G_, 2
-	note D#, 4
-	note F_, 2
-	rest 2
-	octave 2
+	sound_call Music_DarkCave_Ditty4
 	note A#, 12
 	sound_call .sub2
-	octave 3
-	note C_, 4
-	note G_, 2
-	note D#, 4
-	note G_, 2
-	note D#, 4
-	note F_, 2
-	rest 2
-	octave 2
+	sound_call Music_DarkCave_Ditty4
 	note A#, 4
 	octave 3
 	note C#, 2
@@ -485,3 +383,74 @@ Music_DarkCave_Ch4:
 	drum_note 2, 2
 	drum_note 2, 2
 	sound_loop 0, .mainloop
+
+Music_DarkCave_Ditty5:
+	volume_envelope 11, 0
+	note C_, 8
+	volume_envelope 11, 7
+	note C_, 8
+	volume_envelope 12, 7
+	sound_ret
+
+Music_DarkCave_Ditty4:
+	octave 3
+	note C_, 4
+	note G_, 2
+	note D#, 4
+	note G_, 2
+	note D#, 4
+	note F_, 2
+	rest 2
+	octave 2
+	sound_ret
+
+Music_DarkCave_Ditty3:
+	octave 5
+	note C_, 8
+	volume_envelope 12, 4
+	note D_, 2
+	note C_, 2
+	octave 4
+	note A#, 2
+	note G_, 4
+	note A#, 2
+	octave 5
+	note D_, 4
+	sound_ret
+
+Music_DarkCave_Ditty2:
+	note C_, 8
+	rest 8
+	volume_envelope 12, 7
+	note C_, 8
+	volume_envelope 12, 4
+	note D_, 2
+	note C_, 2
+	octave 4
+	note A#, 2
+	note G_, 2
+	note G_, 2
+	note A#, 2
+	octave 5
+	note D_, 4
+	sound_ret
+
+Music_DarkCave_Ditty1:
+	note F_, 4
+	note D#, 2
+	note D_, 2
+	note D#, 4
+	note D_, 2
+	note C_, 2
+	note D_, 2
+	note C_, 2
+	octave 3
+	note A#, 2
+	octave 4
+	note C_, 2
+	note D_, 4
+	note C_, 2
+	octave 3
+	note A#, 2
+	octave 4
+	sound_ret

@@ -95,7 +95,7 @@ MACRO connection
 		endc
 
 	map_id \3
-	dw \2_Blocks + _blk
+	dw wDecompressScratch + _blk
 	dw wOverworldMapBlocks + _map
 	db _len - _src
 	db \3_WIDTH

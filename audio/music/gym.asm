@@ -114,14 +114,7 @@ Music_Gym_Ch1:
 	note E_, 1
 	note G_, 4
 	note D_, 6
-	octave 3
-	note A_, 1
-	rest 3
-	note A_, 1
-	rest 1
-	note A_, 1
-	octave 4
-	note F#, 3
+	sound_call Music_Gym_Ditty1
 	note G_, 4
 	note F#, 4
 	note E_, 4
@@ -150,14 +143,7 @@ Music_Gym_Ch1:
 	octave 4
 	note E_, 4
 	note F#, 6
-	octave 3
-	note A_, 1
-	rest 3
-	note A_, 1
-	rest 1
-	note A_, 1
-	octave 4
-	note F#, 3
+	sound_call Music_Gym_Ditty1
 	note A_, 4
 	note G_, 4
 	note F#, 4
@@ -565,3 +551,14 @@ Music_Gym_Ch4:
 	drum_note 7, 4
 	sound_loop 8, .loop2
 	sound_loop 0, .mainloop
+
+Music_Gym_Ditty1:
+	octave 3
+	note A_, 1
+	rest 3
+	note A_, 1
+	rest 1
+	note A_, 1
+	octave 4
+	note F#, 3
+	sound_ret

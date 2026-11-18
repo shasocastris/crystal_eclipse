@@ -63,10 +63,6 @@ _NameRaterPerfectNameText::
 	line "with loving care."
 	done
 
-_NameRaterEggText::
-	text "Whoa… That's just"
-	line "an EGG."
-	done
 
 _NameRaterSameNameText::
 	text "It might look the"
@@ -642,9 +638,6 @@ _MoveNameText::
 	text_ram wStringBuffer2
 	text "!"
 	done
-
-
-
 
 
 _LeftWithDayCareLadyText::

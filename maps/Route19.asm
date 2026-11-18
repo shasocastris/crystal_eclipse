@@ -183,31 +183,6 @@ SwimmermJeromeAfterBattleText:
 	cont "love the sea."
 	done
 
-SwimmermWalterSeenText:
-	text "I've been swimming"
-	line "these waters for"
-	cont "over twenty years!"
-
-	para "Let's see if your"
-	line "#MON can keep"
-	cont "up!"
-	done
-
-SwimmermWalterBeatenText:
-	text "Even the strongest"
-	line "currents can be"
-	cont "overcome…"
-	done
-
-SwimmermWalterAfterBattleText:
-	text "Swimming builds"
-	line "incredible endur-"
-	cont "ance, both for me"
-	cont "and my #MON."
-
-	para "Rain or shine, the"
-	line "sea is our home."
-	done
 
 Route19Fisher1Text:
 	text "Sorry. This road"

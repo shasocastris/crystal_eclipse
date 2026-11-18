@@ -579,7 +579,6 @@ PokeBallEffect:
 	ld [wCurPartySpecies], a
 	ld [wTempSpecies], a
 
-	farcall StubbedTrainerRankings_WildMonsCaught
 
 	ld hl, Text_GotchaMonWasCaught
 	call PrintText

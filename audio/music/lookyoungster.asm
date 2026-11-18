@@ -26,38 +26,8 @@ Music_LookYoungster_Ch1:
 	note C_, 6
 	volume_envelope 11, 3
 .mainloop:
-	rest 2
-	octave 3
-	note G_, 1
-	rest 1
-	note B_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	octave 4
-	note D_, 1
-	rest 1
-	note C_, 1
-	rest 3
-	note C_, 1
-	rest 1
-	rest 16
-	rest 2
-	octave 3
-	note G_, 1
-	rest 1
-	note B_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	octave 4
-	note D_, 1
-	rest 1
-	note C_, 1
-	rest 3
-	note C_, 1
-	rest 1
-	rest 16
+	sound_call Music_LookYoungster_Ditty2
+	sound_call Music_LookYoungster_Ditty2
 	sound_loop 0, .mainloop
 
 	sound_ret ; unused
@@ -88,21 +58,7 @@ Music_LookYoungster_Ch2:
 	volume_envelope 11, 3
 	rest 2
 	octave 3
-	note B_, 1
-	rest 1
-	octave 4
-	note D_, 1
-	rest 1
-	octave 3
-	note B_, 1
-	rest 1
-	octave 4
-	note G_, 1
-	rest 1
-	note F_, 1
-	rest 3
-	note F_, 1
-	rest 1
+	sound_call Music_LookYoungster_Ditty3
 	volume_envelope 9, 7
 	duty_cycle 2
 	note D#, 1
@@ -123,21 +79,7 @@ Music_LookYoungster_Ch2:
 	duty_cycle 3
 	volume_envelope 11, 3
 	rest 2
-	note B_, 1
-	rest 1
-	octave 4
-	note D_, 1
-	rest 1
-	octave 3
-	note B_, 1
-	rest 1
-	octave 4
-	note G_, 1
-	rest 1
-	note F_, 1
-	rest 3
-	note F_, 1
-	rest 1
+	sound_call Music_LookYoungster_Ditty3
 	duty_cycle 2
 	volume_envelope 9, 7
 	note G#, 1
@@ -166,18 +108,7 @@ Music_LookYoungster_Ch3:
 	note_type 12, 2, 5
 	rest 4
 	octave 2
-	note G_, 1
-	rest 1
-	octave 3
-	note G_, 1
-	rest 1
-	octave 2
-	note G_, 1
-	rest 1
-	octave 3
-	note G_, 1
-	rest 1
-	octave 2
+	sound_call Music_LookYoungster_Ditty1
 	note G_, 1
 	rest 1
 	octave 3
@@ -198,90 +129,22 @@ Music_LookYoungster_Ch3:
 	volume_envelope 2, 5
 .mainloop:
 	octave 2
-	note G_, 1
-	rest 1
-	octave 3
-	note G_, 1
-	rest 1
-	octave 2
-	note G_, 1
-	rest 1
-	octave 3
-	note G_, 1
-	rest 1
-	octave 2
-	note G_, 1
-	rest 1
-	octave 3
-	note G_, 1
-	rest 1
-	octave 2
-	note G_, 1
-	rest 1
-	octave 3
-	note G_, 1
-	rest 1
-	octave 2
+	sound_call Music_LookYoungster_Ditty1
+	sound_call Music_LookYoungster_Ditty1
 	note F_, 1
-	rest 1
-	octave 3
-	note D#, 1
-	rest 1
-	octave 2
+	sound_call Music_LookYoungster_Ditty4
 	note F_, 1
-	rest 1
-	octave 3
-	note D#, 1
-	rest 1
-	octave 2
+	sound_call Music_LookYoungster_Ditty4
 	note F_, 1
-	rest 1
-	octave 3
-	note D#, 1
-	rest 1
-	octave 2
+	sound_call Music_LookYoungster_Ditty4
 	note F_, 1
-	rest 1
-	octave 3
-	note D#, 1
-	rest 1
-	octave 2
-	note G_, 1
-	rest 1
-	octave 3
-	note G_, 1
-	rest 1
-	octave 2
-	note G_, 1
-	rest 1
-	octave 3
-	note G_, 1
-	rest 1
-	octave 2
-	note G_, 1
-	rest 1
-	octave 3
-	note G_, 1
-	rest 1
-	octave 2
-	note G_, 1
-	rest 1
-	octave 3
-	note G_, 1
-	rest 1
-	octave 2
+	sound_call Music_LookYoungster_Ditty4
+	sound_call Music_LookYoungster_Ditty1
+	sound_call Music_LookYoungster_Ditty1
 	note G#, 1
-	rest 1
-	octave 3
-	note D#, 1
-	rest 1
-	octave 2
+	sound_call Music_LookYoungster_Ditty4
 	note G#, 1
-	rest 1
-	octave 3
-	note D#, 1
-	rest 1
-	octave 2
+	sound_call Music_LookYoungster_Ditty4
 	note G#, 1
 	rest 1
 	octave 3
@@ -294,3 +157,63 @@ Music_LookYoungster_Ch3:
 	sound_loop 0, .mainloop
 
 	sound_ret ; unused
+
+Music_LookYoungster_Ditty4:
+	rest 1
+	octave 3
+	note D#, 1
+	rest 1
+	octave 2
+	sound_ret
+
+Music_LookYoungster_Ditty1:
+	note G_, 1
+	rest 1
+	octave 3
+	note G_, 1
+	rest 1
+	octave 2
+	note G_, 1
+	rest 1
+	octave 3
+	note G_, 1
+	rest 1
+	octave 2
+	sound_ret
+
+Music_LookYoungster_Ditty3:
+	note B_, 1
+	rest 1
+	octave 4
+	note D_, 1
+	rest 1
+	octave 3
+	note B_, 1
+	rest 1
+	octave 4
+	note G_, 1
+	rest 1
+	note F_, 1
+	rest 3
+	note F_, 1
+	rest 1
+	sound_ret
+
+Music_LookYoungster_Ditty2:
+	rest 2
+	octave 3
+	note G_, 1
+	rest 1
+	note B_, 1
+	rest 1
+	note G_, 1
+	rest 1
+	octave 4
+	note D_, 1
+	rest 1
+	note C_, 1
+	rest 3
+	note C_, 1
+	rest 1
+	rest 16
+	sound_ret

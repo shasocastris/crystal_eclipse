@@ -75,20 +75,10 @@ Music_VictoryRoad_Ch2:
 	rest 1
 	octave 4
 	note C_, 1
-	note_type 12, 11, 0
-	note E_, 8
-	octave 5
-	note C_, 4
-	octave 4
-	note B_, 4
+	sound_call Music_VictoryRoad_Ditty1
 	note E_, 15
 	note D#, 1
-	note_type 12, 11, 0
-	note E_, 8
-	octave 5
-	note C_, 4
-	octave 4
-	note B_, 4
+	sound_call Music_VictoryRoad_Ditty1
 	note_type 12, 11, 0
 	octave 5
 	note E_, 8
@@ -198,3 +188,12 @@ Music_VictoryRoad_Ch4:
 	drum_note 3, 2
 	drum_note 4, 1
 	sound_loop 0, .mainloop
+
+Music_VictoryRoad_Ditty1:
+	note_type 12, 11, 0
+	note E_, 8
+	octave 5
+	note C_, 4
+	octave 4
+	note B_, 4
+	sound_ret

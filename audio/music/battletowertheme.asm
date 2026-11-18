@@ -214,10 +214,7 @@ Music_BattleTowerTheme_Ch2:
 	note A_, 4
 	rest 4
 	octave 3
-	note F_, 1
-	rest 1
-	note F_, 1
-	rest 1
+	sound_call Music_BattleTowerTheme_Ditty1
 	octave 2
 	note A_, 4
 	octave 3
@@ -432,10 +429,7 @@ Music_BattleTowerTheme_Ch3:
 	octave 2
 	note F_, 4
 	octave 3
-	note F_, 1
-	rest 1
-	note F_, 1
-	rest 1
+	sound_call Music_BattleTowerTheme_Ditty1
 	octave 2
 	note A_, 2
 	rest 2
@@ -476,10 +470,7 @@ Music_BattleTowerTheme_Ch3:
 	note E_, 4
 	note F_, 4
 	note C_, 8
-	note F_, 1
-	rest 1
-	note F_, 1
-	rest 1
+	sound_call Music_BattleTowerTheme_Ditty1
 	note A_, 4
 	note C_, 6
 	rest 2
@@ -489,20 +480,14 @@ Music_BattleTowerTheme_Ch3:
 	rest 1
 	note F_, 4
 	note D_, 8
-	note F_, 1
-	rest 1
-	note F_, 1
-	rest 1
+	sound_call Music_BattleTowerTheme_Ditty1
 	note A#, 4
 	note A_, 4
 	note F_, 4
 	note D_, 4
 	note F_, 4
 	note C#, 8
-	note F_, 1
-	rest 1
-	note F_, 1
-	rest 1
+	sound_call Music_BattleTowerTheme_Ditty1
 	note A#, 4
 	note F_, 8
 	note C#, 1
@@ -521,10 +506,7 @@ Music_BattleTowerTheme_Ch3:
 	note E_, 4
 	note F_, 4
 	note C_, 8
-	note F_, 1
-	rest 1
-	note F_, 1
-	rest 1
+	sound_call Music_BattleTowerTheme_Ditty1
 	note A_, 4
 	note C_, 8
 	note F_, 2
@@ -533,10 +515,7 @@ Music_BattleTowerTheme_Ch3:
 	octave 2
 	note A#, 8
 	octave 3
-	note F_, 1
-	rest 1
-	note F_, 1
-	rest 1
+	sound_call Music_BattleTowerTheme_Ditty1
 	note A#, 4
 	octave 2
 	note A#, 4
@@ -683,4 +662,11 @@ Music_BattleTowerTheme_Ch4:
 	drum_note 3, 2
 	drum_note 3, 1
 	drum_note 2, 1
+	sound_ret
+
+Music_BattleTowerTheme_Ditty1:
+	note F_, 1
+	rest 1
+	note F_, 1
+	rest 1
 	sound_ret

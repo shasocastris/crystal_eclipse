@@ -14,14 +14,7 @@ Music_LookSage_Ch1:
 	sound_call .sub1
 	volume_envelope 11, 3
 	octave 3
-	note D_, 2
-	volume_envelope 9, 3
-	note D_, 2
-	volume_envelope 11, 3
-	note E_, 2
-	volume_envelope 9, 3
-	note E_, 2
-	volume_envelope 11, 3
+	sound_call Music_LookSage_Ditty2
 	note A_, 2
 	volume_envelope 9, 3
 	note A_, 2
@@ -30,23 +23,7 @@ Music_LookSage_Ch1:
 	volume_envelope 9, 3
 	note F_, 2
 .mainloop:
-	volume_envelope 11, 3
-	note D_, 2
-	volume_envelope 9, 3
-	note D_, 2
-	volume_envelope 11, 3
-	octave 2
-	note B_, 2
-	volume_envelope 9, 3
-	note B_, 2
-	volume_envelope 11, 3
-	note A_, 2
-	volume_envelope 9, 3
-	note A_, 2
-	volume_envelope 11, 3
-	note B_, 2
-	volume_envelope 9, 3
-	note B_, 2
+	sound_call Music_LookSage_Ditty1
 	volume_envelope 11, 3
 	octave 3
 	note D_, 2
@@ -59,46 +36,16 @@ Music_LookSage_Ch1:
 	note B_, 2
 	volume_envelope 11, 3
 	octave 3
-	note D_, 2
-	volume_envelope 9, 3
-	note D_, 2
-	volume_envelope 11, 3
-	note E_, 2
-	volume_envelope 9, 3
-	note E_, 2
-	volume_envelope 11, 3
+	sound_call Music_LookSage_Ditty2
 	note F_, 2
 	volume_envelope 9, 3
 	note F_, 2
 	volume_envelope 11, 3
-	note D_, 2
-	volume_envelope 9, 3
-	note D_, 2
-	volume_envelope 11, 3
-	note E_, 2
-	volume_envelope 9, 3
-	note E_, 2
-	volume_envelope 11, 3
+	sound_call Music_LookSage_Ditty2
 	note A_, 2
 	volume_envelope 9, 3
 	note A_, 2
-	volume_envelope 11, 3
-	note D_, 2
-	volume_envelope 9, 3
-	note D_, 2
-	volume_envelope 11, 3
-	octave 2
-	note B_, 2
-	volume_envelope 9, 3
-	note B_, 2
-	volume_envelope 11, 3
-	note A_, 2
-	volume_envelope 9, 3
-	note A_, 2
-	volume_envelope 11, 3
-	note B_, 2
-	volume_envelope 9, 3
-	note B_, 2
+	sound_call Music_LookSage_Ditty1
 	sound_call .sub1
 	sound_loop 0, .mainloop
 
@@ -177,3 +124,34 @@ Music_LookSage_Ch3:
 	note G_, 1
 	note G#, 1
 	sound_loop 0, .mainloop
+
+Music_LookSage_Ditty2:
+	note D_, 2
+	volume_envelope 9, 3
+	note D_, 2
+	volume_envelope 11, 3
+	note E_, 2
+	volume_envelope 9, 3
+	note E_, 2
+	volume_envelope 11, 3
+	sound_ret
+
+Music_LookSage_Ditty1:
+	volume_envelope 11, 3
+	note D_, 2
+	volume_envelope 9, 3
+	note D_, 2
+	volume_envelope 11, 3
+	octave 2
+	note B_, 2
+	volume_envelope 9, 3
+	note B_, 2
+	volume_envelope 11, 3
+	note A_, 2
+	volume_envelope 9, 3
+	note A_, 2
+	volume_envelope 11, 3
+	note B_, 2
+	volume_envelope 9, 3
+	note B_, 2
+	sound_ret

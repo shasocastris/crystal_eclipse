@@ -117,28 +117,10 @@ Music_EcruteakCity_Ch1:
 	note E_, 2
 	note C#, 2
 	sound_call .sub1
+	sound_call Music_EcruteakCity_Ditty1
 	note D_, 2
 	note C_, 2
-	octave 4
-	note G#, 2
-	octave 5
-	note C_, 2
-	octave 4
-	note G#, 2
-	octave 5
-	note C_, 2
-	note D_, 2
-	note C_, 2
-	note D_, 2
-	note C_, 2
-	octave 4
-	note G#, 2
-	octave 5
-	note C_, 2
-	octave 4
-	note G#, 2
-	octave 5
-	note C_, 2
+	sound_call Music_EcruteakCity_Ditty1
 	octave 4
 	note G#, 2
 	octave 5
@@ -665,4 +647,17 @@ Music_EcruteakCity_Ch3:
 	note_type 6, 2, 5
 	rest 1
 	note B_, 1
+	sound_ret
+
+Music_EcruteakCity_Ditty1:
+	note D_, 2
+	note C_, 2
+	octave 4
+	note G#, 2
+	octave 5
+	note C_, 2
+	octave 4
+	note G#, 2
+	octave 5
+	note C_, 2
 	sound_ret

@@ -399,14 +399,7 @@ Music_GoldenrodCity_Ch4:
 	drum_note 7, 2
 .mainloop:
 .loop1:
-	drum_note 4, 2
-	drum_note 7, 2
-	drum_note 3, 2
-	drum_note 7, 2
-	drum_note 4, 2
-	drum_note 7, 2
-	drum_note 3, 2
-	drum_note 7, 2
+	sound_call Music_GoldenrodCity_Ditty1
 	sound_loop 3, .loop1
 	sound_call .sub1
 	sound_call .sub2
@@ -440,14 +433,7 @@ Music_GoldenrodCity_Ch4:
 	drum_note 3, 1
 	drum_note 3, 1
 .loop2:
-	drum_note 4, 2
-	drum_note 7, 2
-	drum_note 3, 2
-	drum_note 7, 2
-	drum_note 4, 2
-	drum_note 7, 2
-	drum_note 3, 2
-	drum_note 7, 2
+	sound_call Music_GoldenrodCity_Ditty1
 	sound_loop 3, .loop2
 	sound_call .sub1
 	sound_loop 0, .mainloop
@@ -473,4 +459,15 @@ Music_GoldenrodCity_Ch4:
 	drum_note 8, 1
 	drum_note 8, 1
 	drum_note 8, 1
+	sound_ret
+
+Music_GoldenrodCity_Ditty1:
+	drum_note 4, 2
+	drum_note 7, 2
+	drum_note 3, 2
+	drum_note 7, 2
+	drum_note 4, 2
+	drum_note 7, 2
+	drum_note 3, 2
+	drum_note 7, 2
 	sound_ret

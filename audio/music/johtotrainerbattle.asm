@@ -44,22 +44,12 @@ Music_JohtoTrainerBattle_Ch1:
 	note D#, 1
 	note E_, 6
 	note E_, 6
-	note E_, 4
-	note E_, 2
-	note D_, 2
-	note E_, 2
-	note F_, 6
-	volume_envelope 11, 7
+	sound_call Music_JohtoTrainerBattle_Ditty5
 	note D_, 4
 	volume_envelope 11, 2
 	note E_, 6
 	note D_, 6
-	note E_, 4
-	note E_, 2
-	note D_, 2
-	note E_, 2
-	note F_, 6
-	volume_envelope 11, 7
+	sound_call Music_JohtoTrainerBattle_Ditty5
 	note F_, 4
 	volume_envelope 11, 2
 	octave 4
@@ -79,12 +69,7 @@ Music_JohtoTrainerBattle_Ch1:
 	octave 4
 	note E_, 6
 	note E_, 6
-	note E_, 4
-	note E_, 2
-	note D_, 2
-	note E_, 2
-	note F_, 6
-	volume_envelope 11, 7
+	sound_call Music_JohtoTrainerBattle_Ditty5
 	note G_, 4
 .mainloop:
 	volume_envelope 11, 4
@@ -122,17 +107,7 @@ Music_JohtoTrainerBattle_Ch1:
 	note C_, 2
 	sound_call .sub1
 	volume_envelope 11, 7
-	note F_, 4
-	note E_, 2
-	note F_, 2
-	octave 4
-	note C_, 4
-	octave 3
-	note A#, 2
-	octave 4
-	note C_, 2
-	volume_envelope 10, 0
-	octave 3
+	sound_call Music_JohtoTrainerBattle_Ditty4
 	note F_, 8
 	volume_envelope 10, 7
 	note F_, 8
@@ -182,13 +157,7 @@ Music_JohtoTrainerBattle_Ch1:
 	note F_, 8
 	volume_envelope 11, 4
 	note G_, 2
-	octave 4
-	note C_, 2
-	octave 3
-	note A#, 2
-	note G#, 2
-	note G_, 2
-	note F_, 2
+	sound_call Music_JohtoTrainerBattle_Ditty1
 	note D#, 2
 	note F_, 2
 	note G_, 2
@@ -197,10 +166,7 @@ Music_JohtoTrainerBattle_Ch1:
 	note C_, 2
 	note C#, 2
 	note D#, 2
-	note C#, 2
-	note C_, 2
-	octave 3
-	note A#, 2
+	sound_call Music_JohtoTrainerBattle_Ditty11
 	volume_envelope 11, 5
 	note D#, 2
 	note D_, 2
@@ -245,11 +211,7 @@ Music_JohtoTrainerBattle_Ch1:
 	rest 16
 .loop1:
 	volume_envelope 11, 7
-	note F_, 8
-	volume_envelope 11, 4
-	note G_, 4
-	note D#, 4
-	note F_, 4
+	sound_call Music_JohtoTrainerBattle_Ditty8
 	note G_, 2
 	note D#, 2
 	note F_, 4
@@ -257,42 +219,18 @@ Music_JohtoTrainerBattle_Ch1:
 	note A#, 4
 	volume_envelope 11, 7
 	octave 3
-	note F_, 8
-	volume_envelope 11, 4
-	note G_, 4
-	note D#, 4
-	note F_, 4
+	sound_call Music_JohtoTrainerBattle_Ditty8
 	note G_, 2
 	note D#, 2
 	note F_, 4
 	note F_, 4
 	sound_loop 2, .loop1
 	volume_envelope 11, 7
-	note F_, 8
-	volume_envelope 11, 4
-	note G_, 4
-	note D#, 4
-	note F_, 4
+	sound_call Music_JohtoTrainerBattle_Ditty8
 	note G#, 2
 	note G_, 2
-	volume_envelope 11, 7
-	note F_, 8
-	note F_, 8
-	volume_envelope 11, 5
-	note G_, 4
-	note D#, 4
-	note F_, 4
-	note G_, 2
-	note D#, 2
-	volume_envelope 11, 7
-	note F_, 8
-	note F_, 8
-	volume_envelope 11, 5
-	note G_, 4
-	note D#, 4
-	note F_, 4
-	note G_, 2
-	note D#, 2
+	sound_call Music_JohtoTrainerBattle_Ditty7
+	sound_call Music_JohtoTrainerBattle_Ditty7
 	volume_envelope 3, -7
 	note G#, 8
 	volume_envelope 11, 7
@@ -342,10 +280,7 @@ Music_JohtoTrainerBattle_Ch1:
 	note G#, 2
 	octave 4
 	note C_, 2
-	note C#, 2
-	note C_, 2
-	octave 3
-	note A#, 2
+	sound_call Music_JohtoTrainerBattle_Ditty11
 	note G#, 2
 	note G_, 6
 	note D#, 6
@@ -413,17 +348,7 @@ Music_JohtoTrainerBattle_Ch1:
 	note F_, 8
 	volume_envelope 11, 3
 	sound_call .sub1
-	note F_, 4
-	note E_, 2
-	note F_, 2
-	octave 4
-	note C_, 4
-	octave 3
-	note A#, 2
-	octave 4
-	note C_, 2
-	volume_envelope 10, 0
-	octave 3
+	sound_call Music_JohtoTrainerBattle_Ditty4
 	note F_, 10
 	volume_envelope 10, 7
 	note F_, 6
@@ -516,25 +441,10 @@ Music_JohtoTrainerBattle_Ch2:
 	octave 3
 	note E_, 2
 	note A_, 2
-	volume_envelope 12, 2
-	octave 5
-	note C_, 2
-	volume_envelope 10, 4
-	octave 3
-	note E_, 2
+	sound_call Music_JohtoTrainerBattle_Ditty2
 	note A_, 2
-	volume_envelope 12, 2
-	octave 5
-	note C_, 2
-	volume_envelope 10, 4
-	octave 3
-	note E_, 2
-	volume_envelope 12, 2
-	octave 5
-	note C_, 2
-	volume_envelope 10, 4
-	octave 3
-	note E_, 2
+	sound_call Music_JohtoTrainerBattle_Ditty2
+	sound_call Music_JohtoTrainerBattle_Ditty2
 	note B_, 2
 	volume_envelope 12, 2
 	octave 5
@@ -553,15 +463,7 @@ Music_JohtoTrainerBattle_Ch2:
 	note A#, 8
 	sound_call .sub2
 	volume_envelope 12, 4
-	note D_, 4
-	octave 3
-	note A#, 2
-	octave 4
-	note D_, 2
-	note F_, 2
-	note E_, 2
-	note D_, 2
-	note F_, 2
+	sound_call Music_JohtoTrainerBattle_Ditty9
 	note E_, 2
 	note D_, 2
 	note E_, 2
@@ -596,15 +498,7 @@ Music_JohtoTrainerBattle_Ch2:
 	note A#, 2
 	sound_loop 3, .loop1
 	note A_, 2
-	octave 4
-	note D_, 2
-	note C_, 2
-	octave 3
-	note A#, 2
-	note A_, 2
-	note G_, 2
-	note A_, 2
-	note A#, 2
+	sound_call Music_JohtoTrainerBattle_Ditty10
 .loop2:
 	note G_, 2
 	note F_, 2
@@ -617,13 +511,7 @@ Music_JohtoTrainerBattle_Ch2:
 	note G#, 2
 	sound_loop 3, .loop2
 	note F_, 2
-	octave 4
-	note C_, 2
-	octave 3
-	note A#, 2
-	note G#, 2
-	note G_, 2
-	note F_, 2
+	sound_call Music_JohtoTrainerBattle_Ditty1
 	note G_, 2
 	note G#, 2
 	volume_envelope 12, 7
@@ -684,22 +572,8 @@ Music_JohtoTrainerBattle_Ch2:
 	volume_envelope 10, 2
 	sound_call .sub3
 .loop3:
-	octave 4
-	note D#, 2
-	octave 3
-	note A#, 2
-	octave 4
-	note G_, 2
-	octave 3
-	note A#, 2
-	octave 4
-	note D#, 2
-	octave 3
-	note A#, 2
-	octave 4
-	note G_, 2
-	octave 3
-	note A#, 2
+	sound_call Music_JohtoTrainerBattle_Ditty13
+	sound_call Music_JohtoTrainerBattle_Ditty13
 	sound_loop 8, .loop3
 	sound_call .sub4
 	octave 3
@@ -745,11 +619,7 @@ Music_JohtoTrainerBattle_Ch2:
 	volume_envelope 4, -4
 	note G#, 4
 	sound_call .sub5
-	volume_envelope 11, 0
-	note F_, 8
-	volume_envelope 11, 7
-	note F_, 8
-	volume_envelope 11, 0
+	sound_call Music_JohtoTrainerBattle_Ditty12
 	note G#, 8
 	volume_envelope 11, 7
 	note G#, 8
@@ -780,23 +650,9 @@ Music_JohtoTrainerBattle_Ch2:
 	note D#, 2
 	note A#, 8
 	note G_, 6
-	note A#, 6
-	note G#, 2
-	note G_, 2
-	volume_envelope 11, 0
-	note D#, 8
-	volume_envelope 11, 7
-	note D#, 8
-	volume_envelope 12, 7
+	sound_call Music_JohtoTrainerBattle_Ditty6
 	note D#, 6
-	note A#, 6
-	note G#, 2
-	note G_, 2
-	volume_envelope 11, 0
-	note D#, 8
-	volume_envelope 11, 7
-	note D#, 8
-	volume_envelope 12, 7
+	sound_call Music_JohtoTrainerBattle_Ditty6
 	octave 3
 	note A_, 6
 	octave 4
@@ -807,25 +663,13 @@ Music_JohtoTrainerBattle_Ch2:
 	note F#, 4
 	note E_, 4
 	note D_, 4
-	volume_envelope 11, 0
-	note F_, 8
-	volume_envelope 11, 7
-	note F_, 8
-	volume_envelope 11, 0
+	sound_call Music_JohtoTrainerBattle_Ditty12
 	note A#, 8
 	volume_envelope 11, 7
 	note A#, 8
 	sound_call .sub2
 	volume_envelope 12, 7
-	note D_, 4
-	octave 3
-	note A#, 2
-	octave 4
-	note D_, 2
-	note F_, 2
-	note E_, 2
-	note D_, 2
-	note F_, 2
+	sound_call Music_JohtoTrainerBattle_Ditty9
 	sound_loop 0, .mainloop
 
 .sub1:
@@ -960,10 +804,7 @@ Music_JohtoTrainerBattle_Ch3:
 	note A#, 2
 	octave 4
 	note C_, 2
-	note C#, 2
-	note C_, 2
-	octave 3
-	note A#, 2
+	sound_call Music_JohtoTrainerBattle_Ditty11
 	sound_call .sub1
 	octave 4
 	note C_, 2
@@ -1015,15 +856,7 @@ Music_JohtoTrainerBattle_Ch3:
 	note A_, 2
 	sound_call .sub5
 	note D_, 2
-	octave 4
-	note D_, 2
-	note C_, 2
-	octave 3
-	note A#, 2
-	note A_, 2
-	note G_, 2
-	note A_, 2
-	note A#, 2
+	sound_call Music_JohtoTrainerBattle_Ditty10
 	sound_call .sub6
 	note C_, 2
 	note G_, 2
@@ -1035,13 +868,7 @@ Music_JohtoTrainerBattle_Ch3:
 	note G_, 2
 	sound_call .sub6
 	note C_, 2
-	octave 4
-	note C_, 2
-	octave 3
-	note A#, 2
-	note G#, 2
-	note G_, 2
-	note F_, 2
+	sound_call Music_JohtoTrainerBattle_Ditty1
 	note D#, 2
 	note D_, 2
 	note G_, 8
@@ -1062,13 +889,7 @@ Music_JohtoTrainerBattle_Ch3:
 	sound_loop 2, .loop2
 	sound_call .sub6
 	note C_, 2
-	octave 4
-	note C_, 2
-	octave 3
-	note A#, 2
-	note G#, 2
-	note G_, 2
-	note F_, 2
+	sound_call Music_JohtoTrainerBattle_Ditty1
 	note D#, 2
 	note G_, 2
 .loop3:
@@ -1131,46 +952,16 @@ Music_JohtoTrainerBattle_Ch3:
 	note G#, 2
 	note G_, 2
 	note F_, 2
-	note D#, 2
-	note A#, 2
-	note D#, 2
-	note A#, 2
-	note D#, 2
-	note A#, 2
-	octave 4
-	note C#, 2
-	octave 3
-	note A#, 2
-	note D#, 2
-	note A#, 2
-	octave 4
-	note C#, 2
-	note C_, 2
-	octave 3
-	note A#, 2
+	sound_call Music_JohtoTrainerBattle_Ditty3
+	sound_call Music_JohtoTrainerBattle_Ditty11
 	note G#, 2
 	note G_, 2
 	note G#, 2
-	note D#, 2
-	note A#, 2
-	note D#, 2
-	note A#, 2
-	note D#, 2
-	note A#, 2
-	octave 4
-	note C#, 2
-	octave 3
-	note A#, 2
-	note D#, 2
-	note A#, 2
-	octave 4
+	sound_call Music_JohtoTrainerBattle_Ditty3
 	note C_, 2
 	note C#, 2
 	note D#, 2
-	note C#, 2
-	note C_, 2
-	octave 3
-	note A#, 2
+	sound_call Music_JohtoTrainerBattle_Ditty11
 .loop8:
 	note D#, 2
 	note A#, 2
@@ -1195,10 +986,7 @@ Music_JohtoTrainerBattle_Ch3:
 	sound_loop 4, .loop11
 	note C#, 2
 	octave 4
-	note C#, 2
-	note C_, 2
-	octave 3
-	note A#, 2
+	sound_call Music_JohtoTrainerBattle_Ditty11
 	note G_, 2
 	note G#, 2
 	note A#, 2
@@ -1332,4 +1120,143 @@ Music_JohtoTrainerBattle_Ch3:
 	note G_, 1
 	note G#, 1
 	note A#, 2
+	sound_ret
+
+Music_JohtoTrainerBattle_Ditty11:
+	note C#, 2
+	note C_, 2
+	octave 3
+	note A#, 2
+	sound_ret
+
+Music_JohtoTrainerBattle_Ditty12:
+	volume_envelope 11, 0
+	note F_, 8
+	volume_envelope 11, 7
+	note F_, 8
+	volume_envelope 11, 0
+	sound_ret
+
+Music_JohtoTrainerBattle_Ditty8:
+	note F_, 8
+	volume_envelope 11, 4
+	note G_, 4
+	note D#, 4
+	note F_, 4
+	sound_ret
+
+Music_JohtoTrainerBattle_Ditty5:
+	note E_, 4
+	note E_, 2
+	note D_, 2
+	note E_, 2
+	note F_, 6
+	volume_envelope 11, 7
+	sound_ret
+
+Music_JohtoTrainerBattle_Ditty2:
+	volume_envelope 12, 2
+	octave 5
+	note C_, 2
+	volume_envelope 10, 4
+	octave 3
+	note E_, 2
+	sound_ret
+
+Music_JohtoTrainerBattle_Ditty1:
+	octave 4
+	note C_, 2
+	octave 3
+	note A#, 2
+	note G#, 2
+	note G_, 2
+	note F_, 2
+	sound_ret
+
+Music_JohtoTrainerBattle_Ditty13:
+	octave 4
+	note D#, 2
+	octave 3
+	note A#, 2
+	octave 4
+	note G_, 2
+	octave 3
+	note A#, 2
+	sound_ret
+
+Music_JohtoTrainerBattle_Ditty6:
+	note A#, 6
+	note G#, 2
+	note G_, 2
+	volume_envelope 11, 0
+	note D#, 8
+	volume_envelope 11, 7
+	note D#, 8
+	volume_envelope 12, 7
+	sound_ret
+
+Music_JohtoTrainerBattle_Ditty10:
+	octave 4
+	note D_, 2
+	note C_, 2
+	octave 3
+	note A#, 2
+	note A_, 2
+	note G_, 2
+	note A_, 2
+	note A#, 2
+	sound_ret
+
+Music_JohtoTrainerBattle_Ditty9:
+	note D_, 4
+	octave 3
+	note A#, 2
+	octave 4
+	note D_, 2
+	note F_, 2
+	note E_, 2
+	note D_, 2
+	note F_, 2
+	sound_ret
+
+Music_JohtoTrainerBattle_Ditty7:
+	volume_envelope 11, 7
+	note F_, 8
+	note F_, 8
+	volume_envelope 11, 5
+	note G_, 4
+	note D#, 4
+	note F_, 4
+	note G_, 2
+	note D#, 2
+	sound_ret
+
+Music_JohtoTrainerBattle_Ditty4:
+	note F_, 4
+	note E_, 2
+	note F_, 2
+	octave 4
+	note C_, 4
+	octave 3
+	note A#, 2
+	octave 4
+	note C_, 2
+	volume_envelope 10, 0
+	octave 3
+	sound_ret
+
+Music_JohtoTrainerBattle_Ditty3:
+	note D#, 2
+	note A#, 2
+	note D#, 2
+	note A#, 2
+	note D#, 2
+	note A#, 2
+	octave 4
+	note C#, 2
+	octave 3
+	note A#, 2
+	note D#, 2
+	note A#, 2
+	octave 4
 	sound_ret

@@ -813,7 +813,7 @@ ShowPlayerTrademonStats:
 	call TrademonStats_PrintOTName
 	ld de, wPlayerTrademonID
 	call TrademonStats_PrintTrademonID
-	jmp TrademonStats_WaitBGMap
+	jr TrademonStats_WaitBGMap
 
 ShowOTTrademonStats:
 	ld de, wOTTrademonSpecies
@@ -848,23 +848,6 @@ TrademonStats_MonTemplate:
 	next "OT/"
 	next "<ID>№.@"
 
-TrademonStats_Egg:
-	call WaitTop
-	call TradeAnim_BlankTilemap
-	ld a, HIGH(vBGMap1)
-	ldh [hBGMapAddress + 1], a
-	hlcoord 3, 0
-	lb bc, 6, 13
-	call Textbox
-	hlcoord 4, 2
-	ld de, .EggData
-	rst PlaceString
-	jr TrademonStats_WaitBGMap
-
-.EggData:
-	db   "EGG"
-	next "OT/?????"
-	next "<ID>№.?????@"
 
 TrademonStats_WaitBGMap:
 	call WaitBGMap
@@ -1197,13 +1180,7 @@ TradeAnim_CopyBoxFromDEtoHL:
 	ret
 
 TradeAnim_NormalPals:
-	ldh a, [hSGB]
-	and a
 	ld a, %11100100 ; 3,2,1,0
-	jr z, .not_sgb
-	ld a, $f0
-
-.not_sgb
 	call DmgToCgbObjPal0
 	ld a, %11100100 ; 3,2,1,0
 	jmp DmgToCgbBGPals

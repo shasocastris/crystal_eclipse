@@ -244,8 +244,28 @@ def load_png_tiles(path):
 	return tiles
 
 
+_lz_min = None
+
+
+def lz_min_counts():
+	"""Shortest run per command, read from the repo's lzcomp (the script runs from the repo root).
+	pret counts every command from 1; CrystalShireEngine counts repeat from 2 and alternate from 3."""
+	global _lz_min
+	if _lz_min is None:
+		_lz_min = {}
+		if os.path.exists('tools/lz/util.c'):
+			m = re.search(r'minimum_count\s*\(.*?\)\s*\{(.*?)\n\}', open('tools/lz/util.c').read(), re.S)
+			if m:
+				for name, cmd in (('LZ_REPEAT', 1), ('LZ_ALTERNATE', 2)):
+					c = re.search(r'case %s:\s*return (\d+);' % name, m.group(1))
+					if c:
+						_lz_min[cmd] = int(c.group(1))
+	return _lz_min
+
+
 def lz_decompress(data):
-	"""pret's LZ format (tools/lzcomp), for graphics shipped only as .lz."""
+	"""The repo's LZ format (tools/lzcomp), for graphics shipped only as .lz."""
+	mins = lz_min_counts()
 	out = bytearray()
 	i = 0
 	while data[i] != 0xff:
@@ -256,6 +276,7 @@ def lz_decompress(data):
 			i += 1
 		else:
 			cmd, n = b >> 5, (b & 0x1f) + 1
+		n += mins.get(cmd, 1) - 1
 		if cmd == 0:  # literal
 			out += data[i:i + n]
 			i += n

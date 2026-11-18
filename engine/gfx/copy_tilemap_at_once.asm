@@ -265,11 +265,6 @@ Copy5RowsOfTilemapInHBlank_VBK0:
 	xor a
 	ldh [rVBK], a
 	jr Copy5RowsOfTilemapInHBlank
-CopyFullTilemapInHBlank:
-	ldh [rVBK], a
-	ld de, 0
-	ld b, SCREEN_HEIGHT
-	jr CopyTilemapInHBlank
 Copy5RowsOfTilemapInHBlank_VBK1:
 	ld a, 1
 	ldh [rVBK], a

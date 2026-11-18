@@ -244,7 +244,6 @@ IcePathHollowMedicScript:
 	closetext
 	special FadeOutToBlack
 	special ReloadSpritesNoPalettes
-	special StubbedTrainerRankings_Healings
 	playmusic MUSIC_HEAL
 	special HealParty
 	pause 60

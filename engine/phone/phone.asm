@@ -411,9 +411,7 @@ Script_SpecialBillCall::
 
 RingTwice_StartCall:
 	call .Ring
-	call .Ring
-	farjp StubbedTrainerRankings_PhoneCalls
-
+	; fallthrough
 .Ring:
 	call Phone_StartRinging
 	call Phone_Wait20Frames
@@ -435,9 +433,7 @@ PhoneCall::
 	ld a, d
 	ld [wPhoneCaller + 1], a
 	call .Ring
-	call .Ring
-	farjp StubbedTrainerRankings_PhoneCalls
-
+	; fallthrough
 .Ring:
 	call Phone_StartRinging
 	call Phone_Wait20Frames

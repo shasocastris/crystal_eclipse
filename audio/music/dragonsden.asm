@@ -106,54 +106,24 @@ Music_DragonsDen_Ch3:
 .mainloop:
 .loop1:
 	note_type 12, 1, 4
-	octave 4
-	note C#, 2
-	octave 3
-	note G#, 1
-	octave 4
-	note C#, 1
+	sound_call Music_DragonsDen_Ditty1
 	octave 3
 	note G#, 2
-	octave 4
-	note C#, 2
-	octave 3
-	note G#, 1
-	octave 4
-	note C#, 1
+	sound_call Music_DragonsDen_Ditty1
 	octave 3
 	note G#, 2
-	octave 4
-	note C#, 2
-	octave 3
-	note G#, 1
-	octave 4
-	note C#, 1
+	sound_call Music_DragonsDen_Ditty1
 	sound_loop 15, .loop1
 	rest 16
 	note_type 6, 2, 7
 .loop2:
-	octave 3
-	note C#, 4
-	octave 2
-	note G#, 2
-	octave 3
-	note C#, 2
+	sound_call Music_DragonsDen_Ditty2
 	octave 2
 	note G#, 4
-	octave 3
-	note C#, 4
-	octave 2
-	note G#, 2
-	octave 3
-	note C#, 2
+	sound_call Music_DragonsDen_Ditty2
 	octave 2
 	note G#, 4
-	octave 3
-	note C#, 4
-	octave 2
-	note G#, 2
-	octave 3
-	note C#, 2
+	sound_call Music_DragonsDen_Ditty2
 	sound_loop 16, .loop2
 	sound_loop 0, .mainloop
 
@@ -171,3 +141,21 @@ Music_DragonsDen_Ch4:
 	stereo_panning TRUE, FALSE
 	drum_note 7, 4
 	sound_loop 0, .mainloop
+
+Music_DragonsDen_Ditty2:
+	octave 3
+	note C#, 4
+	octave 2
+	note G#, 2
+	octave 3
+	note C#, 2
+	sound_ret
+
+Music_DragonsDen_Ditty1:
+	octave 4
+	note C#, 2
+	octave 3
+	note G#, 1
+	octave 4
+	note C#, 1
+	sound_ret

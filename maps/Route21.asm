@@ -86,39 +86,6 @@ FisherArnoldAfterBattleText:
 	line "to fishing…"
 	done
 
-SwimmermRickSeenText:
-	text "Dude, the waves"
-	line "are perfect today!"
-
-	para "My #MON and I"
-	line "are totally in"
-	cont "sync with the sea."
-
-	para "Let's ride the"
-	line "tide together!"
-	done
-
-SwimmermRickBeatenText:
-	text "Totally wiped out!"
-	done
-
-SwimmermRickAfterBattleText:
-	text "No worries, man."
-	line "Sometimes you ride"
-	cont "the wave…"
-
-	para "…and sometimes"
-	line "the wave rides"
-	cont "you!"
-
-	para "The ocean teaches"
-	line "you to go with"
-	cont "the flow."
-
-	para "Your #MON have"
-	line "that same chill"
-	cont "vibe. Respect!"
-	done
 
 Route21_MapEvents:
 	db 0, 0 ; filler

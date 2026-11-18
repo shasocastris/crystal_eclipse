@@ -8,28 +8,6 @@ _UpdatePlayerSprite::
 	res 5, [hl]
 	jmp GetUsedSprite
 
-LoadStandingSpritesGFX: ; mobile
-	ld hl, wSpriteFlags
-	ld a, [hl]
-	push af
-	res SPRITES_SKIP_STANDING_GFX_F, [hl]
-	set SPRITES_SKIP_WALKING_GFX_F, [hl]
-	call LoadUsedSpritesGFX
-	pop af
-	ld [wSpriteFlags], a
-	ret
-
-LoadWalkingSpritesGFX: ; mobile
-	ld hl, wSpriteFlags
-	ld a, [hl]
-	push af
-	set SPRITES_SKIP_STANDING_GFX_F, [hl]
-	res SPRITES_SKIP_WALKING_GFX_F, [hl]
-	call LoadUsedSpritesGFX
-	pop af
-	ld [wSpriteFlags], a
-	ret
-
 GetPlayerSprite:
 ; Get Chris or Kris's sprite.
 	ld hl, ChrisStateSprites

@@ -207,9 +207,6 @@ NameRaterPerfectNameText:
 	text_far _NameRaterPerfectNameText
 	text_end
 
-NameRaterEggText:
-	text_far _NameRaterEggText
-	text_end
 
 NameRaterSameNameText:
 	text_far _NameRaterSameNameText

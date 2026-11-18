@@ -1,5 +1,4 @@
 BattleCommand_Selfdestruct:
-	farcall StubbedTrainerRankings_Selfdestruct
 	ld a, ANIM_PLAYER_DAMAGE - BATTLE_AFTERANIMS
 	ld [wBattleAfterAnim], a
 	ld c, 3

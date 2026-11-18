@@ -669,7 +669,6 @@ MonMenu_Fly:
 	jr z, .Fail
 	and a
 	jr z, .Error
-	farcall StubbedTrainerRankings_Fly
 	ld b, $4
 	ld a, $2
 	ret
@@ -1380,12 +1379,6 @@ String_MoveEff:
 	db "EFF/@"
 String_MoveNoPower:
 	db "---@"
-String_MovePhy:
-	db "PHYSICAL@"
-String_MoveSpe:
-	db "SPECIAL @"
-String_MoveSta:
-	db "STATUS  @"
 
 PlaceMoveScreenArrows:
 	call PlaceMoveScreenLeftArrow

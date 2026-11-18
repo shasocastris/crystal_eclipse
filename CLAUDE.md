@@ -86,7 +86,6 @@ The ROM is assembled from four top-level `.asm` files, each compiled to a `.o` o
 | `gfx/` | Source graphics (`.png`) and generated binary graphics (`.2bpp`, `.lz`, etc.) |
 | `audio/` | Music and drumkit definitions |
 | `ram/` | WRAM struct definitions |
-| `lib/` | External library code (Mobile adapter) |
 | `tools/` | C build tools: `lzcomp`, `gfx`, `gbcpal`, `bankends`, `scan_includes`, `pokemon_animation`, etc. |
 | `utils/` | Python utilities: `optimize.py`, `farcheck.py`, `grayscale.py`, `unreferenced.py` |
 | `docs/` | Documentation for scripting commands (event, movement, text, battle anim, etc.) |

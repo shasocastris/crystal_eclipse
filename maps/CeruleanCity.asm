@@ -235,16 +235,6 @@ CeruleanCityYoungsterText2:
 	line "responding…"
 	done
 
-CeruleanCityUnusedGuyText:
-	text "Whoa, hold it!"
-
-	para "You can't go into"
-	line "CERULEAN CAVE."
-
-	para "You need special"
-	line "permission from"
-	cont "PROF.OAK!"
-	done
 
 CeruleanCitySignText:
 	text "CERULEAN CITY"
@@ -284,15 +274,6 @@ CeruleanPoliceSignText:
 	para "CERULEAN POLICE"
 	done
 
-CeruleanCaveWarningText:
-	text "URGENT WARNING"
-
-	para "CERULEAN CAVE"
-	line "contains extremely"
-	cont "powerful #MON"
-
-	para "DO NOT ENTER"
-	done
 
 CeruleanCapeSignText:
 	text "CERULEAN CAPE"

@@ -14,10 +14,7 @@ Music_BurnedTower_Ch1:
 	stereo_panning TRUE, FALSE
 	note_type 12, 9, 1
 	rest 2
-	octave 2
-	note A_, 4
-	note A_, 4
-	note A_, 2
+	sound_call Music_BurnedTower_Ditty1
 	volume_envelope 8, 0
 	octave 3
 	note D#, 6
@@ -29,20 +26,14 @@ Music_BurnedTower_Ch1:
 	note C#, 6
 .loop1:
 	volume_envelope 9, 1
-	octave 2
-	note A_, 4
-	note A_, 4
-	note A_, 2
+	sound_call Music_BurnedTower_Ditty1
 	volume_envelope 8, 0
 	note A#, 6
 	sound_loop 2, .loop1
 	tempo 150
 .mainloop:
 	volume_envelope 11, 1
-	octave 2
-	note A_, 4
-	note A_, 4
-	note A_, 2
+	sound_call Music_BurnedTower_Ditty1
 	volume_envelope 10, 0
 	octave 3
 	note D#, 6
@@ -53,10 +44,7 @@ Music_BurnedTower_Ch1:
 	volume_envelope 10, 0
 	note C#, 6
 	volume_envelope 11, 1
-	octave 2
-	note A_, 4
-	note A_, 4
-	note A_, 2
+	sound_call Music_BurnedTower_Ditty1
 	volume_envelope 10, 0
 	note A#, 6
 	volume_envelope 11, 1
@@ -111,10 +99,7 @@ Music_BurnedTower_Ch2:
 	volume_envelope 12, 1
 	duty_cycle 3
 	rest 2
-	octave 2
-	note A_, 4
-	note A_, 4
-	note A_, 2
+	sound_call Music_BurnedTower_Ditty1
 	volume_envelope 11, 0
 	octave 3
 	note D#, 6
@@ -125,10 +110,7 @@ Music_BurnedTower_Ch2:
 	volume_envelope 11, 0
 	note C#, 6
 	volume_envelope 12, 1
-	octave 2
-	note A_, 4
-	note A_, 4
-	note A_, 2
+	sound_call Music_BurnedTower_Ditty1
 	volume_envelope 11, 0
 	note A#, 4
 	volume_envelope 12, 1
@@ -203,43 +185,15 @@ Music_BurnedTower_Ch3:
 	note D#, 4
 .mainloop:
 .loop1:
-	octave 2
-	note A_, 2
-	octave 3
-	note E_, 2
-	rest 2
-	note E_, 2
-	rest 2
-	note E_, 2
+	sound_call Music_BurnedTower_Ditty2
 	note F_, 4
-	octave 2
-	note A_, 2
-	octave 3
-	note E_, 2
-	rest 2
-	note E_, 2
-	rest 2
-	note E_, 2
+	sound_call Music_BurnedTower_Ditty2
 	note D#, 4
 	sound_loop 4, .loop1
 .loop2:
-	octave 2
-	note B_, 2
-	octave 3
-	note F#, 2
-	rest 2
-	note F#, 2
-	rest 2
-	note F#, 2
+	sound_call Music_BurnedTower_Ditty3
 	note G_, 4
-	octave 2
-	note B_, 2
-	octave 3
-	note F#, 2
-	rest 2
-	note F#, 2
-	rest 2
-	note F#, 2
+	sound_call Music_BurnedTower_Ditty3
 	note F_, 4
 	sound_loop 2, .loop2
 	sound_loop 0, .mainloop
@@ -259,3 +213,32 @@ Music_BurnedTower_Ch4:
 	drum_note 9, 2
 	drum_note 8, 4
 	sound_loop 0, .mainloop
+
+Music_BurnedTower_Ditty1:
+	octave 2
+	note A_, 4
+	note A_, 4
+	note A_, 2
+	sound_ret
+
+Music_BurnedTower_Ditty3:
+	octave 2
+	note B_, 2
+	octave 3
+	note F#, 2
+	rest 2
+	note F#, 2
+	rest 2
+	note F#, 2
+	sound_ret
+
+Music_BurnedTower_Ditty2:
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	rest 2
+	note E_, 2
+	rest 2
+	note E_, 2
+	sound_ret

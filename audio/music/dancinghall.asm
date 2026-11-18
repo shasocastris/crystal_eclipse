@@ -230,27 +230,13 @@ Music_DancingHall_Ch3:
 	octave 6
 	note D_, 1
 .mainloop:
-	note E_, 13
-	note D_, 1
-	note E_, 1
-	note A_, 1
-	note B_, 16
-	volume_envelope 1, 4
-	octave 3
-	note F_, 16
+	sound_call Music_DancingHall_Ditty1
 	note E_, 14
 	volume_envelope 1, 0
 	octave 6
 	note E_, 1
 	note F_, 1
-	note E_, 13
-	note D_, 1
-	note E_, 1
-	note A_, 1
-	note B_, 16
-	volume_envelope 1, 4
-	octave 3
-	note F_, 16
+	sound_call Music_DancingHall_Ditty1
 	note E_, 16
 	volume_envelope 1, 3
 	octave 4
@@ -304,3 +290,14 @@ Music_DancingHall_Ch3:
 	octave 6
 	note D_, 1
 	sound_loop 0, .mainloop
+
+Music_DancingHall_Ditty1:
+	note E_, 13
+	note D_, 1
+	note E_, 1
+	note A_, 1
+	note B_, 16
+	volume_envelope 1, 4
+	octave 3
+	note F_, 16
+	sound_ret

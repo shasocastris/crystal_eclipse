@@ -109,16 +109,6 @@ PicnickerSharonAfterBattleText:
 	line "some more…"
 	done
 
-Route4UnusedGuyText:
-	text "Whoa, hold it!"
-
-	para "You can't go into"
-	line "CERULEAN CAVE."
-
-	para "You need special"
-	line "permission from"
-	cont "PROF.OAK!"
-	done
 
 MtMoonSquareSignText:
 	text "MT.MOON SQUARE"

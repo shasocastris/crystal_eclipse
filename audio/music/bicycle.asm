@@ -26,21 +26,7 @@ Music_Bicycle_Ch1:
 .mainloop:
 	stereo_panning FALSE, TRUE
 	volume_envelope 11, 2
-	note G_, 2
-	note G_, 2
-	note E_, 2
-	note E_, 2
-	note F#, 1
-	note E_, 1
-	note D#, 2
-	note D_, 2
-	note D_, 2
-	note E_, 2
-	note E_, 2
-	note C_, 2
-	note C_, 2
-	octave 2
-	note B_, 2
+	sound_call Music_Bicycle_Ditty3
 	note G_, 2
 	note A_, 2
 	note B_, 2
@@ -61,21 +47,7 @@ Music_Bicycle_Ch1:
 	note D_, 2
 	note C#, 2
 	note D_, 2
-	note G_, 2
-	note G_, 2
-	note E_, 2
-	note E_, 2
-	note F#, 1
-	note E_, 1
-	note D#, 2
-	note D_, 2
-	note D_, 2
-	note E_, 2
-	note E_, 2
-	note C_, 2
-	note C_, 2
-	octave 2
-	note B_, 2
+	sound_call Music_Bicycle_Ditty3
 	note B_, 2
 	note A#, 2
 	note B_, 2
@@ -199,22 +171,7 @@ Music_Bicycle_Ch2:
 	duty_cycle 2
 	volume_envelope 12, 3
 	octave 3
-	note B_, 4
-	note G_, 4
-	note A_, 4
-	note F#, 4
-	volume_envelope 12, 2
-	note G_, 2
-	note F#, 2
-	note E_, 2
-	note F#, 2
-	volume_envelope 12, 5
-	note D_, 8
-	volume_envelope 12, 4
-	note E_, 4
-	note G_, 4
-	volume_envelope 12, 2
-	note E_, 2
+	sound_call Music_Bicycle_Ditty2
 	note B_, 2
 	note A_, 2
 	note G_, 2
@@ -225,22 +182,7 @@ Music_Bicycle_Ch2:
 	volume_envelope 12, 5
 	note F#, 8
 	volume_envelope 12, 3
-	note B_, 4
-	note G_, 4
-	note A_, 4
-	note F#, 4
-	volume_envelope 12, 2
-	note G_, 2
-	note F#, 2
-	note E_, 2
-	note F#, 2
-	volume_envelope 12, 5
-	note D_, 8
-	volume_envelope 12, 4
-	note E_, 4
-	note G_, 4
-	volume_envelope 12, 2
-	note E_, 2
+	sound_call Music_Bicycle_Ditty2
 	octave 4
 	note E_, 2
 	note D_, 2
@@ -304,16 +246,7 @@ Music_Bicycle_Ch3:
 	rest 1
 .mainloop:
 	sound_call .sub1
-	note E_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note E_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note D_, 1
-	rest 1
+	sound_call Music_Bicycle_Ditty4
 	octave 2
 	note B_, 1
 	rest 1
@@ -321,31 +254,7 @@ Music_Bicycle_Ch3:
 	note C_, 1
 	rest 1
 	note D_, 1
-	rest 1
-	note E_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note C_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note E_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note C_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note F#, 1
-	rest 1
-	note A_, 1
-	rest 1
-	note D_, 1
-	rest 1
-	note A_, 1
-	rest 1
+	sound_call Music_Bicycle_Ditty1
 	note F#, 1
 	rest 1
 	note D_, 1
@@ -355,46 +264,13 @@ Music_Bicycle_Ch3:
 	note F#, 1
 	rest 1
 	sound_call .sub1
-	note E_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note E_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note D_, 1
-	rest 1
+	sound_call Music_Bicycle_Ditty4
 	note G_, 1
 	rest 1
 	note F#, 1
 	rest 1
 	note F_, 1
-	rest 1
-	note E_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note C_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note E_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note C_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note F#, 1
-	rest 1
-	note A_, 1
-	rest 1
-	note D_, 1
-	rest 1
-	note A_, 1
-	rest 1
+	sound_call Music_Bicycle_Ditty1
 	octave 4
 	note D_, 1
 	rest 1
@@ -421,47 +297,9 @@ Music_Bicycle_Ch3:
 	note D_, 1
 	rest 1
 	note B_, 1
-	rest 1
-	note F#, 1
-	rest 1
-	note A_, 1
-	rest 1
-	note D_, 1
-	rest 1
-	note A_, 1
-	rest 1
-	note F#, 1
-	rest 1
-	note A_, 1
-	rest 1
-	note D_, 1
-	rest 1
-	note A_, 1
-	rest 1
-	note E_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note C_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note E_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note C_, 1
-	rest 1
-	note G_, 1
-	rest 1
-	note F#, 1
-	rest 1
-	note A_, 1
-	rest 1
-	note D_, 1
-	rest 1
-	note A_, 1
-	rest 1
+	sound_call Music_Bicycle_Ditty5
+	sound_call Music_Bicycle_Ditty5
+	sound_call Music_Bicycle_Ditty1
 	note F#, 1
 	rest 1
 	octave 4
@@ -513,3 +351,92 @@ Music_Bicycle_Ch4:
 	drum_note 6, 2
 	drum_note 6, 2
 	sound_loop 0, .mainloop
+
+Music_Bicycle_Ditty5:
+	rest 1
+	note F#, 1
+	rest 1
+	note A_, 1
+	rest 1
+	note D_, 1
+	rest 1
+	note A_, 1
+	sound_ret
+
+Music_Bicycle_Ditty4:
+	note E_, 1
+	rest 1
+	note G_, 1
+	rest 1
+	note E_, 1
+	rest 1
+	note G_, 1
+	rest 1
+	note D_, 1
+	rest 1
+	sound_ret
+
+Music_Bicycle_Ditty3:
+	note G_, 2
+	note G_, 2
+	note E_, 2
+	note E_, 2
+	note F#, 1
+	note E_, 1
+	note D#, 2
+	note D_, 2
+	note D_, 2
+	note E_, 2
+	note E_, 2
+	note C_, 2
+	note C_, 2
+	octave 2
+	note B_, 2
+	sound_ret
+
+Music_Bicycle_Ditty2:
+	note B_, 4
+	note G_, 4
+	note A_, 4
+	note F#, 4
+	volume_envelope 12, 2
+	note G_, 2
+	note F#, 2
+	note E_, 2
+	note F#, 2
+	volume_envelope 12, 5
+	note D_, 8
+	volume_envelope 12, 4
+	note E_, 4
+	note G_, 4
+	volume_envelope 12, 2
+	note E_, 2
+	sound_ret
+
+Music_Bicycle_Ditty1:
+	rest 1
+	note E_, 1
+	rest 1
+	note G_, 1
+	rest 1
+	note C_, 1
+	rest 1
+	note G_, 1
+	rest 1
+	note E_, 1
+	rest 1
+	note G_, 1
+	rest 1
+	note C_, 1
+	rest 1
+	note G_, 1
+	rest 1
+	note F#, 1
+	rest 1
+	note A_, 1
+	rest 1
+	note D_, 1
+	rest 1
+	note A_, 1
+	rest 1
+	sound_ret

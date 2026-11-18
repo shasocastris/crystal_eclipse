@@ -169,22 +169,10 @@ Music_NewBarkTown_Ch2:
 	sound_call .sub1
 	sound_call .sub1
 	sound_call .sub2
-	volume_envelope 8, 7
-	octave 5
-	note B_, 6
-	note A_, 6
-	volume_envelope 7, 7
-	octave 6
-	note D_, 4
+	sound_call Music_NewBarkTown_Ditty1
 	note C#, 16
 	sound_call .sub2
-	volume_envelope 8, 7
-	octave 5
-	note B_, 6
-	note A_, 6
-	volume_envelope 7, 7
-	octave 6
-	note D_, 4
+	sound_call Music_NewBarkTown_Ditty1
 	note E_, 16
 	sound_loop 0, .mainloop
 
@@ -323,3 +311,13 @@ Music_NewBarkTown_Ch3:
 	note D_, 1
 	note E_, 1
 	sound_loop 0, .mainloop
+
+Music_NewBarkTown_Ditty1:
+	volume_envelope 8, 7
+	octave 5
+	note B_, 6
+	note A_, 6
+	volume_envelope 7, 7
+	octave 6
+	note D_, 4
+	sound_ret

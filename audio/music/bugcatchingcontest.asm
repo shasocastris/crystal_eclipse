@@ -206,17 +206,7 @@ Music_BugCatchingContest_Ch2:
 .mainloop:
 	duty_cycle 0
 	sound_call .sub1
-	octave 2
-	note E_, 2
-	octave 3
-	note G_, 1
-	rest 1
-	octave 1
-	note B_, 2
-	octave 3
-	note G_, 1
-	rest 1
-	octave 2
+	sound_call Music_BugCatchingContest_Ditty1
 	note E_, 2
 	octave 3
 	note G_, 1
@@ -247,17 +237,7 @@ Music_BugCatchingContest_Ch2:
 	note E_, 1
 	rest 1
 	sound_call .sub1
-	octave 2
-	note E_, 2
-	octave 3
-	note G_, 1
-	rest 1
-	octave 1
-	note B_, 2
-	octave 3
-	note G_, 1
-	rest 1
-	octave 2
+	sound_call Music_BugCatchingContest_Ditty1
 	note A_, 2
 	octave 4
 	note C#, 1
@@ -288,23 +268,9 @@ Music_BugCatchingContest_Ch2:
 	note A_, 1
 	rest 1
 	duty_cycle 0
-	rest 2
-	octave 5
-	note D_, 1
-	rest 1
-	note C#, 2
-	note D_, 1
-	rest 1
-	octave 4
+	sound_call Music_BugCatchingContest_Ditty5
 	note B_, 8
-	rest 2
-	octave 5
-	note D_, 1
-	rest 1
-	note C#, 2
-	note D_, 1
-	rest 1
-	octave 4
+	sound_call Music_BugCatchingContest_Ditty5
 	note A_, 8
 	rest 2
 	octave 5
@@ -504,24 +470,14 @@ Music_BugCatchingContest_Ch3:
 	octave 6
 	note C_, 8
 	octave 3
-	note G_, 2
-	rest 2
-	note B_, 2
-	rest 2
-	note D_, 2
-	rest 2
+	sound_call Music_BugCatchingContest_Ditty2
 	note B_, 2
 	rest 2
 	note E_, 2
 	rest 2
 	note B_, 2
 	rest 2
-	note G_, 2
-	rest 2
-	note B_, 2
-	rest 2
-	note D_, 2
-	rest 2
+	sound_call Music_BugCatchingContest_Ditty2
 	note F#, 2
 	rest 2
 	octave 2
@@ -542,12 +498,7 @@ Music_BugCatchingContest_Ch3:
 	note C_, 2
 	rest 2
 	octave 3
-	note G_, 2
-	rest 2
-	note B_, 2
-	rest 2
-	note D_, 2
-	rest 2
+	sound_call Music_BugCatchingContest_Ditty2
 	note B_, 2
 	rest 2
 	note G#, 2
@@ -588,49 +539,19 @@ Music_BugCatchingContest_Ch3:
 Music_BugCatchingContest_Ch4:
 	toggle_noise 4
 	drum_speed 6
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
+	sound_call Music_BugCatchingContest_Ditty3
+	sound_call Music_BugCatchingContest_Ditty3
 	drum_note 5, 2
 	drum_note 5, 2
 	sound_call Music_BugCatchingContest_Ch4.sub1
 .mainloop:
 .loop1:
+	sound_call Music_BugCatchingContest_Ditty4
+	sound_call Music_BugCatchingContest_Ditty4
+	sound_call Music_BugCatchingContest_Ditty4
 	drum_note 3, 4
 	drum_note 3, 4
-	drum_note 3, 2
-	drum_note 2, 2
-	drum_note 3, 2
-	drum_note 2, 2
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 2
-	drum_note 2, 2
-	drum_note 3, 2
-	drum_note 2, 2
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 3, 2
-	drum_note 2, 2
-	drum_note 3, 2
-	drum_note 2, 2
-	drum_note 3, 4
-	drum_note 3, 4
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
-	drum_note 2, 1
+	sound_call Music_BugCatchingContest_Ditty3
 	drum_note 2, 1
 	drum_note 2, 1
 	sound_loop 5, .loop1
@@ -666,4 +587,56 @@ Music_BugCatchingContest_Ch4:
 	drum_note 12, 8
 	drum_note 3, 2
 	drum_note 3, 2
+	sound_ret
+
+Music_BugCatchingContest_Ditty4:
+	drum_note 3, 4
+	drum_note 3, 4
+	drum_note 3, 2
+	drum_note 2, 2
+	drum_note 3, 2
+	drum_note 2, 2
+	sound_ret
+
+Music_BugCatchingContest_Ditty3:
+	drum_note 2, 1
+	drum_note 2, 1
+	drum_note 2, 1
+	drum_note 2, 1
+	drum_note 2, 1
+	drum_note 2, 1
+	sound_ret
+
+Music_BugCatchingContest_Ditty2:
+	note G_, 2
+	rest 2
+	note B_, 2
+	rest 2
+	note D_, 2
+	rest 2
+	sound_ret
+
+Music_BugCatchingContest_Ditty5:
+	rest 2
+	octave 5
+	note D_, 1
+	rest 1
+	note C#, 2
+	note D_, 1
+	rest 1
+	octave 4
+	sound_ret
+
+Music_BugCatchingContest_Ditty1:
+	octave 2
+	note E_, 2
+	octave 3
+	note G_, 1
+	rest 1
+	octave 1
+	note B_, 2
+	octave 3
+	note G_, 1
+	rest 1
+	octave 2
 	sound_ret

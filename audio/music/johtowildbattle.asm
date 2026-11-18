@@ -110,14 +110,7 @@ Music_JohtoWildBattle_Ch1:
 	octave 4
 	note C_, 8
 	octave 3
-	note B_, 1
-	note A#, 1
-	note G#, 1
-	note G_, 1
-	note G#, 1
-	note A_, 1
-	note A#, 1
-	note B_, 1
+	sound_call Music_JohtoWildBattle_Ditty3
 	note D_, 6
 	octave 2
 	note B_, 6
@@ -137,14 +130,7 @@ Music_JohtoWildBattle_Ch1:
 	note F_, 6
 	note C#, 4
 	note A_, 8
-	note B_, 1
-	note A#, 1
-	note G#, 1
-	note G_, 1
-	note G#, 1
-	note A_, 1
-	note A#, 1
-	note B_, 1
+	sound_call Music_JohtoWildBattle_Ditty3
 	octave 4
 	note C#, 8
 	note C_, 1
@@ -211,31 +197,13 @@ Music_JohtoWildBattle_Ch2:
 	note G_, 6
 .body:
 	octave 3
-	note D_, 6
-	note G_, 4
-	note F_, 4
-	note F#, 4
-	note G_, 8
-	note G#, 6
-	note D_, 6
-	note G#, 4
-	note F_, 4
-	note G_, 4
+	sound_call Music_JohtoWildBattle_Ditty1
 	volume_envelope 12, 7
 	note G#, 8
 	volume_envelope 12, 2
 	octave 4
 	note G_, 6
-	note D_, 6
-	note G_, 4
-	note F_, 4
-	note F#, 4
-	note G_, 8
-	note G#, 6
-	note D_, 6
-	note G#, 4
-	note F_, 4
-	note G_, 4
+	sound_call Music_JohtoWildBattle_Ditty1
 	volume_envelope 6, -7
 	note G#, 8
 .mainloop:
@@ -245,16 +213,7 @@ Music_JohtoWildBattle_Ch2:
 	note D_, 6
 	note D_, 2
 	note G_, 2
-	octave 4
-	note C_, 2
-	octave 3
-	note B_, 2
-	note A_, 2
-	note G_, 2
-	note F_, 2
-	note G_, 2
-	note A_, 2
-	octave 4
+	sound_call Music_JohtoWildBattle_Ditty2
 	note C#, 2
 	volume_envelope 11, 0
 	note D#, 16
@@ -331,16 +290,7 @@ Music_JohtoWildBattle_Ch2:
 	octave 3
 	note F_, 2
 	note A_, 2
-	octave 4
-	note C_, 2
-	octave 3
-	note B_, 2
-	note A_, 2
-	note G_, 2
-	note F_, 2
-	note G_, 2
-	note A_, 2
-	octave 4
+	sound_call Music_JohtoWildBattle_Ditty2
 	note C_, 2
 	volume_envelope 12, 7
 	note D_, 16
@@ -583,4 +533,41 @@ Music_JohtoWildBattle_Ch3:
 	note D#, 2
 	note G#, 2
 	sound_loop 4, .sub1loop1
+	sound_ret
+
+Music_JohtoWildBattle_Ditty3:
+	note B_, 1
+	note A#, 1
+	note G#, 1
+	note G_, 1
+	note G#, 1
+	note A_, 1
+	note A#, 1
+	note B_, 1
+	sound_ret
+
+Music_JohtoWildBattle_Ditty2:
+	octave 4
+	note C_, 2
+	octave 3
+	note B_, 2
+	note A_, 2
+	note G_, 2
+	note F_, 2
+	note G_, 2
+	note A_, 2
+	octave 4
+	sound_ret
+
+Music_JohtoWildBattle_Ditty1:
+	note D_, 6
+	note G_, 4
+	note F_, 4
+	note F#, 4
+	note G_, 8
+	note G#, 6
+	note D_, 6
+	note G#, 4
+	note F_, 4
+	note G_, 4
 	sound_ret

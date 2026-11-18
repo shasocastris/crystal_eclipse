@@ -628,10 +628,6 @@ MoveReminderCancelText:
 
 ; This is the text that displays if the player
 ; selects an egg in the party menu.
-MoveReminderEggText:
-	text "An EGG can't learn"
-	line "any moves!"
-	done
 
 ; This is the text that displays if the player
 ; selects an entry in the party menu that

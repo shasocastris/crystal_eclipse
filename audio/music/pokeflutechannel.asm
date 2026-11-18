@@ -96,16 +96,7 @@ Music_PokeFluteChannel_Ch2:
 	note E_, 2
 	note D_, 2
 	octave 2
-	note E_, 2
-	octave 3
-	note C_, 2
-	octave 2
-	note F_, 2
-	octave 3
-	note C_, 2
-	octave 2
-	note E_, 2
-	note G_, 2
+	sound_call Music_PokeFluteChannel_Ditty1
 .mainloop:
 	octave 3
 	note C_, 2
@@ -158,16 +149,7 @@ Music_PokeFluteChannel_Ch2:
 	octave 2
 	note G_, 2
 	note B_, 2
-	note E_, 2
-	octave 3
-	note C_, 2
-	octave 2
-	note F_, 2
-	octave 3
-	note C_, 2
-	octave 2
-	note E_, 2
-	note G_, 2
+	sound_call Music_PokeFluteChannel_Ditty1
 	sound_loop 0, .mainloop
 
 Music_PokeFluteChannel_Ch3:
@@ -225,4 +207,17 @@ Music_PokeFluteChannel_Ch3:
 	note A_, 2
 	note F_, 2
 	note G_, 4
+	sound_ret
+
+Music_PokeFluteChannel_Ditty1:
+	note E_, 2
+	octave 3
+	note C_, 2
+	octave 2
+	note F_, 2
+	octave 3
+	note C_, 2
+	octave 2
+	note E_, 2
+	note G_, 2
 	sound_ret

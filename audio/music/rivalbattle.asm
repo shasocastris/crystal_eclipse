@@ -593,14 +593,7 @@ Music_RivalBattle_Ch3:
 	note A#, 2
 	octave 3
 	note B_, 2
-	octave 2
-	note A#, 2
-	octave 3
-	note A#, 2
-	octave 2
-	note A#, 2
-	octave 3
-	note G#, 2
+	sound_call Music_RivalBattle_Ditty2
 	sound_call .sub2
 	note C#, 2
 	note G#, 2
@@ -613,14 +606,7 @@ Music_RivalBattle_Ch3:
 	octave 2
 	note B_, 2
 	sound_call .sub1
-	octave 2
-	note A#, 2
-	octave 3
-	note A#, 2
-	octave 2
-	note A#, 2
-	octave 3
-	note G#, 2
+	sound_call Music_RivalBattle_Ditty2
 	octave 2
 	note A#, 2
 	octave 3
@@ -673,24 +659,8 @@ Music_RivalBattle_Ch3:
 	note A#, 2
 	note E_, 2
 	note B_, 2
-	octave 4
-	note E_, 2
-	octave 3
-	note E_, 2
-	note B_, 2
-	octave 4
-	note E_, 2
-	octave 3
-	note E_, 2
-	octave 4
-	note E_, 2
-	octave 3
-	note E_, 2
-	note B_, 2
-	octave 4
-	note E_, 2
-	octave 3
-	note E_, 2
+	sound_call Music_RivalBattle_Ditty1
+	sound_call Music_RivalBattle_Ditty1
 	note E_, 2
 	note F#, 2
 	note G_, 2
@@ -723,22 +693,8 @@ Music_RivalBattle_Ch3:
 	octave 3
 	note F#, 2
 	sound_loop 4, .loop10
-	note D#, 2
-	note G_, 2
-	note A#, 2
-	note D#, 2
-	note G_, 2
-	note A#, 2
-	note D#, 2
-	note A#, 2
-	note D#, 2
-	note G_, 2
-	note A#, 2
-	note D#, 2
-	note G_, 2
-	note A#, 2
-	note D#, 2
-	note A#, 2
+	sound_call Music_RivalBattle_Ditty3
+	sound_call Music_RivalBattle_Ditty3
 	octave 2
 	note B_, 2
 	octave 3
@@ -861,4 +817,38 @@ Music_RivalBattle_Ch3:
 	octave 4
 	note D#, 2
 	sound_loop 2, .sub4loop1
+	sound_ret
+
+Music_RivalBattle_Ditty3:
+	note D#, 2
+	note G_, 2
+	note A#, 2
+	note D#, 2
+	note G_, 2
+	note A#, 2
+	note D#, 2
+	note A#, 2
+	sound_ret
+
+Music_RivalBattle_Ditty2:
+	octave 2
+	note A#, 2
+	octave 3
+	note A#, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note G#, 2
+	sound_ret
+
+Music_RivalBattle_Ditty1:
+	octave 4
+	note E_, 2
+	octave 3
+	note E_, 2
+	note B_, 2
+	octave 4
+	note E_, 2
+	octave 3
+	note E_, 2
 	sound_ret

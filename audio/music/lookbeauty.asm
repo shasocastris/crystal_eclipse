@@ -20,25 +20,11 @@ Music_LookBeauty_Ch1:
 .mainloop:
 	rest 4
 	octave 3
-	note D_, 1
-	rest 5
-	note D_, 1
-	rest 5
-	rest 2
-	note D_, 1
-	rest 3
-	note D_, 1
+	sound_call Music_LookBeauty_Ditty1
 	rest 5
 	note D_, 4
 	rest 4
-	note D_, 1
-	rest 5
-	note D_, 1
-	rest 5
-	rest 2
-	note D_, 1
-	rest 3
-	note D_, 1
+	sound_call Music_LookBeauty_Ditty1
 	rest 3
 	note D_, 2
 	rest 2
@@ -323,4 +309,15 @@ Music_LookBeauty_Ch4:
 	drum_note 8, 2
 	drum_note 3, 2
 	drum_note 8, 2
+	sound_ret
+
+Music_LookBeauty_Ditty1:
+	note D_, 1
+	rest 5
+	note D_, 1
+	rest 5
+	rest 2
+	note D_, 1
+	rest 3
+	note D_, 1
 	sound_ret

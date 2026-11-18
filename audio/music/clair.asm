@@ -295,26 +295,7 @@ Music_Clair_Ch3:
 	note F_, 1
 	note G_, 1
 	note A#, 1
-	octave 1
-	note G#, 2
-	rest 1
-	octave 2
-	note D#, 2
-	rest 1
-	octave 1
-	note G#, 2
-	octave 3
-	note F#, 1
-	rest 1
-	octave 1
-	note G#, 1
-	octave 3
-	note D#, 1
-	octave 2
-	note D#, 2
-	octave 1
-	note G#, 2
-	octave 2
+	sound_call Music_Clair_Ditty1
 	note C#, 2
 	rest 1
 	note G#, 2
@@ -333,26 +314,7 @@ Music_Clair_Ch3:
 	note G_, 1
 	octave 2
 	note D#, 1
-	octave 1
-	note G#, 2
-	rest 1
-	octave 2
-	note D#, 2
-	rest 1
-	octave 1
-	note G#, 2
-	octave 3
-	note F#, 1
-	rest 1
-	octave 1
-	note G#, 1
-	octave 3
-	note D#, 1
-	octave 2
-	note D#, 2
-	octave 1
-	note G#, 2
-	octave 2
+	sound_call Music_Clair_Ditty1
 	note D#, 2
 	rest 1
 	note G_, 2
@@ -431,4 +393,27 @@ Music_Clair_Ch4:
 	drum_note 3, 2
 	stereo_panning TRUE, FALSE
 	drum_note 8, 1
+	sound_ret
+
+Music_Clair_Ditty1:
+	octave 1
+	note G#, 2
+	rest 1
+	octave 2
+	note D#, 2
+	rest 1
+	octave 1
+	note G#, 2
+	octave 3
+	note F#, 1
+	rest 1
+	octave 1
+	note G#, 1
+	octave 3
+	note D#, 1
+	octave 2
+	note D#, 2
+	octave 1
+	note G#, 2
+	octave 2
 	sound_ret

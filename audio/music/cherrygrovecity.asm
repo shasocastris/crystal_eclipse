@@ -176,65 +176,25 @@ Music_CherrygroveCity_Ch2:
 Music_CherrygroveCity_Ch3:
 	note_type 12, 1, 6
 	rest 4
-	octave 4
-	note C_, 2
-	octave 3
-	note A#, 2
-	note A_, 2
-	note G_, 2
-	note F_, 2
+	sound_call Music_CherrygroveCity_Ditty2
 	note E_, 2
 .mainloop:
 	note A_, 2
 	note F_, 2
 	note A_, 2
-	octave 4
-	note C_, 4
-	octave 3
-	note F_, 2
-	note G_, 2
-	note A_, 2
+	sound_call Music_CherrygroveCity_Ditty3
 	note A_, 2
 	note F_, 2
 	note A_, 2
-	octave 4
-	note C_, 4
-	octave 3
-	note F_, 2
-	note G_, 2
-	note A_, 2
+	sound_call Music_CherrygroveCity_Ditty3
 	note A#, 2
 	note G_, 2
 	note A#, 2
-	octave 4
-	note C_, 4
-	octave 3
-	note F_, 2
-	note G_, 2
-	note A_, 2
+	sound_call Music_CherrygroveCity_Ditty3
 	note A#, 4
-	octave 4
-	note C_, 2
-	octave 3
-	note A#, 2
-	note A_, 2
-	note G_, 2
-	note F_, 2
+	sound_call Music_CherrygroveCity_Ditty2
 	note E_, 2
-	note D_, 2
-	note F_, 4
-	note A#, 2
-	note F_, 2
-	note A#, 2
-	note A_, 2
-	note G_, 2
-	note F_, 2
-	note A_, 4
-	note F_, 2
-	note A_, 2
-	note F_, 2
-	note E_, 2
-	note D#, 2
+	sound_call Music_CherrygroveCity_Ditty1
 	note D_, 2
 	note F_, 4
 	note A#, 2
@@ -245,27 +205,8 @@ Music_CherrygroveCity_Ch3:
 	note E_, 2
 	note G_, 2
 	note A#, 2
-	octave 4
-	note C_, 2
-	octave 3
-	note A#, 2
-	note A_, 2
-	note G_, 2
-	note F_, 2
-	note D_, 2
-	note F_, 4
-	note A#, 2
-	note F_, 2
-	note A#, 2
-	note A_, 2
-	note G_, 2
-	note F_, 2
-	note A_, 4
-	note F_, 2
-	note A_, 2
-	note F_, 2
-	note E_, 2
-	note D#, 2
+	sound_call Music_CherrygroveCity_Ditty2
+	sound_call Music_CherrygroveCity_Ditty1
 	note C#, 2
 	note F_, 4
 	note A#, 2
@@ -304,3 +245,39 @@ Music_CherrygroveCity_Ch4:
 	drum_note 2, 2
 	drum_note 8, 2
 	sound_loop 0, .mainloop
+
+Music_CherrygroveCity_Ditty3:
+	octave 4
+	note C_, 4
+	octave 3
+	note F_, 2
+	note G_, 2
+	note A_, 2
+	sound_ret
+
+Music_CherrygroveCity_Ditty2:
+	octave 4
+	note C_, 2
+	octave 3
+	note A#, 2
+	note A_, 2
+	note G_, 2
+	note F_, 2
+	sound_ret
+
+Music_CherrygroveCity_Ditty1:
+	note D_, 2
+	note F_, 4
+	note A#, 2
+	note F_, 2
+	note A#, 2
+	note A_, 2
+	note G_, 2
+	note F_, 2
+	note A_, 4
+	note F_, 2
+	note A_, 2
+	note F_, 2
+	note E_, 2
+	note D#, 2
+	sound_ret

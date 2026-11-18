@@ -275,14 +275,7 @@ BattleBGEffect_AlternateHues:
 	db -2
 
 BattleBGEffect_CycleOBPalsGrayAndYellow:
-	call BattleBGEffects_CheckSGB
-	jr nz, .sgb
 	ld de, .PalsCGB
-	jr .okay
-
-.sgb
-	ld de, .PalsSGB
-.okay
 	call BattleBGEffect_GetNthDMGPal
 	ld [wOBP0], a
 	ret
@@ -292,20 +285,8 @@ BattleBGEffect_CycleOBPalsGrayAndYellow:
 	dc 2, 1, 0, 0
 	db -2
 
-.PalsSGB:
-	dc 3, 3, 0, 0
-	dc 3, 0, 0, 0
-	db -2
-
 BattleBGEffect_CycleMidOBPalsGrayAndYellow:
-	call BattleBGEffects_CheckSGB
-	jr nz, .sgb
 	ld de, .PalsCGB
-	jr .okay
-
-.sgb
-	ld de, .PalsSGB
-.okay
 	call BattleBGEffect_GetNthDMGPal
 	ld [wOBP0], a
 	ret
@@ -313,11 +294,6 @@ BattleBGEffect_CycleMidOBPalsGrayAndYellow:
 .PalsCGB:
 	dc 3, 2, 1, 0
 	dc 3, 1, 2, 0
-	db -2
-
-.PalsSGB:
-	dc 3, 3, 0, 0
-	dc 3, 0, 3, 0
 	db -2
 
 BattleBGEffect_CycleBGPals_Inverted:
@@ -2862,7 +2838,3 @@ BGEffect_CheckFlyDigStatus:
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
 	ret
 
-BattleBGEffects_CheckSGB:
-	ldh a, [hSGB]
-	and a
-	ret

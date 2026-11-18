@@ -24,22 +24,8 @@ Music_MtMoon_Ch2:
 .mainloop:
 	octave 4
 	note D#, 6
-	note C#, 6
-	octave 3
-	note B_, 2
-	octave 4
-	note C#, 2
-	note D#, 2
-	note G_, 2
-	note D#, 2
-	note C#, 6
-	octave 3
-	note B_, 2
-	octave 4
-	note C#, 2
-	note D#, 2
-	note G_, 2
-	note D#, 2
+	sound_call Music_MtMoon_Ditty2
+	sound_call Music_MtMoon_Ditty2
 	note C#, 6
 	octave 3
 	note B_, 2
@@ -48,22 +34,8 @@ Music_MtMoon_Ch2:
 	octave 4
 	note C#, 10
 	note G#, 6
-	note F#, 6
-	note E_, 2
-	note F#, 2
-	note G#, 2
-	octave 5
-	note C_, 2
-	octave 4
-	note G#, 2
-	note F#, 6
-	note E_, 2
-	note F#, 2
-	note G#, 2
-	octave 5
-	note C_, 2
-	octave 4
-	note G#, 2
+	sound_call Music_MtMoon_Ditty3
+	sound_call Music_MtMoon_Ditty3
 	note F#, 6
 	note E_, 2
 	note D#, 2
@@ -76,31 +48,13 @@ Music_MtMoon_Ch3:
 .mainloop:
 	note_type 12, 2, 8
 .loop1:
-	octave 2
-	note B_, 2
-	octave 3
-	note D#, 2
-	note G_, 2
-	octave 2
-	note B_, 2
-	octave 3
-	note D#, 2
-	note G_, 2
+	sound_call Music_MtMoon_Ditty1
 	octave 2
 	note B_, 2
 	octave 3
 	note D#, 2
 	sound_loop 3, .loop1
-	octave 2
-	note B_, 2
-	octave 3
-	note D#, 2
-	note G_, 2
-	octave 2
-	note B_, 2
-	octave 3
-	note D#, 2
-	note G_, 2
+	sound_call Music_MtMoon_Ditty1
 	note D#, 2
 	note E_, 2
 .loop2:
@@ -137,3 +91,38 @@ Music_MtMoon_Ch4:
 	stereo_panning TRUE, FALSE
 	drum_note 11, 8
 	sound_loop 0, .mainloop
+
+Music_MtMoon_Ditty3:
+	note F#, 6
+	note E_, 2
+	note F#, 2
+	note G#, 2
+	octave 5
+	note C_, 2
+	octave 4
+	note G#, 2
+	sound_ret
+
+Music_MtMoon_Ditty2:
+	note C#, 6
+	octave 3
+	note B_, 2
+	octave 4
+	note C#, 2
+	note D#, 2
+	note G_, 2
+	note D#, 2
+	sound_ret
+
+Music_MtMoon_Ditty1:
+	octave 2
+	note B_, 2
+	octave 3
+	note D#, 2
+	note G_, 2
+	octave 2
+	note B_, 2
+	octave 3
+	note D#, 2
+	note G_, 2
+	sound_ret

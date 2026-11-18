@@ -228,17 +228,7 @@ Music_VioletCity_Ch1:
 	note D_, 1
 	note C#, 3
 	note_type 12, 8, 4
-	octave 3
-	note B_, 1
-	rest 1
-	note A_, 2
-	note F#, 1
-	rest 1
-	note A_, 2
-	octave 4
-	note E_, 4
-	note D_, 4
-	note C#, 2
+	sound_call Music_VioletCity_Ditty1
 	note G#, 1
 	note E_, 1
 	octave 3
@@ -438,17 +428,7 @@ Music_VioletCity_Ch2:
 	note D_, 1
 	note C#, 3
 	note_type 12, 10, 7
-	octave 3
-	note B_, 1
-	rest 1
-	note A_, 2
-	note F#, 1
-	rest 1
-	note A_, 2
-	octave 4
-	note E_, 4
-	note D_, 4
-	note C#, 2
+	sound_call Music_VioletCity_Ditty1
 	rest 2
 	note G_, 1
 	note A_, 1
@@ -530,14 +510,7 @@ Music_VioletCity_Ch3:
 	note A#, 2
 .mainloop:
 	note_type 12, 2, 5
-	note B_, 1
-	rest 5
-	note B_, 1
-	note B_, 1
-	rest 2
-	note B_, 1
-	rest 1
-	octave 3
+	sound_call Music_VioletCity_Ditty3
 	note F#, 2
 	octave 2
 	note F#, 1
@@ -567,14 +540,7 @@ Music_VioletCity_Ch3:
 	note C#, 1
 	rest 1
 	octave 2
-	note B_, 1
-	rest 5
-	note B_, 1
-	note B_, 1
-	rest 2
-	note B_, 1
-	rest 1
-	octave 3
+	sound_call Music_VioletCity_Ditty3
 	note B_, 4
 	note G#, 1
 	rest 5
@@ -625,25 +591,9 @@ Music_VioletCity_Ch3:
 	rest 2
 	note A_, 8
 	sound_call .sub1
-	note F#, 2
-	rest 10
-	note B_, 2
-	note B_, 2
-	note B_, 2
-	rest 2
-	note A#, 8
-	note A_, 2
-	rest 2
+	sound_call Music_VioletCity_Ditty2
 	sound_call .sub1
-	note F#, 2
-	rest 10
-	note B_, 2
-	note B_, 2
-	note B_, 2
-	rest 2
-	note A#, 8
-	note A_, 2
-	rest 2
+	sound_call Music_VioletCity_Ditty2
 	octave 3
 	note E_, 2
 	rest 10
@@ -772,4 +722,41 @@ Music_VioletCity_Ch4:
 	drum_note 4, 2
 	drum_note 3, 2
 	drum_note 4, 2
+	sound_ret
+
+Music_VioletCity_Ditty3:
+	note B_, 1
+	rest 5
+	note B_, 1
+	note B_, 1
+	rest 2
+	note B_, 1
+	rest 1
+	octave 3
+	sound_ret
+
+Music_VioletCity_Ditty2:
+	note F#, 2
+	rest 10
+	note B_, 2
+	note B_, 2
+	note B_, 2
+	rest 2
+	note A#, 8
+	note A_, 2
+	rest 2
+	sound_ret
+
+Music_VioletCity_Ditty1:
+	octave 3
+	note B_, 1
+	rest 1
+	note A_, 2
+	note F#, 1
+	rest 1
+	note A_, 2
+	octave 4
+	note E_, 4
+	note D_, 4
+	note C#, 2
 	sound_ret

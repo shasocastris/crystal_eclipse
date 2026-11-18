@@ -5,7 +5,7 @@ CheckCGB:
 	and a
 	ret
 
-LoadSGBLayoutCGB:
+LoadSGBLayout:
 	ld a, b
 	cp SCGB_DEFAULT
 	jr nz, .not_default

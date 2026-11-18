@@ -169,14 +169,7 @@ Music_GameCorner_Ch2:
 	note F_, 4
 	duty_cycle 2
 	volume_envelope 12, 7
-	octave 3
-	note D#, 1
-	note F_, 1
-	note G_, 6
-	note F_, 6
-	note C_, 4
-	note D_, 6
-	note D#, 6
+	sound_call Music_GameCorner_Ditty4
 	note F_, 4
 	note D_, 6
 	note C_, 6
@@ -184,14 +177,7 @@ Music_GameCorner_Ch2:
 	note A#, 4
 	note A_, 4
 	rest 10
-	octave 3
-	note D#, 1
-	note F_, 1
-	note G_, 6
-	note F_, 6
-	note C_, 4
-	note D_, 6
-	note D#, 6
+	sound_call Music_GameCorner_Ditty4
 	note F_, 2
 	note D#, 1
 	note F_, 1
@@ -344,12 +330,7 @@ Music_GameCorner_Ch3:
 	sound_call .sub1
 	stereo_panning TRUE, TRUE
 	octave 2
-	note F_, 1
-	octave 3
-	note F_, 1
-	octave 5
-	note C_, 1
-	octave 4
+	sound_call Music_GameCorner_Ditty3
 	note F_, 1
 	octave 2
 	note F_, 1
@@ -384,18 +365,8 @@ Music_GameCorner_Ch3:
 	sound_call .sub3
 	sound_call .sub1
 	octave 2
-	note F_, 1
-	octave 3
-	note F_, 1
-	octave 5
-	note C_, 1
-	octave 4
-	note F_, 1
-	octave 3
-	note F_, 1
-	octave 5
-	note C_, 1
-	octave 4
+	sound_call Music_GameCorner_Ditty3
+	sound_call Music_GameCorner_Ditty3
 	note F_, 1
 	octave 3
 	note F_, 1
@@ -672,25 +643,11 @@ Music_GameCorner_Ch4:
 .mainloop:
 	sound_call .sub1
 .loop1:
-	drum_note 11, 2
-	drum_note 7, 2
-	drum_note 3, 2
-	drum_note 7, 2
-	drum_note 11, 2
-	drum_note 7, 2
-	drum_note 3, 2
-	drum_note 7, 2
+	sound_call Music_GameCorner_Ditty2
 	sound_loop 6, .loop1
 	sound_call .sub2
 .loop2:
-	drum_note 11, 2
-	drum_note 7, 2
-	drum_note 3, 2
-	drum_note 7, 2
-	drum_note 11, 2
-	drum_note 7, 2
-	drum_note 3, 2
-	drum_note 7, 2
+	sound_call Music_GameCorner_Ditty2
 	sound_loop 3, .loop2
 	rest 12
 	drum_note 3, 1
@@ -698,25 +655,11 @@ Music_GameCorner_Ch4:
 	drum_note 7, 2
 	sound_call .sub1
 .loop3:
-	drum_note 11, 2
-	drum_note 7, 2
-	drum_note 3, 2
-	drum_note 7, 2
-	drum_note 11, 2
-	drum_note 7, 2
-	drum_note 3, 2
-	drum_note 7, 2
+	sound_call Music_GameCorner_Ditty2
 	sound_loop 6, .loop3
 	sound_call .sub2
 .loop4:
-	drum_note 11, 2
-	drum_note 7, 2
-	drum_note 3, 2
-	drum_note 7, 2
-	drum_note 11, 2
-	drum_note 7, 2
-	drum_note 3, 2
-	drum_note 7, 2
+	sound_call Music_GameCorner_Ditty2
 	sound_loop 3, .loop4
 	drum_note 11, 2
 	drum_note 7, 2
@@ -729,47 +672,14 @@ Music_GameCorner_Ch4:
 	drum_note 3, 1
 	drum_note 3, 1
 .loop5:
-	drum_note 11, 2
-	drum_note 7, 1
-	drum_note 4, 1
-	drum_note 3, 1
-	drum_note 4, 1
-	drum_note 7, 1
-	drum_note 4, 1
-	drum_note 4, 1
-	drum_note 3, 1
-	drum_note 7, 1
-	drum_note 4, 1
-	drum_note 3, 2
+	sound_call Music_GameCorner_Ditty1
 	drum_note 7, 2
 	sound_loop 3, .loop5
-	drum_note 11, 2
-	drum_note 7, 1
-	drum_note 4, 1
-	drum_note 3, 1
-	drum_note 4, 1
-	drum_note 7, 1
-	drum_note 4, 1
-	drum_note 4, 1
-	drum_note 3, 1
-	drum_note 7, 1
-	drum_note 4, 1
-	drum_note 3, 2
+	sound_call Music_GameCorner_Ditty1
 	drum_note 3, 1
 	drum_note 3, 1
 .loop6:
-	drum_note 11, 2
-	drum_note 7, 1
-	drum_note 4, 1
-	drum_note 3, 1
-	drum_note 4, 1
-	drum_note 7, 1
-	drum_note 4, 1
-	drum_note 4, 1
-	drum_note 3, 1
-	drum_note 7, 1
-	drum_note 4, 1
-	drum_note 3, 2
+	sound_call Music_GameCorner_Ditty1
 	drum_note 7, 2
 	sound_loop 3, .loop6
 	drum_note 3, 1
@@ -804,4 +714,50 @@ Music_GameCorner_Ch4:
 	drum_note 3, 1
 	drum_note 3, 1
 	drum_note 7, 2
+	sound_ret
+
+Music_GameCorner_Ditty3:
+	note F_, 1
+	octave 3
+	note F_, 1
+	octave 5
+	note C_, 1
+	octave 4
+	sound_ret
+
+Music_GameCorner_Ditty4:
+	octave 3
+	note D#, 1
+	note F_, 1
+	note G_, 6
+	note F_, 6
+	note C_, 4
+	note D_, 6
+	note D#, 6
+	sound_ret
+
+Music_GameCorner_Ditty2:
+	drum_note 11, 2
+	drum_note 7, 2
+	drum_note 3, 2
+	drum_note 7, 2
+	drum_note 11, 2
+	drum_note 7, 2
+	drum_note 3, 2
+	drum_note 7, 2
+	sound_ret
+
+Music_GameCorner_Ditty1:
+	drum_note 11, 2
+	drum_note 7, 1
+	drum_note 4, 1
+	drum_note 3, 1
+	drum_note 4, 1
+	drum_note 7, 1
+	drum_note 4, 1
+	drum_note 4, 1
+	drum_note 3, 1
+	drum_note 7, 1
+	drum_note 4, 1
+	drum_note 3, 2
 	sound_ret

@@ -32,26 +32,8 @@ Music_LookMysticalMan_Ch1:
 	note E_, 1
 	rest 1
 	note D_, 2
-	note E_, 2
-	rest 4
-	note E_, 2
-	rest 9
-	rest 9
-	note E_, 1
-	rest 1
-	note E_, 1
-	rest 1
-	note C#, 2
-	note E_, 2
-	rest 4
-	note E_, 2
-	rest 9
-	rest 9
-	note E_, 1
-	rest 1
-	note E_, 1
-	rest 1
-	note C#, 2
+	sound_call Music_LookMysticalMan_Ditty1
+	sound_call Music_LookMysticalMan_Ditty1
 	note E_, 2
 	rest 3
 	note F_, 1
@@ -363,14 +345,7 @@ Music_LookMysticalMan_Ch3:
 	rest 16
 .mainloop:
 	octave 2
-	note B_, 4
-	octave 3
-	note A_, 2
-	rest 2
-	note F#, 4
-	octave 2
-	note B_, 1
-	rest 1
+	sound_call Music_LookMysticalMan_Ditty2
 	note B_, 4
 	note A_, 2
 	note B_, 2
@@ -430,14 +405,7 @@ Music_LookMysticalMan_Ch3:
 	note G#, 4
 	rest 4
 	note A#, 4
-	note B_, 4
-	octave 3
-	note A_, 2
-	rest 2
-	note F#, 4
-	octave 2
-	note B_, 1
-	rest 1
+	sound_call Music_LookMysticalMan_Ditty2
 	note B_, 6
 	octave 3
 	note D_, 2
@@ -607,4 +575,28 @@ Music_LookMysticalMan_Ch4:
 	drum_note 4, 2
 	drum_note 3, 1
 	drum_note 3, 1
+	sound_ret
+
+Music_LookMysticalMan_Ditty2:
+	note B_, 4
+	octave 3
+	note A_, 2
+	rest 2
+	note F#, 4
+	octave 2
+	note B_, 1
+	rest 1
+	sound_ret
+
+Music_LookMysticalMan_Ditty1:
+	note E_, 2
+	rest 4
+	note E_, 2
+	rest 9
+	rest 9
+	note E_, 1
+	rest 1
+	note E_, 1
+	rest 1
+	note C#, 2
 	sound_ret

@@ -136,14 +136,7 @@ Music_Lighthouse_Ch2:
 .mainloop:
 	note_type 12, 12, 5
 	octave 3
-	note G#, 12
-	note F#, 2
-	note G#, 2
-	note A_, 8
-	octave 4
-	note C#, 8
-	note C_, 1
-	rest 7
+	sound_call Music_Lighthouse_Ditty3
 	octave 3
 	note G#, 16
 	volume_envelope 12, 5
@@ -155,14 +148,7 @@ Music_Lighthouse_Ch2:
 	rest 1
 	note C#, 1
 	rest 1
-	note G#, 12
-	note F#, 2
-	note G#, 2
-	note A_, 8
-	octave 4
-	note C#, 8
-	note C_, 1
-	rest 7
+	sound_call Music_Lighthouse_Ditty3
 	note D#, 12
 	octave 3
 	note D#, 1
@@ -216,63 +202,27 @@ Music_Lighthouse_Ch3:
 	stereo_panning TRUE, FALSE
 .mainloop:
 	octave 2
-	note G#, 2
-	rest 2
-	note D#, 2
-	rest 2
-	note F#, 2
-	rest 2
+	sound_call Music_Lighthouse_Ditty2
 	note G_, 2
 	rest 2
 .loop1:
-	note G#, 2
-	rest 2
-	note D#, 2
-	rest 2
-	note F#, 2
-	rest 2
+	sound_call Music_Lighthouse_Ditty2
 	note A_, 2
 	rest 2
 	sound_loop 2, .loop1
-	note G#, 2
-	rest 2
-	note D#, 2
-	rest 2
-	note F#, 2
-	rest 2
+	sound_call Music_Lighthouse_Ditty2
 	note A_, 2
 	octave 3
 	note C_, 2
-	note C#, 2
-	rest 2
-	octave 2
-	note G#, 2
-	rest 2
-	note A_, 2
-	rest 2
-	octave 3
+	sound_call Music_Lighthouse_Ditty1
 	note C_, 2
 	rest 2
 .loop2:
-	note C#, 2
-	rest 2
-	octave 2
-	note G#, 2
-	rest 2
-	note A_, 2
-	rest 2
-	octave 3
+	sound_call Music_Lighthouse_Ditty1
 	note D_, 2
 	rest 2
 	sound_loop 2, .loop2
-	note C#, 2
-	rest 2
-	octave 2
-	note G#, 2
-	rest 2
-	note A_, 2
-	rest 2
-	octave 3
+	sound_call Music_Lighthouse_Ditty1
 	note D#, 2
 	note F#, 2
 .loop3:
@@ -308,3 +258,34 @@ Music_Lighthouse_Ch4:
 	drum_note 9, 2
 	drum_note 10, 2
 	sound_loop 0, .mainloop
+
+Music_Lighthouse_Ditty2:
+	note G#, 2
+	rest 2
+	note D#, 2
+	rest 2
+	note F#, 2
+	rest 2
+	sound_ret
+
+Music_Lighthouse_Ditty3:
+	note G#, 12
+	note F#, 2
+	note G#, 2
+	note A_, 8
+	octave 4
+	note C#, 8
+	note C_, 1
+	rest 7
+	sound_ret
+
+Music_Lighthouse_Ditty1:
+	note C#, 2
+	rest 2
+	octave 2
+	note G#, 2
+	rest 2
+	note A_, 2
+	rest 2
+	octave 3
+	sound_ret

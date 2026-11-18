@@ -2316,13 +2316,6 @@ AddBattleMoneyToAccount:
 	ld c, 3
 	and a
 	push de
-	push hl
-	push bc
-	ld b, h
-	ld c, l
-	farcall StubbedTrainerRankings_AddToBattlePayouts
-	pop bc
-	pop hl
 .loop
 	ld a, [de]
 	adc [hl]
@@ -7514,7 +7507,6 @@ StartBattle:
 	ret
 
 BattleIntro:
-	farcall StubbedTrainerRankings_Battles ; mobile
 	call LoadTrainerOrWildMonPic
 	xor a
 	ld [wTempBattleMonSpecies], a
@@ -7594,7 +7586,6 @@ BackUpBGMap2:
 
 InitEnemyTrainer:
 	ld [wTrainerClass], a
-	farcall StubbedTrainerRankings_TrainerBattles
 	xor a
 	ld [wTempEnemyMonSpecies], a
 	farcall GetTrainerAttributes
@@ -7640,7 +7631,6 @@ InitEnemyTrainer:
 InitEnemyWildmon:
 	ld a, WILD_BATTLE
 	ld [wBattleMode], a
-	farcall StubbedTrainerRankings_WildBattles
 	call LoadEnemyMon
 	ld hl, wEnemyMonMoves
 	ld de, wWildMonMoves
@@ -8060,7 +8050,6 @@ BattleStartMessage:
 	cp BATTLETYPE_FISH
 	jr nz, .NotFishing
 
-	farcall StubbedTrainerRankings_HookedEncounters
 
 	ld hl, HookedPokemonAttackedText
 	jr .PrintBattleStartText

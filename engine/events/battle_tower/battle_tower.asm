@@ -1,8 +1,3 @@
-BattleTowerRoomMenu:
-; special
-	call InitBattleTowerChallengeRAM
-	farjp _BattleTowerRoomMenu
-
 BattleTowerBattle:
 	xor a ; FALSE
 	ld [wBattleTowerBattleEnded], a
@@ -28,14 +23,6 @@ BattleTowerBattle:
 	ld l, LOCKED_ITEM_ID_BATTLE_TOWER_3
 	jmp LockItemID
 
-InitBattleTowerChallengeRAM:
-	xor a
-	ld [wBattleTowerBattleEnded], a
-	ld [wNrOfBeatenBattleTowerTrainers], a
-	ld [wcf65], a
-	ld [wcf66], a
-	ret
-
 _BattleTowerBattle:
 .loop
 	call .do_dw
@@ -58,7 +45,6 @@ RunBattleTowerTrainer:
 	or 1 << IN_BATTLE_TOWER_BATTLE_F
 	ld [wInBattleTowerBattle], a
 
-	farcall StubbedTrainerRankings_Healings
 	call HealParty
 	call ReadBTTrainerParty
 	call Clears5_a89a

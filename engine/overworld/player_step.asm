@@ -56,7 +56,7 @@ HandlePlayerStep:
 .Jumptable:
 	dw GetMovementPermissions
 	dw BufferScreen
-	dw .mobile
+	dw DoNothing
 	dw DoNothing ; .fail2
 ; The rest are never used.  Ever.
 	dw DoNothing ; .fail1
@@ -66,9 +66,6 @@ HandlePlayerStep:
 	dw DoNothing ; .fail1
 	dw DoNothing ; .fail1
 	dw DoNothing ; .fail1
-
-.mobile
-	farjp StubbedTrainerRankings_StepCount
 
 UpdatePlayerCoords:
 	ld a, [wPlayerStepDirection]

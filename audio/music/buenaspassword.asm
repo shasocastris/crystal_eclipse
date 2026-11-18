@@ -131,12 +131,7 @@ Music_BuenasPassword_Ch1:
 	note F#, 1
 	note G#, 1
 	rest 1
-	note D#, 1
-	rest 1
-	note F#, 1
-	rest 1
-	note G_, 1
-	rest 1
+	sound_call Music_BuenasPassword_Ditty1
 	sound_loop 0, .mainloop
 
 .sub1:
@@ -263,12 +258,7 @@ Music_BuenasPassword_Ch2:
 	note G#, 10
 	volume_envelope 8, 4
 	octave 2
-	note D#, 1
-	rest 1
-	note F#, 1
-	rest 1
-	note G_, 1
-	rest 1
+	sound_call Music_BuenasPassword_Ditty1
 	volume_envelope 10, 5
 	sound_loop 0, .mainloop
 
@@ -506,12 +496,7 @@ Music_BuenasPassword_Ch3:
 	octave 2
 	note G#, 1
 	rest 1
-	note D#, 1
-	rest 1
-	note F#, 1
-	rest 1
-	note G_, 1
-	rest 1
+	sound_call Music_BuenasPassword_Ditty1
 	sound_loop 0, .mainloop
 
 .sub1:
@@ -631,4 +616,13 @@ Music_BuenasPassword_Ch4:
 	drum_note 3, 2
 	drum_note 3, 1
 	drum_note 3, 1
+	sound_ret
+
+Music_BuenasPassword_Ditty1:
+	note D#, 1
+	rest 1
+	note F#, 1
+	rest 1
+	note G_, 1
+	rest 1
 	sound_ret

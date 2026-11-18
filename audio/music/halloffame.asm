@@ -83,33 +83,9 @@ Music_HallOfFame_Ch3:
 	note_type 12, 2, 8
 .loop1:
 	octave 3
-	note D_, 2
-	note G_, 2
-	note D_, 2
-	note G_, 2
-	note D_, 2
-	note G_, 2
-	note D_, 2
-	note G_, 2
-	octave 3
-	note D_, 2
-	note G_, 2
-	note D_, 2
-	note G_, 2
-	note D_, 2
-	note G_, 2
-	note D_, 2
-	note G_, 2
-	octave 3
-	note D_, 2
-	note G_, 2
-	note D_, 2
-	note G_, 2
-	note D_, 2
-	note G_, 2
-	note D_, 2
-	note G_, 2
-	octave 3
+	sound_call Music_HallOfFame_Ditty1
+	sound_call Music_HallOfFame_Ditty1
+	sound_call Music_HallOfFame_Ditty1
 	note C_, 2
 	note F_, 2
 	note C_, 2
@@ -172,3 +148,15 @@ Music_HallOfFame_Ch4:
 	drum_note 11, 1
 	drum_note 11, 1
 	sound_loop 0, .mainloop
+
+Music_HallOfFame_Ditty1:
+	note D_, 2
+	note G_, 2
+	note D_, 2
+	note G_, 2
+	note D_, 2
+	note G_, 2
+	note D_, 2
+	note G_, 2
+	octave 3
+	sound_ret

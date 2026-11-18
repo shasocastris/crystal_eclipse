@@ -19,8 +19,7 @@ rom_obj := \
 	gfx/pics.o \
 	gfx/sprites.o \
 	gfx/following_sprites.o \
-	gfx/tilesets.o \
-	lib/mobile/main.o
+	gfx/tilesets.o
 
 crystal_eclipse_obj       := $(rom_obj:.o=.o)
 crystal_eclipse_debug_obj := $(rom_obj:.o=_debug.o)
@@ -215,7 +214,6 @@ gfx/mail/flower_mail_border.1bpp: tools/gfx += --remove-whitespace
 gfx/mail/litebluemail_border.1bpp: tools/gfx += --remove-whitespace
 
 gfx/pokedex/pokedex.2bpp: tools/gfx += --trim-whitespace
-gfx/pokedex/pokedex_sgb.2bpp: tools/gfx += --trim-whitespace
 gfx/pokedex/question_mark.2bpp: RGBGFXFLAGS += --columns
 gfx/pokedex/slowpoke.2bpp: tools/gfx += --trim-whitespace
 
@@ -273,8 +271,6 @@ gfx/sprites/big_onix.2bpp: tools/gfx += --remove-whitespace --remove-xflip
 
 gfx/font/unused_bold_font.1bpp: tools/gfx += --trim-whitespace
 
-gfx/sgb/sgb_border.2bpp: tools/gfx += --trim-whitespace
-gfx/sgb/sgb_border.sgb.tilemap: gfx/sgb/sgb_border.bin ; tr < $< -d '\000' > $@
 
 gfx/mobile/ascii_font.2bpp: tools/gfx += --trim-whitespace
 gfx/mobile/dialpad.2bpp: tools/gfx += --trim-whitespace

@@ -27,22 +27,7 @@ ReadAnyMail:
 	call ClearTilemap
 	call DisableLCD
 	call LoadFontsExtra
-	pop de
-	push de
-	ld a, BANK(sPartyMail)
-	call OpenSRAM
-	farcall ParseMailLanguage
-	call CloseSRAM
-	ld a, c
 	ld de, StandardEnglishFont
-	or a ; MAIL_LANG_ENGLISH
-	jr z, .got_font
-	ld de, FrenchGermanFont
-	sub MAIL_LANG_ITALIAN
-	jr c, .got_font
-	ld de, SpanishItalianFont
-
-.got_font
 	ld hl, vTiles1
 	lb bc, BANK(StandardEnglishFont), $80
 	call Get1bpp
