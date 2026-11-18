@@ -117,7 +117,7 @@ MartGoldenrod2F2:
 	dw REVIVE
 	dw FULL_HEAL
 	dw POKE_DOLL
-	dw FLOWER_MAIL
+	dw EON_MAIL
 
 MartGoldenrod3F:
 	db 8 ; # items
@@ -210,7 +210,7 @@ MartMahogany2:
 	dw PARLYZ_HEAL
 	dw SUPER_REPEL
 	dw REVIVE
-	dw FLOWER_MAIL
+	dw BLUESKY_MAIL
 
 MartBlackthorn:
 	db 9 ; # items
@@ -234,7 +234,7 @@ MartViridian:
 	dw PARLYZ_HEAL
 	dw AWAKENING
 	dw BURN_HEAL
-	dw FLOWER_MAIL
+	dw MIRAGE_MAIL
 
 MartPewter:
 	db 7 ; # items
@@ -256,7 +256,7 @@ MartCerulean:
 	dw X_DEFEND
 	dw X_ATTACK
 	dw DIRE_HIT
-	dw SURF_MAIL
+	dw LOVELY_MAIL
 
 MartLavender:
 	db 8 ; # items
@@ -312,10 +312,18 @@ MartCeladon3F:
 	dw TM_SANDSTORM
 
 MartCeladon4F:
-	db 3 ; # items
+	db 11 ; # items
 	dw POKE_DOLL
-	dw LOVELY_MAIL
+	dw FLOWER_MAIL
 	dw SURF_MAIL
+	dw LITEBLUEMAIL
+	dw PORTRAITMAIL
+	dw LOVELY_MAIL
+	dw EON_MAIL
+	dw MORPH_MAIL
+	dw BLUESKY_MAIL
+	dw MUSIC_MAIL
+	dw MIRAGE_MAIL
 
 MartCeladon5F1:
 	db 7 ; # items
@@ -346,7 +354,7 @@ MartFuchsia:
 	dw HYPER_POTION
 	dw FULL_HEAL
 	dw MAX_REPEL
-	dw FLOWER_MAIL
+	dw MORPH_MAIL
 
 MartSaffron:
 	db 8 ; # items
@@ -357,7 +365,7 @@ MartSaffron:
 	dw FULL_HEAL
 	dw X_ATTACK
 	dw X_DEFEND
-	dw FLOWER_MAIL
+	dw MUSIC_MAIL
 
 MartMtMoon:
 	db 6 ; # items
