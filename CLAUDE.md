@@ -114,7 +114,7 @@ The debug ROM (`crystal_eclipse_debug.gbc`) is assembled with `-D _DEBUG`. Use `
 - Follow [pret/pokecrystal STYLE.md](https://github.com/pret/pokecrystal/blob/master/STYLE.md)
 - Use `jmp` macro (not raw `jp`); replace with `jr` when target is within ±128 bytes (the optimizer flags these)
 - Scripting macros are defined in `macros/scripts/` — use these for map events, text, movement, battle animations, etc.
-- **Map text line limit: 18 characters maximum** per `text`/`line`/`cont`/`para` string. Always count every character (including spaces and punctuation) before writing or editing NPC/sign/item text.
+- **Map text line limit: 18 characters maximum** per `text`/`line`/`cont`/`para` string. Always count every character (including spaces and punctuation) before writing or editing NPC/sign/item text. After editing dialogue, run `python3 utils/dialogue_lint.py --changed core` and fix any errors it reports.
 
 ## External References
 
