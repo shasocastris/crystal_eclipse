@@ -48,8 +48,8 @@ LavenderTownPokefanMText:
 	cont "week ago."
 
 	para "The broadcasts"
-	line "have been… "
-	line "different since."
+	line "have been…"
+	cont "different since."
 	done
 
 LavenderTownTeacherText:

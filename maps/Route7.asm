@@ -48,7 +48,7 @@ Route7RocketSeenText:
 
 	para "I suppose I'll"
 	line "have to deal with"
-	line "you."
+	cont "you."
 	done
 
 Route7RocketBeaten_Text:

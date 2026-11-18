@@ -110,7 +110,7 @@ GrammsGuide1Text:
 	line "raising #MON"
 
 	para "#MON with very"
-	line "high happiness "
+	line "high happiness"
 	cont "have been known"
 	cont "to endure hits and"
 	cont "keep fighting."

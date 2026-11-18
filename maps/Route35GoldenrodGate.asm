@@ -134,7 +134,7 @@ Route35GoldenrodGateRandyWeirdTreeBlockingRoadText:
 	cont "anyone through."
 
 	para "I wonder if he's"
-	line "left yet? "
+	line "left yet?"
 	done
 
 Route35GoldenrodGateRandyCantCarryAnotherMonText:

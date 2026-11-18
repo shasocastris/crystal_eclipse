@@ -53,14 +53,15 @@ PewterMuseum2FMoonRockSign:
 PewterMuseum2FMoonRockText:
 	text "MOON ROCK EXHIBIT"
 
-	para "Fragments recovered"
-	line "from MT. MOON."
+	para "Fragments"
+	line "recovered from"
+	cont "MT. MOON."
 
 	para "Analysis suggests"
-	line "these rocks attract"
-
-	para "certain POKEMON"
-	line "from outer space."
+	line "these rocks"
+	cont "attract certain"
+	cont "POKEMON from"
+	cont "outer space."
 	done
 
 PewterMuseum2F_MapEvents:

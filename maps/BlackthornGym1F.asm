@@ -340,7 +340,8 @@ ClairRematchText:
 ClairRematchWinLossText:
 	text "Your mastery is"
 	line "undeniable. Even"
-	cont "dragons bow to you."
+	cont "dragons bow to"
+	cont "you."
 	done
 
 BeatenClairAgainText:

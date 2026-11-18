@@ -318,7 +318,7 @@ LanceCapturesArcherText:
 FirstRangerThanksText:
 	text "FIRST RANGER:"
 
-	para "You have our "
+	para "You have our"
 	line "deepest thanks,"
 	cont "<PLAY_G>."
 

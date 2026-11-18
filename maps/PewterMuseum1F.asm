@@ -67,13 +67,14 @@ PewterMuseum1FDomeFossilText:
 	line "EXHIBIT"
 
 	para "Estimated age:"
-	line "approx. 300 million"
+	line "approx. 300"
+	cont "million years."
 
-	para "years. Believed to"
-	line "belong to KABUTO,"
-
-	para "a marine POKEMON"
-	line "of the ancient sea."
+	para "Believed to belong"
+	line "to KABUTO, a"
+	cont "marine POKEMON"
+	cont "of the ancient"
+	cont "sea."
 	done
 
 PewterMuseum1FHelixFossilSign:
@@ -85,13 +86,14 @@ PewterMuseum1FHelixFossilText:
 	line "EXHIBIT"
 
 	para "Estimated age:"
-	line "approx. 300 million"
+	line "approx. 300"
+	cont "million years."
 
-	para "years. Believed to"
-	line "belong to OMANYTE,"
-
-	para "a molluscan POKEMON"
-	line "now thought extinct."
+	para "Believed to belong"
+	line "to OMANYTE, a"
+	cont "molluscan POKEMON"
+	cont "now thought"
+	cont "extinct."
 	done
 
 PewterMuseum1F_MapEvents:

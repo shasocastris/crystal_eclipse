@@ -294,8 +294,9 @@ RivalText_Training1:
 
 	para "Not because they're"
 	line "weak, but because"
-	cont "I need to understand"
-	cont "them better."
+	cont "I need to"
+	cont "understand them"
+	cont "better."
 
 	para "I've been learning"
 	line "to listen to what"

@@ -96,7 +96,8 @@ LavRadioTower1FOfficerText:
 
 LavRadioTower1FOfficerText_Cleared:
 	text "I should have"
-	line "caught them sooner."
+	line "caught them"
+	cont "sooner."
 
 	para "Some OFFICER I am."
 	line "Didn't even notice"

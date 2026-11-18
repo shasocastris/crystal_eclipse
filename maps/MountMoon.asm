@@ -205,8 +205,9 @@ MountMoonRivalTextLoss:
 
 	para "TEAM ROCKET is"
 	line "waiting in that"
-	cont "CAVE with something"
-	cont "far worse than me."
+	cont "CAVE with"
+	cont "something far"
+	cont "worse than me."
 
 	para "Rest your #MON."
 	line "Come back when"
@@ -265,8 +266,8 @@ CooltrainerMTravisSeenText:
 	cont "spots in KANTO."
 
 	para "I'm not letting"
-	line "you through without"
-	cont "a battle."
+	line "you through"
+	cont "without a battle."
 	done
 
 CooltrainerMTravisBeatenText:
@@ -332,7 +333,8 @@ HikerClintSeenText:
 
 	para "You're all getting"
 	line "a battle whether"
-	cont "you like it or not."
+	cont "you like it or"
+	cont "not."
 	done
 
 HikerClintBeatenText:

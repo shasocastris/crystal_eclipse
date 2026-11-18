@@ -342,14 +342,15 @@ LavRadioTower2FSuperNerdText:
 
 LavRadioTower2FSuperNerdText_Cleared:
 	text "I pulled the logs"
-	line "from the past week."
+	line "from the past"
+	cont "week."
 
 	para "That sub-signal"
-	line "was targeting delta"
-	cont "waves. The kind"
-	cont "that affect sleep"
-	cont "cycles in large"
-	cont "#MON."
+	line "was targeting"
+	cont "delta waves. The"
+	cont "kind that affect"
+	cont "sleep cycles in"
+	cont "large #MON."
 
 	para "Whoever set this"
 	line "up knew exactly"

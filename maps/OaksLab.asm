@@ -174,9 +174,10 @@ OakOpenMtSilverText:
 	line "defeated the ELITE"
 	cont "FOUR once more…"
 
-	para "But proven yourself"
-	line "as the ultimate"
-	cont "#MON trainer!"
+	para "But proven"
+	line "yourself as the"
+	cont "ultimate #MON"
+	cont "trainer!"
 
 	para "I was right in my"
 	line "assessment of you."

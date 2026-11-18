@@ -306,9 +306,9 @@ MistyRejectText:
 	cont "that commands the"
 	cont "seas themselves!"
 
-	para "LUGIA, the guardian"
-	line "of the ocean"
-	cont "depths…"
+	para "LUGIA, the"
+	line "guardian of the"
+	cont "ocean depths…"
 
 	para "If you've faced"
 	line "such a powerful"

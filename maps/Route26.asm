@@ -384,8 +384,9 @@ FisherScottAfterBattleText:
 	done
 
 GentlemanVirgilSeenText:
-	text "Ah, a young trainer!"
-	line "How delightful!"
+	text "Ah, a young"
+	line "trainer! How"
+	cont "delightful!"
 
 	para "Would you care to"
 	line "engage in a proper"

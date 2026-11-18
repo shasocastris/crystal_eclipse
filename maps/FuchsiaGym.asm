@@ -392,8 +392,8 @@ BeatenJanineAgainText:
 	cont "observation."
 
 	para "A true ninja never"
-	line "stops learning"
-	cont "the shadows' secrets."
+	line "stops learning the"
+	cont "shadows' secrets."
 	done
 
 JanineRejectText:

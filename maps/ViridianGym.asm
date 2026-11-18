@@ -224,7 +224,8 @@ BeatenBlueAgainText:
 	para "But I guess that's"
 	line "what happens when"
 	cont "you dedicate"
-	cont "yourself like that."
+	cont "yourself like"
+	cont "that."
 
 	para "151 #MON is no"
 	line "small feat."

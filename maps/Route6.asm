@@ -50,7 +50,7 @@ Route6RocketSeenText:
 
 	para "I suppose I'll"
 	line "have to deal with"
-	line "you."
+	cont "you."
 	done
 
 Route6RocketBeaten_Text:

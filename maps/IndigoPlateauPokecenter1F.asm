@@ -241,7 +241,8 @@ PlateauRivalText1:
 	para "Each of my #MON"
 	line "has grown stronger"
 	cont "because I learned"
-	cont "to see their potential."
+	cont "to see their"
+	cont "potential."
 
 	para "Even the ones I"
 	line "used to overlook"
@@ -256,8 +257,8 @@ PlateauRivalText1:
 PlateauRivalWinText:
 	text "…"
 
-	para "That was an amazing"
-	line "battle."
+	para "That was an"
+	line "amazing battle."
 
 	para "Win or lose, I'm"
 	line "proud of how far"
@@ -291,20 +292,23 @@ PlateauRivalLoseText:
 	text "…"
 
 	para "We did it…"
-	line "We actually did it."
+	line "We actually"
+	cont "did it."
 
 	para "My #MON and I"
-	line "fought as one team."
+	line "fought as one"
+	cont "team."
 
-	para "I finally understand"
-	line "what it means to"
-	cont "bring out the best"
-	cont "in every #MON."
+	para "I finally"
+	line "understand what it"
+	cont "means to bring out"
+	cont "the best in every"
+	cont "#MON."
 
 	para "Thanks, <PLAYER>."
 	line "You taught me that"
-	cont "strength isn't about"
-	cont "power alone."
+	cont "strength isn't"
+	cont "about power alone."
 	done
 
 TeleportGuyText1:

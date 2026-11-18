@@ -253,7 +253,7 @@ PokefanfSoniaAfterBattleText:
 	line "the house of the"
 	cont "WEEKDAY siblings?"
 
-	para "MONICA usually "
+	para "MONICA usually"
 	line "leaves notes with"
 
 	para "where they all"

@@ -72,7 +72,7 @@ Route5RocketSeenText:
 
 	para "I suppose I'll"
 	line "have to deal with"
-	line "you."
+	cont "you."
 	done
 
 Route5RocketBeaten_Text:

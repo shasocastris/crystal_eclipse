@@ -171,7 +171,7 @@ ReceivedThunderBadgeText:
 LtSurgeThunderBadgeText:
 	text "Consider the"
 	line "THUNDERBADGE proof"
-	line "that you defeated"
+	cont "that you defeated"
 
 	para "me. You wear it"
 	line "proudly, hear?"
@@ -229,7 +229,8 @@ LtSurgeRejectText:
 
 	para "But first, let me"
 	line "tell you about"
-	cont "something electric!"
+	cont "something"
+	cont "electric!"
 
 	para "I heard there's a"
 	line "special item at"
