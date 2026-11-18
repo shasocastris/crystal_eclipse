@@ -345,7 +345,8 @@
 ; materials, READY when the daily reset finishes the order.
 	const EVENT_PEWTER_FORGE_ORDER_PLACED
 	const EVENT_PEWTER_FORGE_ORDER_READY
-; Unused: next 237 events
+	const EVENT_GOT_SQUIRTBOTTLE
+; Unused: next 236 events
 
 	const_next 600
 ; Kurt Apricorn events

@@ -477,7 +477,37 @@ GreenhouseBugCatcherScript:
 	jumptextfaceplayer GreenhouseBugCatcherText
 
 GreenhouseSailorScript:
-	jumptextfaceplayer GreenhouseSailorText
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_SQUIRTBOTTLE
+	iftrue .GotBottle
+	callasm .CheckGrassTypeCompletion
+	iftrue .GiveBottle
+	writetext GreenhouseSailorText
+	waitbutton
+	closetext
+	end
+
+.GiveBottle:
+	writetext GreenhouseSailorCaughtAllGrassText
+	promptbutton
+	verbosegiveitem SQUIRTBOTTLE
+	iffalse .BagFull
+	setevent EVENT_GOT_SQUIRTBOTTLE
+.GotBottle:
+	writetext GreenhouseSailorAfterText
+	waitbutton
+.BagFull:
+	closetext
+	end
+
+.CheckGrassTypeCompletion:
+	ld a, GRASS
+	farcall CheckAllTypeSpeciesCaught
+	sbc a
+	and 1
+	ld [wScriptVar], a
+	ret
 
 GreenhouseWeirdTreeScript:
 	jumptextfaceplayer GreenhouseWeirdTreeText
@@ -576,10 +606,28 @@ GreenhouseBugCatcherText:
 	done
 
 GreenhouseSailorText:
-	text "Do you have a"
-	line "SQUIRTBOTTLE?"
+	text "These trees grow"
+	line "BERRIES if you"
+	cont "water them with a"
+	cont "SQUIRTBOTTLE."
 
-	para "You can water that"
+	para "I'd only give one"
+	line "to someone who's"
+	cont "caught every"
+	cont "GRASS #MON."
+	done
+
+GreenhouseSailorCaughtAllGrassText:
+	text "Whoa! You've"
+	line "caught every GRASS"
+	cont "#MON there is?"
+
+	para "Then you've earned"
+	line "this. Take it!"
+	done
+
+GreenhouseSailorAfterText:
+	text "You can water that"
 	line "line of trees and"
 	cont "plant a BERRY."
 

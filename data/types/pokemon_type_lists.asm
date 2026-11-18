@@ -359,6 +359,7 @@ GrassTypeSpecies:
 	dw SUNFLORA
 	dw LEAFEON
 	dw TANGROWTH
+	dw BELLOSSOM
 	dw -1
 
 ElectricTypeSpecies:
