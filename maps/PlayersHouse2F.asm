@@ -87,7 +87,6 @@ if DEF(_DEBUG)
 	giveitem RAZOR_CLAW, 2
 	giveitem PROTECTOR
 	giveitem POKE_FLUTE
-	giveitem SQUIRTBOTTLE
 	giveitem EXP_SHARE
 	giveitem LUCKY_EGG
 	giveitem GRIP_CLAW
