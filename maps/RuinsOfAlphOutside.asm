@@ -22,8 +22,8 @@ RuinsOfAlphOutsideNoop2Scene:
 	end
 	
 RuinsOfAlphOutsideShrineCallback:
-	readvar VAR_UNOWNCOUNT
-	ifless NUM_UNOWN, .ShrineOff
+	checkevent EVENT_SOLVED_SUICUNE_PUZZLE ; CHANGED: was VAR_UNOWNCOUNT == NUM_UNOWN
+	iffalse .ShrineOff ; CHANGED
 	endcallback
 .ShrineOff:
 	changeblock 6, 24, $AD ; unactivated shrine
@@ -154,8 +154,8 @@ RuinsOfAlphOutsideScientistEarnest_Script:
 	end
 
 ShrineFight:
-	readvar VAR_UNOWNCOUNT
-	ifequal NUM_UNOWN, .FightExecutives
+	checkevent EVENT_SOLVED_SUICUNE_PUZZLE ; CHANGED: was VAR_UNOWNCOUNT == NUM_UNOWN
+	iftrue .FightExecutives ; CHANGED
 	end
 .FightExecutives
 	appear RUINSOFALPHOUTSIDE_ROCKET

@@ -347,7 +347,8 @@
 	const EVENT_PEWTER_FORGE_ORDER_READY
 	const EVENT_GOT_SQUIRTBOTTLE
 	const EVENT_GOT_TM09_PSYCH_UP
-; Unused: next 235 events
+	const EVENT_SOLVED_SUICUNE_PUZZLE ; CHANGED: gates the shrine finale; TODO(bryan): confirm name
+; Unused: next 234 events
 
 	const_next 600
 ; Kurt Apricorn events
