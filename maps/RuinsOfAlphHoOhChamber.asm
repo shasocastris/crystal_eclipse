@@ -100,7 +100,7 @@ GruntM23BeatenText:
 	done
 
 GruntM23AfterBattleText:
-	text "After the WILD HUNT"
+	text "After the latest"
 	line "disaster, TEAM"
 	cont "ROCKET needs this."
 
