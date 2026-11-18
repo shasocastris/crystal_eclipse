@@ -50,7 +50,7 @@ VioletGymFalknerScript:
 	specialphonecall SPECIALCALL_ASSISTANT
 	writetext FalknerZephyrBadgeText
 	promptbutton
-	verbosegiveitem TM_MUD_SLAP
+	verbosegiveitem TM_MUD_SLAP, 3
 	iffalse .NoRoomForMudSlap
 	setevent EVENT_GOT_TM31_MUD_SLAP
 	writetext FalknerTMMudSlapText

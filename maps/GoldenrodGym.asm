@@ -76,7 +76,7 @@ GoldenrodGymWhitneyScript:
 .GotPlainBadge:
 	writetext WhitneyPlainBadgeText
 	promptbutton
-	verbosegiveitem TM_ATTRACT
+	verbosegiveitem TM_ATTRACT, 3
 	iffalse .NoRoomForAttract
 	setevent EVENT_GOT_TM45_ATTRACT
 	writetext WhitneyAttractText

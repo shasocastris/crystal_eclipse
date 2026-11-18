@@ -65,7 +65,7 @@ EcruteakGymMortyScript:
 	setevent EVENT_BEAT_MEDIUM_GRACE
 	writetext MortyText_FogBadgeSpeech
 	promptbutton
-	verbosegiveitem TM_SHADOW_BALL
+	verbosegiveitem TM_SHADOW_BALL, 3
 	iffalse .NoRoomForShadowBall
 	setevent EVENT_GOT_TM30_SHADOW_BALL
 	writetext MortyText_ShadowBallSpeech

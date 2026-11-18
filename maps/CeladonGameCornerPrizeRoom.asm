@@ -44,7 +44,7 @@ CeladonPrizeRoom_tmcounterloop:
 	getitemname STRING_BUFFER_3, TM_DOUBLE_TEAM
 	scall CeladonPrizeRoom_askbuy
 	iffalse CeladonPrizeRoom_CancelPurchaseScript
-	giveitem TM_DOUBLE_TEAM
+	giveitem TM_DOUBLE_TEAM, 3
 	iffalse CeladonPrizeRoom_notenoughroom
 	takecoins CELADONGAMECORNERPRIZEROOM_TM32_COINS
 	sjump CeladonPrizeRoom_purchased
@@ -55,7 +55,7 @@ CeladonPrizeRoom_tmcounterloop:
 	getitemname STRING_BUFFER_3, TM_PSYCHIC_M
 	scall CeladonPrizeRoom_askbuy
 	iffalse CeladonPrizeRoom_CancelPurchaseScript
-	giveitem TM_PSYCHIC_M
+	giveitem TM_PSYCHIC_M, 3
 	iffalse CeladonPrizeRoom_notenoughroom
 	takecoins CELADONGAMECORNERPRIZEROOM_TM29_COINS
 	sjump CeladonPrizeRoom_purchased
@@ -66,7 +66,7 @@ CeladonPrizeRoom_tmcounterloop:
 	getitemname STRING_BUFFER_3, TM_HYPER_BEAM
 	scall CeladonPrizeRoom_askbuy
 	iffalse CeladonPrizeRoom_CancelPurchaseScript
-	giveitem TM_HYPER_BEAM
+	giveitem TM_HYPER_BEAM, 3
 	iffalse CeladonPrizeRoom_notenoughroom
 	takecoins CELADONGAMECORNERPRIZEROOM_TM15_COINS
 	sjump CeladonPrizeRoom_purchased
@@ -116,9 +116,9 @@ CeladonPrizeRoom_TMMenuHeader:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
-	db "TM32    {d:CELADONGAMECORNERPRIZEROOM_TM32_COINS}@"
-	db "TM29    {d:CELADONGAMECORNERPRIZEROOM_TM29_COINS}@"
-	db "TM15    {d:CELADONGAMECORNERPRIZEROOM_TM15_COINS}@"
+	db "TM32×3  {d:CELADONGAMECORNERPRIZEROOM_TM32_COINS}@"
+	db "TM29×3  {d:CELADONGAMECORNERPRIZEROOM_TM29_COINS}@"
+	db "TM15×3  {d:CELADONGAMECORNERPRIZEROOM_TM15_COINS}@"
 	db "CANCEL@"
 
 CeladonGameCornerPrizeRoomPokemonVendor:

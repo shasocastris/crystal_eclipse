@@ -75,7 +75,7 @@ BlackthornGymClairScript:
 	iftrue .GotTM24
 	writetext BlackthornGymClairText_YouKeptMeWaiting
 	promptbutton
-	giveitem TM_DRAGONBREATH
+	giveitem TM_DRAGONBREATH, 3
 	iffalse .BagFull
 	getitemname STRING_BUFFER_3, TM_DRAGONBREATH
 	writetext BlackthornGymText_ReceivedTM24

@@ -42,7 +42,7 @@ SaffronGymSabrinaScript:
 	iftrue .GotPsychUp
 	writetext SabrinaExplainTMText
 	promptbutton
-	verbosegiveitem TM_PSYCH_UP
+	verbosegiveitem TM_PSYCH_UP, 3
 	iffalse .GotPsychUp
 	setevent EVENT_GOT_TM09_PSYCH_UP
 .GotPsychUp:

@@ -82,7 +82,7 @@ Route36RockSmashGuyScript:
 .ClearedRanger:
 	writetext RockSmashGuyText2
 	promptbutton
-	verbosegiveitem TM_PURSUIT
+	verbosegiveitem TM_PURSUIT, 3
 	iffalse .NoRoomForTM
 	setevent EVENT_GOT_TM08_PURSUIT
 .AlreadyGotRockSmash:

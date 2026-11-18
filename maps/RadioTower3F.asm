@@ -21,7 +21,7 @@ RadioTower3FCooltrainerFScript:
 	iftrue .GotSunnyDay
 	writetext RadioTower3FCooltrainerFYoureMyHeroText
 	promptbutton
-	verbosegiveitem TM_SUNNY_DAY
+	verbosegiveitem TM_SUNNY_DAY, 3
 	iffalse .NoRoom
 	writetext RadioTower3FCooltrainerFItsSunnyDayText
 	waitbutton

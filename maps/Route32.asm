@@ -120,7 +120,7 @@ Route32RoarTMGuyScript:
 	iftrue .AlreadyHaveRoar
 	writetext Text_RoarIntro
 	promptbutton
-	verbosegiveitem TM_ROAR
+	verbosegiveitem TM_ROAR, 3
 	iffalse .Finish
 	setevent EVENT_GOT_TM05_ROAR
 .AlreadyHaveRoar:

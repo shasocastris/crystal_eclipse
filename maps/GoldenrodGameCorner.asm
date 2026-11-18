@@ -80,7 +80,7 @@ GoldenrodGameCornerTMVendor_LoopScript:
 	getitemname STRING_BUFFER_3, TM_THUNDER
 	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
-	giveitem TM_THUNDER
+	giveitem TM_THUNDER, 3
 	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
 	takecoins GOLDENRODGAMECORNER_TM25_COINS
 	sjump GoldenrodGameCornerTMVendor_FinishScript
@@ -91,7 +91,7 @@ GoldenrodGameCornerTMVendor_LoopScript:
 	getitemname STRING_BUFFER_3, TM_BLIZZARD
 	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
-	giveitem TM_BLIZZARD
+	giveitem TM_BLIZZARD, 3
 	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
 	takecoins GOLDENRODGAMECORNER_TM14_COINS
 	sjump GoldenrodGameCornerTMVendor_FinishScript
@@ -102,7 +102,7 @@ GoldenrodGameCornerTMVendor_LoopScript:
 	getitemname STRING_BUFFER_3, TM_FIRE_BLAST
 	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
-	giveitem TM_FIRE_BLAST
+	giveitem TM_FIRE_BLAST, 3
 	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
 	takecoins GOLDENRODGAMECORNER_TM38_COINS
 	sjump GoldenrodGameCornerTMVendor_FinishScript
@@ -152,9 +152,9 @@ GoldenrodGameCornerTMVendorMenuHeader:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
-	db "TM25    5500@"
-	db "TM14    5500@"
-	db "TM38    5500@"
+	db "TM25×3  5500@"
+	db "TM14×3  5500@"
+	db "TM38×3  5500@"
 	db "CANCEL@"
 
 GoldenrodGameCornerPrizeMonVendorScript:
