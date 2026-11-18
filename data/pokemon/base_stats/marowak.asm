@@ -7,7 +7,7 @@
 	db GROUND, GROUND ; type
 	db 25 ; catch rate
 	db 124 ; base exp
-	dw NO_ITEM, THICK_CLUB ; items
+	dw THICK_CLUB, THICK_CLUB ; items
 	db GENDER_F50 ; gender ratio
 	INCBIN "gfx/pokemon/marowak/front.dimensions"
 	dw NULL, NULL ; unused (beta front/back pics)

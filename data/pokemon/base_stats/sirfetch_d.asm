@@ -7,7 +7,7 @@
 	db FIGHTING, FIGHTING ; type
 	db 45 ; catch rate
 	db 177 ; base exp
-	dw NO_ITEM, NO_ITEM ; items
+	dw STICK, STICK ; items
 	db GENDER_F50 ; gender ratio
 	INCBIN "gfx/pokemon/sirfetch_d/front.dimensions"
 	dw NULL, NULL ; unused (beta front/back pics)

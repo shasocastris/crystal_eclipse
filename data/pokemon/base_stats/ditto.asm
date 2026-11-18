@@ -7,7 +7,7 @@
 	db NORMAL, NORMAL ; type
 	db 11 ; catch rate
 	db 61 ; base exp
-	dw NO_ITEM, METAL_POWDER ; items
+	dw METAL_POWDER, METAL_POWDER ; items
 	db GENDER_UNKNOWN ; gender ratio
 	INCBIN "gfx/pokemon/ditto/front.dimensions"
 	dw NULL, NULL ; unused (beta front/back pics)

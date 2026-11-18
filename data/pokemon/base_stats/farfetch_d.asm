@@ -7,7 +7,7 @@
 	db NORMAL, FLYING ; type
 	db 15 ; catch rate
 	db 94 ; base exp
-	dw NO_ITEM, STICK ; items
+	dw STICK, STICK ; items
 	db GENDER_F50 ; gender ratio
 	INCBIN "gfx/pokemon/farfetch_d/front.dimensions"
 	dw NULL, NULL ; unused (beta front/back pics)

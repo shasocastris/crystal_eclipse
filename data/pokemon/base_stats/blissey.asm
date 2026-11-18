@@ -7,7 +7,7 @@
 	db NORMAL, NORMAL ; type
 	db 10 ; catch rate
 	db 255 ; base exp
-	dw NO_ITEM, LUCKY_EGG ; items
+	dw LUCKY_PUNCH, LUCKY_EGG ; items
 	db GENDER_F100 ; gender ratio
 	INCBIN "gfx/pokemon/blissey/front.dimensions"
 	dw NULL, NULL ; unused (beta front/back pics)

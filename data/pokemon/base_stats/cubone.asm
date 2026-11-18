@@ -7,7 +7,7 @@
 	db GROUND, GROUND ; type
 	db 63 ; catch rate
 	db 87 ; base exp
-	dw NO_ITEM, THICK_CLUB ; items
+	dw THICK_CLUB, THICK_CLUB ; items
 	db GENDER_F50 ; gender ratio
 	INCBIN "gfx/pokemon/cubone/front.dimensions"
 	dw NULL, NULL ; unused (beta front/back pics)
