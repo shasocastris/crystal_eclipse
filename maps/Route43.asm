@@ -156,12 +156,12 @@ TrainerPicnickerTiffany:
 	opentext
 	checkflag ENGINE_TIFFANY_READY_FOR_REMATCH
 	iftrue .WantsBattle
-	checkflag ENGINE_TIFFANY_HAS_SILVERPOWDER
-	iftrue .HasSilverpowder
+	checkflag ENGINE_TIFFANY_HAS_ZINC
+	iftrue .HasZinc
 	checkcellnum PHONE_PICNICKER_TIFFANY
 	iftrue .NumberAccepted
 	checkpoke CLEFABLE
-	iffalse .NoClefairy
+	iffalse .NoClefable
 	checkevent EVENT_TIFFANY_ASKED_FOR_PHONE_NUMBER
 	iftrue .AskedAlready
 	writetext PicnickerTiffanyWantsPicnicText
@@ -208,19 +208,19 @@ TrainerPicnickerTiffany:
 	clearflag ENGINE_TIFFANY_READY_FOR_REMATCH
 	end
 
-.HasSilverpowder:
+.HasZinc:
 	scall .Gift
-	verbosegiveitem SILVERPOWDER, 3
+	verbosegiveitem ZINC, 3
 	iffalse .NoRoom
-	clearflag ENGINE_TIFFANY_HAS_SILVERPOWDER
-	setevent EVENT_TIFFANY_GAVE_SILVERPOWDER
+	clearflag ENGINE_TIFFANY_HAS_ZINC
+	setevent EVENT_TIFFANY_GAVE_ZINC
 	sjump .NumberAccepted
 
 .NoRoom:
 	sjump .PackFull
 
-.NoClefairy:
-	writetext PicnickerTiffanyClefairyText
+.NoClefable:
+	writetext PicnickerTiffanyClefableText
 	waitbutton
 	closetext
 	end
@@ -410,7 +410,7 @@ PicnickerTiffanyWantsPicnicText:
 	para "Won't you join us?"
 	done
 
-PicnickerTiffanyClefairyText:
+PicnickerTiffanyClefableText:
 	text "Isn't my CLEFABLE"
 	line "just the most"
 	cont "adorable thing?"

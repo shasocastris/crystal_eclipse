@@ -20,7 +20,7 @@ TiffanyDefeatedMonText:
 	text " a while"
 	line "ago…"
 
-	para "My CLEFAIRY came"
+	para "My CLEFABLE came"
 	line "close to fainting!"
 
 	para "Isn't that awful?"
@@ -40,7 +40,7 @@ TiffanyLostAMonText:
 	text " a while"
 	line "ago…"
 
-	para "My CLEFAIRY got"
+	para "My CLEFABLE got"
 	line "frightened, so we"
 
 	para "ran away as fast"
@@ -48,7 +48,7 @@ TiffanyLostAMonText:
 
 	para "I just can't help"
 	line "feeling protective"
-	cont "of my CLEFAIRY."
+	cont "of my CLEFABLE."
 	done
 
 TiffanyBattleRematchText:
@@ -59,7 +59,7 @@ TiffanyBattleRematchText:
 	line "battle?"
 
 	para "I'll be waiting"
-	line "with CLEFAIRY on"
+	line "with CLEFABLE on"
 	cont "@"
 	text_ram wStringBuffer5
 	text "."
@@ -70,7 +70,7 @@ TiffanyItsAwfulText:
 	text "!"
 
 	para "It's awful."
-	line "My CLEFAIRY…"
+	line "My CLEFABLE…"
 
 	para "Huh? <PLAY_G>?"
 
@@ -86,14 +86,11 @@ TiffanyHangUpText:
 	done
 
 TiffanyFoundItemText:
-	text "I bought some PINK"
-	line "BOWS at GOLDENROD"
-
-	para "DEPT.STORE for my"
-	line "CLEFAIRY."
+	text "I bought some ZINC"
+	line "for my CLEFABLE."
 
 	para "I got too many, so"
-	line "I'll give you one!"
+	line "I'll share some!"
 
 	para "Come collect it on"
 	line "@"
@@ -103,14 +100,14 @@ TiffanyFoundItemText:
 
 TiffanyNoItemText:
 	text "I love dressing up"
-	line "my CLEFAIRY!"
+	line "my CLEFABLE!"
 	done
 
 TiffanyAsleepText:
 	text "What's wrong?"
 	line "Can't you visit?"
 
-	para "CLEFAIRY got tired"
+	para "CLEFABLE got tired"
 	line "and fell asleep."
 
 	para "I'm not sure if I"
@@ -128,7 +125,7 @@ TiffanyHurryText:
 
 	para "I'm sure this will"
 	line "look good on your"
-	cont "CLEFAIRY."
+	cont "CLEFABLE."
 
 	para "Please hurry to"
 	line "@"
