@@ -9,6 +9,16 @@ RuinsOfAlphInnerChamber_MapScripts:
 	scene_script RuinsOfAlphInnerChamberStrangePresenceScene, SCENE_RUINSOFALPHINNERCHAMBER_STRANGE_PRESENCE
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, RuinsOfAlphInnerChamberRelockUnownCallback ; CHANGED
+
+; CHANGED: Slowpoke Well opens A-K for one fight; a whiteout there leaves it
+; open, so re-lock it here, where wild Unown live, until Kabuto is solved.
+RuinsOfAlphInnerChamberRelockUnownCallback:
+	checkevent EVENT_SOLVED_KABUTO_PUZZLE
+	iftrue .Done
+	clearflag ENGINE_UNLOCKED_UNOWNS_A_TO_K
+.Done:
+	endcallback
 
 RuinsOfAlphInnerChamberNoopScene:
 	end

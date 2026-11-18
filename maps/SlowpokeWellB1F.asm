@@ -8,6 +8,7 @@
 	const SLOWPOKEWELLB1F_KURT
 	const SLOWPOKEWELLB1F_BOULDER
 	const SLOWPOKEWELLB1F_POKE_BALL
+	const SLOWPOKEWELLB1F_UNOWN ; CHANGED
 
 SlowpokeWellB1F_MapScripts:
 	def_scene_scripts
@@ -43,6 +44,32 @@ TrainerGruntM1:
 	disappear SLOWPOKEWELLB1F_ROCKET_GIRL
 	pause 15
 	special FadeInFromBlack
+	appear SLOWPOKEWELLB1F_UNOWN ; CHANGED: Archer's Unown A stays behind
+	applymovement SLOWPOKEWELLB1F_UNOWN, SlowpokeWellB1FUnownRockSmashMovement ; CHANGED
+	showemote EMOTE_SHOCK, PLAYER, 45 ; CHANGED
+	sjump SlowpokeWellB1FUnownBattleScript ; CHANGED
+
+; CHANGED: talking to the Unown retries the fight after a whiteout
+SlowpokeWellB1FUnownScript:
+	cry UNOWN
+	pause 15
+	; fallthrough
+
+; CHANGED: forced letters reroll unless their set is unlocked, so open A-K
+; for this fight only. RuinsOfAlphInnerChamber re-locks it after a whiteout.
+SlowpokeWellB1FUnownBattleScript:
+	setflag ENGINE_UNLOCKED_UNOWNS_A_TO_K
+	loadvar VAR_BATTLETYPE, BATTLETYPE_UNOWN_A
+	loadwildmon UNOWN, 15
+	startbattle
+	reloadmapafterbattle
+	checkevent EVENT_SOLVED_KABUTO_PUZZLE
+	iftrue .KeepUnlocked
+	clearflag ENGINE_UNLOCKED_UNOWNS_A_TO_K
+.KeepUnlocked:
+	setevent EVENT_FOUGHT_UNOWN_A ; also hides the Kabuto word room's A
+	disappear SLOWPOKEWELLB1F_UNOWN
+	pause 15
 	disappear SLOWPOKEWELLB1F_KURT
 	moveobject SLOWPOKEWELLB1F_KURT, 11, 6
 	appear SLOWPOKEWELLB1F_KURT
@@ -130,6 +157,10 @@ SlowpokeWellB1FBoulder:
 SlowpokeWellB1FSuperPotion:
 	itemball SUPER_POTION
 
+SlowpokeWellB1FUnownRockSmashMovement: ; CHANGED
+	rock_smash 60
+	step_end
+
 KurtSlowpokeWellVictoryMovementData:
 	step LEFT
 	step LEFT
@@ -184,6 +215,17 @@ KurtLeaveSlowpokeWellText:
 
 	para "TEAM ROCKET has"
 	line "taken off."
+
+	para "But that #MON…" ; CHANGED: Unown A reaction
+	line "I've never seen"
+	cont "anything like it."
+
+	para "I'll send MAIL to"
+	line "my old friend"
+	cont "SAMUEL in KANTO."
+
+	para "He might know"
+	line "what it is."
 
 	para "My back's better"
 	line "too. Let's get out"
@@ -346,3 +388,4 @@ SlowpokeWellB1F_MapEvents:
 	object_event 16, 14, SPRITE_KURT, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlowpokeWellB1FKurtScript, EVENT_SLOWPOKE_WELL_KURT
 	object_event  3,  2, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlowpokeWellB1FBoulder, -1
 	object_event 10,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SlowpokeWellB1FSuperPotion, EVENT_SLOWPOKE_WELL_B1F_SUPER_POTION
+	object_event  5,  2, SPRITE_UNOWN_A, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlowpokeWellB1FUnownScript, EVENT_SLOWPOKE_WELL_B1F_UNOWN ; CHANGED

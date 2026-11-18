@@ -3677,10 +3677,10 @@ GruntMGroup:
 	next_list_item ; GRUNTM (1), Slowpoke Well
 	db "ARCHER@", TRAINERTYPE_NORMAL
 	db 15
-	dw DRATINI
+	dw UNOWN ; CHANGED: was DRATINI; GRUNTM class DVs make it an A
 	db 15
 	dw EEVEE
-	db 19
+	db 17 ; CHANGED: was 19
 	dw KOFFING
 	db -1 ; end
 
