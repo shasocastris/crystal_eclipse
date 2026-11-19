@@ -163,6 +163,8 @@ DEF KRIS EQU __trainer_class__
 	const CARL
 	const KIP
 	const MILES
+	const NIKOLA ; CHANGED: Suicune chamber
+	const MURRAY ; CHANGED: Suicune chamber
 
 	trainerclass YOUNGSTER ; 1c
 	const JOEY1
@@ -382,6 +384,7 @@ DEF KRIS EQU __trainer_class__
 	const GRUNTM_39
 	const GRUNTM_40
 	const GRUNTM_41
+	const GRUNTM_42 ; CHANGED: Suicune chamber
 
 	trainerclass GENTLEMAN ; 25
 	const PRESTON

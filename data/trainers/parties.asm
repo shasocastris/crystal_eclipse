@@ -1817,6 +1817,24 @@ ScientistGroup:
 	dw PORYGON
 	db -1 ; end
 
+	next_list_item ; SCIENTIST NIKOLA (16), Ruins of Alph Suicune Chamber ; CHANGED
+	db "NIKOLA@", TRAINERTYPE_NORMAL
+	db 45
+	dw MAGNETON
+	db 46
+	dw LANTURN
+	db -1 ; end
+
+	next_list_item ; SCIENTIST MURRAY (17), Ruins of Alph Suicune Chamber ; CHANGED
+	db "MURRAY@", TRAINERTYPE_NORMAL
+	db 45
+	dw ELECTRODE
+	db 45
+	dw PORYGON2
+	db 46
+	dw STARMIE
+	db -1 ; end
+
 	end_list_items
 
 YoungsterGroup:
@@ -4158,6 +4176,16 @@ GruntMGroup:
 	dw RATICATE
 	db 58
 	dw ARBOK
+	db -1 ; end
+
+	next_list_item ; GRUNTM (42), Ruins of Alph Suicune Chamber ; CHANGED
+	db "GRUNT@", TRAINERTYPE_NORMAL
+	db 45
+	dw WEEZING
+	db 45
+	dw MURKROW
+	db 46
+	dw HOUNDOOM
 	db -1 ; end
 
 	end_list_items
@@ -7991,6 +8019,9 @@ TwinsGroup:
 	db -1 ; end
 
 	end_list_items
+
+; CHANGED: Parties 2 filled up again; this group floats too.
+SECTION "Enemy Trainer Parties 4", ROMX
 
 PokefanFGroup:
 	next_list_item ; POKEFANF (1), National Park

@@ -396,6 +396,7 @@ RuinsOfAlphHoOhChamber_Blocks:
 RuinsOfAlphKabutoChamber_Blocks:
 RuinsOfAlphOmanyteChamber_Blocks:
 RuinsOfAlphAerodactylChamber_Blocks:
+RuinsOfAlphSuicuneChamber_Blocks:
 	INCBIN "maps/RuinsOfAlphPuzzleChamber.ablk.lz"
 
 SproutTower1F_Blocks:
@@ -894,6 +895,7 @@ RuinsOfAlphHoOhItemRoom_Blocks:
 RuinsOfAlphKabutoItemRoom_Blocks:
 RuinsOfAlphOmanyteItemRoom_Blocks:
 RuinsOfAlphAerodactylItemRoom_Blocks:
+RuinsOfAlphSuicuneItemRoom_Blocks:
 	INCBIN "maps/RuinsOfAlphItemRoom.ablk.lz"
 
 RuinsOfAlphHoOhWordRoom_Blocks:

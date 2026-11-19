@@ -29,25 +29,6 @@ RuinsOfAlphInnerChamberStrangePresenceScript:
 RuinsOfAlphInnerChamberStatue:
 	jumptext RuinsOfAlphInnerChamberStatueText
 
-; CHANGED: TEMP STUB — remove when Suicune puzzle is implemented
-; TODO(bryan): stub location and text are placeholders
-RuinsOfAlphInnerChamberSuicunePuzzleStubScript:
-	checkevent EVENT_RUINS_OF_ALPH_ROCKETS
-	iffalse .Replica
-	checkevent EVENT_SOLVED_SUICUNE_PUZZLE
-	iftrue .Replica
-	opentext
-	writetext RuinsOfAlphInnerChamberSuicunePuzzleStubText
-	waitbutton
-	closetext
-	playsound SFX_KINESIS
-	earthquake 30
-	setevent EVENT_SOLVED_SUICUNE_PUZZLE
-	end
-
-.Replica:
-	jumptext RuinsOfAlphInnerChamberStatueText
-
 RuinsOfAlphStrangePresenceText:
 	text "There is a strange"
 	line "presence here…"
@@ -59,12 +40,6 @@ RuinsOfAlphInnerChamberStatueText:
 	cont "MON."
 	done
 
-RuinsOfAlphInnerChamberSuicunePuzzleStubText: ; CHANGED: TEMP STUB
-	text "[STUB] The statue"
-	line "glows. The SUICUNE"
-	cont "puzzle is solved."
-	done
-
 RuinsOfAlphInnerChamber_MapEvents:
 	db 0, 0 ; filler
 
@@ -74,6 +49,7 @@ RuinsOfAlphInnerChamber_MapEvents:
 	warp_event 19,  3, RUINS_OF_ALPH_KABUTO_WORD_ROOM, 3
 	warp_event 11, 30, RUINS_OF_ALPH_OMANYTE_WORD_ROOM, 3
 	warp_event 23, 33, RUINS_OF_ALPH_AERODACTYL_WORD_ROOM, 3
+	warp_event  2, 22, RUINS_OF_ALPH_SUICUNE_ITEM_ROOM, 1 ; CHANGED: Suicune item room pit lands here for now
 
 	def_coord_events
 
@@ -82,7 +58,7 @@ RuinsOfAlphInnerChamber_MapEvents:
 	bg_event 23,  5, BGEVENT_READ, RuinsOfAlphInnerChamberStatue
 	bg_event  5, 11, BGEVENT_READ, RuinsOfAlphInnerChamberStatue
 	bg_event 12, 11, BGEVENT_READ, RuinsOfAlphInnerChamberStatue
-	bg_event 16, 25, BGEVENT_READ, RuinsOfAlphInnerChamberSuicunePuzzleStubScript ; CHANGED: TEMP STUB
+	bg_event 16, 25, BGEVENT_READ, RuinsOfAlphInnerChamberStatue
 	bg_event 13, 21, BGEVENT_READ, RuinsOfAlphInnerChamberStatue
 	bg_event 22, 23, BGEVENT_READ, RuinsOfAlphInnerChamberStatue
 	bg_event  7, 17, BGEVENT_READ, RuinsOfAlphInnerChamberStatue

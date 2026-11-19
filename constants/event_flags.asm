@@ -350,6 +350,14 @@
 	const EVENT_SOLVED_SUICUNE_PUZZLE ; CHANGED: gates the shrine finale; TODO(bryan): confirm name
 	const EVENT_SLOWPOKE_WELL_B1F_UNOWN ; CHANGED: Archer's Unown A, hidden until he loses
 	const EVENT_TEAM_ROCKET_BASE_B3F_UNOWN ; CHANGED: Petrel's Unown Z, hidden until he loses
+; CHANGED: Suicune chamber trainers and item room
+	const EVENT_BEAT_SCIENTIST_NIKOLA
+	const EVENT_BEAT_SCIENTIST_MURRAY
+	const EVENT_BEAT_ROCKET_GRUNTM_42
+	const EVENT_PICKED_UP_MYSTIC_DEW_FROM_SUICUNE_ITEM_ROOM
+	const EVENT_PICKED_UP_KINGS_ROCK_FROM_SUICUNE_ITEM_ROOM
+	const EVENT_PICKED_UP_FRESH_WATER_FROM_SUICUNE_ITEM_ROOM
+	const EVENT_PICKED_UP_GOLD_LEAF_FROM_SUICUNE_ITEM_ROOM
 ; Unused: next 232 events
 
 	const_next 600

@@ -3,6 +3,7 @@
 	const RUINSOFALPHOUTSIDE_SCIENTIST_ENRICO
 	const RUINSOFALPHOUTSIDE_SCIENTIST_NIELS
 	const RUINSOFALPHOUTSIDE_SCIENTIST_EARNEST
+	const RUINSOFALPHOUTSIDE_SCIENTIST_MAX
 	const RUINSOFALPHOUTSIDE_ROCKET
 	const RUINSOFALPHOUTSIDE_ROCKET_GIRL
 	const RUINSOFALPHOUTSIDE_SUICUNE
@@ -22,6 +23,18 @@ RuinsOfAlphOutsideNoop2Scene:
 	end
 	
 RuinsOfAlphOutsideShrineCallback:
+; CHANGED: a tree seals the Suicune chamber until the other four puzzles are solved
+	checkevent EVENT_SOLVED_KABUTO_PUZZLE
+	iffalse .SealSuicuneChamber
+	checkevent EVENT_SOLVED_OMANYTE_PUZZLE
+	iffalse .SealSuicuneChamber
+	checkevent EVENT_SOLVED_AERODACTYL_PUZZLE
+	iffalse .SealSuicuneChamber
+	checkevent EVENT_SOLVED_HO_OH_PUZZLE
+	iftrue .Shrine
+.SealSuicuneChamber:
+	changeblock 2, 10, $62 ; headbutt tree instead of cut tree
+.Shrine:
 	checkevent EVENT_SOLVED_SUICUNE_PUZZLE ; CHANGED: was VAR_UNOWNCOUNT == NUM_UNOWN
 	iffalse .ShrineOff ; CHANGED
 	endcallback
@@ -153,6 +166,37 @@ RuinsOfAlphOutsideScientistEarnest_Script:
 	closetext
 	end
 
+RuinsOfAlphOutsideScientistMax_Script: ; CHANGED
+	faceplayer
+	opentext
+	checkevent EVENT_MET_ELM_AT_RESEARCH_CENTER
+	iffalse .NewCave
+	checkevent EVENT_RUINS_OF_ALPH_ROCKETS
+	iffalse .NewCave
+	writetext MaxFight_Text
+	waitbutton
+	closetext
+	winlosstext MaxWin_Text, 0
+	loadtrainer SCIENTIST, MAX
+	startbattle
+	reloadmapafterbattle
+	setevent EVENT_BEAT_SCIENTIST_MAX
+	opentext
+	writetext MaxAfterBattle_Text
+	waitbutton
+	closetext
+	applymovement RUINSOFALPHOUTSIDE_SCIENTIST_MAX, RuinsOfAlphOutsideScientistMaxMovement
+	playsound SFX_ENTER_DOOR
+	disappear RUINSOFALPHOUTSIDE_SCIENTIST_MAX
+	waitsfx
+	end
+
+.NewCave
+	writetext RuinsOfAlphOutsideScientistMax_Text
+	waitbutton
+	closetext
+	end
+
 ShrineFight:
 	checkevent EVENT_SOLVED_SUICUNE_PUZZLE ; CHANGED: was VAR_UNOWNCOUNT == NUM_UNOWN
 	iftrue .FightExecutives ; CHANGED
@@ -259,6 +303,7 @@ RuinsOfAlphOutsideScientistWernerMovement:
 RuinsOfAlphOutsideScientistEnricoMovement:
 RuinsOfAlphOutsideScientistNielsMovement:
 RuinsOfAlphOutsideScientistEarnestMovement:
+RuinsOfAlphOutsideScientistMaxMovement:
 	step UP
 	step_end
 
@@ -515,6 +560,43 @@ RuinsOfAlphOutsideScientistEarnest_Text:
 	cont "originated?"
 	done
 
+MaxFight_Text:
+	text "Halt! The last"
+	line "chamber is off"
+	cont "limits!"
+
+	para "We've nearly"
+	line "cracked its"
+	cont "secret!"
+	done
+
+MaxWin_Text:
+	text "Impossible! My"
+	line "theory was sound!"
+	done
+
+MaxAfterBattle_Text:
+	text "The other four"
+	line "puzzles opened"
+	cont "this chamber."
+
+	para "Its carving shows"
+	line "a beast of the"
+	cont "north wind."
+
+	para "I must warn the"
+	line "others inside!"
+	done
+
+RuinsOfAlphOutsideScientistMax_Text:
+	text "This cave wasn't"
+	line "here before."
+
+	para "The ruins seem to"
+	line "be opening up on"
+	cont "their own…"
+	done
+
 RuinsOfAlphOutsideExecutiveFHoldItText:
 	text "Get away from that"
 	line "shrine!"
@@ -664,6 +746,7 @@ RuinsOfAlphOutside_MapEvents:
 	warp_event  9,  5, ROUTE_36_RUINS_OF_ALPH_GATE, 3
 	warp_event 15, 20, ROUTE_32_RUINS_OF_ALPH_GATE, 1
 	warp_event 15, 21, ROUTE_32_RUINS_OF_ALPH_GATE, 2
+	warp_event  2,  9, RUINS_OF_ALPH_SUICUNE_CHAMBER, 1 ; CHANGED
 
 	def_coord_events
 	coord_event  7, 26, SCENE_RUINSOFALPHOUTSIDE_ROCKET_BOSS, ShrineFight
@@ -678,6 +761,7 @@ RuinsOfAlphOutside_MapEvents:
 	object_event  2, 18, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphOutsideScientistEnrico_Script, EVENT_BEAT_SCIENTIST_ENRICO
 	object_event  4, 30, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphOutsideScientistNiels_Script, EVENT_BEAT_SCIENTIST_NIELS
 	object_event 18, 34, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphOutsideScientistEarnest_Script, EVENT_BEAT_SCIENTIST_EARNEST
+	object_event  2, 10, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphOutsideScientistMax_Script, EVENT_BEAT_SCIENTIST_MAX ; CHANGED
 	object_event 12, 31, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RUINS_OF_ALPH_OUTSIDE_EXECUTIVES
 	object_event 12, 31, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RUINS_OF_ALPH_OUTSIDE_EXECUTIVES
 	object_event  4, 26, SPRITE_SUICUNE, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RUINS_OF_ALPH_OUTSIDE_EXECUTIVES

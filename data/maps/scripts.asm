@@ -537,9 +537,6 @@ INCLUDE "maps/PewterMuseum2F.asm"
 INCLUDE "maps/SafariZoneMainOffice.asm"
 INCLUDE "maps/ValenciaPort.asm"
 INCLUDE "maps/ValenciaIsland.asm"
-INCLUDE "maps/ShamoutiPassage.asm"
-INCLUDE "maps/ShamoutiIsland.asm"
-INCLUDE "maps/ShamoutiCave.asm"
 
 ENDSECTION
 
@@ -548,5 +545,17 @@ SECTION "Map Scripts 30", ROMX
 
 INCLUDE "maps/IcePathHollow2F.asm"
 INCLUDE "maps/IcePathHollow1F.asm"
+
+ENDSECTION
+
+
+; CHANGED: Map Scripts 2 is full; Shamouti moved here to make room for Ruins of Alph Outside
+SECTION "Map Scripts 31", ROMX
+
+INCLUDE "maps/RuinsOfAlphSuicuneChamber.asm"
+INCLUDE "maps/RuinsOfAlphSuicuneItemRoom.asm"
+INCLUDE "maps/ShamoutiPassage.asm"
+INCLUDE "maps/ShamoutiIsland.asm"
+INCLUDE "maps/ShamoutiCave.asm"
 
 ENDSECTION

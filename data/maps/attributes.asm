@@ -457,6 +457,8 @@ ENDM
 	map_attributes IcePathB3F, ICE_PATH_B3F, $19, 0
 	map_attributes IcePathHollow2F, ICE_PATH_HOLLOW_2F, $19, 0, OW_WEATHER_SNOW
 	map_attributes IcePathHollow1F, ICE_PATH_HOLLOW_1F, $19, 0, OW_WEATHER_SNOW
+	map_attributes RuinsOfAlphSuicuneChamber, RUINS_OF_ALPH_SUICUNE_CHAMBER, $00, 0
+	map_attributes RuinsOfAlphSuicuneItemRoom, RUINS_OF_ALPH_SUICUNE_ITEM_ROOM, $00, 0
 	map_attributes WhirlIslandNW, WHIRL_ISLAND_NW, $09, 0
 	map_attributes WhirlIslandNE, WHIRL_ISLAND_NE, $09, 0
 	map_attributes WhirlIslandSW, WHIRL_ISLAND_SW, $09, 0
