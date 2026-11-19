@@ -485,6 +485,7 @@ KurtSamuelsMailScript: ; CHANGED: SAMUEL's Dragonite delivers the MAIL to the PC
 	promptbutton
 	special GiveSamuelsMail
 	iffalse .MailboxFull
+	setevent EVENT_GOT_SAMUELS_MAIL
 	writetext KurtsHouseMailSentToPCText
 	promptbutton
 	writetext KurtsHouseKurtAfterSamuelsMailText

@@ -360,7 +360,8 @@
 	const EVENT_PICKED_UP_BRIGHTPOWDER_FROM_SUICUNE_ITEM_ROOM
 	const EVENT_RUINS_OF_ALPH_OUTSIDE_EVIOLITE ; CHANGED: fallback ball if the bag was full
 	const EVENT_KURTS_HOUSE_DRAGONITE ; CHANGED: SAMUEL's Dragonite; shown by the Route 42 Suicune scene
-; Unused: next 205 events
+	const EVENT_GOT_SAMUELS_MAIL ; CHANGED: stops the Suicune loop re-arming the Dragonite and Kurt's call
+; Unused: next 204 events
 
 	const_next 600
 ; Kurt Apricorn events

@@ -41,8 +41,13 @@ Route42SuicuneScript:
 	setscene SCENE_ROUTE42_NOOP
 	clearevent EVENT_SAW_SUICUNE_ON_ROUTE_36
 	setmapscene ROUTE_36, SCENE_ROUTE36_SUICUNE
+	checkevent EVENT_GOT_SAMUELS_MAIL ; CHANGED: the sightings loop; only the first lap
+	iftrue .Done
+	checkevent EVENT_KURTS_HOUSE_DRAGONITE
+	iffalse .Done
 	clearevent EVENT_KURTS_HOUSE_DRAGONITE ; CHANGED
 	specialphonecall SPECIALCALL_KURT ; CHANGED
+.Done:
 	end
 
 TrainerFisherTully:
