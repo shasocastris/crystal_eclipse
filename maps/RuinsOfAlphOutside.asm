@@ -23,14 +23,15 @@ RuinsOfAlphOutsideNoop2Scene:
 	end
 	
 RuinsOfAlphOutsideShrineCallback:
-; CHANGED: a tree seals the Suicune chamber until the other four puzzles are solved
-	checkevent EVENT_SOLVED_KABUTO_PUZZLE
+; CHANGED: a tree seals the Suicune chamber until the player has beaten the
+; scientist in each of the other four chambers (those puzzles start solved)
+	checkevent EVENT_BEAT_SCIENTIST_ERWIN
 	iffalse .SealSuicuneChamber
-	checkevent EVENT_SOLVED_OMANYTE_PUZZLE
+	checkevent EVENT_BEAT_SCIENTIST_JAYJAY
 	iffalse .SealSuicuneChamber
-	checkevent EVENT_SOLVED_AERODACTYL_PUZZLE
+	checkevent EVENT_BEAT_SCIENTIST_CARL
 	iffalse .SealSuicuneChamber
-	checkevent EVENT_SOLVED_HO_OH_PUZZLE
+	checkevent EVENT_BEAT_SCIENTIST_KIP
 	iftrue .Shrine
 .SealSuicuneChamber:
 	changeblock 2, 10, $62 ; headbutt tree instead of cut tree
@@ -454,14 +455,14 @@ EnricoAfterBattle_Text:
 	line "#MON as we"
 	cont "suspect…"
 
-	para "Well, that's why"
-	line "we're solving the"
-	cont "puzzles!"
+	para "And they are! We" ; CHANGED: Rockets already solved the four
+	line "caught a few once"
+	cont "we cracked the"
+	cont "puzzles."
 
 	para "The executives"
-	line "want us to confirm"
-	cont "if #MON really"
-	cont "live here."
+	line "want every last"
+	cont "one of them."
 	done
 
 RuinsOfAlphOutsideScientistEnrico_Text:
@@ -499,6 +500,10 @@ NielsAfterBattle_Text:
 	line "official research,"
 	cont "no one has found"
 	cont "any."
+
+	para "We solved the" ; CHANGED: Rockets already solved the four
+	line "puzzles, and there"
+	cont "they were!"
 	done
 
 RuinsOfAlphOutsideScientistNiels_Text:
@@ -518,12 +523,10 @@ EarnestFight_Text:
 	line "don't have time"
 	cont "for this!"
 
-	para "We need to solve"
-	line "these puzzles and"
-
-	para "find the #MON"
-	line "before the LEAGUE"
-	cont "gets wind of this!"
+	para "We need to open" ; CHANGED: was solving the four puzzles
+	line "the shrine before"
+	cont "the LEAGUE gets"
+	cont "wind of this!"
 	done
 
 EarnestWin_Text:
@@ -531,15 +534,12 @@ EarnestWin_Text:
 	done
 
 EarnestAfterBattle_Text:
-	text "We haven't been"
-	line "able to figure out"
-	cont "the blocks in each"
-	cont "chamber."
+	text "We cracked four" ; CHANGED: Rockets already solved the four
+	line "chambers already."
 
-	para "Perhaps #MON"
-	line "will reveal"
-	cont "themselves when we"
-	cont "solve the puzzles."
+	para "Only the last"
+	line "puzzle stands in"
+	cont "our way."
 
 	para "If the rumors are"
 	line "true, capturing"

@@ -287,27 +287,28 @@ RuinsOfAlphResearchCenterElmText_Searching:
     line "They're hunting"
     cont "for a new #MON."
 
-    para "The researchers"
-    line "think there are"
-    cont "26 variants hidden"
-    cont "behind the four"
-    cont "puzzle chambers,"
+    para "They've already" ; CHANGED: the race is for the fifth puzzle
+    line "solved all four"
+    cont "puzzle chambers"
 
-    para "and catching every"
-    line "will activate the"
+    para "and caught some of"
+    line "the #MON hidden"
+    cont "inside."
+
+    para "Now they're after"
+    line "a fifth puzzle."
+
+    para "If they solve it,"
+    line "they'll unlock the"
     cont "shrine."
 
-    para "We're not sure why"
-    line "TEAM ROCKET wants"
-    cont "to do that."
+    para "We don't know what"
+    line "it holds, but we"
+    cont "can't let them"
+    cont "have it."
 
-    para "But they haven't"
-    line "solved any puzzles"
-    cont "yet."
-
-    para "If you catch those"
-    line "#MON first,"
-    cont "their plan fails!"
+    para "Find that puzzle"
+    line "before they do!"
 
     para "The first thing"
     line "you'll need to do"
@@ -319,9 +320,9 @@ RuinsOfAlphResearchCenterElmText_LabSecured:
     text "ELM: I've got the"
     line "lab secured."
 
-    para "Make sure to catch"
-    line "the #MON and"
-    cont "stop TEAM ROCKET."
+    para "Beat TEAM ROCKET" ; CHANGED: was catch the #MON
+    line "to that last"
+    cont "puzzle!"
     done
 
 RuinsOfAlphResearchCenterElmText_Relieved:

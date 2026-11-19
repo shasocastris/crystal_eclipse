@@ -116,8 +116,9 @@ GruntF7AfterBattleText:
 GruntF8SeenText:
 	text "Keep moving, kid!"
 
-	para "We're busy working"
-	line "on these puzzles!"
+	para "We already solved" ; CHANGED: was still working on it
+	line "this one. Nothing"
+	cont "left for you!"
 	done
 
 GruntF8BeatenText:

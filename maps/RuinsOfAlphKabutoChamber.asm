@@ -164,11 +164,14 @@ ScientistErwinAfterBattleText:
 	para "There are 26 in"
 	line "total."
 
-	para "Which means if we"
-	line "catch every single"
-	cont "one, we should"
-	cont "activate the"
-	cont "shrine!"
+	para "We solved this" ; CHANGED: the shrine opens on the fifth puzzle
+	line "chamber long ago."
+
+	para "The real prize is"
+	line "the fifth puzzle."
+
+	para "Solve that, and"
+	line "the shrine opens!"
 	done
 
 
