@@ -229,6 +229,7 @@ RocketElectrode1: ; CHANGED: the machine runs on Unown H (Lance's side: F)
 	setevent EVENT_FOUGHT_UNOWN_H
 	disappear TEAMROCKETBASEB2F_ELECTRODE1
 	disappear TEAMROCKETBASEB2F_ELECTRODE4
+	setevent EVENT_FOUGHT_UNOWN_F ; CHANGED: Lance beat it; only random encounters remain
 	checkevent EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_1
 	iffalse TeamRocketBaseB2FReloadMap
 	checkevent EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_2
@@ -251,6 +252,7 @@ RocketElectrode2: ; CHANGED: the machine runs on Unown O (Lance's side: M)
 	setevent EVENT_FOUGHT_UNOWN_O
 	disappear TEAMROCKETBASEB2F_ELECTRODE2
 	disappear TEAMROCKETBASEB2F_ELECTRODE5
+	setevent EVENT_FOUGHT_UNOWN_M ; CHANGED: Lance beat it; only random encounters remain
 	checkevent EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_1
 	iffalse TeamRocketBaseB2FReloadMap
 	checkevent EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_2
@@ -273,6 +275,7 @@ RocketElectrode3: ; CHANGED: the machine runs on Unown U (Lance's side: Q)
 	setevent EVENT_FOUGHT_UNOWN_U
 	disappear TEAMROCKETBASEB2F_ELECTRODE3
 	disappear TEAMROCKETBASEB2F_ELECTRODE6
+	setevent EVENT_FOUGHT_UNOWN_Q ; CHANGED: Lance beat it; only random encounters remain
 	checkevent EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_1
 	iffalse TeamRocketBaseB2FReloadMap
 	checkevent EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_2
