@@ -14,10 +14,13 @@ Route36RuinsOfAlphGateGrampsScript:
 	jumptextfaceplayer Route36RuinsOfAlphGateGrampsText
 
 Route36RuinsOfAlphGateOfficerText:
-	text "Don't you wonder"
-	line "who'd make some-"
-	cont "thing like this?"
-	cont "And why?"
+	text "Researchers have" ; CHANGED: the Ruins have been studied for years
+	line "studied the RUINS"
+	cont "for years."
+
+	para "They still don't"
+	line "know who built"
+	cont "them, or why."
 	done
 
 Route36RuinsOfAlphGateGrampsText:

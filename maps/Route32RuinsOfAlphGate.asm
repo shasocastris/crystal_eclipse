@@ -23,8 +23,12 @@ Route32RuinsOfAlphGateOfficerText:
 	para "A Look-and-Touch"
 	line "Tourist Site"
 
-	para "Try the sliding"
-	line "stone panels!"
+	para "The scientists" ; CHANGED: the four puzzles are solved
+	line "have figured out"
+
+	para "most of the"
+	line "sliding stone"
+	cont "panels!"
 	done
 
 Route32RuinsOfAlphGatePokefanMText:
@@ -39,9 +43,10 @@ Route32RuinsOfAlphGateYoungsterText:
 	text "There are drawings"
 	line "on stone panels."
 
-	para "I tried moving"
-	line "them. I wonder"
-	cont "what they are."
+	para "I wanted to try" ; CHANGED: the four puzzles are solved
+	line "moving them, but"
+	cont "the scientists"
+	cont "beat me to it."
 	done
 
 Route32RuinsOfAlphGate_MapEvents:
