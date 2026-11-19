@@ -122,6 +122,36 @@ UnownPuzzle:
 	ld [wScriptVar], a
 	jmp ExitAllMenus
 
+ShowSamuelsMail:
+; CHANGED: show SAMUEL's letter in the MIRAGE MAIL viewer. ReadAnyMail reads
+; SRAM bank 0, so stage the letter in sScratch.
+	call FadeToMenu
+	ld hl, MIRAGE_MAIL
+	call GetItemIDFromIndex
+	push af
+	ld a, BANK(sScratch)
+	call OpenSRAM
+	ld hl, SamuelsMail
+	ld de, sScratch
+	ld bc, MAIL_STRUCT_LENGTH - 1
+	rst CopyBytes
+	pop af
+	ld [de], a ; mail type
+	call CloseSRAM
+	ld de, sScratch
+	farcall ReadAnyMail
+	jmp ExitAllMenus
+
+SamuelsMail:
+	db "Catch all 26 and<NEXT>who knows what?@"
+	assert @ - SamuelsMail == MAIL_MSG_LENGTH + 1
+	db "SAMUEL@@" ; author
+	assert @ - SamuelsMail == MAIL_MSG_LENGTH + 1 + PLAYER_NAME_LENGTH
+	dw 0 ; nationality
+	dw 0 ; author ID
+	db 0 ; species
+	assert @ - SamuelsMail == MAIL_STRUCT_LENGTH - 1
+
 SlotMachine:
 	call CheckCoinsAndCoinCase
 	ret c

@@ -161,16 +161,10 @@ ScientistKipAfterBattleText:
 	line "detect 26 distinct"
 	cont "psychic readings."
 
-	para "Each puzzle should"
-	line "reveal a different"
-	cont "subset."
-
-	para "A trainer who cap-"
-	line "tures every form"
-
-	para "might be able to"
-	line "access the ruins'"
-	cont "dimensional gifts!"
+	para "We've been trying" ; CHANGED: was puzzles reveal subsets / gifts
+	line "to catch all 26,"
+	cont "just to see what"
+	cont "happens!"
 
 	para "Think of it! A"
 	line "living alphabet of"

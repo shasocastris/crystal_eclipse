@@ -9,6 +9,7 @@ NonTrainerCallerNames:
 	dw .buena
 	dw .director
 	dw .lance
+	dw .kurt ; CHANGED
 	assert_table_length NUM_NONTRAINER_PHONECONTACTS + 1
 
 .none:     db "----------@"
@@ -19,3 +20,4 @@ NonTrainerCallerNames:
 .buena:    db "BUENA:<LF>   DISC JOCKEY@"
 .director: db "RADIO TOWER<LF>DIRECTOR:@"
 .lance:    db "LANCE:@"
+.kurt:     db "KURT:@" ; CHANGED

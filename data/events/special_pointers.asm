@@ -33,6 +33,7 @@ SpecialsPointers::
 	add_special OverworldTownMap
 	add_special MapRadio
 	add_special UnownPuzzle
+	add_special ShowSamuelsMail ; CHANGED
 	add_special SlotMachine
 	add_special CardFlip
 	add_special MemoryGame

@@ -41,6 +41,8 @@ Route42SuicuneScript:
 	setscene SCENE_ROUTE42_NOOP
 	clearevent EVENT_SAW_SUICUNE_ON_ROUTE_36
 	setmapscene ROUTE_36, SCENE_ROUTE36_SUICUNE
+	setevent EVENT_KURT_HAS_SAMUELS_MAIL ; CHANGED
+	specialphonecall SPECIALCALL_KURT ; CHANGED
 	end
 
 TrainerFisherTully:

@@ -327,6 +327,7 @@ INCLUDE "engine/phone/scripts/bike_shop.asm"
 INCLUDE "engine/phone/scripts/director.asm"
 INCLUDE "engine/phone/scripts/buena.asm"
 INCLUDE "engine/phone/scripts/lance.asm"
+INCLUDE "engine/phone/scripts/kurt.asm"
 
 
 SECTION "Phone Text", ROMX
@@ -543,6 +544,7 @@ SECTION "Crystal Phone Text 2", ROMX
 INCLUDE "data/phone/text/bike_shop.asm"
 INCLUDE "data/phone/text/director.asm"
 INCLUDE "data/phone/text/lance.asm"
+INCLUDE "data/phone/text/kurt.asm"
 INCLUDE "data/phone/text/jack_caller.asm"
 INCLUDE "data/phone/text/beverly_caller.asm"
 INCLUDE "data/phone/text/huey_caller.asm"

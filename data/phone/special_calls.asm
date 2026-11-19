@@ -20,4 +20,5 @@ SpecialPhoneCallList:
 	specialcall SpecialCallOnlyWhenOutside, PHONECONTACT_DIRECTOR, DirectorPhoneCallerScript
 	specialcall SpecialCallOnlyWhenOutside, PHONECONTACT_LANCE,    LancePhoneCallerScript
 	specialcall SpecialCallOnlyWhenOutside, PHONECONTACT_ELM,      ElmPhoneCallerScript
+	specialcall SpecialCallOnlyWhenOutside, PHONE_KURT,            KurtPhoneCallerScript ; CHANGED
 	assert_table_length NUM_SPECIALCALLS

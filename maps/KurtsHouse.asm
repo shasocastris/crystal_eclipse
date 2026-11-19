@@ -55,6 +55,11 @@ KurtsHouseKurtCallback:
 Kurt1:
 	faceplayer
 	opentext
+	checkevent EVENT_KURT_HAS_SAMUELS_MAIL ; CHANGED
+	iffalse .SkipMail
+	checkevent EVENT_GOT_SAMUELS_MAIL
+	iffalse KurtSamuelsMailScript
+.SkipMail:
 	checkevent EVENT_KURT_GAVE_YOU_EXP_SHARE
 	iftrue .GotExpShare
 	checkevent EVENT_CLEARED_SLOWPOKE_WELL
@@ -337,6 +342,11 @@ Kurt1:
 Kurt2:
 	faceplayer
 	opentext
+	checkevent EVENT_KURT_HAS_SAMUELS_MAIL ; CHANGED
+	iffalse .SkipMail
+	checkevent EVENT_GOT_SAMUELS_MAIL
+	iffalse KurtSamuelsMailScript
+.SkipMail:
 	checkevent EVENT_GAVE_GS_BALL_TO_KURT
 	iftrue KurtScript_ImCheckingItNow
 KurtMakingBallsScript:
@@ -449,8 +459,33 @@ KurtsHouseSlowpoke:
 	ld [wScriptVar], a
 	ret
 
+KurtSamuelsMailScript: ; CHANGED
+	writetext KurtsHouseKurtSamuelsMailText
+	promptbutton
+	verbosegiveitem MIRAGE_MAIL
+	iffalse .NoRoom
+	setevent EVENT_GOT_SAMUELS_MAIL
+	special ShowSamuelsMail
+	writetext KurtsHouseKurtAfterSamuelsMailText
+	waitbutton
+.NoRoom:
+	closetext
+	end
+
 KurtsHouseOakPhoto:
+	checkevent EVENT_GOT_SAMUELS_MAIL ; CHANGED: the letter is kept in the frame
+	iftrue .Mail
 	jumptext KurtsHouseOakPhotoText
+
+.Mail:
+	opentext
+	writetext KurtsHouseOakPhotoMailText
+	yesorno
+	iffalse .Done
+	special ShowSamuelsMail
+.Done:
+	closetext
+	end
 
 KurtsHouseCelebiStatue:
 	jumptext KurtsHouseCelebiStatueText
@@ -693,6 +728,36 @@ KurtsHouseSlowpokeText:
 KurtsHouseOakPhotoText:
 	text "…A young PROF."
 	line "OAK?"
+	done
+
+KurtsHouseOakPhotoMailText: ; CHANGED
+	text "…A young PROF."
+	line "OAK?"
+
+	para "A MAIL from SAMUEL"
+	line "is tucked into the"
+	cont "frame. Read it?"
+	done
+
+KurtsHouseKurtSamuelsMailText: ; CHANGED
+	text "KURT: There you"
+	line "are, <PLAY_G>!"
+
+	para "Here's the MAIL"
+	line "from SAMUEL."
+	done
+
+KurtsHouseKurtAfterSamuelsMailText: ; CHANGED
+	text "KURT: Not even"
+	line "SAMUEL knows, eh?"
+
+	para "Maybe you'll be"
+	line "the one to find"
+	cont "out!"
+
+	para "I'll keep his"
+	line "letter by his"
+	cont "photo."
 	done
 
 KurtsHouseCelebiStatueText:

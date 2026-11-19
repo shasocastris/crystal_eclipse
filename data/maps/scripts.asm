@@ -307,7 +307,6 @@ INCLUDE "maps/TohjoFalls.asm"
 INCLUDE "maps/AzaleaPokecenter1F.asm"
 INCLUDE "maps/CharcoalKiln.asm"
 INCLUDE "maps/AzaleaMart.asm"
-INCLUDE "maps/KurtsHouse.asm"
 INCLUDE "maps/AzaleaGym.asm"
 
 
@@ -558,5 +557,13 @@ INCLUDE "maps/RuinsOfAlphSuicuneWordRoom.asm"
 INCLUDE "maps/ShamoutiPassage.asm"
 INCLUDE "maps/ShamoutiIsland.asm"
 INCLUDE "maps/ShamoutiCave.asm"
+
+ENDSECTION
+
+
+; CHANGED: Map Scripts 16 is full; Kurt's House moved here for SAMUEL's MAIL
+SECTION "Map Scripts 32", ROMX
+
+INCLUDE "maps/KurtsHouse.asm"
 
 ENDSECTION
