@@ -503,6 +503,7 @@ KurtSamuelsMailScript: ; CHANGED: SAMUEL's Dragonite delivers the MAIL to the PC
 	writetext KurtsHouseMailboxFullText
 	waitbutton
 	closetext
+	applymovement KURTSHOUSE_DRAGONITE, KurtsHouseDragoniteWalkBackMovement ; CHANGED: retry starts at (2,2)
 	appearfolloweronestep
 	end
 
@@ -525,6 +526,11 @@ KurtsHousePlayerToDragoniteMovement: ; CHANGED: (4,2) to (3,3), in front of Kurt
 
 KurtsHouseDragoniteWalkToPlayerMovement:
 	step DOWN
+	step_end
+
+KurtsHouseDragoniteWalkBackMovement: ; CHANGED: (2,3) back to (2,2)
+	step UP
+	turn_head RIGHT
 	step_end
 
 KurtsHouseDragoniteWalkOutMovement: ; CHANGED: (2,3) to the door at (3,7)
