@@ -12,14 +12,14 @@ RuinsOfAlphSuicuneItemRoom_MapScripts:
 RuinsOfAlphSuicuneItemRoomMysticDew:
 	itemball MYSTIC_DEW
 
-RuinsOfAlphSuicuneItemRoomKingsRock:
-	itemball KINGS_ROCK
+RuinsOfAlphSuicuneItemRoomSacredAsh:
+	itemball SACRED_ASH
 
-RuinsOfAlphSuicuneItemRoomFreshWater:
-	itemball FRESH_WATER, 50
+RuinsOfAlphSuicuneItemRoomAmuletCoin:
+	itemball AMULET_COIN
 
-RuinsOfAlphSuicuneItemRoomGoldLeaf:
-	itemball GOLD_LEAF, 25
+RuinsOfAlphSuicuneItemRoomBrightpowder:
+	itemball BRIGHTPOWDER
 
 RuinsOfAlphSuicuneItemRoomAncientReplica:
 	jumptext RuinsOfAlphSuicuneItemRoomAncientReplicaText
@@ -47,6 +47,6 @@ RuinsOfAlphSuicuneItemRoom_MapEvents:
 
 	def_object_events
 	object_event  2,  6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RuinsOfAlphSuicuneItemRoomMysticDew, EVENT_PICKED_UP_MYSTIC_DEW_FROM_SUICUNE_ITEM_ROOM
-	object_event  5,  6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RuinsOfAlphSuicuneItemRoomKingsRock, EVENT_PICKED_UP_KINGS_ROCK_FROM_SUICUNE_ITEM_ROOM
-	object_event  2,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RuinsOfAlphSuicuneItemRoomFreshWater, EVENT_PICKED_UP_FRESH_WATER_FROM_SUICUNE_ITEM_ROOM
-	object_event  5,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RuinsOfAlphSuicuneItemRoomGoldLeaf, EVENT_PICKED_UP_GOLD_LEAF_FROM_SUICUNE_ITEM_ROOM
+	object_event  5,  6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RuinsOfAlphSuicuneItemRoomSacredAsh, EVENT_PICKED_UP_SACRED_ASH_FROM_SUICUNE_ITEM_ROOM
+	object_event  2,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RuinsOfAlphSuicuneItemRoomAmuletCoin, EVENT_PICKED_UP_AMULET_COIN_FROM_SUICUNE_ITEM_ROOM
+	object_event  5,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RuinsOfAlphSuicuneItemRoomBrightpowder, EVENT_PICKED_UP_BRIGHTPOWDER_FROM_SUICUNE_ITEM_ROOM
