@@ -55,9 +55,9 @@ KurtsHouseKurtCallback:
 
 Kurt1:
 	faceplayer
-	opentext
 	checkevent EVENT_KURTS_HOUSE_DRAGONITE ; CHANGED
 	iffalse KurtSamuelsMailScript
+	opentext
 	checkevent EVENT_KURT_GAVE_YOU_EXP_SHARE
 	iftrue .GotExpShare
 	checkevent EVENT_CLEARED_SLOWPOKE_WELL
@@ -339,9 +339,9 @@ Kurt1:
 
 Kurt2:
 	faceplayer
-	opentext
 	checkevent EVENT_KURTS_HOUSE_DRAGONITE ; CHANGED
 	iffalse KurtSamuelsMailScript
+	opentext
 	checkevent EVENT_GAVE_GS_BALL_TO_KURT
 	iftrue KurtScript_ImCheckingItNow
 KurtMakingBallsScript:
@@ -455,11 +455,16 @@ KurtsHouseSlowpoke:
 	ret
 
 KurtsHouseDragoniteScript: ; CHANGED
-	faceplayer
 	opentext
-	; fallthrough
+	writetext KurtsHouseDragoniteText
+	cry DRAGONITE
+	waitbutton
+	closetext
+	end
 
 KurtSamuelsMailScript: ; CHANGED: SAMUEL's Dragonite delivers the MAIL to the PC
+	stowfollower
+	opentext
 	writetext KurtsHouseKurtDragoniteText
 	waitbutton
 	closetext
@@ -476,17 +481,7 @@ KurtSamuelsMailScript: ; CHANGED: SAMUEL's Dragonite delivers the MAIL to the PC
 	waitbutton
 	closetext
 	cry DRAGONITE
-	stowfollower
-	readvar VAR_XCOORD
-	ifnotequal 2, .WalkOut
-	readvar VAR_YCOORD
-	ifnotequal 3, .WalkOut
-	applymovement KURTSHOUSE_DRAGONITE, KurtsHouseDragoniteWalkAroundMovement ; player is right below it
-	sjump .AtDoor
-
-.WalkOut:
 	applymovement KURTSHOUSE_DRAGONITE, KurtsHouseDragoniteWalkOutMovement
-.AtDoor:
 	playsound SFX_EXIT_BUILDING
 	disappear KURTSHOUSE_DRAGONITE
 	waitsfx
@@ -497,6 +492,7 @@ KurtSamuelsMailScript: ; CHANGED: SAMUEL's Dragonite delivers the MAIL to the PC
 	writetext KurtsHouseMailboxFullText
 	waitbutton
 	closetext
+	appearfolloweronestep
 	end
 
 KurtsHouseOakPhoto:
@@ -516,17 +512,6 @@ KurtsHouseDragoniteWalkOutMovement: ; CHANGED: (2,2) to the door at (3,7)
 	step DOWN
 	step DOWN
 	step DOWN
-	step RIGHT
-	step DOWN
-	step_end
-
-KurtsHouseDragoniteWalkAroundMovement: ; CHANGED: same, around a player at (2,3)
-	step LEFT
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
-	step RIGHT
 	step RIGHT
 	step DOWN
 	step_end
@@ -763,6 +748,10 @@ KurtsHouseSlowpokeText:
 KurtsHouseOakPhotoText:
 	text "…A young PROF."
 	line "OAK?"
+	done
+
+KurtsHouseDragoniteText: ; CHANGED
+	text "DRAGONITE: Gyaoo!"
 	done
 
 KurtsHouseKurtDragoniteText: ; CHANGED
