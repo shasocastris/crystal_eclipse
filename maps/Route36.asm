@@ -32,6 +32,7 @@ Route36SuicuneScript:
 	cry UNOWN
 	applymovement ROUTE36_UNOWN_C, Route36UnownDisappearMovement
 	disappear ROUTE36_UNOWN_C
+	setevent EVENT_FOUGHT_UNOWN_C ; CHANGED: Suicune drove it off; only random encounters remain
 	pause 15
 	playsound SFX_WARP_FROM
 	turnobject PLAYER, UP

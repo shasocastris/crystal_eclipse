@@ -32,6 +32,7 @@ Route42SuicuneScript:
 	cry UNOWN
 	applymovement ROUTE42_UNOWN_S, Route42UnownDisappearMovement
 	disappear ROUTE42_UNOWN_S
+	setevent EVENT_FOUGHT_UNOWN_S ; CHANGED: Suicune drove it off; only random encounters remain
 	pause 15
 	playsound SFX_WARP_FROM
 	applymovement ROUTE42_SUICUNE, Route42SuicuneMovement

@@ -50,6 +50,7 @@ CianwoodCitySuicuneAndKaren:
 	cry UNOWN
 	applymovement CIANWOODCITY_UNOWN_G, CianwoodCityUnownDisappearMovement
 	disappear CIANWOODCITY_UNOWN_G
+	setevent EVENT_FOUGHT_UNOWN_G ; CHANGED: Suicune drove it off; only random encounters remain
 	pause 15
 	playsound SFX_WARP_FROM
 	applymovement CIANWOODCITY_SUICUNE, CianwoodCitySuicuneApproachMovement
