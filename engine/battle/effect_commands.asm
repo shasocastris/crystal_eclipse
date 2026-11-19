@@ -2460,6 +2460,57 @@ EndMoveEffect:
 	ld [hl], a
 	ret
 
+EvioliteBoost:
+; CHANGED: +50% to the defense in bc if the defender holds an EVIOLITE
+; and its species can still evolve. Runs before TruncateHL_BC.
+	push hl
+	push de
+	push bc
+	call GetOpponentItem
+	ld a, [hl]
+	call GetItemIndexFromID
+	cphl16 EVIOLITE
+	jr nz, .no_boost
+
+	ld a, MON_SPECIES
+	call BattlePartyAttr
+	ldh a, [hBattleTurn]
+	and a
+	ld a, [hl]
+	jr nz, .got_species
+	ld a, [wTempEnemyMonSpecies]
+.got_species
+	call GetPokemonIndexFromID
+	ld b, h
+	ld c, l
+	ld hl, EvosAttacksPointers
+	ld a, BANK(EvosAttacksPointers)
+	call LoadDoubleIndirectPointer
+	call GetFarByte
+	and a ; no evolutions
+	jr z, .no_boost
+
+	pop bc
+	ld h, b
+	ld l, c
+	srl b
+	rr c
+	add hl, bc
+	jr nc, .no_overflow
+	ld hl, $ffff
+.no_overflow
+	ld b, h
+	ld c, l
+	pop de
+	pop hl
+	ret
+
+.no_boost
+	pop bc
+	pop de
+	pop hl
+	ret
+
 DittoMetalPowder:
 	ld a, MON_SPECIES
 	call BattlePartyAttr
@@ -2599,6 +2650,7 @@ PlayerAttackDamage:
 	call ThickClubBoost
 
 .done
+	call EvioliteBoost ; CHANGED
 	call TruncateHL_BC
 
 	ld a, [wBattleMonLevel]
@@ -2863,6 +2915,7 @@ EnemyAttackDamage:
 	call ThickClubBoost
 
 .done
+	call EvioliteBoost ; CHANGED
 	call TruncateHL_BC
 
 	ld a, [wEnemyMonLevel]

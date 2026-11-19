@@ -56,6 +56,14 @@ EvolveAfterBattle_MasterLoop:
 	predef CopyMonToTempMon
 	pop hl
 
+; CHANGED: a held EVIOLITE blocks every evolution, stones included
+	push hl
+	ld a, [wTempMonItem]
+	call GetItemIndexFromID
+	cphl16 EVIOLITE
+	pop hl
+	jr z, EvolveAfterBattle_MasterLoop
+
 .loop
 	call GetNextEvoAttackByte
 	and a

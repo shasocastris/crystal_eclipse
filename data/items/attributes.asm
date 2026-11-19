@@ -360,6 +360,9 @@ ItemAttributes1:
 	item_attribute 4000, HELD_NONE, 0, CANT_SELECT, ITEM, ITEMMENU_CURRENT, ITEMMENU_NOUSE
 ; JIGGLYPUFF_POSTER
 	item_attribute 5000, HELD_NONE, 0, CANT_SELECT, ITEM, ITEMMENU_CURRENT, ITEMMENU_NOUSE
+
+; EVIOLITE ; CHANGED: price 0 so it can't be sold; effects are checked by index
+	item_attribute 0, HELD_NONE, 0, CANT_SELECT | CANT_TOSS, ITEM, ITEMMENU_NOUSE, ITEMMENU_NOUSE
 .IndirectEnd::
 
 

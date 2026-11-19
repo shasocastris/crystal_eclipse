@@ -358,7 +358,8 @@
 	const EVENT_PICKED_UP_KINGS_ROCK_FROM_SUICUNE_ITEM_ROOM
 	const EVENT_PICKED_UP_FRESH_WATER_FROM_SUICUNE_ITEM_ROOM
 	const EVENT_PICKED_UP_GOLD_LEAF_FROM_SUICUNE_ITEM_ROOM
-; Unused: next 232 events
+	const EVENT_RUINS_OF_ALPH_OUTSIDE_EVIOLITE ; CHANGED: fallback ball if the bag was full
+; Unused: next 206 events
 
 	const_next 600
 ; Kurt Apricorn events

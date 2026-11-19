@@ -183,6 +183,8 @@ ItemNames::
 	li "PIKA POSTER"  ; 0097
 	li "CLEF POSTER"  ; 0098
 	li "JIGG POSTER"  ; 0099
+
+	li "EVIOLITE"     ; 009A ; CHANGED
 	assert_list_length NUM_ITEM_POCKET
 
 KeyItemNames::

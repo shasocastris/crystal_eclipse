@@ -215,6 +215,8 @@ ItemEffects1:
 	dw PikachuPosterEffect    ; PIKACHU_POSTER
 	dw ClefairyPosterEffect   ; CLEFAIRY_POSTER
 	dw JigglypuffPosterEffect ; JIGGLYPUFF_POSTER
+
+	dw NoEffect               ; EVIOLITE ; CHANGED
 .IndirectEnd:
 
 ItemEffectsKeyItems:

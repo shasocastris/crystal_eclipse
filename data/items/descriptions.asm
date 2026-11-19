@@ -195,6 +195,8 @@ ItemDescriptions1:
 	dw PikachuPosterDesc    ; 0097
 	dw ClefairyPosterDesc   ; 0098
 	dw JigglypuffPosterDesc ; 0099
+
+	dw EvioliteDesc ; 009A ; CHANGED
 .IndirectEnd:
 
 ItemDescriptionsKeyItems:
@@ -826,6 +828,10 @@ ClefairyPosterDesc:
 JigglypuffPosterDesc:
 	db   "A new poster for"
 	next "your room!@"
+
+EvioliteDesc: ; CHANGED
+	db   "Stops evolution &"
+	next "ups both defenses.@"
 
 BicycleDesc:
 	db   "A collapsible bike"

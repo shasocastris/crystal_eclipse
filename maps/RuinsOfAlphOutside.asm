@@ -7,6 +7,7 @@
 	const RUINSOFALPHOUTSIDE_ROCKET
 	const RUINSOFALPHOUTSIDE_ROCKET_GIRL
 	const RUINSOFALPHOUTSIDE_SUICUNE
+	const RUINSOFALPHOUTSIDE_EVIOLITE ; CHANGED
 
 RuinsOfAlphOutside_MapScripts:
 	def_scene_scripts
@@ -281,15 +282,31 @@ ShrineFight:
 	waitbutton
 	writetext RuinsOfAlphOutsideClearBellEcruteakCityText
 	waitbutton
+; CHANGED: bonus for catching all 26 Unown before the finale
+	readvar VAR_UNOWNCOUNT
+	ifless NUM_UNOWN, .NoEviolite
+	writetext RuinsOfAlphOutsideSuicuneGivesEvioliteText
+	promptbutton
+	verbosegiveitem EVIOLITE
+	iftrue .NoEviolite
+	clearevent EVENT_RUINS_OF_ALPH_OUTSIDE_EVIOLITE ; bag full: leave it on the ground
+.NoEviolite:
 	closetext
 	applymovement RUINSOFALPHOUTSIDE_SUICUNE, RuinsOfAlphOutsideSuicuneCirclesPlayerPlayerMovement
 	pause 30
 	applymovement RUINSOFALPHOUTSIDE_SUICUNE, RuinsOfAlphOutsideSuicuneLeavesMovement
 	disappear RUINSOFALPHOUTSIDE_SUICUNE
+	checkevent EVENT_RUINS_OF_ALPH_OUTSIDE_EVIOLITE ; CHANGED
+	iftrue .NoEvioliteBall
+	appear RUINSOFALPHOUTSIDE_EVIOLITE
+.NoEvioliteBall:
 	setevent EVENT_MAHOGANY_TOWN_POKEFAN_M_BLOCKS_EAST
 	setmapscene MAHOGANY_TOWN, SCENE_MAHOGANYTOWN_NOOP
 	setmapscene RUINS_OF_ALPH_RESEARCH_CENTER, SCENE_RUINSOFALPHRESEARCHCENTER_NOOP
 	end
+
+RuinsOfAlphOutsideEviolite: ; CHANGED
+	itemball EVIOLITE
 
 RuinsOfAlphOutsideMysteryChamberSign:
 	jumptext RuinsOfAlphOutsideMysteryChamberSignText
@@ -713,6 +730,16 @@ RuinsOfAlphOutsideClearBellEcruteakCityText:
 	cont "CITY."
 	done
 
+RuinsOfAlphOutsideSuicuneGivesEvioliteText: ; CHANGED
+	text "SUICUNE turns to"
+	line "the UNOWN you"
+	cont "gathered."
+
+	para "It nudges a small"
+	line "glowing stone"
+	cont "toward you."
+	done
+
 RuinsOfAlphOutsideMysteryChamberSignText:
 	text "MYSTERY STONE"
 	line "PANEL CHAMBER"
@@ -765,3 +792,4 @@ RuinsOfAlphOutside_MapEvents:
 	object_event 12, 31, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RUINS_OF_ALPH_OUTSIDE_EXECUTIVES
 	object_event 12, 31, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RUINS_OF_ALPH_OUTSIDE_EXECUTIVES
 	object_event  4, 26, SPRITE_SUICUNE, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RUINS_OF_ALPH_OUTSIDE_EXECUTIVES
+	object_event  4, 26, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RuinsOfAlphOutsideEviolite, EVENT_RUINS_OF_ALPH_OUTSIDE_EVIOLITE ; CHANGED
