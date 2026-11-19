@@ -455,6 +455,7 @@ KurtsHouseSlowpoke:
 	ret
 
 KurtsHouseDragoniteScript: ; CHANGED
+	faceplayer
 	opentext
 	writetext KurtsHouseDragoniteText
 	cry DRAGONITE
