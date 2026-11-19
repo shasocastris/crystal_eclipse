@@ -55,18 +55,14 @@ SlowpokeWellB1FUnownScript:
 	pause 15
 	; fallthrough
 
-; CHANGED: forced letters reroll unless their set is unlocked, so open A-K
-; for this fight only. RuinsOfAlphInnerChamber re-locks it after a whiteout.
+; CHANGED: see RelockUnownSetsScript
 SlowpokeWellB1FUnownBattleScript:
-	setflag ENGINE_UNLOCKED_UNOWNS_A_TO_K
+	loadmem wUnlockedUnowns, (1 << NUM_UNLOCKED_UNOWN_SETS) - 1
 	loadvar VAR_BATTLETYPE, BATTLETYPE_UNOWN_A
 	loadwildmon UNOWN, 15
 	startbattle
+	callstd RelockUnownSetsScript
 	reloadmapafterbattle
-	checkevent EVENT_SOLVED_KABUTO_PUZZLE
-	iftrue .KeepUnlocked
-	clearflag ENGINE_UNLOCKED_UNOWNS_A_TO_K
-.KeepUnlocked:
 	setevent EVENT_FOUGHT_UNOWN_A ; also hides the Kabuto word room's A
 	disappear SLOWPOKEWELLB1F_UNOWN
 	pause 15

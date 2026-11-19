@@ -218,11 +218,15 @@ TrainerGruntM19:
 	closetext
 	end
 
-RocketElectrode1:
-	cry ELECTRODE
-	loadwildmon ELECTRODE, 44
+RocketElectrode1: ; CHANGED: the machine runs on Unown H (Lance's side: F)
+	cry UNOWN
+	loadmem wUnlockedUnowns, (1 << NUM_UNLOCKED_UNOWN_SETS) - 1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_UNOWN_H
+	loadwildmon UNOWN, 44
 	startbattle
-	iftrue TeamRocketBaseB2FReloadMap
+	iftrue TeamRocketBaseB2FUnownNotBeaten
+	callstd RelockUnownSetsScript
+	setevent EVENT_FOUGHT_UNOWN_H
 	disappear TEAMROCKETBASEB2F_ELECTRODE1
 	disappear TEAMROCKETBASEB2F_ELECTRODE4
 	checkevent EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_1
@@ -236,11 +240,15 @@ RocketElectrode1:
 	applymovement PLAYER, RocketBasePlayerLeavesElectrodesMovement1
 	sjump RocketBaseElectrodeScript
 
-RocketElectrode2:
-	cry ELECTRODE
-	loadwildmon ELECTRODE, 44
+RocketElectrode2: ; CHANGED: the machine runs on Unown O (Lance's side: M)
+	cry UNOWN
+	loadmem wUnlockedUnowns, (1 << NUM_UNLOCKED_UNOWN_SETS) - 1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_UNOWN_O
+	loadwildmon UNOWN, 44
 	startbattle
-	iftrue TeamRocketBaseB2FReloadMap
+	iftrue TeamRocketBaseB2FUnownNotBeaten
+	callstd RelockUnownSetsScript
+	setevent EVENT_FOUGHT_UNOWN_O
 	disappear TEAMROCKETBASEB2F_ELECTRODE2
 	disappear TEAMROCKETBASEB2F_ELECTRODE5
 	checkevent EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_1
@@ -254,11 +262,15 @@ RocketElectrode2:
 	applymovement PLAYER, RocketBasePlayerLeavesElectrodesMovement2
 	sjump RocketBaseElectrodeScript
 
-RocketElectrode3:
-	cry ELECTRODE
-	loadwildmon ELECTRODE, 44
+RocketElectrode3: ; CHANGED: the machine runs on Unown U (Lance's side: Q)
+	cry UNOWN
+	loadmem wUnlockedUnowns, (1 << NUM_UNLOCKED_UNOWN_SETS) - 1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_UNOWN_U
+	loadwildmon UNOWN, 44
 	startbattle
-	iftrue TeamRocketBaseB2FReloadMap
+	iftrue TeamRocketBaseB2FUnownNotBeaten
+	callstd RelockUnownSetsScript
+	setevent EVENT_FOUGHT_UNOWN_U
 	disappear TEAMROCKETBASEB2F_ELECTRODE3
 	disappear TEAMROCKETBASEB2F_ELECTRODE6
 	checkevent EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_1
@@ -273,6 +285,12 @@ RocketElectrode3:
 	sjump RocketBaseElectrodeScript
 
 TeamRocketBaseB2FReloadMap:
+	reloadmapafterbattle
+	end
+
+; CHANGED: lost or ran; the Unown stays to be fought again
+TeamRocketBaseB2FUnownNotBeaten:
+	callstd RelockUnownSetsScript
 	reloadmapafterbattle
 	end
 
@@ -681,11 +699,17 @@ RockerBaseLanceElectrodeFaintText:
 	para "I don't see a"
 	line "switch on it…"
 
+	para "And those #MON" ; CHANGED: Lance meets the Unown
+	line "powering it…"
+
+	para "I've never seen"
+	line "anything like"
+	cont "them before."
+
 	para "We have no choice."
 	line "We have to make"
 
-	para "all the ELECTRODE"
-	line "faint."
+	para "all of them faint." ; CHANGED: was "all the ELECTRODE"
 
 	para "That should stop"
 	line "this machine from"
@@ -715,6 +739,13 @@ RocketBaseLanceElectrodeDoneText:
 
 	para "The LAKE should be"
 	line "back to normal."
+
+	para "But those strange" ; CHANGED: Lance will report the Unown
+	line "#MON worry me."
+
+	para "I must report them"
+	line "to the #MON"
+	cont "LEAGUE at once."
 
 	para "You're the hero!"
 	line "Let me thank you"
@@ -951,12 +982,12 @@ TeamRocketBaseB2F_MapEvents:
 	object_event 20, 16, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_EXECUTIVE
 	object_event  5, 13, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_LANCE
 	object_event  9, 13, SPRITE_DRAGON, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_DRAGONITE
-	object_event  7,  5, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketElectrode1, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_1
-	object_event  7,  7, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketElectrode2, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_2
-	object_event  7,  9, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketElectrode3, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_3
-	object_event 22,  5, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_1
-	object_event 22,  7, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_2
-	object_event 22,  9, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_3
+	object_event  7,  5, SPRITE_UNOWN_H, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketElectrode1, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_1 ; CHANGED: was SPRITE_VOLTORB
+	object_event  7,  7, SPRITE_UNOWN_O, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketElectrode2, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_2 ; CHANGED: was SPRITE_VOLTORB
+	object_event  7,  9, SPRITE_UNOWN_U, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketElectrode3, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_3 ; CHANGED: was SPRITE_VOLTORB
+	object_event 22,  5, SPRITE_UNOWN_F, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_1 ; CHANGED: was SPRITE_VOLTORB
+	object_event 22,  7, SPRITE_UNOWN_M, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_2 ; CHANGED: was SPRITE_VOLTORB
+	object_event 22,  9, SPRITE_UNOWN_Q, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_3 ; CHANGED: was SPRITE_VOLTORB
 	object_event 24, 13, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM17, EVENT_TEAM_ROCKET_BASE_POPULATION
 	object_event  4,  1, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerGruntM18, EVENT_TEAM_ROCKET_BASE_POPULATION
 	object_event 21, 14, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 4, TrainerGruntM19, EVENT_TEAM_ROCKET_BASE_POPULATION

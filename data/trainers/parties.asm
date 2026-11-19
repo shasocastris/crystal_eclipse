@@ -6367,13 +6367,16 @@ BlackbeltGroup:
 
 ExecutiveMGroup:
 	next_list_item ; EXECUTIVEM (4), Team Rocket's Hideout
-	db "PETREL@", TRAINERTYPE_NORMAL
+	db "PETREL@", TRAINERTYPE_DVS ; CHANGED: was TRAINERTYPE_NORMAL
 	db 33
 	dw GOLBAT
+	dn 13, 8, 10, 8 ; CHANGED: EXECUTIVEM class DVs
 	db 33
 	dw RATICATE
+	dn 13, 8, 10, 8 ; CHANGED: EXECUTIVEM class DVs
 	db 34
-	dw HOUNDOOM
+	dw UNOWN ; CHANGED: was HOUNDOOM
+	unown_dvs Z ; CHANGED
 	db -1 ; end
 
 	next_list_item ; EXECUTIVEM (2), Lav Radio Tower 5F
@@ -8072,6 +8075,10 @@ PokefanFGroup:
 	db -1 ; end
 
 	end_list_items
+
+; CHANGED: Parties 2 outgrew bank $20 in the debug build; these groups float.
+; Each group's bank is in TrainerGroups (dba), so a split is safe at any group.
+SECTION "Enemy Trainer Parties 3", ROMX
 
 OfficerGroup:
 	next_list_item ; OFFICER (1), Route 34

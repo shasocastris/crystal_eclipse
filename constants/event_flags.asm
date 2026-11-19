@@ -349,7 +349,8 @@
 	const EVENT_GOT_TM09_PSYCH_UP
 	const EVENT_SOLVED_SUICUNE_PUZZLE ; CHANGED: gates the shrine finale; TODO(bryan): confirm name
 	const EVENT_SLOWPOKE_WELL_B1F_UNOWN ; CHANGED: Archer's Unown A, hidden until he loses
-; Unused: next 233 events
+	const EVENT_TEAM_ROCKET_BASE_B3F_UNOWN ; CHANGED: Petrel's Unown Z, hidden until he loses
+; Unused: next 232 events
 
 	const_next 600
 ; Kurt Apricorn events

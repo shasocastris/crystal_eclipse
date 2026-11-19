@@ -13,6 +13,7 @@
 	const TEAMROCKETBASEB3F_POKE_BALL3
 	const TEAMROCKETBASEB3F_POKE_BALL4
 	const TEAMROCKETBASEB3F_POKE_BALL5
+	const TEAMROCKETBASEB3F_UNOWN ; CHANGED
 
 TeamRocketBaseB3F_MapScripts:
 	def_scene_scripts
@@ -118,7 +119,29 @@ RocketBaseBoss:
 	applymovement TEAMROCKETBASEB3F_ROCKET1, RocketBaseBossLeavesMovement
 	disappear TEAMROCKETBASEB3F_ROCKET1
 	setscene SCENE_TEAMROCKETBASEB3F_NOOP
+	appear TEAMROCKETBASEB3F_UNOWN ; CHANGED: Petrel's Unown Z stays behind
+	applymovement TEAMROCKETBASEB3F_UNOWN, TeamRocketBaseB3FUnownRockSmashMovement ; CHANGED
+	showemote EMOTE_SHOCK, PLAYER, 45 ; CHANGED
+	scall TeamRocketBaseB3FUnownBattleScript ; CHANGED
 	appearfolloweronestep
+	end
+
+; CHANGED: talking to the Unown retries the fight after a whiteout
+TeamRocketBaseB3FUnownScript:
+	cry UNOWN
+	pause 15
+	; fallthrough
+
+; CHANGED: see RelockUnownSetsScript
+TeamRocketBaseB3FUnownBattleScript:
+	loadmem wUnlockedUnowns, (1 << NUM_UNLOCKED_UNOWN_SETS) - 1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_UNOWN_Z
+	loadwildmon UNOWN, 34
+	startbattle
+	callstd RelockUnownSetsScript
+	reloadmapafterbattle
+	setevent EVENT_FOUGHT_UNOWN_Z
+	disappear TEAMROCKETBASEB3F_UNOWN
 	end
 
 RocketBaseMurkrow:
@@ -247,6 +270,10 @@ RocketBasePlayerApproachesBossRightMovement:
 	step LEFT
 	step LEFT
 	turn_head UP
+	step_end
+
+TeamRocketBaseB3FUnownRockSmashMovement: ; CHANGED
+	rock_smash 60
 	step_end
 
 RocketBaseBossApproachesPlayerMovement:
@@ -604,3 +631,4 @@ TeamRocketBaseB3F_MapEvents:
 	object_event 28,  9, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TeamRocketBaseB3FFullHeal, EVENT_TEAM_ROCKET_BASE_B3F_FULL_HEAL
 	object_event 17,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TeamRocketBaseB3FIceHeal, EVENT_TEAM_ROCKET_BASE_B3F_ICE_HEAL
 	object_event 14, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TeamRocketBaseB3FUltraBall, EVENT_TEAM_ROCKET_BASE_B3F_ULTRA_BALL
+	object_event  8,  4, SPRITE_UNOWN_Z, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TeamRocketBaseB3FUnownScript, EVENT_TEAM_ROCKET_BASE_B3F_UNOWN ; CHANGED

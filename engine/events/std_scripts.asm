@@ -55,6 +55,7 @@ StdScripts::
 	add_stdscript HappinessCheckScript
 	add_stdscript MysteryGiftCarrieScript
 	add_stdscript DeityTutorScript
+	add_stdscript RelockUnownSetsScript ; CHANGED
 
 PokecenterNurseScript:
 ; EVENT_WELCOMED_TO_POKECOM_CENTER is never set
@@ -487,6 +488,7 @@ InitializeEventsScript:
 	setevent EVENT_LAV_RADIO_TOWER_RANGER_HIDDEN
 	setevent EVENT_RUINS_OF_ALPH_OUTSIDE_EXECUTIVES
 	setevent EVENT_SLOWPOKE_WELL_B1F_UNOWN ; CHANGED
+	setevent EVENT_TEAM_ROCKET_BASE_B3F_UNOWN ; CHANGED
 	setevent EVENT_ICE_PATH_1F_RIVAL
 	setevent EVENT_USED_THE_CARD_KEY_IN_THE_RADIO_TOWER
 	setevent EVENT_RIVAL_CHERRYGROVE_CITY
@@ -1975,3 +1977,27 @@ DeityTutorScript:
 	text "An EGG can't learn"
 	line "anything yet."
 	done
+
+; CHANGED: a forced BATTLETYPE_UNOWN_x rerolls unless its letter's set is
+; unlocked, so Rocket Unown battles open every set first:
+;	loadmem wUnlockedUnowns, (1 << NUM_UNLOCKED_UNOWN_SETS) - 1
+; Call this right after startbattle (before reloadmapafterbattle, which
+; ends the script on a whiteout) to close the sets whose puzzle is unsolved.
+RelockUnownSetsScript:
+	checkevent EVENT_SOLVED_KABUTO_PUZZLE
+	iftrue .OmanyteSet
+	clearflag ENGINE_UNLOCKED_UNOWNS_A_TO_K
+.OmanyteSet:
+	checkevent EVENT_SOLVED_OMANYTE_PUZZLE
+	iftrue .AerodactylSet
+	clearflag ENGINE_UNLOCKED_UNOWNS_L_TO_R
+.AerodactylSet:
+	checkevent EVENT_SOLVED_AERODACTYL_PUZZLE
+	iftrue .HoOhSet
+	clearflag ENGINE_UNLOCKED_UNOWNS_S_TO_W
+.HoOhSet:
+	checkevent EVENT_SOLVED_HO_OH_PUZZLE
+	iftrue .Done
+	clearflag ENGINE_UNLOCKED_UNOWNS_X_TO_Z
+.Done:
+	end
