@@ -469,6 +469,10 @@ KurtSamuelsMailScript: ; CHANGED: SAMUEL's Dragonite delivers the MAIL to the PC
 	writetext KurtsHouseKurtDragoniteText
 	waitbutton
 	closetext
+	readvar VAR_XCOORD
+	ifnotequal 4, .MeetDragonite
+	applymovement PLAYER, KurtsHousePlayerToDragoniteMovement ; right of Kurt: go round to (3,3)
+.MeetDragonite:
 	applymovement KURTSHOUSE_DRAGONITE, KurtsHouseDragoniteWalkToPlayerMovement
 	turnobject KURTSHOUSE_DRAGONITE, RIGHT
 	pause 20
@@ -513,11 +517,16 @@ KurtsHouseBookshelf:
 KurtsHouseRadio:
 	jumpstd Radio2Script
 
+KurtsHousePlayerToDragoniteMovement: ; CHANGED: (4,2) to (3,3), in front of Kurt
+	step DOWN
+	step LEFT
+	step_end
+
 KurtsHouseDragoniteWalkToPlayerMovement:
 	step DOWN
 	step_end
 
-KurtsHouseDragoniteWalkOutMovement: ; CHANGED: (2,2) to the door at (3,7)
+KurtsHouseDragoniteWalkOutMovement: ; CHANGED: (2,3) to the door at (3,7)
 	step DOWN
 	step DOWN
 	step DOWN
