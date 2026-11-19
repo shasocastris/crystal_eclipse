@@ -170,6 +170,7 @@ ENDM
 	map_const ICE_PATH_HOLLOW_1F,                          16, 18 ; 104
 	map_const RUINS_OF_ALPH_SUICUNE_CHAMBER,                4,  5 ; 105
 	map_const RUINS_OF_ALPH_SUICUNE_ITEM_ROOM,              4,  5 ; 106
+	map_const RUINS_OF_ALPH_SUICUNE_WORD_ROOM,             10, 12 ; 107
 	endgroup
 
 	newgroup ECRUTEAK                                             ;  4

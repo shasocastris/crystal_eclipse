@@ -219,6 +219,7 @@ TilesetKabutoWordRoomAnim::
 TilesetOmanyteWordRoomAnim::
 TilesetAerodactylWordRoomAnim::
 TilesetMuseumAnim::
+TilesetSuicuneWordRoomAnim::
 	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  DoNothing ; WaitTileAnimation
 	dw NULL,  DoNothing ; WaitTileAnimation

@@ -554,6 +554,7 @@ SECTION "Map Scripts 31", ROMX
 
 INCLUDE "maps/RuinsOfAlphSuicuneChamber.asm"
 INCLUDE "maps/RuinsOfAlphSuicuneItemRoom.asm"
+INCLUDE "maps/RuinsOfAlphSuicuneWordRoom.asm"
 INCLUDE "maps/ShamoutiPassage.asm"
 INCLUDE "maps/ShamoutiIsland.asm"
 INCLUDE "maps/ShamoutiCave.asm"

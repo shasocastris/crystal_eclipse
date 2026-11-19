@@ -49,7 +49,7 @@ RuinsOfAlphInnerChamber_MapEvents:
 	warp_event 19,  3, RUINS_OF_ALPH_KABUTO_WORD_ROOM, 3
 	warp_event 11, 30, RUINS_OF_ALPH_OMANYTE_WORD_ROOM, 3
 	warp_event 23, 33, RUINS_OF_ALPH_AERODACTYL_WORD_ROOM, 3
-	warp_event  2, 22, RUINS_OF_ALPH_SUICUNE_ITEM_ROOM, 1 ; CHANGED: Suicune item room pit lands here for now
+	warp_event  2, 22, RUINS_OF_ALPH_SUICUNE_WORD_ROOM, 3 ; CHANGED
 
 	def_coord_events
 

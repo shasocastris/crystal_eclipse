@@ -474,6 +474,7 @@ TilesetHoOhWordRoomColl::
 TilesetKabutoWordRoomColl::
 TilesetOmanyteWordRoomColl::
 TilesetAerodactylWordRoomColl::
+TilesetSuicuneWordRoomColl::
 INCLUDE "data/tilesets/beta_word_room_collision.asm"
 
 
@@ -485,6 +486,7 @@ TilesetHoOhWordRoomvTiles2GFX::
 TilesetKabutoWordRoomvTiles2GFX::
 TilesetOmanyteWordRoomvTiles2GFX::
 TilesetAerodactylWordRoomvTiles2GFX::
+TilesetSuicuneWordRoomvTiles2GFX::
 INCBIN "gfx/tilesets/ruins_of_alph.2bpp.vtiles2.lz"
 
 TilesetRuinsOfAlphvTiles5GFX::
@@ -493,6 +495,7 @@ TilesetHoOhWordRoomvTiles5GFX::
 TilesetKabutoWordRoomvTiles5GFX::
 TilesetOmanyteWordRoomvTiles5GFX::
 TilesetAerodactylWordRoomvTiles5GFX::
+TilesetSuicuneWordRoomvTiles5GFX::
 INCBIN "gfx/tilesets/ruins_of_alph.2bpp.vtiles5.lz"
 
 TilesetRuinsOfAlphvTiles4GFX::
@@ -501,6 +504,7 @@ TilesetHoOhWordRoomvTiles4GFX::
 TilesetKabutoWordRoomvTiles4GFX::
 TilesetOmanyteWordRoomvTiles4GFX::
 TilesetAerodactylWordRoomvTiles4GFX::
+TilesetSuicuneWordRoomvTiles4GFX::
 INCBIN "gfx/tilesets/ruins_of_alph.2bpp.vtiles4.lz"
 
 TilesetRuinsOfAlphMeta::
@@ -523,6 +527,13 @@ INCBIN "data/tilesets/omanyte_word_room_metatiles.bin.lz"
 
 TilesetAerodactylWordRoomMeta::
 INCBIN "data/tilesets/aerodactyl_word_room_metatiles.bin.lz"
+
+; CHANGED: Ho-Oh room layout, own text; Tileset Data 12 is full so its attributes live here
+TilesetSuicuneWordRoomMeta::
+INCBIN "data/tilesets/suicune_word_room_metatiles.bin.lz"
+
+TilesetSuicuneWordRoomAttr::
+INCBIN "data/tilesets/suicune_word_room_attributes.bin.lz"
 
 
 SECTION "Tileset Data 9", ROMX

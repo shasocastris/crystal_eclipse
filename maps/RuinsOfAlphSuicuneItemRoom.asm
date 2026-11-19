@@ -36,9 +36,8 @@ RuinsOfAlphSuicuneItemRoom_MapEvents:
 	def_warp_events
 	warp_event  3,  8, RUINS_OF_ALPH_SUICUNE_CHAMBER, 5
 	warp_event  4,  8, RUINS_OF_ALPH_SUICUNE_CHAMBER, 5
-	; TODO(bryan): point these at the Suicune word room once it exists
-	warp_event  3,  1, RUINS_OF_ALPH_INNER_CHAMBER, 6
-	warp_event  4,  1, RUINS_OF_ALPH_INNER_CHAMBER, 6
+	warp_event  3,  1, RUINS_OF_ALPH_SUICUNE_WORD_ROOM, 1
+	warp_event  4,  1, RUINS_OF_ALPH_SUICUNE_WORD_ROOM, 2
 
 	def_coord_events
 

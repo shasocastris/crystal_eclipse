@@ -49,4 +49,5 @@ Tilesets::
 	tileset TilesetOmanyteWordRoom
 	tileset TilesetAerodactylWordRoom
 	tileset TilesetMuseum
+	tileset TilesetSuicuneWordRoom
 	assert_table_length NUM_TILESETS + 1
