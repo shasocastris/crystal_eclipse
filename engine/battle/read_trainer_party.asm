@@ -14,8 +14,20 @@ ReadTrainerParty:
 	xor a
 	rst ByteFill
 
-	ld a, [wOtherTrainerClass]
+	call FindTrainerParty
+	call GetNextTrainerDataByte
+	ld [wOtherTrainerType], a
+	ld d, h
+	ld e, l
+	call ReadTrainerPartyPieces
 
+.done
+	jmp ComputeTrainerReward
+
+FindTrainerParty:
+; CHANGED: shared by ReadTrainerParty and SetTrainerBattleLevel
+; out: hl = the party's trainer type byte, in bank [wTrainerGroupBank]
+	ld a, [wOtherTrainerClass]
 	dec a
 	ld c, a
 	ld b, 0
@@ -34,9 +46,8 @@ ReadTrainerParty:
 .skip_trainer
 	dec b
 	jr z, .got_trainer
-.loop
 	ld a, [wTrainerGroupBank]
-	call GetFarByte
+	call GetFarByte ; party size in bytes
 	add l
 	ld l, a
 	jr nc, .skip_trainer
@@ -49,15 +60,7 @@ ReadTrainerParty:
 	call GetNextTrainerDataByte
 	cp '@'
 	jr nz, .skip_name
-
-	call GetNextTrainerDataByte
-	ld [wOtherTrainerType], a
-	ld d, h
-	ld e, l
-	call ReadTrainerPartyPieces
-
-.done
-	jmp ComputeTrainerReward
+	ret
 
 ReadTrainerPartyPieces:
 	ld h, d
@@ -311,35 +314,9 @@ SetTrainerBattleLevel:
 	bit 0, a
 	ret nz
 
-	ld a, [wOtherTrainerClass]
-	dec a
-	ld c, a
-	ld b, 0
-	ld hl, TrainerGroups
-	add hl, bc
-	add hl, bc
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-
-	ld a, [wOtherTrainerID]
-	ld b, a
-.skip_trainer
-	dec b
-	jr z, .got_trainer
-.skip_party
-	ld a, [hli]
-	cp $ff
-	jr nz, .skip_party
-	jr .skip_trainer
-.got_trainer
-
-.skip_name
-	ld a, [hli]
-	cp '@'
-	jr nz, .skip_name
-
-	inc hl
-	ld a, [hl]
+	call FindTrainerParty ; CHANGED: the old walk misread the 3-byte TrainerGroups and the party bank
+	inc hl ; trainer type
+	ld a, [wTrainerGroupBank]
+	call GetFarByte ; first mon's level
 	ld [wCurPartyLevel], a
 	ret
