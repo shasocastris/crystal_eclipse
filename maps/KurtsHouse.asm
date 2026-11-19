@@ -469,7 +469,12 @@ KurtSamuelsMailScript: ; CHANGED: SAMUEL's Dragonite delivers the MAIL to the PC
 	writetext KurtsHouseKurtDragoniteText
 	waitbutton
 	closetext
+	applymovement KURTSHOUSE_DRAGONITE, KurtsHouseDragoniteWalkToPlayerMovement
+	turnobject KURTSHOUSE_DRAGONITE, RIGHT
+	pause 20
+	turnobject PLAYER, LEFT
 	cry DRAGONITE
+	special RestartMapMusic
 	pause 20
 	opentext
 	writetext KurtsHouseDragoniteHandsMailText
@@ -508,8 +513,11 @@ KurtsHouseBookshelf:
 KurtsHouseRadio:
 	jumpstd Radio2Script
 
-KurtsHouseDragoniteWalkOutMovement: ; CHANGED: (2,2) to the door at (3,7)
+KurtsHouseDragoniteWalkToPlayerMovement:
 	step DOWN
+	step_end
+
+KurtsHouseDragoniteWalkOutMovement: ; CHANGED: (2,2) to the door at (3,7)
 	step DOWN
 	step DOWN
 	step DOWN
