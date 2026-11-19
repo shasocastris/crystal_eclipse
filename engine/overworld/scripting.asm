@@ -1840,8 +1840,7 @@ Script_checkcellnum:
 Script_specialphonecall:
 	rst GetScriptByte
 	ld [wSpecialPhoneCallID], a
-	rst GetScriptByte
-	ld [wSpecialPhoneCallID + 1], a
+	rst GetScriptByte ; CHANGED: the high byte has no RAM (wBugContestStartTime follows)
 	ret
 
 Script_checkphonecall:

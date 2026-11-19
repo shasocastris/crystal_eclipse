@@ -1452,9 +1452,7 @@ DoBikeStep::
 
 	; Queue the call.
 	ld a, SPECIALCALL_BIKESHOP
-	ld [wSpecialPhoneCallID], a
-	xor a
-	ld [wSpecialPhoneCallID + 1], a
+	ld [wSpecialPhoneCallID], a ; CHANGED: one byte; wBugContestStartTime follows
 	ld hl, wStatusFlags2
 	res STATUSFLAGS2_BIKE_SHOP_CALL_F, [hl]
 	scf
