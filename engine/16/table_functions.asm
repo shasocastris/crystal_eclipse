@@ -40,6 +40,17 @@ PokemonTableGarbageCollection:
 	___conversion_bitmap_check_structs wBugContestFirstPlaceMon, wBugContestSecondPlaceMon - wBugContestFirstPlaceMon, 3, .set_bit
 	___conversion_bitmap_check_values .set_bit, wBufferMonSpecies, wTempMonSpecies, wContestMonSpecies, \
 	                                            wBattleMonSpecies, wEnemyMonSpecies, wOddEggSpecies, wBaseSpecies
+	; CHANGED: mail in SRAM stores its species as a Pokémon ID
+	ldh a, [hSRAMBank]
+	push af
+	ld a, BANK(sMailboxes)
+	call OpenSRAM
+	___conversion_bitmap_check_structs sPartyMon1MailSpecies, MAIL_STRUCT_LENGTH, PARTY_LENGTH, .set_bit
+	___conversion_bitmap_check_structs sPartyMon1MailBackupSpecies, MAIL_STRUCT_LENGTH, PARTY_LENGTH, .set_bit
+	___conversion_bitmap_check_structs sMailbox1Species, MAIL_STRUCT_LENGTH, MAILBOX_CAPACITY, .set_bit
+	___conversion_bitmap_check_structs sMailbox1BackupSpecies, MAIL_STRUCT_LENGTH, MAILBOX_CAPACITY, .set_bit
+	pop af
+	call OpenSRAM ; -1 (was closed) closes it again
 	pop af
 	ldh [rSVBK], a
 	___conversion_bitmap_free_unused wPokemonIndexTable, MON_TABLE
