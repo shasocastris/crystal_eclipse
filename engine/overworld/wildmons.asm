@@ -1051,6 +1051,11 @@ RandomPhoneMon:
 	inc hl
 	ld c, a
 	ld a, 3
+	bit TRAINERTYPE_DVS_F, c ; CHANGED
+	jr z, .no_dvs
+	inc a
+	inc a
+.no_dvs
 	bit TRAINERTYPE_ITEM_F, c
 	jr z, .no_item
 	inc a

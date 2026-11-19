@@ -37,7 +37,7 @@ TrainerClassDVs:
 	dn  7, 12, 12,  8 ; COOLTRAINERF
 	dn  6,  9, 12,  8 ; BEAUTY
 	dn  9,  8,  8,  8 ; POKEMANIAC
-	dn  9,  8, 10,  8 ; GRUNTM ; CHANGED: Atk 13 -> 9 so Archer's Unown is an A
+	dn 13,  8, 10,  8 ; GRUNTM
 	dn  9,  8,  8,  8 ; GENTLEMAN
 	dn  9,  8,  8,  8 ; SKIER
 	dn  6,  8,  8,  8 ; TEACHER

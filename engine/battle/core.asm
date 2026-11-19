@@ -5415,6 +5415,21 @@ LoadEnemyMon:
 ; All trainers have preset DVs, determined by class
 ; See GetTrainerDVs for more on that
 	farcall GetTrainerDVs
+; CHANGED: outside the Battle Tower, use the DVs in the party struct. They
+; equal the class DVs unless the party is TRAINERTYPE_DVS.
+	ld a, [wBattleMode]
+	cp TRAINER_BATTLE
+	jr nz, .GotTrainerDVs
+	ld a, [wInBattleTowerBattle]
+	bit IN_BATTLE_TOWER_BATTLE_F, a
+	jr nz, .GotTrainerDVs
+	ld a, [wCurPartyMon]
+	ld hl, wOTPartyMon1DVs
+	call GetPartyLocation
+	ld a, [hli]
+	ld b, a
+	ld c, [hl]
+.GotTrainerDVs:
 ; These are the DVs we'll use if we're actually in a trainer battle
 	ld a, [wBattleMode]
 	dec a

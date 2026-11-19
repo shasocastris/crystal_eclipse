@@ -5,7 +5,14 @@
 ;	* for TRAINERTYPE_MOVES:	  db level, species, 4 moves
 ;	* for TRAINERTYPE_ITEM:	   db level, species, item
 ;	* for TRAINERTYPE_ITEM_MOVES: db level, species, item, 4 moves
+;	* TRAINERTYPE_DVS can be OR'd onto any of these. It adds per-mon DVs
+;	  after the species: dn atk, def, spd, spc (or unown_dvs <letter>) ; CHANGED
 ; - db -1 ; end
+
+; CHANGED: a trainer's Unown takes its letter from its DVs
+MACRO unown_dvs
+	db ATKDEFDV_UNOWN_\1, SPDSPCDV_UNOWN_\1
+ENDM
 
 SECTION "Enemy Trainer Parties 1", ROMX
 
@@ -3675,13 +3682,16 @@ SECTION "Enemy Trainer Parties 2", ROMX
 
 GruntMGroup:
 	next_list_item ; GRUNTM (1), Slowpoke Well
-	db "ARCHER@", TRAINERTYPE_NORMAL
+	db "ARCHER@", TRAINERTYPE_DVS ; CHANGED: was TRAINERTYPE_NORMAL
 	db 15
-	dw UNOWN ; CHANGED: was DRATINI; GRUNTM class DVs make it an A
+	dw UNOWN ; CHANGED: was DRATINI
+	unown_dvs A ; CHANGED
 	db 15
 	dw EEVEE
+	dn 13, 8, 10, 8 ; CHANGED: GRUNTM class DVs
 	db 17 ; CHANGED: was 19
 	dw KOFFING
+	dn 13, 8, 10, 8 ; CHANGED: GRUNTM class DVs
 	db -1 ; end
 
 	next_list_item ; GRUNTM (2), Slowpoke Well

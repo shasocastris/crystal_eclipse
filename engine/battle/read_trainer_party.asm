@@ -85,6 +85,49 @@ ReadTrainerPartyPieces:
 	pop hl
 	inc hl ;because hl was pushed before the last call to GetNextTrainerDataByte
 
+; CHANGED: TRAINERTYPE_DVS replaces the class DVs TryAddMonToParty used
+	ld a, [wOtherTrainerType]
+	bit TRAINERTYPE_DVS_F, a
+	jr z, .no_dvs
+	push hl
+	ld a, [wOTPartyCount]
+	dec a
+	ld hl, wOTPartyMon1DVs
+	call GetPartyLocation
+	ld d, h
+	ld e, l
+	pop hl
+	call GetNextTrainerDataByte
+	ld [de], a
+	inc de
+	call GetNextTrainerDataByte
+	ld [de], a
+
+; Stats came from the class DVs, so redo them and refill HP
+	push hl
+	ld a, [wOTPartyCount]
+	dec a
+	ld hl, wOTPartyMon1MaxHP
+	call GetPartyLocation
+	ld d, h
+	ld e, l
+	ld a, [wOTPartyCount]
+	dec a
+	ld hl, wOTPartyMon1EVs - 1
+	call GetPartyLocation
+	push de
+	ld b, FALSE
+	predef CalcMonStats
+	pop hl
+	ld a, [hli]
+	ld b, a
+	ld a, [hld]
+	dec hl
+	ld [hld], a
+	ld [hl], b
+	pop hl
+.no_dvs
+
 	ld a, [wOtherTrainerType]
 	and TRAINERTYPE_ITEM
 	jr z, .no_item
