@@ -899,8 +899,10 @@ RuinsOfAlphSuicuneItemRoom_Blocks:
 	INCBIN "maps/RuinsOfAlphItemRoom.ablk.lz"
 
 RuinsOfAlphHoOhWordRoom_Blocks:
-RuinsOfAlphSuicuneWordRoom_Blocks: ; CHANGED: same layout, text lives in its tileset
 	INCBIN "maps/RuinsOfAlphHoOhWordRoom.ablk.lz"
+
+RuinsOfAlphSuicuneWordRoom_Blocks:
+	INCBIN "maps/RuinsOfAlphSuicuneWordRoom.ablk.lz"
 
 RuinsOfAlphKabutoWordRoom_Blocks:
 	INCBIN "maps/RuinsOfAlphKabutoWordRoom.ablk.lz"
