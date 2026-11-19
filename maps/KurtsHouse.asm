@@ -4,6 +4,7 @@
 	const KURTSHOUSE_SLOWPOKE
 	const KURTSHOUSE_KURT2
 	const KURTSHOUSE_TWIN2
+	const KURTSHOUSE_DRAGONITE ; CHANGED
 
 	const_def 1 ; locked Pokémon ID table entries, used for species checking
 	const KURTSHOUSE_INDEX_RED_APRICORN
@@ -55,11 +56,8 @@ KurtsHouseKurtCallback:
 Kurt1:
 	faceplayer
 	opentext
-	checkevent EVENT_KURT_HAS_SAMUELS_MAIL ; CHANGED
-	iffalse .SkipMail
-	checkevent EVENT_GOT_SAMUELS_MAIL
+	checkevent EVENT_KURTS_HOUSE_DRAGONITE ; CHANGED
 	iffalse KurtSamuelsMailScript
-.SkipMail:
 	checkevent EVENT_KURT_GAVE_YOU_EXP_SHARE
 	iftrue .GotExpShare
 	checkevent EVENT_CLEARED_SLOWPOKE_WELL
@@ -342,11 +340,8 @@ Kurt1:
 Kurt2:
 	faceplayer
 	opentext
-	checkevent EVENT_KURT_HAS_SAMUELS_MAIL ; CHANGED
-	iffalse .SkipMail
-	checkevent EVENT_GOT_SAMUELS_MAIL
+	checkevent EVENT_KURTS_HOUSE_DRAGONITE ; CHANGED
 	iffalse KurtSamuelsMailScript
-.SkipMail:
 	checkevent EVENT_GAVE_GS_BALL_TO_KURT
 	iftrue KurtScript_ImCheckingItNow
 KurtMakingBallsScript:
@@ -459,33 +454,41 @@ KurtsHouseSlowpoke:
 	ld [wScriptVar], a
 	ret
 
-KurtSamuelsMailScript: ; CHANGED
-	writetext KurtsHouseKurtSamuelsMailText
+KurtsHouseDragoniteScript: ; CHANGED
+	faceplayer
+	opentext
+	; fallthrough
+
+KurtSamuelsMailScript: ; CHANGED: SAMUEL's Dragonite delivers the MAIL to the PC
+	writetext KurtsHouseKurtDragoniteText
+	waitbutton
+	closetext
+	cry DRAGONITE
+	pause 20
+	opentext
+	writetext KurtsHouseDragoniteHandsMailText
 	promptbutton
-	verbosegiveitem MIRAGE_MAIL
-	iffalse .NoRoom
-	setevent EVENT_GOT_SAMUELS_MAIL
-	special ShowSamuelsMail
+	special GiveSamuelsMail
+	iffalse .MailboxFull
+	writetext KurtsHouseMailSentToPCText
+	promptbutton
 	writetext KurtsHouseKurtAfterSamuelsMailText
 	waitbutton
-.NoRoom:
+	closetext
+	cry DRAGONITE
+	playsound SFX_FLY
+	waitsfx
+	disappear KURTSHOUSE_DRAGONITE
+	end
+
+.MailboxFull:
+	writetext KurtsHouseMailboxFullText
+	waitbutton
 	closetext
 	end
 
 KurtsHouseOakPhoto:
-	checkevent EVENT_GOT_SAMUELS_MAIL ; CHANGED: the letter is kept in the frame
-	iftrue .Mail
 	jumptext KurtsHouseOakPhotoText
-
-.Mail:
-	opentext
-	writetext KurtsHouseOakPhotoMailText
-	yesorno
-	iffalse .Done
-	special ShowSamuelsMail
-.Done:
-	closetext
-	end
 
 KurtsHouseCelebiStatue:
 	jumptext KurtsHouseCelebiStatueText
@@ -730,21 +733,29 @@ KurtsHouseOakPhotoText:
 	line "OAK?"
 	done
 
-KurtsHouseOakPhotoMailText: ; CHANGED
-	text "…A young PROF."
-	line "OAK?"
-
-	para "A MAIL from SAMUEL"
-	line "is tucked into the"
-	cont "frame. Read it?"
-	done
-
-KurtsHouseKurtSamuelsMailText: ; CHANGED
+KurtsHouseKurtDragoniteText: ; CHANGED
 	text "KURT: There you"
 	line "are, <PLAY_G>!"
 
-	para "Here's the MAIL"
-	line "from SAMUEL."
+	para "SAMUEL sent his"
+	line "DRAGONITE all the"
+	cont "way from KANTO."
+
+	para "It won't leave"
+	line "until you get the"
+	cont "MAIL!"
+	done
+
+KurtsHouseDragoniteHandsMailText: ; CHANGED
+	text "DRAGONITE handed"
+	line "over a MIRAGE"
+	cont "MAIL."
+	done
+
+KurtsHouseMailSentToPCText: ; CHANGED
+	text "The MAIL was put"
+	line "in your PC's"
+	cont "MAILBOX."
 	done
 
 KurtsHouseKurtAfterSamuelsMailText: ; CHANGED
@@ -755,9 +766,19 @@ KurtsHouseKurtAfterSamuelsMailText: ; CHANGED
 	line "the one to find"
 	cont "out!"
 
-	para "I'll keep his"
-	line "letter by his"
-	cont "photo."
+	para "Now, off you go,"
+	line "DRAGONITE. SAMUEL"
+	cont "will want you"
+	cont "back!"
+	done
+
+KurtsHouseMailboxFullText: ; CHANGED
+	text "Your PC's MAILBOX"
+	line "is full!"
+
+	para "DRAGONITE will"
+	line "wait while you"
+	cont "make room."
 	done
 
 KurtsHouseCelebiStatueText:
@@ -790,3 +811,4 @@ KurtsHouse_MapEvents:
 	object_event  6,  3, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KurtsHouseSlowpoke, EVENT_KURTS_HOUSE_SLOWPOKE
 	object_event 14,  3, SPRITE_KURT, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Kurt2, EVENT_KURTS_HOUSE_KURT_2
 	object_event 11,  4, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KurtsGranddaughter2, EVENT_KURTS_HOUSE_GRANDDAUGHTER_2
+	object_event  2,  2, SPRITE_DRAGON, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KurtsHouseDragoniteScript, EVENT_KURTS_HOUSE_DRAGONITE ; CHANGED

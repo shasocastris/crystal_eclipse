@@ -9,9 +9,9 @@ KurtPhoneCallerText:
 
 	para "Well, I'll be!"
 
-	para "SAMUEL just sent"
-	line "me MAIL about"
-	cont "them."
+	para "SAMUEL's DRAGONITE"
+	line "just flew in with"
+	cont "MAIL about them."
 
 	para "Come by AZALEA"
 	line "and pick it up!"

@@ -122,23 +122,41 @@ UnownPuzzle:
 	ld [wScriptVar], a
 	jmp ExitAllMenus
 
-ShowSamuelsMail:
-; CHANGED: show SAMUEL's letter in the MIRAGE MAIL viewer. ReadAnyMail reads
-; SRAM bank 0, so stage the letter in sScratch.
-	call FadeToMenu
+GiveSamuelsMail:
+; CHANGED: put SAMUEL's letter in the PC mailbox and show it once.
+; wScriptVar = FALSE if the mailbox is full.
+	xor a
+	ld [wScriptVar], a
 	ld hl, MIRAGE_MAIL
 	call GetItemIDFromIndex
-	push af
-	ld a, BANK(sScratch)
+	ld b, a
+	ld a, BANK(sMailboxCount)
 	call OpenSRAM
+	ld a, [sMailboxCount]
+	cp MAILBOX_CAPACITY
+	jmp nc, CloseSRAM
+	push bc
+	ld hl, sMailboxes
+	ld bc, MAIL_STRUCT_LENGTH
+	rst AddNTimes
+	push hl
+	ld d, h
+	ld e, l
 	ld hl, SamuelsMail
-	ld de, sScratch
 	ld bc, MAIL_STRUCT_LENGTH - 1
 	rst CopyBytes
-	pop af
+	pop hl
+	pop bc
+	ld a, b
 	ld [de], a ; mail type
+	push hl
+	ld hl, sMailboxCount
+	inc [hl]
 	call CloseSRAM
-	ld de, sScratch
+	ld a, TRUE
+	ld [wScriptVar], a
+	call FadeToMenu
+	pop de
 	farcall ReadAnyMail
 	jmp ExitAllMenus
 
