@@ -135,6 +135,21 @@ ItemTableGarbageCollection:
 
 ; battle tower stuff should be here but this ROM hack doesn't care
 
+	; CHANGED: mail in SRAM stores its type as an item ID
+	assert BANK(sPartyMail) == BANK(sMailboxes)
+	assert BANK(sPartyMailBackup) == BANK(sMailboxes)
+	assert BANK(sMailboxesBackup) == BANK(sMailboxes)
+	ldh a, [hSRAMBank]
+	push af
+	ld a, BANK(sMailboxes)
+	call OpenSRAM
+	___conversion_bitmap_check_structs sPartyMon1MailType, MAIL_STRUCT_LENGTH, PARTY_LENGTH, .set_bit
+	___conversion_bitmap_check_structs sPartyMon1MailBackupType, MAIL_STRUCT_LENGTH, PARTY_LENGTH, .set_bit
+	___conversion_bitmap_check_structs sMailbox1Type, MAIL_STRUCT_LENGTH, MAILBOX_CAPACITY, .set_bit
+	___conversion_bitmap_check_structs sMailbox1BackupType, MAIL_STRUCT_LENGTH, MAILBOX_CAPACITY, .set_bit
+	pop af
+	call OpenSRAM ; -1 (was closed) closes it again
+
 	ld a, BANK(wItemIndexTable)
 	ldh [rSVBK], a
 	___conversion_bitmap_free_unused wItemIndexTable, ITEM_TABLE
