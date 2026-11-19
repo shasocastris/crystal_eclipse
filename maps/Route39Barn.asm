@@ -175,6 +175,14 @@ Route39BarnWhitneyCongratulationsText:
 	para "You saved the farm"
 	line "AND ECRUTEAK CITY!"
 
+	para "And those odd" ; CHANGED: Whitney saw the Unown
+	line "#MON mixed in"
+	cont "with the herd?"
+
+	para "I've never seen"
+	line "the like! They"
+	cont "gave me chills."
+
 	para "I was so worried"
 	line "about my family's"
 	cont "farm…"

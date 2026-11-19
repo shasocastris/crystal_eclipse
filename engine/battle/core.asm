@@ -3283,7 +3283,7 @@ TryToRunAwayFromBattle:
 	jmp z, .cant_escape
 	cp BATTLETYPE_SUICUNE
 	jmp z, .cant_escape
-	cp BATTLETYPE_WILD_HUNT
+	check_wild_hunt_battle ; CHANGED: was cp BATTLETYPE_WILD_HUNT
 	jmp z, .cant_escape
 
 	ld a, [wBattleMode]
@@ -5340,7 +5340,7 @@ LoadEnemyMon:
 ; Force Item1
 ; Used for Ho-Oh, Lugia and Snorlax encounters
 	ld a, [wBattleType]
-	cp BATTLETYPE_WILD_HUNT
+	check_wild_hunt_battle ; CHANGED: was cp BATTLETYPE_WILD_HUNT
 	jr nz, .NotRampage
 	push af
 	ld hl, BERSERK_GENE

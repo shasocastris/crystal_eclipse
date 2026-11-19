@@ -75,3 +75,18 @@ MACRO changebridgeblock
 	; hard-coding the above calculation for efficiency
 	ld [hl], \3
 ENDM
+
+; CHANGED: z if a (= wBattleType) is a Wild Hunt battle: BATTLETYPE_WILD_HUNT,
+; or a forced-letter Unown while the hunt is on, since a battle can't carry
+; both types. Preserves a; clobbers flags only.
+MACRO check_wild_hunt_battle
+	cp BATTLETYPE_WILD_HUNT
+	jr z, .done\@
+	cp BATTLETYPE_UNOWN_A
+	jr c, .done\@ ; nz
+	ld a, [wStatusFlags2]
+	cpl
+	bit STATUSFLAGS2_WILD_HUNT, a
+	ld a, [wBattleType]
+.done\@
+ENDM

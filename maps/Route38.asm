@@ -324,18 +324,21 @@ WildHuntTauros4:
 	reloadmapafterbattle
 	end
 
-WildHuntTauros5:
+WildHuntTauros5: ; CHANGED: an Unown W driving the herd
 	faceplayer
 	showemote EMOTE_SAD, ROUTE38_TAUROS_5, 35
 	opentext
-	writetext WildHuntTauros_Text
-	cry TAUROS
+	writetext WildHuntUnownW_Text
+	cry UNOWN
 	pause 15
 	closetext
 	setevent EVENT_FOUGHT_WILD_HUNT_TAUROS_5
-	loadvar VAR_BATTLETYPE, BATTLETYPE_WILD_HUNT
-	loadwildmon TAUROS, 35
+	setevent EVENT_FOUGHT_UNOWN_W
+	loadmem wUnlockedUnowns, (1 << NUM_UNLOCKED_UNOWN_SETS) - 1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_UNOWN_W ; Wild Hunt rules via ENGINE_WILD_HUNT
+	loadwildmon UNOWN, 35
 	startbattle
+	callstd RelockUnownSetsScript
 	disappear ROUTE38_TAUROS_5
 	reloadmapafterbattle
 	end
@@ -431,6 +434,10 @@ Route38FruitTree:
 
 WildHuntTauros_Text:
 	text "TAUROS: RRRGGH!"
+	done
+
+WildHuntUnownW_Text: ; CHANGED
+	text "UNOWN: UNOWN!"
 	done
 
 BirdKeeperTobySeenText:
@@ -633,7 +640,7 @@ Route38_MapEvents:
 	object_event 28, 11, SPRITE_TAUROS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WildHuntTauros2, EVENT_FOUGHT_WILD_HUNT_TAUROS_2
 	object_event 15, 12, SPRITE_TAUROS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WildHuntTauros3, EVENT_FOUGHT_WILD_HUNT_TAUROS_3
 	object_event 20, 14, SPRITE_TAUROS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WildHuntTauros4, EVENT_FOUGHT_WILD_HUNT_TAUROS_4
-	object_event  8, 10, SPRITE_TAUROS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WildHuntTauros5, EVENT_FOUGHT_WILD_HUNT_TAUROS_5
+	object_event  8, 10, SPRITE_UNOWN_W, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WildHuntTauros5, EVENT_FOUGHT_WILD_HUNT_TAUROS_5 ; CHANGED: was SPRITE_TAUROS
 	object_event 10,  5, SPRITE_TAUROS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WildHuntTauros6, EVENT_FOUGHT_WILD_HUNT_TAUROS_6
 	object_event 13,  1, SPRITE_TAUROS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WildHuntTauros7, EVENT_FOUGHT_WILD_HUNT_TAUROS_7
 	object_event 24,  3, SPRITE_TAUROS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WildHuntTauros8, EVENT_FOUGHT_WILD_HUNT_TAUROS_8

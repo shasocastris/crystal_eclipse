@@ -178,18 +178,21 @@ WildHuntTauros15:
 	reloadmapafterbattle
 	end
 
-WildHuntTauros16:
+WildHuntTauros16: ; CHANGED: an Unown T driving the herd
 	faceplayer
 	showemote EMOTE_SAD, ROUTE39_TAUROS_16, 35
 	opentext
-	writetext Route39WildHuntTauros_Text
-	cry TAUROS
+	writetext WildHuntUnownT_Text
+	cry UNOWN
 	pause 15
 	closetext
 	setevent EVENT_FOUGHT_WILD_HUNT_TAUROS_16
-	loadvar VAR_BATTLETYPE, BATTLETYPE_WILD_HUNT
-	loadwildmon TAUROS, 35
+	setevent EVENT_FOUGHT_UNOWN_T
+	loadmem wUnlockedUnowns, (1 << NUM_UNLOCKED_UNOWN_SETS) - 1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_UNOWN_T ; Wild Hunt rules via ENGINE_WILD_HUNT
+	loadwildmon UNOWN, 35
 	startbattle
+	callstd RelockUnownSetsScript
 	disappear ROUTE39_TAUROS_16
 	reloadmapafterbattle
 	end
@@ -412,6 +415,10 @@ Route39TaurosHerdLeaderMovement:
 
 Route39WildHuntTauros_Text:
 	text "TAUROS: RRRGGH!"
+	done
+
+WildHuntUnownT_Text: ; CHANGED
+	text "UNOWN: UNOWN!"
 	done
 
 WildHuntFarmCantLeaveText:
@@ -663,4 +670,4 @@ Route39_MapEvents:
 	object_event  5, 25, SPRITE_TAUROS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WildHuntTauros13, EVENT_FOUGHT_WILD_HUNT_TAUROS_13
 	object_event  9, 28, SPRITE_TAUROS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WildHuntTauros14, EVENT_FOUGHT_WILD_HUNT_TAUROS_14
 	object_event  8,  6, SPRITE_TAUROS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WildHuntTauros15, EVENT_FOUGHT_WILD_HUNT_TAUROS_15
-	object_event  8, 19, SPRITE_TAUROS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WildHuntTauros16, EVENT_FOUGHT_WILD_HUNT_TAUROS_16
+	object_event  8, 19, SPRITE_UNOWN_T, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WildHuntTauros16, EVENT_FOUGHT_WILD_HUNT_TAUROS_16 ; CHANGED: was SPRITE_TAUROS
