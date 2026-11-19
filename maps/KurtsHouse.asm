@@ -476,9 +476,21 @@ KurtSamuelsMailScript: ; CHANGED: SAMUEL's Dragonite delivers the MAIL to the PC
 	waitbutton
 	closetext
 	cry DRAGONITE
-	playsound SFX_FLY
-	waitsfx
+	stowfollower
+	readvar VAR_XCOORD
+	ifnotequal 2, .WalkOut
+	readvar VAR_YCOORD
+	ifnotequal 3, .WalkOut
+	applymovement KURTSHOUSE_DRAGONITE, KurtsHouseDragoniteWalkAroundMovement ; player is right below it
+	sjump .AtDoor
+
+.WalkOut:
+	applymovement KURTSHOUSE_DRAGONITE, KurtsHouseDragoniteWalkOutMovement
+.AtDoor:
+	playsound SFX_EXIT_BUILDING
 	disappear KURTSHOUSE_DRAGONITE
+	waitsfx
+	appearfolloweronestep
 	end
 
 .MailboxFull:
@@ -498,6 +510,26 @@ KurtsHouseBookshelf:
 
 KurtsHouseRadio:
 	jumpstd Radio2Script
+
+KurtsHouseDragoniteWalkOutMovement: ; CHANGED: (2,2) to the door at (3,7)
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step RIGHT
+	step DOWN
+	step_end
+
+KurtsHouseDragoniteWalkAroundMovement: ; CHANGED: same, around a player at (2,3)
+	step LEFT
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step RIGHT
+	step RIGHT
+	step DOWN
+	step_end
 
 KurtsHouseKurtExitHouseMovement:
 	big_step DOWN
@@ -811,4 +843,4 @@ KurtsHouse_MapEvents:
 	object_event  6,  3, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KurtsHouseSlowpoke, EVENT_KURTS_HOUSE_SLOWPOKE
 	object_event 14,  3, SPRITE_KURT, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Kurt2, EVENT_KURTS_HOUSE_KURT_2
 	object_event 11,  4, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KurtsGranddaughter2, EVENT_KURTS_HOUSE_GRANDDAUGHTER_2
-	object_event  2,  2, SPRITE_DRAGON, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KurtsHouseDragoniteScript, EVENT_KURTS_HOUSE_DRAGONITE ; CHANGED
+	object_event  2,  2, SPRITE_DRAGONITE, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_ORANGE, OBJECTTYPE_SCRIPT, 0, KurtsHouseDragoniteScript, EVENT_KURTS_HOUSE_DRAGONITE ; CHANGED

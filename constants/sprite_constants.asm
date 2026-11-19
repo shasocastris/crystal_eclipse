@@ -133,6 +133,7 @@
 	const SPRITE_UNOWN_Y ; 81
 	const SPRITE_UNOWN_Z ; 82
 	const SPRITE_FOLLOWER ; 83
+	const SPRITE_DRAGONITE ; 84 ; CHANGED: uses the follower graphic; after SPRITE_FOLLOWER so saved IDs don't move
 DEF NUM_OVERWORLD_SPRITES EQU const_value - 1
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)
