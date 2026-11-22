@@ -116,10 +116,8 @@ BattleAnimationsPart1::
 	anim_ptr BattleAnim_Earthquake
 	anim_ptr BattleAnim_BoneClub
 	anim_ptr BattleAnim_Dig
-	anim_ptr BattleAnim_Magnitude        ; BULLDOZE
 	anim_ptr BattleAnim_Bonemerang
 	anim_ptr BattleAnim_Magnitude
-	anim_ptr BattleAnim_Magnitude        ; EARTH_POWER
 	anim_ptr BattleAnim_MudSlap
 	anim_ptr BattleAnim_Spikes
 	; ROCK

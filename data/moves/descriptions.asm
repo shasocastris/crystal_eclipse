@@ -122,10 +122,8 @@ MoveDescriptionsPart1:
 	dw EarthquakeDescription
 	dw BoneClubDescription
 	dw DigDescription
-	dw BulldozeDescription
 	dw BonemerangDescription
 	dw MagnitudeDescription
-	dw EarthPowerDescription
 	dw MudSlapDescription
 	dw SpikesDescription
 	; ROCK
@@ -1261,14 +1259,6 @@ PowerGemDescription:
 RockBlastDescription:
 	db   "Hurls rocks at the"
 	line "foe 2-5 times.@"
-
-EarthPowerDescription:
-	db   "Taps the earth's"
-	line "power. Lowers SPCL.DEF.@"
-
-BulldozeDescription:
-	db   "Stomps the ground."
-	line "Lowers foe's SPEED.@"
 
 IceShardDescription:
 	db   "An ice shard thrown"

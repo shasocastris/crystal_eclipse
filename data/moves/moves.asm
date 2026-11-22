@@ -139,10 +139,8 @@ MovesPart1:
 	move EFFECT_EARTHQUAKE,        100, GROUND,        PHYSICAL, 100, 10,   0      ;EARTHQUAKE
 	move EFFECT_FLINCH_HIT,         65, GROUND,        PHYSICAL,  85, 20,  10      ;BONE_CLUB
 	move EFFECT_FLY,                60, GROUND,        PHYSICAL, 100, 10,   0      ;DIG
-	move EFFECT_SPEED_DOWN_HIT,     60, GROUND,        PHYSICAL, 100, 20, 100      ;BULLDOZE
 	move EFFECT_DOUBLE_HIT,         50, GROUND,        PHYSICAL,  90, 10,   0      ;BONEMERANG
 	move EFFECT_MAGNITUDE,           1, GROUND,        PHYSICAL, 100, 30,   0      ;MAGNITUDE
-	move EFFECT_SP_DEF_DOWN_HIT,    90, GROUND,        SPECIAL,  100, 10,  10      ;EARTH_POWER
 	move EFFECT_ACCURACY_DOWN_HIT,  20, GROUND,        SPECIAL,  100, 10, 100      ;MUD_SLAP
 	move EFFECT_SPIKES,              0, GROUND,        STATUS,   100, 20,   0      ;SPIKES
 	; ROCK

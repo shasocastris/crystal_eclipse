@@ -116,10 +116,8 @@ MoveNames::
 	li "EARTHQUAKE"
 	li "BONE CLUB"
 	li "DIG"
-	li "BULLDOZE"
 	li "BONEMERANG"
 	li "MAGNITUDE"
-	li "EARTH POWER"
 	li "MUD-SLAP"
 	li "SPIKES"
 	; ROCK

@@ -751,7 +751,6 @@ NidoqueenEvosAttacks:
 	dbw 43, EARTHQUAKE
 	dbw 63, SLUDGE_BOMB
 	dbw 73, CRUNCH
-	dbw 83, EARTH_POWER
 	db 0 ; no more level-up moves
 
 NidoranMEvosAttacks:
@@ -810,7 +809,6 @@ NidokingEvosAttacks:
 	dbw 53, MEGAHORN
 	dbw 63, SLUDGE_BOMB
 	dbw 73, SKULL_BASH
-	dbw 83, EARTH_POWER
 	db 0 ; no more level-up moves
 
 ClefairyEvosAttacks:
