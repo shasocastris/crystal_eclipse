@@ -750,7 +750,6 @@ SudowoodoEvosAttacks:
 	dbw 33, COUNTER
 	dbw 41, FAINT_ATTACK
 	dbw 49, SLAM
-	dbw 57, STONE_EDGE
 	dbw 63, DOUBLE_EDGE
 	dbw 70, SELFDESTRUCT
 	db 0 ; no more level-up moves

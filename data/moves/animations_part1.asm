@@ -121,11 +121,9 @@ BattleAnimationsPart1::
 	anim_ptr BattleAnim_MudSlap
 	anim_ptr BattleAnim_Spikes
 	; ROCK
-	anim_ptr BattleAnim_BoneRush         ; STONE_EDGE
 	anim_ptr BattleAnim_RockSlide
 	anim_ptr BattleAnim_RockThrow
 	anim_ptr BattleAnim_Rollout
-	anim_ptr BattleAnim_PinMissile       ; ROCK_BLAST
 	anim_ptr BattleAnim_Ancientpower     ; POWER_GEM
 	anim_ptr BattleAnim_Ancientpower
 	anim_ptr BattleAnim_Sandstorm

@@ -2710,6 +2710,7 @@ OmanyteEvosAttacks:
 	dbw 31, LEER
 	dbw 34, SLAM
 	dbw 37, PROTECT
+	dbw 40, POWER_GEM
 	dbw 43, SUPERSONIC
 	dbw 49, ANCIENTPOWER
 	dbw 52, HAZE
@@ -2729,6 +2730,7 @@ OmastarEvosAttacks:
 	dbw 34, SLAM
 	dbw 37, PROTECT
 	dbw 39, SPIKE_CANNON
+	dbw 44, POWER_GEM
 	dbw 47, SUPERSONIC
 	dbw 54, ANCIENTPOWER
 	dbw 60, HAZE

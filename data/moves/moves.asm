@@ -144,11 +144,9 @@ MovesPart1:
 	move EFFECT_ACCURACY_DOWN_HIT,  20, GROUND,        SPECIAL,  100, 10, 100      ;MUD_SLAP
 	move EFFECT_SPIKES,              0, GROUND,        STATUS,   100, 20,   0      ;SPIKES
 	; ROCK
-	move EFFECT_NORMAL_HIT,        100, ROCK,          PHYSICAL,  80,  5,   0      ;STONE_EDGE
 	move EFFECT_FLINCH_HIT,         75, ROCK,          PHYSICAL,  90, 10,  30      ;ROCK_SLIDE
 	move EFFECT_NORMAL_HIT,         50, ROCK,          PHYSICAL,  90, 15,   0      ;ROCK_THROW
 	move EFFECT_ROLLOUT,            30, ROCK,          PHYSICAL,  90, 20,   0      ;ROLLOUT
-	move EFFECT_MULTI_HIT,          25, ROCK,          PHYSICAL,  90, 10,   0      ;ROCK_BLAST, unreferenced
 	move EFFECT_NORMAL_HIT,         80, ROCK,          SPECIAL,  100, 20,   0      ;POWER_GEM
 	move EFFECT_ALL_UP_HIT,         60, ROCK,          SPECIAL,  100, 10,  10      ;ANCIENTPOWER
 	move EFFECT_SANDSTORM,           0, ROCK,          STATUS,   100, 10,   0      ;SANDSTORM

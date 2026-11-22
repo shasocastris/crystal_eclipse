@@ -138,7 +138,7 @@ MamoswineEvosAttacks:
 	dbw 42, TAKE_DOWN
 	dbw 50, EARTHQUAKE
 	dbw 60, BLIZZARD
-	dbw 65, STONE_EDGE
+	dbw 65, ROCK_SLIDE
 	db 0 ; no more level-up moves
 
 MismagiusEvosAttacks:
@@ -165,7 +165,6 @@ RhyperiorEvosAttacks:
 	dbw 17, FURY_STRIKES
 	dbw 25, SCARY_FACE
 	dbw 33, ROCK_THROW
-	dbw 41, STONE_EDGE
 	dbw 49, ROCK_SLIDE
 	dbw 57, EARTHQUAKE
 	db 0 ; no more level-up moves
@@ -253,7 +252,6 @@ GliscorEvosAttacks:
 	dbw 41, EARTHQUAKE
 	dbw 49, SLASH
 	dbw 55, SWORDS_DANCE
-	dbw 60, STONE_EDGE
 	dbw 65, HYPER_BEAM
 	db 0 ; no more level-up moves
 

@@ -121,11 +121,9 @@ MoveNames::
 	li "MUD-SLAP"
 	li "SPIKES"
 	; ROCK
-	li "STONE EDGE"
 	li "ROCK SLIDE"
 	li "ROCK THROW"
 	li "ROLLOUT"
-	li "ROCK BLAST"
 	li "POWER GEM"
 	li "ANCIENTPOWER"
 	li "SANDSTORM"

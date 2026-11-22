@@ -127,11 +127,9 @@ MoveDescriptionsPart1:
 	dw MudSlapDescription
 	dw SpikesDescription
 	; ROCK
-	dw StoneEdgeDescription
 	dw RockSlideDescription
 	dw RockThrowDescription
 	dw RolloutDescription
-	dw RockBlastDescription
 	dw PowerGemDescription
 	dw AncientpowerDescription
 	dw SandstormDescription
@@ -1248,17 +1246,9 @@ BulletPunchDescription:
 	db   "A fast steel punch"
 	line "that strikes first.@"
 
-StoneEdgeDescription:
-	db   "Hurls sharp rocks"
-	line "with great force.@"
-
 PowerGemDescription:
 	db   "Fires gem-like rays"
 	line "at the foe.@"
-
-RockBlastDescription:
-	db   "Hurls rocks at the"
-	line "foe 2-5 times.@"
 
 IceShardDescription:
 	db   "An ice shard thrown"
