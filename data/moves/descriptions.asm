@@ -191,14 +191,12 @@ MoveDescriptionsPart2:
 	dw WhirlpoolDescription
 	dw RainDanceDescription
 	; GRASS
-	dw PowerWhipDescription
 	dw SeedBombDescription
 	dw RazorLeafDescription
 	dw VineWhipDescription
 	dw ConstrictDescription
 	dw SolarbeamDescription
 	dw PetalDanceDescription
-	dw EnergyBallDescription
 	dw GigaDrainDescription
 	dw MegaDrainDescription
 	dw AbsorbDescription
@@ -1258,17 +1256,9 @@ WildChargeDescription:
 	db   "A wild electric"
 	line "tackle. Damages user.@"
 
-EnergyBallDescription:
-	db   "A grass energy ball."
-	line "May lower SPCL.DEF.@"
-
 SeedBombDescription:
 	db   "Explodes a barrage"
 	line "of hard seeds.@"
-
-PowerWhipDescription:
-	db   "Violently whips the"
-	line "foe with vines.@"
 
 XScissorDescription:
 	db   "Slashes the foe"

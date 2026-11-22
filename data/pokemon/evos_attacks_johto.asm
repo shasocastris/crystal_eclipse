@@ -121,7 +121,7 @@ ChikoritaEvosAttacks:
 	dbw 34, LIGHT_SCREEN
 	dbw 37, COUNTER
 	dbw 40, SAFEGUARD
-	dbw 43, ENERGY_BALL
+	dbw 43, PETAL_DANCE
 	dbw 46, SWORDS_DANCE
 	dbw 50, SOLARBEAM
 	db 0 ; no more level-up moves
@@ -144,7 +144,7 @@ BayleefEvosAttacks:
 	dbw 39, LIGHT_SCREEN
 	dbw 43, COUNTER
 	dbw 47, SAFEGUARD
-	dbw 51, ENERGY_BALL
+	dbw 51, PETAL_DANCE
 	dbw 55, SWORDS_DANCE
 	dbw 59, SOLARBEAM
 	db 0 ; no more level-up moves
@@ -167,7 +167,6 @@ MeganiumEvosAttacks:
 	dbw 39, LIGHT_SCREEN
 	dbw 43, COUNTER
 	dbw 47, SAFEGUARD
-	dbw 51, ENERGY_BALL
 	dbw 56, PETAL_DANCE
 	dbw 61, SWORDS_DANCE
 	dbw 66, SOLARBEAM
@@ -697,7 +696,6 @@ BellossomEvosAttacks:
 	dbw 29, LEECH_SEED
 	dbw 35, SEED_BOMB
 	dbw 41, MOONBLAST
-	dbw 47, ENERGY_BALL
 	dbw 53, PETAL_DANCE
 	dbw 65, SOLARBEAM
 	dbw 78, DAZZLING_GLEAM
@@ -787,7 +785,7 @@ HoppipEvosAttacks:
 	dbw 34, LEECH_SEED
 	dbw 37, GIGA_DRAIN
 	dbw 40, SAFEGUARD
-	dbw 43, ENERGY_BALL
+	dbw 43, PETAL_DANCE
 	dbw 46, REFLECT
 	dbw 49, AMNESIA
 	db 0 ; no more level-up moves
@@ -811,7 +809,7 @@ SkiploomEvosAttacks:
 	dbw 39, LEECH_SEED
 	dbw 43, GIGA_DRAIN
 	dbw 47, SAFEGUARD
-	dbw 51, ENERGY_BALL
+	dbw 51, PETAL_DANCE
 	dbw 55, REFLECT
 	dbw 59, AMNESIA
 	db 0 ; no more level-up moves
@@ -834,7 +832,7 @@ JumpluffEvosAttacks:
 	dbw 43, LEECH_SEED
 	dbw 48, GIGA_DRAIN
 	dbw 53, SAFEGUARD
-	dbw 58, ENERGY_BALL
+	dbw 58, PETAL_DANCE
 	dbw 63, REFLECT
 	dbw 68, AMNESIA
 	db 0 ; no more level-up moves
@@ -1885,7 +1883,7 @@ CelebiEvosAttacks:
 	dbw 10, SAFEGUARD
 	dbw 20, ANCIENTPOWER
 	dbw 30, FUTURE_SIGHT
-	dbw 35, ENERGY_BALL
+	dbw 35, PETAL_DANCE
 	dbw 40, BATON_PASS
 	dbw 50, PERISH_SONG
 	db 0 ; no more level-up moves

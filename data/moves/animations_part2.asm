@@ -43,14 +43,12 @@ BattleAnimationsPart2::
 	anim_ptr BattleAnim_Whirlpool
 	anim_ptr BattleAnim_RainDance
 	; GRASS
-	anim_ptr BattleAnim_VineWhip         ; POWER_WHIP
 	anim_ptr BattleAnim_SludgeBomb       ; SEED_BOMB
 	anim_ptr BattleAnim_RazorLeaf
 	anim_ptr BattleAnim_VineWhip
 	anim_ptr BattleAnim_Constrict
 	anim_ptr BattleAnim_Solarbeam
 	anim_ptr BattleAnim_PetalDance
-	anim_ptr BattleAnim_GigaDrain        ; ENERGY_BALL
 	anim_ptr BattleAnim_GigaDrain
 	anim_ptr BattleAnim_MegaDrain
 	anim_ptr BattleAnim_Absorb

@@ -122,7 +122,6 @@ LickilickyEvosAttacks:
 	dbw 36, SCREECH
 	dbw 44, ROLLOUT
 	dbw 52, SLAM
-	dbw 55, POWER_WHIP
 	dbw 58, BODY_SLAM
 	db 0 ; no more level-up moves
 
@@ -308,9 +307,9 @@ TangrowthEvosAttacks:
 	dbw 25, SLEEP_POWDER
 	dbw 33, GIGA_DRAIN
 	dbw 41, STUN_SPORE
+	dbw 45, SEED_BOMB
 	dbw 49, LEECH_SEED
 	dbw 57, SOLARBEAM
-	dbw 65, POWER_WHIP
 	db 0 ; no more level-up moves
 
 WyrdeerEvosAttacks:

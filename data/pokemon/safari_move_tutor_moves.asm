@@ -10,7 +10,7 @@
 ;     engine/16/), so GetSafariZoneMoveTutorMove converts the chosen mon's species
 ;     ID to an index before matching, and the move index is converted back to
 ;     an ID with GetMoveIDFromIndex before teaching. Storing 16-bit indexes is
-;     also what lets moves above ID 255 (e.g. ENERGY_BALL) work here.
+;     also what lets moves above ID 255 work here.
 ;   - LINE_id: LINE_* constant from data/pokemon/evo_lines.asm, used by
 ;     CheckLineFullyCaught to gate this row's move until every member of that
 ;     species' evolutionary line has been caught.
@@ -87,7 +87,6 @@ SafariZoneMoveTutorMoves:
 	safari_tutor_move IGGLYBUFF,   MIMIC,        LINE_IGGLYBUFF
 	safari_tutor_move TOGEPI,      HIDDEN_POWER, LINE_TOGEPI
 	safari_tutor_move NATU,        SAFEGUARD,    LINE_NATU
-	safari_tutor_move MAREEP,      ENERGY_BALL,  LINE_MAREEP
 	safari_tutor_move MARILL,      HYDRO_PUMP,   LINE_MARILL
 	safari_tutor_move SUDOWOODO,   SUBSTITUTE,   LINE_SUDOWOODO
 	safari_tutor_move HOPPIP,      AGILITY,      LINE_HOPPIP

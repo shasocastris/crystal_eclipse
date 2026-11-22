@@ -211,14 +211,12 @@ MovesPart2:
 	move EFFECT_TRAP_TARGET,        15, WATER,         SPECIAL,  100, 20,   0      ;WHIRLPOOL
 	move EFFECT_RAIN_DANCE,          0, WATER,         STATUS,    90,  5,   0      ;RAIN_DANCE
 	; GRASS
-	move EFFECT_NORMAL_HIT,        120, GRASS,         PHYSICAL,  85, 10,   0      ;POWER_WHIP
 	move EFFECT_NORMAL_HIT,         80, GRASS,         PHYSICAL, 100, 15,   0      ;SEED_BOMB
 	move EFFECT_NORMAL_HIT,         55, GRASS,         PHYSICAL,  95, 25,   0      ;RAZOR_LEAF
 	move EFFECT_NORMAL_HIT,         35, GRASS,         PHYSICAL, 100, 10,   0      ;VINE_WHIP
 	move EFFECT_TRAP_TARGET,        15, GRASS,         PHYSICAL, 100, 20,   0      ;CONSTRICT
 	move EFFECT_SOLARBEAM,         120, GRASS,         SPECIAL,  100, 10,   0      ;SOLARBEAM
 	move EFFECT_RAMPAGE,           120, GRASS,         SPECIAL,  100, 10,   0      ;PETAL_DANCE
-	move EFFECT_SP_DEF_DOWN_HIT,    90, GRASS,         SPECIAL,  100, 10,  10      ;ENERGY_BALL
 	move EFFECT_LEECH_HIT,          75, GRASS,         SPECIAL,  100, 10,   0      ;GIGA_DRAIN
 	move EFFECT_LEECH_HIT,          40, GRASS,         SPECIAL,  100, 20,   0      ;MEGA_DRAIN
 	move EFFECT_LEECH_HIT,          20, GRASS,         SPECIAL,  100, 25,   0      ;ABSORB

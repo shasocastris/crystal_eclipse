@@ -170,15 +170,13 @@ BulbasaurEvosAttacks:
 	dbw 30, SLEEP_POWDER
 	dbw 33, SLUDGE_BOMB
 	dbw 36, SAFEGUARD
-	dbw 39, ENERGY_BALL
+	dbw 39, PETAL_DANCE
 	dbw 42, CHARM
 	dbw 45, SOLARBEAM
 	dbw 48, SUNNY_DAY
 	dbw 51, SKULL_BASH
 	dbw 54, GROWTH
-	dbw 57, PETAL_DANCE
     dbw 60, SYNTHESIS
-    dbw 63, POWER_WHIP
 	db 0 ; no more level-up moves
 
 IvysaurEvosAttacks:
@@ -197,15 +195,13 @@ IvysaurEvosAttacks:
 	dbw 34, SLEEP_POWDER
 	dbw 38, SLUDGE_BOMB
 	dbw 42, SAFEGUARD
-	dbw 46, ENERGY_BALL
+	dbw 46, PETAL_DANCE
 	dbw 50, CHARM
 	dbw 54, SOLARBEAM
 	dbw 58, SUNNY_DAY
 	dbw 62, SKULL_BASH
 	dbw 66, GROWTH
-	dbw 70, PETAL_DANCE
     dbw 74, SYNTHESIS
-    dbw 78, POWER_WHIP
 	db 0 ; no more level-up moves
 
 VenusaurEvosAttacks:
@@ -224,15 +220,13 @@ VenusaurEvosAttacks:
 	dbw 35, SLEEP_POWDER
 	dbw 40, SLUDGE_BOMB
 	dbw 45, SAFEGUARD
-	dbw 50, ENERGY_BALL
+	dbw 50, PETAL_DANCE
 	dbw 55, CHARM
 	dbw 60, SOLARBEAM
 	dbw 65, SUNNY_DAY
 	dbw 70, SKULL_BASH
 	dbw 75, GROWTH
-	dbw 80, PETAL_DANCE
     dbw 85, SYNTHESIS
-    dbw 90, POWER_WHIP
 	db 0 ; no more level-up moves
 
 CharmanderEvosAttacks:
@@ -956,8 +950,7 @@ OddishEvosAttacks:
 	dbw 37, FLAIL
 	dbw 41, SEED_BOMB
 	dbw 45, GIGA_DRAIN
-	dbw 49, ENERGY_BALL
-	dbw 54, PETAL_DANCE
+	dbw 49, PETAL_DANCE
 	db 0 ; no more level-up moves
 
 GloomEvosAttacks:
@@ -978,8 +971,7 @@ GloomEvosAttacks:
 	dbw 47, FLAIL
 	dbw 53, SEED_BOMB
 	dbw 57, GIGA_DRAIN
-	dbw 62, ENERGY_BALL
-	dbw 67, PETAL_DANCE
+	dbw 62, PETAL_DANCE
 	db 0 ; no more level-up moves
 
 VileplumeEvosAttacks:
@@ -991,7 +983,6 @@ VileplumeEvosAttacks:
 	dbw 29, LEECH_SEED
 	dbw 35, SEED_BOMB
 	dbw 41, FAINT_ATTACK
-	dbw 47, ENERGY_BALL
 	dbw 53, PETAL_DANCE
 	dbw 65, SOLARBEAM
 	dbw 79, DARK_PULSE
@@ -1009,13 +1000,13 @@ ParasEvosAttacks:
 	dbw 22, FALSE_SWIPE
 	dbw 25, SPORE
 	dbw 28, PSYBEAM
+	dbw 30, SEED_BOMB
 	dbw 31, SLASH
 	dbw 34, X_SCISSOR
 	dbw 37, GROWTH
 	dbw 40, SCREECH
 	dbw 43, GIGA_DRAIN
 	dbw 46, COUNTER
-	dbw 52, ENERGY_BALL
 	dbw 59, FLAIL
 	dbw 65, LEECH_SEED
 	db 0 ; no more level-up moves
@@ -1031,13 +1022,13 @@ ParasectEvosAttacks:
 	dbw 22, FALSE_SWIPE
 	dbw 28, SPORE
 	dbw 32, PSYBEAM
+	dbw 34, SEED_BOMB
 	dbw 37, SLASH
 	dbw 41, X_SCISSOR
 	dbw 46, GROWTH
 	dbw 50, SCREECH
 	dbw 55, GIGA_DRAIN
 	dbw 60, COUNTER
-	dbw 64, ENERGY_BALL
 	dbw 68, FLAIL
 	dbw 72, LEECH_SEED
 	db 0 ; no more level-up moves
@@ -1447,7 +1438,7 @@ BellsproutEvosAttacks:
 	dbw 19, STUN_SPORE
 	dbw 20, SYNTHESIS
 	dbw 23, ACID
-	dbw 27, ENERGY_BALL
+	dbw 27, PETAL_DANCE
 	dbw 30, SWORDS_DANCE
 	dbw 33, SWEET_SCENT
 	dbw 37, REFLECT
@@ -1469,7 +1460,7 @@ WeepinbellEvosAttacks:
 	dbw 19, STUN_SPORE
 	dbw 20, SYNTHESIS
 	dbw 24, SLUDGE
-	dbw 28, ENERGY_BALL
+	dbw 28, PETAL_DANCE
 	dbw 32, SWORDS_DANCE
 	dbw 37, SWEET_SCENT
 	dbw 42, REFLECT
@@ -1483,10 +1474,10 @@ VictreebelEvosAttacks:
 	dbw 1, SLUDGE_BOMB
 	dbw 1, SLEEP_POWDER
 	dbw 1, SWEET_SCENT
-	dbw 1, ENERGY_BALL
-	dbw 30, ENERGY_BALL
+	dbw 1, PETAL_DANCE
+	dbw 30, PETAL_DANCE
+	dbw 40, SEED_BOMB
 	dbw 70, POISON_JAB
-	dbw 80, POWER_WHIP
 	db 0 ; no more level-up moves
 
 TentacoolEvosAttacks:
