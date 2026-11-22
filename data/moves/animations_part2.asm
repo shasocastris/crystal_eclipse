@@ -103,7 +103,6 @@ BattleAnimationsPart2::
 	anim_ptr BattleAnim_Twister
 	; DARK
 	anim_ptr BattleAnim_Crunch
-	anim_ptr BattleAnim_Bite             ; NIGHT_SLASH
 	anim_ptr BattleAnim_Bite
 	anim_ptr BattleAnim_FaintAttack
 	anim_ptr BattleAnim_Thief

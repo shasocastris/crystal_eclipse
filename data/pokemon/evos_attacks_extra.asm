@@ -92,6 +92,7 @@ HonchkrowEvosAttacks:
 	dbw 25, SWAGGER
 	dbw 33, PURSUIT
 	dbw 41, MEAN_LOOK
+	dbw 45, CRUNCH
 	dbw 49, DARK_PULSE
 	dbw 65, HYPER_BEAM
 	db 0 ; no more level-up moves

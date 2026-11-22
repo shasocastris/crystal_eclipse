@@ -271,7 +271,6 @@ MovesPart2:
 	move EFFECT_TWISTER,            40, DRAGON,        SPECIAL,  100, 20,  20      ;TWISTER
 	; DARK
 	move EFFECT_SP_DEF_DOWN_HIT,    80, DARK,          PHYSICAL, 100, 15,  20      ;CRUNCH
-	move EFFECT_NORMAL_HIT,         70, DARK,          PHYSICAL, 100, 15,   0      ;NIGHT_SLASH, unreferenced
 	move EFFECT_FLINCH_HIT,         60, DARK,          PHYSICAL, 100, 25,  30      ;BITE
 	move EFFECT_ALWAYS_HIT,         60, DARK,          PHYSICAL, 100, 20,   0      ;FAINT_ATTACK
 	move EFFECT_THIEF,              40, DARK,          PHYSICAL, 100, 10, 100      ;THIEF

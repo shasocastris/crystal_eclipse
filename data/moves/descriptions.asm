@@ -251,7 +251,6 @@ MoveDescriptionsPart2:
 	dw TwisterDescription
 	; DARK
 	dw CrunchDescription
-	dw NightSlashDescription
 	dw BiteDescription
 	dw FaintAttackDescription
 	dw ThiefDescription
@@ -1264,10 +1263,6 @@ BugBuzzDescription:
 DarkPulseDescription:
 	db   "A dark pulse that"
 	line "may cause flinching.@"
-
-NightSlashDescription:
-	db   "Slashes when the"
-	line "foe lets its guard down.@"
 
 AuraSphereDescription:
 	db   "Strikes first and"

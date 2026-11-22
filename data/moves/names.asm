@@ -242,7 +242,6 @@ MoveNames::
 	li "TWISTER"
 	; DARK
 	li "CRUNCH"
-	li "NIGHT SLASH"
 	li "BITE"
 	li "FAINT ATTACK"
 	li "THIEF"

@@ -250,34 +250,33 @@ DEF MOVE_TABLE_SPLIT EQU const_value - 1 ; last move in the first part of each m
 	const TWISTER        ; df
 	; DARK
 	const CRUNCH         ; e0
-	const NIGHT_SLASH    ; e1
-	const BITE           ; e2
-	const FAINT_ATTACK   ; e3
-	const THIEF          ; e4
-	const PURSUIT        ; e5
-	const DARK_PULSE     ; e6
+	const BITE           ; e1
+	const FAINT_ATTACK   ; e2
+	const THIEF          ; e3
+	const PURSUIT        ; e4
+	const DARK_PULSE     ; e5
 	; FAIRY
-	const PLAY_ROUGH     ; e7
-	const MEGA_PUNCH     ; e8
-	const COMET_PUNCH    ; e9
-	const MOONBLAST      ; ea
-	const DAZZLING_GLEAM ; eb
-	const DRAIN_KISS     ; ec
-	const DISARM_VOICE   ; ed
-	const SWEET_KISS     ; ee
-	const CHARM          ; ef
-	const MOONLIGHT      ; f0
+	const PLAY_ROUGH     ; e6
+	const MEGA_PUNCH     ; e7
+	const COMET_PUNCH    ; e8
+	const MOONBLAST      ; e9
+	const DAZZLING_GLEAM ; ea
+	const DRAIN_KISS     ; eb
+	const DISARM_VOICE   ; ec
+	const SWEET_KISS     ; ed
+	const CHARM          ; ee
+	const MOONLIGHT      ; ef
 	; UBER
-	const AURA_SPHERE    ; f1
-	const SKY_ATTACK     ; f2
-	const ERUPTION       ; f3
-	const SACRED_FIRE    ; f4
-	const LIFE_DEW       ; f5
-	const STORM_CALL     ; f6
-	const INNER_LIGHT    ; f7
-	const SHEER_COLD     ; f8
-	const AEROBLAST      ; f9
-	const FAE_BLADE      ; fa
+	const AURA_SPHERE    ; f0
+	const SKY_ATTACK     ; f1
+	const ERUPTION       ; f2
+	const SACRED_FIRE    ; f3
+	const LIFE_DEW       ; f4
+	const STORM_CALL     ; f5
+	const INNER_LIGHT    ; f6
+	const SHEER_COLD     ; f7
+	const AEROBLAST      ; f8
+	const FAE_BLADE      ; f9
 DEF NUM_ATTACKS EQU const_value - 1
 
 DEF CANNOT_MOVE EQU $ff
