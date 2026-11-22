@@ -347,7 +347,6 @@ HoothootEvosAttacks:
 	dbw 35, AIR_SLASH
 	dbw 38, MIRROR_MOVE
 	dbw 41, TAKE_DOWN
-	dbw 44, HYPER_VOICE
 	dbw 47, DRILL_PECK
 	dbw 50, DREAM_EATER
 	db 0 ; no more level-up moves
@@ -369,7 +368,6 @@ NoctowlEvosAttacks:
 	dbw 41, AIR_SLASH
 	dbw 45, MIRROR_MOVE
 	dbw 49, TAKE_DOWN
-	dbw 53, HYPER_VOICE
 	dbw 58, DRILL_PECK
 	dbw 63, DREAM_EATER
 	db 0 ; no more level-up moves
@@ -769,7 +767,6 @@ PolitoedEvosAttacks:
 	dbw 35, BODY_SLAM
 	dbw 39, AQUA_JET
 	dbw 45, PERISH_SONG
-	dbw 51, HYPER_VOICE
 	dbw 57, SWAGGER
 	dbw 66, HYDRO_PUMP
 	dbw 75, RAIN_DANCE
@@ -1260,7 +1257,7 @@ HeracrossEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, SCRATCH
 	dbw 1, LEER
-	dbw 6, HORN_ATTACK
+	dbw 6, HEADBUTT
 	dbw 12, ENDURE
 	dbw 15, FURY_STRIKES
 	dbw 19, HARDEN
@@ -1363,7 +1360,7 @@ MagcargoEvosAttacks:
 SwinubEvosAttacks:
 	dbbw EVOLVE_LEVEL, 33, PILOSWINE
 	db 0 ; no more evolutions
-	dbw 1, HORN_ATTACK
+	dbw 1, HEADBUTT
 	dbw 10, POWDER_SNOW
 	dbw 14, ANCIENTPOWER
 	dbw 19, ENDURE
@@ -1382,7 +1379,7 @@ PiloswineEvosAttacks:
 	dbww EVOLVE_ITEM, WATER_STONE, MAMOSWINE
 	db 0 ; no more evolutions
 	dbw LEARN_EVO_MOVE, ICY_WIND
-	dbw 1, HORN_ATTACK
+	dbw 1, HEADBUTT
 	dbw 10, POWDER_SNOW
 	dbw 14, ANCIENTPOWER
 	dbw 19, ENDURE
@@ -1579,7 +1576,7 @@ DonphanEvosAttacks:
 	dbw 13, WATER_GUN
 	dbw 17, FLAIL
 	dbw 21, FOCUS_ENERGY
-	dbw 28, HORN_ATTACK
+	dbw 28, HEADBUTT
 	dbw 33, ROLLOUT
 	dbw 37, BODY_SLAM
 	dbw 41, RAPID_SPIN

@@ -12,7 +12,6 @@ BattleAnimationsPart1::
 	anim_ptr BattleAnim_Headbutt
 	anim_ptr BattleAnim_Slash
 	anim_ptr BattleAnim_Stomp
-	anim_ptr BattleAnim_HornAttack
 	anim_ptr BattleAnim_PayDay
 	anim_ptr BattleAnim_Scratch
 	anim_ptr BattleAnim_QuickAttack
@@ -26,7 +25,6 @@ BattleAnimationsPart1::
 	anim_ptr BattleAnim_Return
 	anim_ptr BattleAnim_Present
 	anim_ptr BattleAnim_HyperBeam
-	anim_ptr BattleAnim_Supersonic       ; HYPER_VOICE
 	anim_ptr BattleAnim_TriAttack
 	anim_ptr BattleAnim_HiddenPower
 	anim_ptr BattleAnim_Swift
@@ -112,6 +110,7 @@ BattleAnimationsPart1::
 	; POISON
 	anim_ptr BattleAnim_SludgeBomb       ; GUNK_SHOT
 	anim_ptr BattleAnim_Acid             ; POISON_JAB
+	anim_ptr BattleAnim_HornAttack
 	anim_ptr BattleAnim_PoisonSting
 	anim_ptr BattleAnim_SludgeBomb
 	anim_ptr BattleAnim_Sludge

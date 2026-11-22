@@ -12,7 +12,6 @@ MoveNames::
 	li "HEADBUTT"
 	li "SLASH"
 	li "STOMP"
-	li "HORN ATTACK"
 	li "PAY DAY"
 	li "SCRATCH"
 	li "QUICK ATTACK"
@@ -26,7 +25,6 @@ MoveNames::
 	li "RETURN"
 	li "PRESENT"
 	li "HYPER BEAM"
-	li "HYPER VOICE"
 	li "TRI ATTACK"
 	li "HIDDEN POWER"
 	li "SWIFT"
@@ -112,6 +110,7 @@ MoveNames::
 	; POISON
 	li "GUNK SHOT"
 	li "POISON JAB"
+	li "HORN ATTACK"
 	li "POISON STING"
 	li "SLUDGE BOMB"
 	li "SLUDGE"

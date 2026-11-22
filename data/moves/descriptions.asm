@@ -18,7 +18,6 @@ MoveDescriptionsPart1:
 	dw HeadbuttDescription
 	dw SlashDescription
 	dw StompDescription
-	dw HornAttackDescription
 	dw PayDayDescription
 	dw ScratchDescription
 	dw QuickAttackDescription
@@ -32,7 +31,6 @@ MoveDescriptionsPart1:
 	dw ReturnDescription
 	dw PresentDescription
 	dw HyperBeamDescription
-	dw HyperVoiceDescription
 	dw TriAttackDescription
 	dw HiddenPowerDescription
 	dw SwiftDescription
@@ -118,6 +116,7 @@ MoveDescriptionsPart1:
 	; POISON
 	dw GunkShotDescription
 	dw PoisonJabDescription
+	dw HornAttackDescription
 	dw PoisonStingDescription
 	dw SludgeBombDescription
 	dw SludgeDescription
@@ -399,8 +398,8 @@ HeadbuttDescription:
 	line "make foe flinch.@"
 
 HornAttackDescription:
-	db   "An attack using a"
-	line "horn to jab.@"
+	db   "Jabs with a toxic"
+	line "horn. May poison.@"
 
 
 
@@ -1379,10 +1378,6 @@ GunkShotDescription:
 PoisonJabDescription:
 	db   "A poisonous jab"
 	line "that may poison.@"
-
-HyperVoiceDescription:
-	db   "A loud, echoing"
-	line "voice attack.@"
 
 HurricaneDescription:
 	db   "Whips up a storm"

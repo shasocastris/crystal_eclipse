@@ -726,7 +726,6 @@ NidoranFEvosAttacks:
 	dbw 30, BITE
 	dbw 34, POISON_JAB
 	dbw 38, FURY_STRIKES
-	dbw 43, HYPER_VOICE
 	dbw 48, FAINT_ATTACK
 	dbw 54, COUNTER
 	db 0 ; no more level-up moves
@@ -747,7 +746,6 @@ NidorinaEvosAttacks:
 	dbw 36, BITE
 	dbw 41, POISON_JAB
 	dbw 46, FURY_STRIKES
-	dbw 51, HYPER_VOICE
 	dbw 57, FAINT_ATTACK
 	dbw 63, COUNTER
 	db 0 ; no more level-up moves
@@ -760,7 +758,6 @@ NidoqueenEvosAttacks:
 	dbw 23, BODY_SLAM
 	dbw 33, POISON_JAB
 	dbw 43, EARTHQUAKE
-	dbw 53, HYPER_VOICE
 	dbw 63, SLUDGE_BOMB
 	dbw 73, CRUNCH
 	dbw 83, EARTH_POWER
@@ -846,7 +843,6 @@ ClefairyEvosAttacks:
 	dbw 48, MOONLIGHT
 	dbw 53, DAZZLING_GLEAM
 	dbw 59, LIGHT_SCREEN
-	dbw 66, HYPER_VOICE
 	db 0 ; no more level-up moves
 
 ClefableEvosAttacks:
@@ -903,7 +899,6 @@ JigglypuffEvosAttacks:
 	dbw 32, PRESENT
 	dbw 36, BODY_SLAM
 	dbw 40, PLAY_ROUGH
-	dbw 45, HYPER_VOICE
 	dbw 51, DAZZLING_GLEAM
 	db 0 ; no more level-up moves
 
@@ -1790,7 +1785,6 @@ DodrioEvosAttacks:
 	dbw 55, AGILITY
 	dbw 61, FLAIL
 	dbw 68, BRAVE_BIRD
-	dbw 80, HYPER_VOICE
 	db 0 ; no more level-up moves
 
 SeelEvosAttacks:
@@ -2262,7 +2256,7 @@ WeezingEvosAttacks:
 RhyhornEvosAttacks:
 	dbbw EVOLVE_LEVEL, 42, RHYDON
 	db 0 ; no more evolutions
-	dbw 1, HORN_ATTACK
+	dbw 1, HEADBUTT
 	dbw 1, LEER
 	dbw 8, PURSUIT
 	dbw 13, STOMP
@@ -2282,7 +2276,7 @@ RhyhornEvosAttacks:
 RhydonEvosAttacks:
 	dbww EVOLVE_ITEM, PROTECTOR, RHYPERIOR
 	db 0 ; no more evolutions
-	dbw 1, HORN_ATTACK
+	dbw 1, HEADBUTT
 	dbw 1, LEER
 	dbw 8, PURSUIT
 	dbw 13, STOMP
@@ -2396,7 +2390,7 @@ GoldeenEvosAttacks:
 	dbw 1, LEER
 	dbw 10, SUPERSONIC
 	dbw 12, WATER_GUN
-	dbw 15, HORN_ATTACK
+	dbw 15, HEADBUTT
 	dbw 19, PSYBEAM
 	dbw 24, FLAIL
 	dbw 27, HAZE
@@ -2413,7 +2407,7 @@ SeakingEvosAttacks:
 	dbw 1, LEER
 	dbw 10, SUPERSONIC
 	dbw 12, WATER_GUN
-	dbw 15, HORN_ATTACK
+	dbw 15, HEADBUTT
 	dbw 19, PSYBEAM
 	dbw 24, FLAIL
 	dbw 27, HAZE
@@ -2568,10 +2562,9 @@ TaurosEvosAttacks:
 	dbw 1, SCRATCH
 	dbw 3, LEER
 	dbw 5, RAGE
-	dbw 8, HORN_ATTACK
+	dbw 8, HEADBUTT
 	dbw 11, SCARY_FACE
 	dbw 14, QUICK_ATTACK
-	dbw 17, HEADBUTT
 	dbw 21, REST
 	dbw 25, PURSUIT
 	dbw 29, SWAGGER

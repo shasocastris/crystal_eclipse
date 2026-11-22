@@ -35,7 +35,6 @@ MovesPart1:
 	move EFFECT_FLINCH_HIT,         70, NORMAL,        PHYSICAL, 100, 15,  30      ;HEADBUTT
 	move EFFECT_NORMAL_HIT,         70, NORMAL,        PHYSICAL, 100, 20,   0      ;SLASH
 	move EFFECT_STOMP,              65, NORMAL,        PHYSICAL, 100, 20,  30      ;STOMP
-	move EFFECT_NORMAL_HIT,         65, NORMAL,        PHYSICAL, 100, 25,   0      ;HORN_ATTACK
 	move EFFECT_PAY_DAY,            40, NORMAL,        PHYSICAL, 100, 20,   0      ;PAY_DAY
 	move EFFECT_NORMAL_HIT,         40, NORMAL,        PHYSICAL, 100, 35,   0      ;SCRATCH
 	move EFFECT_PRIORITY_HIT,       40, NORMAL,        PHYSICAL, 100, 30,   0      ;QUICK_ATTACK
@@ -49,7 +48,6 @@ MovesPart1:
 	move EFFECT_RETURN,              1, NORMAL,        PHYSICAL, 100, 20,   0      ;RETURN
 	move EFFECT_PRESENT,             1, NORMAL,        PHYSICAL,  90, 15,   0      ;PRESENT
 	move EFFECT_HYPER_BEAM,        150, NORMAL,        SPECIAL,   90,  5,   0      ;HYPER_BEAM
-	move EFFECT_NORMAL_HIT,         90, NORMAL,        SPECIAL,  100, 10,   0      ;HYPER_VOICE
 	move EFFECT_TRI_ATTACK,         80, NORMAL,        SPECIAL,  100, 10,  20      ;TRI_ATTACK
 	move EFFECT_HIDDEN_POWER,       70, NORMAL,        SPECIAL,  100, 15,   0      ;HIDDEN_POWER
 	move EFFECT_ALWAYS_HIT,         60, NORMAL,        SPECIAL,  100, 20,   0      ;SWIFT
@@ -135,6 +133,7 @@ MovesPart1:
 	; POISON
 	move EFFECT_POISON_HIT,        120, POISON,        PHYSICAL,  80,  5,  30      ;GUNK_SHOT
 	move EFFECT_POISON_HIT,         80, POISON,        PHYSICAL, 100, 20,  30      ;POISON_JAB
+	move EFFECT_POISON_HIT,         65, POISON,        PHYSICAL, 100, 25,  20      ;HORN_ATTACK
 	move EFFECT_POISON_HIT,         30, POISON,        PHYSICAL, 100, 35,  30      ;POISON_STING
 	move EFFECT_POISON_HIT,         90, POISON,        SPECIAL,  100, 10,  30      ;SLUDGE_BOMB
 	move EFFECT_POISON_HIT,         65, POISON,        SPECIAL,  100, 20,  30      ;SLUDGE

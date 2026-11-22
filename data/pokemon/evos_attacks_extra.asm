@@ -133,7 +133,7 @@ LickilickyEvosAttacks:
 
 MamoswineEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, HORN_ATTACK
+	dbw 1, HEADBUTT
 	dbw 1, POWDER_SNOW
 	dbw 10, MIST
 	dbw 20, ICY_WIND
@@ -163,7 +163,7 @@ MismagiusEvosAttacks:
 
 RhyperiorEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, HORN_ATTACK
+	dbw 1, HEADBUTT
 	dbw 1, LEER
 	dbw 9, STOMP
 	dbw 17, FURY_STRIKES
