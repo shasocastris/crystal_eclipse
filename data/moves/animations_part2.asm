@@ -58,7 +58,6 @@ BattleAnimationsPart2::
 	anim_ptr BattleAnim_Spore
 	anim_ptr BattleAnim_Synthesis
 	; ELECTRIC
-	anim_ptr BattleAnim_Spark            ; WILD_CHARGE
 	anim_ptr BattleAnim_Thunderpunch
 	anim_ptr BattleAnim_Spark
 	anim_ptr BattleAnim_Thunder

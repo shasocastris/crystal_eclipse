@@ -42,7 +42,6 @@ ElectivireEvosAttacks:
 	dbw 41, THUNDERBOLT
 	dbw 49, CROSS_CHOP
 	dbw 57, THUNDER
-	dbw 65, WILD_CHARGE
 	db 0 ; no more level-up moves
 
 MagmortarEvosAttacks:
@@ -264,7 +263,6 @@ MagnezoneEvosAttacks:
 	dbw 40, FLASH_CANNON
 	dbw 48, THUNDER
 	dbw 55, FLASH
-	dbw 70, WILD_CHARGE
 	dbw 80, HYPER_BEAM
 	db 0 ; no more level-up moves
 

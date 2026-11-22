@@ -206,7 +206,6 @@ MoveDescriptionsPart2:
 	dw SporeDescription
 	dw SynthesisDescription
 	; ELECTRIC
-	dw WildChargeDescription
 	dw ThunderpunchDescription
 	dw SparkDescription
 	dw ThunderDescription
@@ -1251,10 +1250,6 @@ IceShardDescription:
 IcicleCrashDescription:
 	db   "Drops icicles on"
 	line "foe. May cause flinch.@"
-
-WildChargeDescription:
-	db   "A wild electric"
-	line "tackle. Damages user.@"
 
 SeedBombDescription:
 	db   "Explodes a barrage"

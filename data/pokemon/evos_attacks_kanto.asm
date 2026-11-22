@@ -635,7 +635,6 @@ PikachuEvosAttacks:
 	dbw 20, SLAM
 	dbw 23, REVERSAL
 	dbw 26, THUNDERBOLT
-	dbw 30, WILD_CHARGE
 	dbw 34, IRON_TAIL
 	dbw 38, AGILITY
 	dbw 42, SPARK
@@ -1255,7 +1254,6 @@ GrowlitheEvosAttacks:
 	dbw 42, AGILITY
 	dbw 46, THRASH
 	dbw 50, FLAMETHROWER
-	dbw 58, WILD_CHARGE
 	db 0 ; no more level-up moves
 
 ArcanineEvosAttacks:
@@ -1269,7 +1267,6 @@ ArcanineEvosAttacks:
 	dbw 50, EXTREMESPEED
 	dbw 55, FLARE_BLITZ
 	dbw 60, OUTRAGE
-	dbw 70, WILD_CHARGE
 	dbw 80, IRON_HEAD
 	db 0 ; no more level-up moves
 
@@ -1604,7 +1601,6 @@ RapidashEvosAttacks:
 	dbw 58, FLARE_BLITZ
 	dbw 62, THRASH
 	dbw 68, FIRE_BLAST
-	dbw 75, WILD_CHARGE
 	db 0 ; no more level-up moves
 
 SlowpokeEvosAttacks:

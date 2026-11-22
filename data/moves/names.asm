@@ -197,7 +197,6 @@ MoveNames::
 	li "SPORE"
 	li "SYNTHESIS"
 	; ELECTRIC
-	li "WILD CHARGE"
 	li "THUNDERPUNCH"
 	li "SPARK"
 	li "THUNDER"

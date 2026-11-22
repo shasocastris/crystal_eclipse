@@ -226,7 +226,6 @@ MovesPart2:
 	move EFFECT_SLEEP,               0, GRASS,         STATUS,   100, 15,   0      ;SPORE
 	move EFFECT_SYNTHESIS,           0, GRASS,         STATUS,   100,  5,   0      ;SYNTHESIS
 	; ELECTRIC
-	move EFFECT_RECOIL_HIT,         90, ELECTRIC,      PHYSICAL, 100, 15,   0      ;WILD_CHARGE
 	move EFFECT_PARALYZE_HIT,       75, ELECTRIC,      PHYSICAL, 100, 15,  10      ;THUNDERPUNCH
 	move EFFECT_PARALYZE_HIT,       65, ELECTRIC,      PHYSICAL, 100, 20,  30      ;SPARK
 	move EFFECT_THUNDER,           120, ELECTRIC,      SPECIAL,   70, 10,  30      ;THUNDER
