@@ -104,7 +104,6 @@ MoveNames::
 	li "RAZOR WIND"
 	li "MIRROR MOVE"
 	; POISON
-	li "GUNK SHOT"
 	li "POISON JAB"
 	li "HORN ATTACK"
 	li "POISON STING"

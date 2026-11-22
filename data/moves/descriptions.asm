@@ -110,7 +110,6 @@ MoveDescriptionsPart1:
 	dw RazorWindDescription
 	dw MirrorMoveDescription
 	; POISON
-	dw GunkShotDescription
 	dw PoisonJabDescription
 	dw HornAttackDescription
 	dw PoisonStingDescription
@@ -1350,10 +1349,6 @@ ZenHeadbuttDescription:
 ExtrasensoryDescription:
 	db   "Attacks with a"
 	line "powerful 6th sense.@"
-
-GunkShotDescription:
-	db   "Shoots filthy junk"
-	line "at the foe.@"
 
 PoisonJabDescription:
 	db   "A poisonous jab"

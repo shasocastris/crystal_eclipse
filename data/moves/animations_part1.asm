@@ -104,7 +104,6 @@ BattleAnimationsPart1::
 	anim_ptr BattleAnim_RazorWind
 	anim_ptr BattleAnim_MirrorMove
 	; POISON
-	anim_ptr BattleAnim_SludgeBomb       ; GUNK_SHOT
 	anim_ptr BattleAnim_Acid             ; POISON_JAB
 	anim_ptr BattleAnim_HornAttack
 	anim_ptr BattleAnim_PoisonSting

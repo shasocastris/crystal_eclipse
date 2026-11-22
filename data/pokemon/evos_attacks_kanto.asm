@@ -620,7 +620,6 @@ ArbokEvosAttacks:
 	dbw 47, FAINT_ATTACK
 	dbw 51, POISON_JAB
 	dbw 57, HAZE
-	dbw 65, GUNK_SHOT
 	db 0 ; no more level-up moves
 
 PikachuEvosAttacks:
@@ -1496,7 +1495,7 @@ VictreebelEvosAttacks:
 	dbw 1, SWEET_SCENT
 	dbw 1, ENERGY_BALL
 	dbw 30, ENERGY_BALL
-	dbw 70, GUNK_SHOT
+	dbw 70, POISON_JAB
 	dbw 80, POWER_WHIP
 	db 0 ; no more level-up moves
 
@@ -1540,7 +1539,6 @@ TentacruelEvosAttacks:
 	dbw 52, POISON_JAB
 	dbw 57, SCREECH
 	dbw 64, HYDRO_PUMP
-	dbw 70, GUNK_SHOT
 	db 0 ; no more level-up moves
 
 GeodudeEvosAttacks:
@@ -1848,7 +1846,6 @@ MukEvosAttacks:
 	dbw 51, DARK_PULSE
 	dbw 58, CRUNCH
 	dbw 65, SLUDGE_BOMB
-	dbw 80, GUNK_SHOT
 	db 0 ; no more level-up moves
 
 ShellderEvosAttacks:

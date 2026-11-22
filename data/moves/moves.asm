@@ -127,7 +127,6 @@ MovesPart1:
 	move EFFECT_TRAP_TARGET,        15, FLYING,        SPECIAL,  100, 20,   0      ;RAZOR_WIND
 	move EFFECT_MIRROR_MOVE,         0, FLYING,        STATUS,   100, 20,   0      ;MIRROR_MOVE
 	; POISON
-	move EFFECT_POISON_HIT,        120, POISON,        PHYSICAL,  80,  5,  30      ;GUNK_SHOT
 	move EFFECT_POISON_HIT,         80, POISON,        PHYSICAL, 100, 20,  30      ;POISON_JAB
 	move EFFECT_POISON_HIT,         65, POISON,        PHYSICAL, 100, 25,  20      ;HORN_ATTACK
 	move EFFECT_POISON_HIT,         30, POISON,        PHYSICAL, 100, 35,  30      ;POISON_STING
