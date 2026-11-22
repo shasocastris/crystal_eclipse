@@ -2153,3 +2153,26 @@ FaeBlade:
 	buildopponentrage
 	faeblade
 	endmove
+
+FlareBlitz:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	recoil
+	checkfaint
+	buildopponentrage
+	burntarget
+	kingsrock
+	endmove

@@ -190,6 +190,7 @@ MovesPart2:
 	; CURSE_TYPE
 	move EFFECT_CURSE,               0, CURSE_TYPE,    STATUS,   100, 10,   0      ;CURSE
 	; FIRE
+	move EFFECT_FLARE_BLITZ,       120, FIRE,          PHYSICAL, 100, 15,  10      ;FLARE_BLITZ
 	move EFFECT_BURN_HIT,           75, FIRE,          PHYSICAL, 100, 15,  10      ;FIRE_PUNCH
 	move EFFECT_FLAME_WHEEL,        60, FIRE,          PHYSICAL, 100, 25,  10      ;FLAME_WHEEL
 	move EFFECT_BURN_HIT,          120, FIRE,          SPECIAL,   85,  5,  10      ;FIRE_BLAST

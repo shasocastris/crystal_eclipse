@@ -161,6 +161,7 @@ MoveNames::
 	; CURSE_TYPE
 	li "CURSE"
 	; FIRE
+	li "FLARE BLITZ"
 	li "FIRE PUNCH"
 	li "FLAME WHEEL"
 	li "FIRE BLAST"

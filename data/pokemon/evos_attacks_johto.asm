@@ -1770,6 +1770,7 @@ EnteiEvosAttacks:
 	dbw 31, FIRE_SPIN
 	dbw 41, FLAMETHROWER
 	dbw 51, WILL_O_WISP
+	dbw 56, FLARE_BLITZ
 	dbw 61, SWAGGER
 	dbw 71, FIRE_BLAST
 	dbw 81, SOLARBEAM

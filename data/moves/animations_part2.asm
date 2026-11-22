@@ -22,6 +22,7 @@ BattleAnimationsPart2::
 	; CURSE_TYPE
 	anim_ptr BattleAnim_Curse
 	; FIRE
+	anim_ptr BattleAnim_FlameWheel       ; FLARE_BLITZ
 	anim_ptr BattleAnim_FirePunch
 	anim_ptr BattleAnim_FlameWheel
 	anim_ptr BattleAnim_FireBlast

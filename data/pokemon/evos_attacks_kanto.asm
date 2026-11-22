@@ -1276,6 +1276,7 @@ ArcanineEvosAttacks:
 	dbw 30, CRUNCH
 	dbw 40, FLAME_WHEEL
 	dbw 50, EXTREMESPEED
+	dbw 55, FLARE_BLITZ
 	dbw 60, OUTRAGE
 	dbw 70, WILD_CHARGE
 	dbw 80, IRON_HEAD
@@ -1617,6 +1618,7 @@ RapidashEvosAttacks:
 	dbw 45, CHARM
 	dbw 50, AGILITY
 	dbw 56, ZEN_HEADBUTT
+	dbw 58, FLARE_BLITZ
 	dbw 62, THRASH
 	dbw 68, FIRE_BLAST
 	dbw 75, WILD_CHARGE
@@ -2675,6 +2677,7 @@ FlareonEvosAttacks:
 	dbw 36, FIRE_SPIN
 	dbw 39, THIEF
 	dbw 42, WILL_O_WISP
+	dbw 45, FLARE_BLITZ
 	dbw 47, DOUBLE_KICK
 	dbw 52, FIRE_BLAST
 	db 0 ; no more level-up moves

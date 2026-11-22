@@ -170,6 +170,7 @@ MoveDescriptionsPart2:
 	; CURSE_TYPE
 	dw CurseDescription
 	; FIRE
+	dw FlareBlitzDescription
 	dw FirePunchDescription
 	dw FlameWheelDescription
 	dw FireBlastDescription
@@ -740,6 +741,10 @@ SludgeDescription:
 BoneClubDescription:
 	db   "An attack that may"
 	line "cause flinching.@"
+
+FlareBlitzDescription:
+	db   "May burn the foe."
+	line "Also hurts user.@"
 
 FireBlastDescription:
 	db   "An attack that"
