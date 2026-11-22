@@ -1001,7 +1001,6 @@ SlowkingEvosAttacks:
 	dbw 32, HEADBUTT
 	dbw 35, BELLY_DRUM
 	dbw 43, SWAGGER
-	dbw 48, ZEN_HEADBUTT
 	dbw 53, AMNESIA
 	dbw 58, DAZZLING_GLEAM
 	dbw 62, PSYCHIC_M

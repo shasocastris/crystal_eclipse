@@ -1163,7 +1163,6 @@ PsyduckEvosAttacks:
 	dbw 31, PSYCH_UP
 	dbw 36, ICE_BEAM
 	dbw 40, FURY_STRIKES
-	dbw 44, ZEN_HEADBUTT
 	dbw 48, CROSS_CHOP
 	dbw 52, HYDRO_PUMP
 	dbw 56, FUTURE_SIGHT
@@ -1185,7 +1184,6 @@ GolduckEvosAttacks:
 	dbw 31, PSYCH_UP
 	dbw 38, ICE_BEAM
 	dbw 44, FURY_STRIKES
-	dbw 50, ZEN_HEADBUTT
 	dbw 56, CROSS_CHOP
 	dbw 62, HYDRO_PUMP
 	dbw 67, FUTURE_SIGHT
@@ -1575,7 +1573,6 @@ PonytaEvosAttacks:
 	dbw 39, TAKE_DOWN
 	dbw 42, CHARM
 	dbw 47, AGILITY
-	dbw 53, ZEN_HEADBUTT
 	dbw 59, THRASH
 	dbw 67, FIRE_BLAST
 	db 0 ; no more level-up moves
@@ -1597,7 +1594,6 @@ RapidashEvosAttacks:
 	dbw 39, TAKE_DOWN
 	dbw 45, CHARM
 	dbw 50, AGILITY
-	dbw 56, ZEN_HEADBUTT
 	dbw 58, FLARE_BLITZ
 	dbw 62, THRASH
 	dbw 68, FIRE_BLAST
@@ -1619,7 +1615,6 @@ SlowpokeEvosAttacks:
 	dbw 32, BELLY_DRUM
 	dbw 34, HEADBUTT
 	dbw 43, AMNESIA
-	dbw 48, ZEN_HEADBUTT
 	dbw 53, PSYCHIC_M
 	db 0 ; no more level-up moves
 
@@ -1638,7 +1633,6 @@ SlowbroEvosAttacks:
 	dbw 32, BELLY_DRUM
 	dbw 34, HEADBUTT
 	dbw 46, AMNESIA
-	dbw 53, ZEN_HEADBUTT
 	dbw 60, PSYCHIC_M
 	dbw 70, HYDRO_PUMP
 	db 0 ; no more level-up moves

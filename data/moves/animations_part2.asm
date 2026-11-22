@@ -66,10 +66,8 @@ BattleAnimationsPart2::
 	anim_ptr BattleAnim_Thundershock
 	anim_ptr BattleAnim_ThunderWave
 	; PSYCHIC_TYPE
-	anim_ptr BattleAnim_Headbutt         ; ZEN_HEADBUTT
 	anim_ptr BattleAnim_PsychicM
 	anim_ptr BattleAnim_FutureSight
-	anim_ptr BattleAnim_HiddenPower      ; EXTRASENSORY
 	anim_ptr BattleAnim_Psybeam
 	anim_ptr BattleAnim_Confusion
 	anim_ptr BattleAnim_Psywave

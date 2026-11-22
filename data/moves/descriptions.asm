@@ -214,10 +214,8 @@ MoveDescriptionsPart2:
 	dw ThundershockDescription
 	dw ThunderWaveDescription
 	; PSYCHIC_TYPE
-	dw ZenHeadbuttDescription
 	dw PsychicMDescription
 	dw FutureSightDescription
-	dw ExtrasensoryDescription
 	dw PsybeamDescription
 	dw ConfusionDescription
 	dw PsywaveDescription
@@ -1286,14 +1284,6 @@ DisarmVoiceDescription:
 DrainKissDescription:
 	db   "A kiss that drains"
 	line "the foe's HP.@"
-
-ZenHeadbuttDescription:
-	db   "A focused headbutt."
-	line "May cause flinching.@"
-
-ExtrasensoryDescription:
-	db   "Attacks with a"
-	line "powerful 6th sense.@"
 
 PoisonJabDescription:
 	db   "A poisonous jab"
