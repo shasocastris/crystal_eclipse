@@ -149,7 +149,6 @@ MismagiusEvosAttacks:
 	dbw 21, MEAN_LOOK
 	dbw 27, SHADOW_BALL
 	dbw 33, SCREECH
-	dbw 39, DAZZLING_GLEAM
 	dbw 45, PERISH_SONG
 	dbw 49, DARK_PULSE
 	dbw 53, DESTINY_BOND
@@ -178,7 +177,6 @@ SylveonEvosAttacks:
 	dbw 25, QUICK_ATTACK
 	dbw 33, PSYCH_UP
 	dbw 41, PSYCHIC_M
-	dbw 44, DAZZLING_GLEAM
 	dbw 49, BARRIER
 	dbw 57, MOONBLAST
 	db 0 ; no more level-up moves
@@ -192,7 +190,6 @@ TogekissEvosAttacks:
 	dbw 23, SAFEGUARD
 	dbw 30, ANCIENTPOWER
 	dbw 37, AIR_SLASH
-	dbw 44, DAZZLING_GLEAM
 	dbw 51, EXTREMESPEED
 	dbw 55, MOONBLAST
 	dbw 60, HYPER_BEAM

@@ -277,12 +277,9 @@ MovesPart2:
 	move EFFECT_PURSUIT,            40, DARK,          PHYSICAL, 100, 20,   0      ;PURSUIT
 	move EFFECT_FLINCH_HIT,         80, DARK,          SPECIAL,  100, 15,  20      ;DARK_PULSE
 	; FAIRY
-	move EFFECT_ATTACK_DOWN_HIT,    90, FAIRY,         PHYSICAL,  90, 10,  10      ;PLAY_ROUGH
 	move EFFECT_NORMAL_HIT,         80, FAIRY,         PHYSICAL,  85, 20,   0      ;MEGA_PUNCH
 	move EFFECT_MULTI_HIT,          18, FAIRY,         PHYSICAL,  85, 15,   0      ;COMET_PUNCH
 	move EFFECT_SP_ATK_DOWN_HIT,    95, FAIRY,         SPECIAL,  100, 15,  30      ;MOONBLAST
-	move EFFECT_NORMAL_HIT,         80, FAIRY,         SPECIAL,  100, 10,   0      ;DAZZLING_GLEAM
-	move EFFECT_LEECH_HIT,          50, FAIRY,         SPECIAL,  100, 10,   0      ;DRAIN_KISS, unreferenced
 	move EFFECT_ALWAYS_HIT,         40, FAIRY,         SPECIAL,  100, 15,   0      ;DISARM_VOICE
 	move EFFECT_CONFUSE,             0, FAIRY,         STATUS,    75, 10,   0      ;SWEET_KISS
 	move EFFECT_ATTACK_DOWN_2,       0, FAIRY,         STATUS,   100, 20,   0      ;CHARM

@@ -257,12 +257,9 @@ MoveDescriptionsPart2:
 	dw PursuitDescription
 	dw DarkPulseDescription
 	; FAIRY
-	dw PlayRoughDescription
 	dw MegaPunchDescription
 	dw CometPunchDescription
 	dw MoonblastDescription
-	dw DazzlingGleamDescription
-	dw DrainKissDescription
 	dw DisarmVoiceDescription
 	dw SweetKissDescription
 	dw CharmDescription
@@ -1196,10 +1193,6 @@ MoonblastDescription:
 	db   "An attack that may"
 	line "lower SPCL.ATK.@"
 
-PlayRoughDescription:
-	db   "An attack that may"
-	line "lower ATTACK.@"
-
 WillOWispDescription:
 	db   "A move that will"
 	line "burn the foe."
@@ -1268,17 +1261,9 @@ AuraSphereDescription:
 	db   "Strikes first and"
 	line "never misses.@"
 
-DazzlingGleamDescription:
-	db   "Attacks with a"
-	line "dazzling gleam.@"
-
 DisarmVoiceDescription:
 	db   "An attack that"
 	line "never misses.@"
-
-DrainKissDescription:
-	db   "A kiss that drains"
-	line "the foe's HP.@"
 
 PoisonJabDescription:
 	db   "A poisonous jab"

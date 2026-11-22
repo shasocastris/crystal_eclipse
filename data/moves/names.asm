@@ -248,12 +248,9 @@ MoveNames::
 	li "PURSUIT"
 	li "DARK PULSE"
 	; FAIRY
-	li "PLAY ROUGH"
 	li "MEGA PUNCH"
 	li "COMET PUNCH"
 	li "MOONBLAST"
-	li "DAZZLE GLEAM"
-	li "DRAIN KISS"
 	li "DISARM VOICE"
 	li "SWEET KISS"
 	li "CHARM"

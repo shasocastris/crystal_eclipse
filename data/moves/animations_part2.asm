@@ -109,12 +109,9 @@ BattleAnimationsPart2::
 	anim_ptr BattleAnim_Pursuit
 	anim_ptr BattleAnim_ShadowBall       ; DARK_PULSE
 	; FAIRY
-	anim_ptr BattleAnim_PlayRough
 	anim_ptr BattleAnim_MegaPunch
 	anim_ptr BattleAnim_CometPunch
 	anim_ptr BattleAnim_Moonblast
-	anim_ptr BattleAnim_Moonblast        ; DAZZLING_GLEAM
-	anim_ptr BattleAnim_GigaDrain        ; DRAIN_KISS
 	anim_ptr BattleAnim_Supersonic       ; DISARM_VOICE
 	anim_ptr BattleAnim_SweetKiss
 	anim_ptr BattleAnim_Charm

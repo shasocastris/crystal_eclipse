@@ -256,27 +256,24 @@ DEF MOVE_TABLE_SPLIT EQU const_value - 1 ; last move in the first part of each m
 	const PURSUIT        ; e4
 	const DARK_PULSE     ; e5
 	; FAIRY
-	const PLAY_ROUGH     ; e6
-	const MEGA_PUNCH     ; e7
-	const COMET_PUNCH    ; e8
-	const MOONBLAST      ; e9
-	const DAZZLING_GLEAM ; ea
-	const DRAIN_KISS     ; eb
-	const DISARM_VOICE   ; ec
-	const SWEET_KISS     ; ed
-	const CHARM          ; ee
-	const MOONLIGHT      ; ef
+	const MEGA_PUNCH     ; e6
+	const COMET_PUNCH    ; e7
+	const MOONBLAST      ; e8
+	const DISARM_VOICE   ; e9
+	const SWEET_KISS     ; ea
+	const CHARM          ; eb
+	const MOONLIGHT      ; ec
 	; UBER
-	const AURA_SPHERE    ; f0
-	const SKY_ATTACK     ; f1
-	const ERUPTION       ; f2
-	const SACRED_FIRE    ; f3
-	const LIFE_DEW       ; f4
-	const STORM_CALL     ; f5
-	const INNER_LIGHT    ; f6
-	const SHEER_COLD     ; f7
-	const AEROBLAST      ; f8
-	const FAE_BLADE      ; f9
+	const AURA_SPHERE    ; ed
+	const SKY_ATTACK     ; ee
+	const ERUPTION       ; ef
+	const SACRED_FIRE    ; f0
+	const LIFE_DEW       ; f1
+	const STORM_CALL     ; f2
+	const INNER_LIGHT    ; f3
+	const SHEER_COLD     ; f4
+	const AEROBLAST      ; f5
+	const FAE_BLADE      ; f6
 DEF NUM_ATTACKS EQU const_value - 1
 
 DEF CANNOT_MOVE EQU $ff

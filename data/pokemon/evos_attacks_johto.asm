@@ -383,9 +383,8 @@ LedybaEvosAttacks:
 	dbw 20, REFLECT
 	dbw 23, PSYBEAM
 	dbw 26, SAFEGUARD
-	dbw 29, PLAY_ROUGH
 	dbw 32, BATON_PASS
-	dbw 35, DAZZLING_GLEAM
+	dbw 35, MOONBLAST
 	dbw 38, AGILITY
 	dbw 41, BUG_BUZZ
 	dbw 45, DOUBLE_EDGE
@@ -402,9 +401,8 @@ LedianEvosAttacks:
 	dbw 23, REFLECT
 	dbw 27, PSYBEAM
 	dbw 31, SAFEGUARD
-	dbw 35, PLAY_ROUGH
 	dbw 39, BATON_PASS
-	dbw 43, DAZZLING_GLEAM
+	dbw 43, MOONBLAST
 	dbw 47, AGILITY
 	dbw 51, BUG_BUZZ
 	dbw 58, DOUBLE_EDGE
@@ -570,7 +568,6 @@ TogepiEvosAttacks:
 	dbw 31, SAFEGUARD
 	dbw 34, GIGA_DRAIN
 	dbw 37, MIMIC
-	dbw 40, DAZZLING_GLEAM
 	dbw 42, GROWTH
 	dbw 44, MOONBLAST
 	dbw 45, MINIMIZE
@@ -592,7 +589,6 @@ TogeticEvosAttacks:
 	dbw 28, ENCORE
 	dbw 32, AIR_SLASH
 	dbw 36, SAFEGUARD
-	dbw 40, DAZZLING_GLEAM
 	dbw 44, GROWTH
 	dbw 48, GIGA_DRAIN
 	dbw 52, MOONBLAST
@@ -698,7 +694,6 @@ BellossomEvosAttacks:
 	dbw 41, MOONBLAST
 	dbw 53, PETAL_DANCE
 	dbw 65, SOLARBEAM
-	dbw 78, DAZZLING_GLEAM
 	db 0 ; no more level-up moves
 
 MarillEvosAttacks:
@@ -714,7 +709,7 @@ MarillEvosAttacks:
 	dbw 17, BELLY_DRUM
 	dbw 21, BUBBLEBEAM
 	dbw 25, PERISH_SONG
-	dbw 28, PLAY_ROUGH
+	dbw 28, MEGA_PUNCH
 	dbw 32, FUTURE_SIGHT
 	dbw 36, RAIN_DANCE
 	dbw 40, LIGHT_SCREEN
@@ -732,7 +727,7 @@ AzumarillEvosAttacks:
 	dbw 17, BELLY_DRUM
 	dbw 25, BUBBLEBEAM
 	dbw 30, PERISH_SONG
-	dbw 36, PLAY_ROUGH
+	dbw 36, MEGA_PUNCH
 	dbw 42, FUTURE_SIGHT
 	dbw 48, RAIN_DANCE
 	dbw 53, LIGHT_SCREEN
@@ -949,7 +944,6 @@ EspeonEvosAttacks:
 	dbw 42, PSYCH_UP
 	dbw 47, PSYCHIC_M
 	dbw 52, MORNING_SUN
-	dbw 58, DAZZLING_GLEAM
 	db 0 ; no more level-up moves
 
 UmbreonEvosAttacks:
@@ -1002,7 +996,6 @@ SlowkingEvosAttacks:
 	dbw 35, BELLY_DRUM
 	dbw 43, SWAGGER
 	dbw 53, AMNESIA
-	dbw 58, DAZZLING_GLEAM
 	dbw 62, PSYCHIC_M
 	db 0 ; no more level-up moves
 
@@ -1016,7 +1009,6 @@ MisdreavusEvosAttacks:
 	dbw 13, CONFUSE_RAY
 	dbw 16, SHADOW_BALL
 	dbw 19, SCREECH
-	dbw 23, DAZZLING_GLEAM
 	dbw 27, MEAN_LOOK
 	dbw 31, DARK_PULSE
 	dbw 35, DESTINY_BOND
@@ -1167,7 +1159,7 @@ SnubbullEvosAttacks:
 	dbw 22, REFLECT
 	dbw 26, CRUNCH
 	dbw 30, METRONOME
-	dbw 34, PLAY_ROUGH
+	dbw 34, MEGA_PUNCH
 	dbw 39, ROAR
 	dbw 43, TAKE_DOWN
 	db 0 ; no more level-up moves
@@ -1186,7 +1178,7 @@ GranbullEvosAttacks:
 	dbw 22, REFLECT
 	dbw 28, CRUNCH
 	dbw 33, METRONOME
-	dbw 38, PLAY_ROUGH
+	dbw 38, MEGA_PUNCH
 	dbw 44, ROAR
 	dbw 51, TAKE_DOWN
 	db 0 ; no more level-up moves
@@ -1738,7 +1730,6 @@ BlisseyEvosAttacks:
 	dbw 48, METRONOME
 	dbw 53, DOUBLE_EDGE
 	dbw 58, DEFENSE_CURL
-	dbw 63, DAZZLING_GLEAM
 	dbw 68, HEAL_BELL
 	dbw 73, LIGHT_SCREEN
 	db 0 ; no more level-up moves

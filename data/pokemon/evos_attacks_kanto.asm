@@ -823,7 +823,6 @@ ClefairyEvosAttacks:
 	dbw 39, MIMIC
 	dbw 43, MOONBLAST
 	dbw 48, MOONLIGHT
-	dbw 53, DAZZLING_GLEAM
 	dbw 59, LIGHT_SCREEN
 	db 0 ; no more level-up moves
 
@@ -880,8 +879,8 @@ JigglypuffEvosAttacks:
 	dbw 29, REST
 	dbw 32, PRESENT
 	dbw 36, BODY_SLAM
-	dbw 40, PLAY_ROUGH
-	dbw 51, DAZZLING_GLEAM
+	dbw 40, MEGA_PUNCH
+	dbw 51, MOONBLAST
 	db 0 ; no more level-up moves
 
 WigglytuffEvosAttacks:
@@ -889,7 +888,7 @@ WigglytuffEvosAttacks:
 	dbw 1, SING
 	dbw 1, DISABLE
 	dbw 1, BODY_SLAM
-	dbw 1, PLAY_ROUGH
+	dbw 1, MEGA_PUNCH
 	db 0 ; no more level-up moves
 
 ZubatEvosAttacks:
