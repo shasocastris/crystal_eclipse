@@ -250,7 +250,7 @@ MovesPart2:
 	move EFFECT_SP_DEF_UP_2,         0, PSYCHIC_TYPE,  STATUS,   100, 20,   0      ;AMNESIA
 	move EFFECT_HEAL,                0, PSYCHIC_TYPE,  STATUS,   100, 10,   0      ;REST
 	; ICE
-	move EFFECT_FLINCH_HIT,         85, ICE,           PHYSICAL,  90, 10,  30      ;ICICLE_CRASH, unreferenced
+	move EFFECT_FLINCH_HIT,         85, ICE,           PHYSICAL,  90, 10,  30      ;ICICLE_CRASH
 	move EFFECT_FREEZE_HIT,         75, ICE,           PHYSICAL, 100, 15,  10      ;ICE_PUNCH
 	move EFFECT_PRIORITY_HIT,       40, ICE,           PHYSICAL, 100, 30,   0      ;ICE_SHARD
 	move EFFECT_BLIZZARD,          120, ICE,           SPECIAL,   70,  5,  10      ;BLIZZARD

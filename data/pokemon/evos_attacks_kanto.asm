@@ -1839,7 +1839,8 @@ CloysterEvosAttacks:
 	dbw 1, SUPERSONIC
 	dbw 1, AURORA_BEAM
 	dbw 1, PROTECT
-	dbw 15, ICE_SHARD
+	dbw 1, ICE_SHARD
+	dbw 15, ICICLE_CRASH
 	dbw 25, SCREECH
 	dbw 35, SPIKES
 	dbw 45, SPIKE_CANNON

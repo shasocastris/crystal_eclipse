@@ -129,8 +129,9 @@ MamoswineEvosAttacks:
 	dbw 1, HEADBUTT
 	dbw 1, POWDER_SNOW
 	dbw 10, MIST
+	dbw 15, ICE_SHARD
 	dbw 20, ICY_WIND
-	dbw 30, ICE_SHARD
+	dbw 30, ICICLE_CRASH
 	dbw 35, FURY_STRIKES
 	dbw 42, TAKE_DOWN
 	dbw 50, EARTHQUAKE
@@ -202,9 +203,10 @@ WeavileEvosAttacks:
 	dbw 1, LEER
 	dbw 9, QUICK_ATTACK
 	dbw 17, FAINT_ATTACK
+	dbw 19, ICE_SHARD
 	dbw 25, ICY_WIND
 	dbw 33, SLASH
-	dbw 41, ICE_SHARD
+	dbw 41, ICICLE_CRASH
 	dbw 49, SCREECH
 	dbw 53, CRUNCH
 	dbw 57, BLIZZARD

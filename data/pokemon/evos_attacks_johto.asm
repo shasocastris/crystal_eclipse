@@ -1270,12 +1270,13 @@ SneaselEvosAttacks:
 	dbw 9, QUICK_ATTACK
 	dbw 13, BITE
 	dbw 17, SCREECH
+	dbw 19, ICE_SHARD
 	dbw 21, ICY_WIND
 	dbw 25, FAINT_ATTACK
 	dbw 29, SPITE
 	dbw 33, FURY_STRIKES
 	dbw 37, ICE_PUNCH
-	dbw 41, ICE_SHARD
+	dbw 41, ICICLE_CRASH
 	dbw 45, AGILITY
 	dbw 49, SLASH
 	dbw 53, REFLECT
@@ -1355,11 +1356,12 @@ SwinubEvosAttacks:
 	dbw 1, HEADBUTT
 	dbw 10, POWDER_SNOW
 	dbw 14, ANCIENTPOWER
+	dbw 17, ICE_SHARD
 	dbw 19, ENDURE
 	dbw 24, BITE
 	dbw 28, TAKE_DOWN
 	dbw 32, ROCK_SLIDE
-	dbw 36, ICE_SHARD
+	dbw 36, ICICLE_CRASH
 	dbw 39, MIST
 	dbw 43, EARTHQUAKE
 	dbw 47, BLIZZARD
@@ -1374,12 +1376,13 @@ PiloswineEvosAttacks:
 	dbw 1, HEADBUTT
 	dbw 10, POWDER_SNOW
 	dbw 14, ANCIENTPOWER
+	dbw 17, ICE_SHARD
 	dbw 19, ENDURE
 	dbw 24, BITE
 	dbw 28, TAKE_DOWN
 	dbw 32, ROCK_SLIDE
 	dbw 36, ICY_WIND
-	dbw 40, ICE_SHARD
+	dbw 40, ICICLE_CRASH
 	dbw 44, MIST
 	dbw 49, EARTHQUAKE
 	dbw 56, BLIZZARD
