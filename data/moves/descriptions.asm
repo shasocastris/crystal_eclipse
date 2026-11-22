@@ -164,7 +164,6 @@ MoveDescriptionsPart2:
 	dw SteelWingDescription
 	dw MetalClawDescription
 	dw RockSmashDescription
-	dw BulletPunchDescription
 	dw SpikeCannonDescription
 	dw ClampDescription
 	dw FlashCannonDescription
@@ -1241,10 +1240,6 @@ IronHeadDescription:
 FlashCannonDescription:
 	db   "Fires a steel beam."
 	line "May lower SPCL.DEF.@"
-
-BulletPunchDescription:
-	db   "A fast steel punch"
-	line "that strikes first.@"
 
 PowerGemDescription:
 	db   "Fires gem-like rays"

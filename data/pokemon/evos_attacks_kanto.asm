@@ -1399,7 +1399,6 @@ MachopEvosAttacks:
 	dbw 34, VITAL_THROW
 	dbw 37, ENCORE
 	dbw 40, CROSS_CHOP
-	dbw 44, BULLET_PUNCH
 	dbw 48, SCARY_FACE
 	dbw 54, SUBMISSION
 	db 0 ; no more level-up moves
@@ -1418,7 +1417,6 @@ MachokeEvosAttacks:
 	dbw 38, VITAL_THROW
 	dbw 43, ENCORE
 	dbw 48, CROSS_CHOP
-	dbw 53, BULLET_PUNCH
 	dbw 59, SCARY_FACE
 	dbw 65, SUBMISSION
 	db 0 ; no more level-up moves
@@ -1437,7 +1435,6 @@ MachampEvosAttacks:
 	dbw 38, VITAL_THROW
 	dbw 43, ENCORE
 	dbw 48, CROSS_CHOP
-	dbw 53, BULLET_PUNCH
 	dbw 59, SCARY_FACE
 	dbw 65, SUBMISSION
 	db 0 ; no more level-up moves
@@ -1677,11 +1674,10 @@ MagnemiteEvosAttacks:
 	dbw 17, THUNDER_WAVE
 	dbw 22, FLASH
 	dbw 26, LOCK_ON
-	dbw 30, IRON_HEAD
+	dbw 30, FLASH_CANNON
 	dbw 34, SWIFT
 	dbw 38, SCREECH
 	dbw 43, SPIKE_CANNON
-	dbw 48, FLASH_CANNON
 	dbw 55, ZAP_CANNON
 	db 0 ; no more level-up moves
 
@@ -1697,11 +1693,10 @@ MagnetonEvosAttacks:
 	dbw 22, FLASH
 	dbw 26, LOCK_ON
 	dbw 29, TRI_ATTACK
-	dbw 33, IRON_HEAD
+	dbw 33, FLASH_CANNON
 	dbw 38, SWIFT
 	dbw 43, SCREECH
 	dbw 49, SPIKE_CANNON
-	dbw 55, FLASH_CANNON
 	dbw 65, ZAP_CANNON
 	db 0 ; no more level-up moves
 
@@ -2486,7 +2481,6 @@ ElectabuzzEvosAttacks:
 	dbw 9, THUNDERPUNCH
 	dbw 13, KARATE_CHOP
 	dbw 17, LIGHT_SCREEN
-	dbw 19, BULLET_PUNCH
 	dbw 21, BARRIER
 	dbw 25, SWIFT
 	dbw 30, ROLLING_KICK

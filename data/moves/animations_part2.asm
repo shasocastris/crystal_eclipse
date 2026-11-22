@@ -16,7 +16,6 @@ BattleAnimationsPart2::
 	anim_ptr BattleAnim_SteelWing
 	anim_ptr BattleAnim_MetalClaw
 	anim_ptr BattleAnim_RockSmash
-	anim_ptr BattleAnim_MachPunch        ; BULLET_PUNCH
 	anim_ptr BattleAnim_SpikeCannon
 	anim_ptr BattleAnim_Clamp
 	anim_ptr BattleAnim_ZapCannon        ; FLASH_CANNON

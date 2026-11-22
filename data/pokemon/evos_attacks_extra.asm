@@ -37,7 +37,6 @@ ElectivireEvosAttacks:
 	dbw 1, LEER
 	dbw 9, THUNDERPUNCH
 	dbw 17, LIGHT_SCREEN
-	dbw 21, BULLET_PUNCH
 	dbw 25, SWIFT
 	dbw 33, SCREECH
 	dbw 41, THUNDERBOLT
@@ -263,10 +262,9 @@ MagnezoneEvosAttacks:
 	dbw 17, SUPERSONIC
 	dbw 25, THUNDERBOLT
 	dbw 33, SCREECH
-	dbw 40, IRON_HEAD
+	dbw 40, FLASH_CANNON
 	dbw 48, THUNDER
 	dbw 55, FLASH
-	dbw 60, FLASH_CANNON
 	dbw 70, WILD_CHARGE
 	dbw 80, HYPER_BEAM
 	db 0 ; no more level-up moves

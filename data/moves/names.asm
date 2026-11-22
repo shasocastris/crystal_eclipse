@@ -155,7 +155,6 @@ MoveNames::
 	li "STEEL WING"
 	li "METAL CLAW"
 	li "ROCK SMASH"
-	li "BULLET PUNCH"
 	li "SPIKE CANNON"
 	li "CLAMP"
 	li "FLASH CANNON"

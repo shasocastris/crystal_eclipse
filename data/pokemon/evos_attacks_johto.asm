@@ -1235,7 +1235,6 @@ ScizorEvosAttacks:
 	dbw 40, LIGHT_SCREEN
 	dbw 44, RAZOR_WIND
 	dbw 48, SWORDS_DANCE
-	dbw 53, BULLET_PUNCH
 	dbw 58, DOUBLE_TEAM
 	dbw 65, IRON_HEAD
 	db 0 ; no more level-up moves
@@ -1689,7 +1688,6 @@ ElekidEvosAttacks:
 	dbw 1, LEER
 	dbw 9, THUNDERPUNCH
 	dbw 17, LIGHT_SCREEN
-	dbw 21, BULLET_PUNCH
 	dbw 25, SWIFT
 	dbw 33, SCREECH
 	dbw 41, THUNDERBOLT
