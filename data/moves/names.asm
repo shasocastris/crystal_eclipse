@@ -95,11 +95,9 @@ MoveNames::
 	li "COUNTER"
 	li "SEISMIC TOSS"
 	li "REVERSAL"
-	li "AURA SPHERE"
 	li "FOCUS BLAST"
 	li "DETECT"
 	; FLYING
-	li "SKY ATTACK"
 	li "BRAVE BIRD"
 	li "DRILL PECK"
 	li "FLY"
@@ -121,7 +119,6 @@ MoveNames::
 	li "POISONPOWDER"
 	li "TOXIC"
 	; GROUND
-	li "ERUPTION"
 	li "EARTHQUAKE"
 	li "BONE CLUB"
 	li "DIG"
@@ -175,7 +172,6 @@ MoveNames::
 	; CURSE_TYPE
 	li "CURSE"
 	; FIRE
-	li "SACRED FIRE"
 	li "FIRE PUNCH"
 	li "FLAME WHEEL"
 	li "FIRE BLAST"
@@ -199,7 +195,6 @@ MoveNames::
 	li "BUBBLE"
 	li "WHIRLPOOL"
 	li "RAIN DANCE"
-	li "LIFE DEW"
 	; GRASS
 	li "POWER WHIP"
 	li "SEED BOMB"
@@ -221,13 +216,11 @@ MoveNames::
 	li "WILD CHARGE"
 	li "THUNDERPUNCH"
 	li "SPARK"
-	li "STORM CALL"
 	li "THUNDER"
 	li "ZAP CANNON"
 	li "THUNDERBOLT"
 	li "THUNDERSHOCK"
 	li "THUNDER WAVE"
-	li "INNER LIGHT"
 	; PSYCHIC_TYPE
 	li "ZEN HEADBUTT"
 	li "PSYCHIC"
@@ -255,7 +248,6 @@ MoveNames::
 	li "AURORA BEAM"
 	li "ICY WIND"
 	li "POWDER SNOW"
-	li "SHEER COLD"
 	li "MIST"
 	li "HAZE"
 	li "SUDDEN CHILL"
@@ -263,7 +255,6 @@ MoveNames::
 	; DRAGON
 	li "OUTRAGE"
 	li "DRAGON CLAW"
-	li "AEROBLAST"
 	li "DRAGON PULSE"
 	li "DRAGONBREATH"
 	li "DRAGON RAGE"
@@ -277,7 +268,6 @@ MoveNames::
 	li "PURSUIT"
 	li "DARK PULSE"
 	; FAIRY
-	li "FAE BLADE"
 	li "PLAY ROUGH"
 	li "MEGA PUNCH"
 	li "COMET PUNCH"
@@ -288,4 +278,15 @@ MoveNames::
 	li "SWEET KISS"
 	li "CHARM"
 	li "MOONLIGHT"
+	; UBER
+	li "AURA SPHERE"
+	li "SKY ATTACK"
+	li "ERUPTION"
+	li "SACRED FIRE"
+	li "LIFE DEW"
+	li "STORM CALL"
+	li "INNER LIGHT"
+	li "SHEER COLD"
+	li "AEROBLAST"
+	li "FAE BLADE"
 	assert_list_length NUM_ATTACKS

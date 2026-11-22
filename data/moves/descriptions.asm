@@ -101,11 +101,9 @@ MoveDescriptionsPart1:
 	dw CounterDescription
 	dw SeismicTossDescription
 	dw ReversalDescription
-	dw AuraSphereDescription
 	dw FocusBlastDescription
 	dw DetectDescription
 	; FLYING
-	dw SkyAttackDescription
 	dw BraveBirdDescription
 	dw DrillPeckDescription
 	dw FlyDescription
@@ -127,7 +125,6 @@ MoveDescriptionsPart1:
 	dw PoisonpowderDescription
 	dw ToxicDescription
 	; GROUND
-	dw EruptionDescription
 	dw EarthquakeDescription
 	dw BoneClubDescription
 	dw DigDescription
@@ -184,7 +181,6 @@ MoveDescriptionsPart2:
 	; CURSE_TYPE
 	dw CurseDescription
 	; FIRE
-	dw SacredFireDescription
 	dw FirePunchDescription
 	dw FlameWheelDescription
 	dw FireBlastDescription
@@ -208,7 +204,6 @@ MoveDescriptionsPart2:
 	dw BubbleDescription
 	dw WhirlpoolDescription
 	dw RainDanceDescription
-	dw LifeDewDescription
 	; GRASS
 	dw PowerWhipDescription
 	dw SeedBombDescription
@@ -230,13 +225,11 @@ MoveDescriptionsPart2:
 	dw WildChargeDescription
 	dw ThunderpunchDescription
 	dw SparkDescription
-	dw StormCallDescription
 	dw ThunderDescription
 	dw ZapCannonDescription
 	dw ThunderboltDescription
 	dw ThundershockDescription
 	dw ThunderWaveDescription
-	dw InnerLightDescription
 	; PSYCHIC_TYPE
 	dw ZenHeadbuttDescription
 	dw PsychicMDescription
@@ -264,7 +257,6 @@ MoveDescriptionsPart2:
 	dw AuroraBeamDescription
 	dw IcyWindDescription
 	dw PowderSnowDescription
-	dw SheerColdDescription
 	dw MistDescription
 	dw HazeDescription
 	dw SuddenChillDescription
@@ -272,7 +264,6 @@ MoveDescriptionsPart2:
 	; DRAGON
 	dw OutrageDescription
 	dw DragonClawDescription
-	dw AeroblastDescription
 	dw DragonPulseDescription
 	dw DragonbreathDescription
 	dw DragonRageDescription
@@ -286,7 +277,6 @@ MoveDescriptionsPart2:
 	dw PursuitDescription
 	dw DarkPulseDescription
 	; FAIRY
-	dw FaeBladeDescription
 	dw PlayRoughDescription
 	dw MegaPunchDescription
 	dw CometPunchDescription
@@ -297,6 +287,17 @@ MoveDescriptionsPart2:
 	dw SweetKissDescription
 	dw CharmDescription
 	dw MoonlightDescription
+	; UBER
+	dw AuraSphereDescription
+	dw SkyAttackDescription
+	dw EruptionDescription
+	dw SacredFireDescription
+	dw LifeDewDescription
+	dw StormCallDescription
+	dw InnerLightDescription
+	dw SheerColdDescription
+	dw AeroblastDescription
+	dw FaeBladeDescription
 .IndirectEnd::
 
 InvalidMoveDescription:

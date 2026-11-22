@@ -23,7 +23,6 @@ BattleAnimationsPart2::
 	; CURSE_TYPE
 	anim_ptr BattleAnim_Curse
 	; FIRE
-	anim_ptr BattleAnim_SacredFire
 	anim_ptr BattleAnim_FirePunch
 	anim_ptr BattleAnim_FlameWheel
 	anim_ptr BattleAnim_FireBlast
@@ -47,7 +46,6 @@ BattleAnimationsPart2::
 	anim_ptr BattleAnim_Bubble
 	anim_ptr BattleAnim_Whirlpool
 	anim_ptr BattleAnim_RainDance
-	anim_ptr BattleAnim_Moonlight       ; LIFE_DEW
 	; GRASS
 	anim_ptr BattleAnim_VineWhip         ; POWER_WHIP
 	anim_ptr BattleAnim_SludgeBomb       ; SEED_BOMB
@@ -69,13 +67,11 @@ BattleAnimationsPart2::
 	anim_ptr BattleAnim_Spark            ; WILD_CHARGE
 	anim_ptr BattleAnim_Thunderpunch
 	anim_ptr BattleAnim_Spark
-	anim_ptr BattleAnim_Thunder         ; STORM_CALL
 	anim_ptr BattleAnim_Thunder
 	anim_ptr BattleAnim_ZapCannon
 	anim_ptr BattleAnim_Thunderbolt
 	anim_ptr BattleAnim_Thundershock
 	anim_ptr BattleAnim_ThunderWave
-	anim_ptr BattleAnim_PsychUp         ; INNER_LIGHT
 	; PSYCHIC_TYPE
 	anim_ptr BattleAnim_Headbutt         ; ZEN_HEADBUTT
 	anim_ptr BattleAnim_PsychicM
@@ -103,7 +99,6 @@ BattleAnimationsPart2::
 	anim_ptr BattleAnim_AuroraBeam
 	anim_ptr BattleAnim_IcyWind
 	anim_ptr BattleAnim_PowderSnow
-	anim_ptr BattleAnim_Blizzard        ; SHEER_COLD
 	anim_ptr BattleAnim_Mist
 	anim_ptr BattleAnim_Haze
 	anim_ptr BattleAnim_SuddenChill
@@ -111,7 +106,6 @@ BattleAnimationsPart2::
 	; DRAGON
 	anim_ptr BattleAnim_Outrage
 	anim_ptr BattleAnim_Dragonbreath     ; DRAGON_CLAW
-	anim_ptr BattleAnim_Aeroblast
 	anim_ptr BattleAnim_Aeroblast        ; DRAGON_PULSE
 	anim_ptr BattleAnim_Dragonbreath
 	anim_ptr BattleAnim_DragonRage
@@ -125,7 +119,6 @@ BattleAnimationsPart2::
 	anim_ptr BattleAnim_Pursuit
 	anim_ptr BattleAnim_ShadowBall       ; DARK_PULSE
 	; FAIRY
-	anim_ptr BattleAnim_PlayRough       ; FAE_BLADE
 	anim_ptr BattleAnim_PlayRough
 	anim_ptr BattleAnim_MegaPunch
 	anim_ptr BattleAnim_CometPunch
@@ -136,6 +129,17 @@ BattleAnimationsPart2::
 	anim_ptr BattleAnim_SweetKiss
 	anim_ptr BattleAnim_Charm
 	anim_ptr BattleAnim_Moonlight
+	; UBER
+	anim_ptr BattleAnim_ZapCannon        ; AURA_SPHERE
+	anim_ptr BattleAnim_SkyAttack        ; SKY_ATTACK
+	anim_ptr BattleAnim_Magnitude        ; ERUPTION
+	anim_ptr BattleAnim_SacredFire       ; SACRED_FIRE
+	anim_ptr BattleAnim_Moonlight        ; LIFE_DEW
+	anim_ptr BattleAnim_Thunder          ; STORM_CALL
+	anim_ptr BattleAnim_PsychUp          ; INNER_LIGHT
+	anim_ptr BattleAnim_Blizzard         ; SHEER_COLD
+	anim_ptr BattleAnim_Aeroblast        ; AEROBLAST
+	anim_ptr BattleAnim_PlayRough        ; FAE_BLADE
 .IndirectEnd::
 
 BattleAnim_Sketch:

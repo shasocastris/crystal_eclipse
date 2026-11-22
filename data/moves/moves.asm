@@ -118,11 +118,9 @@ MovesPart1:
 	move EFFECT_COUNTER,             1, FIGHTING,      PHYSICAL, 100, 20,   0      ;COUNTER
 	move EFFECT_LEVEL_DAMAGE,        1, FIGHTING,      PHYSICAL, 100, 20,   0      ;SEISMIC_TOSS
 	move EFFECT_REVERSAL,            1, FIGHTING,      PHYSICAL, 100, 15,   0      ;REVERSAL
-	move EFFECT_AURA_SPHERE,       140, FIGHTING,      SPECIAL,  100, 10,   0      ;AURA_SPHERE
 	move EFFECT_SP_DEF_DOWN_HIT,   120, FIGHTING,      SPECIAL,   70,  5,  10      ;FOCUS_BLAST
 	move EFFECT_DETECT,              0, FIGHTING,      STATUS,   100,  5,   0      ;DETECT
 	; FLYING
-	move EFFECT_ACCURACY_DOWN_2_HIT, 140, FLYING,      PHYSICAL, 100, 10, 100      ;SKY_ATTACK
 	move EFFECT_RECOIL_HIT,        120, FLYING,        PHYSICAL, 100, 15,   0      ;BRAVE_BIRD
 	move EFFECT_NORMAL_HIT,         80, FLYING,        PHYSICAL, 100, 20,   0      ;DRILL_PECK
 	move EFFECT_FLY,                70, FLYING,        PHYSICAL,  95, 15,   0      ;FLY
@@ -144,7 +142,6 @@ MovesPart1:
 	move EFFECT_POISON,              0, POISON,        STATUS,    75, 35,   0      ;POISONPOWDER
 	move EFFECT_TOXIC,               0, POISON,        STATUS,    85, 10,   0      ;TOXIC
 	; GROUND
-	move EFFECT_ERUPTION,          140, GROUND,        PHYSICAL, 100, 10,   0      ;ERUPTION
 	move EFFECT_EARTHQUAKE,        100, GROUND,        PHYSICAL, 100, 10,   0      ;EARTHQUAKE
 	move EFFECT_FLINCH_HIT,         65, GROUND,        PHYSICAL,  85, 20,  10      ;BONE_CLUB
 	move EFFECT_FLY,                60, GROUND,        PHYSICAL, 100, 10,   0      ;DIG
@@ -204,7 +201,6 @@ MovesPart2:
 	; CURSE_TYPE
 	move EFFECT_CURSE,               0, CURSE_TYPE,    STATUS,   100, 10,   0      ;CURSE
 	; FIRE
-	move EFFECT_SACRED_FIRE,       140, FIRE,          PHYSICAL, 100, 10,  50      ;SACRED_FIRE
 	move EFFECT_BURN_HIT,           75, FIRE,          PHYSICAL, 100, 15,  10      ;FIRE_PUNCH
 	move EFFECT_FLAME_WHEEL,        60, FIRE,          PHYSICAL, 100, 25,  10      ;FLAME_WHEEL
 	move EFFECT_BURN_HIT,          120, FIRE,          SPECIAL,   85,  5,  10      ;FIRE_BLAST
@@ -228,7 +224,6 @@ MovesPart2:
 	move EFFECT_SPEED_DOWN_HIT,     20, WATER,         SPECIAL,  100, 30,  10      ;BUBBLE
 	move EFFECT_TRAP_TARGET,        15, WATER,         SPECIAL,  100, 20,   0      ;WHIRLPOOL
 	move EFFECT_RAIN_DANCE,          0, WATER,         STATUS,    90,  5,   0      ;RAIN_DANCE
-	move EFFECT_LIFE_DEW,            0, WATER,         STATUS,   100, 10,   0      ;LIFE_DEW
 	; GRASS
 	move EFFECT_NORMAL_HIT,        120, GRASS,         PHYSICAL,  85, 10,   0      ;POWER_WHIP
 	move EFFECT_NORMAL_HIT,         80, GRASS,         PHYSICAL, 100, 15,   0      ;SEED_BOMB
@@ -250,13 +245,11 @@ MovesPart2:
 	move EFFECT_RECOIL_HIT,         90, ELECTRIC,      PHYSICAL, 100, 15,   0      ;WILD_CHARGE
 	move EFFECT_PARALYZE_HIT,       75, ELECTRIC,      PHYSICAL, 100, 15,  10      ;THUNDERPUNCH
 	move EFFECT_PARALYZE_HIT,       65, ELECTRIC,      PHYSICAL, 100, 20,  30      ;SPARK
-	move EFFECT_STORM_CALL,        140, ELECTRIC,      SPECIAL,  100, 10,   0      ;STORM_CALL
 	move EFFECT_THUNDER,           120, ELECTRIC,      SPECIAL,   70, 10,  30      ;THUNDER
 	move EFFECT_PARALYZE_HIT,      100, ELECTRIC,      SPECIAL,   50,  5, 100      ;ZAP_CANNON
 	move EFFECT_PARALYZE_HIT,       95, ELECTRIC,      SPECIAL,  100, 15,  10      ;THUNDERBOLT
 	move EFFECT_PARALYZE_HIT,       40, ELECTRIC,      SPECIAL,  100, 30,  10      ;THUNDERSHOCK
 	move EFFECT_PARALYZE,            0, ELECTRIC,      STATUS,   100, 20,   0      ;THUNDER_WAVE
-	move EFFECT_INNER_LIGHT,         0, ELECTRIC,      STATUS,   100,  5,   0      ;INNER_LIGHT
 	; PSYCHIC_TYPE
 	move EFFECT_FLINCH_HIT,         80, PSYCHIC_TYPE,  PHYSICAL,  90, 15,  20      ;ZEN_HEADBUTT
 	move EFFECT_SP_DEF_DOWN_HIT,    90, PSYCHIC_TYPE,  SPECIAL,  100, 10,  10      ;PSYCHIC_M
@@ -284,7 +277,6 @@ MovesPart2:
 	move EFFECT_ATTACK_DOWN_HIT,    65, ICE,           SPECIAL,  100, 20,  10      ;AURORA_BEAM
 	move EFFECT_SPEED_DOWN_HIT,     55, ICE,           SPECIAL,   95, 15, 100      ;ICY_WIND
 	move EFFECT_FREEZE_HIT,         40, ICE,           SPECIAL,  100, 25,  10      ;POWDER_SNOW
-	move EFFECT_SHEER_COLD,          1, ICE,           SPECIAL,  100,  1,   0      ;SHEER_COLD
 	move EFFECT_MIST,                0, ICE,           STATUS,   100, 30,   0      ;MIST
 	move EFFECT_RESET_STATS,         0, ICE,           STATUS,   100, 30,   0      ;HAZE
 	move EFFECT_FREEZE,              0, ICE,           STATUS,    85, 20,   0      ;SUDDEN_CHILL
@@ -292,7 +284,6 @@ MovesPart2:
 	; DRAGON
 	move EFFECT_RAMPAGE,           120, DRAGON,        PHYSICAL, 100, 10,   0      ;OUTRAGE
 	move EFFECT_NORMAL_HIT,         80, DRAGON,        PHYSICAL, 100, 15,   0      ;DRAGON_CLAW
-	move EFFECT_FLINCH_HIT,        140, DRAGON,        SPECIAL,  100, 10,  50      ;AEROBLAST
 	move EFFECT_NORMAL_HIT,         85, DRAGON,        SPECIAL,  100, 10,   0      ;DRAGON_PULSE
 	move EFFECT_PARALYZE_HIT,       60, DRAGON,        SPECIAL,  100, 20,  30      ;DRAGONBREATH
 	move EFFECT_STATIC_DAMAGE,      40, DRAGON,        SPECIAL,  100, 10,   0      ;DRAGON_RAGE
@@ -306,7 +297,6 @@ MovesPart2:
 	move EFFECT_PURSUIT,            40, DARK,          PHYSICAL, 100, 20,   0      ;PURSUIT
 	move EFFECT_FLINCH_HIT,         80, DARK,          SPECIAL,  100, 15,  20      ;DARK_PULSE
 	; FAIRY
-	move EFFECT_FAE_BLADE,         140, FAIRY,         PHYSICAL, 100, 10, 100      ;FAE_BLADE
 	move EFFECT_ATTACK_DOWN_HIT,    90, FAIRY,         PHYSICAL,  90, 10,  10      ;PLAY_ROUGH
 	move EFFECT_NORMAL_HIT,         80, FAIRY,         PHYSICAL,  85, 20,   0      ;MEGA_PUNCH
 	move EFFECT_MULTI_HIT,          18, FAIRY,         PHYSICAL,  85, 15,   0      ;COMET_PUNCH
@@ -317,6 +307,17 @@ MovesPart2:
 	move EFFECT_CONFUSE,             0, FAIRY,         STATUS,    75, 10,   0      ;SWEET_KISS
 	move EFFECT_ATTACK_DOWN_2,       0, FAIRY,         STATUS,   100, 20,   0      ;CHARM
 	move EFFECT_MOONLIGHT,           0, FAIRY,         STATUS,   100,  5,   0      ;MOONLIGHT
+	; LEGENDARY
+	move EFFECT_AURA_SPHERE,         140, FIGHTING,      SPECIAL,  100, 10,   0      ;AURA_SPHERE
+	move EFFECT_ACCURACY_DOWN_2_HIT, 140, FLYING,        PHYSICAL, 100, 10, 100      ;SKY_ATTACK
+	move EFFECT_ERUPTION,            140, GROUND,        PHYSICAL, 100, 10,   0      ;ERUPTION
+	move EFFECT_SACRED_FIRE,         140, FIRE,          PHYSICAL, 100, 10,  50      ;SACRED_FIRE
+	move EFFECT_LIFE_DEW,              0, WATER,         STATUS,   100, 10,   0      ;LIFE_DEW
+	move EFFECT_STORM_CALL,          140, ELECTRIC,      SPECIAL,  100, 10,   0      ;STORM_CALL
+	move EFFECT_INNER_LIGHT,           0, ELECTRIC,      STATUS,   100,  5,   0      ;INNER_LIGHT
+	move EFFECT_SHEER_COLD,            1, ICE,           SPECIAL,  100,  1,   0      ;SHEER_COLD
+	move EFFECT_FLINCH_HIT,          140, DRAGON,        SPECIAL,  100, 10,  50      ;AEROBLAST
+	move EFFECT_FAE_BLADE,           140, FAIRY,         PHYSICAL, 100, 10, 100      ;FAE_BLADE
 .IndirectEnd::
 
 POPS

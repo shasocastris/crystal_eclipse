@@ -95,11 +95,9 @@ BattleAnimationsPart1::
 	anim_ptr BattleAnim_Counter
 	anim_ptr BattleAnim_SeismicToss
 	anim_ptr BattleAnim_Reversal
-	anim_ptr BattleAnim_ZapCannon        ; AURA_SPHERE
 	anim_ptr BattleAnim_ZapCannon        ; FOCUS_BLAST
 	anim_ptr BattleAnim_Detect
 	; FLYING
-	anim_ptr BattleAnim_SkyAttack
 	anim_ptr BattleAnim_WingAttack       ; BRAVE_BIRD
 	anim_ptr BattleAnim_DrillPeck
 	anim_ptr BattleAnim_Fly
@@ -121,7 +119,6 @@ BattleAnimationsPart1::
 	anim_ptr BattleAnim_Poisonpowder
 	anim_ptr BattleAnim_Toxic
 	; GROUND
-	anim_ptr BattleAnim_Magnitude       ; ERUPTION
 	anim_ptr BattleAnim_Earthquake
 	anim_ptr BattleAnim_BoneClub
 	anim_ptr BattleAnim_Dig
