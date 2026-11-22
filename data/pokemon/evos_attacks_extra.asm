@@ -51,14 +51,12 @@ MagmortarEvosAttacks:
 	dbw 1, EMBER
 	dbw 7, LEER
 	dbw 13, SLUDGE
-	dbw 16, DRAIN_PUNCH
 	dbw 19, FIRE_PUNCH
 	dbw 25, SMOKESCREEN
 	dbw 33, FLAMETHROWER
 	dbw 41, SUNNY_DAY
 	dbw 49, CROSS_CHOP
 	dbw 57, FIRE_BLAST
-	dbw 65, FOCUS_BLAST
 	db 0 ; no more level-up moves
 
 AmbipomEvosAttacks:
@@ -81,7 +79,6 @@ AnnihilapeEvosAttacks:
 	dbw 9, KARATE_CHOP
 	dbw 17, MACH_PUNCH
 	dbw 25, SEISMIC_TOSS
-	dbw 33, DRAIN_PUNCH
 	dbw 41, RAGE
 	dbw 49, CROSS_CHOP
 	dbw 57, SUBMISSION
@@ -304,7 +301,6 @@ SirfetchdEvosAttacks:
 	dbw 43, IRON_HEAD
 	dbw 50, CROSS_CHOP
 	dbw 55, AGILITY
-	dbw 60, FOCUS_BLAST
 	dbw 65, HYPER_BEAM
 	dbw 72, BRAVE_BIRD
 	db 0 ; no more level-up moves

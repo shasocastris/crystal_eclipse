@@ -87,10 +87,9 @@ MoveDescriptionsPart1:
 	dw MegaKickDescription
 	dw DynamicpunchDescription
 	dw CrossChopDescription
-	dw HiJumpKickDescription
 	dw SubmissionDescription
+	dw HiJumpKickDescription
 	dw StrengthDescription
-	dw DrainPunchDescription
 	dw VitalThrowDescription
 	dw RollingKickDescription
 	dw KarateChopDescription
@@ -99,7 +98,6 @@ MoveDescriptionsPart1:
 	dw CounterDescription
 	dw SeismicTossDescription
 	dw ReversalDescription
-	dw FocusBlastDescription
 	dw DetectDescription
 	; FLYING
 	dw BraveBirdDescription
@@ -1322,14 +1320,6 @@ SeedBombDescription:
 PowerWhipDescription:
 	db   "Violently whips the"
 	line "foe with vines.@"
-
-DrainPunchDescription:
-	db   "A punch that steals"
-	line "the foe's HP.@"
-
-FocusBlastDescription:
-	db   "Focuses power into"
-	line "an intense blast.@"
 
 XScissorDescription:
 	db   "Slashes the foe"

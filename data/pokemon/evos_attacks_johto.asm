@@ -1703,7 +1703,6 @@ MagbyEvosAttacks:
 	dbw 1, EMBER
 	dbw 7, LEER
 	dbw 13, SLUDGE
-	dbw 15, DRAIN_PUNCH
 	dbw 19, FIRE_PUNCH
 	dbw 25, SMOKESCREEN
 	dbw 31, FLAMETHROWER

@@ -81,10 +81,9 @@ BattleAnimationsPart1::
 	anim_ptr BattleAnim_MegaKick
 	anim_ptr BattleAnim_Dynamicpunch
 	anim_ptr BattleAnim_CrossChop
-	anim_ptr BattleAnim_HiJumpKick
 	anim_ptr BattleAnim_Submission
+	anim_ptr BattleAnim_HiJumpKick
 	anim_ptr BattleAnim_Strength
-	anim_ptr BattleAnim_CrossChop        ; DRAIN_PUNCH
 	anim_ptr BattleAnim_VitalThrow
 	anim_ptr BattleAnim_RollingKick
 	anim_ptr BattleAnim_KarateChop
@@ -93,7 +92,6 @@ BattleAnimationsPart1::
 	anim_ptr BattleAnim_Counter
 	anim_ptr BattleAnim_SeismicToss
 	anim_ptr BattleAnim_Reversal
-	anim_ptr BattleAnim_ZapCannon        ; FOCUS_BLAST
 	anim_ptr BattleAnim_Detect
 	; FLYING
 	anim_ptr BattleAnim_WingAttack       ; BRAVE_BIRD

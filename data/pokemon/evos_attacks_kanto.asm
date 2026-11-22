@@ -1233,7 +1233,6 @@ MankeyEvosAttacks:
 	dbw 42, ROCK_SLIDE
 	dbw 45, SCREECH
 	dbw 49, MACH_PUNCH
-	dbw 53, DRAIN_PUNCH
 	dbw 56, THRASH
 	db 0 ; no more level-up moves
 
@@ -1257,9 +1256,7 @@ PrimeapeEvosAttacks:
 	dbw 49, ROCK_SLIDE
 	dbw 54, SCREECH
 	dbw 59, MACH_PUNCH
-	dbw 64, DRAIN_PUNCH
 	dbw 70, THRASH
-	dbw 75, FOCUS_BLAST
 	db 0 ; no more level-up moves
 
 GrowlitheEvosAttacks:
@@ -1409,7 +1406,6 @@ MachopEvosAttacks:
 	dbw 17, LIGHT_SCREEN
 	dbw 19, SEISMIC_TOSS
 	dbw 22, MEDITATE
-	dbw 25, DRAIN_PUNCH
 	dbw 28, FORESIGHT
 	dbw 31, ROLLING_KICK
 	dbw 34, VITAL_THROW
@@ -1429,7 +1425,6 @@ MachokeEvosAttacks:
 	dbw 17, LIGHT_SCREEN
 	dbw 19, SEISMIC_TOSS
 	dbw 22, MEDITATE
-	dbw 25, DRAIN_PUNCH
 	dbw 30, FORESIGHT
 	dbw 34, ROLLING_KICK
 	dbw 38, VITAL_THROW
@@ -1449,7 +1444,6 @@ MachampEvosAttacks:
 	dbw 17, LIGHT_SCREEN
 	dbw 19, SEISMIC_TOSS
 	dbw 22, MEDITATE
-	dbw 25, DRAIN_PUNCH
 	dbw 30, FORESIGHT
 	dbw 34, ROLLING_KICK
 	dbw 38, VITAL_THROW
@@ -1458,7 +1452,6 @@ MachampEvosAttacks:
 	dbw 53, BULLET_PUNCH
 	dbw 59, SCARY_FACE
 	dbw 65, SUBMISSION
-	dbw 75, FOCUS_BLAST
 	db 0 ; no more level-up moves
 
 BellsproutEvosAttacks:
@@ -2528,7 +2521,6 @@ MagmarEvosAttacks:
 	dbw 7, LEER
 	dbw 13, FIRE_SPIN
 	dbw 16, KARATE_CHOP
-	dbw 17, DRAIN_PUNCH
 	dbw 19, FIRE_PUNCH
 	dbw 22, MEGA_PUNCH
 	dbw 25, SMOKESCREEN
