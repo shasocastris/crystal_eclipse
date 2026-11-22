@@ -100,11 +100,9 @@ MoveDescriptionsPart1:
 	dw ReversalDescription
 	dw DetectDescription
 	; FLYING
-	dw BraveBirdDescription
 	dw DrillPeckDescription
 	dw FlyDescription
 	dw WingAttackDescription
-	dw AerialAceDescription
 	dw PeckDescription
 	dw HurricaneDescription
 	dw AirSlashDescription
@@ -1233,17 +1231,9 @@ DragonPulseDescription:
 	db   "Fires a dragon"
 	line "energy pulse.@"
 
-AerialAceDescription:
-	db   "A flying strike"
-	line "that never misses.@"
-
 AirSlashDescription:
 	db   "Slashes with wings."
 	line "May cause flinch.@"
-
-BraveBirdDescription:
-	db   "A reckless flying"
-	line "tackle. Damages user.@"
 
 ShadowClawDescription:
 	db   "Slashes with a"

@@ -474,7 +474,6 @@ CrobatEvosAttacks:
 	dbw 63, POISON_JAB
 	dbw 69, HAZE
 	dbw 75, CRUNCH
-	dbw 81, BRAVE_BIRD
 	db 0 ; no more level-up moves
 
 ChinchouEvosAttacks:

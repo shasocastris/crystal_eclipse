@@ -410,7 +410,6 @@ ButterfreeEvosAttacks:
 	dbw 18, GUST
 	dbw 23, ROAR
 	dbw 28, SUPERSONIC
-	dbw 34, AERIAL_ACE
 	dbw 40, PSYBEAM
 	dbw 46, BUG_BUZZ
 	dbw 52, SPORE
@@ -465,7 +464,6 @@ PidgeyEvosAttacks:
 	dbw 25, FAINT_ATTACK
 	dbw 29, WING_ATTACK
 	dbw 33, FORESIGHT
-	dbw 37, AERIAL_ACE
 	dbw 41, AGILITY
 	dbw 47, AIR_SLASH
 	dbw 51, MIRROR_MOVE
@@ -485,7 +483,6 @@ PidgeottoEvosAttacks:
 	dbw 28, FAINT_ATTACK
 	dbw 33, WING_ATTACK
 	dbw 38, FORESIGHT
-	dbw 43, AERIAL_ACE
 	dbw 49, AGILITY
 	dbw 55, AIR_SLASH
 	dbw 60, MIRROR_MOVE
@@ -504,13 +501,11 @@ PidgeotEvosAttacks:
 	dbw 28, FAINT_ATTACK
 	dbw 33, WING_ATTACK
 	dbw 41, FORESIGHT
-	dbw 46, AERIAL_ACE
 	dbw 52, AGILITY
 	dbw 59, AIR_SLASH
 	dbw 66, MIRROR_MOVE
 	dbw 73, EXTREMESPEED
 	dbw 78, HURRICANE
-	dbw 81, BRAVE_BIRD
 	db 0 ; no more level-up moves
 
 RattataEvosAttacks:
@@ -566,7 +561,6 @@ SpearowEvosAttacks:
 	dbw 31, MIRROR_MOVE
 	dbw 34, FAINT_ATTACK
 	dbw 37, DRILL_PECK
-	dbw 41, AERIAL_ACE
 	dbw 47, SWIFT
 	dbw 53, AGILITY
 	db 0 ; no more level-up moves
@@ -585,10 +579,8 @@ FearowEvosAttacks:
 	dbw 32, MIRROR_MOVE
 	dbw 36, FAINT_ATTACK
 	dbw 40, DRILL_PECK
-	dbw 45, AERIAL_ACE
 	dbw 51, SWIFT
 	dbw 58, AGILITY
-	dbw 65, BRAVE_BIRD
 	db 0 ; no more level-up moves
 
 EkansEvosAttacks:
@@ -948,7 +940,6 @@ GolbatEvosAttacks:
 	dbw 63, HAZE
 	dbw 69, POISON_JAB
 	dbw 75, CRUNCH
-	dbw 81, BRAVE_BIRD
 	db 0 ; no more level-up moves
 
 OddishEvosAttacks:
@@ -1726,7 +1717,7 @@ FarfetchDEvosAttacks:
 	dbw 8, GUST
 	dbw 11, LEER
 	dbw 14, QUICK_ATTACK
-	dbw 17, AERIAL_ACE
+	dbw 17, WING_ATTACK
 	dbw 20, FURY_STRIKES
 	dbw 23, FLAIL
 	dbw 26, SWORDS_DANCE
@@ -1753,10 +1744,8 @@ DoduoEvosAttacks:
 	dbw 29, FAINT_ATTACK
 	dbw 33, DRILL_PECK
 	dbw 37, HAZE
-	dbw 41, AERIAL_ACE
 	dbw 47, AGILITY
 	dbw 54, FLAIL
-	dbw 65, BRAVE_BIRD
 	db 0 ; no more level-up moves
 
 DodrioEvosAttacks:
@@ -1774,10 +1763,8 @@ DodrioEvosAttacks:
 	dbw 33, TRI_ATTACK
 	dbw 38, DRILL_PECK
 	dbw 43, HAZE
-	dbw 49, AERIAL_ACE
 	dbw 55, AGILITY
 	dbw 61, FLAIL
-	dbw 68, BRAVE_BIRD
 	db 0 ; no more level-up moves
 
 SeelEvosAttacks:

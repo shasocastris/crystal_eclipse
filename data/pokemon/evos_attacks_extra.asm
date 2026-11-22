@@ -95,7 +95,6 @@ HonchkrowEvosAttacks:
 	dbw 33, PURSUIT
 	dbw 41, MEAN_LOOK
 	dbw 49, DARK_PULSE
-	dbw 57, BRAVE_BIRD
 	dbw 65, HYPER_BEAM
 	db 0 ; no more level-up moves
 
@@ -250,7 +249,7 @@ GliscorEvosAttacks:
 	dbw 9, MUD_SLAP
 	dbw 17, FURY_CUTTER
 	dbw 25, SCARY_FACE
-	dbw 33, AERIAL_ACE
+	dbw 33, WING_ATTACK
 	dbw 41, EARTHQUAKE
 	dbw 49, SLASH
 	dbw 55, SWORDS_DANCE
@@ -294,7 +293,7 @@ SirfetchdEvosAttacks:
 	dbw 1, PECK
 	dbw 1, LEER
 	dbw 9, FURY_STRIKES
-	dbw 17, AERIAL_ACE
+	dbw 17, WING_ATTACK
 	dbw 25, SLASH
 	dbw 33, SWORDS_DANCE
 	dbw 38, PROTECT
@@ -302,7 +301,6 @@ SirfetchdEvosAttacks:
 	dbw 50, CROSS_CHOP
 	dbw 55, AGILITY
 	dbw 65, HYPER_BEAM
-	dbw 72, BRAVE_BIRD
 	db 0 ; no more level-up moves
 
 TangrowthEvosAttacks:

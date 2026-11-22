@@ -94,11 +94,9 @@ MoveNames::
 	li "REVERSAL"
 	li "DETECT"
 	; FLYING
-	li "BRAVE BIRD"
 	li "DRILL PECK"
 	li "FLY"
 	li "WING ATTACK"
-	li "AERIAL ACE"
 	li "PECK"
 	li "HURRICANE"
 	li "AIR SLASH"

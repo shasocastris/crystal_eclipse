@@ -94,11 +94,9 @@ BattleAnimationsPart1::
 	anim_ptr BattleAnim_Reversal
 	anim_ptr BattleAnim_Detect
 	; FLYING
-	anim_ptr BattleAnim_WingAttack       ; BRAVE_BIRD
 	anim_ptr BattleAnim_DrillPeck
 	anim_ptr BattleAnim_Fly
 	anim_ptr BattleAnim_WingAttack
-	anim_ptr BattleAnim_FaintAttack      ; AERIAL_ACE
 	anim_ptr BattleAnim_Peck
 	anim_ptr BattleAnim_Twister          ; HURRICANE
 	anim_ptr BattleAnim_WingAttack       ; AIR_SLASH

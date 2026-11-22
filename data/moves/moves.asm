@@ -117,11 +117,9 @@ MovesPart1:
 	move EFFECT_REVERSAL,            1, FIGHTING,      PHYSICAL, 100, 15,   0      ;REVERSAL
 	move EFFECT_DETECT,              0, FIGHTING,      STATUS,   100,  5,   0      ;DETECT
 	; FLYING
-	move EFFECT_RECOIL_HIT,        120, FLYING,        PHYSICAL, 100, 15,   0      ;BRAVE_BIRD
 	move EFFECT_NORMAL_HIT,         80, FLYING,        PHYSICAL, 100, 20,   0      ;DRILL_PECK
 	move EFFECT_FLY,                70, FLYING,        PHYSICAL,  95, 15,   0      ;FLY
 	move EFFECT_NORMAL_HIT,         60, FLYING,        PHYSICAL, 100, 35,   0      ;WING_ATTACK
-	move EFFECT_ALWAYS_HIT,         60, FLYING,        PHYSICAL, 100, 20,   0      ;AERIAL_ACE
 	move EFFECT_NORMAL_HIT,         35, FLYING,        PHYSICAL, 100, 35,   0      ;PECK
 	move EFFECT_HURRICANE,         110, FLYING,        SPECIAL,   70, 10,  30      ;HURRICANE
 	move EFFECT_FLINCH_HIT,         75, FLYING,        SPECIAL,   95, 15,  30      ;AIR_SLASH
