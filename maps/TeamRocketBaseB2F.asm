@@ -371,7 +371,7 @@ TeamRocketBaseB2FTransmitterScript:
 	end
 
 TeamRocketBaseB2FTMThief:
-	itemball TM_THIEF
+	itemball TM_THIEF, 3
 
 TeamRocketBaseB2FHiddenFullHeal:
 	hiddenitem FULL_HEAL, EVENT_TEAM_ROCKET_BASE_B2F_HIDDEN_FULL_HEAL

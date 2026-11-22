@@ -18,7 +18,7 @@ TrainerBoarderVince:
 	end
 
 IcePathB2FBlackthornSideTMRest:
-	itemball TM_REST
+	itemball TM_REST, 3
 
 IcePathB2FBlackthornSideHiddenIceHeal:
 	hiddenitem ICE_HEAL, EVENT_ICE_PATH_B2F_BLACKTHORN_SIDE_HIDDEN_ICE_HEAL

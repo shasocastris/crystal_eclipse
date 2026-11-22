@@ -39,7 +39,7 @@ TrainerSuperNerdStan:
 	end
 
 SlowpokeWellB2FTMRainDance:
-	itemball TM_RAIN_DANCE
+	itemball TM_RAIN_DANCE, 3
 
 SuperNerdStanText:
 	text "Whoa! How did you"

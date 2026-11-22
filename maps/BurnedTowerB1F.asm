@@ -150,7 +150,7 @@ BurnedTowerB1FKaren:
 	end
 
 BurnedTowerB1FTMEndure:
-	itemball TM_ENDURE
+	itemball TM_ENDURE, 3
 
 BurnedTowerB1FBoulder:
 	jumpstd StrengthBoulderScript

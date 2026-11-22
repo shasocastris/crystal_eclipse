@@ -223,7 +223,7 @@ SaffronUndergroundWarehouseMaxEther:
 	itemball MAX_ETHER
 
 SaffronUndergroundWarehouseTMSleepTalk:
-	itemball TM_SLEEP_TALK
+	itemball TM_SLEEP_TALK, 3
 
 SaffronUndergroundWarehouseNugget:
 	itemball NUGGET

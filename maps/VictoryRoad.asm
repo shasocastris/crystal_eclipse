@@ -199,7 +199,7 @@ TrainerPsychicNathan:
 	end
 
 VictoryRoadTMEarthquake:
-	itemball TM_EARTHQUAKE
+	itemball TM_EARTHQUAKE, 3
 
 VictoryRoadMaxRevive:
 	itemball MAX_REVIVE

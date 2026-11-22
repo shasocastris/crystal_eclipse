@@ -40,7 +40,7 @@ MountMortar2FInsideSmoothRock:
 	itemball SMOOTH_ROCK
 
 MountMortar2FInsideTMDefenseCurl:
-	itemball TM_DEFENSE_CURL
+	itemball TM_DEFENSE_CURL, 3
 
 MountMortar2FInsideDragonScale:
 	itemball DRAGON_SCALE
