@@ -2308,6 +2308,7 @@ HorseaEvosAttacks:
 	dbw 36, AGILITY
 	dbw 40, DRAGON_RAGE
 	dbw 43, HYDRO_PUMP
+	dbw 47, DRAGON_PULSE
 	db 0 ; no more level-up moves
 
 SeadraEvosAttacks:
@@ -2325,6 +2326,7 @@ SeadraEvosAttacks:
 	dbw 40, AGILITY
 	dbw 45, DRAGON_RAGE
 	dbw 51, HYDRO_PUMP
+	dbw 55, DRAGON_PULSE
 	db 0 ; no more level-up moves
 
 GoldeenEvosAttacks:
@@ -2848,6 +2850,7 @@ DratiniEvosAttacks:
 	dbw 33, MIST
 	dbw 33, HAZE
 	dbw 36, AGILITY
+	dbw 40, DRAGON_CLAW
 	dbw 43, SAFEGUARD
 	dbw 50, OUTRAGE
 	dbw 57, HYPER_BEAM
@@ -2869,6 +2872,7 @@ DragonairEvosAttacks:
 	dbw 34, MIST
 	dbw 34, HAZE
 	dbw 38, AGILITY
+	dbw 42, DRAGON_CLAW
 	dbw 47, SAFEGUARD
 	dbw 56, OUTRAGE
 	dbw 65, HYPER_BEAM
@@ -2888,6 +2892,7 @@ DragoniteEvosAttacks:
 	dbw 34, MIST
 	dbw 34, HAZE
 	dbw 38, AGILITY
+	dbw 42, DRAGON_CLAW
 	dbw 47, SAFEGUARD
 	dbw 54, WING_ATTACK
 	dbw 61, OUTRAGE

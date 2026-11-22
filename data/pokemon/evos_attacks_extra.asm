@@ -429,6 +429,7 @@ DragoniteKantoEvosAttacks:
 	dbw 34, MIST
 	dbw 34, HAZE
 	dbw 38, AGILITY
+	dbw 42, DRAGON_CLAW
 	dbw 47, SAFEGUARD
 	dbw 54, WING_ATTACK
 	dbw 61, OUTRAGE
