@@ -33,15 +33,11 @@ BattleAnimationsPart2::
 	anim_ptr BattleAnim_WillOWisp
 	; WATER
 	anim_ptr BattleAnim_Crabhammer
-	anim_ptr BattleAnim_Surf             ; AQUA_TAIL
 	anim_ptr BattleAnim_Waterfall
-	anim_ptr BattleAnim_Surf             ; AQUA_JET
 	anim_ptr BattleAnim_HydroPump
 	anim_ptr BattleAnim_Surf
-	anim_ptr BattleAnim_Surf             ; SCALD
 	anim_ptr BattleAnim_Bubblebeam
 	anim_ptr BattleAnim_Octazooka
-	anim_ptr BattleAnim_WaterGun         ; WATER_PULSE
 	anim_ptr BattleAnim_WaterGun
 	anim_ptr BattleAnim_Bubble
 	anim_ptr BattleAnim_Whirlpool

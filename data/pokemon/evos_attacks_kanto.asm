@@ -1294,9 +1294,7 @@ PoliwagEvosAttacks:
 	dbw 22, BUBBLEBEAM
 	dbw 25, RAIN_DANCE
 	dbw 28, LOCK_ON
-	dbw 31, SCALD
 	dbw 35, BODY_SLAM
-	dbw 40, AQUA_JET
 	dbw 46, BELLY_DRUM
 	dbw 54, HYDRO_PUMP
 	db 0 ; no more level-up moves
@@ -1314,9 +1312,7 @@ PoliwhirlEvosAttacks:
 	dbw 22, BUBBLEBEAM
 	dbw 27, RAIN_DANCE
 	dbw 31, LOCK_ON
-	dbw 35, SCALD
 	dbw 39, BODY_SLAM
-	dbw 45, AQUA_JET
 	dbw 51, BELLY_DRUM
 	dbw 66, HYDRO_PUMP
 	db 0 ; no more level-up moves
@@ -1326,9 +1322,7 @@ PoliwrathEvosAttacks:
 	dbw LEARN_EVO_MOVE, SUBMISSION
 	dbw 1, WATER_GUN
 	dbw 25, BUBBLEBEAM
-	dbw 30, SCALD
 	dbw 35, HYPNOSIS
-	dbw 40, AQUA_JET
 	dbw 45, STRENGTH
 	dbw 50, LOCK_ON
 	dbw 65, HYDRO_PUMP
@@ -1508,7 +1502,6 @@ TentacoolEvosAttacks:
 	dbw 27, SAFEGUARD
 	dbw 30, WRAP
 	dbw 33, MIRROR_COAT
-	dbw 36, SCALD
 	dbw 39, BARRIER
 	dbw 43, AURORA_BEAM
 	dbw 47, POISON_JAB
@@ -1529,7 +1522,6 @@ TentacruelEvosAttacks:
 	dbw 27, SAFEGUARD
 	dbw 29, WRAP
 	dbw 34, MIRROR_COAT
-	dbw 38, SCALD
 	dbw 42, BARRIER
 	dbw 46, AURORA_BEAM
 	dbw 52, POISON_JAB
@@ -1639,7 +1631,6 @@ SlowpokeEvosAttacks:
 	dbw 29, DISABLE
 	dbw 32, BELLY_DRUM
 	dbw 34, HEADBUTT
-	dbw 38, SCALD
 	dbw 43, AMNESIA
 	dbw 48, ZEN_HEADBUTT
 	dbw 53, PSYCHIC_M
@@ -1659,7 +1650,6 @@ SlowbroEvosAttacks:
 	dbw 29, DISABLE
 	dbw 32, BELLY_DRUM
 	dbw 34, HEADBUTT
-	dbw 40, SCALD
 	dbw 46, AMNESIA
 	dbw 53, ZEN_HEADBUTT
 	dbw 60, PSYCHIC_M
@@ -1765,7 +1755,7 @@ SeelEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, HEADBUTT
 	dbw 5, GROWL
-	dbw 7, AQUA_JET
+	dbw 7, WATER_GUN
 	dbw 10, LICK
 	dbw 14, AURORA_BEAM
 	dbw 18, BUBBLEBEAM
@@ -1786,7 +1776,7 @@ DewgongEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, HEADBUTT
 	dbw 5, GROWL
-	dbw 7, AQUA_JET
+	dbw 7, WATER_GUN
 	dbw 10, LICK
 	dbw 14, AURORA_BEAM
 	dbw 18, BUBBLEBEAM
@@ -2767,6 +2757,7 @@ KabutopsEvosAttacks:
 	dbw 32, RAPID_SPIN
 	dbw 37, ENDURE
 	dbw 39, SLASH
+	dbw 40, WATERFALL
 	dbw 45, DIG
 	dbw 51, MEGA_DRAIN
 	dbw 58, FLAIL

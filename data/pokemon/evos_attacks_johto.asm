@@ -761,9 +761,7 @@ PolitoedEvosAttacks:
 	dbw 5, HYPNOSIS
 	dbw 15, FURY_STRIKES
 	dbw 25, BUBBLEBEAM
-	dbw 30, SCALD
 	dbw 35, BODY_SLAM
-	dbw 39, AQUA_JET
 	dbw 45, PERISH_SONG
 	dbw 57, SWAGGER
 	dbw 66, HYDRO_PUMP
@@ -1004,7 +1002,6 @@ SlowkingEvosAttacks:
 	dbw 29, DISABLE
 	dbw 32, HEADBUTT
 	dbw 35, BELLY_DRUM
-	dbw 38, SCALD
 	dbw 43, SWAGGER
 	dbw 48, ZEN_HEADBUTT
 	dbw 53, AMNESIA

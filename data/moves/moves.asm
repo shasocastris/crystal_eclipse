@@ -201,15 +201,11 @@ MovesPart2:
 	move EFFECT_BURN,                0, FIRE,          STATUS,    85, 20,   0      ;WILL_O_WISP
 	; WATER
 	move EFFECT_NORMAL_HIT,         90, WATER,         PHYSICAL,  85, 10,   0      ;CRABHAMMER
-	move EFFECT_NORMAL_HIT,         90, WATER,         PHYSICAL,  90, 10,   0      ;AQUA_TAIL, unreferenced
 	move EFFECT_NORMAL_HIT,         80, WATER,         PHYSICAL, 100, 15,   0      ;WATERFALL
-	move EFFECT_PRIORITY_HIT,       40, WATER,         PHYSICAL, 100, 20,   0      ;AQUA_JET
 	move EFFECT_NORMAL_HIT,        120, WATER,         SPECIAL,   80,  5,   0      ;HYDRO_PUMP
 	move EFFECT_NORMAL_HIT,         95, WATER,         SPECIAL,  100, 15,   0      ;SURF
-	move EFFECT_BURN_HIT,           80, WATER,         SPECIAL,  100, 15,  30      ;SCALD
 	move EFFECT_SPEED_DOWN_HIT,     65, WATER,         SPECIAL,  100, 20,  10      ;BUBBLEBEAM
 	move EFFECT_ACCURACY_DOWN_HIT,  65, WATER,         SPECIAL,  100, 10,  50      ;OCTAZOOKA
-	move EFFECT_CONFUSE_HIT,        60, WATER,         SPECIAL,  100, 20,  20      ;WATER_PULSE, unreferenced
 	move EFFECT_NORMAL_HIT,         40, WATER,         SPECIAL,  100, 25,   0      ;WATER_GUN
 	move EFFECT_SPEED_DOWN_HIT,     20, WATER,         SPECIAL,  100, 30,  10      ;BUBBLE
 	move EFFECT_TRAP_TARGET,        15, WATER,         SPECIAL,  100, 20,   0      ;WHIRLPOOL

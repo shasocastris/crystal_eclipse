@@ -181,15 +181,11 @@ MoveDescriptionsPart2:
 	dw WillOWispDescription
 	; WATER
 	dw CrabhammerDescription
-	dw AquaTailDescription
 	dw WaterfallDescription
-	dw AquaJetDescription
 	dw HydroPumpDescription
 	dw SurfDescription
-	dw ScaldDescription
 	dw BubblebeamDescription
 	dw OctazookaDescription
-	dw WaterPulseDescription
 	dw WaterGunDescription
 	dw BubbleDescription
 	dw WhirlpoolDescription
@@ -1261,22 +1257,6 @@ IcicleCrashDescription:
 WildChargeDescription:
 	db   "A wild electric"
 	line "tackle. Damages user.@"
-
-ScaldDescription:
-	db   "Scalding water."
-	line "May cause a burn.@"
-
-AquaJetDescription:
-	db   "A water strike"
-	line "that goes first.@"
-
-AquaTailDescription:
-	db   "Strikes with tail"
-	line "like a wave.@"
-
-WaterPulseDescription:
-	db   "A water pulse that"
-	line "may cause confusion.@"
 
 EnergyBallDescription:
 	db   "A grass energy ball."
