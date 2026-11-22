@@ -2449,6 +2449,7 @@ ScytherEvosAttacks:
 	dbw 15, TWINEEDLE
 	dbw 18, FALSE_SWIPE
 	dbw 21, RAZOR_WIND
+	dbw 21, X_SCISSOR
 	dbw 24, AGILITY
 	dbw 27, COUNTER
 	dbw 30, WING_ATTACK
@@ -2527,6 +2528,7 @@ PinsirEvosAttacks:
 	dbw 25, HARDEN
 	dbw 28, FLAIL
 	dbw 31, TWINEEDLE
+	dbw 34, X_SCISSOR
 	dbw 37, SUBMISSION
 	dbw 43, SWORDS_DANCE
 	db 0 ; no more level-up moves

@@ -1260,6 +1260,7 @@ HeracrossEvosAttacks:
 	dbw 15, FURY_STRIKES
 	dbw 19, HARDEN
 	dbw 27, COUNTER
+	dbw 30, X_SCISSOR
 	dbw 31, FLAIL
 	dbw 35, TAKE_DOWN
 	dbw 40, STRENGTH
