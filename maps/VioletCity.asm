@@ -43,6 +43,7 @@ VioletCityEarlScript:
 	writetext Text_EarlAsksIfYouBeatFalkner
 	waitbutton
 	closetext
+	stowfollower
 	playmusic MUSIC_SHOW_ME_AROUND
 	follow VIOLETCITY_EARL, PLAYER
 	applymovement VIOLETCITY_EARL, VioletCityFollowEarl_MovementData
@@ -60,6 +61,7 @@ VioletCityEarlScript:
 	disappear VIOLETCITY_EARL
 	clearevent EVENT_EARLS_ACADEMY_EARL
 	waitsfx
+	appearfolloweronestep
 	end
 
 VioletCityLassScript:

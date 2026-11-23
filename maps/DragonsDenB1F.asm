@@ -48,6 +48,7 @@ DragonsDenB1F_ClairScene:
 	closetext
 	showemote EMOTE_SHOCK, PLAYER, 15
 	turnobject PLAYER, LEFT
+	stowfollowerif LEFT
 	playmusic MUSIC_CLAIR
 	applymovement DRAGONSDENB1F_CLAIR, MovementDragonsDen_ClairWalksToYou
 	opentext
@@ -79,6 +80,7 @@ DragonsDenB1F_ClairScene:
 	special RestartMapMusic
 	disappear DRAGONSDENB1F_CLAIR
 	setscene SCENE_DRAGONSDENB1F_NOOP
+	appearfolloweronestep
 	end
 
 TrainerCooltrainermDarin:

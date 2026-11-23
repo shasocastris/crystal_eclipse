@@ -87,6 +87,7 @@ TinTower1FStairsCallback:
 	endcallback
 
 TinTower1FSuicuneBattleScript:
+	stowfollower
 	applymovement PLAYER, TinTower1FPlayerEntersMovement
 	pause 15
 	checkevent EVENT_FOUGHT_RAIKOU
@@ -168,6 +169,7 @@ TinTower1FSuicuneBattleScript:
 	special FadeOutMusic
 	pause 20
 	playmapmusic
+	appearfolloweronestep
 	end
 
 TinTower1FSage1Script:

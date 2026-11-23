@@ -25,6 +25,7 @@ PowerPlantGuardPhoneScript:
 	showemote EMOTE_SHOCK, POWERPLANT_OFFICER1, 15
 	waitsfx
 	pause 30
+	stowfollowerif RIGHT
 	applymovement POWERPLANT_OFFICER1, PowerPlantOfficer1ApproachGymGuide2Movement
 	turnobject POWERPLANT_GYM_GUIDE1, DOWN
 	turnobject POWERPLANT_GYM_GUIDE2, DOWN
@@ -41,6 +42,7 @@ PowerPlantGuardPhoneScript:
 	turnobject PLAYER, DOWN
 	applymovement POWERPLANT_OFFICER1, PowerPlantOfficer1ReturnToPostMovement
 	setscene SCENE_POWERPLANT_NOOP
+	appearfolloweronestep
 	end
 
 PowerPlantOfficerScript:

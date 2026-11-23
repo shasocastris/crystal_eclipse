@@ -24,6 +24,7 @@ IcePath1F_RivalFight:
 	showemote EMOTE_SHOCK, PLAYER, 15
 	special FadeOutMusic
 	pause 15
+	stowfollowerif UP
 	appear ICEPATH1F_RIVAL
 	waitsfx
 	applymovement ICEPATH1F_RIVAL, IcePath1FRivalApproachMovement
@@ -74,6 +75,7 @@ IcePath1F_RivalFight:
 	disappear ICEPATH1F_RIVAL
 	setscene SCENE_ICEPATH1F_NOOP
 	playmapmusic
+	appearfolloweronestep
 	end
 
 IcePath1FRivalApproachMovement:

@@ -65,6 +65,7 @@ BurnedTowerB1FRaikouText:
 	done
 
 ReleaseTheBeasts:
+	stowfollowerif UP
 	playmusic MUSIC_NONE
 	pause 30
 	appear BURNEDTOWERB1F_RAIKOU1
@@ -128,6 +129,7 @@ ReleaseTheBeasts:
 	refreshmap
 	closetext
 	setscene SCENE_BURNEDTOWERB1F_NOOP
+	appearfolloweronestep
 	end
 
 BurnedTowerB1FKaren:

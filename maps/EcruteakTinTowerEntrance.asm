@@ -44,23 +44,27 @@ EcruteakTinTowerEntranceInitializeSagesCallback:
 EcruteakTinTowerEntranceSageBlocksLeft:
 	checkevent EVENT_RANG_CLEAR_BELL_2
 	iftrue EcruteakTinTowerEntranceAlreadyBlocked
+	stowfollowerif UP
 	applymovement ECRUTEAKTINTOWERENTRANCE_SAGE2, EcruteakTinTowerEntranceSageBlocksLeftMovement
 	moveobject ECRUTEAKTINTOWERENTRANCE_SAGE1, 4, 6
 	appear ECRUTEAKTINTOWERENTRANCE_SAGE1
 	pause 5
 	callasm UpdateSprites
 	disappear ECRUTEAKTINTOWERENTRANCE_SAGE2
+	appearfolloweronestep
 	end
 
 EcruteakTinTowerEntranceSageBlocksRight:
 	checkevent EVENT_RANG_CLEAR_BELL_1
 	iftrue EcruteakTinTowerEntranceAlreadyBlocked
+	stowfollowerif UP
 	applymovement ECRUTEAKTINTOWERENTRANCE_SAGE1, EcruteakTinTowerEntranceSageBlocksRightMovement
 	moveobject ECRUTEAKTINTOWERENTRANCE_SAGE2, 5, 6
 	appear ECRUTEAKTINTOWERENTRANCE_SAGE2
 	pause 5
 	callasm UpdateSprites
 	disappear ECRUTEAKTINTOWERENTRANCE_SAGE1
+	appearfolloweronestep
 	end
 
 EcruteakTinTowerEntranceAlreadyBlocked:

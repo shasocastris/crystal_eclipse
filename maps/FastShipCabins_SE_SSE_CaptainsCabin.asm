@@ -38,6 +38,7 @@ SSAquaCaptainsCabinPetrelScript:
 	iftrue .Done
 	checkevent EVENT_FAST_SHIP_FIRST_TIME
 	iftrue .Done
+	stowfollower
 	special FadeOutMusic
 	turnobject PLAYER, UP
 	showemote EMOTE_SHOCK, FASTSHIPCABINS_SE_SSE_CAPTAINSCABIN_PETREL, 15
@@ -185,6 +186,7 @@ SSAquaMetalCoatAndDocking:
 	setevent EVENT_FAST_SHIP_HAS_ARRIVED
 	setevent EVENT_FAST_SHIP_FOUND_GIRL
 	closetext
+	appearfolloweronestep
 	end
 
 SSAquaFoundGranddaughter:

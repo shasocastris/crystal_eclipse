@@ -62,10 +62,12 @@ Route36RangerScript:
 	writetext PokemonRangerText_AfterPlainBadge_Departing
 	waitbutton
 	closetext
+	stowfollower
 	turnobject ROUTE36_OFFICER, LEFT
 	applymovement ROUTE36_OFFICER, Route36RangerMovement
 	disappear ROUTE36_OFFICER
 	setevent EVENT_SPOKE_WITH_ROUTE_36_RANGER
+	appearfolloweronestep
 	end
 
 Route36RockSmashGuyScript:

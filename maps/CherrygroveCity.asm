@@ -34,6 +34,7 @@ CherrygroveCityGuideGent:
 	writetext GuideGentIntroText
 	waitbutton
 	closetext
+	stowfollower
 	playmusic MUSIC_SHOW_ME_AROUND
 	follow CHERRYGROVECITY_GRAMPS, PLAYER
 	applymovement CHERRYGROVECITY_GRAMPS, GuideGentMovement1
@@ -83,6 +84,7 @@ CherrygroveCityGuideGent:
 	disappear CHERRYGROVECITY_GRAMPS
 	clearevent EVENT_GUIDE_GENT_VISIBLE_IN_CHERRYGROVE
 	waitsfx
+	appearfolloweronestep
 	end
 
 .JumpstdReceiveItem:

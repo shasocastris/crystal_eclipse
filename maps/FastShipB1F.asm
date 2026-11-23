@@ -28,21 +28,25 @@ FastShipB1FNoop2Scene:
 FastShipB1FSailorBlocksLeft:
 	checkevent EVENT_FAST_SHIP_B1F_SAILOR_RIGHT
 	iftrue FastShipB1FAlreadyBlocked
+	stowfollowerif UP
 	applymovement FASTSHIPB1F_SAILOR2, FastShipB1FSailorBlocksLeftMovement
 	moveobject FASTSHIPB1F_SAILOR1, 30, 6
 	appear FASTSHIPB1F_SAILOR1
 	pause 5
 	disappear FASTSHIPB1F_SAILOR2
+	appearfolloweronestep
 	end
 
 FastShipB1FSailorBlocksRight:
 	checkevent EVENT_FAST_SHIP_B1F_SAILOR_LEFT
 	iftrue FastShipB1FAlreadyBlocked
+	stowfollowerif UP
 	applymovement FASTSHIPB1F_SAILOR1, FastShipB1FSailorBlocksRightMovement
 	moveobject FASTSHIPB1F_SAILOR2, 31, 6
 	appear FASTSHIPB1F_SAILOR2
 	pause 5
 	disappear FASTSHIPB1F_SAILOR1
+	appearfolloweronestep
 	end
 
 FastShipB1FAlreadyBlocked:
