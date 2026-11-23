@@ -1,4 +1,4 @@
-"""EVIOLITE can be held (CANT_TOSS items in the Items pocket get GIVE/QUIT), driven through the real menus.
+"""EVIOLITE is a normal held item (GIVE/TOSS/QUIT), driven through the real menus.
 
     runner.py v10_eviolite_give --jobs 1
 """
@@ -67,14 +67,14 @@ def _pack_submenu(g, item):
 
 @test(S)
 def give_menu_options(g):
-    """Pack submenu: EVIOLITE offers GIVE/QUIT (no TOSS); LEFTOVERS keeps GIVE/TOSS/QUIT."""
+    """Pack submenu: EVIOLITE and LEFTOVERS both offer GIVE/TOSS/QUIT."""
     base = g.state()
     out = {}
     for item in ('EVIOLITE', 'LEFTOVERS'):
         g.load(base)
         out[item] = _pack_submenu(g, item)
         _shot(g, 'menu_' + item)
-    check(out['EVIOLITE'] == ['GIVE', 'QUIT'], 'EVIOLITE menu wrong', out=out)
+    check(out['EVIOLITE'] == ['GIVE', 'TOSS', 'QUIT'], 'EVIOLITE menu wrong', out=out)
     check(out['LEFTOVERS'] == ['GIVE', 'TOSS', 'QUIT'], 'LEFTOVERS menu changed', out=out)
     return out
 

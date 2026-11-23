@@ -94,7 +94,7 @@
 
 ### Phase 2 — EVIOLITE bonus (DONE, `d99103e96`)
 Replaces the Suicune gift and the Tin Tower owned-Suicune branch, which are dropped.
-- New item `EVIOLITE` ($009A, end of the item pocket). +50% Def/Sp.Def when the holder's species still has an evolution entry (`EvioliteBoost`, both damage routines, before `TruncateHL_BC`). Held, it blocks all evolution in `EvolveAfterBattle`, stones included. Price 0, `CANT_TOSS`.
+- New item `EVIOLITE` ($009A, end of the item pocket). +50% Def/Sp.Def when the holder's species still has an evolution entry (`EvioliteBoost`, both damage routines, before `TruncateHL_BC`). Held, it blocks all evolution in `EvolveAfterBattle`, stones included. A normal held item since 2026-11-23: price 4000, tossable and sellable.
 - Ruins finale: after the Clear Bell text, `VAR_UNOWNCOUNT == NUM_UNOWN` → Suicune gives it. Bag full → hidden item ball (`EVENT_RUINS_OF_ALPH_OUTSIDE_EVIOLITE`) appears at (4,26).
 - Not play-tested yet.
 

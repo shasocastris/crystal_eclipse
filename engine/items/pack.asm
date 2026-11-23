@@ -303,10 +303,6 @@ Pack:
 	jr .build_menu
 
 .tossable_selectable
-	ld a, [wCurPocket]
-	assert ITEM_POCKET == 0
-	and a
-	jr z, .keepsake
 	ld hl, MenuHeader_UnusableItem
 	ld de, Jumptable_UseQuit
 	jr .build_menu
@@ -319,11 +315,6 @@ Pack:
 .unusable
 	ld hl, MenuHeader_HoldableKeyItem
 	ld de, Jumptable_GiveTossRegisterQuit
-	jr .build_menu
-
-.keepsake
-	ld hl, MenuHeader_KeepsakeItem
-	ld de, Jumptable_GiveQuit
 	jr .build_menu
 
 .selectable_unusable
@@ -453,23 +444,6 @@ MenuHeader_HoldableItem:
 Jumptable_GiveTossQuit:
 	dw GiveItem
 	dw TossMenu
-	dw DoNothing ; QuitItemSubmenu
-
-; CANT_TOSS item in the Items pocket (EVIOLITE): holdable, never lost
-MenuHeader_KeepsakeItem:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 13, 7, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
-	dw .MenuData
-	db 1 ; default option
-
-.MenuData:
-	db STATICMENU_CURSOR | STATICMENU_NO_TOP_SPACING ; flags
-	db 2 ; items
-	db "GIVE@"
-	db "QUIT@"
-
-Jumptable_GiveQuit:
-	dw GiveItem
 	dw DoNothing ; QuitItemSubmenu
 
 UseItem:

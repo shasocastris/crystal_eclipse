@@ -257,16 +257,12 @@ _GetItemToGive:
 	ld a, [wCurPocket]
 	cp KEY_ITEM_POCKET
 	jr z, .next
-	assert ITEM_POCKET == 0
-	and a
-	jr z, .give ; CANT_TOSS only blocks the other pockets (EVIOLITE)
 
 	call CheckTossableItem
 	ld a, [wItemAttributeValue]
 	and a
 	jr nz, .next
 
-.give
 	or 1
 	ret
 
