@@ -457,11 +457,10 @@ PidgeyEvosAttacks:
 	dbw 21, ROAR
 	dbw 25, FAINT_ATTACK
 	dbw 29, WING_ATTACK
-	dbw 33, FORESIGHT
-	dbw 41, AGILITY
-	dbw 47, AIR_SLASH
-	dbw 51, MIRROR_MOVE
-	dbw 54, HURRICANE
+	dbw 33, AGILITY
+	dbw 41, AIR_SLASH
+	dbw 47, MIRROR_MOVE
+	dbw 51, HURRICANE
 	db 0 ; no more level-up moves
 
 PidgeottoEvosAttacks:
@@ -476,11 +475,10 @@ PidgeottoEvosAttacks:
 	dbw 23, ROAR
 	dbw 28, FAINT_ATTACK
 	dbw 33, WING_ATTACK
-	dbw 38, FORESIGHT
-	dbw 49, AGILITY
-	dbw 55, AIR_SLASH
-	dbw 60, MIRROR_MOVE
-	dbw 65, HURRICANE
+	dbw 38, AGILITY
+	dbw 49, AIR_SLASH
+	dbw 55, MIRROR_MOVE
+	dbw 60, HURRICANE
 	db 0 ; no more level-up moves
 
 PidgeotEvosAttacks:
@@ -494,12 +492,11 @@ PidgeotEvosAttacks:
 	dbw 23, ROAR
 	dbw 28, FAINT_ATTACK
 	dbw 33, WING_ATTACK
-	dbw 41, FORESIGHT
-	dbw 52, AGILITY
-	dbw 59, AIR_SLASH
-	dbw 66, MIRROR_MOVE
-	dbw 73, EXTREMESPEED
-	dbw 78, HURRICANE
+	dbw 41, AGILITY
+	dbw 52, AIR_SLASH
+	dbw 59, MIRROR_MOVE
+	dbw 66, EXTREMESPEED
+	dbw 73, HURRICANE
 	db 0 ; no more level-up moves
 
 RattataEvosAttacks:

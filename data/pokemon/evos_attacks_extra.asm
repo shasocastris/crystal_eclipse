@@ -145,13 +145,13 @@ MismagiusEvosAttacks:
 	dbw 1, GROWL
 	dbw 1, PSYWAVE
 	dbw 9, SPITE
-	dbw 15, CONFUSION
-	dbw 21, MEAN_LOOK
-	dbw 27, SHADOW_BALL
-	dbw 33, SCREECH
+	dbw 15, SCREECH
+	dbw 21, DESTINY_BOND
+	dbw 27, MEAN_LOOK
+	dbw 33, CONFUSION
 	dbw 45, PERISH_SONG
 	dbw 49, DARK_PULSE
-	dbw 53, DESTINY_BOND
+	dbw 53, SHADOW_BALL
 	dbw 57, PSYCHIC_M
 	db 0 ; no more level-up moves
 

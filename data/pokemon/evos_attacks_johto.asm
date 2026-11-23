@@ -1000,13 +1000,13 @@ MisdreavusEvosAttacks:
 	dbw 1, GROWL
 	dbw 1, PSYWAVE
 	dbw 6, SPITE
-	dbw 9, PSYBEAM
+	dbw 9, SCREECH
 	dbw 13, CONFUSE_RAY
-	dbw 16, SHADOW_BALL
-	dbw 19, SCREECH
-	dbw 27, MEAN_LOOK
+	dbw 16, DESTINY_BOND
+	dbw 19, MEAN_LOOK
+	dbw 27, PSYBEAM
 	dbw 31, DARK_PULSE
-	dbw 35, DESTINY_BOND
+	dbw 35, SHADOW_BALL
 	dbw 39, PSYCHIC_M
 	dbw 43, PAIN_SPLIT
 	dbw 46, PERISH_SONG
