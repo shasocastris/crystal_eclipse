@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xxd ~/crystal_eclipse/maps/PewterMuseum1F.ablk)",
+      "Bash(xxd ~/crystal_eclipse/maps/PewterGym.ablk)",
+      "Bash(git checkout *)",
+      "Bash(python3 ~/crystal_eclipse/utils/optimize.py)",
+      "Bash(python utils/optimize.py)",
+      "Bash(awk NR>=157 && NR<=175 *)",
+      "Bash(python3 *)",
+      "Bash(grep *)",
+      "Bash(rgbasm *)",
+      "Bash(sed -n '200,215p' layout.link)",
+      "Bash(sed -n '250,260p' layout.link)",
+      "Bash(tools/bankends crystal_eclipse.gbc)",
+      "Bash(awk 'NR==4{print \"HEADER:\", $0} NR==280{print \"LAST:\", $0}' data/pokemon/icon_pointers.asm)",
+      "mcp__claude-artifacts__get_artifact",
+      "mcp__claude-artifacts__read_artifact",
+      "mcp__claude-artifacts__publish_files",
+      "Bash(python3 -)",
+      "Skill(update-config)"
+    ]
+  }
+}
