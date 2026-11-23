@@ -108,20 +108,20 @@ ChikoritaEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, SCRATCH
 	dbw 1, GROWL
-	dbw 4, RAZOR_LEAF
-	dbw 7, REFLECT
+	dbw 6, RAZOR_LEAF
 	dbw 10, CONSTRICT
-	dbw 13, POISONPOWDER
-	dbw 16, FLAIL
-	dbw 19, SYNTHESIS
-	dbw 22, ANCIENTPOWER
-	dbw 25, LEECH_SEED
-	dbw 28, BODY_SLAM
-	dbw 31, SEED_BOMB
-	dbw 34, LIGHT_SCREEN
-	dbw 37, COUNTER
-	dbw 40, SAFEGUARD
-	dbw 43, PETAL_DANCE
+	dbw 13, REFLECT
+	dbw 13, LIGHT_SCREEN
+	dbw 16, SYNTHESIS
+	dbw 19, POISONPOWDER
+	dbw 22, FLAIL
+	dbw 25, ANCIENTPOWER
+	dbw 28, LEECH_SEED
+	dbw 31, GROWTH
+	dbw 34, BODY_SLAM
+	dbw 37, SAFEGUARD
+	dbw 40, SEED_BOMB
+	dbw 43, COUNTER
 	dbw 46, SWORDS_DANCE
 	dbw 50, SOLARBEAM
 	db 0 ; no more level-up moves
@@ -131,20 +131,20 @@ BayleefEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, SCRATCH
 	dbw 1, GROWL
-	dbw 4, RAZOR_LEAF
-	dbw 7, REFLECT
+	dbw 6, RAZOR_LEAF
 	dbw 10, CONSTRICT
-	dbw 13, POISONPOWDER
-	dbw 16, FLAIL
-	dbw 19, SYNTHESIS
-	dbw 23, ANCIENTPOWER
-	dbw 27, LEECH_SEED
-	dbw 31, BODY_SLAM
-	dbw 35, SEED_BOMB
-	dbw 39, LIGHT_SCREEN
-	dbw 43, COUNTER
-	dbw 47, SAFEGUARD
-	dbw 51, PETAL_DANCE
+	dbw 13, REFLECT
+	dbw 13, LIGHT_SCREEN
+	dbw 16, SYNTHESIS
+	dbw 20, POISONPOWDER
+	dbw 23, FLAIL
+	dbw 27, ANCIENTPOWER
+	dbw 31, LEECH_SEED
+	dbw 35, GROWTH
+	dbw 39, BODY_SLAM
+	dbw 43, SAFEGUARD
+	dbw 47, SEED_BOMB
+	dbw 51, COUNTER
 	dbw 55, SWORDS_DANCE
 	dbw 59, SOLARBEAM
 	db 0 ; no more level-up moves
@@ -154,22 +154,22 @@ MeganiumEvosAttacks:
 	dbw LEARN_EVO_MOVE, PETAL_DANCE
 	dbw 1, SCRATCH
 	dbw 1, GROWL
-	dbw 4, RAZOR_LEAF
-	dbw 7, REFLECT
+	dbw 6, RAZOR_LEAF
 	dbw 10, CONSTRICT
-	dbw 13, POISONPOWDER
-	dbw 16, FLAIL
-	dbw 19, SYNTHESIS
-	dbw 23, ANCIENTPOWER
-	dbw 27, LEECH_SEED
-	dbw 31, BODY_SLAM
-	dbw 35, SEED_BOMB
-	dbw 39, LIGHT_SCREEN
-	dbw 43, COUNTER
-	dbw 47, SAFEGUARD
-	dbw 56, PETAL_DANCE
+	dbw 13, REFLECT
+	dbw 13, LIGHT_SCREEN
+	dbw 16, SYNTHESIS
+	dbw 20, POISONPOWDER
+	dbw 23, FLAIL
+	dbw 27, ANCIENTPOWER
+	dbw 31, LEECH_SEED
+	dbw 35, GROWTH
+	dbw 40, BODY_SLAM
+	dbw 44, SAFEGUARD
+	dbw 49, SEED_BOMB
+	dbw 55, COUNTER
 	dbw 61, SWORDS_DANCE
-	dbw 66, SOLARBEAM
+	dbw 67, SOLARBEAM
 	db 0 ; no more level-up moves
 
 CyndaquilEvosAttacks:
