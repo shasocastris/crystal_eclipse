@@ -129,8 +129,8 @@ TrainerBugCatcherWade1:
 Route31MailRecipientScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_TM50_NIGHTMARE
-	iftrue .DescribeNightmare
+	checkevent EVENT_GOT_TM50_SHADOW_CLAW
+	iftrue .DescribeShadowClaw
 	checkevent EVENT_GOT_KENYA
 	iftrue .TryGiveKenya
 	writetext Text_Route31SleepyMan
@@ -152,11 +152,11 @@ Route31MailRecipientScript:
 	writetext Text_Route31ReadingMail
 	promptbutton
 	setevent EVENT_GAVE_KENYA
-	verbosegiveitem TM_NIGHTMARE, 3
+	verbosegiveitem TM_SHADOW_CLAW, 3
 	iffalse .NoRoomForItems
-	setevent EVENT_GOT_TM50_NIGHTMARE
-.DescribeNightmare:
-	writetext Text_Route31DescribeNightmare
+	setevent EVENT_GOT_TM50_SHADOW_CLAW
+.DescribeShadowClaw:
+	writetext Text_Route31DescribeShadowClaw
 	waitbutton
 .NoRoomForItems:
 	closetext
@@ -318,14 +318,13 @@ Text_Route31ReadingMail:
 	line "to have this!"
 	done
 
-Text_Route31DescribeNightmare:
-	text "TM50 is NIGHTMARE."
+Text_Route31DescribeShadowClaw:
+	text "TM50 is SHADOW"
+	line "CLAW."
 
-	para "It's a wicked move"
-	line "that steadily cuts"
-
-	para "the HP of a sleep-"
-	line "ing enemy."
+	para "It's a spooky move"
+	line "that slashes with"
+	cont "a claw of shadow."
 
 	para "Ooooh…"
 	line "That's scary…"

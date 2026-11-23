@@ -87,28 +87,28 @@ FarmerMScript_NoSale:
 	closetext
 	end
 
-PokefanF_SnoreFarmer:
+PokefanF_CrunchFarmer:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_TM13_SNORE_FROM_MOOMOO_FARM
-	iftrue FarmerFScript_GotSnore
+	checkevent EVENT_GOT_TM13_CRUNCH_FROM_MOOMOO_FARM
+	iftrue FarmerFScript_GotCrunch
 	checkevent EVENT_HEALED_MOOMOO
-	iftrue FarmerFScript_GiveSnore
+	iftrue FarmerFScript_GiveCrunch
 	writetext FarmerFText_InTrouble
 	waitbutton
 	closetext
 	end
 
-FarmerFScript_GiveSnore:
+FarmerFScript_GiveCrunch:
 	writetext FarmerFText_HealedMiltank
 	promptbutton
-	verbosegiveitem TM_SWEET_KISS, 3
-	iffalse FarmerFScript_NoRoomForSnore
-	setevent EVENT_GOT_TM13_SNORE_FROM_MOOMOO_FARM
-FarmerFScript_GotSnore:
-	writetext FarmerFText_SnoreSpeech
+	verbosegiveitem TM_CRUNCH, 3
+	iffalse FarmerFScript_NoRoomForCrunch
+	setevent EVENT_GOT_TM13_CRUNCH_FROM_MOOMOO_FARM
+FarmerFScript_GotCrunch:
+	writetext FarmerFText_CrunchSpeech
 	waitbutton
-FarmerFScript_NoRoomForSnore:
+FarmerFScript_NoRoomForCrunch:
 	closetext
 	end
 
@@ -199,15 +199,15 @@ FarmerFText_HealedMiltank:
 	done
 
 
-FarmerFText_SnoreSpeech:
+FarmerFText_CrunchSpeech:
 	text "That there's"
-	line "SNORE."
+	line "CRUNCH."
 
-	para "It's a rare move"
-	line "that only works"
+	para "Your #MON bites"
+	line "down hard with it."
 
-	para "while the #MON"
-	line "is asleep."
+	para "It can wear down"
+	line "a foe's guard too."
 
 	para "You best think how"
 	line "you ought to use"
@@ -229,4 +229,4 @@ Route39Farmhouse_MapEvents:
 
 	def_object_events
 	object_event  3,  2, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PokefanM_DairyFarmer, -1
-	object_event  5,  4, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PokefanF_SnoreFarmer, -1
+	object_event  5,  4, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PokefanF_CrunchFarmer, -1

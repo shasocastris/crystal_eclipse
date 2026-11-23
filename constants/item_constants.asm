@@ -307,7 +307,7 @@ DEF TM01 EQU const_value
 	add_tm HIDDEN_POWER ; 0409
 	add_tm SUNNY_DAY    ; 040A
 	add_tm SWEET_SCENT  ; 040B
-	add_tm SWEET_KISS   ; 040C
+	add_tm CRUNCH       ; 040C
 	add_tm BLIZZARD     ; 040D
 	add_tm HYPER_BEAM   ; 040E
 	add_tm ICY_WIND     ; 040F
@@ -334,7 +334,7 @@ DEF TM01 EQU const_value
 	add_tm SANDSTORM    ; 0424
 	add_tm FIRE_BLAST   ; 0425
 	add_tm SWIFT        ; 0426
-	add_tm DEFENSE_CURL ; 0427
+	add_tm ROCK_SLIDE   ; 0427
 	add_tm THUNDERPUNCH ; 0428
 	add_tm DREAM_EATER  ; 0429
 	add_tm DETECT       ; 042A
@@ -344,7 +344,7 @@ DEF TM01 EQU const_value
 	add_tm STEEL_WING   ; 042E
 	add_tm FIRE_PUNCH   ; 042F
 	add_tm FURY_CUTTER  ; 0430
-	add_tm NIGHTMARE    ; 0431
+	add_tm SHADOW_CLAW  ; 0431
 DEF NUM_TMS EQU __tmhm_value__ - 1
 
 MACRO add_hm
@@ -385,11 +385,9 @@ DEF MT01 EQU const_value
 	add_mt THUNDERBOLT
 	add_mt ICE_BEAM
 	add_mt NOURISHMENT
-	add_mt PAY_DAY
 	add_mt TELEPORT
 	add_mt SEISMIC_TOSS
 	add_mt COUNTER
-	add_mt MIMIC
 	add_mt REFLECT
 	add_mt BODY_SLAM
 	add_mt SUBSTITUTE
@@ -398,6 +396,10 @@ DEF MT01 EQU const_value
 	add_mt SWORDS_DANCE
 	add_mt DOUBLE_EDGE
 	add_mt MEGA_KICK
+	add_mt X_SCISSOR
+	add_mt POISON_JAB
+	add_mt ICICLE_CRASH
+	add_mt SEED_BOMB
 DEF NUM_TUTORS = __tmhm_value__ - NUM_TMS - NUM_HMS - 1
 
 DEF NUM_TM_HM_TUTOR EQU NUM_TMS + NUM_HMS + NUM_TUTORS

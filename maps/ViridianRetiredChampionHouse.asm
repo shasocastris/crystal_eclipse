@@ -45,8 +45,8 @@ ViridianRetiredChampionScript:
 	closewindow
 	ifequal 1, .TeachSeismicToss
 	ifequal 2, .TeachCounter
-	ifequal 3, .TeachMimic
-	ifequal 4, .TeachReflect
+	ifequal 3, .TeachReflect
+	ifequal 4, .TeachSubstitute
 	sjump .Cancelled
 
 .SodaPop:
@@ -58,9 +58,9 @@ ViridianRetiredChampionScript:
 	verticalmenu
 	closewindow
 	ifequal 1, .TeachBodySlam
-	ifequal 2, .TeachSubstitute
-	ifequal 3, .TeachTriAttack
-	ifequal 4, .TeachMegaPunch
+	ifequal 2, .TeachTriAttack
+	ifequal 3, .TeachMegaPunch
+	ifequal 4, .TeachXScissor
 	sjump .Cancelled
 
 .Lemonade:
@@ -74,6 +74,7 @@ ViridianRetiredChampionScript:
 	ifequal 1, .TeachSwordsDance
 	ifequal 2, .TeachDoubleEdge
 	ifequal 3, .TeachMegaKick
+	ifequal 4, .TeachPoisonJab
 	sjump .Cancelled
 
 .BerryJuice:
@@ -84,9 +85,10 @@ ViridianRetiredChampionScript:
 	loadmenu .BerryJuiceMovesMenuHeader
 	verticalmenu
 	closewindow
-	ifequal 1, .TeachPayDay
-	ifequal 2, .TeachTeleport
-	ifequal 3, .TeachSoftboiledBerry
+	ifequal 1, .TeachTeleport
+	ifequal 2, .TeachNourishment
+	ifequal 3, .TeachIcicleCrash
+	ifequal 4, .TeachSeedBomb
 	sjump .Cancelled
 
 ; --- Teach routines ---
@@ -99,21 +101,17 @@ ViridianRetiredChampionScript:
 	loadmoveindex COUNTER
 	sjump .DoTeachFreshWater
 
-.TeachMimic:
-	loadmoveindex MIMIC
-	sjump .DoTeachFreshWater
-
 .TeachReflect:
 	loadmoveindex REFLECT
+	sjump .DoTeachFreshWater
+
+.TeachSubstitute:
+	loadmoveindex SUBSTITUTE
 	sjump .DoTeachFreshWater
 
 ; Soda Pop moves
 .TeachBodySlam:
 	loadmoveindex BODY_SLAM
-	sjump .DoTeachSodaPop
-
-.TeachSubstitute:
-	loadmoveindex SUBSTITUTE
 	sjump .DoTeachSodaPop
 
 .TeachTriAttack:
@@ -122,6 +120,10 @@ ViridianRetiredChampionScript:
 
 .TeachMegaPunch:
 	loadmoveindex MEGA_PUNCH
+	sjump .DoTeachSodaPop
+
+.TeachXScissor:
+	loadmoveindex X_SCISSOR
 	sjump .DoTeachSodaPop
 
 ; Lemonade moves
@@ -137,17 +139,25 @@ ViridianRetiredChampionScript:
 	loadmoveindex MEGA_KICK
 	sjump .DoTeachLemonade
 
-; Berry Juice moves
-.TeachPayDay:
-	loadmoveindex PAY_DAY
-	sjump .DoTeachBerryJuice
+.TeachPoisonJab:
+	loadmoveindex POISON_JAB
+	sjump .DoTeachLemonade
 
+; Berry Juice moves
 .TeachTeleport:
 	loadmoveindex TELEPORT
 	sjump .DoTeachBerryJuice
 
-.TeachSoftboiledBerry:
+.TeachNourishment:
 	loadmoveindex NOURISHMENT
+	sjump .DoTeachBerryJuice
+
+.TeachIcicleCrash:
+	loadmoveindex ICICLE_CRASH
+	sjump .DoTeachBerryJuice
+
+.TeachSeedBomb:
+	loadmoveindex SEED_BOMB
 	sjump .DoTeachBerryJuice
 
 ; --- Drink-specific teach paths ---
@@ -243,8 +253,8 @@ ViridianRetiredChampionScript:
 	db 4
 	db "SEISMIC TOSS@"
 	db "COUNTER@"
-	db "MIMIC@"
 	db "REFLECT@"
+	db "SUBSTITUTE@"
 
 .SodaPopMovesMenuHeader:
 	db MENU_BACKUP_TILES
@@ -256,9 +266,9 @@ ViridianRetiredChampionScript:
 	db STATICMENU_CURSOR
 	db 4
 	db "BODY SLAM@"
-	db "SUBSTITUTE@"
 	db "TRI ATTACK@"
 	db "MEGA PUNCH@"
+	db "X-SCISSOR@"
 
 .LemonadeMovesMenuHeader:
 	db MENU_BACKUP_TILES
@@ -268,10 +278,11 @@ ViridianRetiredChampionScript:
 
 .LemonadeMovesData:
 	db STATICMENU_CURSOR
-	db 3
+	db 4
 	db "SWORDS DANCE@"
 	db "DOUBLE-EDGE@"
 	db "MEGA KICK@"
+	db "POISON JAB@"
 
 .BerryJuiceMovesMenuHeader:
 	db MENU_BACKUP_TILES
@@ -281,10 +292,11 @@ ViridianRetiredChampionScript:
 
 .BerryJuiceMovesData:
 	db STATICMENU_CURSOR
-	db 3
-	db "PAY DAY@"
+	db 4
 	db "TELEPORT@"
-	db "SOFTBOILED@"
+	db "NOURISHMENT@"
+	db "ICICLE CRASH@"
+	db "SEED BOMB@"
 
 ; --- Dialogue ---
 
