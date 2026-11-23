@@ -159,31 +159,29 @@ ENDM
 	command doubleflyingdamage      ; 98
 	command doubleundergrounddamage ; 99
 	command mirrorcoat              ; 9a
-	command checkfuturesight        ; 9b
-	command futuresight             ; 9c
-	command doubleminimizedamage    ; 9d
-	command skipsuncharge           ; 9e
-	command thunderaccuracy         ; 9f
-	command teleport                ; a0
-	command ragedamage              ; a1
-	command resettypematchup        ; a2
-	command allstatsup              ; a3
-	command bidefailtext            ; a4
-	command raisesubnoanim          ; a5
-	command lowersubnoanim          ; a6
-	command clearmissdamage         ; a7
-	command movedelay               ; a8
-	command moveanim                ; a9
-	command tristatuschance         ; aa
-	command supereffectivelooptext  ; ab
-	command startloop               ; ac
-	command curl                    ; ad
-	command starthail               ; ae
-	command detectitem              ; af
-	command signatureweather        ; b0
-	command innerlight              ; b1
-	command lifedew                 ; b2
-	command faeblade                ; b3
+	command doubleminimizedamage    ; 9b
+	command skipsuncharge           ; 9c
+	command thunderaccuracy         ; 9d
+	command teleport                ; 9e
+	command ragedamage              ; 9f
+	command resettypematchup        ; a0
+	command allstatsup              ; a1
+	command bidefailtext            ; a2
+	command raisesubnoanim          ; a3
+	command lowersubnoanim          ; a4
+	command clearmissdamage         ; a5
+	command movedelay               ; a6
+	command moveanim                ; a7
+	command tristatuschance         ; a8
+	command supereffectivelooptext  ; a9
+	command startloop               ; aa
+	command curl                    ; ab
+	command starthail               ; ac
+	command detectitem              ; ad
+	command signatureweather        ; ae
+	command innerlight              ; af
+	command lifedew                 ; b0
+	command faeblade                ; b1
 
 DEF NUM_EFFECT_COMMANDS EQU const_value - 1
 

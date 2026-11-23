@@ -206,7 +206,6 @@ MoveNames::
 	li "THUNDER WAVE"
 	; PSYCHIC_TYPE
 	li "PSYCHIC"
-	li "FUTURE SIGHT"
 	li "PSYBEAM"
 	li "CONFUSION"
 	li "PSYWAVE"

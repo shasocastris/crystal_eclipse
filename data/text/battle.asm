@@ -100,12 +100,6 @@ BattleText_UserRecoveredPPUsing:
 	text "."
 	prompt
 
-BattleText_TargetWasHitByFutureSight:
-	text "<TARGET>"
-	line "was hit by FUTURE"
-	cont "SIGHT!"
-	prompt
-
 BattleText_SafeguardFaded:
 	text "<USER>'s"
 	line "SAFEGUARD faded!"

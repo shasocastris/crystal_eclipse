@@ -333,7 +333,6 @@ FarigirafEvosAttacks:
 	dbw 17, STOMP
 	dbw 25, CRUNCH
 	dbw 33, BATON_PASS
-	dbw 41, FUTURE_SIGHT
 	dbw 49, PSYCHIC_M
 	dbw 57, HYPER_BEAM
 	db 0 ; no more level-up moves

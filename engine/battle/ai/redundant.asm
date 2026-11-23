@@ -44,7 +44,6 @@ AI_Redundant:
 	dbw EFFECT_SYNTHESIS,    .Synthesis
 	dbw EFFECT_MOONLIGHT,    .Moonlight
 	dbw EFFECT_SWAGGER,      .Swagger
-	dbw EFFECT_FUTURE_SIGHT, .FutureSight
 	dbw EFFECT_HAIL,         .Hail
 	dbw EFFECT_INNER_LIGHT,  .InnerLight
 	db -1
@@ -176,11 +175,6 @@ AI_Redundant:
 .Swagger:
 	ld a, [wPlayerSubStatus3]
 	bit SUBSTATUS_CONFUSED, a
-	ret
-
-.FutureSight:
-	ld a, [wEnemyFutureSightCount]
-	and a
 	ret
 
 .Hail:

@@ -147,7 +147,6 @@ MoveEffectsPointers:
 	dw SkullBash
 	dw Twister
 	dw Earthquake
-	dw FutureSight
 	dw Gust
 	dw Stomp
 	dw Solarbeam

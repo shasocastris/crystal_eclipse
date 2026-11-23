@@ -214,66 +214,65 @@ DEF MOVE_TABLE_SPLIT EQU const_value - 1 ; last move in the first part of each m
 	const THUNDER_WAVE   ; be
 	; PSYCHIC_TYPE
 	const PSYCHIC_M      ; bf
-	const FUTURE_SIGHT   ; c0
-	const PSYBEAM        ; c1
-	const CONFUSION      ; c2
-	const PSYWAVE        ; c3
-	const MIRROR_COAT    ; c4
-	const HYPNOSIS       ; c5
-	const MEDITATE       ; c6
-	const AGILITY        ; c7
-	const TELEPORT       ; c8
-	const BARRIER        ; c9
-	const LIGHT_SCREEN   ; ca
-	const REFLECT        ; cb
-	const AMNESIA        ; cc
-	const REST           ; cd
+	const PSYBEAM        ; c0
+	const CONFUSION      ; c1
+	const PSYWAVE        ; c2
+	const MIRROR_COAT    ; c3
+	const HYPNOSIS       ; c4
+	const MEDITATE       ; c5
+	const AGILITY        ; c6
+	const TELEPORT       ; c7
+	const BARRIER        ; c8
+	const LIGHT_SCREEN   ; c9
+	const REFLECT        ; ca
+	const AMNESIA        ; cb
+	const REST           ; cc
 	; ICE
-	const ICICLE_CRASH   ; ce
-	const ICE_PUNCH      ; cf
-	const ICE_SHARD      ; d0
-	const BLIZZARD       ; d1
-	const ICE_BEAM       ; d2
-	const AURORA_BEAM    ; d3
-	const ICY_WIND       ; d4
-	const POWDER_SNOW    ; d5
-	const MIST           ; d6
-	const HAZE           ; d7
-	const SUDDEN_CHILL   ; d8
-	const HAIL           ; d9
+	const ICICLE_CRASH   ; cd
+	const ICE_PUNCH      ; ce
+	const ICE_SHARD      ; cf
+	const BLIZZARD       ; d0
+	const ICE_BEAM       ; d1
+	const AURORA_BEAM    ; d2
+	const ICY_WIND       ; d3
+	const POWDER_SNOW    ; d4
+	const MIST           ; d5
+	const HAZE           ; d6
+	const SUDDEN_CHILL   ; d7
+	const HAIL           ; d8
 	; DRAGON
-	const OUTRAGE        ; da
-	const DRAGON_CLAW    ; db
-	const DRAGON_PULSE   ; dc
-	const DRAGONBREATH   ; dd
-	const DRAGON_RAGE    ; de
-	const TWISTER        ; df
+	const OUTRAGE        ; d9
+	const DRAGON_CLAW    ; da
+	const DRAGON_PULSE   ; db
+	const DRAGONBREATH   ; dc
+	const DRAGON_RAGE    ; dd
+	const TWISTER        ; de
 	; DARK
-	const CRUNCH         ; e0
-	const BITE           ; e1
-	const FAINT_ATTACK   ; e2
-	const THIEF          ; e3
-	const PURSUIT        ; e4
-	const DARK_PULSE     ; e5
+	const CRUNCH         ; df
+	const BITE           ; e0
+	const FAINT_ATTACK   ; e1
+	const THIEF          ; e2
+	const PURSUIT        ; e3
+	const DARK_PULSE     ; e4
 	; FAIRY
-	const MEGA_PUNCH     ; e6
-	const COMET_PUNCH    ; e7
-	const MOONBLAST      ; e8
-	const DISARM_VOICE   ; e9
-	const SWEET_KISS     ; ea
-	const CHARM          ; eb
-	const MOONLIGHT      ; ec
+	const MEGA_PUNCH     ; e5
+	const COMET_PUNCH    ; e6
+	const MOONBLAST      ; e7
+	const DISARM_VOICE   ; e8
+	const SWEET_KISS     ; e9
+	const CHARM          ; ea
+	const MOONLIGHT      ; eb
 	; UBER
-	const AURA_SPHERE    ; ed
-	const SKY_ATTACK     ; ee
-	const ERUPTION       ; ef
-	const SACRED_FIRE    ; f0
-	const LIFE_DEW       ; f1
-	const STORM_CALL     ; f2
-	const INNER_LIGHT    ; f3
-	const SHEER_COLD     ; f4
-	const AEROBLAST      ; f5
-	const FAE_BLADE      ; f6
+	const AURA_SPHERE    ; ec
+	const SKY_ATTACK     ; ed
+	const ERUPTION       ; ee
+	const SACRED_FIRE    ; ef
+	const LIFE_DEW       ; f0
+	const STORM_CALL     ; f1
+	const INNER_LIGHT    ; f2
+	const SHEER_COLD     ; f3
+	const AEROBLAST      ; f4
+	const FAE_BLADE      ; f5
 DEF NUM_ATTACKS EQU const_value - 1
 
 DEF CANNOT_MOVE EQU $ff

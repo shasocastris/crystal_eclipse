@@ -1164,7 +1164,6 @@ PsyduckEvosAttacks:
 	dbw 40, FURY_STRIKES
 	dbw 48, CROSS_CHOP
 	dbw 52, HYDRO_PUMP
-	dbw 56, FUTURE_SIGHT
 	dbw 60, PSYCHIC_M
     dbw 65, DARK_PULSE
 	db 0 ; no more level-up moves
@@ -1185,7 +1184,6 @@ GolduckEvosAttacks:
 	dbw 44, FURY_STRIKES
 	dbw 56, CROSS_CHOP
 	dbw 62, HYDRO_PUMP
-	dbw 67, FUTURE_SIGHT
 	dbw 72, PSYCHIC_M
 	dbw 77, DARK_PULSE
 	db 0 ; no more level-up moves
@@ -1339,7 +1337,6 @@ KadabraEvosAttacks:
 	dbw 26, RECOVER
 	dbw 30, SHADOW_BALL
 	dbw 34, BARRIER
-	dbw 38, FUTURE_SIGHT
 	dbw 42, PSYCHIC_M
 	dbw 47, REFLECT
 	dbw 52, PSYCH_UP
@@ -1359,7 +1356,6 @@ AlakazamEvosAttacks:
 	dbw 26, RECOVER
 	dbw 30, SHADOW_BALL
 	dbw 34, BARRIER
-	dbw 38, FUTURE_SIGHT
 	dbw 42, PSYCHIC_M
 	dbw 47, REFLECT
 	dbw 52, PSYCH_UP
@@ -1609,7 +1605,6 @@ SlowpokeEvosAttacks:
 	dbw 15, WATER_GUN
 	dbw 18, SAFEGUARD
 	dbw 20, CONFUSION
-	dbw 25, FUTURE_SIGHT
 	dbw 29, DISABLE
 	dbw 32, BELLY_DRUM
 	dbw 34, HEADBUTT
@@ -1627,7 +1622,6 @@ SlowbroEvosAttacks:
 	dbw 15, WATER_GUN
 	dbw 18, SAFEGUARD
 	dbw 20, CONFUSION
-	dbw 25, FUTURE_SIGHT
 	dbw 29, DISABLE
 	dbw 32, BELLY_DRUM
 	dbw 34, HEADBUTT
@@ -1945,7 +1939,6 @@ DrowzeeEvosAttacks:
 	dbw 36, MEDITATE
 	dbw 40, PSYCHIC_M
 	dbw 43, PSYCH_UP
-	dbw 45, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
 HypnoEvosAttacks:
@@ -1961,7 +1954,6 @@ HypnoEvosAttacks:
 	dbw 40, MEDITATE
 	dbw 49, PSYCHIC_M
 	dbw 55, PSYCH_UP
-	dbw 60, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
 KrabbyEvosAttacks:
@@ -2394,7 +2386,6 @@ MrMimeEvosAttacks:
 	dbw 1, BARRIER
 	dbw 6, CONFUSION
 	dbw 11, SUBSTITUTE
-	dbw 13, FUTURE_SIGHT
 	dbw 16, MEDITATE
 	dbw 19, HYPNOSIS
 	dbw 21, FURY_STRIKES

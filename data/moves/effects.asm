@@ -1944,23 +1944,6 @@ Earthquake:
 	buildopponentrage
 	endmove
 
-FutureSight:
-	checkfuturesight
-	checkobedience
-	usedmovetext
-	doturn
-	damagestats
-	damagecalc
-	futuresight
-	damagevariation ; skip here if last turn
-	checkhit
-	moveanimnosub
-	failuretext
-	applydamage
-	checkfaint
-	buildopponentrage
-	endmove
-
 Gust:
 	checkobedience
 	usedmovetext

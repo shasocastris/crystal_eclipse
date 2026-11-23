@@ -604,7 +604,6 @@ NatuEvosAttacks:
 	dbw 9, NIGHT_SHADE
 	dbw 13, TELEPORT
 	dbw 17, FAINT_ATTACK
-	dbw 21, FUTURE_SIGHT
 	dbw 25, CONFUSE_RAY
 	dbw 29, STEEL_WING
 	dbw 33, HAZE
@@ -623,7 +622,6 @@ XatuEvosAttacks:
 	dbw 13, TELEPORT
 	dbw 17, FAINT_ATTACK
 	dbw 21, CONFUSE_RAY
-	dbw 26, FUTURE_SIGHT
 	dbw 32, HAZE
 	dbw 38, STEEL_WING
 	dbw 44, AIR_SLASH
@@ -710,7 +708,6 @@ MarillEvosAttacks:
 	dbw 21, BUBBLEBEAM
 	dbw 25, PERISH_SONG
 	dbw 28, MEGA_PUNCH
-	dbw 32, FUTURE_SIGHT
 	dbw 36, RAIN_DANCE
 	dbw 40, LIGHT_SCREEN
 	db 0 ; no more level-up moves
@@ -728,7 +725,6 @@ AzumarillEvosAttacks:
 	dbw 25, BUBBLEBEAM
 	dbw 30, PERISH_SONG
 	dbw 36, MEGA_PUNCH
-	dbw 42, FUTURE_SIGHT
 	dbw 48, RAIN_DANCE
 	dbw 53, LIGHT_SCREEN
 	db 0 ; no more level-up moves
@@ -990,7 +986,6 @@ SlowkingEvosAttacks:
 	dbw 15, WATER_GUN
 	dbw 18, SAFEGUARD
 	dbw 20, CONFUSION
-	dbw 25, FUTURE_SIGHT
 	dbw 29, DISABLE
 	dbw 32, HEADBUTT
 	dbw 35, BELLY_DRUM
@@ -1022,7 +1017,6 @@ UnownEvosAttacks:
 	dbw 1, HIDDEN_POWER
 	dbw 1, PSYWAVE
 	dbw 1, ANCIENTPOWER
-	dbw 1, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
 WobbuffetEvosAttacks:
@@ -1045,7 +1039,6 @@ GirafarigEvosAttacks:
 	dbw 17, FAINT_ATTACK
 	dbw 21, TAKE_DOWN
 	dbw 25, AGILITY
-	dbw 29, FUTURE_SIGHT
 	dbw 33, BATON_PASS
 	dbw 38, PSYBEAM
 	dbw 43, FORESIGHT
@@ -1440,7 +1433,6 @@ DelibirdEvosAttacks:
 	dbw 11, AURORA_BEAM
 	dbw 21, QUICK_ATTACK
 	dbw 26, AIR_SLASH
-	dbw 31, FUTURE_SIGHT
 	dbw 36, ICE_BEAM
 	dbw 41, RAPID_SPIN
 	db 0 ; no more level-up moves
@@ -1850,7 +1842,6 @@ LugiaEvosAttacks:
 	dbw 66, SWIFT
 	dbw 77, ROAR
 	dbw 88, RAIN_DANCE
-	dbw 99, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
 HoOhEvosAttacks:
@@ -1864,7 +1855,6 @@ HoOhEvosAttacks:
 	dbw 66, SWIFT
 	dbw 77, ROAR
 	dbw 88, SUNNY_DAY
-	dbw 99, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
 CelebiEvosAttacks:
@@ -1875,7 +1865,6 @@ CelebiEvosAttacks:
 	dbw 1, HEAL_BELL
 	dbw 10, SAFEGUARD
 	dbw 20, ANCIENTPOWER
-	dbw 30, FUTURE_SIGHT
 	dbw 35, PETAL_DANCE
 	dbw 40, BATON_PASS
 	dbw 50, PERISH_SONG

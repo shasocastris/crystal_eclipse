@@ -215,7 +215,6 @@ MoveDescriptionsPart2:
 	dw ThunderWaveDescription
 	; PSYCHIC_TYPE
 	dw PsychicMDescription
-	dw FutureSightDescription
 	dw PsybeamDescription
 	dw ConfusionDescription
 	dw PsywaveDescription
@@ -1175,10 +1174,6 @@ AncientpowerDescription:
 ShadowBallDescription:
 	db   "An attack that may"
 	line "lower SPCL.DEF.@"
-
-FutureSightDescription:
-	db   "An attack that"
-	line "hits on 3rd turn.@"
 
 RockSmashDescription:
 	db   "An attack that may"
