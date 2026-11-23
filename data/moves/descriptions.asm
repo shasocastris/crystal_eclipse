@@ -982,8 +982,8 @@ IcyWindDescription:
 	line "lowers SPEED.@"
 
 DetectDescription:
-	db   "Evades attack that"
-	line "turn. It may fail.@"
+	db   "Shows foe's item;"
+	line "finds hidden ones.@"
 
 
 LockOnDescription:
