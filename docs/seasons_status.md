@@ -88,7 +88,7 @@ frame, but the reset needs `CheckTimeEvents` to come round.
 
 > ⚠️ **On a fresh save, poke only AFTER the Mom/Pokégear scene.** `special SetDayOfWeek`
 > calls `InitDayOfWeek` → `AlignStartDayToStartSeason`, which recomputes `wSeason` back to
-> spring. Anything poked before that is wiped. This cost two debugging rounds.
+> summer. Anything poked before that is wiped. This cost two debugging rounds.
 
 > ⚠️ **Palettes only reload on a map load**, and **seasonal palettes only apply to TOWN
 > and ROUTE**. Testing inside a building shows nothing — that is correct behaviour, not
@@ -142,7 +142,7 @@ frame, but the reset needs `CheckTimeEvents` to come round.
    `wStartDay` *without re-modding*, so it runs over `[wStartDay, wStartDay+139]`. What
    makes the season cycle continuous is the **period** being 140 (a multiple of 28), not
    the range.
-2. **A new game does not naturally start in spring.** `_InitTime` leaves `wCurDay` on a
+2. **A new game does not naturally start in summer.** `_InitTime` leaves `wCurDay` on a
    multiple of 7 — a season boundary, but not necessarily boundary zero.
    `AlignStartDayToStartSeason` fixes this by adding whole weeks to `wStartDay`, which
    preserves the day of week and costs no saved byte.
@@ -190,7 +190,7 @@ when `wCurDay mod 7` wraps 6 → 0.
 **Every season begins on a Sunday and ends on a Saturday, and every Sunday is a season
 change.** This is structural, not an artifact of the start alignment — which is why
 `AlignStartDayToStartSeason` insists on adding *whole* weeks (its comment at
-`engine/overworld/time.asm:54-58` is guarding this coupling).
+`engine/overworld/time.asm:56-61` is guarding this coupling).
 
 Confirmed in BGB 2026-08-22: the Pokégear read **Sunday, Summer, 12:17 AM** — i.e.
 `wCurDay ≡ 7 (mod 28)`, the first day of summer, 17 minutes after the transition fired.
@@ -200,11 +200,11 @@ Two consequences worth knowing:
 - **Sunny of Sunday (Route 37) shares the boundary.** If she is out and the season did
   not just turn, the alignment is broken. Free cross-check, no memory reads.
 - **The first season of a new save is short.** `AlignStartDayToStartSeason` preserves the
-  weekday the player gives Mom while forcing spring, which leaves `wCurDay mod 28`
-  *equal to that weekday* (0-6). Spring therefore starts mid-week and ends on the first
-  Saturday. **Tell Mom it is Saturday and you get exactly one day of spring.** Not a bug
+  weekday the player gives Mom while forcing summer, which leaves `wCurDay mod 28`
+  equal to *7 + that weekday* (7-13). Summer therefore starts mid-week and ends on the
+  first Saturday. **Tell Mom it is Saturday and you get exactly one day of summer.** Not a bug
   — it falls out of honouring the weekday choice, and the alternative resets the weekday,
-  which `engine/overworld/time.asm:54-58` explicitly rejects. Still the sharpest edge in
+  which `engine/overworld/time.asm:56-61` explicitly rejects. Still the sharpest edge in
   the feature and worth seeing once. **Not yet play-tested.**
 
 ### The pointer-table pattern
@@ -487,6 +487,7 @@ Phase 3. `Trainer Backpics` (382 bytes) is the next portable section there.
       branch are now exercised.
 - [x] **New game telling Mom it is Saturday yields exactly one day of spring.**
       Confirmed 2026-08-22 — the short-first-season edge in §4 behaves as derived.
+      New games have started in summer since 9ab715a79; not re-tested.
 
 Already satisfied: Bug Contest uses a separate path; opcodes appended at the end
 (`$ad`, verified in ROM); all dialogue within 18 chars; no save-format change (M0 reserved
