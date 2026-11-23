@@ -37,17 +37,15 @@ GetSeason::
 	ld [wSeason], a
 	ret
 
-AlignStartDayToSpring::
-; A new game must begin in SPRING. _InitTime leaves wStartDay congruent to
+AlignStartDayToStartSeason::
+; A new game must begin in SUMMER. _InitTime leaves wStartDay congruent to
 ; -hRTCDayLo mod 7, so wCurDay starts on a multiple of 7 -- a season boundary --
-; but not necessarily boundary zero: on a cartridge whose RTC has been running,
-; hRTCDayLo of 10 gives wCurDay 14, which is AUTUMN. Only a fresh RTC lands on
-; SPRING by itself, which is why this looks correct in an emulator.
+; but which one depends on the RTC's day count.
 ;
-; Add the multiple of 7 that reaches the next SPRING. Multiples of 7 preserve the
+; Add the multiple of 7 that reaches the next SUMMER. Multiples of 7 preserve the
 ; day of the week, so the Lucky Number reset and Buena's password are unaffected,
 ; and wStartDay is already saved, so this costs no save-format change.
-	ld b, SPRING_F
+	ld b, SUMMER_F
 AlignStartDayToSeason:
 ; b = the season wanted
 	push bc

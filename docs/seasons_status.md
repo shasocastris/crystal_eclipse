@@ -87,7 +87,7 @@ frame, but the reset needs `CheckTimeEvents` to come round.
 **Play-tested (shasocastris, 2026-08-22): +7 rolls the season as expected.**
 
 > ⚠️ **On a fresh save, poke only AFTER the Mom/Pokégear scene.** `special SetDayOfWeek`
-> calls `InitDayOfWeek` → `AlignStartDayToSpring`, which recomputes `wSeason` back to
+> calls `InitDayOfWeek` → `AlignStartDayToStartSeason`, which recomputes `wSeason` back to
 > spring. Anything poked before that is wiped. This cost two debugging rounds.
 
 > ⚠️ **Palettes only reload on a map load**, and **seasonal palettes only apply to TOWN
@@ -144,10 +144,10 @@ frame, but the reset needs `CheckTimeEvents` to come round.
    the range.
 2. **A new game does not naturally start in spring.** `_InitTime` leaves `wCurDay` on a
    multiple of 7 — a season boundary, but not necessarily boundary zero.
-   `AlignStartDayToSpring` fixes this by adding whole weeks to `wStartDay`, which
+   `AlignStartDayToStartSeason` fixes this by adding whole weeks to `wStartDay`, which
    preserves the day of week and costs no saved byte.
 3. **There are TWO calendar anchors at new game**, not one: `InitTimeOfDay` (Oak's clock)
-   and `InitDayOfWeek` (Mom's weekday question). Both call `AlignStartDayToSpring`.
+   and `InitDayOfWeek` (Mom's weekday question). Both call `AlignStartDayToStartSeason`.
 4. **`object_event` argument `\7` is never emitted.** The macro emits `db \9, \8` and
    drops `h1`; `\8` alone lands at `MAPOBJECT_TIMEOFDAY` and is always a TOD mask.
    `CheckObjectTime` ignores its high nibble. **See §5 for the trap this creates.**
@@ -189,7 +189,7 @@ when `wCurDay mod 7` wraps 6 → 0.
 
 **Every season begins on a Sunday and ends on a Saturday, and every Sunday is a season
 change.** This is structural, not an artifact of the start alignment — which is why
-`AlignStartDayToSpring` insists on adding *whole* weeks (its comment at
+`AlignStartDayToStartSeason` insists on adding *whole* weeks (its comment at
 `engine/overworld/time.asm:54-58` is guarding this coupling).
 
 Confirmed in BGB 2026-08-22: the Pokégear read **Sunday, Summer, 12:17 AM** — i.e.
@@ -199,7 +199,7 @@ Two consequences worth knowing:
 
 - **Sunny of Sunday (Route 37) shares the boundary.** If she is out and the season did
   not just turn, the alignment is broken. Free cross-check, no memory reads.
-- **The first season of a new save is short.** `AlignStartDayToSpring` preserves the
+- **The first season of a new save is short.** `AlignStartDayToStartSeason` preserves the
   weekday the player gives Mom while forcing spring, which leaves `wCurDay mod 28`
   *equal to that weekday* (0-6). Spring therefore starts mid-week and ends on the first
   Saturday. **Tell Mom it is Saturday and you get exactly one day of spring.** Not a bug

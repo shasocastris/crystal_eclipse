@@ -167,7 +167,7 @@ InitTimeOfDay::
 	ld [wStringBuffer2], a
 	ld [wStringBuffer2 + 3], a
 	farcall _InitTime
-	farjp AlignStartDayToSpring
+	farjp AlignStartDayToStartSeason
 
 InitDayOfWeek::
 ; New game, the weekday Mom asks for in the Pokegear scene. This re-anchors
@@ -181,10 +181,10 @@ InitDayOfWeek::
 	ldh a, [hSeconds]
 	ld [wStringBuffer2 + 3], a
 	farcall _InitTime
-	farjp AlignStartDayToSpring
+	farjp AlignStartDayToStartSeason
 
 InitTime::
-; Clock reset. Keeps the current season rather than re-aligning to SPRING: it
+; Clock reset. Keeps the current season rather than re-aligning to SUMMER: it
 ; exists to let the player correct an existing calendar, not to restart it.
 	farjp ResetClockKeepSeason
 
