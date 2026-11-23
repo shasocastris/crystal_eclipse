@@ -1,0 +1,56 @@
+# Ice Path Hollow 2F -- the Hollow proper, above the river floor (f1/), 18x20 (buffer 624/1300)
+# BUILT on branch 88-ice-path-hollow (maps/IcePathHollow2F.asm). shasocastris reworked it by hand 2026-11-11;
+#   the grid and objects below are generated FROM the built map (from_build.py), not the other way round.
+# Working title; the squatters call it "the Proving Hollow". TILESET_ICE_PATH, CAVE, LANDMARK_ICE_PATH.
+# HOOK: "The Washouts and the Obsessed". Trainers the Dragon Shrine turned away camp here and
+#   train until they can prove the Elder wrong. Dragon's Den has wisdom; this place has hunger.
+# ACCESS: the ladder at 17,37 from 1F (f1/), which is entered surfing from Blackthorn's cave mouth.
+#   Needs Surf + Waterfall, so Rising Badge: the player has just passed the test these people failed.
+# DISTRICTS, south to north:
+#   Scrapyard   boulder field round the ladder (no frozen runnel any more). 3 trainers, and the
+#               Boarder on the Vein's south bank.
+#   Frozen Vein 11x5 blocks of ice (block cols 5-15, rows 8-12) with a tongue west along rows 11-12.
+#               Fewest slides (slides.py), stops: 8,23 -> 28,23 -> 28,19 -> 22,19 -> U out the gap
+#               at 22,15. No trap states.
+#               Side branch: at 22,19 step D then L to the rock shelf at 8-9,20-21 (RAZOR CLAW).
+#   Proving Floor  arena. Two sparring trainers cover both lanes to the steps: one fight is forced.
+#   False Shrine   3-row dais copied from the real shrine: the boss, the tutor, an offering.
+#   Camp (NW wing) open; the medic, and a banked 3x2 pool (blocks 3-5,5-6: 47 45 46 / 43 40 42).
+#   Tally Wall  now a sign on the dais's front wall at 16,7.
+#   NE wing     behind the Rock Smash rock at 30,11: DRAGON SCALE and the hidden MAX REVIVE.
+#   West corridor  one-way way home: ledge 25 into a sealed pocket (item), ledge 28 into the Scrapyard.
+# TRAINERS (L50-55, after Clair's 52-53; mixed types, no clean dragon teams):
+#   T1 Gatekeeper   Blackbelt beside the ladder at 16,36 facing right: forced on entry. Machamp / Ursaring / Piloswine.
+#   T2 Scavenger    Burglar at 11,33, steals: Sneasel (Thief) / Murkrow / Qwilfish.
+#   T3 Twice-failed Cooltrainer F at 30,29 facing down: Seadra that never got its scale, Gligar, Jynx.
+#   T4 Vein watch   Boarder at 9,26 facing right along the Vein's south bank: Piloswine / Delibird / Sneasel.
+#   T5+T6 Sparring pair, ex-Dragon Tamers with one dragon each and the rest filler:
+#                   Dragonair / Gyarados / Steelix  and  Dragonair / Aerodactyl / Houndoom.
+#   BOSS  WASHOUT "KAIDO" (Cooltrainer M, talk-to): Kingdra, Gliscor, Weavile, Scizor, Mamoswine,
+#         Dragonair @ Berserk Gene (it never became Dragonite). Failed the test three times.
+# REWARDS beyond the trainers:
+#   - Wild table: the only Johto cave with Sneasel common; Piloswine, Delibird, Jynx, Gligar rare.
+#     RAZOR CLAW on the river shelf makes Weavile a Johto evolution (today it is Kanto-only).
+#   - OUTRAGE tutor on the dais (no TM or tutor teaches it now). "The Elder forbids it. I don't."
+#     Price: one DRAGON SCALE or DRAGON FANG per lesson, so it stays a decision.
+#   - Boss choice after the win. He asks the Elder's question his way: "What is a POKEMON for?"
+#       "Winning"  -> he hands over TM HYPER BEAM-tier power (suggest a 2nd BERSERK GENE) and stays:
+#                     daily rematch here, the party a few levels higher each League clear.
+#       "Company"  -> he leaves. Next visit he is in the Dragon Shrine as a disciple and gives
+#                     his Kingdra's DRAGON SCALE + a Dratini EGG; the dais is empty but the tutor stays.
+#     Either answer is a real reward; they are just different ones. One event flag for the answer.
+#   - Medic in the camp: free heal once a day (fits the no-Pokemon-Center direction).
+#   - Items: RAZOR CLAW (shelf), RARE CANDY (ledge pocket, only via the way home), DRAGON SCALE in
+#     the NE wing (no unplaced TM exists), PP UP as the dais offering. Hidden: MAX REVIVE 33,5 (NE
+#     wing), NUGGET 5,33 (SW boulders), NEVERMELTICE 21,19 (the rock in the Vein).
+#   - Tally Wall sign: scratch marks, one per failed test. After the "Company" answer a new line
+#     reads "KAIDO - PASSED".
+# OBJECT COUNT: 15 object_events (limit 17), 3 bg hidden, 2 signs, 1 warp.
+# TILE GAPS: no shrine, banner, campfire or bedroll art; the dais is bare.
+#   Ledges 25/28 are drawn for the plateau set and look thin against boulder walls.
+# SOURCE: the built map. python3 from_build.py IcePathHollow2F 18 . ice_path_hollow  rewrites this
+#   file from maps/IcePathHollow2F.ablk + .asm and head.txt. The old sketch is in superseded/.
+#   Do NOT copy the .ablk written here back over maps/ unless shasocastris asks for a design change.
+# CHECK: python3 amap_ice.py ice_path_hollow.amap   (renders; its exit report ignores water)
+#        python3 river.py ice_path_hollow.amap      (reachability with Surf/Waterfall, trap states)
+#        python3 slides.py ice_path_hollow.amap X Y (fewest ice slides to a cell)

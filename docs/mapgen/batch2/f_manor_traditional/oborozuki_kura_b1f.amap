@@ -1,0 +1,30 @@
+# OBOROZUKI MANOR B1F -- Kura (storehouse)   (10x7, TILESET_TRADITIONAL_HOUSE, ref CharcoalKiln)
+# Earthen storehouse under the dojo: borrows the Charcoal Kiln's stone floor (48), sack piles (49/4a/43)
+# and back-wall cabinets (40/41/42). Grey shelves (02) stand in for storage racks. Wooden landing with
+# the stairs up in the top-right corner.
+# Gameplay: item room. TEA CADDY (key item, needed for the tea ceremony) on the back shelf, several
+# item balls between the racks, two hidden items in the sack piles. One Sage-ghost-story NPC or a
+# Gastly "haunting the kura" overworld encounter optional.
+# Warps: DOJO stairs 39 (19,2) -> Dojo ladder 27 (22,2).
+tileset traditional_house
+ref CharcoalKiln
+key W=03 w=08 S=14 s=13 T=29 B=1a d=04 c=1f V=1e U=39 K=27 |=3a -=3c L=33 l=34 e=36 _=0d ,=0c ;=1d o=0e O=10 t=11 y=16 1=1b 2=1c 3=18 4=19 Y=0a Z=0b g=2a G=20 h=2b m=21 n=22 E=05 M=06 N=07 >=24 Q=49 q=4a a=43 X=48 x=46 z=47 k=3e j=3f P=2e p=30 F=2f D=2d C=2c r=28 7=37 8=38 i=0f I=09 5=31 6=32 f=25 9=12 0=00 A=02 H=40 J=41 ~=42 R=23 b=4b u=35 v=15 !=17 @=0b
+key q=4a a=43 Q=49 p=02
+grid:
+HJJ~JJJJWW
+XXXXXXXXcU
+QXXppXXXcc
+QXXXXXXXXX
+aXXppXXpXq
+XXXXXXXXXq
+QQXXXXXXQQ
+end
+exit DOJO 19 2
+obj warp 19 2 Dojo
+obj item 6 2 TeaCaddy
+obj item 2 11 Item1
+obj item 12 7 Item2
+obj item 14 12 Item3
+obj hidden 1 6 hidden1
+obj hidden 18 13 hidden2
+obj npc 13 10 OldServant left

@@ -1,0 +1,55 @@
+# Starfall Crater -- a meteor crater in the mountains (22x20 blocks = 44x40 steps)
+#
+# Pitch: a narrow canyon (S exit) opens into a round bowl ringed by cliffs. It is built
+# from the plateau grammar: 72 north face, 69/68 inner sides, 70 south lip, 6f/6e inner
+# corners, 6b/6a canyon corners. The floor is in rings: tall grass under the rim, then
+# short grass, then a scorched dirt ring, then a crater lake. In the middle of the lake
+# a meteorite (boulder 0a) sits on a flowered islet. A cave mouth in the north face (73)
+# leads to an optional "Meteor Hollow" cave. A ledge band below the cave terrace makes a
+# one-way drop back to the lake; the way up is the west dirt lane past a Hiker.
+# Hook: the islet holds ONE static encounter (Surf needed). Make it night-only or
+#   season-gated: a single legendary, or Clefable on a full-moon night (Clefairy in the
+#   rim grass at night). The Meteorite rock is a bg_event ("still warm...").
+# Trainers: Hiker (west lane), Psychic (dirt ring, NE), Super Nerd/astronomer (S ring).
+# Items: terrace item by the cave, hidden shard on the islet, two hidden items in the
+#   rim grass.
+# Exits: S (20,39) canyon; CAVE warp (28,5); islet (19,20) by Surf only.
+# Attach: off Route 42/Mt. Mortar's high country (Hearthhollow's south stub) or Route 45.
+ref Route42
+key M=71 F=72 W=69 E=68 L=70 q=6f p=6e Y=6b Z=6a V=71
+grid:
+MMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMM
+MMqFFFFFFFFFFFCFFFFpMM
+MMW"",o,,,,,,,..,""EMM
+MMW"",,,,o,,,,..,,"EMM
+MMW.____________,,,EMM
+MMW.,,..........,o,EMM
+MMW.,o.(^^^^^^).,,,EMM
+MMW.,,.[~~~~~~].,""EMM
+MMW.,".[~~o~~~].,""EMM
+MMW.,".[~**~~~].,,,EMM
+MMW.,,.[~~~~o~].,o,EMM
+MMW..,.[~~~~~~].,,,EMM
+MMW,............,""EMM
+MMW,o,,,,,,,,,,,"",EMM
+MMW"",,,,,..,,,,,""EMM
+MMW""o,,,,..,,,o""oEMM
+MMVLLLLLLY..ZLLLLLLVMM
+MMMMMMMMMW..EMMMMMMMMM
+MMMMMMMMMW..EMMMMMMMMM
+end
+exit S 20 39
+exit CAVE 28 5
+exit ISLAND 19 20
+obj warp 28 5 MeteorHollow
+obj npc 18 20 STARFALL_LEGEND down
+obj trainer 6 16 Hiker down 3
+obj trainer 30 12 Psychic left 4
+obj trainer 25 27 SuperNerd up 3
+obj item 37 7 terrace_item
+obj sign 20 19 Meteorite
+obj hidden 19 21 island_shard
+obj hidden 7 33 rim_grass
+obj hidden 33 31 east_hollow
+obj sign 20 36 CraterSign

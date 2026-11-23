@@ -1,0 +1,64 @@
+# ============================================================================
+# ROUTE 36, expanded  (34x14 blocks, buffer 800/1300; vanilla 24x9)
+# Source: build36.py -> route36_base.amap; this file = rough.py --seed 7
+#   --p 0.55 --scatter 0.03, then meta.py route36
+# ============================================================================
+# KEPT: all of vanilla, block for block, split at its forest divide: the
+#   National Park gate (W), the trainer-tips path and Suicune's spot, the
+#   path north to Route 37, the fruit tree; east of the divide the flower
+#   meadow, the road to Violet, the Ruins of Alph gate in its rock ledge,
+#   Arthur, Noni, the ranger and the Rock Smash guy.
+# ADDED:
+#   An 8-col woodland between the halves: a pond, a straight stretch of road
+#     (the two 5d tree blocks on it became path) and a ledge over a tall-grass
+#     dell (one-way hop south).
+#   A 3-row southern band: a second meadow and pond, reached through a gap
+#     cut south of the west path (old block 4,8).
+#   Two rows north so the Route 37 path runs a little longer; 2 cols east.
+# SHIFT for vanilla data: y +4 steps; x +16 steps for vanilla x >= 24.
+# NOTE: the Ranger (23,13) plugs the west-half choke as in vanilla; his
+#   event flag hides him. amap reports N/sign gated only because of him.
+# CONNECTIONS: E row 6 (steps 12-13) -> Violet W exit row 4 (steps 8-9):
+#   offset -2. N col 7 (step 14) -> Route 37: was +4, recheck. S edge forest.
+# ============================================================================
+ref Route36
+key g=08 h=09 k=0b D=0c F=0d i=10 j=11 G=1a I=3d O=3e U=5d V=5e X=60 Y=62 Z=64 a=65 t=66 A=6a K=6b N=70
+key !=3c ?=3d @=3e $=3f &=64 +=62 |=60 <=5d >=5e %=61 /=5c
+grid:
+TTTTTTT.TTTTTTTTTTTTTTTTTTTTTTTTTT
+TTTTT?,.?,TTTTTTTTTTTTTTTTTTTTTTTT
+TTTTTTX.S,YTTT,?""!TTTTTTTTTTTTTTT
+TTTTUVX...YTT,(^^)?TTTTTTTTTTTTTTT
+TTTT,YZ,a,tTT,[~~],*TT"""!UUVTTTTT
+TghTSYT,#OV#?,,,,,,$TT,*,*,*,SIUTT
+Tijk.YTZaaIU..........,...........
+TTTT.YTTTTTX,*,,,"",TTZaS..aaaaaTT
+TTTT.,""TT?$@,=====,TTTTTDFTTTTTTT
+TTX@......,TT""""""?TTTTTghooTTTTT
+TTXT,TTTTTTTTT"""",TTTTToGjANNKTTT
+TTT|"""""<(^^^),""+TTTTTTTTTTTTTTT
+TT?@""""$*[~~~]""",TTTTTTTTTTTTTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+end
+exit E 67 12
+exit N 14 0
+exit ParkGate 6 12
+exit RuinsGate 51 17
+obj trainer 8 17 PsychicMark right 3
+obj trainer 19 18 SchoolboyAlan left 5
+obj npc 23 13 Ranger down
+obj npc 55 12 Lass right
+obj npc 48 13 RockSmashGuy left
+obj fruit 9 8 FruitTree
+obj npc 50 10 Arthur down
+obj npc 9 10 Suicune down
+obj npc 9 9 UnownC down
+obj trainer 44 10 LassNoni down 5
+obj trainer 14 24 PicnickerNew right 3
+obj trainer 30 18 CooltrainerNew left 3
+obj item 34 24 MeadowItem
+obj hidden 36 6 HiddenPondside
+obj sign 17 5 TrainerTips2
+obj sign 49 15 RuinsNorthSign
+obj sign 59 11 Route36Sign
+obj sign 9 11 TrainerTips1

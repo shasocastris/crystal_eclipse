@@ -1,0 +1,31 @@
+# OBOROZUKI MANOR B1F-ish -- Sunken Dojo   (12x8, TILESET_TRADITIONAL_HOUSE, ref DanceTheater)
+# Wooden training hall a few steps below the engawa. Kamiza (honoured seat) under the two scrolls on
+# a tatami step, tatami sparring mat in the middle, tansu and bookcase in the corners.
+# Story: run by Lady Sayo's younger brother, Master Genkuro, a retired Black Belt.
+# Gameplay: three Black Belts in a ring around the mat, Genkuro on the kamiza (mini-boss). He hands
+# over the KURA KEY after the win; the ladder down to the storehouse (27) is locked until then.
+# Warps: ENGAWA stairs 39 (1,2) -> Engawa 1e (37,5). KURA ladder 27 (22,2) -> Kura stairs (19,2).
+tileset traditional_house
+ref DanceTheater
+key W=03 w=08 S=14 s=13 T=29 B=1a d=04 c=1f V=1e U=39 K=27 |=3a -=3c L=33 l=34 e=36 _=0d ,=0c ;=1d o=0e O=10 t=11 y=16 1=1b 2=1c 3=18 4=19 Y=0a Z=0b g=2a G=20 h=2b m=21 n=22 E=05 M=06 N=07 >=24 Q=49 q=4a a=43 X=48 x=46 z=47 k=3e j=3f P=2e p=30 F=2f D=2d C=2c r=28 7=37 8=38 i=0f I=09 5=31 6=32 f=25 9=12 0=00 A=02 H=40 J=41 ~=42 R=23 b=4b u=35 v=15 !=17 @=0b
+grid:
+TWWWWSSWWWWB
+UccccddccccK
+cccccccccccc
+cccddddddccc
+cccddddddccc
+cccddddddccc
+cccccccccccc
+cccccccccccc
+end
+exit ENGAWA 1 2
+exit KURA 22 2
+obj warp 1 2 Engawa
+obj warp 22 2 Kura
+obj npc 11 2 Genkuro down
+obj trainer 4 8 BlackBelt1 right 3
+obj trainer 19 8 BlackBelt2 left 3
+obj trainer 11 12 BlackBelt3 up 3
+obj npc 21 3 Student down
+obj item 1 14 Item
+obj hidden 22 14 hidden

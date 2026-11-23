@@ -1,0 +1,60 @@
+# Tidewatch Cape -- coastal route, 32x14 (buffer 760/1300), ref OlivineCity
+# HOOK: a sandy shore route that ends at a small beacon lighthouse on a rocky cape.
+#   Land players walk the top; Surfers get a second layer of the route offshore.
+# LAYOUT (W to E): a dune path (row 3) runs under the tree line. A path ledge (56)
+#   along the dune is a one-way drop onto the beach. The beach holds two tide pools
+#   (54 76 55/58 35 59 and a 54 55 one-row pool) with boulders (0a). A sheltered bay
+#   has a long a3 pier and a surf shack (96 97/9a 9b) at its head. The cape has a
+#   4-block lighthouse (08 09/7e 7f/13 0f/1a 11, Olivine's tower cut short) and
+#   rock outcrops that taper to a tip. Offshore are a reef line (31), a reef ring
+#   (30 31 31 32/38 39 39 3a) and a sand islet.
+# BEATS: Picnicker under the dune ledge watching the beach; Fisher at the tide pool
+#   (pool fishing = Krabby/Shellder/Corsola table); Fisher at the pier tip; Sailor
+#   on the cape facing the beacon path; SwimmerF by the reef, SwimmerM in the bay
+#   mouth. BeaconKeeper (story/heal-for-money NPC per no-PC notes). SurferDude at
+#   the shack (Surf hint or tutor). Items: grass pocket item, tide-pool hidden,
+#   cape-tip hidden, islet item (Surf).
+# ATTACH: W -> Olivine's south-west / Route 40 shore (beach continues off-map at
+#   rows 3-8); E -> stub (future town or Route 41 coast). Surf can also leave by the
+#   south/east sea edges if a sea map is attached. Indoors: beacon, shack.
+# TILE GAPS: no sand tile (01 path is Johto's sand); no bottom shore piece, so the
+#   sea meets the sand flush (as in Cianwood and Route 40).
+ref OlivineCity
+key P=a3 r=31 Q=30 R=32 z=38 Z=39 x=3a k=34 K=36
+key D=96 E=97 F=9a G=9b
+key 1=08 2=09 3=7e 4=7f 5=13 6=0f 7=1a 8=11
+grid:
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+TTTTTTTTT,""",TTTTTTTT..12..TTTT
+TTTT,,,,,,""",,,DETTT,..34.o,TTT
+........,,,,,...FG.,,,..56......
+.________..o............78......
+..........o.~~~~P~~~~........~~~
+.(^).().....~~~~P~~~~~......~~~~
+.[~]o.....o.~~~~P~~~~~o....o~~~~
+............~~~~P~~~~~~....~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~o.~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~.o~~~
+rrrrrrr~~~QrrR~~~~~~~~~~~~..~~~~
+~~~~~~~~~~zZZx~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+end
+exit W 0 6
+exit E 63 8
+exit BEACON 49 9
+exit SHACK 33 6
+obj warp 49 9 TidewatchBeacon
+obj warp 33 6 SurfShack
+obj sign 3 7 RouteSign
+obj trainer 32 17 Fisher down 0
+obj trainer 4 10 Picnicker right 4
+obj trainer 15 14 Fisher_pool left 3
+obj trainer 46 14 Sailor up 3
+obj trainer 18 22 SwimmerF right 4
+obj trainer 40 20 SwimmerM left 4
+obj npc 52 9 BeaconKeeper down
+obj npc 30 7 SurferDude down
+obj item 54 20 islet_item
+obj hidden 10 15 tidepool_hidden
+obj hidden 51 19 cape_tip_hidden
+obj item 22 3 grass_item

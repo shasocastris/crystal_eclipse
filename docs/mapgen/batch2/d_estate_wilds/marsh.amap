@@ -1,0 +1,47 @@
+# Reedmere Marsh -- wetland route (34x14 blocks = 68x28 steps)
+#
+# Pitch: an east-west route that drops into a reed-choked lagoon. There are two ways
+# across. The slow, wild way is the southern reed bank (LONG_GRASS 80 plus tall grass 03;
+# encounters all the way) past a Bug Catcher. The fast way is a zig-zag plank boardwalk
+# (89 east-west, a3 north-south) that hops between little islets through the lagoon.
+# Two Fishers stand at the corners and watch the planks. The Surf shortcut cuts straight
+# across the open water past a Swimmer to a reed island with an item. Small flush pools
+# sit in the reed beds on both sides. The top shore has a bank; the other edges meet the
+# reeds flush, which reads as marsh rather than as a pond.
+# Encounters: 80 and 03 both count as grass. Suggested table: Wooper, Yanma, Oddish,
+#   Paras, Psyduck, Marill; fishing in the lagoon. Night: Hoothoot over the reeds.
+# Exits: W (0,14), E (67,16), N (58,0) up the east side.
+# Attach: between Route 37's east forest and Orchard Road, or as the wild approach to
+# Silverbough Estate (marsh N exit -> estate S exit).
+# Note: the a3/89 boardwalks are unused in vanilla Johto maps. They render cleanly here,
+#   but check them in Polished Map++.
+ref Route35
+key g=80 B=89 A=a3
+grid:
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTT..TTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTT,..,TT
+TTTT""ggTTTTTTTTTTTTTTTTTTgg,..ggT
+TT""ggg",,(^^^^^^^^^^^^^)gg,,..,gT
+TT"gg,,,,,[~~~~~~~~~gg~~]g,,,..ggT
+TT,,,.....BBBg~~~~~gBBBBB.......gT
+TT,"",.,gg[~~A~~gg~A~~~~]g,,,..,gT
+.......,gg[~~A~~g,~A~~~~]ggg,..,,T
+TT,"",,ggg[~~A~~~~~A~~~~]g,,,.....
+TTggg"gggg[~~,BBBBBg~~~~]gg,,,,ggT
+TTg~~ggg"g[~~~~~~~~~~~~~]g~~""ggTT
+TTT~~gggg,gg~~~~~~~~~~gggg~~g,,TTT
+TTTTgggg,,gggg""ggggg"gggggg,,TTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+end
+exit W 0 14
+exit E 67 16
+exit N 58 0
+obj trainer 26 19 Fisher right 4
+obj trainer 38 10 Fisher down 3
+obj trainer 44 18 Swimmer left 4
+obj trainer 30 25 BugCatcher left 4
+obj trainer 12 13 BirdKeeper down 2
+obj item 34 15 reed_island_item
+obj hidden 57 20 east_reeds
+obj hidden 27 10 islet_hidden
+obj sign 4 14 MarshSign

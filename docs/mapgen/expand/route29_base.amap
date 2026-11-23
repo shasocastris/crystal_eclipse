@@ -1,0 +1,23 @@
+# Route 29 (expanded) -- draft 2
+ref Route29
+key x=1a y=11 1=2c 2=2d 3=2e 4=2f Q=03
+grid:
+TTTTTTTTTTTTTTTTTTTTxyTTTTTTTTTTTTTTTTTTTTTT
+TTTTTTTT,,,*,,TTTTTT.,TTT(^^^^^)TTTTTTTTTTTT
+TTTTTTT,,,,,,,,TTTTT.,,,,[~~~~~],*,TTTTTTTTT
+TTTTTTT,*,,,,,,,,,,,.,,,,[~~~~~],,,TTTTTTTTT
+TTTTTTTT======,,,,,,.,,,,,,,,,,,,,,TTTTTTTTT
+TTTTT,,,,,,,,,TTTTT,.,,,,,,,,,,,,QQQQTTTTTTT
+......,,,,,,,,TTTTT,.,,12,,,,,,,QQQQQQTTTTTT
+TT,,,.,,,,,,,,TTTTT,.,,34,,,,,,QQQQQQQQTTTTT
+TT,,,...............................QQQ.....
+TT,QQQ,,,,,,,======,,,,,,,,,,,,,,,,QQQQQ,,TT
+TTQQQQQ,,,TTQQQQQQQQQQ,,,,,TTTT,,QQQQQQ,,,TT
+TTQQQ*Q,,TTTQQQ*QQQQQQ,,,TTTTT,QQQQQQQ,,,,TT
+TTT,,,,TTTTT,,,,,,,,,,,TTTTTTT,,,,,,,,,,TTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+end
+exit W 0 13
+exit E 87 17
+exit GATE 41 1
+obj warp 47 15 RestCabin

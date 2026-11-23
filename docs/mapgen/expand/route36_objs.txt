@@ -1,0 +1,18 @@
+obj trainer 8 17 PsychicMark right 3
+obj trainer 19 18 SchoolboyAlan left 5
+obj npc 23 13 Ranger down
+obj npc 55 12 Lass right
+obj npc 48 13 RockSmashGuy left
+obj fruit 9 8 FruitTree
+obj npc 50 10 Arthur down
+obj npc 9 10 Suicune down
+obj npc 9 9 UnownC down
+obj trainer 44 10 LassNoni down 5
+obj trainer 14 24 PicnickerNew right 3
+obj trainer 30 18 CooltrainerNew left 3
+obj item 34 24 MeadowItem
+obj hidden 36 6 HiddenPondside
+obj sign 17 5 TrainerTips2
+obj sign 49 15 RuinsNorthSign
+obj sign 59 11 Route36Sign
+obj sign 9 11 TrainerTips1

@@ -1,0 +1,55 @@
+# ============================================================================
+# ROUTE 29, expanded  (44x14 blocks, buffer 1000/1300; vanilla 30x9)
+# Source: route29_base.amap (hand grid); this file = rough.py --seed 3 --p 0.55
+# ============================================================================
+# KEPT: W->E route, Cherrygrove W, New Bark E; Route 46 gate at the top
+#   middle; first tall grass right at the New Bark end and ON the road so
+#   the first wild battle happens here; one-way ledges; headbutt trees;
+#   fruit tree; the same NPC cast (Fisher, Cooltrainers, Youngster, Teacher,
+#   Tuscany on Tuesdays) and the Potion.
+# ADDED (cf. pokefollow Route 1 10x18 -> 19x24, which got a river/cliff band):
+#   Upper tier: a raised meadow north of a long ledge, reached only by the
+#     gate path. West half = fruit grove; east half = a woodland pond with
+#     the Fisher (Old Rod tease) and the Potion on the far bank.
+#   Rest cabin (2c-2f) south of the gate: the no-Center waypoint (rest +
+#     watch, PC box). Doubles as Route 29's landmark building.
+#   Stands of wood that break the route into rooms; ragged forest edges.
+#   South meadows of tall grass below a second ledge: optional trainers,
+#     Tuscany, items; three loops back to the road.
+# CONNECTIONS: W row 6 (steps 12-13), E row 8-9 (steps 16-19), N gate door
+#   at (41,1). Gate top half lives in Route 46's connection strip as vanilla.
+# ============================================================================
+ref Route29
+key x=1a y=11 1=2c 2=2d 3=2e 4=2f Q=03
+key !=3c ?=3d @=3e $=3f &=64 +=62 |=60 <=5d >=5e %=61 /=5c
+grid:
+TTTTTTTTTTTTTTTTTTTTxyTTTTTTTTTTTTTTTTTTTTTT
+TTTTTTTT?,<*?,TTTTTT.>TTT(^^^^^)TTTTTTTTTTTT
+TTTTTTT!,,,,,,,TTTTT.,,<,[~~~~~]?*,TTTTTTTTT
+TTTTTTT,*,,,,,,<,!,?.,,,,[~~~~~],,>TTTTTTTTT
+TTTTTTTT======$$$,$,.,,,,,,,,,,,,,,TTTTTTTTT
+TTTTT,,,,,,,,,TTTTT@.,,,,,,,,,,,,QQQQTTTTTTT
+......,,,$,,,,TTTTT|.,,12,,,,,,,QQQQQQTTTTTT
+TT!,,.,,,,,,,,TTTTT@.,,34,,,,,,QQQQQQQQTTTTT
+TT!,,...............................QQQ.....
+TT,QQQ,,,,,&,======,,,,,,,,,$$,,,,,QQQQQ,,TT
+TTQQQQQ,,@TTQQQQQQQQQQ,,,$$TTTT!,QQQQQQ,,,TT
+TTQQQ*Q$,TTTQQQ*QQQQQQ,,+TTTTT,QQQQQQQ,,,$TT
+TTT,&@,TTTTT!,@&$,@,&$&TTTTTTT@,,@,,,@@$TTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+end
+exit W 0 13
+exit E 87 17
+exit GATE 41 1
+obj warp 47 15 RestCabin
+obj fruit 18 4 FruitTree
+obj npc 26 6 CooltrainerM down
+obj npc 54 8 Fisher up
+obj item 64 6 Potion
+obj npc 40 17 Youngster
+obj npc 24 21 Teacher
+obj npc 62 21 Tuscany
+obj trainer 72 19 CooltrainerMAndy up 3
+obj sign 6 12 SignW
+obj sign 84 15 SignE
+obj hidden 10 23 meadow_hidden

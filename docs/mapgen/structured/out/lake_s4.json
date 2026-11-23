@@ -1,0 +1,151 @@
+{
+ "name": "lake_s4",
+ "w": 34,
+ "h": 12,
+ "seed": 4,
+ "exits": [
+  {
+   "side": "W",
+   "cells": [
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     5
+    ]
+   ]
+  },
+  {
+   "side": "E",
+   "cells": [
+    [
+     33,
+     4
+    ],
+    [
+     33,
+     5
+    ]
+   ]
+  }
+ ],
+ "events": [
+  {
+   "kind": "item",
+   "x": 11,
+   "y": 10,
+   "note": "island (Surf)"
+  },
+  {
+   "kind": "item",
+   "x": 30,
+   "y": 7,
+   "note": "dead-end spur"
+  },
+  {
+   "kind": "sign",
+   "x": 2,
+   "y": 2
+  },
+  {
+   "kind": "sign",
+   "x": 27,
+   "y": 3
+  },
+  {
+   "kind": "trainer",
+   "x": 22,
+   "y": 4,
+   "facing": "RIGHT",
+   "sight": 3
+  },
+  {
+   "kind": "trainer",
+   "x": 11,
+   "y": 3,
+   "facing": "RIGHT",
+   "sight": 3
+  },
+  {
+   "kind": "trainer",
+   "x": 16,
+   "y": 5,
+   "facing": "RIGHT",
+   "sight": 3
+  },
+  {
+   "kind": "trainer",
+   "x": 7,
+   "y": 6,
+   "facing": "UP",
+   "sight": 3
+  }
+ ],
+ "stamps": [],
+ "notes": [
+  "ledge shortcut: no site",
+  "ledge band row 3 x=29..32",
+  "island at 10,10",
+  "grass gauntlet at 4,5",
+  "fringe: 11/11 partial-tree blocks kept"
+ ],
+ "verify": {
+  "exits": {
+   "W0->E1": true,
+   "E1->W0": true
+  },
+  "items": [
+   {
+    "x": 11,
+    "y": 10,
+    "needs": "surf",
+    "note": "island (Surf)"
+   },
+   {
+    "x": 30,
+    "y": 7,
+    "needs": "walk",
+    "note": "dead-end spur"
+   }
+  ],
+  "trainers": [
+   {
+    "x": 22,
+    "y": 4,
+    "needs": "walk",
+    "note": ""
+   },
+   {
+    "x": 11,
+    "y": 3,
+    "needs": "walk",
+    "note": ""
+   },
+   {
+    "x": 16,
+    "y": 5,
+    "needs": "walk",
+    "note": ""
+   },
+   {
+    "x": 7,
+    "y": 6,
+    "needs": "walk",
+    "note": ""
+   }
+  ],
+  "doors": [],
+  "walkable_quadrants": 497,
+  "softlock_quadrants": 0,
+  "ledges": [
+   {
+    "x": 29,
+    "y": 3,
+    "hop": 2,
+    "walk_back": null
+   }
+  ]
+ }
+}

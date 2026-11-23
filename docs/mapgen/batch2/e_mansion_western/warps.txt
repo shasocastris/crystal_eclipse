@@ -1,0 +1,36 @@
+VESPER HALL -- warp table (step coordinates, x,y; warp_event order per map)
+
+VesperHall1F (15x8, TILESET_MANSION)
+  1 (14,15) doormat 0e      -> Estate grounds, manor front door
+  2 (15,15) doormat 0e      -> Estate grounds, manor front door
+  3 (15, 0) door 17         -> VesperHallGallery 1
+  4 (11, 0) stair 06 (W)    -> VesperHall2F 1
+  5 (19, 0) stair 06 (E)    -> VesperHall2F 2
+  6 (24, 0) stair 15        -> VesperHallCellar 1   (hidden: block starts as 18, changeblock 24,0,$15)
+  7 (25, 0) stair 15        -> VesperHallCellar 2
+
+VesperHallGallery (15x7, TILESET_MUSEUM)
+  1 ( 8,13) doormat 03      -> VesperHall1F 3
+  2 ( 9,13) doormat 03      -> VesperHall1F 3
+  3 (29,13) ladder 05       -> VesperHallSecretLab 1 (hidden: block starts as 15, changeblock 28,12,$05)
+
+VesperHall2F (15x7, TILESET_MANSION)
+  1 (11, 0) stair 06 (W)    -> VesperHall1F 4
+  2 (19, 0) stair 06 (E)    -> VesperHall1F 5
+  3 (15, 0) door 17         -> VesperHallMasterSuite 1   (maid NPC stands at 15,1 until burglars beaten)
+  4 (24, 0) stair 05        -> VesperHallRoof 1
+
+VesperHallMasterSuite (7x5, TILESET_PLAYERS_HOUSE)
+  1 ( 6, 9) doormat 06      -> VesperHall2F 3
+  2 ( 7, 9) doormat 06      -> VesperHall2F 3
+
+VesperHallRoof (7x5, TILESET_MANSION roof blocks)
+  1 ( 1, 1) stairwell 24    -> VesperHall2F 4
+  2 ( 8, 5) dome door 27    -> (optional 8th map: telescope dome; locked until Shadow Prism)
+
+VesperHallCellar (9x6, TILESET_MANSION)
+  1 ( 0, 0) stair 16        -> VesperHall1F 6
+  2 ( 1, 0) stair 16        -> VesperHall1F 7
+
+VesperHallSecretLab (10x7, TILESET_FACILITY)
+  1 ( 1, 0) stair 1d        -> VesperHallGallery 3

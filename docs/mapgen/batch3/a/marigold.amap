@@ -1,0 +1,170 @@
+# ============================================================================
+# MARIGOLD CITY  (metropolis, 26x23 blocks, buffer 928/1300)  johto_modern
+# ============================================================================
+# HOOK: Goldenrod's brash young rival across the river - the "City of Noon",
+#   built by the Sunburst Power Company that lights half of Johto. Glass
+#   offices, a 6-storey department tower and its own TV station (Marigold
+#   TV, which keeps out-shouting Goldenrod's Radio Tower). During the
+#   Eclipse the city's lights fail: something is draining Sunburst's grid
+#   from the tunnels under the plaza. Gym: ELECTRIC (leader NOVA, Sunburst's
+#   chief engineer); her Gym is dark and locked until the power is back.
+#
+# DISTRICTS / BUILDINGS (door steps in obj warp lines)
+#   Broadcast Row (NW, rows 1-8)
+#     Marigold TV tower (2x6 grey tower w/ spire)  lobby, quiz show, studio
+#                                   lottery; roof = broadcast mast event
+#     TV Studio (4x2, brick forecourt + sign)     talk-show NPCs, interviews
+#     Link Center (PCC art 20/24/5f)             trades / link battles /
+#                                   Mystery Gift; the 5f sign reads PCC
+#     Cafe Marigold (3x2) and a house             Moomoo milk, rumours
+#   Marigold Tower (3x6, dept-store glass, Mart front, facing the plaza)
+#     the landmark: 6 floors + roof, rooftop sale; outranks Goldenrod's
+#   Sunburst District (NE, rows 1-8)
+#     Marigold Gym (4x2, 1c 0f 1d 1e, brick forecourt + sign)
+#     Sunburst Power Co. HQ (2x4 grey tower, no spire)  plot building
+#     Marigold Exchange (3x3 glass office)        NPC trade broker / stocks
+#     Boutique (3x2), Gym trainees' dorm (2x2)
+#     Underpass North (kiosk 14/13 + sign)        Marigold Underground
+#   Sunrise Plaza (centre, rows 9-14)
+#     2-wide Boulevard (W-E) meets the 2-wide Avenue (N-S) at a fenced
+#     fountain roundabout; street trees (66) and two signs (city / plaza)
+#   Grand Marigold Hotel (4x3 glass, E of plaza) PC in the lobby, paid rest,
+#     replaces a Pokemon Center
+#   Marigold Arcade (3x2, W of plaza)             game corner / coin prizes
+#   Old Marigold (south, rows 15-21)
+#     Marigold Gallery (5x2 museum), Underpass South (kiosk), Promenade
+#     (brick E-W street, row 18), Bike & Scooter shop (3x2), Pokemon Fan
+#     Club (3x2), homes, Sunflower pocket park (SE flowers + trees)
+#
+# GAMEPLAY BEATS
+#   1. Arrive on the Boulevard (W or E); the Hotel is the first stop (PC,
+#      rest). Marigold Tower is open but its elevator is dead (stairs only).
+#   2. Blackout: Gym door shut, TV off-air. Sunburst HQ receptionist sends
+#      you to an engineer who went into the Underground and never came back.
+#   3. Underpass North -> Marigold Underground (shops + a cult substation
+#      tapping the grid) -> boss -> exit by Underpass South.
+#   4. Power back: Gym opens (NOVA), TV resumes, Tower rooftop sale and
+#      elevator, Arcade lights up.
+#   5. Later: Link Center, Exchange trades, Gallery exhibits by season.
+#
+# EXITS / CONNECTIONS
+#   N  Avenue (cols 12-13)    to a northern route
+#   S  Avenue (cols 12-13)    to a southern route / coast
+#   W  Boulevard (rows 10-11) toward Goldenrod (rival-city road)
+#   E  Boulevard (rows 10-11) toward Sorrel Junction (rail hub)
+#   23 building doors, all listed below and reachable on foot.
+#
+# TILE GAPS / UNCERTAIN BLOCKS
+#   - 5f is hard-labelled "PCC"; the Link Center uses it as-is. A neutral
+#     sign variant would free 20/24 for any modern office front.
+#   - No neon, lamp post, bench, statue or bus-stop blocks; street trees
+#     are 66/80 (flowering) only, so the plaza reads a little bare.
+#   - Only one grey tower style (21/22/25/26/29/2a/2d/2e); TV tower and
+#     Sunburst HQ share it. 29/2a stacked twice looks fine.
+#   - Fountain is the 40-42/44-46/48-4a fence ring with 35/61 water, as in
+#     silkwater; no proper fountain or statue graphic.
+#   - 67 houses are door-less decor (1-block shops/kiosks).
+# NOTE: block 1d is the GYM-labelled front; used only for the Gym.
+# ============================================================================
+tileset johto_modern
+ref GoldenrodCity
+key T=05 .=01 :=06 ,=02 *=04 h=67 p=2f
+key R=18 M=1f N=19 A=10 D=17 Z=11 E=1a F=0f C=1c Q=1d W=1e O=16 K=33
+key 1=14 2=13 g=27 m=23 G=28 X=20 V=24 U=5f b=2b c=2c
+key i=21 I=22 j=25 J=26 y=29 Y=2a d=2d k=2e
+key r=40 f=41 t=42 <=44 >=46 l=48 L=4a ~=35 u=61 s=45 S=77 w=66 x=80
+grid:
+TTTTTTTTTTTT::TTTTTTTTTTTT
+T.i.RMMN.hh.::.hRMMN.jJRNT
+T.I.AFDZ.hh.::.hCFQW.yYOWT
+T.I.:::S.RMN::.::::S:yY..T
+T.jJ.RMN.gmG::.......dk..T
+T.yY.XVU.gmG::.RMNRMN...hT
+T.dk....pgmG::.gmGEFZ...hT
+T..RNRMN.gmG::.ADZ...p..,T
+T..OWEFZ.ADK::....p..12s.T
+T......w::::::::::w......T
+::::::::::::::::::::::::::
+:::::::::::rfft:::::::::::
+T.RMN.h::::<~~>::::.RMMN.T
+T.ADZ.h::::luuL::::.gmmG.T
+T,p.,p.:S::::::::S:.AcDZ.T
+T...........::...........T
+T.RMMMN.,12.::.RN.RN.p*p.T
+T.AFDFZ.p.s.::.OW.OW.,*,.T
+T::::::w:::::::::::w:::::T
+T.RN.12.RMN.::.RMN.RN.,*,T
+T.OW.,,.EFZ.::.ADZ.OW.*p*T
+T...........::...........T
+TTTTTTTTTTTT::TTTTTTTTTTTT
+end
+exit N 24 0
+exit S 24 45
+exit W 0 20
+exit E 51 21
+exit TVStudio 12 5
+exit Gym 36 5
+exit GymDorm 47 5
+exit SunburstHQ 43 9
+exit LinkCenter 13 11
+exit TVTower 5 13
+exit Boutique 37 13
+exit Exchange 32 15
+exit HouseNW 7 17
+exit Cafe 11 17
+exit MarigoldTower 20 17
+exit UnderpassN 43 17
+exit Arcade 6 27
+exit Hotel 44 29
+exit UnderpassS 19 33
+exit Gallery 8 35
+exit HouseS1 31 35
+exit HouseS2 37 35
+exit HouseSW 11 39
+exit HouseS3 5 41
+exit BikeShop 17 41
+exit FanClub 32 41
+exit HouseS4 39 41
+obj warp 12 5 TVStudio
+obj warp 36 5 GYM
+obj warp 47 5 Dorm
+obj warp 43 9 SunburstHQ
+obj warp 13 11 LinkCenter
+obj warp 5 13 TVTower
+obj warp 37 13 Boutique
+obj warp 32 15 Exchange
+obj warp 7 17 House
+obj warp 11 17 Cafe
+obj warp 20 17 MarigoldTower
+obj warp 43 17 UnderpassN
+obj warp 6 27 Arcade
+obj warp 44 29 Hotel
+obj warp 19 33 UnderpassS
+obj warp 8 35 Gallery
+obj warp 31 35 House
+obj warp 37 35 House
+obj warp 11 39 House
+obj warp 5 41 House
+obj warp 17 41 BikeShop
+obj warp 32 41 FanClub
+obj warp 39 41 House
+obj sign 14 7 StudioSign
+obj sign 38 7 GymSign
+obj sign 46 16 UnderpassSign
+obj sign 16 29 CitySign
+obj sign 34 29 PlazaSign
+obj sign 20 34 UnderpassSign
+obj npc 36 6 GymGuard down
+obj npc 4 14 TVFan
+obj npc 22 18 TowerGreeter down
+obj npc 26 19 Tourist
+obj npc 31 25 Businessman
+obj npc 4 21 Lass
+obj npc 46 30 Bellhop
+obj npc 42 11 SunburstClerk
+obj npc 22 30 Artist
+obj npc 40 37 Gentleman
+obj npc 45 39 FlowerGirl
+obj hidden 21 26 fountain_coin
+obj hidden 47 41 park_flowers
+obj item 2 29 arcade_alley

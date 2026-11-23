@@ -1,0 +1,25 @@
+# VESPER HALL SECRET LAB -- hidden beneath the library
+# Tileset: TILESET_FACILITY (Cinnabar Pokemon Mansion). 10x7, buffer 208/1300.
+# Why: a deliberate tonal shift -- the gentleman astronomer's hidden lab looks
+# like the Cinnabar Mansion's ruined laboratory (teal walls, machines, journals).
+# Stair 1d (top-left) climbs back to the gallery library ladder.
+# THE COLLECTOR waits on the ritual rug (03) before the Shadow Prism pedestal.
+ref PokemonMansion
+tileset facility
+key W=01 m=02 ,=07 Y=1d P=08 d=0f c=10 t=16 T=17 b=19 B=2d s=52 l=0a L=0d k=06 h=03
+grid:
+YWmmWtTWkW
+,,,,,,,,,,
+,P,,dd,,c,
+,,,,,,,,,,
+,bB,hh,,s,
+,,,,hh,,,,
+l,,,,,,,,L
+end
+exit STAIRS 1 0
+obj trainer 4 6 ScientistAde down 3
+obj trainer 15 3 ScientistBo left 4
+obj trainer 9 7 TheCollector down 2
+obj item 9 10 ShadowPrism
+obj sign 3 4 LabJournal
+obj item 16 12 FullRestore

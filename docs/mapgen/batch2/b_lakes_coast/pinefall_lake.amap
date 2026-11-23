@@ -1,0 +1,69 @@
+# Pinefall Lake Campsite -- special area, 24x18 (buffer 720/1300), ref LakeOfRage
+# HOOK: a ranger-run campground on the south shore of a pine-ringed lake, where the
+#   hack's "rest + watch" mechanic gets its tutorial. "Pinefall" is the waterfall
+#   that drops from the NE cliff (88/8a channel, 8e/8f falls, 90/91 foot) into the lake.
+# CAMP VOCABULARY (no tent tiles needed):
+#   7c 7d pair = canvas tent pad (tan canvas between two poles; solid). Two pitches.
+#   7b = log-edged pit, used as the campfire pit between the pitches (solid).
+#   48 49 4a picket fence = campground boundary, gate gap on the main road.
+#   2c 2d/2e 2f = log cabin (Lake of Rage house) as the Ranger Station: PC + waypoint
+#   for the redesigned blackout, sells Bedroll/Tent items from the design doc.
+#   a3 = fishing pier (N-S walkway), 89 = E-W footbridge over the outflow stream.
+# BEATS:
+#   - Ranger (by the fire) explains rest + watch; first rest here is free and safe
+#     because her Growlithe (SPRITE_GROWLITHE) keeps watch. After that, the normal
+#     once-a-day rest with the watch-Pokemon ambush roll applies at the fire pit.
+#   - Night only: Camper on the shore lane, Picnicker in the east grass (checktime
+#     NITE); by day a TentCamper NPC chats instead. Fisher on the pier tip.
+#   - SwimmerF in the lake (Surf). Island hidden item (Surf). Camper on the south trail.
+#   - Cut tree (5b) at the west treeline opens a lakeside nook: item + hidden item
+#     (an old angler's spot; a good place for a Good Rod giver later).
+#   - Tall-grass pocket SW with an item ball, sign at the west entrance.
+# ATTACH: W -> Lake of Rage east edge (its rows 3-7 at x=19 are grass, so a gap is
+#   cheap); E -> new trail toward Route 42/Mahogany (or Orchard Road); S -> stub
+#   (Orchard Road south exit). Indoor: Ranger Cabin (PC/waypoint).
+# TILE GAPS: no fire/tent tiles (stand-ins above); the falls can later host a
+#   Waterfall-HM secret (channel top runs to the map edge = future connection).
+# SEASONS: falls/lake unchanged in winter; the pine wall goes snowy, cabin roof fine.
+ref LakeOfRage
+key M=71 F=72 z=68 R=6c a=88 b=8a c=8e d=8f j=90 K=91 {=79 }=7a
+key P=a3 B=89 t=7c u=7d h=7b q=48 w=49 p=4a
+key 1=2c 2=2d 3=2e 4=2f g=60 G=62 x=5c y=5d v=5e U=65 N=66 A=3c D=3d E=3e Q=3f X=5b
+grid:
+TTTTTTTTTTTTTzMMMabMMMMM
+TTTTTTTTTTTTTzMMMcdMMMMM
+TTTTTTTTTTTTTRFFFcdFFFFF
+TTTTTT(^^^^^^^^^^jK^^)TT
+TTT(^^{~~~~~~~~~~~~~~]TT
+TTT[~~~],,[~~~~~~~~~~]TT
+TTT[~~~],,[~~~~~~~~~~]TT
+TTT[~~~}^^{~~~~~~~~~~]TT
+TTTT[~~~~~~~~~~P~~~~~]TT
+TTT,,,[~~~~~~~~P~~~~~]TT
+TTTTXT,,..........,,[]TT
+TT12,.tu.h..tu..,,,,[]TT
+TT34,qwwwp.qwwwp,"",[]TT
+....................BB..
+TT,S,"""",TTT,,.,TTT[]TT
+TT"""""",gTTA"".",TT[]TT
+TTT""",,TTTTT""."TTT[]TT
+TTTTTTTTTTTTTTT.TTTTTTTT
+end
+exit W 0 27
+exit E 47 27
+exit S 31 35
+exit CABIN 5 25
+obj warp 5 25 RangerCabin
+obj sign 7 29 CampSign
+obj npc 17 23 Ranger right
+obj npc 20 23 Growlithe left
+obj trainer 30 16 Fisher up 0
+obj trainer 14 20 Camper_nite right 3
+obj trainer 34 24 Picnicker_nite left 3
+obj trainer 24 12 SwimmerF left 4
+obj trainer 27 29 Camper right 3
+obj npc 10 23 TentCamper down
+obj hidden 17 11 island_hidden
+obj item 8 18 nook_item_cut
+obj hidden 6 18 nook_hidden
+obj item 6 32 grass_item

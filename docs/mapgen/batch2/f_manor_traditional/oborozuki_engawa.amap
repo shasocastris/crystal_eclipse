@@ -1,0 +1,32 @@
+# OBOROZUKI MANOR 1F -- East Engawa (veranda)   (20x6, TILESET_TRADITIONAL_HOUSE, ref DanceTheater)
+# A long wooden veranda: shoji rooms (2d) along the north wall, a tokonoma alcove with two scrolls,
+# a garden fence (26) along the south and a strip of gravel garden with stepping-stone mats (3e/3f).
+# Gameplay: trainer gauntlet. Two Kimono Girl apprentices watch the corridor, a Sage guards the
+# tatami nook with the stairs down to the sunken Dojo. Gravel strip is a dead-end with a hidden item.
+# No garden/tree blocks exist in this tileset: the "garden" is gravel (48) behind a fence.
+# Warps: GENKAN stone mats (5,11)(6,11) -> Genkan east carpet. DANCE carpet (39,6)(39,7) -> Kagura
+# Hall mats. DOJO stairs 1e (37,5) -> Dojo stairs 39 (1,2).
+tileset traditional_house
+ref DanceTheater
+key W=03 w=08 S=14 s=13 T=29 B=1a d=04 c=1f V=1e U=39 K=27 |=3a -=3c L=33 l=34 e=36 _=0d ,=0c ;=1d o=0e O=10 t=11 y=16 1=1b 2=1c 3=18 4=19 Y=0a Z=0b g=2a G=20 h=2b m=21 n=22 E=05 M=06 N=07 >=24 Q=49 q=4a a=43 X=48 x=46 z=47 k=3e j=3f P=2e p=30 F=2f D=2d C=2c r=28 7=37 8=38 i=0f I=09 5=31 6=32 f=25 9=12 0=00 A=02 H=40 J=41 ~=42 R=23 b=4b u=35 v=15 !=17 @=0b
+key s=26 X=48
+grid:
+WDDWDDWSSWDDWDDWWWDW
+cccccccddccccccccddc
+cccccccccccccccccdVc
+ccccccccccccccccccc>
+sssssGssssssssssssss
+XXkjXXXXXXXXXXXXXXXX
+end
+exit GENKAN 5 11
+exit DANCE 39 6
+exit DOJO 37 5
+obj warp 5 11 Genkan
+obj warp 39 6 Kagura
+obj warp 37 5 Dojo
+obj trainer 12 2 Apprentice1 down 4
+obj trainer 24 7 Apprentice2 up 4
+obj trainer 33 4 Sage left 3
+obj npc 15 3 Elder down
+obj hidden 30 10 hidden
+obj item 38 10 Item

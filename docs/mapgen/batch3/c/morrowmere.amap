@@ -1,0 +1,142 @@
+# ============================================================================
+# MORROWMERE CITY  (twin city, 30x22 blocks, buffer 1008/1300)  johto_modern
+# ============================================================================
+# HOOK: "the city of yesterday and tomorrow". The wide River Mere splits it
+#   into YESTERSIDE (west: the old castle-town of brown-roof houses, the
+#   Gym, museum and inn) and MORROWSIDE (east: glass towers, the Magnet
+#   Train terminus, the Grand Hotel). The two wards bicker about everything
+#   except the Clock Tower on Hourglass Isle mid-river, which keeps time
+#   for both. The clock has stopped; each ward blames the other, the island
+#   is closed, and the Gym leader (a clockmaker) is stuck up the tower.
+#   Suggested Gym type: STEEL (clockwork) or PSYCHIC (time).
+#   Unlike Silkwater's railed canals, the Mere is one wide natural river
+#   with 58/59 shores, edge to edge, and a quayed island in the middle.
+#
+# DISTRICTS / BUILDINGS (door steps in exit lines)
+#   Yesterside (cols 0-9)
+#     Morrowmere Gym (4x2, NW)          - leader up the tower until beat 4
+#     Clockmaker's (brown 2x2)          - repairs; gives a Metal Coat/TM later
+#     Lantern Inn (3x2)                 - old cheap inn: rest + PC box
+#     Tea House (brown 2x2)             - rumours, a daily berry-tea heal item
+#     Guildhall (3x2)                   - old-ward council; key NPC for beat 2
+#     Yesterday Museum (3x2, 1a door)   - fossils / old Johto history
+#     Antiques (brown 2x2)              - sells evolution stones, rotating stock
+#     Ferryman (3x2)                    - river tour / Surf hint; owns the pier
+#     3 homes; Hour Garden (headbutt trees, hidden item); Old Main St
+#     (brick, W exit); riverside promenade (brick, col 9) with planters
+#   The River Mere (cols 10-19)
+#     Old Bridge (rows 4-5): full-width railed bridge carrying Main St
+#     Hourglass Isle: fenced stone quay, CLOCK TOWER (spire + radio-tower
+#       art, door on the island plaza); two short bridges W and E (rows 15-16)
+#     Fishing pier off Yesterside (rows 19-20); rocks + hidden items by Surf
+#   Morrowside (cols 20-29)
+#     Magnet Train Station (3x2, NE) with fenced tracks running off E edge
+#     Morrow Tower (silver 2x3)         - tech firm HQ, beat 3 dungeon
+#     Grand Hotel (4x4 window tower)    - pricey hotel: rest + PC box + concierge
+#     Link Center (3x3, PCC art)        - trades / link battles (not a PkMn Ctr)
+#     Mart (2x2), Studio tower (silver 2x3, TV/radio studio)
+#     Riverside Apartments W/E (3x2 each); Skyline Park lawns (S)
+#
+# GAMEPLAY BEATS
+#   1. Arrive from the W (Old Main St) or by Magnet Train into the Station.
+#   2. Gym locked; workers bar both island bridges ("clock stopped, isle
+#      closed"). The Guildhall blames Morrowside, the Grand Hotel concierge
+#      blames Yesterside.
+#   3. Morrowside: Morrow Tower's lab "borrowed" the clock's mainspring for
+#      a prototype -- short tower dungeon (Rocket-style grunts or a rogue
+#      scientist), recover the spring.
+#   4. Clockmaker fits it; workers step aside. Clock Tower interior: gear /
+#      pendulum floors, the Gym leader at the top battles you as a warm-up
+#      and the clock restarts (time-of-day events resume, night palette:
+#      lit windows across Morrowside, lanterns in Yesterside).
+#   5. Gym opens. Post-Surf: river N/S routes, pier fishing, river rocks.
+#
+# EXITS / CONNECTIONS
+#   W  rows 4-5   Old Main St -> route west
+#   E  rows 4-5   Morrow Avenue -> route east
+#   S  cols 24-25 Skyline Park avenue -> route south
+#   River N/S edges (cols 11-18): Surf connections up/down the Mere
+#   Magnet Train from the Station (warp, not an edge)
+#
+# TILE GAPS / UNCERTAIN BLOCKS
+#   - No bridge deck art: bridges are 41 over 49 pavement with rails.
+#   - No bottom-shore water piece, so the river runs edge to edge and the
+#     island is a fenced quay (40-4a) instead of a natural island.
+#   - Clock face: the 21 spire's dish reads as a clock; a real clock-face
+#     block would sell the landmark better.
+#   - The 2f "trees" on the island/garden are headbutt shrubs on grass.
+#   - Link Center uses the 5f "PCC" sign; reword or redraw if unwanted.
+#   - 0f in the Grand Hotel's bottom row (A D F Z) is a plain wall filler.
+# ============================================================================
+tileset johto_modern
+ref GoldenrodCity
+key T=05 .=01 :=06 ,=02 *=04 h=67 o=0a
+key [=58 ~=35 ]=59 %=34 $=36
+key f=41 e=49 r=40 t=42 l=48 j=4a <=44 >=46 s=45 S=77 w=66 x=80 z=81
+key R=18 M=1f N=19 A=10 D=17 Z=11 E=1a F=0f C=1c Q=1d W=1e O=16 K=33 H=27 I=23 J=28 1=14 2=13 3=12 5=64 9=08 0=09 b=2b c=2c
+key i=25 k=26 y=29 q=2a d=2d m=2e g=21 G=22 X=20 Y=24 V=5f
+key _=7e #=7f @=2f !=3b &=3f
+grid:
+TRMMNT90hT[~~~~~~~~]TRMNTTTTTT
+TCFQW.OW.:[~~%~~~~~]:EFZ______
+T........:[~~~~~$~~]::::ffffff
+T@@,s.@@.w[~~~~~~~~]:w:::::::T
+::::::::::ffffffffff::::::::::
+::::::::::eeeeeeeeee::::::::::
+TRMN.90.h:[~~~~~~~~]:ik:RMMN:T
+TADZ.OW.hw[~~~~%~~~]:yq:HIIJ:T
+T...:....:[~~~~~~~~]:dm:HIIJ:T
+T90.:RMNh:[~rfffft~]::::ADFZ:T
+TOW.:ADZh:[~<*g:*>~]::::::::wT
+T...:s...w[~<:G::>~]:RMN:RNikT
+TRMN:90.h:[~<:ik:>~]:HIJ:DKyqT
+TEFZ:OW.h:[~<*yq*>~]:XYV:::dmT
+T...:....:[~<:dm:>~]:w::w:w::T
+T@*@::::::fff::::fff:::::::::T
+T,*,::::::eee::::eee:::::::::T
+T90.RMN12:[~leeeej~]:RMN:RMN:T
+TOW.ADZ..w[~~~~~~~~]:ADZ:ADZhT
+T...s....:fft%~~~~~]:::::::::T
+T,*@,*,@.:eej~~~~$~],@,*::*@,T
+TTTTTTTTTT[~~~~~~~~]TTTT::TTTT
+end
+exit W 0 8
+exit E 59 8
+exit S 48 43
+exit Gym 6 3
+exit Clockmaker 13 3
+exit LanternInn 4 15
+exit TeaHouse 11 15
+exit HouseOld1 3 21
+exit Guildhall 12 21
+exit Museum 3 27
+exit Antiques 11 27
+exit HouseOld2 3 37
+exit Ferryman 10 37
+exit HouseOld3 15 35
+exit ClockTower 29 29
+exit Station 43 3
+exit MorrowTower 43 17
+exit GrandHotel 50 19
+exit LinkCenter 45 27
+exit Mart 50 25
+exit Studio 55 27
+exit ApartmentsW 44 37
+exit ApartmentsE 52 37
+exit PierTip 24 39
+obj sign 8 6 GymSign
+obj sign 10 22 OldTownSign
+obj sign 8 38 FerrySign
+obj npc 30 31 BridgeWorkerW left
+obj npc 33 31 BridgeWorkerE right
+obj npc 4 16 Innkeeper down
+obj npc 18 34 Clockmaker right
+obj npc 22 39 Fisher right
+obj npc 46 9 Conductor down
+obj npc 52 21 Bellhop down
+obj npc 40 24 Businessman
+obj npc 50 30 Jogger
+obj hidden 27 2 river_rock_n
+obj hidden 30 42 river_rock_s
+obj hidden 5 30 hour_garden
+obj item 56 40 park_corner

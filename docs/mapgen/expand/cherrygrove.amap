@@ -1,0 +1,68 @@
+# ============================================================================
+# CHERRYGROVE CITY, expanded  (28x20 blocks, buffer 884/1300; vanilla 20x11)
+# ============================================================================
+# KEPT: the vanilla west shoreline is pasted verbatim into the NW corner
+#   (rocks, sand bars, islets: rows 2-8, cols 0-8) so the town reads as
+#   Cherrygrove; Route 30 leaves north, Route 29 east on a two-wide road;
+#   Center + Cafe on the north side; Guide Gent's house; cherry trees (ac);
+#   the Mystic Water fisher by the water; the rival meets you at the east
+#   entrance; fruit trees.
+# ADDED (cf. pokefollow Viridian 20x18 -> 23x20: denser, a second street):
+#   North avenue (Route 30) through the centre, crossing the main street.
+#   A Mart (18 19/16 17) and a second street of houses (Guide Gent moves to
+#     its west end, by the water).
+#   Fishing pier (89) off the house lane: Mystic Water fisher at its tip.
+#   The Cherry Grove itself (south half): a blossom wood with a winding
+#     path to a flower clearing, fruit trees inside, picnic NPCs.
+#   Sea runs the full west side: Surf south to new water (future link to a
+#     coastal route / Route 27's south shore).
+# CONNECTIONS: N cols 13-14 (steps 26-29) -> Route 30 (offset changes);
+#   E rows 4-5 (steps 8-11) -> Route 29 W row 6: align with offset.
+# TODO: Pokemon Center art stays until the no-Center plan decides (swap to
+#   an inn); cherry trees stay pink in winter (open question).
+# ============================================================================
+ref CherrygroveCity
+key a=18 b=19 g=1a h=1b m=16 n=17 c=2c d=2d e=2e f=2f 1=14 2=15 k=ac B=89
+key r=31 R=32 o=0a X=36 Y=3a [=58 M=71 {=79 Z=30 W=39 V=34
+grid:
+TTTTTTTTTTTTT..TTTTTTTTTTTTT
+TTTTTTTTT,*,,..,,,,cd,ab,kTT
+^o^^oo..,12,,..,,,,ef,gh,*TT
+rrR~~.....,,,..,,,,.,,.,,,,T
+o~Y~~.......................
+~Xo[~~~.....................
+~XoM[~~~o*k*,..,*k*,,,ab,,,T
+~X^^{~Zo]*,*,..,*,*,,,mn,,,T
+~orRWWV~],,,,..,,,,,,,.,,,,T
+~~~~~~~~],,,,..,,,,,,,,,,,,T
+~~~~~~~~]12,,..,,12,,,12,,,T
+~~~~BBBBB..................T
+~~R~~~~~],,k,..,kk,,kk,,k,,T
+~~~~~~~~],kk,..kkk,*kkk,,kkT
+~~~~~~~~]*,,k......,kkk,,,kT
+~~~r~~~~]k,,,k,kk..,kk,*,,kT
+~~~~~~~~],*,kkkkk........,kT
+~~~~~~~~]kk,,k,kk,,kk,**,,kT
+~~~~~~~~]kkk,kkkkkkkkk,,kkkT
+~~~~~~~~]TTTTTTTTTTTTTTTTTTT
+end
+exit N 27 0
+exit E 55 9
+exit PIER 8 23
+obj warp 19 5 EvolutionHouse
+obj warp 39 5 Cafe
+obj warp 45 5 PokeCenter
+obj warp 45 15 Mart
+obj warp 19 21 GuideGentsHouse
+obj warp 35 21 GymSpeechHouse
+obj warp 43 21 House
+obj npc 52 9 GuideGent down
+obj npc 8 22 MysticWaterFisher left
+obj npc 30 12 Teacher
+obj npc 22 17 Youngster
+obj fruit 36 27 FruitTree1
+obj fruit 44 29 FruitTree2
+obj fruit 46 35 FruitTree3
+obj npc 40 33 Picnicker
+obj sign 50 7 CitySign
+obj hidden 10 7 sandbar_hidden

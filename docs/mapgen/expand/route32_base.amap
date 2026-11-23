@@ -1,0 +1,68 @@
+# Route 32 (expanded) base grid -- see route32.amap
+ref Route32
+key P=06 g=08 h=09 k=0b i=10 j=11 D=18 F=19 G=1a I=1b c=2c d=2d e=2e f=2f Q=36 H=43 O=4f U=51 V=53 X=5a Y=5c Z=5d a=5e t=60 u=62 v=63 L=68 J=69 A=6a K=6b b=6c n=6d E=6e W=6f N=70 M=71 m=72 B=89
+grid:
+ghTTS,,,TTTTTT
+ijk...,,,TTTTT
+TTTTTTS,,,,TTT
+ooTTTANKT,,,TT
+)AKTobEMK,TTTT
+]LJT..bmn,"",T
+AMJTT..,O,""TT
+bCnTT.AKV""",T
+..TTT,LJ"",,,T
+TTTTTvbn,",#TT
+TTTTT,"""TTTTT
+TTTT#","TTTTTT
+TT,"""""",,,TT
+T,""""(^^),,,T
+T,""""[~~],*,T
+T==="",,,,,,,T
+TT,,,,,,,,,TTT
+TTYZ,,.TAKTTTT
+TT"ANKXAMJTTTT
+T""LWn.LMJTTTT
+T""bn,.LMJTTTT
+T"""...LMJTTTT
+T....ANMMJTTTT
+T.ANNMMMMJTTTT
+T.bmmmmmmnTTTT
+T.,,"""",,,,TT
+T.,"",cd,*,TTT
+T.,"",ef,,,TTT
+T.,,,,.,,,,TTT
+T.,"""(o^^^^^^
+..(^^P{Q~o~~~~
+."[~~P~Q~~~o~~
+,"[~~P~Q~~~~~~
+"T[PPP~Q~~~~~~
+"T[HHP~Q~~~~~~
+"T""[PPQ~~~~o~
+"TT"[HPQ~~~~~~
+,T""[~PQ~~~~~~
+,""T[~PQ~~~~~~
+"",#T..T[~~~~~
+"",...TT[~~~~~
+",..TTTT[~~~~o
+T,.TYZaT[~~~~~
+T,.utTTT[~~~~~
+T,.,""",[~~~~~
+T,.,"""*[~~o~~
+T,......BBB~~~
+T,.,,*,T[~~~~~
+T,...DFT[~~~~~
+ANKt.GIT[~~~~~
+LMJt...T[~~~~~
+LMMNK.#TT[~~~~
+MMWCn.TTT[~~~~
+MMJXU.oTTTTTTT
+MMJ....TTTTTTT
+MMJo.s.TTTTTTT
+MMMNNNNKTTTTTT
+MMMMMMMJTTTTTT
+end
+exit N 12 0
+exit RuinsGate 4 3
+exit PokeCenter 11 99
+exit UnionCave 6 105
+exit Cabin 13 55

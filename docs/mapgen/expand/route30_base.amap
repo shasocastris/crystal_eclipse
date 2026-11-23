@@ -1,0 +1,49 @@
+# Route 30 (expanded) base grid -- see route30.amap
+ref Route30
+key 1=14 2=15 c=2c d=2d e=2e f=2f q=48 w=49 p=4a
+grid:
+TTT.,TTTTTTTTTTTTTTT
+TT,.,,"TTT(^^),,*,TT
+TT".,""TTT[~~]S12,TT
+TT".,",TTT[~~],.,,TT
+T,".,,,TT,,,,,,.,*TT
+T""_,*,TT.......,,TT
+T,".,,,TT.,"""",,TTT
+T,,.,,TTT.=======TTT
+T,S.,,,,T.,,"""",TTT
+TT,.......,,,,"""",T
+T,,.,,,,,,,TTT"""""T
+T"".,,"""",TTT"""""T
+T""_,======TTT"""""T
+T,,.,,,,,*,TTT,""",T
+T,S.,,"""",,TT,,,,,T
+T,,.,,,,,,,TTT"""""T
+T""_,======TTT""",,T
+T"".,,"""",TTT,,,,,T
+T,,.,,,,,,,,TT,,,,,T
+T,,.,qwwwwp,(^^),,,T
+T,,.,cd,*,,,[~~],,,T
+T,,.,ef,,*,,[~~],,,T
+T,,.,.,*,,,,[~~]*,*T
+T,,.,.qwwwp,,,,,*,*T
+T,,...,,,,,..TTTTTTT
+T"".,,""",,,.T***TTT
+T"".,,"""",,..*,*TTT
+T,,.,,,,,,,,,T***TTT
+T,,_,======,,TTTTTTT
+T,,.,,,,,,,,,,,,,,,T
+T"".,""""",,,"""",,T
+T"".,"""",,T,""""TTT
+T,,.,,,*,,,TT,,,TTTT
+TT,_,TT,,,TTTT,,,,,T
+TT,.,T,,,,,,,(^^^),T
+TT,.,T,*,,,,,[~~~],T
+TTS.,TT,,,,,,[~~~],T
+TTT.,TTT,*,,,[~~~],T
+TTT.,TTTT,,,,,,,,,TT
+TTT.,TTTTTTTTTTTTTTT
+end
+exit N 6 0
+exit S 6 79
+exit MrPokemon 31 5
+exit BerryHouse 11 43

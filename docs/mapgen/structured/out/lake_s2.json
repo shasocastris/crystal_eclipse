@@ -1,0 +1,155 @@
+{
+ "name": "lake_s2",
+ "w": 34,
+ "h": 12,
+ "seed": 2,
+ "exits": [
+  {
+   "side": "W",
+   "cells": [
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     5
+    ]
+   ]
+  },
+  {
+   "side": "E",
+   "cells": [
+    [
+     33,
+     6
+    ],
+    [
+     33,
+     7
+    ]
+   ]
+  }
+ ],
+ "events": [
+  {
+   "kind": "item",
+   "x": 19,
+   "y": 9,
+   "note": "island (Surf)"
+  },
+  {
+   "kind": "item",
+   "x": 29,
+   "y": 3,
+   "note": "dead-end spur"
+  },
+  {
+   "kind": "item",
+   "x": 7,
+   "y": 2,
+   "note": "dead-end spur"
+  },
+  {
+   "kind": "sign",
+   "x": 3,
+   "y": 3
+  },
+  {
+   "kind": "sign",
+   "x": 30,
+   "y": 4
+  },
+  {
+   "kind": "trainer",
+   "x": 22,
+   "y": 4,
+   "facing": "LEFT",
+   "sight": 3
+  },
+  {
+   "kind": "trainer",
+   "x": 15,
+   "y": 3,
+   "facing": "DOWN",
+   "sight": 3
+  },
+  {
+   "kind": "trainer",
+   "x": 26,
+   "y": 6,
+   "facing": "RIGHT",
+   "sight": 3
+  },
+  {
+   "kind": "trainer",
+   "x": 10,
+   "y": 5,
+   "facing": "RIGHT",
+   "sight": 3
+  }
+ ],
+ "stamps": [],
+ "notes": [
+  "ledge shortcut: no site",
+  "island at 18,9",
+  "grass gauntlet at 9,6",
+  "fringe: 9/9 partial-tree blocks kept"
+ ],
+ "verify": {
+  "exits": {
+   "W0->E1": true,
+   "E1->W0": true
+  },
+  "items": [
+   {
+    "x": 19,
+    "y": 9,
+    "needs": "surf",
+    "note": "island (Surf)"
+   },
+   {
+    "x": 29,
+    "y": 3,
+    "needs": "walk",
+    "note": "dead-end spur"
+   },
+   {
+    "x": 7,
+    "y": 2,
+    "needs": "walk",
+    "note": "dead-end spur"
+   }
+  ],
+  "trainers": [
+   {
+    "x": 22,
+    "y": 4,
+    "needs": "walk",
+    "note": ""
+   },
+   {
+    "x": 15,
+    "y": 3,
+    "needs": "walk",
+    "note": ""
+   },
+   {
+    "x": 26,
+    "y": 6,
+    "needs": "walk",
+    "note": ""
+   },
+   {
+    "x": 10,
+    "y": 5,
+    "needs": "walk",
+    "note": ""
+   }
+  ],
+  "doors": [],
+  "walkable_quadrants": 391,
+  "softlock_quadrants": 0,
+  "ledges": []
+ }
+}

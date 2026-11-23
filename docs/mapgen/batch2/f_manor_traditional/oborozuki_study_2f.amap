@@ -1,0 +1,32 @@
+# OBOROZUKI MANOR 2F -- Master's Study & hidden room   (12x8, TILESET_TRADITIONAL_HOUSE, ref DanceTheater)
+# Tatami study: bookshelves and incense shrine (13) on the back wall, a low writing desk (11/16), a
+# guest table, two scrolls. A wooden screen (3a) splits off the right two columns: a narrow wood-floored
+# secret room. A bookcase (1a) is built into the screen at (9,2).
+# PUZZLE: Lady Sayo's diary (desk) and three poem-books on the shelves. With the MOON FAN, open the
+# bookcase that the poems point to -> changeblock (9,2) $1a -> $04 opens the screen.
+# Hidden room: ladder 27 up to the Moon Shrine + an item ball.
+# NOTE the screen column (x=19) shows tatami on its right half; it belongs to the hidden room side.
+# Warps: GENKAN stairs 1e (3,3) -> Genkan 39 (27,2). SHRINE ladder 27 (20,2) -> Shrine 1f (10,14).
+tileset traditional_house
+ref DanceTheater
+key W=03 w=08 S=14 s=13 T=29 B=1a d=04 c=1f V=1e U=39 K=27 |=3a -=3c L=33 l=34 e=36 _=0d ,=0c ;=1d o=0e O=10 t=11 y=16 1=1b 2=1c 3=18 4=19 Y=0a Z=0b g=2a G=20 h=2b m=21 n=22 E=05 M=06 N=07 >=24 Q=49 q=4a a=43 X=48 x=46 z=47 k=3e j=3f P=2e p=30 F=2f D=2d C=2c r=28 7=37 8=38 i=0f I=09 5=31 6=32 f=25 9=12 0=00 A=02 H=40 J=41 ~=42 R=23 b=4b u=35 v=15 !=17 @=0b
+grid:
+sBBTWSSWBBWW
+dVddddddd|Kc
+ddtddddddBcc
+ddyddo12d|cc
+dddddd34O|cc
+ddddddddd|cc
+ddddddddd|cc
+ddddddddd|cc
+end
+exit GENKAN 3 3
+exit SHRINE 20 2
+obj warp 3 3 Genkan
+obj warp 20 2 Shrine
+obj sign 4 4 Diary
+obj sign 4 1 PoemBook1
+obj sign 16 1 PoemBook2
+obj sign 2 1 PoemBook3
+obj npc 14 11 Maid up
+obj item 22 13 SecretItem

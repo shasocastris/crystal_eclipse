@@ -1,0 +1,9 @@
+exit S 15 32
+exit LADDER 27 5
+obj trainer 20 21 Swimmer_Lars left 4
+obj trainer 24 27 Skier_Greta up 3
+obj trainer 8 18 Boarder_Nils right 4
+obj trainer 24 5 Firebreather_Knut right 2
+obj item 8 26 BIG_PEARL
+obj item 2 5 MAX_ELIXER
+obj hidden 29 31 STAR_PIECE

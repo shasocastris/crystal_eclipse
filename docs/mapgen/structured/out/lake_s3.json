@@ -1,0 +1,163 @@
+{
+ "name": "lake_s3",
+ "w": 34,
+ "h": 12,
+ "seed": 3,
+ "exits": [
+  {
+   "side": "W",
+   "cells": [
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     5
+    ]
+   ]
+  },
+  {
+   "side": "E",
+   "cells": [
+    [
+     33,
+     4
+    ],
+    [
+     33,
+     5
+    ]
+   ]
+  }
+ ],
+ "events": [
+  {
+   "kind": "item",
+   "x": 14,
+   "y": 10,
+   "note": "island (Surf)"
+  },
+  {
+   "kind": "item",
+   "x": 22,
+   "y": 2,
+   "note": "dead-end spur"
+  },
+  {
+   "kind": "item",
+   "x": 17,
+   "y": 2,
+   "note": "dead-end spur"
+  },
+  {
+   "kind": "sign",
+   "x": 2,
+   "y": 3
+  },
+  {
+   "kind": "sign",
+   "x": 30,
+   "y": 3
+  },
+  {
+   "kind": "trainer",
+   "x": 16,
+   "y": 5,
+   "facing": "LEFT",
+   "sight": 3
+  },
+  {
+   "kind": "trainer",
+   "x": 28,
+   "y": 5,
+   "facing": "LEFT",
+   "sight": 3
+  },
+  {
+   "kind": "trainer",
+   "x": 20,
+   "y": 7,
+   "facing": "RIGHT",
+   "sight": 3
+  },
+  {
+   "kind": "trainer",
+   "x": 8,
+   "y": 5,
+   "facing": "RIGHT",
+   "sight": 3
+  }
+ ],
+ "stamps": [],
+ "notes": [
+  "ledge shortcut: no site",
+  "ledge band row 4 x=11..13",
+  "island at 13,10",
+  "grass gauntlet at 18,6",
+  "fringe: 13/14 partial-tree blocks kept"
+ ],
+ "verify": {
+  "exits": {
+   "W0->E1": true,
+   "E1->W0": true
+  },
+  "items": [
+   {
+    "x": 14,
+    "y": 10,
+    "needs": "surf",
+    "note": "island (Surf)"
+   },
+   {
+    "x": 22,
+    "y": 2,
+    "needs": "walk",
+    "note": "dead-end spur"
+   },
+   {
+    "x": 17,
+    "y": 2,
+    "needs": "walk",
+    "note": "dead-end spur"
+   }
+  ],
+  "trainers": [
+   {
+    "x": 16,
+    "y": 5,
+    "needs": "walk",
+    "note": ""
+   },
+   {
+    "x": 28,
+    "y": 5,
+    "needs": "walk",
+    "note": ""
+   },
+   {
+    "x": 20,
+    "y": 7,
+    "needs": "walk",
+    "note": ""
+   },
+   {
+    "x": 8,
+    "y": 5,
+    "needs": "walk",
+    "note": ""
+   }
+  ],
+  "doors": [],
+  "walkable_quadrants": 472,
+  "softlock_quadrants": 0,
+  "ledges": [
+   {
+    "x": 11,
+    "y": 4,
+    "hop": 2,
+    "walk_back": null
+   }
+  ]
+ }
+}

@@ -1,0 +1,22 @@
+# Ice Path Hollow 1F -- the river floor under the Hollow, 16x18 (buffer 528/1300)
+# BUILT on branch 88-ice-path-hollow (maps/IcePathHollow1F.asm). TILESET_ICE_PATH, CAVE, LANDMARK_ICE_PATH.
+# shasocastris redrew the river by hand 2026-11-11; the grid and objects below are generated FROM the
+#   built map (../from_build.py), not the other way round.
+# The player arrives surfing from Blackthorn's cave mouth (johto a9/aa; this map's 4c/4d mirror them,
+#   warps at 7,32 and 8,32).
+# RIVER, mouth to source, two blocks wide: mouth (blocks 3-4,16) -> north (cols 3-4, rows 12-15) ->
+#   steps north-east (rows 9-11) to cols 8-9 -> climbable waterfall 52/53 (8-9,7) -> upper level,
+#   widening east (rows 3-5) -> the spring, wall fall 4e/4f (10-11,1), which the player cannot follow.
+# The waterfall is the only way to the upper level; the ladder to 2F (block 13,2, warp 27,5) is up there.
+# Ice sheets: upper north-west (blocks 2-4, rows 3-4) and lower middle (cols 7-11, rows 12-13).
+# PEOPLE: the ones who never got up the falls, or stopped just above them (L49-51).
+#   Swimmer Lars in the river at 17,20 (Dewgong / Poliwrath; SPRITE_SWIMMER_GUY, not a variable sprite);
+#   Skier Greta at 24,27 east of the lower ice sheet (Jynx / Cloyster);
+#   Boarder Nils at 5,18 on the west bank below the wall (Piloswine / Dewgong / Sneasel);
+#   Firebreather Knut at 15,10 on the upper west bank, facing the water (Magmar / Houndoom).
+# ITEMS: BIG PEARL 11,26 on the east bank above the mouth, MAX ELIXER 2,5 in the upper north-west
+#   corner, hidden STAR PIECE 29,28 in the south-east corner. Wild Pokemon on land and water.
+# SOURCE: the built map. python3 ../from_build.py IcePathHollow1F 16 f1 ice_path_hollow_1f (run from
+#   icepath/) rewrites this file. The old sketch is in ../superseded/f1/. Do NOT copy the .ablk
+#   written here back over maps/ unless shasocastris asks for a design change.
+# CHECK: ../amap_ice.py and ../river.py on the .amap

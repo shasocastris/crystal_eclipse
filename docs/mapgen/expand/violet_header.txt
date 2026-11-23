@@ -1,0 +1,25 @@
+# ============================================================================
+# VIOLET CITY, expanded  (28x24 blocks, buffer 1020/1300; vanilla 20x18)
+# Source: buildviolet.py -> violet_base.amap; this file = rough.py --seed 2 --p 0.45
+#   then violet_meta.py adds this header and violet_objs.txt
+# ============================================================================
+# KEPT: vanilla rows 0-8, cols 4-18 are pasted verbatim at cols 6-20: Sprout
+#   Tower between its two moat ponds, the tower approach and sign, the Gym
+#   (W) and Earl's Academy (E) flanking it, the cemetery house by the west
+#   moat, the Surf-only Rare Candy nook NE. Also kept: Route 36 leaves W on
+#   row 4, the nickname house stays at the same coords (3,15), the rock
+#   outcrop (70 6b/72 6d) at the W edge, the Center + Route 31 gate (0e) on
+#   the E edge, Route 32 S, the south fruit tree, PP Up NW.
+# ADDED (cf. pokefollow Viridian: denser, a second street):
+#   Main street (row 9) runs the full width; a N-S avenue from the tower to
+#     Route 32 crosses it and a second street (row 14).
+#   Old-houses quarter W, S and NE: seven 2c-2f houses (tea house, elders,
+#     the Kimono Girls' dresser...); Kyle's house moves to the second street.
+#   A Mart (18 19/16 17) next to the Center.
+#   Garden pond SW with flower beds and the fruit tree.
+#   Earl's practice field SE: fenced tall grass where Academy students
+#     battle and wild Pokemon live; Earl coaches here.
+# CONNECTIONS: W row 4 (steps 8-9) -> Route 36 (offset); S cols 13-14 ->
+#   Route 32 (was col 7: offset); E gate warps move from (39,24/25) to
+#   (55,24/25). Every interior warp back into Violet needs new coords.
+# ============================================================================

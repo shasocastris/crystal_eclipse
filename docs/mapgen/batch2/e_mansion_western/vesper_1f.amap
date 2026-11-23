@@ -1,0 +1,39 @@
+# VESPER HALL 1F -- grand foyer, dining hall (W), the late Lord's study (E)
+# Tileset: TILESET_MANSION (Celadon Mansion). 15x8 blocks, buffer 294/1300.
+# Front door (doormat, bottom centre) faces the estate grounds. Two grand
+# staircases (block 06) flank the north door (17) to the Portrait Gallery.
+# Dining hall: pink carpet room behind a 0a/0b/0c partition, banquet table
+# (10 x2) with chairs (1b); doorway at its bottom-right (0c).
+# Study: behind a 20 partition with a gap at row 4. The cellar stair (15, x12)
+# is HIDDEN: ship the map with 18 (bookshelf) there and `changeblock 24, 0, $15`
+# once the Head Butler hands over the CELLAR KEY (after the 2F burglars).
+# Portrait plaques (09) either side of the north door: the Vesper family.
+# Gap: no grand two-flight staircase or fireplace in the tileset; the twin 06
+# stairs either side of the door stand in for a split staircase.
+ref CeladonMansion1F
+tileset mansion
+key X=00 ,=02 .=03 W=04 <=05 >=06 w=07 v=08 p=09 r=0a |=0b c=0c T=0d M=0e B=0f O=10 P=11 k=12 S=15 s=16 D=17 K=18 h=1b C=1c !=20
+grid:
+PkPrW>pDp>!BSKP
+,,,|......!....
+hOh|..,,,.!..O.
+hOh|..,,,.!....
+,,,c..,,,......
+vvvv......!....
+..........!vvvv
+.......M.......
+end
+exit FRONT 14 15
+exit FRONT2 15 15
+exit GALLERY 15 0
+exit STAIR_W 11 0
+exit STAIR_E 19 0
+exit CELLAR 24 0
+obj npc 15 3 HeadButler down
+obj trainer 6 4 MaidRosa down 3
+obj trainer 24 9 ButlerHugo left 4
+obj sign 13 0 PortraitLord
+obj sign 17 0 PortraitLady
+obj sign 26 5 LordsDesk
+obj item 1 13 ElixirSW
+obj hidden 0 2 DiningShelf

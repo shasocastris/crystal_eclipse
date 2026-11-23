@@ -1,0 +1,38 @@
+# VESPER HALL GALLERY -- north wing: portrait gallery (W) and library (E)
+# Tileset: TILESET_MUSEUM (Pewter Museum). 15x7 blocks, buffer 273/1300.
+# Why a second tileset: the museum's marble checker floor, framed paintings
+# (17), the tall framed window (21-22-23), display case (0a-0b-0c), gold
+# candelabra statues (24/25), potted palms (20) and free-standing bookcases
+# (15) are what make a stately-home gallery; the mansion set has none of them.
+# The wings are joined only by a warp (1F door 17 <-> this doormat 03), so
+# the tileset switch is invisible to the player.
+# Gallery/library divider: wooden rail 01 with a gap at row 3.
+# PUZZLE: three portraits (P) of the Vesper line. The diary in the Master
+# Suite reads "Dawn, Noon, Dusk -- then the sun goes dark". Examine Dawn
+# (east portrait), Noon (centre, left of the window), Dusk (west) in that
+# order; the library's corner bookcase (x14,y6) slides aside:
+# ship 15 there and `changeblock 28, 12, $05` to reveal the ladder down.
+ref PewterMuseum1F
+tileset museum
+key ,=02 M=03 v=05 w=06 1=01 a=0a b=0b c=0c B=15 P=17 p=20 G=21 H=22 J=23 S=24 t=25
+grid:
+PwPGHJPw1BBBBBB
+,,,,,,,,1,,,,,,
+pS,,,,tp1,B,B,,
+,,abc,,,,,B,B,,
+p,,,,,,p1,,,,,,
+,,,,,,,,1,,BB,,
+,,,,M,,,1,,,,,v
+end
+exit DOOR1F 8 13
+exit DOOR1F2 9 13
+exit LADDER 29 13
+obj sign 13 0 PortraitDawn
+obj sign 5 0 PortraitNoon
+obj sign 1 0 PortraitDusk
+obj sign 6 7 CaseEclipseStone
+obj trainer 12 9 CollectorPM left 4
+obj trainer 22 3 GovernessT down 3
+obj trainer 26 9 BurglarFinn left 3
+obj item 18 12 TMinLibrary
+obj sign 21 6 ShelfNote

@@ -1,0 +1,30 @@
+exit SproutTower 27 5
+exit Gym 22 17
+exit Academy 34 17
+obj warp 27 5 SproutTower
+obj warp 22 17 VioletGym
+obj warp 34 17 EarlsAcademy
+obj warp 15 11 VioletCemetery
+obj warp 3 15 NicknameHouse
+obj warp 5 5 OldHouseNW
+obj warp 51 5 TeaHouse
+obj warp 45 15 OldHouseNE
+obj warp 7 25 HouseW1
+obj warp 15 25 HouseW2
+obj warp 35 25 Mart
+obj warp 43 25 PokeCenter
+obj warp 55 24 Route31Gate
+obj warp 5 31 SmallHouse
+obj warp 11 33 HouseS
+obj warp 19 33 KylesHouse
+obj npc 22 19 Earl down
+obj npc 28 20 SuperNerd
+obj npc 34 30 Lass
+obj npc 12 21 Gramps down
+obj npc 10 28 Youngster
+obj trainer 38 38 SchoolKidA down 2
+obj trainer 44 40 SchoolKidB left 3
+obj fruit 22 40 FruitTree
+obj item 2 6 PPUp
+obj item 39 5 RareCandy
+obj hidden 51 20 HyperPotion

@@ -1,0 +1,461 @@
+<title>New Johto Maps</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column, map renders break out wider; a field-guide feel keyed to GBC grass and water */
+:root {
+	--bg: #f3f6f1;
+	--surface: #ffffff;
+	--fg: #1d2620;
+	--muted: #5b6a60;
+	--line: #d3dcd4;
+	--grass: #2f7a3e;
+	--water: #4a5bd0;
+	--warn: #a3521c;
+	--good-bg: #e2f1e4;
+	--bad-bg: #f8e7dc;
+	--display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+	--body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+	--mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+	--bg: #111613; --surface: #19201b; --fg: #e3ebe4; --muted: #9aab9e; --line: #2c372f;
+	--grass: #7cc88a; --water: #98a4ff; --warn: #e79a62; --good-bg: #1d3323; --bad-bg: #3a2519; color-scheme: dark } }
+:root[data-theme="dark"] {
+	--bg: #111613; --surface: #19201b; --fg: #e3ebe4; --muted: #9aab9e; --line: #2c372f;
+	--grass: #7cc88a; --water: #98a4ff; --warn: #e79a62; --good-bg: #1d3323; --bad-bg: #3a2519; color-scheme: dark }
+
+body { background: var(--bg); color: var(--fg); font: 17px/1.6 var(--body); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-block: 40px 80px;
+	padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.prose { max-width: 68ch; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; line-height: 1.15; margin: 0; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: 1.75rem; font-weight: 800; margin-top: 64px; }
+h3 { font-size: 1.2rem; font-weight: 600; }
+p { margin: 0.6em 0; }
+.eyebrow { font: 600 0.75rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--grass); }
+.lede { font-size: 1.2rem; color: var(--muted); margin-top: 12px; }
+code, .mono { font-family: var(--mono); font-size: 0.86em; }
+code { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; overflow-wrap: anywhere; }
+a { color: var(--water); }
+
+.verdict { margin-top: 32px; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.v { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.v .tag { align-self: flex-start; font: 600 0.72rem var(--mono); text-transform: uppercase; letter-spacing: 0.06em; padding: 2px 8px; border-radius: 99px; }
+.tag.good { background: var(--good-bg); color: var(--grass); }
+.tag.mid { background: var(--surface); border: 1px solid var(--line); color: var(--muted); }
+.tag.bad { background: var(--bad-bg); color: var(--warn); }
+.v p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+.tbl { overflow-x: auto; margin-top: 20px; }
+table { border-collapse: collapse; width: 100%; min-width: 720px; font-size: 0.95rem; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 600 0.75rem var(--mono); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+
+figure { margin: 24px 0 0; display: flex; flex-direction: column; gap: 8px; }
+figure img { image-rendering: pixelated; border-radius: 4px; border: 1px solid var(--line); display: block; height: auto; max-width: 100%; }
+figure.tall img { max-height: 760px; width: auto; max-width: 100%; }
+figcaption { font-size: 0.92rem; color: var(--muted); max-width: 72ch; }
+figcaption b { color: var(--fg); }
+.pair { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: start; }
+.pair figure { min-width: 0; }
+
+ol.concepts { padding: 0; list-style: none; display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: 20px; }
+ol.concepts li { border-top: 2px solid var(--line); padding-top: 8px; min-width: 0; }
+ol.concepts li.built { border-top-color: var(--grass); }
+ol.concepts .k { font: 600 0.72rem var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+ol.concepts p { margin: 2px 0 0; font-size: 0.95rem; }
+
+ul.tight { padding-left: 1.2em; margin: 0.4em 0; }
+ul.tight li { margin: 4px 0; }
+.files { font: 0.82rem/1.7 var(--mono); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; overflow-x: auto; white-space: pre; margin-top: 16px; }
+</style>
+
+<div class="wrap">
+	<p class="eyebrow">Crystal Eclipse · map-making experiments · TILESET_JOHTO</p>
+	<h1>New Johto Maps</h1>
+	<p class="lede prose">Four ways to make new routes, towns and caves, each tried by its own agent, then a second batch of twelve outdoor maps and two mansions made the way that worked best, and a third batch of six Goldenrod-style cities. Every image below was drawn from real block data using the game's own tiles and palettes.</p>
+	<p class="prose"><a href="#expanded">Expanded Johto</a> · <a href="#batch-2">Jump to batch 2</a> · <a href="#batch-3">Jump to batch 3 (cities)</a></p>
+
+	<div class="verdict">
+		<div class="v"><span class="tag good">Best results</span><h3>Hand design in text</h3><p>One character per block in a text file, rendered in seconds. Gave the most characterful maps.</p></div>
+		<div class="v"><span class="tag good">Useful</span><h3>Layout-first generator</h3><p>Plans the gameplay, then autotiles real blocks. Always playable, a bit generic. Good for drafts and towns.</p></div>
+		<div class="v"><span class="tag mid">Drafts only</span><h3>Cave generator</h3><p>Correct cliff and rim edges; blocky shapes. Good starting layouts to refine by hand.</p></div>
+		<div class="v"><span class="tag bad">Not worth pursuing</span><h3>Pattern learning (WFC)</h3><p>Learns block patterns from the 34 Johto maps. Blocks join correctly but maps read as mazes.</p></div>
+	</div>
+
+	<div class="prose">
+		<h2>Recommended workflow</h2>
+		<ul class="tight">
+			<li><b>Idea and layout:</b> I write the concept and a text-grid draft (or seed one from the layout-first generator), you react to the render, we iterate.</li>
+			<li><b>Polish:</b> open the <code>.ablk</code> in <b>Polished Map++</b>, which is already installed (<code>/usr/local/bin/polishedmap-plusplus</code>, 2.7.1). It reads this repo's per-block attributes correctly. Plain Polished Map 4.7.1 is also installed but drops the attributes, so don't use it here.</li>
+			<li><b>Seasons and time of day:</b> Polished Map++ can't show them; preview with <code>render_ablk.py --season winter --time nite</code>.</li>
+			<li><b>Wire into the build:</b> <code>newmap.py</code> prints every snippet for the ten files a new map touches. The checklist is further down.</li>
+		</ul>
+	</div>
+
+	<div class="tbl">
+		<table>
+			<thead><tr><th>Approach</th><th>Output looks like Crystal?</th><th>Playable</th><th>Character</th><th>Effort to finish a map</th></tr></thead>
+			<tbody>
+				<tr><td>Hand design (text grid)</td><td>Yes</td><td>Checked: all exits connect</td><td>High, every map has a hook</td><td>Events and scripts only</td></tr>
+				<tr><td>Layout-first generator</td><td>Yes</td><td>Checked: exits both ways, doors, no softlocks</td><td>Medium-low</td><td>A pass for personality, then events</td></tr>
+				<tr><td>Cave generator</td><td>Mostly; blocky</td><td>Checked: ladders, Surf, ledges</td><td>Low</td><td>Reshape rooms, add boulders and items</td></tr>
+				<tr><td>WFC, 2×2 patterns</td><td>Locally only</td><td>Checked, but has stranded features</td><td>Random</td><td>More than starting from scratch</td></tr>
+			</tbody>
+		</table>
+	</div>
+
+	<h2 id="expanded">Expanded Johto · New Bark to Violet City and its routes</h2>
+	<div class="prose">
+		<p>The goal behind all of this: Johto's own maps, still recognisable but larger and with more to explore. Pokefollow's expanded Kanto was the model. Sources and the full analysis are in <code>docs/mapgen/expand/</code>.</p>
+		<h3 style="margin-top:20px">What pokefollow does</h3>
+		<ul class="tight">
+			<li><b>Keeps the landmarks and their layout.</b> Pallet goes from 10×9 to 24×20, but Red's and Blue's houses are still side by side with Oak's Lab south of them.</li>
+			<li><b>Scale depends on the map type.</b> Tiny towns grow about 2.4× per side, routes double their width, and Viridian (1.3×) and Pewter (1.0×) get denser rather than larger.</li>
+			<li><b>Water and bridges</b> split towns into neighbourhoods, and every plot gets a fence, hedge or flower-bed edge.</li>
+			<li><b>Ragged, organic edges</b> replace straight walls. <b>Side areas are separate small maps</b> (Pallet Lake, Oak Corral).</li>
+		</ul>
+	</div>
+	<div class="pair">
+		<figure>
+			<img src="img/pf_pallet.png" alt="Pallet Town in Crystal Eclipse beside pokefollow's expanded version" width="1112" height="668">
+			<figcaption><b>Pallet Town</b>: 10×9 → 24×20.</figcaption>
+		</figure>
+		<figure>
+			<img src="img/pf_route1.png" alt="Route 1 in Crystal Eclipse beside pokefollow's version" width="952" height="796">
+			<figcaption><b>Route 1</b>: 10×18 → 19×24, with a river and cliff band added.</figcaption>
+		</figure>
+		<figure>
+			<img src="img/pf_viridian.png" alt="Viridian City beside pokefollow's version" width="1400" height="668">
+			<figcaption><b>Viridian City</b>: 20×18 → 23×20, much denser, with a canal.</figcaption>
+		</figure>
+		<figure>
+			<img src="img/pf_pewter.png" alt="Pewter City beside pokefollow's version" width="1304" height="604">
+			<figcaption><b>Pewter City</b>: the same size, redrawn.</figcaption>
+		</figure>
+	</div>
+	<div style="margin-top:20px">
+		<figure>
+			<img src="img/newbark.png" alt="Vanilla New Bark Town beside the expanded 24 by 20 draft with a brook, footbridges, hedged yards and a jetty" width="2200" height="1308">
+			<figcaption><b>New Bark Town</b>, 10×9 → 24×20. The lab, the player's house and the two southern houses keep vanilla's layout. Bark Brook splits them into quadrants with two footbridges. Also new: hedged yards, two more houses, a hilltop meadow behind a ledge, a jetty for the fisher and the Surf start to Route 27, and Elm's research field (New Bark's answer to Oak's Corral).</figcaption>
+		</figure>
+	</div>
+	<div style="margin-top:20px">
+		<figure>
+			<img src="img/route29.png" alt="Vanilla Route 29 above the expanded 44 by 14 draft with an upper level, a pond, a rest cabin and stands of woods" width="2816" height="1532">
+			<figcaption><b>Route 29</b>, 30×9 → 44×14. It keeps the Route 46 gate in the middle, tall grass on the road at the New Bark end, ledges and the vanilla NPC cast. New: an upper level reached only from the gate path, with a fruit grove and a woodland pond for the Fisher; a rest cabin standing in for a Pokémon Center; woods that break the route into rooms; and meadows below a second ledge. The ragged edges come from a small roughening pass (<code>rough.py</code>).</figcaption>
+		</figure>
+	</div>
+	<div style="margin-top:20px">
+		<figure>
+			<img src="img/cherrygrove.png" alt="Vanilla Cherrygrove City beside the expanded 28 by 20 draft with the original shoreline, a pier, a second street and a cherry grove" width="3096" height="1308">
+			<figcaption><b>Cherrygrove City</b>, 20×11 → 28×20. Vanilla's rocky west shore is pasted in block for block, so it reads as Cherrygrove straight away. New: a north avenue to Route 30, a Mart, a second street of houses with Guide Gent by the water, a pier for the Mystic Water fisher, and the cherry grove itself, with a winding path to a flower clearing.</figcaption>
+		</figure>
+	</div>
+	<div style="margin-top:20px">
+		<figure>
+			<img src="img/route30.png" alt="Route 30 beside the expanded 20 by 40 draft with a path-ledged road, Mr. Pokemon's hilltop, a berry garden and a flower glade" width="2136" height="2588">
+			<figcaption><b>Route 30</b>, 13×27 → 20×40. It keeps the single-lane west road, with path ledges you hop heading south and walk round heading north, plus Joey by Cherrygrove, the Berry House by its pond, the signed Mr. Pokémon branch and the east tall-grass lane. New: Mr. Pokémon's hilltop behind a ledge, with his own pond; a fenced berry garden; Kimono Girl Hana's tree-ringed flower glade; ledged meadows; and a south-east pond.</figcaption>
+		</figure>
+	</div>
+	<div style="margin-top:20px">
+		<figure>
+			<img src="img/violet.png" alt="Vanilla Violet City beside the expanded 28 by 24 draft keeping Sprout Tower, the moats, the Gym and the Academy, with new streets, houses, a Mart, a garden pond and a practice field" width="3096" height="1564">
+			<figcaption><b>Violet City</b>, 20×18 → 28×24. The north half (Sprout Tower between its moats, the Gym, Earl's Academy and the cemetery house) is pasted in block for block. New: a full-width main street, an avenue from the tower to Route 32 and a second street; seven old-style houses; a Mart beside the Center; a garden pond; and Earl's practice field, fenced tall grass where Academy students battle. Its south half is more open than vanilla's woods and could take more buildings.</figcaption>
+		</figure>
+	</div>
+	<div style="margin-top:20px">
+		<figure>
+			<img src="img/route31.png" alt="Vanilla Route 31 above the expanded 30 by 14 draft with the gate, the L-shaped pond, Dark Cave's rock face, ledged meadows and an orchard" width="960" height="776">
+			<figcaption><b>Route 31</b>, 20×9 → 30×14. It keeps the Violet gate, the L-shaped pond above the road, Dark Cave's mouth in the north-east rock face and the ledged grass south of the gate. New: a T-junction where the Route 30 lane turns south, two ledge-terraced meadows, a fenced orchard with two fruit trees, and Erick's wooded grass pocket with a hidden glade below it.</figcaption>
+		</figure>
+	</div>
+	<div style="margin-top:20px">
+		<figure>
+			<img src="img/route32.png" alt="Vanilla Route 32 beside the expanded 14 by 58 draft with the same cliffs, pier and Center plus a meadow pond, a cabin, a jetty and open sea" width="788" height="1876">
+			<figcaption><b>Route 32</b>, 10×45 → 14×58. All 45 vanilla rows are pasted in block for block, so the cliffs, the Cooltrainer's corridor, the pink pier, the Center and Union Cave are all where you expect them. New: a grass shelf past the Cooltrainer, who still blocks; open sea with rock islets; and three inserted bands: Liz's meadow with a woodland pond, a fisherman's cabin before the pier, and a jetty north of the Center with a Fishing Guru. It's at the size limit: 14 columns is the widest a 58-row map can be.</figcaption>
+		</figure>
+	</div>
+	<div style="margin-top:20px">
+		<figure>
+			<img src="img/route36.png" alt="Vanilla Route 36 above the expanded 34 by 14 draft with a woodland inserted between its halves and a southern meadow" width="1088" height="776">
+			<figcaption><b>Route 36</b>, 24×9 → 34×14. Vanilla is kept whole but split at its forest divide: the National Park gate, Suicune's spot and the Route 37 path on the west; the meadow, the road to Violet and the Ruins of Alph gate on the east. New: an 8-column woodland between them (a pond, a straight road and a ledge over a tall-grass dell), and a southern band with a second meadow and pond.</figcaption>
+		</figure>
+	</div>
+	<p class="prose" style="margin-top:12px">All eight pass the walkability check. The real cost of implementing them is re-pointing every warp, scene trigger, Fly spot and map connection.</p>
+
+	<h2 id="batch-2">Batch 2 · twelve outdoor maps and two mansions</h2>
+	<div class="prose">
+		<p>Six more designers, all working in text grids. Every map below passes the walkability check: exits and doors connect on foot, and anything behind Cut, Surf, Strength or Rock Smash is gated on purpose. Each <code>.amap</code> carries its own design notes. Sources are in <code>docs/mapgen/batch2/</code>.</p>
+		<h3 style="margin-top:20px">How they could fit together</h3>
+		<ul class="tight">
+			<li><b>Mt. Mortar country:</b> Route 42 → Hearthhollow → Driftbank Ford (south) → Pinefall Lake. Mortar Foothills runs east from Hearthhollow to Mahogany, and Starfall Crater sits up in the high ground.</li>
+			<li><b>The orchard belt:</b> Orchard Road → Reedmere Marsh → Silverbough Estate, whose manor is either Oborozuki Manor or Vesper Hall.</li>
+			<li><b>A new coast:</b> Mulberry Gardens → Silkwater City → Brinehaven, the ferry port to the Orange Islands. Tidewatch Cape hangs off Olivine or Route 40.</li>
+			<li><b>Near Violet:</b> Sunleaf Terraces north of Route 36; Stoneway off Route 32 toward the Ruins of Alph.</li>
+		</ul>
+	</div>
+
+	<h3 style="margin-top:40px">Routes</h3>
+	<div class="pair">
+		<figure class="tall">
+			<img src="img/driftbank_ford_marked.png" alt="Driftbank Ford: a vertical river route with three log bridges, a wide pool with an island, and ledges on the east bank" width="896" height="2304">
+			<figcaption><b>Driftbank Ford</b> (14×36). Meltwater from Mt. Mortar runs the whole route; walk it across three log bridges or Surf down it from the rapids. The east-bank ledges are a one-way shortcut. Bridges reuse Route 45's walk-over/surf-under swap.</figcaption>
+		</figure>
+		<figure class="tall">
+			<img src="img/stoneway_marked.png" alt="Stoneway: a straight walled avenue between fenced courts leading north to a sealed temple mound" width="896" height="1792">
+			<figcaption><b>Stoneway</b> (14×28). A dead-straight processional avenue, unlike any Johto route. Four Unown steles along the way spell the word that opens the sealed temple at the top.</figcaption>
+		</figure>
+	</div>
+	<figure>
+		<img src="img/mortar_foothills_marked.png" alt="Mortar Foothills: a dirt road between rock mesas with a cliff stair and Strength boulder leading to an upper shelf" width="1920" height="576">
+		<figcaption><b>Mortar Foothills</b> (30×9). Route 42's rough sibling. A Strength boulder at the foot of a carved stair gates the upper shelf, with a TM cave, a Blackbelt and two items; a Rock Smash rock plugs a nook. A Hiker guards a back door into Mt. Mortar.</figcaption>
+	</figure>
+	<figure>
+		<img src="img/marsh_marked.png" alt="Reedmere Marsh: a reed-choked lagoon crossed by a zig-zag boardwalk between islets" width="2176" height="896">
+		<figcaption><b>Reedmere Marsh</b> (34×14). Wade the reed bank with encounters all the way, or take the zig-zag boardwalk past two Fishers. Surf cuts straight across to a reed island.</figcaption>
+	</figure>
+	<figure>
+		<img src="img/tidewatch_cape_marked.png" alt="Tidewatch Cape: a beach route with tide pools, a pier, a surf shack and a small lighthouse on a rocky cape" width="2048" height="896">
+		<figcaption><b>Tidewatch Cape</b> (32×14). Dune path, beach with tide pools and a long pier, a surf shack, and a short lighthouse on the cape. Reefs and a sand islet offshore for Surfers. Sand meets sea flush, as in Cianwood.</figcaption>
+	</figure>
+
+	<h3 style="margin-top:40px">Special areas</h3>
+	<div class="pair">
+		<figure>
+			<img src="img/pinefall_lake_marked.png" alt="Pinefall Lake Campsite: a lake fed by a waterfall, with a fenced camp of tent pads and a ranger cabin on the south shore" width="1536" height="1152">
+			<figcaption><b>Pinefall Lake Campsite</b> (24×18). A waterfall drops off a cliff into the lake; on the shore, a fenced camp with tent pads, a fire pit and a ranger cabin. The tutorial for rest-and-watch: the Ranger's Growlithe keeps your first night safe.</figcaption>
+		</figure>
+		<figure>
+			<img src="img/crater_marked.png" alt="Starfall Crater: a cliff-ringed bowl with rings of grass and dirt around a lake, a meteorite on an islet in the middle" width="1408" height="1280">
+			<figcaption><b>Starfall Crater</b> (22×20). A canyon opens into a cliff-ringed bowl. A meteorite stands on an islet in the lake, holding one static encounter that needs Surf. A cave mouth in the north cliff leads to an optional cave.</figcaption>
+		</figure>
+	</div>
+
+	<h3 style="margin-top:40px">Towns and cities</h3>
+	<div class="pair">
+		<figure>
+			<img src="img/sunleaf_terraces_marked.png" alt="Sunleaf Terraces: a town on four terraces divided by ledges, with berry beds, crop rows, a farmhouse and a reservoir" width="1280" height="1152">
+			<figcaption><b>Sunleaf Terraces</b> (20×18). A farming village on four terraces; the ledges are one-way hops back down. Berry beds, sprout fields, Leppa trees and the Berry Master's farmhouse at the top. A Leppa hub for the PP economy.</figcaption>
+		</figure>
+		<figure>
+			<img src="img/mulberry_marked.png" alt="Mulberry Gardens: a botanical park with a glasshouse, a fenced moth meadow, a lily pond, a fountain plaza and a bandstand" width="1280" height="1024">
+			<figcaption><b>Mulberry Gardens</b> (20×16, Johto Modern tileset). Silkwater's botanical park: glasshouse, fenced moth meadow with night-only bugs, lily pond, fountain plaza, bandstand and a mulberry orchard.</figcaption>
+		</figure>
+	</div>
+	<div class="pair">
+		<figure>
+			<img src="img/silkwater_marked.png" alt="Silkwater City: a city split by two railed canals with bridges, a market, a hotel tower, a central square and a Gym" width="1536" height="1280">
+			<figcaption><b>Silkwater City</b> (24×20, Johto Modern). Two canals split a silk-weaving city into three banks joined by bridges: the market, Lantern Island with the Center and a hotel tower, and the south bank with a Bug-type Gym.</figcaption>
+		</figure>
+		<figure>
+			<img src="img/brinehaven_marked.png" alt="Brinehaven: a harbour town with canals, warehouses, a ferry terminal and piers into the sea" width="1280" height="1280">
+			<figcaption><b>Brinehaven</b> (20×20, Johto Modern). The harbour Silkwater's canals drain into, and the ferry port to the Orange Islands. Its west edge lines up row for row with Silkwater's east edge.</figcaption>
+		</figure>
+	</div>
+
+	<h3 style="margin-top:40px">The mansion</h3>
+	<div class="pair">
+		<figure>
+			<img src="img/estate_marked.png" alt="Silverbough Estate: a long traditional manor with a fountain forecourt, a hedge maze, an orchard and a pond with a boardwalk to a tea pavilion" width="1664" height="1408">
+			<figcaption><b>Silverbough Estate</b> (26×22). The grounds: a gatekeeper at the fence, a hedge maze with items in its dead ends, an apricorn orchard, and a boardwalk across a pond to a tea pavilion. This is the traditional manor front.</figcaption>
+		</figure>
+		<figure>
+			<img src="img/estate_western_marked.png" alt="Silverbough Estate with a brick Western manor front instead" width="1664" height="1408">
+			<figcaption><b>Western front.</b> Same grounds with a brick manor front, to go with Vesper Hall. The front door sits one step east because of the Gym-sign block.</figcaption>
+		</figure>
+	</div>
+	<figure>
+		<img src="img/oborozuki_overview.png" alt="Oborozuki Manor: seven traditional rooms with lettered warp markers linking them" width="1960" height="1470">
+		<figcaption><b>Oborozuki Manor</b>: seven traditional rooms, mostly on the traditional-house tileset with a Sprout Tower shrine on top. The family that keeps Ecruteak's Kimono Girls lost its head during the last eclipse. Beat the Kimono Girl quartet and the dojo master, do a tea ceremony in season order, then find the hidden room behind the study bookcase. Gaps: no left or up doorways, and furniture only sits on tatami.</figcaption>
+	</figure>
+	<figure>
+		<img src="img/vesper_overview.png" alt="Vesper Hall: seven Western mansion maps across four tilesets, with warps, trainers and items marked" width="1992" height="1666">
+		<figcaption><b>Vesper Hall</b>: seven maps over four tilesets: mansion halls, a museum gallery and library, a player's-house bedroom and a Cinnabar-style secret lab. An astronomer vanished from his observatory during an eclipse; burglars are stripping his collection. A portrait puzzle opens the way to the lab and the Collector. Gaps: no grand staircase, no fireplace, and the top wall reads a little modern.</figcaption>
+	</figure>
+
+	<h2 id="batch-3">Batch 3 · six Goldenrod-style cities</h2>
+	<p class="prose">Six large cities on the Johto Modern tileset, each built from Goldenrod's own building footprints: dense street grids, districts and a landmark. None has a Pokémon Center. Each has an inn or hotel with a PC instead. Every door and edge exit is reachable on foot, except for two doors a guard blocks until the story moves on.</p>
+	<div class="pair">
+		<figure>
+			<img src="img/marigold_marked.png" alt="Marigold City: a four-quadrant city around a fountain plaza, with a tall department store, two grey towers and a Gym" width="1664" height="1472">
+			<figcaption><b>Marigold City</b> (26×23). Goldenrod's flashy rival, run by a power company. A 3×6 department store faces the fountain where the boulevard crosses the avenue. Broadcast Row has a TV tower, and the Electric Gym stays dark until you clear a cult out of the underground mall beneath the plaza.</figcaption>
+		</figure>
+		<figure>
+			<img src="img/sorrel_marked.png" alt="Sorrel Junction: a railway town with a double main line, a long station, a market street of stalls and terraced houses" width="1792" height="1472">
+			<figcaption><b>Sorrel Junction</b> (28×23). Johto's railway crossroads. A fenced double main line crosses the whole map past an 8×4 station, with warehouses, a signal tower and a goods yard. Fix the dark signal tower to free the held trains and earn a Rail Pass. The neighbouring maps must carry the tracks on or end them in a tunnel.</figcaption>
+		</figure>
+	</div>
+	<div class="pair">
+		<figure>
+			<img src="img/cinderwick_marked.png" alt="Cinderwick City: an ironworks city split by a railed canal, with a fenced foundry compound and rows of terraced cottages" width="1664" height="1408">
+			<figcaption><b>Cinderwick City</b> (26×22). An ironworks city split by a canal. To the north: a fenced Ironworks with a Furnace Tower, and rows of workers' cottages. To the south: downtown, the hotel and a Fire-type Gym. The furnace has gone cold because Slugma and Koffing nested in the flue, so you clear the tower before the Gym opens. Only 5 of the 20 cottages have doors.</figcaption>
+		</figure>
+		<figure>
+			<img src="img/vellum_marked.png" alt="Vellum City: a university town with a lawn quad, a large library, an observatory tower, dorms and a lake with a boathouse" width="1664" height="1536">
+			<figcaption><b>Vellum City</b> (26×24). A university town around a formal quad of lawns and a reflecting pool. The landmark is a 5×4 Great Library with a quiz puzzle inside. Around the quad: an observatory with a comet event at night, a museum, a research institute and dorms, plus a lake with a boathouse. No Gym.</figcaption>
+		</figure>
+	</div>
+	<div class="pair">
+		<figure>
+			<img src="img/morrowmere_marked.png" alt="Morrowmere City: a wide river splits an old brown-roofed quarter from a modern tower quarter, with a clock tower on a fenced island" width="1920" height="1408">
+			<figcaption><b>Morrowmere City</b> (30×22). A city of yesterday and tomorrow: a wide natural river splits the old west bank from the new east bank, with its towers and a Magnet Train terminus. A Clock Tower stands on an island in mid-river. The clock has stopped and each half blames the other. The train track at the top right currently ends at the map edge.</figcaption>
+		</figure>
+		<figure>
+			<img src="img/vespera_marked.png" alt="Vespera City: a resort town with a huge colosseum, twin hotel towers, a fenced fountain, a beach promenade and a pier" width="1792" height="1536">
+			<figcaption><b>Vespera City</b> (28×24). A seaside resort that wakes up at dusk. A boulevard runs past a theatre, a game corner and a fenced fountain to an 8×5 Colosseum, Hotel Row and a beach pier. The Colosseum tournament is the city's battle draw instead of a Gym. The beach is path-coloured because the tileset has no sand.</figcaption>
+		</figure>
+	</div>
+	<div class="pair">
+		<figure>
+			<img src="img/vespera_nite.png" alt="Vespera City at night" width="1792" height="1536">
+			<figcaption><b>Vespera at night.</b> Every city also has a night render; this one is the resort city whose story begins at dusk.</figcaption>
+		</figure>
+	</div>
+	<div class="prose">
+		<h3 style="margin-top:24px">Tileset gaps all six agents ran into</h3>
+		<ul class="tight">
+			<li><b>One office front:</b> block <code>5f</code> is hard-labelled "PCC" and turns up on Link Centers, galleries and shops. It needs a plain variant.</li>
+			<li><b>One grey tower:</b> the same Radio Tower art stands in for a TV mast, a furnace stack, an observatory, a clock tower and a signal box.</li>
+			<li><b>No street furniture:</b> no lamps, benches, statues, crates or real fountains. Fountains are fenced ponds.</li>
+			<li><b>Water and rails:</b> no bottom shore, bridge deck or sand. Tracks run west–east only, with no corners or buffer stops.</li>
+			<li><b>Unused blocks to check:</b> the pillared front <code>7c</code>/<code>7d</code> and the brown roof middle <code>7b</code> never appear in Goldenrod. Check their attributes in Polished Map++.</li>
+		</ul>
+	</div>
+
+	<h2>1 · Hand-designed concepts</h2>
+	<div class="prose">
+		<p>The design agent studied Routes 29–42 and the Johto towns first. Its notes on the house style: tree walls 1–3 blocks thick, a 1-wide path turning every 3–6 blocks, ledges as optional one-way shortcuts, tall grass in small pockets beside the path, and about half of every route as forest padding.</p>
+		<p>Maps are written as text grids (<code>.amap</code>) with a per-map key, so the file looks like the map. <code>amap.py</code> writes the <code>.ablk</code>, renders it with trainer, item and sign markers, and runs the walkability check.</p>
+	</div>
+
+	<figure>
+		<img src="img/orchard_road_marked.png" alt="Orchard Road: an east-west route with a fenced farmhouse, rows of apricorn trees, a ledge, and a pond in the east" width="1920" height="704">
+		<figcaption><b>Orchard Road</b> (30×11 route). The route runs along the lanes of an apricorn orchard: farmhouse behind a picket fence, three fruit trees, a ledge with a hidden item, and a pond with a nook reached by Cut or Surf. Red dots are trainers, squares their sightlines.</figcaption>
+	</figure>
+	<div class="pair">
+		<figure>
+			<img src="img/hearthhollow_marked.png" alt="Hearthhollow: a town beneath brown cliffs with a central road, cherry trees, an inn, a spring pond and a foot-bath" width="1280" height="1024">
+			<figcaption><b>Hearthhollow</b> (20×16 town). A hot-spring village under Mt. Mortar's cliffs. An inn stands in for the Pokémon Center (fits your no-Center design), plus a spring-fed pond, a foot-bath and a back entrance to the cave.</figcaption>
+		</figure>
+		<figure>
+			<img src="img/whisperwood_marked.png" alt="Whisperwood Shrine: a straight path between tree avenues leading to a fenced courtyard with a spring basin, ringed by cherry trees" width="1152" height="1024">
+			<figcaption><b>Whisperwood Shrine</b> (18×16 special area). A hidden grove behind a Cut tree: a straight approach to a fenced courtyard with a spring. A home for a signature-move encounter.</figcaption>
+		</figure>
+	</div>
+	<div class="pair">
+		<figure>
+			<img src="img/hearthhollow_winter.png" alt="Hearthhollow in the winter palette; the cherry trees remain pink" width="1280" height="1024">
+			<figcaption><b>Winter check.</b> Hearthhollow in the winter palette. The cherry trees stay pink, as they already do in Cherrygrove. Decide whether that's acceptable before using them in new maps.</figcaption>
+		</figure>
+		<div class="prose" style="min-width:0">
+			<h3 style="margin-top:24px">Suggested placement</h3>
+			<p>Route 42 already has a fruit-tree alcove touching its southern edge. Moving its three apricorn trees turns it into Hearthhollow's north exit, giving <b>Route 42 → Hearthhollow → Orchard Road → Route 37</b>, linked by apricorns.</p>
+			<h3 style="margin-top:20px">Known rough edges</h3>
+			<ul class="tight">
+				<li>The tileset has no bottom-shore block, so ponds meet trees or paths directly. Vanilla does the same.</li>
+				<li>Watch for Cut gates. Block <code>5b</code> blocks the way correctly, but <code>63</code> placed sideways blocks nothing.</li>
+			</ul>
+		</div>
+	</div>
+
+	<h3 style="margin-top:40px">All eight concepts</h3>
+	<ol class="concepts">
+		<li class="built"><span class="k">Route · 30×11 · built</span><h3>Orchard Road</h3><p>Apricorn farm lanes, a fenced farmhouse, a pond nook reached by Cut or Surf.</p></li>
+		<li class="built"><span class="k">Town · 20×16 · built</span><h3>Hearthhollow</h3><p>Hot-spring village under Mt. Mortar's cliffs. An inn instead of a Pokémon Center, a free-heal spring.</p></li>
+		<li class="built"><span class="k">Special · 18×16 · built</span><h3>Whisperwood Shrine</h3><p>Hidden grove behind a Cut tree; tree avenues lead to a spring courtyard.</p></li>
+		<li><span class="k">Route · ~12×36</span><h3>Driftbank Ford</h3><p>A river runs along the route; you cross it three times at boulder fords, plus one Surf-only stretch.</p></li>
+		<li><span class="k">Route · 30×9</span><h3>Mortar Foothills</h3><p>Route 42's rough sibling: rock plateaus, two cave mouths, and an upper level behind a Strength boulder.</p></li>
+		<li><span class="k">Special · 20×14</span><h3>Pinefall Lake Campsite</h3><p>Lakeside camp, a prototype for the rest-and-watch camping mechanic. A tent or campfire would need new tiles.</p></li>
+		<li><span class="k">Route · 14×30</span><h3>Stoneway</h3><p>An old processional road between gray stone walls, with an Unown sign puzzle. Kin to the Ruins of Alph.</p></li>
+		<li><span class="k">Town · 20×18</span><h3>Sunleaf Terraces</h3><p>A hillside farming town in tiers, with ledges as the terrace steps, built around Leppa berry farming.</p></li>
+	</ol>
+
+	<h2>2 · Layout-first generator</h2>
+	<div class="prose">
+		<p><code>structgen.py</code> works like a level designer. It places exits, winds a main path between alternating waypoints, then adds dead-end branches with items, a Cut pocket, ledge bands, ponds or a lake with a Surf island, tall grass, signs and trainer spots. An autotiler then picks real block IDs, using rules mined from all 34 Johto maps: tree corners from collision quadrants, pond shores, ledges, Cut gates and buildings.</p>
+		<p>Every map is checked for exits reachable both ways, reachable doors, one-way ledges and softlocks. About 8 seeds per preset came out clean.</p>
+	</div>
+	<div class="pair">
+		<figure class="tall">
+			<img src="img/forest_trail_a.png" alt="Generated forest trail, 14 by 30 blocks: a winding path through dense forest with clearings, ledges, tall grass and a pond" width="896" height="1920">
+			<figcaption><b>forest_trail_a</b> (14×30, seed 6). Legal and readable, but it feels like a corridor through solid forest, and the ledge in the middle of the clearing serves no purpose.</figcaption>
+		</figure>
+		<div style="min-width:0">
+			<figure>
+				<img src="img/town_a.png" alt="Generated town: main street with a Gym, Pokémon Center and Mart along the top, houses, a pond and a fenced garden" width="1280" height="1024">
+				<figcaption><b>town_a</b> (20×16, seed 2). Pokémon Center, Mart, Gym and four houses, all doors reachable. Believable, but plain.</figcaption>
+			</figure>
+			<figure>
+				<img src="img/town_b.png" alt="Second generated town layout" width="1280" height="1024">
+				<figcaption><b>town_b</b> (seed 5). Same preset, different seed.</figcaption>
+			</figure>
+		</div>
+	</div>
+	<figure>
+		<img src="img/lakeside_a.png" alt="Generated lakeside route, 34 by 12 blocks: an east-west path above a large lake with a small island" width="2176" height="768">
+		<figcaption><b>lakeside_a</b> (34×12, seed 3). The lake shore, the cove and the Surf island all join correctly. The tall-grass areas are too big, and the lake runs straight into the south edge.</figcaption>
+	</figure>
+
+	<h2>3 · Caves</h2>
+	<div class="prose">
+		<p>The Johto tileset has no cave blocks, so this agent used TILESET_CAVE, the generic cave tileset shared by Union Cave, Mt. Moon and Victory Road. A cave has two heights: dark low floor and light high rock. All the edge blocks follow one rule mined from the 18 vanilla caves, and rock must be at least two blocks thick. Darkness is a per-map flag, so any of these could require Flash.</p>
+	</div>
+	<figure>
+		<img src="img/showcase.png" alt="Five generated cave floors side by side: a winding tunnel, a cavern with a lake, an underground river, and two floors linked by ladders" width="3072" height="896">
+		<figcaption>Left to right: <b>winding tunnel</b> (14×28), <b>cavern with lake</b> and raised island, <b>underground river</b> (exit needs Surf), and a <b>two-floor pair</b> where 1F is split and you must loop through B1F via ladders. Rendered with the night palette.</figcaption>
+	</figure>
+	<div class="prose">
+		<p>Not generated, but natural next steps: Strength boulder puzzles over block <code>3f</code> holes, Rock Smash rocks capping dead ends, a dark B1F as an early Flash hook.</p>
+	</div>
+
+	<h2>4 · Pattern learning (WFC)</h2>
+	<div class="prose">
+		<p>Wave function collapse learns which blocks can sit next to each other from 15 inland routes, then fills a grid. Single-block adjacency produced soup. 3×3 patterns copied training maps nearly verbatim. 2×2 patterns, with a tree border and a carved road, were the best of the variants.</p>
+		<p>The agent rated those "first drafts". Looking at them, I disagree: roads spread into wide blobs, cliff plateaus float in the forest, and buildings appear with no path to their doors. Cleaning one up is more work than starting from the layout-first generator. Towns failed outright.</p>
+	</div>
+	<div class="pair">
+		<figure>
+			<img src="img/cmp_best_a.png" alt="Four WFC-generated routes using 2x2 patterns: locally correct but with blobby road networks and isolated cliff plateaus" width="1694" height="864">
+			<figcaption><b>Best WFC output</b> (2×2 patterns, tree border, carved road). Every block joins its neighbours correctly, but the maps have no overall plan.</figcaption>
+		</figure>
+		<figure class="tall">
+			<img src="img/FAIL_tiled_inland_bx_13x27_s1.png" alt="WFC single-block model output: a patchwork of grass, path and trees with no structure" width="416" height="864">
+			<figcaption><b>Single-block model.</b> Soup.</figcaption>
+		</figure>
+	</div>
+
+	<h2>Adding a map to the build</h2>
+	<div class="prose">
+		<p>From the commits that added Valencia and Shamouti. <code>newmap.py</code> prints each snippet with its insert line and never writes to the repo.</p>
+		<ul class="tight">
+			<li><code>constants/map_constants.asm</code>: append to the end of a group only. Limit is (W+6)×(H+6) ≤ 1300.</li>
+			<li><code>data/maps/maps.asm</code>: header row. Environment TOWN or ROUTE, since it also drives seasons, roofs and weather.</li>
+			<li><code>data/maps/attributes.asm</code>: connections in N, S, W, E order, each mirrored on the neighbour. That bank has 1 byte free but floats.</li>
+			<li><code>data/maps/blocks.asm</code>: "Map Blocks 3" (bank $2c) has 5,876 bytes free.</li>
+			<li><code>data/maps/scripts.asm</code>: "Map Scripts 29" has 2 bytes left, so start "Map Scripts 30".</li>
+			<li><b>Scenes:</b> a missing <code>scene_var</code> fails silently, and scene bytes can't be appended. Reuse a dead one.</li>
+			<li><b>Landmarks:</b> reuse an existing one if you can. A landmark added at the end counts as Orange in the region rules.</li>
+			<li><b>Wild data:</b> bank $0a has 10 bytes free and is fragile. The bank $75 seasonal tables are the safer route, still unverified.</li>
+			<li><b>New map group:</b> roofs, roof palettes (both), and <code>MapGroupSizes</code>. All are assert-checked.</li>
+			<li><b>Event flags:</b> 29 free <code>const_skip</code> slots remain.</li>
+		</ul>
+	</div>
+
+	<h2>Files</h2>
+	<div class="files">scratchpad/mapgen/
+  render_ablk.py              any .ablk → PNG with real tiles/palettes; --atlas, --grid, --season, --time
+  johto_atlas.png             all 181 Johto blocks labelled
+  handmade/  amap.py, *.amap, *.ablk, concepts.md       text-grid authoring + 3 built maps
+  structured/ structgen.py, corpus.py, adj.py, best/     layout-first generator (seedable presets)
+  caves/     gen.py, cavelib.py, final.py, mine.py      cave generator + cave atlas
+  wfc/       wfc.py, mapdata.py, evaluate.py             pattern-learning generator
+  tooling/   newmap.py, report.md                        integration scaffold + checklist
+  batch2/    a_routes, b_lakes_coast, c_urban, d_estate_wilds,
+             e_mansion_western, f_manor_traditional      12 outdoor maps + 2 mansions
+  batch3/    a, b, c                                     6 Johto Modern cities
+  expand/    newbark, route29, cherrygrove, compare/      expanded vanilla maps + pokefollow study</div>
+	<p class="prose" style="color:var(--muted);font-size:0.92rem;margin-top:12px">Nothing in the build was changed. Paths are relative to <code>docs/mapgen/</code>, which is untracked.</p>
+</div>

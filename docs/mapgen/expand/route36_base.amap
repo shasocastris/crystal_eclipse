@@ -1,0 +1,23 @@
+# Route 36 (expanded) base grid -- see route36.amap
+ref Route36
+key g=08 h=09 k=0b D=0c F=0d i=10 j=11 G=1a I=3d O=3e U=5d V=5e X=60 Y=62 Z=64 a=65 t=66 A=6a K=6b N=70
+grid:
+TTTTTTT.TTTTTTTTTTTTTTTTTTTTTTTTTT
+TTTTT,,.,,TTTTTTTTTTTTTTTTTTTTTTTT
+TTTTTTX.S,YTTT,,"",TTTTTTTTTTTTTTT
+TTTTUVX...YTT,(^^),TTTTTTTTTTTTTTT
+TTTT,YZ,a,tTT,[~~],*TT""",UUVTTTTT
+TghTSYT,#OV#,,,,,,,,TT,*,*,*,SIUTT
+Tijk.YTZaaIU..........,...........
+TTTT.YTTTTTX,*,,,"",TTZaS..aaaaaTT
+TTTT.,""TT,,,,=====,TTTTTDFTTTTTTT
+TTX,......,TT"""""",TTTTTghooTTTTT
+TTXT,TTTTTTTTT"""",TTTTToGjANNKTTT
+TTT,""""",(^^^),"",TTTTTTTTTTTTTTT
+TT,,"""",*[~~~]""",TTTTTTTTTTTTTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+end
+exit E 67 12
+exit N 14 0
+exit ParkGate 6 12
+exit RuinsGate 51 17

@@ -1,0 +1,165 @@
+{
+ "name": "town_s5",
+ "w": 20,
+ "h": 16,
+ "seed": 5,
+ "exits": [
+  {
+   "side": "W",
+   "cells": [
+    [
+     0,
+     7
+    ]
+   ]
+  },
+  {
+   "side": "E",
+   "cells": [
+    [
+     19,
+     8
+    ]
+   ]
+  },
+  {
+   "side": "N",
+   "cells": [
+    [
+     8,
+     0
+    ]
+   ]
+  }
+ ],
+ "events": [
+  {
+   "kind": "sign",
+   "x": 14,
+   "y": 6
+  },
+  {
+   "kind": "sign",
+   "x": 11,
+   "y": 4
+  },
+  {
+   "kind": "sign",
+   "x": 6,
+   "y": 9
+  },
+  {
+   "kind": "sign",
+   "x": 5,
+   "y": 3
+  },
+  {
+   "kind": "sign",
+   "x": 2,
+   "y": 6,
+   "note": "town sign"
+  }
+ ],
+ "stamps": [
+  [
+   "pokecenter",
+   9,
+   5
+  ],
+  [
+   "mart",
+   10,
+   9
+  ],
+  [
+   "gym",
+   3,
+   5
+  ],
+  [
+   "house",
+   15,
+   5
+  ],
+  [
+   "house2",
+   12,
+   3
+  ],
+  [
+   "cottage",
+   4,
+   9
+  ],
+  [
+   "cottage",
+   6,
+   3
+  ]
+ ],
+ "notes": [
+  "main street rows 7-8, side street x=9 -> row 11",
+  "fenced garden at 2,11",
+  "pond 2x2 at 13,10",
+  "fringe: 17/20 partial-tree blocks kept"
+ ],
+ "verify": {
+  "exits": {
+   "W0->E1": true,
+   "W0->N2": true,
+   "E1->W0": true,
+   "E1->N2": true,
+   "N2->W0": true,
+   "N2->E1": true
+  },
+  "items": [],
+  "trainers": [],
+  "doors": [
+   {
+    "stamp": "pokecenter",
+    "x": 9,
+    "y": 6,
+    "reachable": true
+   },
+   {
+    "stamp": "mart",
+    "x": 10,
+    "y": 10,
+    "reachable": true
+   },
+   {
+    "stamp": "gym",
+    "x": 4,
+    "y": 6,
+    "reachable": true
+   },
+   {
+    "stamp": "house",
+    "x": 15,
+    "y": 6,
+    "reachable": true
+   },
+   {
+    "stamp": "house2",
+    "x": 12,
+    "y": 4,
+    "reachable": true
+   },
+   {
+    "stamp": "cottage",
+    "x": 4,
+    "y": 9,
+    "reachable": true
+   },
+   {
+    "stamp": "cottage",
+    "x": 6,
+    "y": 3,
+    "reachable": true
+   }
+  ],
+  "walkable_quadrants": 714,
+  "softlock_quadrants": 0,
+  "ledges": []
+ }
+}

@@ -1,0 +1,26 @@
+# VESPER HALL CELLAR -- wine cellar under the study
+# Tileset: TILESET_MANSION, brown parquet only; render it with a NITE palette
+# when implemented. 9x6 blocks, buffer 180/1300.
+# Stairs 16 (both steps) go back up to the study's hidden stair 15.
+# Wall racks are the 11/18 bookshelf blocks, casks/racks are the 10 tables.
+# MEDIUMs hold a seance here; the cask "vintage of the eclipse year" (sign)
+# holds a second copy of the portrait clue for players who skipped the diary.
+# Gap: no barrels or dark stone walls in this tileset.
+ref CeladonMansion1F
+tileset mansion
+key .=03 W=04 O=10 P=11 s=16 K=18 v=08 p=09
+grid:
+sPKPKPKWp
+.........
+.OO.O.OO.
+.........
+.OO.O.OO.
+.........
+end
+exit STAIRS 0 0
+exit STAIRS2 1 0
+obj trainer 6 3 MediumAgnes right 4
+obj trainer 13 7 MediumEdith left 3
+obj sign 9 4 EclipseVintage
+obj item 16 10 RareCandy
+obj sign 2 9 CaskRack

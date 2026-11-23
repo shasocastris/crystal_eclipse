@@ -1,0 +1,26 @@
+# ============================================================================
+# ROUTE 32, expanded  (14x58 blocks, buffer 1280/1300; vanilla 10x45)
+# Source: build32.py -> route32_base.amap; this file = rough.py --seed 6
+#   --p 0.55 --scatter 0.03, then meta.py route32
+# ============================================================================
+# KEPT: all 45 vanilla rows, pasted block for block in cols 0-9: the Ruins
+#   gate top-left, the rock outcrops and the Cooltrainer's corridor, the
+#   pink fishing pier with its rails, the Pokemon Center by the sea, Union
+#   Cave's mouth and the closing rock wall. Every vanilla NPC, item, hidden
+#   item, sign and scene keeps its spot, shifted down by the inserted bands.
+# ADDED (map is 4 cols wider and three bands longer):
+#   Cols 10-13: a grass shelf beside the Cooltrainer's corridor (reached only
+#     past him; block 10,4 stays forest so he still blocks), and open sea
+#     with rock islets east of the pier and Center.
+#   Band 1 (new rows 12-16): Liz's meadow, a woodland pond and a one-way
+#     ledge.
+#   Band 2 (new rows 25-28): a fisherman's cabin (2c-2f) at the foot of the
+#     rocks, before the pier.
+#   Band 3 (new rows 44-47): a jetty (89) into the sea north of the Center,
+#     where a Fishing Guru stands; tall grass along the road.
+# ROW SHIFT for vanilla data: rows 12-19 +5, rows 20-34 +9, rows 35-44 +13
+#   (steps +10 / +18 / +26).
+# CONNECTIONS: N cols 5-7 (exit at step 12) <- Violet S exit cols 13-14:
+#   offset changes. S edge stays rock (Route 33 is a visual join).
+# TODO: Slowpoke Tail coord event moves to (7,97); Center warp (11,99).
+# ============================================================================

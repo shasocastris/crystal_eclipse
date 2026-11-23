@@ -1,0 +1,23 @@
+obj npc 19 8 CooltrainerM left
+obj npc 15 13 RoarTMGuy down
+obj trainer 12 22 YoungsterAlbert left 3
+obj trainer 10 40 PicnickerLiz down 1
+obj trainer 6 28 PicnickerNew right 3
+obj trainer 8 67 FisherJustin left 2
+obj trainer 12 74 FisherRalph down 3
+obj trainer 6 66 FisherHenry up 2
+obj trainer 3 63 CamperRoland right 2
+obj trainer 4 81 YoungsterGordon right 3
+obj trainer 11 108 BirdKeeperPeter up 2
+obj npc 12 85 Frieda down
+obj npc 7 96 SlowpokeTailMan down
+obj npc 20 93 FishingGuru right
+obj item 6 71 GreatBall
+obj item 3 40 Repel
+obj item 22 16 ShelfItem
+obj hidden 1 97 HiddenGreatBall
+obj hidden 11 58 HiddenSuperPotion
+obj sign 13 5 Route32Sign
+obj sign 9 1 RuinsSign
+obj sign 12 99 CenterSign
+obj sign 10 110 UnionCaveSign

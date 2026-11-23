@@ -1,0 +1,107 @@
+# ============================================================================
+# BRINEHAVEN  (harbor town, 20x20 blocks, buffer 676/1300)  johto_modern
+# ============================================================================
+# HOOK: Silkwater's two canals drain into Brinehaven's harbor; it is the
+#   ferry port to the Orange Islands (M3) and the busiest wharf in Johto.
+#   The town is laid out in strips between the canals: Upper Town (homes,
+#   PC, Mart, the Harbor Master's tower), the Wharf (warehouses, ferry
+#   terminal, the railed ferry pier) and the Fish Market strip with a
+#   railed fishing pier. East and south edges are open sea (Surf routes).
+#
+# BUILDINGS (door steps in obj warp lines)
+#   PC, Mart, small home                       Upper Town, NW
+#   Harbor Master's Tower (2x3 radio-tower art) Upper Town; gives the
+#     Warehouse Key after the smuggling quest, sells ferry tickets
+#   Sailor's house, Seafarer's Inn (3x2)        Upper Town, NE
+#   Fishermen's Guild (3x2)                     Old Rod / fishing tips
+#   Warehouses 1 and 2 (brown roofs)            Wharf; 2 holds items/trainers
+#   Ferry Terminal (3x2)                        Wharf; ticket gate -> pier
+#   Fish Market (4x2, brown roofs; the 2b/2c half is a sealed loading bay)
+#   Net-mender's house                          Fish Market strip
+#
+# GAMEPLAY BEATS
+#   1. Walk in from Silkwater along the brick Wharf Road (W exit rows 10-11).
+#   2. Ferry blocked: "sailings suspended" -- crates going missing.
+#   3. A fisherman on the fishing pier saw Rockets using the fish market's
+#      sealed loading bay; Harbor Master hands over the key; Warehouse 2 /
+#      Fish Market interior is a short Rocket hideout (2-3 grunts).
+#   4. Ferry resumes: sailor at the ferry pier tip warps you to the boat.
+#   5. With Surf: east/south sea routes, the canals back to Silkwater,
+#      hidden items on the pier tips' water side.
+#
+# CONNECTIONS: W edge lines up with Silkwater's E edge row-for-row (canals
+#   on rows 7-8 and 14-15, road on rows 10-11, trees elsewhere). N exit (cols
+#   3-4) to a coastal route. E and S edges are sea.
+# TILE GAPS: no ship/ferry hull blocks (use the Fast Ship gangway as a
+#   sprite or add a block); no wooden-pier block, piers are pavement with
+#   61/43 railings; no bottom-shore water, so pier tips end on a 46 rail.
+# ============================================================================
+tileset johto_modern
+ref GoldenrodCity
+key T=05 .=01 :=06 ,=02 *=04 h=67 o=0a ~=35 n=43 u=61 [=58 ]=59 v=76 %=36 $=34
+key <=44 >=46 s=45 S=77 w=66
+key R=18 M=1f N=19 A=10 D=17 Z=11 E=1a P=1b O=16 W=1e K=33 1=14 2=13 9=08 0=09 b=2b c=2c
+key i=25 m=2e y=29 q=2a d=2d
+grid:
+TTT..TTTTTTTTTTTTTTT
+TRN..RMN..im.RNRMNTT
+TEP..ADK..yq.OWADZTT
+T.........dm.......T
+T.RMN.,*,s..h...h..T
+T.ADZ.12..h...nnnnnn
+T.............[~~$~~
+nnnn<>nnnn<>nn~~~~~~
+uuuu<>uuuu<>uu~~~~~~
+T.90.90..RMN..[~~~~~
+..OW.OW..ADZ..uuuuu~
+::::::::::::::....>~
+T.h..h........nnnnn~
+T...w......w..[~~%~~
+nnnnnnn<>nnnnn~~~~~~
+uuuuuuu<>uuuuu~~~~~~
+T.9090...RN.h.[~~~~~
+T.OWbc...OW.h.uuuu~~
+TS::::::::::::....>~
+TTTTTTTTTTTTTTnnnnn~
+end
+exit W 0 21
+exit N 6 0
+exit PokeCenter 3 5
+exit Mart 12 5
+exit HarborMaster 21 7
+exit Sailor 27 5
+exit Inn 32 5
+exit HouseNW 13 11
+exit FishGuild 6 11
+exit Warehouse1 5 21
+exit Warehouse2 11 21
+exit Ferry 20 21
+exit FishMarket 5 35
+exit NetMender 19 35
+exit FerryTip 35 22
+exit SeaE 39 14
+obj warp 3 5 PokeCenter
+obj warp 12 5 Mart
+obj warp 21 7 HarborMaster
+obj warp 27 5 Sailor
+obj warp 32 5 Inn
+obj warp 13 11 House
+obj warp 6 11 FishGuild
+obj warp 5 21 Warehouse1
+obj warp 11 21 Warehouse2
+obj warp 20 21 FerryTerminal
+obj warp 5 35 FishMarket
+obj warp 19 35 NetMender
+obj sign 18 8 TownSign
+obj sign 2 37 MarketSign
+obj npc 36 22 FerrySailor right
+obj npc 30 22 Deckhand
+obj npc 36 36 Fisherman right
+obj npc 27 10 Fisher right
+obj npc 22 8 Lass
+obj npc 8 23 Dockworker down
+obj npc 18 25 Rocket_lookout down
+obj npc 24 37 FishVendor up
+obj trainer 26 12 Sailor_Gus left 4
+obj hidden 35 23 pier_rail
+obj item 2 32 behind_market

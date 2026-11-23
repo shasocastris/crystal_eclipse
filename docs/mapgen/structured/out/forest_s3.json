@@ -1,0 +1,123 @@
+{
+ "name": "forest_s3",
+ "w": 14,
+ "h": 30,
+ "seed": 3,
+ "exits": [
+  {
+   "side": "N",
+   "cells": [
+    [
+     3,
+     0
+    ]
+   ]
+  },
+  {
+   "side": "S",
+   "cells": [
+    [
+     5,
+     29
+    ]
+   ]
+  }
+ ],
+ "events": [
+  {
+   "kind": "item",
+   "x": 11,
+   "y": 17,
+   "note": "dead-end spur"
+  },
+  {
+   "kind": "item",
+   "x": 8,
+   "y": 3,
+   "note": "behind Cut tree"
+  },
+  {
+   "kind": "sign",
+   "x": 1,
+   "y": 2
+  },
+  {
+   "kind": "sign",
+   "x": 4,
+   "y": 26
+  },
+  {
+   "kind": "trainer",
+   "x": 6,
+   "y": 25,
+   "facing": "UP",
+   "sight": 3
+  },
+  {
+   "kind": "trainer",
+   "x": 9,
+   "y": 13,
+   "facing": "LEFT",
+   "sight": 3
+  },
+  {
+   "kind": "trainer",
+   "x": 5,
+   "y": 20,
+   "facing": "UP",
+   "sight": 3
+  }
+ ],
+ "stamps": [],
+ "notes": [
+  "ledge shortcut: no site",
+  "cut pocket gate at 5,3",
+  "pond 3x2 at 10,15",
+  "grass gauntlet at 6,18",
+  "fringe: 24/24 partial-tree blocks kept"
+ ],
+ "verify": {
+  "exits": {
+   "N0->S1": true,
+   "S1->N0": true
+  },
+  "items": [
+   {
+    "x": 11,
+    "y": 17,
+    "needs": "walk",
+    "note": "dead-end spur"
+   },
+   {
+    "x": 8,
+    "y": 3,
+    "needs": "cut",
+    "note": "behind Cut tree"
+   }
+  ],
+  "trainers": [
+   {
+    "x": 6,
+    "y": 25,
+    "needs": "walk",
+    "note": ""
+   },
+   {
+    "x": 9,
+    "y": 13,
+    "needs": "walk",
+    "note": ""
+   },
+   {
+    "x": 5,
+    "y": 20,
+    "needs": "walk",
+    "note": ""
+   }
+  ],
+  "doors": [],
+  "walkable_quadrants": 506,
+  "softlock_quadrants": 0,
+  "ledges": []
+ }
+}

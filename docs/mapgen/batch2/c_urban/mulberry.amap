@@ -1,0 +1,76 @@
+# ============================================================================
+# MULBERRY GARDENS  (city park, 20x16 blocks, buffer 572/1300) johto_modern
+# ============================================================================
+# HOOK: Silkwater's botanical park, planted with the mulberry trees that
+#   feed the city's silk moths. By day it is a garden with a glasshouse,
+#   lily pond, fountain and bandstand; by night the fenced Moth Meadow
+#   turns into a bug-catching ground (night-only Venonat/Venomoth, Dustox
+#   in its season), and the Silkwater Bug Gym's trainees train here. It is
+#   the south-of-Johto counterpart to the National Park, kept small.
+#
+# FEATURES
+#   Glasshouse (3x4, window-wall dept-store art, NW): tropical-plant
+#     interior, Grass-type puzzle, gardener gives a Miracle Seed/Leaf Stone
+#   Moth Meadow (fenced tall grass, NE): only gap is on its west side next
+#     to the avenue; 2 Bug Catcher trainers stand in the grass; item ball in
+#     the far corner; a headbutt tree cluster in the middle
+#   Lantern Fountain plaza (centre): brick square with a fenced pool, the
+#     avenue splits around it
+#   Lily Pond (SW): proper pond shore 54/76/55/58/59 with a railed south
+#     bank 60/61/62; Surf-fishing spot, hidden item on the far bank
+#   Bandstand (SE): open-fronted fenced stage on brick; a musician NPC
+#     plays a different song per weekday (or per season)
+#   Mulberry orchard (SW): 3 fruit trees (berries) among flower beds
+#   Keeper's Lodge (small house, E): park keeper; rewards for caught bugs
+#   Allee: headbutt-tree pairs (2f) line the avenue
+#
+# CONNECTIONS: S exit (cols 9-10) to Silkwater City's N brick avenue
+#   (Silkwater cols 11-12, connection offset -2). N exit to a route.
+# TILE GAPS: no bench, lamp or statue block; the pond has no plain south
+#   shore so the railed 60-62 strip stands in for one.
+# ============================================================================
+tileset johto_modern
+ref GoldenrodCity
+key T=05 .=01 :=06 ,=02 *=04 "=03 Y=3f y=2f h=67 ~=35 n=43 u=61
+key (=54 ^=76 )=55 [=58 ]=59 {=60 }=62
+key r=40 f=41 t=42 <=44 >=46 l=48 e=49 j=4a s=45 g=47 w=66
+key R=18 M=1f N=19 A=10 D=17 Z=11 H=27 I=23 J=28 1=14 2=13
+grid:
+TTTTTTTTT..TTTTTTTTT
+TT,RMN,,y..rfffffftT
+TT,HIJ,*,..<"""""">T
+TT,HIJ,,y...""Y""">T
+TT,ADZ,,,..<"""""">T
+TT,,.,,Y,..leeeeeejT
+T......::::::......T
+T(^^),,:rfft:,,,"",T
+T[~~],,:<~~>:,""",,T
+T{uu},,:luuj:,,"",,T
+T......::::::...12.T
+T,*,*,,,y..y,rft,,,T
+T,Y,,Y,,,..,,<:>,,,T
+T*,*,*,,y..y,,,""",T
+TTT,,,,,g..,,Y,,,TTT
+TTTTTTTTT..TTTTTTTTT
+end
+exit N 18 0
+exit S 18 31
+exit Greenhouse 8 9
+exit Lodge 33 21
+exit Stage 28 25
+obj warp 8 9 Glasshouse
+obj warp 33 21 KeepersLodge
+obj npc 10 12 Gardener down
+obj trainer 26 6 BugCatcher_Ken down 3
+obj trainer 32 10 BugCatcher_Rui left 4
+obj item 35 4 meadow_corner
+obj npc 28 24 Musician down
+obj npc 26 16 Lady left
+obj npc 12 17 Fisher left
+obj hidden 10 15 pond_bank
+obj fruit 3 24 Mulberry1
+obj fruit 7 24 Mulberry2
+obj fruit 13 24 Mulberry3
+obj trainer 30 28 Picnicker_Aoi left 3
+obj npc 36 22 Keeper
+obj sign 17 29 ParkSign

@@ -1,0 +1,22 @@
+# ============================================================================
+# ROUTE 31, expanded  (30x14 blocks, buffer 720/1300; vanilla 20x9)
+# Source: build31.py -> route31_base.amap; this file = rough.py --seed 4
+#   --p 0.6 --scatter 0.04, then meta.py route31
+# ============================================================================
+# KEPT: the Violet gate on the west edge with the road running east from
+#   it; the L-shaped pond north of the road; Dark Cave's mouth in the NE
+#   rock face with its sign; ledges and tall grass south of the gate; the
+#   opening south to Route 30; the mail Fisher, Wade, Erick, the fruit tree,
+#   Potion and Poke Ball.
+# ADDED:
+#   A longer road (one block, no grass on it) with a T-junction where the
+#     Route 30 lane turns south.
+#   Two ledge-terraced meadows in the SW (one-way hops south).
+#   A fenced orchard between road and meadows: two fruit trees.
+#   Erick's wooded grass pocket in the SE, and a hidden glade below it.
+#   A rock pile beside the cave path (Rock Smash fodder later).
+# CONNECTIONS: S col 18 (steps 36-37) <- Route 30 N exit col 3: offset -15.
+#   W edge is forest behind the gate; the gate itself is a warp pair with
+#   Violet's 0e block. Vanilla's W connection to Violet (-9) is now only
+#   visual and can be re-offset to taste.
+# ============================================================================

@@ -1,0 +1,143 @@
+{
+ "name": "lake_s8",
+ "w": 34,
+ "h": 12,
+ "seed": 8,
+ "exits": [
+  {
+   "side": "W",
+   "cells": [
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     5
+    ]
+   ]
+  },
+  {
+   "side": "E",
+   "cells": [
+    [
+     33,
+     4
+    ],
+    [
+     33,
+     5
+    ]
+   ]
+  }
+ ],
+ "events": [
+  {
+   "kind": "item",
+   "x": 19,
+   "y": 9,
+   "note": "island (Surf)"
+  },
+  {
+   "kind": "item",
+   "x": 25,
+   "y": 1,
+   "note": "dead-end spur"
+  },
+  {
+   "kind": "sign",
+   "x": 2,
+   "y": 3
+  },
+  {
+   "kind": "sign",
+   "x": 30,
+   "y": 2
+  },
+  {
+   "kind": "trainer",
+   "x": 18,
+   "y": 4,
+   "facing": "RIGHT",
+   "sight": 3
+  },
+  {
+   "kind": "trainer",
+   "x": 12,
+   "y": 1,
+   "facing": "DOWN",
+   "sight": 3
+  },
+  {
+   "kind": "trainer",
+   "x": 27,
+   "y": 5,
+   "facing": "LEFT",
+   "sight": 3
+  },
+  {
+   "kind": "trainer",
+   "x": 22,
+   "y": 8,
+   "facing": "UP",
+   "sight": 3
+  }
+ ],
+ "stamps": [],
+ "notes": [
+  "ledge shortcut: no site",
+  "island at 18,9",
+  "grass gauntlet at 22,5",
+  "fringe: 13/13 partial-tree blocks kept"
+ ],
+ "verify": {
+  "exits": {
+   "W0->E1": true,
+   "E1->W0": true
+  },
+  "items": [
+   {
+    "x": 19,
+    "y": 9,
+    "needs": "surf",
+    "note": "island (Surf)"
+   },
+   {
+    "x": 25,
+    "y": 1,
+    "needs": "walk",
+    "note": "dead-end spur"
+   }
+  ],
+  "trainers": [
+   {
+    "x": 18,
+    "y": 4,
+    "needs": "walk",
+    "note": ""
+   },
+   {
+    "x": 12,
+    "y": 1,
+    "needs": "walk",
+    "note": ""
+   },
+   {
+    "x": 27,
+    "y": 5,
+    "needs": "walk",
+    "note": ""
+   },
+   {
+    "x": 22,
+    "y": 8,
+    "needs": "walk",
+    "note": ""
+   }
+  ],
+  "doors": [],
+  "walkable_quadrants": 603,
+  "softlock_quadrants": 0,
+  "ledges": []
+ }
+}

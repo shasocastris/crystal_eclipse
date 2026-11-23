@@ -1,0 +1,46 @@
+# OBOROZUKI MANOR 1F -- Genkan & Great Hall   (14x10, TILESET_TRADITIONAL_HOUSE, ref DanceTheater)
+# Story: the Oborozuki ("hazy moon") family have kept Ecruteak's Kimono Girls for generations and
+# host the seasonal moon-viewing dance. The head, Lady Sayo (retired tea grandmaster, once a Kimono
+# Girl), shut herself in the family's Moon Shrine during the last eclipse and has not come out.
+# Layout: earth genkan along the bottom (front door mats bottom-centre), wooden hallway up the middle,
+# tea room on the left behind a wooden screen, waiting nook on the right, reception hall across the
+# top with tokonoma scrolls (14) and shoji windows (2d), sliding-door track line (0d) under it.
+# Gameplay: the stairs block (13,1) is reachable from two sides, so one NPC cannot block it: use coord
+# events on (26,2) and (27,3) that make the Steward stop you until the tea ceremony is done.
+# PUZZLE (tea room): serve the four guests on the long-table cushions in the order of the four
+# seasons, STARTING FROM THE CURRENT SEASON (wSeason) -- the hanging scroll gives the poem order.
+# Needs the TEA CADDY from the Kura. Wrong order = the guest leaves, try again.
+# Warps: FRONT mats (13,19)(14,19) -> estate grounds front door. EAST carpet (27,12)(27,13) ->
+# Engawa mats. STAIRS 39 (27,2) -> Study 2F stairs (3,3).
+tileset traditional_house
+ref DanceTheater
+key W=03 w=08 S=14 s=13 T=29 B=1a d=04 c=1f V=1e U=39 K=27 |=3a -=3c L=33 l=34 e=36 _=0d ,=0c ;=1d o=0e O=10 t=11 y=16 1=1b 2=1c 3=18 4=19 Y=0a Z=0b g=2a G=20 h=2b m=21 n=22 E=05 M=06 N=07 >=24 Q=49 q=4a a=43 X=48 x=46 z=47 k=3e j=3f P=2e p=30 F=2f D=2d C=2c r=28 7=37 8=38 i=0f I=09 5=31 6=32 f=25 9=12 0=00 A=02 H=40 J=41 ~=42 R=23 b=4b u=35 v=15 !=17 @=0b
+grid:
+TsWDDWSSWDDBBW
+dddddddddddddU
+dd12dddddd12dc
+do34Oddddo34Oc
+______dd____cc
+ddd|ccccc|12cc
+dYZ|ccccc|34c>
+dYZeccccceddcc
+d34dcccccdddcc
+565hgEMNEggggg
+end
+exit FRONT 13 19
+exit EAST 27 12
+exit STAIRS 27 2
+obj warp 13 19 FRONT
+obj warp 27 12 Engawa
+obj warp 27 2 Study2F
+obj npc 26 3 Steward down
+obj npc 4 10 TeaApprentice right
+obj npc 2 13 Guest1 right
+obj npc 2 15 Guest2 right
+obj npc 5 12 Guest3 left
+obj npc 5 14 Guest4 left
+obj npc 22 10 Maid down
+obj npc 14 6 KimonoGirl down
+obj sign 12 0 Scroll
+obj item 0 2 Item
+obj hidden 21 16 hidden

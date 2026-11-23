@@ -1,0 +1,27 @@
+# OBOROZUKI MANOR 3F -- Moon Shrine (loft)   (10x8, TILESET_TOWER, ref SproutTower3F)
+# The only tower-tileset map: a sealed shrine loft in the roof. Brick walls (0b) on black void (01),
+# a pillar screen (05/06/04) splitting outer and inner sanctum, guardian statues (2e/2f) at the altar,
+# lantern statues with red orbs (12/13), statues flanking the ladder (31/30).
+# Gameplay: two Sages in the outer room; Lady Sayo Oborozuki kneels before the altar -> BOSS.
+# Team idea: Espeon, Umbreon, Leafeon, Glaceon + one seasonal mon (ties to Hana/Yuki's eeveelutions).
+# Afterwards she returns downstairs and the household opens up (rematches, tea ceremony shop).
+# Warps: STUDY ladder 1f (10,14) -> Study ladder 27 (20,2).
+tileset tower
+ref SproutTower3F
+key 1=01 B=0b a=04 b=05 c=06 L=2e R=2f F=08 f=09 G=0a s=12 S=13 m=0d n=0e o=0c j=31 k=30 l=1f
+grid:
+1BabLRbcB1
+1BsffffSB1
+1BffffffB1
+1BbcffabB1
+1BFffffGB1
+1BFffffGB1
+1BmnffomB1
+1BjfflfkB1
+end
+exit STUDY 10 14
+obj warp 10 14 Study
+obj npc 9 2 LadySayo down
+obj trainer 6 9 Sage1 right 4
+obj trainer 13 11 Sage2 left 4
+obj item 6 2 Item

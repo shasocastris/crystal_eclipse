@@ -1,0 +1,22 @@
+exit S 17 37
+exit GAP 22 15
+exit DAIS 17 6
+obj sign 18 36 ScratchedWarning
+obj trainer 16 36 T1_Gatekeeper right 1
+obj trainer 7 30 T2_Scavenger right 4
+obj trainer 30 30 T3_TwiceFailed down 3
+obj trainer 9 27 T4_RiverWatch right 4
+obj trainer 13 9 T5_Sparring right 4
+obj trainer 23 10 T6_Sparring left 4
+obj npc 16 3 BOSS_Kaido down
+obj npc 12 4 OutrageTutor right
+obj item 21 3 dais_PP_UP
+obj npc 4 3 CampMedic down
+obj item 8 20 shelf_RAZOR_CLAW
+obj item 2 31 pocket_RARE_CANDY
+obj rock 30 11 SmashRock
+obj item 26 2 wing_TM
+obj sign 27 8 TallyWall
+obj hidden 33 6 wing_MAX_REVIVE
+obj hidden 6 33 alcove_NUGGET
+obj hidden 31 27 bank_NEVERMELTICE

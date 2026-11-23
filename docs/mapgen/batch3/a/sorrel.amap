@@ -1,0 +1,191 @@
+# ============================================================================
+# SORREL JUNCTION  (rail-hub city, 28x23 blocks, buffer 986/1300) johto_modern
+# ============================================================================
+# HOOK: the crossroads of Johto's railways. The Magnet Train main line
+#   runs straight through town on a fenced double track, a freight siding
+#   peels off east into the Goods Yard, and the whole city lives by the
+#   timetable: porters, switchmen, freight clerks and the commuters who
+#   ride to Goldenrod and Marigold every morning. Sorrel Central is the
+#   grandest station in Johto. During the Eclipse the Signal Tower goes
+#   dark, the points jam and every train in Johto stops at Sorrel.
+#
+# DISTRICTS / BUILDINGS (door steps in obj warp lines)
+#   Freight Row (north of the tracks, rows 1-3)
+#     Warehouses 1 and 2 (3x2 brown roofs, 08 7b 09 / 1c 16 1e)  2 is the
+#                                   locked one with the stolen cargo
+#     Coal shed (2x2 brown, blind 7c 7d wall, no door)
+#     Freight Office (3x2)          foreman; delivery side-quests
+#     Signal Tower (2x3 grey tower) the plot building: switch puzzle inside
+#     Switchman's house, Porter's house, kiosk (67)
+#   The Main Line (rows 4-7): 49 fence / two 7e tracks / 41 fence, crossed
+#     only at the brick Northgate crossing (cols 5-6) and the Yard crossing
+#     (cols 22-23); 7f is the level-crossing block, as in Goldenrod
+#   Sorrel Central Station (8x4, cols 10-17): roof abuts the track like
+#     Goldenrod's station; two doors - Ticket Hall (W) and Arrivals (E);
+#     interior leads up onto the platforms (Magnet Train + local lines)
+#   Goods Yard (east, rows 8-13): siding (rows 9-10) running off the E edge
+#     into the goods shed (blind brown 2x2), its own yard crossing, Freight
+#     Depot (3x2 brown) and Rail Workers' cottage
+#   Station Square (brick, rows 11-13): street trees, two signs (station /
+#     timetable board), taxi and newspaper NPCs
+#   Northgate Road (brick, cols 5-6): N exit -> crossing -> Platform Street;
+#     Bike & Scooter shop (3x2), commuter homes
+#   Platform Street (row 14): brick W-E high street, W and E exits
+#   Sorrel Market (brick, cols 11-16, rows 15-21): three rows of stalls
+#     (67 kiosks, 12 in all) - berries, apricorns, rail-souvenirs, a fish
+#     cart, a rotating "freight surplus" stall that sells odd items
+#   Commuter Row (SW): terraces (14 13 + 67) and three 2x2 homes
+#   Market Side (SE)
+#     Sleeper Car Inn (4x2)         PC in the lobby + paid rest; replaces a
+#                                   Pokemon Center
+#     Market Hall (3x2 brown)       covered market / auction of lost cargo
+#     Florist, tailor and homes; small grove (SE corner)
+#
+# GAMEPLAY BEATS
+#   1. Arrive on Platform Street; the Inn is next to the market.
+#   2. Every train is held: the Signal Tower lost power and the points are
+#      jammed. The Signalman's door is locked; the key is with the
+#      Freight foreman, who wants the stolen cargo found first.
+#   3. Market gossip -> Warehouse 2 -> thieves (cult grunts) -> cargo + key.
+#   4. Signal Tower interior: lever/points puzzle, boss on the top floor.
+#   5. Trains run: Sorrel Central sells the Rail Pass (fast travel between
+#      Goldenrod, Marigold and the other line); freight surplus stall and
+#      market auction unlock.
+#
+# EXITS / CONNECTIONS
+#   N  Northgate Road (cols 5-6)      to a northern route
+#   S  Market Street (cols 13-14)     to a southern route
+#   W  Platform Street (row 14)       toward Marigold City
+#   E  Platform Street (row 14)       toward the eastern route
+#   Rails leave the map at rows 5-6 (W and E) and rows 9-10 (E siding): the
+#   neighbour maps must continue the 7e track (or end it in a tunnel/fence).
+#   30 building doors, all listed below and reachable on foot.
+#
+# TILE GAPS / UNCERTAIN BLOCKS
+#   - Track is E-W only (7e/7f): no N-S track, curve, points/switch,
+#     buffer stop or platform-edge block, so the siding just runs into the
+#     goods shed and the platforms live inside the station.
+#   - 7f crossing shows light ground, not brick, even on Northgate Road
+#     (Goldenrod has the same look).
+#   - No crate/container, water tower, lamp post or clock block; the
+#     signal box uses the grey radio-tower art.
+#   - Wide brown roofs use 7b as the middle roof piece; 1c 16 1e under it
+#     shows a faint line left of the door (16's left edge). 7c/7d (blind
+#     orange walls) are only used as end pieces.
+#   - 2c is the plain yellow wall used between the station's doors.
+#   - Market stalls are 67 (one-block houses), as in silkwater.
+# ============================================================================
+tileset johto_modern
+ref GoldenrodCity
+key T=05 .=01 :=06 ,=02 *=04 h=67 p=2f
+key R=18 M=1f N=19 A=10 D=17 Z=11 E=1a F=0f O=16 W=1e C=1c K=33
+key 1=14 2=13 g=27 m=23 G=28 c=2c
+key j=25 J=26 y=29 Y=2a d=2d k=2e
+key 9=08 0=09 B=7b [=7c ]=7d
+key ==7e #=7f f=41 e=49 s=45 S=77 w=66
+grid:
+TTTTT::TTTTTTTTTTTTTTTTTTTTT
+TRN.h::.9B0.9B0.90.RMN.jJRNT
+TOW.h::.COW.COW.[].EFZ.yYOWT
+T....::........p.......dk..T
+Teeee::eeeeeeeeeeeeeee..eeeT
+=====##===============##====
+=====##===============##====
+Tffff::fffRMMMMMMNffff..fffT
+T....::...gmmmmmmG..ee..eeeT
+TRN.h::RN.gmmmmmmG90==##====
+TOW.h::OW.AcDccDcZ[]==##====
+T....::.::::::::::::ff..fffT
+TRMN.::.:w::::::::w:RN.9B0.T
+TADZ.::.:S::::::::S:OW.COW.T
+::::::::::::::::::::::::::::
+T.12h12h12.h:hh:h.RMMN.RN..T
+T..p..p..p.::::::.EFFZ.OW..T
+TRN.RN.RN..h:hh:h..........T
+TOW.OW.OW..::::::.9B0.RN.ppT
+T..........h:hh:h.COW.OW.,,T
+T.12h12h12.::::::.h.12.h12.T
+T..........::::::..........T
+TTTTTTTTTTTTT::TTTTTTTTTTTTT
+end
+exit N 11 0
+exit S 26 45
+exit W 0 28
+exit E 55 28
+exit PorterHouse 3 5
+exit Warehouse1 19 5
+exit Warehouse2 27 5
+exit FreightOffice 39 5
+exit SwitchmanHouse 51 5
+exit SignalTower 47 7
+exit HouseW1 3 21
+exit HouseW2 15 21
+exit TicketHall 24 21
+exit Arrivals 30 21
+exit BikeShop 4 27
+exit RailWorkers 41 27
+exit FreightDepot 49 27
+exit Terrace1 5 31
+exit Terrace2 11 31
+exit Terrace3 17 31
+exit Inn 37 33
+exit Florist 47 33
+exit Home1 3 37
+exit Home2 9 37
+exit Home3 15 37
+exit MarketHall 39 39
+exit Tailor 45 39
+exit Terrace4 5 41
+exit Terrace5 11 41
+exit Terrace6 17 41
+exit HouseSE1 41 41
+exit HouseSE2 49 41
+obj warp 3 5 House
+obj warp 19 5 Warehouse1
+obj warp 27 5 Warehouse2
+obj warp 39 5 FreightOffice
+obj warp 51 5 House
+obj warp 47 7 SignalTower
+obj warp 3 21 House
+obj warp 15 21 House
+obj warp 24 21 Station
+obj warp 30 21 Station
+obj warp 4 27 BikeShop
+obj warp 41 27 House
+obj warp 49 27 FreightDepot
+obj warp 5 31 House
+obj warp 11 31 House
+obj warp 17 31 House
+obj warp 37 33 Inn
+obj warp 47 33 Florist
+obj warp 3 37 House
+obj warp 9 37 House
+obj warp 15 37 House
+obj warp 39 39 MarketHall
+obj warp 45 39 Tailor
+obj warp 5 41 House
+obj warp 11 41 House
+obj warp 17 41 House
+obj warp 41 41 House
+obj warp 49 41 House
+obj sign 18 27 StationSign
+obj sign 36 27 TimetableBoard
+obj npc 45 7 Signalman right
+obj npc 27 6 CargoGuard down
+obj npc 12 9 CrossingKeeper right
+obj npc 44 9 YardKeeper left
+obj npc 22 24 Porter
+obj npc 32 23 Commuter
+obj npc 20 26 Newsboy
+obj npc 34 25 TaxiDriver
+obj npc 25 31 StallBerry right
+obj npc 30 31 StallApricorn left
+obj npc 25 35 StallFish right
+obj npc 30 35 StallSurplus left
+obj npc 25 39 StallSouvenir right
+obj npc 30 39 StallTrade left
+obj npc 38 34 Innkeeper
+obj npc 6 33 Commuter
+obj hidden 33 8 shed_corner
+obj hidden 52 37 grove
+obj item 2 16 behind_fence

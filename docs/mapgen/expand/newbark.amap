@@ -1,0 +1,63 @@
+# ============================================================================
+# NEW BARK TOWN, expanded  (24x20 blocks, buffer 780/1300; vanilla 10x9)
+# ============================================================================
+# KEPT FROM VANILLA (same relative layout, so it reads as New Bark):
+#   Elm's Lab NW, player's house NE of it, neighbour's house SW, Elm's
+#   house SE; water on the east edge leading to Route 27; Route 29 leaves
+#   west on a single road where the teacher stops you; town sign on the road.
+# ADDED (pokefollow-style, cf. its Pallet Town 10x9 -> 24x20):
+#   Bark Brook: a N-S stream splits the town into the vanilla quadrants,
+#     crossed by two plank footbridges (89); Surfable later for an item.
+#   Hedged yards (65) around every plot; tree clumps (61) and flower beds.
+#   North ledge belt: a hilltop meadow above the lab ("Windy Hill"); the
+#     ledge is a one-way hop back down, the way up is the gap by the brook.
+#   Jetty (89) into the east sea: the fisher moves here, Surf to Route 27.
+#   Two new houses (SW, SE) and Elm's research field: a hedged tall-grass
+#     plot south-west, reached by its gate gap, where Elm's study Pokemon
+#     live (scripted encounter or a place to show starters later).
+# CONNECTIONS: W rows 8-9 (steps 16-19) -> Route 29 E exit. E edge is sea
+#   (rows 3-19) -> Route 27. Brook runs off N and S edges into the border.
+# TODO: brook edges at N/S just stop at the border trees; check in PM++.
+# ============================================================================
+ref NewBarkTown
+key a=18 b=1f c=19 d=1c e=77 f=1e g=16
+key 1=14 2=15 B=89 U=65 o=0a r=31 R=32 l=4b L=53
+grid:
+TTTTTTTTTTT[]TTTTTTTTTTT
+TTTT,,*,#,,[],,#,*,TTTTT
+TTT,,,,,,,,[],,,,,,,(^^^
+TTT=======l[],,,,,,,[~~~
+TTT,abc,,,,[],,,ac,#[~~~
+TT#,def,S,,[],,,gf,,[~r~
+TT,*,.,*,*,[],*,.,*,[~~~
+TTUUU.UUUU,[],UU.UUU[~~~
+........s..BB.......BBB~
+...........BB.......[~~~
+TTUUU.UUUU,[],UUUU.U[~~~
+TT,*12,*,#,[],#,ac,*[~R~
+TT,,.,,,,,,[],,,gf,,[~~~
+TT,,.......BB....,,,[~~~
+TT#,.,12,,,[],,12,#,[~~~
+TT,,....,,,[],,..,,,[~r~
+TTUUU.UUUU,[],*,,,*,[~~~
+TTT""""""T,[],,#,,,,[~~~
+TTT""*"""T,[],,,,*,,[~~~
+TTTTTTTTTTT[]TTTTTTT[~~~
+end
+exit W 0 17
+exit PIER 45 16
+exit HILL 8 3
+obj warp 10 11 ElmsLab
+obj warp 33 11 PlayersHouse
+obj warp 9 23 NeighborsHouse
+obj warp 33 25 ElmsHouse
+obj warp 13 29 NewHouseW
+obj warp 31 29 NewHouseE
+obj npc 6 16 Teacher right
+obj npc 43 16 Fisher right
+obj npc 7 9 Rival right
+obj npc 18 4 Youngster down
+obj sign 17 9 ElmsLabSign
+obj sign 31 11 PlayersHouseSign
+obj hidden 10 2 hill_corner
+obj item 39 31 shore_item

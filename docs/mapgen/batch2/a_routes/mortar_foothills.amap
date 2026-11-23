@@ -1,0 +1,57 @@
+# Mortar Foothills -- mountain route, 30x9 (buffer 540/1300). Build: python3 amap2.py mortar_foothills.amap
+#
+# HOOK: Route 42's rough sibling. The lower road is open dirt and grass between mesas, while
+#   the real prizes sit on the Mt. Mortar shelf above it. A carved cliff stair (81) leads up
+#   to that shelf, and a Strength boulder sits at its foot.
+# BEATS (W to E):
+#   1. West gate from Hearthhollow. A Hiker guards the Mt. Mortar back door (73 in the long
+#      bottom face), which warps into Mt. Mortar's lower floor.
+#   2. Lower road: a 2-row dirt road with tall-grass pockets, rock piles (0a), and two south
+#      mesas (6a/70/6b tops) for silhouette. A Battle Girl watches the south grass.
+#   3. The stair spur (6e 6f over 6c 81, copied from the Ruins of Alph). STRENGTH boulder at
+#      (26,8): push it sideways, never up onto the stairs.
+#   4. Upper shelf: a 1-cell cliff walk under a higher ridge (cols 9-14, rows 0-1). West
+#      leads to the item on the plateau, where Blackbelt (14,2) watches the walk and
+#      forces a battle. East: the bulge in front of the TM cave (higher tier, 73 at
+#      col 18) holds hidden_upper. The TM cave is a tiny 1-room cave map with a TM, and maybe
+#      a Hiker.
+#   5. East: Blackbelt2 in the grass, then the road turns north (Hiker2) toward the N exit.
+#      A Rock Smash rock (45,13) plugs a 1-cell gap (block 60, tree half) into an item nook.
+# TRAINERS: Hiker, BattleGirl, Blackbelt2, Hiker2 (lower); Blackbelt (upper, Strength).
+# ITEMS: upper_item and hidden_upper (Strength), the TM in the cave (Strength), rock_nook_item
+#   (Rock Smash), hidden_grass.
+# REACHABILITY: W<->N on foot. Strength gates the whole upper shelf, TM cave included.
+# PLACEMENT: W = Hearthhollow's east side. N (cols 25, top edge) = a new south connection
+#   for Mahogany Town. The N exit's top-edge columns 23-29 must match Mahogany's south
+#   border. ref Route42.
+# GAPS: none. All vanilla blocks. Mesa tops are walkable 71 floor, so "upper level" just
+#   means 71 plateau reached only by 81 stairs.
+ref Route42
+key m=71 y=68 z=69 Y=6a 7=70 9=6b c=6c k=72 d=6d e=6e f=6f /=81 E=60
+grid:
+mmmommmmmymmmmzmmymmzmzTT.,ymm
+mmmmmmmmmckkkkdmmcCkdmzTT.,ymm
+mmmmmmmfkkkkefkkemmmmmz,".,ckk
+kkkkCkkd,"",c/,,ckkkkkd"",.,,T
+T,,,.,,o"",.,..,o""",.,"".,oTT
+..........,,......,.......,,TT
+T,""Y77779,"""",Y779,TE,T,TTTT
+T"",ymmmmz,"""T,ymmzTT.T""TTTT
+TTTTymmmmzTTTTTTymmzTTTTTTTTTT
+end
+exit W 0 10
+exit N 50 0
+obj boulder 26 8 STRENGTH
+obj rock 45 13 smash_rock
+obj item 44 15 rock_nook_item
+obj cave 8 7 MortarBackDoor
+obj cave 36 3 TM_cave
+obj sign 3 8 SIGN_W
+obj trainer 14 2 Blackbelt down 2
+obj item 4 2 upper_item
+obj trainer 11 8 Hiker left 3
+obj trainer 41 9 Blackbelt2 left 4
+obj trainer 51 6 Hiker2 down 3
+obj trainer 25 12 BattleGirl up 2
+obj hidden 2 14 hidden_grass
+obj hidden 41 5 hidden_upper

@@ -1,0 +1,131 @@
+# ============================================================================
+# VESPERA CITY  (resort city, 28x24 blocks, buffer 1020/1300)  johto_modern
+# ============================================================================
+# HOOK: Johto's seaside pleasure town that "wakes at dusk": the Colosseum,
+#   the Moonlight Theatre, a Game Corner and a row of beach hotels, all
+#   strung along the Grand Boulevard that runs from the hills down to the
+#   pier. By day it is a sleepy beach town; at night (nite palette) the
+#   towers and hotel windows light up, shows start and the Colosseum runs
+#   its tournaments. No Gym: the Colosseum is the city's battle draw.
+#   Healing is scarce, so the hotels are the rest stops (PC boxes in lobbies).
+#
+# DISTRICTS / BUILDINGS (door steps in exit lines)
+#   Marquee Row (uptown, rows 1-5)
+#     Moonlight Theatre (5x4, 7c/7d pillared facade) - shows / contests;
+#                         a nightly performance gives a rotating reward
+#     Game Corner (4x2), Prize Exchange (1-row shop), Photo Studio (1-row)
+#     Fan Club (2x2), Boutique (2x2, outfits / bag colours)
+#     Vespera Galleria (3x3 dept store, PCC art), Mart (2x2)
+#     Hillside garden (NE): flowers, shrubs, an item
+#   Fountain Plaza (centre, rows 6-12)
+#     Grand Fountain: fenced 6x4 basin, the boulevard parts around it,
+#       planters at its corners, plaza sign; a busker by night
+#     Battle Court (W): open-air fenced grass court, gap at the bottom;
+#       an Ace Trainer and a referee (practice battles, daily rematch)
+#     VESPERA COLOSSEUM (E, 8x5, two-tier roof): the landmark. Weekly
+#       tournament / Battle-Tower-lite; locked until N badges
+#   Hotel Row (rows 13-16, facing the Strand)
+#     Twin Stars Hotel + Twin Stars Casino (silver twin towers; the casino
+#       is a second Game Corner floor or a Rocket front)
+#     Bellevue Hotel (3x4), Souvenir shop (2x2)
+#     Grand Strand Hotel (4x4, the pricey one: full heal + PC + concierge)
+#     Seashell Inn (brown 2x2, cheap rest + PC); hotel garden (E)
+#   The Strand & Beach (rows 17-23)
+#     Brick promenade (W/E exits), railed seawall with gaps to the sand,
+#     Beach Cafe, lifeguard hut, rocks, natural 76 shoreline, the Pier
+#     (44/46) down the boulevard's axis into the sea
+#
+# GAMEPLAY BEATS
+#   1. Arrive from the N hills straight down the boulevard to the fountain.
+#   2. Colosseum guard: "entrants need a Strand Pass". The Grand Strand
+#      concierge gives it after you win three Battle Court matches / clear
+#      the Fan Club challenge.
+#   3. Night: the theatre show (Clefairy/Jigglypuff troupe) and the casino
+#      open; something is fixing the tournament -- trail the casino.
+#   4. Colosseum tournament (3-4 rounds), prize + repeatable weekly event.
+#   5. Post-Surf: sea route S off the pier; hidden items on the beach rocks.
+#
+# EXITS / CONNECTIONS
+#   N  cols 13-14  Grand Boulevard -> hill route
+#   W  row 17      the Strand -> coastal route west
+#   E  row 17      the Strand -> coastal route east
+#   S  sea (rows 21-23): Surf route; Pier tip is a ferry/boat warp if wanted
+#
+# TILE GAPS / UNCERTAIN BLOCKS
+#   - No sand block: the beach is 07/01 path, nearly the same colour.
+#   - No beach props (umbrella, palm, deck chair), no ferris wheel/stage.
+#   - The Colosseum is a big hall, not an open bowl; 1a's left border
+#     shows as a seam beside the door.
+#   - 7c/7d (pillar facade) only appear here, not in Goldenrod; check in
+#     Polished Map++ that their attributes match.
+#   - Galleria reuses the 5f "PCC" sign; reword or redraw.
+#   - Fountain rim is unreachable (fenced on all sides), decorative only.
+# ============================================================================
+tileset johto_modern
+ref GoldenrodCity
+key T=05 .=01 :=06 ,=02 *=04 h=67 p=07
+key ~=35 %=34 $=36 ^=76 (=54 )=55 u=61
+key f=41 e=49 r=40 t=42 l=48 j=4a <=44 >=46 s=45 S=77 w=66 x=80 z=81
+key R=18 M=1f N=19 A=10 D=17 Z=11 E=1a F=0f O=16 W=1e K=33 H=27 I=23 J=28 1=14 2=13 9=08 0=09 b=2b c=2c
+key i=25 k=26 y=29 q=2a d=2d m=2e X=20 Y=24 V=5f L=7c U=7d
+key @=2f B=0a
+grid:
+TTTTTTTTTTTTT::TTTTTTTTTTTTT
+TRMMMN:RMMNRN::RNRMN:RN:@*@T
+TLUUUU:EFFZOW::OWHIJ:DK:,*,T
+TLUUUU:::::::::::XYV::::@,@T
+TAFDFZ:1212::::::::::w::,*,T
+T:::::w:::::::::::::w::::::T
+T:::::::::x::::::z:RMMMMMMNT
+Trfffft::::rfffft::MMMMMMMMT
+T<,,,,>::::<~~~~>::HIIIIIIJT
+T<,,,,>::::<~%~~>::HIIIIIIJT
+Tle..ej::::luuuuj::bccEFccZT
+T:::::::::x::::::x:::::::::T
+T::::w:::w:::::::::w::w::::T
+Tikik:RMN@@::::RMMN::::@*@,T
+Tyqyq:HIJ,,::::HIIJ::::,@*@T
+Tyqyq:HIJRN::::HIIJ::90*,@,T
+Tdmdm:ADZOW::::ADFZ::OW,*,*T
+::::::::::::::::::::::::::::
+eeeeeeeee.eee..eeee.eeeeeeee
+pppp12ppppppp..pppppppppppBp
+Bp.ppppppppppp..pppppppphppB
+^^^^^^^^^^^^^<>^^^^^^^^^^^^^
+~~~%~~~~~~~~~<>~~~~~~~~$~~~~
+~~~~~~~~~~~~~lj~~~~~~~~~~~~~
+end
+exit N 26 0
+exit W 0 34
+exit E 55 34
+exit Theatre 6 9
+exit GameCorner 15 5
+exit FanClub 23 5
+exit PrizeExchange 15 9
+exit PhotoStudio 19 9
+exit Boutique 31 5
+exit Galleria 37 7
+exit Mart 42 5
+exit Colosseum 45 21
+exit TwinStarsHotel 3 33
+exit TwinStarsCasino 7 33
+exit Bellevue 14 33
+exit Souvenirs 19 33
+exit GrandStrand 32 33
+exit SeashellInn 43 33
+exit BeachCafe 9 39
+exit PierTip 27 46
+exit Sea 6 46
+obj sign 35 12 PlazaSign
+obj npc 28 13 FountainSinger down
+obj npc 8 16 CourtReferee down
+obj trainer 5 17 AceTrainerCourt right 3
+obj npc 46 23 ColosseumGuard down
+obj npc 18 6 Clown down
+obj npc 12 34 Tourist left
+obj npc 40 39 Lifeguard down
+obj npc 28 44 PierFisher down
+obj npc 24 26 Dancer
+obj hidden 49 31 park_flowers
+obj hidden 21 16 fountain_coin
+obj item 51 5 park_corner

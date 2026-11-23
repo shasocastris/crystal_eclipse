@@ -1,0 +1,93 @@
+# Driftbank Ford -- vertical river route, 14x36 (buffer 840/1300). Build: python3 amap2.py driftbank_ford.amap
+#
+# HOOK: meltwater from Mt. Mortar runs the whole length of the route. You walk it on foot and
+#   cross on three driftwood log bridges, or you Surf it: drop in at the inlet, cross the pool
+#   and ride the current under the bridges to the bottom. Surf is optional. It opens an island,
+#   two Swimmers and a fast way down.
+# BEATS (N to S):
+#   1. North gate (from Hearthhollow's south stub). The river comes out of a gorge between two
+#      mesas, and rapids (8e/8f, WATERFALL collision) make it downstream-only for surfers.
+#   2. Bridge 1 takes you to the west bank. A Cut tree (5b) under the cliff guards an item nook.
+#   3. West bank: a 1-wide path past grass pockets (Fisher, Camper). A notch in the bank (block
+#      58) is the Surf inlet into the Ford Pool, which is 5 wide with an island item and
+#      SwimmerM/F.
+#   4. East-bank ledge cascade: three ledge rows (56/56/57) give a one-way southbound shortcut
+#      that skips bridges 1 and 2. A Picnicker stands between the ledges. Northbound walkers
+#      must take the bridges.
+#   5. Bridge 2 takes you back east. Then the river steps east twice (87/86 + a1/a5 lips),
+#      Fisher2 and a Bird Keeper squeeze the east bank, and Bridge 3 takes you west to the
+#      south exit.
+#   6. The DriftCollector NPC on the lower east bank keeps what floats downstream: one random
+#      item a day (a cheap daily hook that also fits the no-Pokemon-Center item economy).
+# TRAINERS: Fisher, Camper, Picnicker, SwimmerM, SwimmerF (Surf), Fisher2, BirdKeeper.
+# ITEMS: cut_nook_item (Cut), island_item (Surf), hidden_top, hidden_bank, daily drift item.
+# BRIDGES: the grid uses 89 (deck, FLOOR with UP/DOWN walls), i.e. the walk-over state. In
+#   game, copy Route45's two-scene system: the .ablk ships 98/99 (surf-under) and
+#   changebridgeblock swaps all 3 bridges (6 blocks) between 98/99 and 89 on step triggers.
+#   Checked both ways. Deck state: N<->S walkable. Surf-under state: from the inlet,
+#   the whole river from the top edge to the bottom edge is surfable.
+# PLACEMENT: N = Hearthhollow's S stub (concept 2). S = Pinefall Lake Campsite (concept 6) or
+#   Orchard Road's S stub. The river leaves the bottom edge at cols 6-7 and the rapids touch
+#   the top edge, so the neighbours need matching water (or end it in a lake).
+#   ref Route42 (Mortar-area palette).
+# GAPS: no stepping-stone / shallow-ford block exists (0a in water is WALL), so the "fords"
+#   are log bridges. The island is 58/59/76 shores around a grass block with a flush top,
+#   like vanilla's flush water.
+ref Route42
+key m=71 y=68 z=69 Y=6a 7=70 9=6b c=6c k=72 d=6d e=6e f=6f
+key L=88 R=8a W=8e V=8f B=89 G=87 H=86 -=85 J=84 K=8b N=8c D=8d A=a8
+key p=a0 q=a1 u=a2 P=a4 Q=a5 U=a6
+key 5=5b
+grid:
+mmmzLRyzT,.TTT
+mmmzWVyzT,."TT
+mmmzLRcdS,."#T
+mmmzLR,""..,TT
+kkkdLR,"".""TT
+T,"TLR,,,.TTTT
+T5##LR*,,.,TTT
+T...BB....,,TT
+T.""LR,,,.,,TT
+T.""LG--H.,#TT
+T.,,L~~~R,.,TT
+T,.,L~~~R___TT
+T".,L~~~R"".TT
+T".,L],[R"".TT
+T,.#L],[R,..TT
+T,.#L~^~R___TT
+TT.,L~~~R..,TT
+T,.,[~~~R,""TT
+T..,L~~~R,""TT
+T.,,L~~~R===TT
+T.,,LNUUP.,,TT
+T,.,LR,,..,"TT
+T...BB....,"TT
+TTTTLR,"".,,TT
+TTTTLGH"".,#TT
+TTTTL~R,..,TTT
+TTTTQLR,.,,TTT
+TT,,,LGH.,,"TT
+TT,""L~R..""TT
+TT,""QLR.,""TT
+TT#,,,LR.,,,TT
+T,,*,,LR,..,TT
+T.....BB...,TT
+T,.,#,LR,,",TT
+TT.,,,LR,""TTT
+TT.,TTLR,,TTTT
+end
+exit N 20 0
+exit S 5 71
+obj sign 17 5 SIGN_N
+obj item 2 10 cut_nook_item
+obj trainer 7 17 Fisher down 4
+obj trainer 3 26 Camper right 2
+obj trainer 21 25 Picnicker left 3
+obj trainer 13 21 SwimmerM down 0
+obj trainer 10 35 SwimmerF up 0
+obj item 12 27 island_item
+obj trainer 15 47 Fisher2 left 3
+obj trainer 19 56 BirdKeeper left 3
+obj npc 17 67 DriftCollector left
+obj hidden 22 8 hidden_top
+obj hidden 9 63 hidden_bank

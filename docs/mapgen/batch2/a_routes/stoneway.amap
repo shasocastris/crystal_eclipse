@@ -1,0 +1,86 @@
+# Stoneway -- ruins processional road, 14x28 (buffer 680/1300). Build: python3 amap2.py stoneway.amap
+#
+# HOOK: an arrow-straight walled avenue, unlike any winding Johto route. It leads from a
+#   ruined south gate through overgrown courts to a sealed temple mound. Four Unown steles
+#   along the way spell the word that opens it. A cousin to the Ruins of Alph: same
+#   chamber-mound grammar (6a/70/6b, 73 doors), plus gray fence walls (40-4a) as the stonework.
+# BEATS (S to N):
+#   1. South gate: rubble pillars (0a) flank the avenue. STELE_1 (47) stands in the grass.
+#   2. Cloisters: two fenced garden boxes with tall grass inside, each entered through one
+#      gap in its bottom fence. cloister_item (W), hidden_cloister (E).
+#   3. Court B: the west court is tall grass (Medium, STELE_2). The east court has a
+#      collapsed shrine (20/21 Burned Tower rubble over a 0a + 82 well). The puzzle reward
+#      well_offering is a hidden item at the well, set by the solve.
+#   4. Broken stair: ledge rows (56) cross both side courts, a one-way drop from Court A to
+#      Court B. The walled avenue (44/46, 2 cells wide) is the two-way spine, with gaps
+#      into each court. A Psychic patrols it.
+#   5. Court A: the west Ruin Annex mound (73, a small chamber, annex_item) and the east grass
+#      (PokeManiac, STELE_3).
+#   6. Temple plaza: a walled plaza with two guardian stones (0a) and STELE_4a/4b flanking
+#      the SealedChamber door. A Researcher NPC explains the steles. A Sage covers the plaza.
+#      PUZZLE_SEAL (an object, modelled as a boulder) blocks the door until the word is
+#      spoken. The north exit leaves from the plaza's west gap.
+# PUZZLE: steles 1-3 each show one Unown glyph (bg_events, the Unown font from the Ruins
+#   puzzle), read in walking order. 4a/4b: "Speak the road's word" lets you pick from
+#   letters. Correct: setevent, the seal object vanishes, and the well offering appears.
+#   Inside the Sealed Chamber: an Unown-themed reward or encounter. It can count toward the
+#   Alph shrine gate (26 Unown) as flavour, but must not replace it.
+# REACHABILITY: N<->S on foot, no HMs. Only the Sealed Chamber is gated (by the puzzle).
+# PLACEMENT: S = Route 32's north-west edge, by the Ruins gate (that may need a short gate
+#   house, since Route 32's west side is forest). N = toward Route 36 / the Ruins north
+#   chambers. ref RuinsOfAlphOutside.
+# GAPS: the gray fences (40-4a) are Moomoo-farm fences reused as low walls. They read as
+#   stone at a glance, but a real ruined wall or pillar block would sell it more. 20/21
+#   rubble works well on its own.
+ref RuinsOfAlphOutside
+key m=71 y=68 z=69 Y=6a 7=70 9=6b c=6c k=72 d=6d e=6e f=6f
+key q=40 w=41 v=42 l=44 j=46 b=48 n=49 x=4a W=82 R=20 U=21 s=45 S=47
+grid:
+TT,.TTTTTTTTTT
+T,".TY7779TTTT
+T"".TymmmzTTTT
+T",qwckCkdwvTT
+T,.l.s...s.jTT
+T..........jTT
+T,"l.o...o.jTT
+TTTbnn..nnnxTT
+TTTTT,lj,,TTTT
+TY779,lj"""o,T
+Tymmz,..""",TT
+TcCkd,lj,o"",T
+T,..,.lj..S.TT
+T"",,,lj,""",T
+TT____lj____TT
+T,,",,lj,,RU,T
+T"""",..,.oW,T
+T"""",lj,,..oT
+T,S,,,lj,o,,,T
+TTo,,,lj,,,TTT
+T,qwwv..qwwv,T
+T,l""j..l""j,T
+T,l""j..l""j,T
+T,b.nx..bn.x,T
+TT,S,,lj,,,,TT
+TTTo,,..,,oTTT
+TTTTTo..oTTTTT
+TTTTT,..,TTTTT
+end
+exit N 6 0
+exit S 13 55
+obj sign 7 49 STELE_1
+obj sign 5 37 STELE_2
+obj sign 21 25 STELE_3
+obj sign 10 8 STELE_4a
+obj sign 18 8 STELE_4b
+obj cave 14 7 SealedChamber
+obj boulder 14 8 PUZZLE_SEAL
+obj cave 4 23 RuinAnnex
+obj npc 8 10 Researcher
+obj trainer 13 28 Psychic down 4
+obj trainer 4 33 Medium right 3
+obj trainer 19 11 Sage left 4
+obj trainer 18 20 PokeManiac down 3
+obj item 7 43 cloister_item
+obj hidden 21 43 hidden_cloister
+obj hidden 22 34 well_offering
+obj item 2 25 annex_item

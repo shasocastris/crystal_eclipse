@@ -1,0 +1,10 @@
+OBOROZUKI MANOR - warp pairings (step coords, x,y)
+Pair  Map / cell(s) / block                          <->  Map / cell(s) / block
+A     Genkan 1F (13,19)(14,19)  mats 06/07          <->  Estate grounds: front door (bottom-centre of manor)
+B     Genkan 1F (27,12)(27,13)  right carpet 24     <->  Engawa (5,11)(6,11)  stone mats 3e/3f
+C     Genkan 1F (27,2)          stairs 39           <->  Study 2F (3,3)  stairs 1e     [steward coord-event until tea ceremony]
+D     Engawa (39,6)(39,7)       right carpet 24     <->  Kagura Hall (9,17)(10,17)  mats 06/07
+E     Engawa (37,5)             stairs 1e           <->  Dojo (1,2)  stairs 39
+F     Dojo (22,2)               ladder 27           <->  Kura B1F (19,2)  stairs 39    [locked until Genkuro beaten]
+G     Study 2F (20,2)           ladder 27           <->  Moon Shrine (10,14)  ladder 1f (TILESET_TOWER)  [bookcase (9,2) $1a->$04]
+Sizes: Genkan 14x10, Engawa 20x6, Kagura 10x9, Dojo 12x8, Kura 10x7, Study 12x8, Shrine 10x8 (all buffers < 330/1300)

@@ -1,0 +1,76 @@
+# Silverbough Estate -- walled manor grounds (26x22 blocks = 52x44 steps)
+#
+# Pitch: a lord's estate at the end of a quiet lane. You come in through a white-fenced
+# gate where a gatekeeper stands in the gap (he can step aside after a story flag). A
+# straight hedged avenue runs north to a fountain forecourt and a long, two-storey
+# traditional manor. To the west is a formal hedge maze built from single-step hedges
+# (small-tree blocks 3c/5c/5d/60, so walls are one step thick), with an item ball at its
+# deepest dead end and three hidden items in the others. To the east is an ornamental
+# pond crossed by a plank boardwalk (89) to a little tea pavilion on its own lawn. The NW
+# lawn is an apricorn orchard. A servants' cottage beside the manor has its own door.
+#
+# Manor: 9 blocks (18 steps) wide, 3 block rows tall = roof + 2 storeys.
+#   2c 2a*7 2d / 22 2b*7 23 / 26 2b 2b 2b 27 2b 2b 2b 2f
+#   FRONT DOOR = step (24, 9) (block 12,4; 27's door is its bottom-left quadrant).
+#   Player steps out to (24,10). Centre of facade is between steps 24 and 25.
+# Servants' door = step (37, 9) (block 18,4, 28's bottom-right quadrant): side/kitchen
+#   entrance for the interior's back corridor.
+# Tea pavilion = step (45, 21) (cottage 14 15, optional 1-room interior or bg_event).
+# Western facade: estate_western.amap, same footprint; front door moves to (25, 9).
+#
+# Beats: Gatekeeper at the gate; Gardener in the west beds; Maid by the servants' door;
+# fountain bg_event; 3 apricorn fruit trees; maze prize + 3 maze hidden items; hidden
+# item on the pavilion lawn (boardwalk or Surf). No wild grass: the estate is safe ground.
+# Perimeter: a gravel walk runs inside the fence; the fence's top half is path, so that
+# row reads as one strip.
+# Attach: exit S (24,43) and exit W (0,38) on the outer lane. Suggested: the S exit off
+# Reedmere Marsh's N exit (the marsh is the "wild" approach), or off Route 37/38.
+ref EcruteakCity
+key a=2c b=2a c=2d d=22 e=23 n=2b h=26 i=27 j=2f k=28 l=29
+key K=ac F=82 q=48 w=49 p=4a x=14 y=15 B=89
+key 1=3c 2=3d 3=3e 4=3f 5=5d 6=65 7=60 8=62 9=61 !=5c ?=5e &=64 $=66
+grid:
+TTTTTTTTTTTTTTTTTTTTTTTTTT
+TTTTTTTTTTTTTTTTTTTTTTTTTT
+TT,,,,,,abbbbbbbcTTTTTTTTT
+TT,,,,,,dnnnnnnne,ac,**,TT
+TT,,,,,,hnnninnnj,kl,**,TT
+TT,,,,,.............,,,,TT
+TT,*,*,..**.F.**..,,*,*,TT
+TT,,,,,.............,,,,TT
+TT,K,K,,,*,,.,*,,,,,,999TT
+T!!555517,,8.7,(^^^^),*,TT
+T7!1!5!17,,8.7,[~~~~],xyTT
+T71!11157,,8...BBBBBB...TT
+T!517!517,,8.7,[~~~~],,,TT
+T77!17557,,8.7,[~~~~],,,TT
+T77!55577,,,.7,[~~~~],*,TT
+T77157517,,8.7,[~~~~],,,TT
+T55555551,,8.7TTTTTTTTTTTT
+T.......................TT
+Tqwwwwwwwwwp.qwwwwwwwwwwpT
+.............STTTTTTTTTTTT
+TTTTTTTTTT,,.,,TTTTTTTTTTT
+TTTTTTTTTTTT.TTTTTTTTTTTTT
+end
+exit S 24 43
+exit W 0 38
+exit MANOR 24 9
+exit SERVANT 37 9
+exit PAVILION 45 21
+obj warp 24 9 MANOR_FRONT
+obj warp 37 9 servants_door
+obj warp 45 21 tea_pavilion
+obj npc 25 36 Gatekeeper left
+obj npc 6 13 Gardener down
+obj npc 39 11 Maid left
+obj fruit 4 5 apricorn
+obj fruit 8 5 apricorn
+obj fruit 12 5 apricorn
+obj sign 24 12 Fountain
+obj sign 27 39 EstateSign
+obj item 13 29 maze_prize
+obj hidden 9 31 maze_deadend1
+obj hidden 3 19 maze_deadend2
+obj hidden 7 27 maze_deadend3
+obj hidden 44 28 pavilion_lawn

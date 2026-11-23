@@ -1,0 +1,5 @@
+# bx by hex...
+6 1 4c 4c      # the spring: wall waterfall out of the north wall
+13 1 19        # rock above the ladder
+13 2 03        # ladder up to 2F (warp at 27,5)
+7 16 4d 4e     # water cave mouth (warps at 15,32 and 16,32)

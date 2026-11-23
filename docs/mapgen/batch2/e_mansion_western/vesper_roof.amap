@@ -1,0 +1,23 @@
+# VESPER HALL ROOF -- the observatory terrace
+# Tileset: TILESET_MANSION (Celadon Mansion roof blocks). 7x5, buffer 143/1300.
+# Stairwell 24 (top-left) comes up from the 2F back stair. The little roof
+# house (28/29/26/27) is the Lord's telescope dome; its door stays shut until
+# the Shadow Prism is recovered from the Secret Lab, then opens on an
+# eclipse-night event (static encounter or the post-game reveal).
+# Gap: no telescope tile; the dome is implied by the roof house. No plain
+# roof floor either: 2b carries a 1px edge line, so the terrace shows faint
+# paving seams every block (vanilla only uses 2b at the roof edge).
+ref CeladonMansionRoof
+tileset mansion
+key A=24 h=28 i=29 j=26 k=27 |=2c .=2b L=1d l=1e c=21 e=2a
+grid:
+Alllll|
+...hi.|
+...jk.|
+......|
+Llllllc
+end
+exit STAIRS 1 1
+exit DOME 8 5
+obj npc 10 6 Astronomer down
+obj item 2 6 Stardust

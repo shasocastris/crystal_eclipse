@@ -1,0 +1,70 @@
+# Sunleaf Terraces -- town, 20x18 (buffer 624/1300), ref VioletCity (roof colour TBD)
+# HOOK: a farming village stepped up a hillside. Four terraces separated by grass
+#   ledges (57); the only up-paths are single gaps that switchback (bottom gap E,
+#   middle gap W, top gap centre), while every ledge is a one-way hop back down.
+#   It is the hack's Leppa-berry hub for the no-Pokemon-Center PP economy.
+# TERRACES (bottom to top):
+#   1 Village row: Inn (18 19/1a 11, PC + waypoint, no heal), Seed Mart (18 19/16 17),
+#     a produce stand (ad, StandKeeper sells Leppa/status berries), town sign.
+#   2 Sprout field: fenced crop rows of ae (sprouts) + two houses. HarvestGranny
+#     at the field edge comments on the crop by season (checkseason).
+#   3 Berry beds: eight 7b soft-soil beds in two rows with dirt lanes = the
+#     plant/tend/harvest system (bg_events per bed). Three Leppa fruit trees on the
+#     east lawn, a little tall grass behind them, Farmer_soil explains planting.
+#   4 Leppa Farm: big farmhouse (2c 2a 2d/26 27 2f), stone well/cistern (82),
+#     irrigation reservoir pond (54 76 55/58 35 59). BerryMaster gives the first
+#     Leppa + a daily berry. Item ball on the reservoir bank (reachable).
+# ITEMS: reservoir item, hidden item by the reservoir, hidden item beside the beds.
+#   Youngster_ledges on terrace 3 teaches "hop down = fast way home".
+# ATTACH: S -> Route 36 (cut a gap in its north tree wall, north of Violet);
+#   W -> stub toward Route 31/Dark Cave side. Indoors: farmhouse, inn, mart, 2 houses.
+# TILE GAPS: no windmill / scarecrow; stand-ins only. 7b/ae/ad are unused in vanilla
+#   Johto maps (check shasocastris has not reserved them). Winter: beds stay brown soil and
+#   sprouts stay brown, which reads as a fallow field -- fine.
+ref VioletCity
+key 1=2c A=2a 2=2d 5=26 6=27 4=2f W=82 h=7b e=ae q=48 w=49 f=4a K=11 d=ad
+key P=18 p=19 J=16 j=1e c=1a b=1b M=17 l=4b L=5a
+grid:
+TTTTTTTTTTTTTTTTTTTT
+TT,1A2,,,,TT(^^^)TTT
+TT,564,,W,,,[~~~]TTT
+TT,,.....,,,,,,,,,TT
+TT===..==========TTT
+TT.h.h.h.h.,,,,,,TTT
+TT.h.h.h.h.,"""",TTT
+TT,.........,,,,,TTT
+TT=.==============TT
+TT.,qwwwwf,Pp,Pp,,TT
+TT.,eeeeee,Jj,Jj,,TT
+TT.,eeeeee,.......TT
+TT==============.=TT
+TT,Pp,,d,,*,,Pp,.,TT
+TT,cK,,,,*,,,JM,.,TT
+......s...........TT
+TT,,**,,,..,,**,,,TT
+TTTTTTTTT..TTTTTTTTT
+end
+exit W 0 30
+exit S 19 35
+exit FARM 8 5
+exit INN 7 29
+exit HOUSE1 23 21
+exit HOUSE2 29 21
+exit MART 27 29
+obj warp 8 5 LeppaFarmhouse
+obj warp 7 29 Inn
+obj warp 23 21 house1
+obj warp 29 21 house2
+obj warp 27 29 SeedMart
+obj fruit 24 10 leppa
+obj fruit 28 10 leppa
+obj fruit 32 10 leppa
+obj npc 12 7 BerryMaster down
+obj npc 10 14 Farmer_soil up
+obj npc 19 21 HarvestGranny left
+obj npc 16 27 StandKeeper left
+obj sign 12 30 TownSign
+obj item 34 6 reservoir_item
+obj hidden 22 4 reservoir_bank_hidden
+obj hidden 5 11 bed_hidden
+obj npc 32 14 Youngster_ledges left

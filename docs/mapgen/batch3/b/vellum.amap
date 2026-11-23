@@ -1,0 +1,148 @@
+# ============================================================================
+# VELLUM CITY  (university city, 26x24 blocks, buffer 960/1300) johto_modern
+# ============================================================================
+# HOOK: Johto's university town. Vellum University's Great Library holds the
+#   oldest records in the region (Ruins of Alph / Unown lore, legend texts),
+#   the Pokemon Research Institute is where Elm and Oak once lectured, and
+#   the Observatory on Campus Hill is tracking a returning comet. The city is
+#   a campus first: buildings ring a formal quad, the town grew south of it
+#   along Quill Lane (students' shops) and around Varsity Lake. No Gym.
+#
+# DISTRICTS / BUILDINGS (door steps are the exit lines below)
+#   Campus Hill (NW): Observatory (2x3 tower + mast/dome, radio-tower art;
+#     night-only astronomer, comet event, Moon Stone / Clefairy lore),
+#     Museum of Natural History (4x3; fossil hall -- a Gen-I revive desk
+#     would fit here, Unown exhibit), lawn with a headbutt grove.
+#   Great Library (N centre, 5x4 window block = the landmark): quiz/puzzle
+#     interior over floors (answer lore questions to reach the archive);
+#     Founders' plaque (77) on the forecourt.
+#   Science Row (NE): Lab A (3x2, door west end) - breeding/egg research,
+#     daily egg-move or IV-judge NPC; Pokemon Research Institute (4x3) -
+#     professor gives a research task (Pokedex milestones -> rewards).
+#     University Avenue (cols 19-20) runs from the N exit down to College St.
+#   The Quad (centre): two lawns each side of the Library axis (3-wide brick
+#     walk), flower beds, street trees (2f), a headbutt grove (3f x2), the
+#     fenced Reflecting Pool, a cross-walk on row 9.
+#   Dorms (W): Dorm A (4x2), Dorm B (4x3); trade and rival-student NPCs.
+#   East side: Student Union (3x2) - cafeteria + notice board (daily tips,
+#     swap item trades); Lecture Hall (3x3) - battle-class trainers you can
+#     rematch daily (stand-in for a Gym-like grind).
+#   College Street (row 14): brick E-W street; W and E exits.
+#   Quill Lane (SW): Scholars' Inn (3x4 tower; lobby PC + paid rest, no
+#     Pokemon Center), Bookshop and Cafe (glass shopfronts 20/24), three
+#     market stalls, Mart, one house.
+#   Varsity Lake (SE): pond with a railed south promenade, Boathouse (rowing
+#     club; Surf lore / Fishing Guru), lakeside lawn.
+#
+# GAMEPLAY BEATS
+#   1. Arrive on College Street from W or E (or University Ave from N).
+#   2. Inn + Mart on Quill Lane; Bookshop sells TMs/"textbooks" (TM shop).
+#   3. Library quiz -> archive key text that points to the next story site.
+#   4. Institute task + Lab A: research beats, egg / IV services.
+#   5. Night: Observatory opens (see _nite render), comet sighting event.
+#   6. Post-Surf: Varsity Lake fishing, hidden item on the east bank.
+#
+# EXITS / CONNECTIONS
+#   N  University Avenue cols 19-20 (steps 38-39) -> route north
+#   W/E College Street row 14 (step y 28-29)       -> routes west / east
+#   S  cols 12-13 (steps 24-25)                    -> route south
+# TILE GAPS / UNCERTAIN
+#   - No dome/telescope block: the Observatory is the Radio Tower (mast 21
+#     with its dish, 22, then 25 26 / 29 2a / 2d 2e). The dish reads as a
+#     dome only loosely.
+#   - No statue/bench/lamp: the Founders' plaque is a 77 brick sign.
+#   - Lake bottom: the 60/61/62 railed bank has no south-east corner that
+#     carries the shore strip; 61 is used to the end (strip stops at the
+#     land column) instead of 62.
+#   - Wide buildings (5x4 library, 4x3 museum/institute) are composed from
+#     Goldenrod's dept-store pieces (18 1f 19 / 27 23 28 / 10 0f 17 11 1a);
+#     render clean, but the 1f/23/0f middles are repeated beyond vanilla use.
+#   - 20/24 shopfronts reuse the Pokecom-Center window wall (no 5f sign).
+# ============================================================================
+tileset johto_modern
+ref GoldenrodCity
+key T=05 .=01 :=06 ,=02 *=04 h=67 o=0a ~=35 n=43 u=61 v=2f Y=3f
+key (=54 ^=76 )=55 [=58 ]=59 {=60 }=62
+key <=44 >=46 r=40 f=41 t=42 l=48 e=49 j=4a s=45 S=77 w=66 x=80 z=81
+key R=18 M=1f N=19 A=10 D=17 Z=11 E=1a F=0f C=1c Q=1d W=1e P=1b O=16
+key H=27 I=23 J=28 K=33 1=14 2=13 3=12 G=20 X=24
+key a=21 g=22 i=25 m=26 y=29 q=2a d=2d k=2e
+grid:
+TTTTTTTTTTTTTTTTTTT::TTTTT
+T,a,,Y,,v.RMMMN.,v,::RMMNT
+T,g,,,*,,.HIIIJ.RMN::HIIJT
+T,im,RMMN.HIIIJ.EFZ::EFFZT
+T,yq,HIIJ.AFDFZ....::....T
+T.dk.ADFZ::S:::::::::v,v,T
+T.....,,v,,:::,,v,,::....T
+TRMMN.,*,*,:::,*,*,::RMN.T
+TADFZ.,,,,,:::,,,,,::ADZ.T
+T....::::::::::::::::....T
+TRMMN.rfft,:::,Y,Y,::RMN.T
+THIIJ.<~~>,:::,,,,,::HIJ.T
+TADFZ.luuj*:::*,*,*::EFZ.T
+T,.v,s,,v,,:::,,v,,::.,v,T
+::::::::::::::::::::::::::
+TRMN.RN.RN..::.(^^^^^^)..T
+THIJ.GX.GX..::.[~~~~~~]..T
+THIJ::::::::::.[~~~~~~]RNT
+TADZ:h:h:h::::.[~~~~~~]OWT
+T...S:::::::::.{uuuuuuu..T
+TRMN.RN,*,v.::.,v,*,v,*..T
+TADK.OW,,,,.::.,,,,,,,,..T
+T...........::...........T
+TTTTTTTTTTTT::TTTTTTTTTTTT
+end
+exit N 39 0
+exit W 0 28
+exit E 51 28
+exit S 24 47
+exit Observatory 5 11
+exit Museum 12 11
+exit Library 24 9
+exit LabA 33 7
+exit Institute 43 7
+exit DormA 4 17
+exit Union 44 17
+exit DormB 4 25
+exit LectureHall 43 25
+exit Inn 4 37
+exit Bookshop 13 33
+exit Cafe 19 33
+exit Boathouse 47 37
+exit Mart 4 43
+exit HouseS 11 43
+obj warp 5 11 Observatory
+obj warp 12 11 Museum
+obj warp 24 9 GreatLibrary
+obj warp 33 7 LabA
+obj warp 43 7 ResearchInstitute
+obj warp 4 17 DormA
+obj warp 44 17 StudentUnion
+obj warp 4 25 DormB
+obj warp 43 25 LectureHall
+obj warp 4 37 ScholarsInn
+obj warp 13 33 Bookshop
+obj warp 19 33 Cafe
+obj warp 47 37 Boathouse
+obj warp 4 43 Mart
+obj warp 11 43 House
+obj sign 22 11 FoundersPlaque
+obj sign 10 26 CitySign
+obj sign 8 39 InnSign
+obj npc 6 12 Astronomer down
+obj npc 26 10 Librarian left
+obj npc 42 8 Professor down
+obj npc 20 16 Student right
+obj npc 32 18 Scientist left
+obj npc 30 7 Beauty
+obj npc 10 18 RivalStudent left
+obj npc 12 36 StallBooks up
+obj npc 16 36 StallTea up
+obj npc 28 34 Fisher right
+obj npc 46 38 Rower left
+obj npc 38 41 Lass
+obj tree 30 20 grove1
+obj tree 34 20 grove2
+obj hidden 46 32 lake_east_bank
+obj item 3 2 hill_corner

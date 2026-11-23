@@ -1,0 +1,22 @@
+# Route 31 (expanded) base grid -- see route31.amap
+ref Route31
+key g=08 h=09 k=0b i=10 j=11 q=48 w=49 p=4a L=68 J=69 b=6c n=6d M=71 m=72
+grid:
+TTTTTTTTTTTTTTTTTTTTTTLMMMMJTT
+TTTTTTTT(^^^)TTTTTTTTTLMMMMJTT
+TTTT,*,,[~~~}^^)T,#,,TLMMMMJ,T
+TT,,,S,,[~~~~~~],,*,,TbmCmmn,T
+ghT,,,,,,,,,[~~],*,,,o,S.,*,,T
+ijk......................,,,,T
+TTT======,,qwwwp,,.,,,,,,,,,TT
+TTT"""""",,,,,,,,,.,TT,""""TTT
+TT,""""""",,,*,,,,.,TT,"""",TT
+TT,,""",,,,qwwwp,,.,,,,"""",TT
+TT,========,#,,,,,.,,,,,,,,,TT
+TT"""""""",""",,#,.,TTT,,*,TTT
+TTT""""",TTT"",,,,.,TTTT,,TTTT
+TTTTTTTTTTTTTTTTTT.TTTTTTTTTTT
+end
+exit S 36 27
+exit VioletGate 4 10
+exit DarkCave 48 7

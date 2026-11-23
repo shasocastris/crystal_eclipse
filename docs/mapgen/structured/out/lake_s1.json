@@ -1,0 +1,163 @@
+{
+ "name": "lake_s1",
+ "w": 34,
+ "h": 12,
+ "seed": 1,
+ "exits": [
+  {
+   "side": "W",
+   "cells": [
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     5
+    ]
+   ]
+  },
+  {
+   "side": "E",
+   "cells": [
+    [
+     33,
+     6
+    ],
+    [
+     33,
+     7
+    ]
+   ]
+  }
+ ],
+ "events": [
+  {
+   "kind": "item",
+   "x": 9,
+   "y": 10,
+   "note": "island (Surf)"
+  },
+  {
+   "kind": "item",
+   "x": 8,
+   "y": 1,
+   "note": "dead-end spur"
+  },
+  {
+   "kind": "item",
+   "x": 24,
+   "y": 2,
+   "note": "dead-end spur"
+  },
+  {
+   "kind": "sign",
+   "x": 2,
+   "y": 3
+  },
+  {
+   "kind": "sign",
+   "x": 30,
+   "y": 4
+  },
+  {
+   "kind": "trainer",
+   "x": 24,
+   "y": 6,
+   "facing": "RIGHT",
+   "sight": 3
+  },
+  {
+   "kind": "trainer",
+   "x": 16,
+   "y": 6,
+   "facing": "LEFT",
+   "sight": 3
+  },
+  {
+   "kind": "trainer",
+   "x": 5,
+   "y": 4,
+   "facing": "LEFT",
+   "sight": 3
+  },
+  {
+   "kind": "trainer",
+   "x": 20,
+   "y": 4,
+   "facing": "DOWN",
+   "sight": 3
+  }
+ ],
+ "stamps": [],
+ "notes": [
+  "ledge shortcut: no site",
+  "ledge band row 4 x=10..13",
+  "island at 8,10",
+  "grass gauntlet at 10,5",
+  "fringe: 8/9 partial-tree blocks kept"
+ ],
+ "verify": {
+  "exits": {
+   "W0->E1": true,
+   "E1->W0": true
+  },
+  "items": [
+   {
+    "x": 9,
+    "y": 10,
+    "needs": "surf",
+    "note": "island (Surf)"
+   },
+   {
+    "x": 8,
+    "y": 1,
+    "needs": "walk",
+    "note": "dead-end spur"
+   },
+   {
+    "x": 24,
+    "y": 2,
+    "needs": "walk",
+    "note": "dead-end spur"
+   }
+  ],
+  "trainers": [
+   {
+    "x": 24,
+    "y": 6,
+    "needs": "walk",
+    "note": ""
+   },
+   {
+    "x": 16,
+    "y": 6,
+    "needs": "walk",
+    "note": ""
+   },
+   {
+    "x": 5,
+    "y": 4,
+    "needs": "walk",
+    "note": ""
+   },
+   {
+    "x": 20,
+    "y": 4,
+    "needs": "walk",
+    "note": ""
+   }
+  ],
+  "doors": [],
+  "walkable_quadrants": 458,
+  "softlock_quadrants": 0,
+  "ledges": [
+   {
+    "x": 10,
+    "y": 4,
+    "hop": 2,
+    "walk_back": null
+   }
+  ]
+ }
+}

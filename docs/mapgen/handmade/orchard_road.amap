@@ -1,0 +1,34 @@
+# Orchard Road -- east-west route through an apricorn orchard
+ref Route29
+key X=63 a=3c b=3d c=3e d=3f D=5d U=65 E=60 F=62 G=5c J=66 I=64 K=5e X=63 Y=5f
+key l=4b L=5a q=48 w=49 p=4a
+key 1=2c 2=2d 3=2e 4=2f 5=14 6=15
+grid:
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+TTTTT"""TTTDTT12TTTTTTTDDTTTTT
+TTT,,"""",,,,.34.,,,,,,,,,,,TT
+TTT,a,,,,,qww...wwp,""".......
+.....,,,,,UUUU.UUUU,""".(^^)ST
+TTS..,===l,,,,.,,,,,,,,.[~~],T
+TT,"".....UUUU.UUUU.....[~~]XT
+TT,"",,,,.,,,,.,,,,,,,""[~~],T
+TTT"",cd,.UUUU.UUUU,ab""[~~],T
+TTTTTTTTT.......TTTTTTTT[~~]TT
+TTTTTTTTTTTTTT..TTTTTTTTTTTTTT
+end
+obj sign 5 11 SIGN_W
+obj sign 57 9 SIGN_E
+obj trainer 13 4 Picnicker down 3
+obj trainer 42 8 BugCatcher left 4
+obj trainer 47 10 Fisher right 0
+obj trainer 15 15 Youngster right 4
+obj fruit 19 9 apricorn
+obj fruit 37 9 apricorn
+obj fruit 19 17 apricorn
+obj npc 31 7 Farmer down
+obj item 57 16 cut_alcove_item
+obj hidden 10 11 hidden_ledge
+obj hidden 56 15 hidden_alcove
+exit W 0 9
+exit E 59 7
+exit S 28 21

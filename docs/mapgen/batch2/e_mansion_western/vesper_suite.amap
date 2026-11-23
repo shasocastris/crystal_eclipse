@@ -1,0 +1,22 @@
+# VESPER HALL MASTER SUITE -- Lord Aurelian's bedroom, untouched for 50 years
+# Tileset: TILESET_PLAYERS_HOUSE (Red's house). 7x5 blocks, buffer 143/1300.
+# Why: the only interior set here with beds (1c) and real wooden floors.
+# Entered through 2F door 17; arrive on the doormat (06).
+# Holds the Lord's DIARY (portrait order clue) and the CELLAR KEY; the grey
+# lady (a Misdreavus, or a MEDIUM trainer) appears here at night.
+ref RedsHouse1F
+tileset players_house
+key W=01 .=03 w=05 M=06 a=08 B=1b Z=1c
+grid:
+BWwBwWB
+.......
+Z.....Z
+..a.a..
+...M...
+end
+exit DOOR 6 9
+exit DOOR2 7 9
+obj sign 5 7 Diary
+obj item 12 2 CellarKey
+obj npc 8 3 GreyLady down
+obj sign 0 1 Bookcase

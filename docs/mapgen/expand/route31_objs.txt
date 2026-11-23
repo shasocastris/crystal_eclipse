@@ -1,0 +1,11 @@
+obj npc 8 9 FisherMail down
+obj npc 18 8 Youngster down
+obj trainer 10 15 BugCatcherWade left 3
+obj trainer 50 16 CooltrainerErick left 3
+obj fruit 24 14 FruitTree
+obj fruit 28 16 FruitTree2
+obj item 54 9 Potion
+obj item 6 24 PokeBall
+obj hidden 52 22 HiddenGlade
+obj sign 11 7 Route31Sign
+obj sign 47 9 DarkCaveSign

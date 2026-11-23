@@ -1,0 +1,32 @@
+# VESPER HALL 2F -- landing, music room (W), trophy room / back stair (E)
+# Tileset: TILESET_MANSION. 15x7 blocks, buffer 273/1300.
+# The twin 06 stairs sit in the same blocks as on 1F, so each flight lands
+# where it left. Straight ahead (door 17) is the sealed Master Suite: a maid
+# NPC stands in front of it until the burglars are beaten.
+# The back stair (05, x12) climbs to the rooftop observatory terrace.
+# Burglars ("guests" who came for the collection) hold the landing.
+# Gap: no beds in TILESET_MANSION, so bedrooms live in the Master Suite map
+# (players_house tileset) instead of on this floor.
+ref CeladonMansion2F
+tileset mansion
+key ,=02 .=03 W=04 <=05 >=06 w=07 v=08 p=09 r=0a |=0b c=0c B=0f O=10 P=11 k=12 n=13 D=17 K=18 h=1b C=1c !=20
+grid:
+PBPrW>pDp>!P<KB
+,,,|......!....
+,C,|......!.O..
+,h,c...........
+vvvv......!....
+..........!vvvv
+...............
+end
+exit STAIR_W 11 0
+exit STAIR_E 19 0
+exit SUITE 15 0
+exit ROOF 24 0
+obj npc 15 1 MaidAtDoor down
+obj trainer 8 5 BurglarSid right 4
+obj trainer 22 9 BurglarJo left 4
+obj trainer 2 7 PianistLass right 2
+obj trainer 26 4 GentlemanG down 3
+obj item 0 12 MaxRepel
+obj sign 9 0 PlaqueLeft

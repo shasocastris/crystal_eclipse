@@ -1,0 +1,147 @@
+# ============================================================================
+# CINDERWICK CITY  (ironworks city, 26x22 blocks, buffer 896/1300) johto_modern
+# ============================================================================
+# HOOK: a soot-and-brick factory city split by the railed Cinder Canal. North
+#   of the water stands the fenced Cinderwick Ironworks, whose Furnace Tower
+#   and its stack are the tallest things for miles; south of it is the
+#   lively downtown. The furnace has gone cold: wild Slugma/Magby (and a
+#   Koffing infestation) have nested in the flue, the works is locked, and
+#   the Gym leader -- BRENNA, head smelter, FIRE-type -- is inside trying to
+#   relight it. The Gym stays shut until you help clear the Furnace Tower.
+#
+# DISTRICTS / BUILDINGS (door steps are the exit lines below)
+#   The Rows (NW, rows 1-8): four terraces of workers' cottages, 5 doors
+#     open (rest are shut fronts). Workers' Hall (3x2) = union hall: a
+#     shift-board NPC trades/tutors, foreman's notice about the cold furnace.
+#     Small flower garden under the Hall; street trees (2f) on the avenue.
+#   Cinderwick Ironworks (NE, fenced compound rows 1-8; gate = gap in the
+#     west fence on row 4, guarded until the story opens it)
+#     Furnace Tower (2x3 tower + 3-block stack, radio-tower art) - landmark
+#       and a 3-4 floor dungeon: Worker/Engineer trainers, Slugma/Magby/
+#       Koffing, Brenna on the top floor; relighting it opens the Gym
+#     Warehouse A (brown roof, 2x2 + sealed bay) - ore store, items
+#     Warehouse B (brown roof) - foreman's office; gives a Charcoal/Fire item
+#     Slag heaps (0a) between the warehouses; hidden item in them
+#   Cinder Canal (rows 9-10): railed canal end to end, bridges at cols 4-5
+#     and on the avenue; flows off W and E (a Surf link to the next maps)
+#   Canal Street (row 11): brick embankment, west exit.
+#   Downtown (SW): Furnace Hotel (3x4 tower; lobby PC + paid rest, NO
+#     Pokemon Center), Mart, Mart plaza (planter, plaza sign), Market Row
+#     (five stall kiosks on brick with merchants in front), three houses.
+#   Station Square (SE): fenced Cooling Pond (decorative; hidden item by its
+#     east fence), Freight Station (3x2, door on its west end) - cargo line /
+#     magnet-train freight to Goldenrod, Gym (4x2) on a brick forecourt,
+#     one house; East Road leaves on row 15.
+#
+# GAMEPLAY BEATS
+#   1. Arrive from the west on Canal Street (or north/south on the avenue).
+#   2. Gym trainee at the door: "Brenna's at the works, the furnace died."
+#   3. Workers' Hall foreman hands you a works pass; gate guard steps aside.
+#   4. Furnace Tower dungeon; Brenna relights the furnace (at night the
+#      tower windows glow -- see the _nite render), Gym opens.
+#   5. Gym battle. Post-Surf: canal ends W/E, hidden items on canal banks.
+#
+# EXITS / CONNECTIONS
+#   N  avenue cols 12-13 (steps 24-25)  -> a route north
+#   S  avenue cols 12-13               -> a route south
+#   W  Canal Street row 11 (step y 22-23); canal water rows 9-10 also exit W
+#   E  East Road row 15 (step y 30-31);   canal water rows 9-10 also exit E
+# NOTE: block 1d is the GYM-labelled front; used only on the Gym (1c 0f 1d 1e).
+# TILE GAPS / UNCERTAIN
+#   - No chimney/smokestack block: the stack is the Radio Tower mast (21 22
+#     22) above the 25/26 tower body; it reads as a tall stack but carries a
+#     dish on top. A dedicated stack or smoke tile would sell it.
+#   - No rail-track or crane block for a freight yard; 7e/7f are fence/ledge.
+#   - Gate is a plain gap in the 44 fence side (no gatepost graphic).
+#   - Cooling Pond top edge is 35 water under a 41 fence, as in Silkwater.
+#   - Warehouses reuse 08/09 brown roofs over 16 1e / 2b 2c (Brinehaven).
+# ============================================================================
+tileset johto_modern
+ref GoldenrodCity
+key T=05 .=01 :=06 ,=02 *=04 h=67 o=0a ~=35 n=43 u=61
+key <=44 >=46 r=40 f=41 t=42 l=48 e=49 j=4a s=45 S=77 w=66 x=80 z=81
+key R=18 M=1f N=19 A=10 D=17 Z=11 E=1a F=0f C=1c Q=1d W=1e P=1b O=16
+key H=27 I=23 J=28 K=33 1=14 2=13 3=12 4=15 5=64 9=08 0=09 b=2b c=2c
+key v=2f a=21 g=22 i=25 m=26 y=29 q=2a d=2d k=2e
+grid:
+TTTTTTTTTTTT::TTTTTTTTTTTT
+T1232323212.::.rfffffffftT
+T..........v::v<.a..9090>T
+TRMN.3212h..::s<.g..OWbc>T
+TADZ........::...g...oo.>T
+T.,*.123232.::.<.im.9090>T
+T..........v::v<.yq.bcOW>T
+T3232123232.::.<.dk.....>T
+T...........::.leeeeeeeejT
+nnnn<>nnnnnn<>nnnnnnnnnnnn
+uuuu<>uuuuuu<>uuuuuuuuuuuu
+:::::::::::::::::::::::::T
+TsRMN..RMN..::.rfft..RMN.T
+T.HIJ..ADK..::.<~~>..EFZ.T
+T.HIJ.:::::.::.luuj.::::sT
+T.ADZs:x:S:.::::::::::::::
+T...........::.v.v...v.v.T
+T:h:h:h:h:h:::.RN..RMMN..T
+T::::::RN:::::.OW..CFQW..T
+T.1232.OW.12::....s::::..T
+T,.,v,v.v,.,::v,v,.::::v,T
+TTTTTTTTTTTT::TTTTTTTTTTTT
+end
+exit N 24 0
+exit W 0 22
+exit E 51 30
+exit S 24 43
+exit TerraceNW 3 3
+exit TerraceNE 19 3
+exit WorkersHall 4 9
+exit TerraceMid 15 7
+exit TerraceRow5 11 11
+exit TerraceRow7 11 15
+exit WarehouseA 41 7
+exit WarehouseB 45 13
+exit Furnace 35 15
+exit Hotel 6 31
+exit Mart 16 27
+exit Station 43 27
+exit HouseE 31 37
+exit Gym 42 37
+exit HouseSW 5 39
+exit HouseS 15 39
+exit HouseS2 21 39
+obj warp 3 3 House
+obj warp 19 3 House
+obj warp 4 9 WorkersHall
+obj warp 15 7 House
+obj warp 11 11 House
+obj warp 11 15 House
+obj warp 41 7 WarehouseA
+obj warp 45 13 WarehouseB
+obj warp 35 15 FurnaceTower
+obj warp 6 31 FurnaceHotel
+obj warp 16 27 Mart
+obj warp 43 27 FreightStation
+obj warp 31 37 House
+obj warp 42 37 GYM
+obj warp 5 39 House
+obj warp 15 39 House
+obj warp 21 39 House
+obj sign 2 24 CitySign
+obj sign 10 30 HotelSign
+obj sign 28 6 IronworksSign
+obj sign 36 38 GymSign
+obj sign 48 28 StationSign
+obj sign 18 31 PlazaSign
+obj npc 30 9 GateGuard left
+obj npc 36 16 Foreman down
+obj npc 40 9 Worker left
+obj npc 43 38 GymTrainee left
+obj npc 16 22 Fisher up
+obj npc 4 36 StallOre up
+obj npc 8 36 StallBerry up
+obj npc 12 36 StallTrade up
+obj npc 6 10 Shiftworker down
+obj npc 26 30 Lady
+obj npc 47 31 Porter left
+obj hidden 46 9 slag_heap
+obj hidden 38 25 pond_fence
+obj item 2 16 terrace_corner

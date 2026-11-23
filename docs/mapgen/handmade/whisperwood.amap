@@ -1,0 +1,34 @@
+# Whisperwood Shrine -- a hidden grove with a spring basin, Cut-gated
+ref LakeOfRage
+key k=ac W=82 q=40 r=41 v=42 y=44 Y=46
+key a=3c b=3d c=3e d=3f D=5d U=65 E=60 G=62 J=5c K=5e I=64 N=66 X=63 Z=67 V=5f B=5b
+key l=4b
+grid:
+TTTTTTTTTTTTTTTTTT
+TTT##DDDDDD##TTTTT
+TT#U,qrrrv,U#""#TT
+TT#,,y.W.Y,,#""#TT
+TT#,,y...Y,k#,,dTT
+T#""k,...,k#U,,,TT
+T#"",,,.,,,,#B###T
+T#,,,k,.,k,,a,,#TT
+TT#=====.===l,,##T
+TT#,,,,,.,,,,,,,#T
+T#,,a,##.##,(^),#T
+T#,"",#J.K#,[~],#T
+T##,,,#,.,#,[~],#T
+TT####U,.,U####,#T
+TTTTTTT,.,TTTTTTTT
+TTTTTTT,.,TTTTTTTT
+end
+exit S 16 31
+obj npc 16 7 ShrineMaiden left
+obj sign 15 7 SpringBasin
+obj hidden 15 9 basin_offering
+obj trainer 12 18 Sage right 3
+obj trainer 21 18 Medium left 3
+obj item 28 5 rare_item_cut
+obj hidden 30 27 hidden_deadend
+obj trainer 5 22 BugCatcher up 3
+obj npc 30 21 Fisher
+obj hidden 8 6 hidden_nook

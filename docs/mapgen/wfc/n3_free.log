@@ -1,0 +1,7 @@
+overlap N=3: 2534 patterns from 15 maps (0.0s)
+  seed 1: solved on attempt 3
+  overlap3_inland_13x27_s1: 11.5s open=NSWE E->N=True E->S=True E->W=True E_cover=0.78 N->E=True N->S=False N->W=True N_cover=0.08 S->E=True S->N=False S->W=True S_cover=0.28 W->E=True W->N=True W->S=True W_cover=0.83
+  seed 2: solved on attempt 5
+  overlap3_inland_13x27_s2: 15.4s open=NSWE E->N=False E->S=True E->W=True E_cover=0.57 N->E=False N->S=False N->W=True N_cover=0.39 S->E=True S->N=False S->W=False S_cover=0.31 W->E=True W->N=True W->S=False W_cover=0.47
+  seed 3: solved on attempt 4
+  overlap3_inland_13x27_s3: 13.9s open=NSW N->S=True N->W=False N_cover=0.48 S->N=True S->W=False S_cover=0.55 W->N=False W->S=False W_cover=0.15

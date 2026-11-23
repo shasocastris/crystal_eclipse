@@ -1,0 +1,35 @@
+# Violet City (expanded) base grid
+ref VioletCity
+key .=01 ,=02 "=03 *=04 T=05 G=0e 1=14 2=15 m=16 n=17 a=18 b=19 g=1a h=1b c=2c d=2d e=2e f=2f ~=35 s=45 S=47 q=48 w=49 p=4a (=54 )=55 [=58 ]=59 #=61 U=65 R=6b V=6d r=70 v=72 ^=76 A=1c B=1d C=1e D=1f E=22 F=23 H=26 I=27 J=28 K=29 L=2a M=3c N=5d O=60 P=74 Q=75 W=79
+grid:
+TTTTTTT(^^)TTcdTTTTTTTTTTTTT
+T,cdTT,[~~]TTEFTT(),TT,,,cdT
+T,efTTTTT[]TTJKTT[],,T,,,efT
+T,.,,TTTT[]TTPQTT[],,T,,,.,T
+......Tcd[]TT.sTT[],,T,*,.,T
+T,,,.TTef[]TT..(^W]TTTT,,.,T
+Tcd,.TTMT[]TT..[~~]TTTcd,.,T
+Tef,.TT,N[aDb..*cLdTOTef,.,T
+T.,,..,,,SABC..SHIf#OT.,,.,T
+T..........................T
+TT#UU,,,,,,,s..,,,,,,,,,,,,T
+rR,cd,,cd,,,,..,,ab,,ab,,,,T
+vV,ef,,ef,,,,..,,mn,,gh....G
+TT,.,,,.,,,,,..,,.,,,.,,,,,T
+T..........................T
+T,12,cd,,cd,,..,*,#,,*,,#,*T
+T,.,,ef,,ef,,..,,,,,,,,,,,,T
+T,........,,,..,qwwwwwwwwp,T
+T,,(^^^^),,,,..,"""""""""",T
+T,*[~~~~]*,,,..,"""""""""",T
+T,,[~~~~],#,,..,"""""""""",T
+T,*,,,,,,*,,,..,qwwwwwwwwp,T
+TT,,*,,#,,,,,..,,,,*,,,,,,TT
+TTTTTTTTTTTTT..TTTTTTTTTTTTT
+end
+exit W 0 9
+exit S 27 47
+exit GATE 55 24
+exit SproutTower 27 5
+exit Gym 22 17
+exit Academy 34 17

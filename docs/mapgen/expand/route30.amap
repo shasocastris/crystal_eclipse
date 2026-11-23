@@ -1,0 +1,85 @@
+# ============================================================================
+# ROUTE 30, expanded  (20x40 blocks, buffer 1196/1300; this repo's 13x27)
+# Source: route30_base.amap (hand grid); this file = rough.py --seed 5 --p 0.55
+# ============================================================================
+# KEPT: the single-lane west road from Cherrygrove (S) to Route 31 (N), with
+#   path ledges (56) you hop going south and walk round going north; Joey
+#   and his Rattata near the Cherrygrove end; the Berry House beside its pond;
+#   the Mr. Pokemon detour branching NE from a signed junction; the wild
+#   tall-grass lane on the east side; Kimono Girl Hana's flower spot; the
+#   SE pond; fruit trees, Antidote, Full Heal, hidden Potion and Lure Ball.
+# ADDED (cf. pokefollow Route 1 / Route 2):
+#   Mr. Pokemon's hilltop: a plateau behind a ledge, reached only by the
+#     branch path, with his own pond, flower beds and a winding drive.
+#   Berry House garden: a fenced plot (48-4a) of fruit trees; the berry man's
+#     house is now the log-cabin style (2c-2f).
+#   East wild lane: a long tall-grass corridor between stands of wood,
+#     opening at the junction (N) and the pond (S).
+#   Hana's glade: a tree-ringed flower clearing (Leafeon trainer).
+#   Three ledge-terraced meadows east of the road (one-way hops south).
+# CONNECTIONS: N col 3 (steps 6-7) -> Route 31 S edge; S col 3 -> Cherrygrove
+#   N avenue (expanded cols 13-14): needs a new connection offset.
+# ============================================================================
+ref Route30
+key 1=14 2=15 c=2c d=2d e=2e f=2f q=48 w=49 p=4a
+key !=3c ?=3d @=3e $=3f &=64 +=62 |=60 <=5d >=5e %=61 /=5c
+grid:
+TTT.,TTTTTTTTTTTTTTT
+TT,.,,"TTT(^^),,*,TT
+TT".,""TTT[~~]S12?TT
+TT".,",TTT[~~],.,,TT
+T!".,,?TT?,,,,,.,*TT
+T""_,*?TT.......,,TT
+T!".,,&TT.,"""",,TTT
+T,,.,$TTT.=======TTT
+T$S.,,,,T.,,"""">TTT
+TT@.......,@$,"""",T
+T,,.,,,,,,$TTT"""""T
+T"".,,""""?TTT"""""T
+T""_,======TTT"""""T
+T!,.,,,,,*$TTT,"""$T
+T@S.,,"""",<TT,,,,>T
+T|,.,,,,,,+TTT"""""T
+T""_,======TTT""",,T
+T"".,,"""",TTT!,,,?T
+T!,.,,,,,,,?TT,,,,,T
+T,,.,qwwwwp,(^^),,?T
+T,,.,cd,*,,,[~~],,,T
+T,,.,ef,,*,,[~~],,$T
+T!,.,.,*,,,,[~~]*,*T
+T@,.,.qwwwp,,&,,*&*T
+T!,...,,,,,..TTTTTTT
+T"".,,""",,,.T***TTT
+T"".,,"""",,..*,*TTT
+T@,.,,,,,,,,>T***TTT
+T,,_,======,,TTTTTTT
+T@,.,,,,,,,,,!<,,?+T
+T"".,""""",,,"""",,T
+T"".,"""",,T,""""TTT
+T@,.,@,*,,,TT@,,TTTT
+TT@_>TT|,$TTTT!,,,<T
+TT,.$T,,,,,,,(^^^)>T
+TT,.+T,*,,,,,[~~~]>T
+TTS.>TT|,,,,,[~~~],T
+TTT.+TTT@*,,,[~~~],T
+TTT.$TTTT|&@$&,@@,TT
+TTT.,TTTTTTTTTTTTTTT
+end
+exit N 6 0
+exit S 6 79
+exit MrPokemon 31 5
+exit BerryHouse 11 43
+obj npc 7 58 JoeyBattle up
+obj trainer 10 62 YoungsterJoey left 3
+obj trainer 14 58 YoungsterMikey down 2
+obj trainer 3 8 BugCatcherDon down 3
+obj npc 14 44 Youngster
+obj npc 4 26 CooltrainerF down
+obj trainer 30 53 KimonoGirlHana down 0
+obj fruit 16 41 FruitTree1
+obj fruit 18 43 FruitTree3
+obj fruit 32 8 FruitTree2
+obj item 34 26 Antidote
+obj item 30 34 FullHeal
+obj hidden 20 9 HiddenPotion
+obj hidden 28 76 HiddenLureBall

@@ -1,0 +1,123 @@
+# ============================================================================
+# SILKWATER CITY  (24x20 blocks, buffer 780/1300)  tileset johto_modern
+# ============================================================================
+# HOOK: a canal city of silk-weavers and dyers. Two railed canals cut the
+#   town into three banks (North Bank market, Lantern Island, South Bank),
+#   joined by five narrow railed bridges. Both canals run off the east edge
+#   and empty into the harbor town next door, so the canals are a Surf route
+#   between the two maps. The Gym is BUG-type (silk moths, Ariados webs):
+#   leader KAIKO, a weaver. The only bridge to the Gym is closed for the
+#   Lantern Festival until you clear the festival quest on Lantern Island.
+#
+# DISTRICTS / BUILDINGS (door step coords in obj lines below)
+#   North Bank (rows 1-6)
+#     Silk Market Hall (3x2, NW)  - indoor bazaar; daily rotating stock,
+#                                   sells Silk Scarf / fabric items
+#     Tailor (2x2)                - outfit / bag colour shop, or move-tutor
+#     Dye Works (brown roof 2x2)  - dye NPC recolours a Pokemon nickname box
+#                                   or gives a Mystic Water-style hold item
+#     Weavers Row guild house (3x2, NE) and two homes
+#     Open-air stalls (67 kiosks on brick) - 3-4 merchant NPCs, one sells
+#                                   Berries, one trades a Silcoon/Cascoon
+#   Lantern Island (rows 9-13)
+#     Pokemon Center + Mart (W), Canal Hotel (3x4 tower, E; rest/save NPC,
+#     rooftop could be a later map), Lantern Square: brick plaza with the
+#     fenced Lantern Pool at its centre (hidden item in the pool rim).
+#   South Bank (rows 16-18)
+#     Silkwater Gym (4x2, SW, brick forecourt), gondolier's house, two homes
+#
+# GAMEPLAY BEATS
+#   1. Arrive from the west road onto Lantern Island; PC/Mart first.
+#   2. Festival guard blocks the Gym bridge (BridgeGuard). Lantern-maker
+#      in the square asks for 3 Silk threads from the market stalls.
+#   3. North Bank market loop: stall trades, Market Hall, tall route north
+#      to the park (map 3) via the brick avenue.
+#   4. Return lanterns -> festival starts (night: lanterns, palette is
+#      the nite render), guard steps aside, Gym opens.
+#   5. Post-Surf: canals lead east to the harbor; hidden items on canal
+#      ends; a gondolier offers a scripted canal tour.
+#
+# EXITS  N = brick avenue to the botanical park (map 3); W = route to the
+#   wider world (suggest: new route from Goldenrod's west / Route 34 coast);
+#   E = Lantern Island road to the harbor town (map 2). Canal water also
+#   runs off E on rows 7-8 and 14-15.
+# NOTE: block 1d is the GYM-labelled front; use 1c 0f 1d 1e only for Gyms.
+# TILE GAPS: no canal corner/end pieces (canals end on trees at col 0);
+#   bridges are 44/46 fence-sides so there is no arched bridge graphic;
+#   no lantern/festival decoration block (use NPC sprites or a new block).
+# ============================================================================
+tileset johto_modern
+ref GoldenrodCity
+key T=05 .=01 :=06 ,=02 *=04 h=67 o=0a ~=35 n=43 u=61
+key <=44 >=46 r=40 f=41 t=42 l=48 e=49 j=4a s=45 S=77 w=66 x=80 z=81
+key R=18 M=1f N=19 A=10 D=17 Z=11 E=1a F=0f C=1c Q=1d W=1e P=1b O=16
+key H=27 I=23 J=28 K=33 1=14 2=13 3=12 4=15 5=64 9=08 0=09
+grid:
+TTTTTTTTTTT::TTTTTTTTTTT
+TTRMN.RN.hh::h90..RMNhTT
+TTADZ.OW.hh::hOW..ADZhTT
+T....s.....::..........T
+T:h:h:h:h:.::.RMN..12h.T
+T::h:h:h::.::.EFZ......T
+T...w......::.....w...hT
+Tnnn<>nnnnn<>nnnnnn<>nnn
+Tuuu<>uuuuu<>uuuuuu<>uuu
+T.h.....::::::::..RMN.hT
+T.RNRMN.::rfft::..HIJ...
+..EPADK.::<~~>::..HIJ...
+T.......::luuj::..ADZ.hT
+Th.x...h:S::::::h.x...hT
+Tnnnnnn<>nnnnnn<>nnnnnnn
+Tuuuuuu<>uuuuuu<>uuuuuuu
+T.RMMN.::.RN.h...,90,,hT
+T.CFQW.::.OW.h12.,OW,*.T
+T:::::S::..............T
+TTTTTTTTTTTTTTTTTTTTTTTT
+end
+exit N 22 0
+exit W 0 22
+exit E 47 21
+exit MarketHall 6 5
+exit Tailor 13 5
+exit DyeWorks 29 5
+exit WeaversRow 38 5
+exit House3w 29 11
+exit HouseNE 39 9
+exit PokeCenter 5 23
+exit Mart 10 23
+exit Hotel 38 25
+exit Gym 8 35
+exit Gondolier 21 35
+exit HouseS 29 35
+exit HouseSE 37 35
+obj warp 6 5 MarketHall
+obj warp 13 5 Tailor
+obj warp 29 5 DyeWorks
+obj warp 38 5 WeaversRow
+obj warp 29 11 House
+obj warp 39 9 House
+obj warp 5 23 PokeCenter
+obj warp 10 23 Mart
+obj warp 38 25 Hotel
+obj warp 8 35 GYM
+obj warp 21 35 Gondolier
+obj warp 29 35 House
+obj warp 37 35 House
+obj sign 10 6 MarketSign
+obj sign 18 27 SquareSign
+obj sign 12 37 GymSign
+obj npc 6 9 StallBerry left
+obj npc 10 9 StallSilk left
+obj npc 8 11 StallTrade left
+obj npc 15 9 StallThread down
+obj npc 24 15 Lady
+obj npc 18 22 LanternMaker right
+obj npc 31 19 Youngster
+obj npc 16 31 BridgeGuard up
+obj npc 3 24 Gentleman
+obj npc 42 25 Bellhop
+obj npc 24 33 Gondolier right
+obj npc 42 35 Granny
+obj hidden 29 24 pool_rim
+obj hidden 2 7 market_corner
+obj item 44 35 southeast_garden

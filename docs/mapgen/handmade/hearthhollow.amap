@@ -1,0 +1,41 @@
+# Hearthhollow -- hot-spring village at the south foot of Mt. Mortar
+ref EcruteakCity
+key M=71 F=72 Q=6d R=6c Z=69 z=68 k=ac
+key 1=2c 2=2d 3=2e 4=2f A=2a 5=26 6=27 h=14 H=15 P=18 p=19 c=1a b=1b
+key W=82 l=4b L=5a D=5d U=65 E=60 G=62
+grid:
+MMoMMMMMMZ..zMMMMoMM
+MMMMMoMMMZ..zMMMMMMM
+FFFFFFFFFQ..RFFCFFFF
+TT,,,,,,,,..,,,.,,TT
+TT,1A2,kk,..,o(^^)oT
+TTk564,*,,....[~~]oT
+TT.......,..,o[~~]oT
+TT._=====_..,===_.TT
+TT.,,k,,,,..,,,,k.TT
+T..12,kk,,..,kk,12TT
+...34,,,,,..,,W,34TT
+T.,,,,**,,s.,**,,.TT
+TT.hH,,,......,hH.TT
+TT................TT
+TTTTTTTTT..TTTTTTTTT
+TTTTTTTTT..TTTTTTTTT
+end
+exit N 21 0
+exit W 0 21
+exit S 19 31
+exit CAVE 30 5
+obj warp 8 11 INN
+obj warp 7 21 house1
+obj warp 33 21 house2
+obj warp 7 25 teahouse
+obj warp 31 25 house3
+obj warp 30 5 MortarBackCave
+obj npc 26 10 OldMan right
+obj sign 28 21 FootBath
+obj sign 20 22 TownSign
+obj npc 14 17 KimonoGirl down
+obj npc 23 17 Youngster
+obj npc 4 7 Hiker down
+obj hidden 5 9 behind_inn
+obj item 34 15 terrace_item

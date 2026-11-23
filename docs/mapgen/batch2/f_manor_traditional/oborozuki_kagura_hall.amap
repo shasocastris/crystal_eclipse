@@ -1,0 +1,31 @@
+# OBOROZUKI MANOR 1F -- Kagura Hall (dance stage)   (10x9, TILESET_TRADITIONAL_HOUSE, ref DanceTheater)
+# Private copy of the Dance Theater: shoji backdrop, raised wooden stage (2c) with stage steps at both
+# ends (2e/2f), audience tatami with cushions, earth strip and mats at the bottom.
+# Gameplay: the family's own Kimono Girl quartet ("Four Moons") stands on the stage. Beat all four in
+# a row (no healing between, like the Dance Theater event) -> the Lead Dancer gives the MOON FAN,
+# which unlocks the study bookshelf later. A patron NPC in the audience explains the eclipse dance.
+# Warps: HALL mats (9,17)(10,17) -> Engawa east carpet (39,6).
+tileset traditional_house
+ref DanceTheater
+key W=03 w=08 S=14 s=13 T=29 B=1a d=04 c=1f V=1e U=39 K=27 |=3a -=3c L=33 l=34 e=36 _=0d ,=0c ;=1d o=0e O=10 t=11 y=16 1=1b 2=1c 3=18 4=19 Y=0a Z=0b g=2a G=20 h=2b m=21 n=22 E=05 M=06 N=07 >=24 Q=49 q=4a a=43 X=48 x=46 z=47 k=3e j=3f P=2e p=30 F=2f D=2d C=2c r=28 7=37 8=38 i=0f I=09 5=31 6=32 f=25 9=12 0=00 A=02 H=40 J=41 ~=42 R=23 b=4b u=35 v=15 !=17 @=0b
+key O=10 0=0e
+grid:
+DDDDDDDDDD
+CCCCCCCCCC
+CCCCCCCCCC
+PppppppppF
+OddddddddO
+OOdddddd00
+dddddddddd
+OOdddddd00
+gghgMNghgg
+end
+exit HALL 9 17
+obj warp 9 17 Engawa
+obj trainer 4 3 MoonDancer1 down 2
+obj trainer 8 2 MoonDancer2 down 2
+obj trainer 12 2 MoonDancer3 down 2
+obj trainer 16 3 MoonDancer4 down 2
+obj npc 10 4 LeadDancer down
+obj npc 3 14 Patron right
+obj npc 16 10 Gentleman left
