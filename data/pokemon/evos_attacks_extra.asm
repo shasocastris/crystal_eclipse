@@ -216,7 +216,7 @@ YanmegaEvosAttacks:
 	dbw 1, FORESIGHT
 	dbw 9, QUICK_ATTACK
 	dbw 17, AIR_SLASH
-	dbw 25, PROTECT
+	dbw 25, DETECT
 	dbw 33, ANCIENTPOWER
 	dbw 41, BUG_BUZZ
 	dbw 49, SCREECH
@@ -289,7 +289,7 @@ SirfetchdEvosAttacks:
 	dbw 17, WING_ATTACK
 	dbw 25, SLASH
 	dbw 33, SWORDS_DANCE
-	dbw 38, PROTECT
+	dbw 38, DETECT
 	dbw 43, IRON_HEAD
 	dbw 50, CROSS_CHOP
 	dbw 55, AGILITY

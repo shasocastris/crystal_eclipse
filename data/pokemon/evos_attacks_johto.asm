@@ -883,7 +883,7 @@ YanmaEvosAttacks:
 	dbw 16, SONICBOOM
 	dbw 19, ROAR
 	dbw 22, REVERSAL
-	dbw 25, PROTECT
+	dbw 25, DETECT
 	dbw 28, ANCIENTPOWER
 	dbw 31, SUPERSONIC
 	dbw 34, WING_ATTACK
@@ -1643,7 +1643,7 @@ HitmontopEvosAttacks:
 	dbw 28, COUNTER
 	dbw 31, AGILITY
 	dbw 37, HI_JUMP_KICK
-	dbw 43, PROTECT
+	dbw 43, DETECT
 	db 0 ; no more level-up moves
 
 SmoochumEvosAttacks:

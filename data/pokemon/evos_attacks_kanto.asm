@@ -2129,7 +2129,7 @@ HitmonchanEvosAttacks:
 	dbw 26, FIRE_PUNCH
 	dbw 32, MACH_PUNCH
 	dbw 38, MEGA_PUNCH
-	dbw 44, PROTECT
+	dbw 44, DETECT
 	dbw 47, HI_JUMP_KICK
 	dbw 50, COUNTER
 	db 0 ; no more level-up moves
@@ -2797,7 +2797,7 @@ ZapdosEvosAttacks:
 	dbw 19, SPARK
 	dbw 25, AGILITY
 	dbw 32, ANCIENTPOWER
-	dbw 37, PROTECT
+	dbw 37, DETECT
 	dbw 43, THUNDERBOLT
 	dbw 49, DRILL_PECK
 	dbw 55, LIGHT_SCREEN
