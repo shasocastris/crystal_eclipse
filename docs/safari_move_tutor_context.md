@@ -131,7 +131,7 @@ Species currently needing a pick (source options in parens):
 - Smoochum (Metronome / Petal Dance)
 - Elekid (Dizzy Punch / Pursuit)
 
-Anthropic/Claude has not yet made these picks — this is an open decision for Bryan,
+Anthropic/Claude has not yet made these picks — this is an open decision for shasocastris,
 or Claude Code can propose a shortlist (thematic fit / movepool usefulness) if asked.
 
 Once curated, each row needs: `{species, move, LINE_*}` — the `LINE_*` should just be
@@ -213,7 +213,7 @@ Still needed:
 
 ---
 
-## 7. Explicit open decisions for Bryan / Claude Code
+## 7. Explicit open decisions for shasocastris / Claude Code
 
 1. Curate the single move per species for the ~17 species listed in §4b.
 2. Confirm all species constant spellings used in `evo_lines.asm` against the actual
