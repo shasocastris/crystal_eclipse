@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crystal Eclipse Playthrough Checks</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column; sticky tally bar; sections as plain lists with a three-state check per row. */
+:root {
+  --bg: #f3f6f8; --surface: #ffffff; --fg: #17232b; --muted: #5a6b76; --line: #d7e0e6;
+  --accent: #1f6f8b; --accent-soft: #e1eef3;
+  --pass: #2e7d4f; --pass-soft: #e3f2e8; --fail: #b3402a; --fail-soft: #f8e5e0;
+  --f-display: "Silkscreen", ui-monospace, monospace;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f171c; --surface: #16222a; --fg: #e3ebf0; --muted: #94a6b2; --line: #2a3a44;
+  --accent: #6cc3e0; --accent-soft: #19323d;
+  --pass: #6fcf97; --pass-soft: #173327; --fail: #f08a72; --fail-soft: #3a211b; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0f171c; --surface: #16222a; --fg: #e3ebf0; --muted: #94a6b2; --line: #2a3a44;
+  --accent: #6cc3e0; --accent-soft: #19323d;
+  --pass: #6fcf97; --pass-soft: #173327; --fail: #f08a72; --fail-soft: #3a211b; color-scheme: dark }
+
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--f-body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 760px; margin: 0 auto; padding: 28px 16px 64px; }
+[hidden] { display: none !important; }
+header h1 { font-family: var(--f-display); font-weight: 400; font-size: 1.6rem; letter-spacing: .02em; margin: 0; color: var(--accent); text-wrap: balance; }
+header p { margin: 6px 0 0; color: var(--muted); max-width: 62ch; }
+.meta { font-family: var(--f-mono); font-size: .8rem; color: var(--muted); margin-top: 10px; }
+
+.tally { position: sticky; top: 0; z-index: 5; background: var(--bg);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 12px 0; margin-top: 18px; border-bottom: 1px solid var(--line); }
+.bar { flex: 1 1 200px; height: 8px; border-radius: 4px; background: var(--line); overflow: hidden; display: flex; }
+.bar span { display: block; height: 100%; }
+.bar .p { background: var(--pass); } .bar .f { background: var(--fail); }
+.counts { font-family: var(--f-mono); font-size: .85rem; display: flex; gap: 12px; flex-wrap: wrap; font-variant-numeric: tabular-nums; }
+.counts .cp { color: var(--pass); } .counts .cf { color: var(--fail); }
+.filter { display: flex; gap: 4px; }
+.filter button { font: inherit; font-size: .8rem; padding: 4px 10px; border-radius: 4px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; }
+.filter button[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.status { font-size: .8rem; color: var(--muted); width: 100%; min-height: 1.2em; }
+
+.legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: .85rem; color: var(--muted); margin: 14px 0 0; }
+.legend b { font-family: var(--f-mono); font-weight: 500; }
+
+section { margin-top: 32px; }
+section h2 { font-family: var(--f-display); font-weight: 400; font-size: 1rem; letter-spacing: .03em; margin: 0 0 4px; display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+section h2 small { font-family: var(--f-mono); font-size: .78rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+section > p.note { margin: 0 0 8px; color: var(--muted); font-size: .9rem; max-width: 62ch; }
+ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+li { border-bottom: 1px solid var(--line); padding: 10px 0; display: grid; grid-template-columns: 34px 1fr; gap: 4px 12px; }
+li.pass .txt { color: var(--muted); }
+li.fail { background: var(--fail-soft); }
+.chk { width: 30px; height: 30px; border-radius: 6px; border: 2px solid var(--line); background: var(--surface); cursor: pointer;
+  font-family: var(--f-mono); font-size: 1rem; line-height: 1; color: transparent; display: grid; place-items: center; padding: 0; }
+.chk:hover { border-color: var(--accent); }
+.chk:focus-visible, .filter button:focus-visible, textarea:focus-visible, .addnote:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+li.pass .chk { background: var(--pass); border-color: var(--pass); color: var(--surface); }
+li.fail .chk { background: var(--fail); border-color: var(--fail); color: var(--surface); }
+.body { min-width: 0; }
+.txt { margin: 3px 0 0; }
+.txt code, .note code { font-family: var(--f-mono); font-size: .85em; background: var(--accent-soft); padding: 0 4px; border-radius: 3px; }
+.addnote { font: inherit; font-size: .8rem; color: var(--accent); background: none; border: 0; padding: 2px 0; cursor: pointer; }
+textarea { width: 100%; box-sizing: border-box; margin-top: 6px; font: inherit; font-size: .9rem; padding: 6px 8px; border-radius: 4px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--fg); resize: vertical; min-height: 2.6em; }
+.tbl { overflow-x: auto; }
+.tools { margin-top: 40px; display: flex; gap: 8px; flex-wrap: wrap; }
+.tools button { font: inherit; font-size: .85rem; padding: 6px 12px; border-radius: 4px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; }
+.tools button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tools textarea { font-family: var(--f-mono); font-size: .8rem; min-height: 8em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Crystal Eclipse Playthrough Checks</h1>
+    <p>What the v0.9 regression harness verified, to confirm by hand in a full run. Tap a box once for <b>works</b>, twice for <b>problem</b>, a third time to clear. Add a note to anything that looks off.</p>
+    <div class="meta">core d3f3b41da · debug ROM a56b006855c4 · harness pass of 2026-10-26</div>
+  </header>
+
+  <div class="tally" role="region" aria-label="Progress">
+    <div class="bar" aria-hidden="true"><span class="p" id="barP"></span><span class="f" id="barF"></span></div>
+    <div class="counts"><span class="cp" id="nP">0 work</span><span class="cf" id="nF">0 problems</span><span id="nL">0 left</span></div>
+    <div class="filter" role="group" aria-label="Show">
+      <button id="fAll" aria-pressed="true">All</button>
+      <button id="fLeft" aria-pressed="false">Left</button>
+      <button id="fFail" aria-pressed="false">Problems</button>
+    </div>
+    <div class="status" id="status" aria-live="polite">Loading saved progress…</div>
+  </div>
+
+  <div id="list"></div>
+
+  <div class="tools">
+    <button id="copyReport" type="button">Copy problems as text</button>
+    <button id="exportBtn" type="button">Export progress</button>
+    <button id="importBtn" type="button">Import progress</button>
+    <button id="resetBtn" type="button">Clear all</button>
+    <textarea id="io" rows="6" hidden aria-label="Progress JSON"></textarea>
+  </div>
+</div>
+
+<script>
+const SECTIONS = [
+  { id: "save", title: "Saving and the main menu", items: [
+    ["menu-fresh", "On a new game the menu shows only NEW GAME and OPTION. After a save, CONTINUE is listed first. The box uses the frame tiles."],
+    ["save-roundtrip", "Save, turn off, CONTINUE: you are exactly where you were, with the same party, bag and flags."],
+    ["fly-indigo", "Flying to Indigo Plateau lands under the League's right door."],
+    ["door-bike", "After a trainer battle or fishing, walking through a door never puts you on the bike. Surfing through a water warp (Route 45 to Blackthorn Pass) still arrives surfing."],
+    ["repel-save", "Save with a Repel nearly used up, reload and walk: it wears off cleanly and \"Use another?\" uses the same kind of Repel."],
+    ["save-sram", "Saving keeps the Hall of Fame, the GS Ball and your Battle Tower records."],
+  ]},
+  { id: "obey", title: "Obedience", note: "Depends on happiness, not badges.", items: [
+    ["obey-low", "At or below level 24, a Pokémon always obeys."],
+    ["obey-rates", "Above that, low happiness means disobedience. Measured: about 48% at L50 / happiness 70, about 70% at L55 / 110–159, about 98% at L55 / 160, about 89% at L60 / 219."],
+    ["obey-220", "At happiness 220 or more it always obeys."],
+    ["obey-bt", "Battle Tower battles skip the obedience check."],
+  ]},
+  { id: "npc", title: "NPCs", items: [
+    ["tim", "Tim takes your Krabby and gives a Voltorb (OT ID 29189, holding a PRZCureBerry). It joins at the end of the party. Talking to him again doesn't trade."],
+    ["carrie-no", "Carrie: saying NO to her save prompt gets nothing, and you can still try again that day."],
+    ["carrie-yes", "Carrie: saying YES saves the game and gives 3 items. Talking to her again the same day gives nothing."],
+  ]},
+  { id: "suicune", title: "Suicune in Tin Tower 1F", note: "The soft-lock fix.", items: [
+    ["suicune-refuse", "Refuse Suicune's offer: you get control back, and the cutscene doesn't replay, even after leaving and coming back."],
+    ["suicune-talk", "Talk to Suicune after refusing: it teaches the move, and the scene ends."],
+  ]},
+  { id: "deities", title: "Other deities and story gates", items: [
+    ["beasts-gate", "Raikou and Entei only appear after the Elite Four, drawn with their party icons (no blinking). Mew needs the rematch."],
+    ["rainbow", "Once all three beasts have taught, the Tin Tower sage with the Rainbow Wing and Eusine's Ho-Oh rumor appear, and not before."],
+    ["celebi", "Celebi: refusing gives the GS Ball back. Accepting takes it, and Kurt comes to look."],
+    ["mewtwo", "Mewtwo in the Mansion starts a real battle, and never comes back once fought."],
+  ]},
+  { id: "gifts", title: "Gifts and prizes", items: [
+    ["kangaskhan", "The Fuchsia sage gives Kangaskhan (L60, happiness 220) only if your lead's happiness is 220 or more. No mothering lines."],
+    ["larvitar", "The Game Corner Larvitar costs 8888 coins and arrives at level 25."],
+  ]},
+  { id: "coach", title: "Silver Cave coach", items: [
+    ["coach-needs", "Needs a Star Piece. Turns away Unown and already-perfect Pokémon without taking it."],
+    ["coach-result", "The coached Pokémon gets perfect DVs and keeps its gender and shininess."],
+    ["coach-hp", "A hurt Pokémon still has the HP it had lost; a fainted one stays fainted."],
+    ["coach-daily", "The Star Piece is taken once, and a second use the same day is refused."],
+  ]},
+  { id: "moves", title: "Signature moves", items: [
+    ["sheer-cold", "<b>Sheer Cold</b>: one-hit KO that starts hail. Fails against a higher-level target, and no hail starts."],
+    ["inner-light", "<b>Inner Light</b>: raises all seven stats a stage at a time to +6; fails once all are maxed."],
+    ["sky-attack", "<b>Sky Attack</b>: hits the turn you use it (no charge) and lowers the target's accuracy two stages."],
+    ["eruption", "<b>Eruption</b>: starts a sandstorm, but not against a Flying target."],
+    ["storm-call", "<b>Storm Call</b>: starts rain, but not against a Ground target."],
+    ["weather-active", "Any weather move: its own weather already up leaves the turn count alone; a different weather is replaced with a fresh 5 turns."],
+    ["life-dew", "<b>Life Dew</b>: heals the user to full HP and full PP, cures its and the party's status, and says the team was cured."],
+    ["aeroblast", "<b>Aeroblast</b>: 50% flinch when you move first."],
+    ["sacred-fire", "<b>Sacred Fire</b>: sun after the hit, 50% burn, and it thaws a frozen user."],
+    ["fly-dig", "Gust, Twister, Thunder and Hurricane hit a target mid-Fly; Earthquake and Magnitude hit one mid-Dig, and not the other way round."],
+    ["aura-sphere", "<b>Aura Sphere</b>: goes first against faster foes, never misses (even vs +6 evasion), misses a target mid-Fly or mid-Dig."],
+    ["fae-blade", "<b>Fae Blade</b>: paralyzes, freezes, burns, poisons, puts to sleep or confuses, about a sixth each. A target with a status is always confused."],
+    ["metronome-sketch", "<b>Metronome</b> never picks one of the ten signature moves; <b>Sketch</b> fails on them."],
+  ]},
+  { id: "tower", title: "Battle Tower", note: "Both fixes from branch 75.", items: [
+    ["bt-entry", "A team of 6 is turned away. A valid team of 3 is asked to save, then reaches the level menu."],
+    ["bt-unique", "Teams of different species with different items are accepted (before the fix some were refused at random)."],
+    ["bt-streak", "Win all 7: back on 1F with 5 of one prize (HP Up, Protein, Iron or Carbos) and control (this crashed before)."],
+    ["bt-fullpack", "With a full item pocket the receptionist says the pack is full and gives nothing; after freeing a slot, talking to her hands over the prize."],
+    ["bt-loss", "Lose a battle: back to the lobby with no prize."],
+  ]},
+  { id: "weather", title: "Weather", items: [
+    ["w-rain-npcs", "Heavy rain in Goldenrod doesn't make any NPCs disappear."],
+    ["w-lightning", "Lightning stops while the map name sign shows and during Fly."],
+    ["w-overcast", "Overcast is still there after saving and reloading."],
+    ["w-lag", "No lag with the maximum number of particles on screen."],
+    ["w-olivine", "No snow inside the Olivine restaurant."],
+  ]},
+  { id: "battle", title: "Battle mechanics after the link-code removal", note: "No change expected; the harness compared each against the old build.", items: [
+    ["b-order", "Speed ties, priority and Quick Claw."],
+    ["b-kos", "Selfdestruct, Destiny Bond and recoil KOs."],
+    ["b-double", "Double faints from poison or sandstorm."],
+    ["b-residual", "Leftovers, Perish Song, Future Sight and Safeguard."],
+    ["b-switch", "Baton Pass, switching, Roar, Struggle and Thief."],
+    ["b-trainer", "Trainers sending out their next Pokémon."],
+    ["b-run", "Running away."],
+    ["b-anims", "Bite, Leech Seed and Petal Dance animate as before."],
+  ]},
+  { id: "untested", title: "Not covered by the harness", note: "Only a real playthrough checks these.", items: [
+    ["u-audio", "Audio, and anything that looks wrong beyond pixel comparisons."],
+    ["u-bt-resume", "Saving and quitting mid Battle Tower challenge, then resuming."],
+    ["u-bt-real", "Winning the Battle Tower with real damage (the test set foes to 1 HP each turn)."],
+    ["u-story", "The story between these checkpoints (the harness warped to each test spot)."],
+  ]},
+];
+
+const ALL = SECTIONS.flatMap(s => s.items.map(i => i[0]));
+let state = {};            // id -> {s: "pass"|"fail", n: "note"}
+let filter = "all";
+const KEY = "crystal-eclipse-playthrough-checks";
+const $ = id => document.getElementById(id);
+
+function esc(t) { return t.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+
+function build() {
+  const root = $("list");
+  root.innerHTML = "";
+  for (const s of SECTIONS) {
+    const sec = document.createElement("section");
+    sec.dataset.sec = s.id;
+    sec.innerHTML = `<h2><span>${s.title}</span><small></small></h2>` + (s.note ? `<p class="note">${s.note}</p>` : "") + "<ul></ul>";
+    const ul = sec.querySelector("ul");
+    for (const [id, text] of s.items) {
+      const li = document.createElement("li");
+      li.dataset.id = id;
+      li.innerHTML = `<button class="chk" aria-label="Mark result"></button>
+        <div class="body"><p class="txt">${text}</p>
+        <button class="addnote" type="button">Add note</button>
+        <textarea id="note-${id}" rows="2" placeholder="What happened?" hidden></textarea></div>`;
+      li.querySelector(".chk").addEventListener("click", () => cycle(id));
+      const ta = li.querySelector("textarea"), add = li.querySelector(".addnote");
+      add.addEventListener("click", () => { ta.hidden = false; add.hidden = true; ta.focus(); });
+      ta.addEventListener("input", () => { setNote(id, ta.value); });
+      ul.appendChild(li);
+    }
+    root.appendChild(sec);
+  }
+}
+
+function render() {
+  let p = 0, f = 0;
+  for (const id of ALL) { const s = state[id]?.s; if (s === "pass") p++; else if (s === "fail") f++; }
+  const left = ALL.length - p - f;
+  $("nP").textContent = `${p} work`; $("nF").textContent = `${f} problem${f === 1 ? "" : "s"}`; $("nL").textContent = `${left} of ${ALL.length} left`;
+  $("barP").style.width = (100 * p / ALL.length) + "%"; $("barF").style.width = (100 * f / ALL.length) + "%";
+  for (const li of document.querySelectorAll("li")) {
+    const st = state[li.dataset.id] || {};
+    li.className = st.s || "";
+    const chk = li.querySelector(".chk");
+    chk.textContent = st.s === "pass" ? "✓" : st.s === "fail" ? "✗" : "";
+    chk.setAttribute("aria-label", st.s === "pass" ? "Works. Tap to mark a problem" : st.s === "fail" ? "Problem. Tap to clear" : "Not checked. Tap to mark works");
+    const ta = li.querySelector("textarea"), add = li.querySelector(".addnote");
+    if (document.activeElement !== ta) {
+      ta.value = st.n || "";
+      ta.hidden = !(st.n || st.s === "fail");
+      add.hidden = !ta.hidden;
+    }
+    li.hidden = filter === "left" ? !!st.s : filter === "fail" ? st.s !== "fail" : false;
+  }
+  for (const sec of document.querySelectorAll("section")) {
+    const items = [...sec.querySelectorAll("li")];
+    const done = items.filter(li => state[li.dataset.id]?.s).length;
+    sec.querySelector("h2 small").textContent = `${done}/${items.length}`;
+    sec.hidden = items.every(li => li.hidden);
+  }
+}
+
+function cycle(id) {
+  const cur = state[id]?.s;
+  const next = cur === undefined ? "pass" : cur === "pass" ? "fail" : undefined;
+  const entry = { ...(state[id] || {}) };
+  if (next) entry.s = next; else delete entry.s;
+  if (entry.s || entry.n) state[id] = entry; else delete state[id];
+  render(); save();
+}
+
+function setNote(id, text) {
+  const entry = { ...(state[id] || {}) };
+  if (text) entry.n = text; else delete entry.n;
+  if (entry.s || entry.n) state[id] = entry; else delete state[id];
+  render(); save();
+}
+
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(state)); $("status").textContent = "Saved in this browser."; }
+  catch { $("status").textContent = "This browser won't store progress here. Use Export before closing."; }
+}
+
+function load() {
+  try { state = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch { state = {}; }
+  $("status").textContent = Object.keys(state).length ? "Progress loaded from this browser." : "Nothing ticked yet. Tap a box to start.";
+}
+
+function plain(html) { const d = document.createElement("div"); d.innerHTML = html; return d.textContent; }
+
+$("copyReport").addEventListener("click", async () => {
+  const lines = [];
+  for (const s of SECTIONS) for (const [id, text] of s.items) {
+    const st = state[id];
+    if (st?.s === "fail") lines.push(`- [${s.title}] ${plain(text)}${st.n ? `\n  Note: ${st.n}` : ""}`);
+  }
+  const out = lines.length ? `Playthrough problems:\n${lines.join("\n")}` : "Playthrough problems: none so far.";
+  try { await navigator.clipboard.writeText(out); $("status").textContent = "Problems copied."; }
+  catch { const io = $("io"); io.hidden = false; io.value = out; io.select(); $("status").textContent = "Select and copy the text below."; }
+});
+$("exportBtn").addEventListener("click", () => {
+  const io = $("io"); io.hidden = false; io.value = JSON.stringify(state, null, 1); io.select();
+  $("status").textContent = "Copy this text to keep a backup.";
+});
+$("importBtn").addEventListener("click", () => {
+  const io = $("io");
+  if (io.hidden) { io.hidden = false; io.value = ""; io.focus(); $("status").textContent = "Paste exported progress, then press Import again."; return; }
+  try { const s = JSON.parse(io.value); if (typeof s !== "object" || !s) throw 0; state = s; render(); save(); io.hidden = true; $("status").textContent = "Progress imported."; }
+  catch { $("status").textContent = "That text isn't exported progress."; }
+});
+let resetArmed = false;
+$("resetBtn").addEventListener("click", () => {
+  if (!resetArmed) { resetArmed = true; $("resetBtn").textContent = "Press again to clear everything"; setTimeout(() => { resetArmed = false; $("resetBtn").textContent = "Clear all"; }, 4000); return; }
+  resetArmed = false; $("resetBtn").textContent = "Clear all";
+  state = {}; render(); save();
+});
+
+for (const [btn, f] of [["fAll", "all"], ["fLeft", "left"], ["fFail", "fail"]]) {
+  $(btn).addEventListener("click", () => {
+    filter = f;
+    for (const b of ["fAll", "fLeft", "fFail"]) $(b).setAttribute("aria-pressed", String(b === btn));
+    render();
+  });
+}
+
+build(); load(); render();
+</script>
+</body>
+</html>
