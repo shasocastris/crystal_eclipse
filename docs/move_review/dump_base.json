@@ -1,0 +1,1616 @@
+{
+"ABSORB": {
+"anims": "anim_ptr BattleAnim_Absorb",
+"descs": "dw AbsorbDescription",
+"moves": "move EFFECT_LEECH_HIT,          20, GRASS,         SPECIAL,  100, 25,   0      ;ABSORB",
+"names": "li \"ABSORB\""
+},
+"ACID": {
+"anims": "anim_ptr BattleAnim_Acid",
+"descs": "dw AcidDescription",
+"moves": "move EFFECT_DEFENSE_DOWN_HIT,   40, POISON,        SPECIAL,  100, 30,  10      ;ACID",
+"names": "li \"ACID\""
+},
+"AERIAL_ACE": {
+"anims": "anim_ptr BattleAnim_FaintAttack      ; AERIAL_ACE",
+"descs": "dw AerialAceDescription",
+"moves": "move EFFECT_ALWAYS_HIT,         60, FLYING,        PHYSICAL, 100, 20,   0      ;AERIAL_ACE",
+"names": "li \"AERIAL ACE\""
+},
+"AEROBLAST": {
+"anims": "anim_ptr BattleAnim_Aeroblast        ; AEROBLAST",
+"descs": "dw AeroblastDescription",
+"moves": "move EFFECT_FLINCH_HIT,          140, DRAGON,        SPECIAL,  100, 10,  50      ;AEROBLAST",
+"names": "li \"AEROBLAST\""
+},
+"AGILITY": {
+"anims": "anim_ptr BattleAnim_Agility",
+"descs": "dw AgilityDescription",
+"moves": "move EFFECT_SPEED_UP_2,          0, PSYCHIC_TYPE,  STATUS,   100, 30,   0      ;AGILITY",
+"names": "li \"AGILITY\""
+},
+"AIR_SLASH": {
+"anims": "anim_ptr BattleAnim_WingAttack       ; AIR_SLASH",
+"descs": "dw AirSlashDescription",
+"moves": "move EFFECT_FLINCH_HIT,         75, FLYING,        SPECIAL,   95, 15,  30      ;AIR_SLASH",
+"names": "li \"AIR SLASH\""
+},
+"AMNESIA": {
+"anims": "anim_ptr BattleAnim_Amnesia",
+"descs": "dw AmnesiaDescription",
+"moves": "move EFFECT_SP_DEF_UP_2,         0, PSYCHIC_TYPE,  STATUS,   100, 20,   0      ;AMNESIA",
+"names": "li \"AMNESIA\""
+},
+"ANCIENTPOWER": {
+"anims": "anim_ptr BattleAnim_Ancientpower",
+"descs": "dw AncientpowerDescription",
+"moves": "move EFFECT_ALL_UP_HIT,         60, ROCK,          SPECIAL,  100, 10,  10      ;ANCIENTPOWER",
+"names": "li \"ANCIENTPOWER\""
+},
+"AQUA_JET": {
+"anims": "anim_ptr BattleAnim_Surf             ; AQUA_JET",
+"descs": "dw AquaJetDescription",
+"moves": "move EFFECT_PRIORITY_HIT,       40, WATER,         PHYSICAL, 100, 20,   0      ;AQUA_JET",
+"names": "li \"AQUA JET\""
+},
+"AQUA_TAIL": {
+"anims": "anim_ptr BattleAnim_Surf             ; AQUA_TAIL",
+"descs": "dw AquaTailDescription",
+"moves": "move EFFECT_NORMAL_HIT,         90, WATER,         PHYSICAL,  90, 10,   0      ;AQUA_TAIL, unreferenced",
+"names": "li \"AQUA TAIL\""
+},
+"ATTRACT": {
+"anims": "anim_ptr BattleAnim_Attract",
+"descs": "dw AttractDescription",
+"moves": "move EFFECT_ATTRACT,             0, NORMAL,        STATUS,   100, 15,   0      ;ATTRACT",
+"names": "li \"ATTRACT\""
+},
+"AURA_SPHERE": {
+"anims": "anim_ptr BattleAnim_ZapCannon        ; AURA_SPHERE",
+"descs": "dw AuraSphereDescription",
+"moves": "move EFFECT_AURA_SPHERE,         140, FIGHTING,      SPECIAL,  100, 10,   0      ;AURA_SPHERE",
+"names": "li \"AURA SPHERE\""
+},
+"AURORA_BEAM": {
+"anims": "anim_ptr BattleAnim_AuroraBeam",
+"descs": "dw AuroraBeamDescription",
+"moves": "move EFFECT_ATTACK_DOWN_HIT,    65, ICE,           SPECIAL,  100, 20,  10      ;AURORA_BEAM",
+"names": "li \"AURORA BEAM\""
+},
+"BARRIER": {
+"anims": "anim_ptr BattleAnim_Barrier",
+"descs": "dw BarrierDescription",
+"moves": "move EFFECT_DEFENSE_UP_2,        0, PSYCHIC_TYPE,  STATUS,   100, 30,   0      ;BARRIER",
+"names": "li \"BARRIER\""
+},
+"BATON_PASS": {
+"anims": "anim_ptr BattleAnim_BatonPass",
+"descs": "dw BatonPassDescription",
+"moves": "move EFFECT_BATON_PASS,          0, NORMAL,        STATUS,   100, 40,   0      ;BATON_PASS",
+"names": "li \"BATON PASS\""
+},
+"BELLY_DRUM": {
+"anims": "anim_ptr BattleAnim_BellyDrum",
+"descs": "dw BellyDrumDescription",
+"moves": "move EFFECT_BELLY_DRUM,          0, NORMAL,        STATUS,   100, 10,   0      ;BELLY_DRUM",
+"names": "li \"BELLY DRUM\""
+},
+"BIND": {
+"anims": "anim_ptr BattleAnim_Bind",
+"descs": "dw BindDescription",
+"moves": "move EFFECT_TRAP_TARGET,        15, BUG,           PHYSICAL, 100, 20,   0      ;BIND",
+"names": "li \"BIND\""
+},
+"BITE": {
+"anims": "anim_ptr BattleAnim_Bite",
+"descs": "dw BiteDescription",
+"moves": "move EFFECT_FLINCH_HIT,         60, DARK,          PHYSICAL, 100, 25,  30      ;BITE",
+"names": "li \"BITE\""
+},
+"BLIZZARD": {
+"anims": "anim_ptr BattleAnim_Blizzard",
+"descs": "dw BlizzardDescription",
+"moves": "move EFFECT_BLIZZARD,          120, ICE,           SPECIAL,   70,  5,  10      ;BLIZZARD",
+"names": "li \"BLIZZARD\""
+},
+"BODY_SLAM": {
+"anims": "anim_ptr BattleAnim_BodySlam",
+"descs": "dw BodySlamDescription",
+"moves": "move EFFECT_PARALYZE_HIT,       85, NORMAL,        PHYSICAL, 100, 15,  30      ;BODY_SLAM",
+"names": "li \"BODY SLAM\""
+},
+"BONEMERANG": {
+"anims": "anim_ptr BattleAnim_Bonemerang",
+"descs": "dw BonemerangDescription",
+"moves": "move EFFECT_DOUBLE_HIT,         50, GROUND,        PHYSICAL,  90, 10,   0      ;BONEMERANG",
+"names": "li \"BONEMERANG\""
+},
+"BONE_CLUB": {
+"anims": "anim_ptr BattleAnim_BoneClub",
+"descs": "dw BoneClubDescription",
+"moves": "move EFFECT_FLINCH_HIT,         65, GROUND,        PHYSICAL,  85, 20,  10      ;BONE_CLUB",
+"names": "li \"BONE CLUB\""
+},
+"BRAVE_BIRD": {
+"anims": "anim_ptr BattleAnim_WingAttack       ; BRAVE_BIRD",
+"descs": "dw BraveBirdDescription",
+"moves": "move EFFECT_RECOIL_HIT,        120, FLYING,        PHYSICAL, 100, 15,   0      ;BRAVE_BIRD",
+"names": "li \"BRAVE BIRD\""
+},
+"BUBBLE": {
+"anims": "anim_ptr BattleAnim_Bubble",
+"descs": "dw BubbleDescription",
+"moves": "move EFFECT_SPEED_DOWN_HIT,     20, WATER,         SPECIAL,  100, 30,  10      ;BUBBLE",
+"names": "li \"BUBBLE\""
+},
+"BUBBLEBEAM": {
+"anims": "anim_ptr BattleAnim_Bubblebeam",
+"descs": "dw BubblebeamDescription",
+"moves": "move EFFECT_SPEED_DOWN_HIT,     65, WATER,         SPECIAL,  100, 20,  10      ;BUBBLEBEAM",
+"names": "li \"BUBBLEBEAM\""
+},
+"BUG_BUZZ": {
+"anims": "anim_ptr BattleAnim_CottonSpore      ; BUG_BUZZ",
+"descs": "dw BugBuzzDescription",
+"moves": "move EFFECT_SP_DEF_DOWN_HIT,    90, BUG,           SPECIAL,  100, 10,  10      ;BUG_BUZZ",
+"names": "li \"BUG BUZZ\""
+},
+"BULLDOZE": {
+"anims": "anim_ptr BattleAnim_Magnitude        ; BULLDOZE",
+"descs": "dw BulldozeDescription",
+"moves": "move EFFECT_SPEED_DOWN_HIT,     60, GROUND,        PHYSICAL, 100, 20, 100      ;BULLDOZE",
+"names": "li \"BULLDOZE\""
+},
+"BULLET_PUNCH": {
+"anims": "anim_ptr BattleAnim_MachPunch        ; BULLET_PUNCH",
+"descs": "dw BulletPunchDescription",
+"moves": "move EFFECT_PRIORITY_HIT,       40, STEEL,         PHYSICAL, 100, 30,   0      ;BULLET_PUNCH",
+"names": "li \"BULLET PUNCH\""
+},
+"CHARM": {
+"anims": "anim_ptr BattleAnim_Charm",
+"descs": "dw CharmDescription",
+"moves": "move EFFECT_ATTACK_DOWN_2,       0, FAIRY,         STATUS,   100, 20,   0      ;CHARM",
+"names": "li \"CHARM\""
+},
+"CLAMP": {
+"anims": "anim_ptr BattleAnim_Clamp",
+"descs": "dw ClampDescription",
+"moves": "move EFFECT_TRAP_TARGET,        15, STEEL,         PHYSICAL, 100, 20,   0      ;CLAMP",
+"names": "li \"CLAMP\""
+},
+"COMET_PUNCH": {
+"anims": "anim_ptr BattleAnim_CometPunch",
+"descs": "dw CometPunchDescription",
+"moves": "move EFFECT_MULTI_HIT,          18, FAIRY,         PHYSICAL,  85, 15,   0      ;COMET_PUNCH",
+"names": "li \"COMET PUNCH\""
+},
+"CONFUSE_RAY": {
+"anims": "anim_ptr BattleAnim_ConfuseRay",
+"descs": "dw ConfuseRayDescription",
+"moves": "move EFFECT_CONFUSE,             0, GHOST,         STATUS,   100, 10,   0      ;CONFUSE_RAY",
+"names": "li \"CONFUSE RAY\""
+},
+"CONFUSION": {
+"anims": "anim_ptr BattleAnim_Confusion",
+"descs": "dw ConfusionDescription",
+"moves": "move EFFECT_CONFUSE_HIT,        50, PSYCHIC_TYPE,  SPECIAL,  100, 25,  10      ;CONFUSION",
+"names": "li \"CONFUSION\""
+},
+"CONSTRICT": {
+"anims": "anim_ptr BattleAnim_Constrict",
+"descs": "dw ConstrictDescription",
+"moves": "move EFFECT_TRAP_TARGET,        15, GRASS,         PHYSICAL, 100, 20,   0      ;CONSTRICT",
+"names": "li \"CONSTRICT\""
+},
+"CONVERSION": {
+"anims": "anim_ptr BattleAnim_Conversion",
+"descs": "dw ConversionDescription",
+"moves": "move EFFECT_CONVERSION,          0, NORMAL,        STATUS,   100, 30,   0      ;CONVERSION",
+"names": "li \"CONVERSION\""
+},
+"CONVERSION2": {
+"anims": "anim_ptr BattleAnim_Conversion2",
+"descs": "dw Conversion2Description",
+"moves": "move EFFECT_CONVERSION2,         0, NORMAL,        STATUS,   100, 30,   0      ;CONVERSION2",
+"names": "li \"CONVERSION2\""
+},
+"COUNTER": {
+"anims": "anim_ptr BattleAnim_Counter",
+"descs": "dw CounterDescription",
+"moves": "move EFFECT_COUNTER,             1, FIGHTING,      PHYSICAL, 100, 20,   0      ;COUNTER",
+"names": "li \"COUNTER\""
+},
+"CRABHAMMER": {
+"anims": "anim_ptr BattleAnim_Crabhammer",
+"descs": "dw CrabhammerDescription",
+"moves": "move EFFECT_NORMAL_HIT,         90, WATER,         PHYSICAL,  85, 10,   0      ;CRABHAMMER",
+"names": "li \"CRABHAMMER\""
+},
+"CROSS_CHOP": {
+"anims": "anim_ptr BattleAnim_CrossChop",
+"descs": "dw CrossChopDescription",
+"moves": "move EFFECT_NORMAL_HIT,        100, FIGHTING,      PHYSICAL,  80,  5,   0      ;CROSS_CHOP",
+"names": "li \"CROSS CHOP\""
+},
+"CRUNCH": {
+"anims": "anim_ptr BattleAnim_Crunch",
+"descs": "dw CrunchDescription",
+"moves": "move EFFECT_SP_DEF_DOWN_HIT,    80, DARK,          PHYSICAL, 100, 15,  20      ;CRUNCH",
+"names": "li \"CRUNCH\""
+},
+"CURSE": {
+"anims": "anim_ptr BattleAnim_Curse",
+"descs": "dw CurseDescription",
+"moves": "move EFFECT_CURSE,               0, CURSE_TYPE,    STATUS,   100, 10,   0      ;CURSE",
+"names": "li \"CURSE\""
+},
+"CUT": {
+"anims": "anim_ptr BattleAnim_Cut",
+"descs": "dw CutDescription",
+"moves": "move EFFECT_NORMAL_HIT,         50, BUG,           PHYSICAL,  95, 30,   0      ;CUT",
+"names": "li \"CUT\""
+},
+"DARK_PULSE": {
+"anims": "anim_ptr BattleAnim_ShadowBall       ; DARK_PULSE",
+"descs": "dw DarkPulseDescription",
+"moves": "move EFFECT_FLINCH_HIT,         80, DARK,          SPECIAL,  100, 15,  20      ;DARK_PULSE",
+"names": "li \"DARK PULSE\""
+},
+"DAZZLING_GLEAM": {
+"anims": "anim_ptr BattleAnim_Moonblast        ; DAZZLING_GLEAM",
+"descs": "dw DazzlingGleamDescription",
+"moves": "move EFFECT_NORMAL_HIT,         80, FAIRY,         SPECIAL,  100, 10,   0      ;DAZZLING_GLEAM",
+"names": "li \"DAZZLE GLEAM\""
+},
+"DEFENSE_CURL": {
+"anims": "anim_ptr BattleAnim_DefenseCurl",
+"descs": "dw DefenseCurlDescription",
+"moves": "move EFFECT_DEFENSE_CURL,        0, NORMAL,        STATUS,   100, 40,   0      ;DEFENSE_CURL",
+"names": "li \"DEFENSE CURL\""
+},
+"DESTINY_BOND": {
+"anims": "anim_ptr BattleAnim_DestinyBond",
+"descs": "dw DestinyBondDescription",
+"moves": "move EFFECT_DESTINY_BOND,        0, GHOST,         STATUS,   100,  5,   0      ;DESTINY_BOND",
+"names": "li \"DESTINY BOND\""
+},
+"DETECT": {
+"anims": "anim_ptr BattleAnim_Detect",
+"descs": "dw DetectDescription",
+"moves": "move EFFECT_DETECT,              0, FIGHTING,      STATUS,   100,  5,   0      ;DETECT",
+"names": "li \"DETECT\""
+},
+"DIG": {
+"anims": "anim_ptr BattleAnim_Dig",
+"descs": "dw DigDescription",
+"moves": "move EFFECT_FLY,                60, GROUND,        PHYSICAL, 100, 10,   0      ;DIG",
+"names": "li \"DIG\""
+},
+"DISABLE": {
+"anims": "anim_ptr BattleAnim_Disable",
+"descs": "dw DisableDescription",
+"moves": "move EFFECT_DISABLE,             0, NORMAL,        STATUS,    55, 20,   0      ;DISABLE",
+"names": "li \"DISABLE\""
+},
+"DISARM_VOICE": {
+"anims": "anim_ptr BattleAnim_Supersonic       ; DISARM_VOICE",
+"descs": "dw DisarmVoiceDescription",
+"moves": "move EFFECT_ALWAYS_HIT,         40, FAIRY,         SPECIAL,  100, 15,   0      ;DISARM_VOICE",
+"names": "li \"DISARM VOICE\""
+},
+"DOUBLE_EDGE": {
+"anims": "anim_ptr BattleAnim_DoubleEdge",
+"descs": "dw DoubleEdgeDescription",
+"moves": "move EFFECT_RECOIL_HIT,        120, NORMAL,        PHYSICAL, 100, 15,   0      ;DOUBLE_EDGE",
+"names": "li \"DOUBLE-EDGE\""
+},
+"DOUBLE_KICK": {
+"anims": "anim_ptr BattleAnim_DoubleKick",
+"descs": "dw DoubleKickDescription",
+"moves": "move EFFECT_DOUBLE_HIT,         30, FIGHTING,      PHYSICAL, 100, 30,   0      ;DOUBLE_KICK",
+"names": "li \"DOUBLE KICK\""
+},
+"DOUBLE_TEAM": {
+"anims": "anim_ptr BattleAnim_DoubleTeam",
+"descs": "dw DoubleTeamDescription",
+"moves": "move EFFECT_EVASION_UP,          0, NORMAL,        STATUS,   100, 15,   0      ;DOUBLE_TEAM",
+"names": "li \"DOUBLE TEAM\""
+},
+"DRAGONBREATH": {
+"anims": "anim_ptr BattleAnim_Dragonbreath",
+"descs": "dw DragonbreathDescription",
+"moves": "move EFFECT_PARALYZE_HIT,       60, DRAGON,        SPECIAL,  100, 20,  30      ;DRAGONBREATH",
+"names": "li \"DRAGONBREATH\""
+},
+"DRAGON_CLAW": {
+"anims": "anim_ptr BattleAnim_Dragonbreath     ; DRAGON_CLAW",
+"descs": "dw DragonClawDescription",
+"moves": "move EFFECT_NORMAL_HIT,         80, DRAGON,        PHYSICAL, 100, 15,   0      ;DRAGON_CLAW",
+"names": "li \"DRAGON CLAW\""
+},
+"DRAGON_PULSE": {
+"anims": "anim_ptr BattleAnim_Aeroblast        ; DRAGON_PULSE",
+"descs": "dw DragonPulseDescription",
+"moves": "move EFFECT_NORMAL_HIT,         85, DRAGON,        SPECIAL,  100, 10,   0      ;DRAGON_PULSE",
+"names": "li \"DRAGON PULSE\""
+},
+"DRAGON_RAGE": {
+"anims": "anim_ptr BattleAnim_DragonRage",
+"descs": "dw DragonRageDescription",
+"moves": "move EFFECT_STATIC_DAMAGE,      40, DRAGON,        SPECIAL,  100, 10,   0      ;DRAGON_RAGE",
+"names": "li \"DRAGON RAGE\""
+},
+"DRAIN_KISS": {
+"anims": "anim_ptr BattleAnim_GigaDrain        ; DRAIN_KISS",
+"descs": "dw DrainKissDescription",
+"moves": "move EFFECT_LEECH_HIT,          50, FAIRY,         SPECIAL,  100, 10,   0      ;DRAIN_KISS, unreferenced",
+"names": "li \"DRAIN KISS\""
+},
+"DRAIN_PUNCH": {
+"anims": "anim_ptr BattleAnim_CrossChop        ; DRAIN_PUNCH",
+"descs": "dw DrainPunchDescription",
+"moves": "move EFFECT_LEECH_HIT,          75, FIGHTING,      PHYSICAL, 100, 10,   0      ;DRAIN_PUNCH",
+"names": "li \"DRAIN PUNCH\""
+},
+"DREAM_EATER": {
+"anims": "anim_ptr BattleAnim_DreamEater",
+"descs": "dw DreamEaterDescription",
+"moves": "move EFFECT_DREAM_EATER,       100, GHOST,         SPECIAL,  100, 15,   0      ;DREAM_EATER",
+"names": "li \"DREAM EATER\""
+},
+"DRILL_PECK": {
+"anims": "anim_ptr BattleAnim_DrillPeck",
+"descs": "dw DrillPeckDescription",
+"moves": "move EFFECT_NORMAL_HIT,         80, FLYING,        PHYSICAL, 100, 20,   0      ;DRILL_PECK",
+"names": "li \"DRILL PECK\""
+},
+"DYNAMICPUNCH": {
+"anims": "anim_ptr BattleAnim_Dynamicpunch",
+"descs": "dw DynamicpunchDescription",
+"moves": "move EFFECT_CONFUSE_HIT,       100, FIGHTING,      PHYSICAL,  50,  5, 100      ;DYNAMICPUNCH",
+"names": "li \"DYNAMICPUNCH\""
+},
+"EARTHQUAKE": {
+"anims": "anim_ptr BattleAnim_Earthquake",
+"descs": "dw EarthquakeDescription",
+"moves": "move EFFECT_EARTHQUAKE,        100, GROUND,        PHYSICAL, 100, 10,   0      ;EARTHQUAKE",
+"names": "li \"EARTHQUAKE\""
+},
+"EARTH_POWER": {
+"anims": "anim_ptr BattleAnim_Magnitude        ; EARTH_POWER",
+"descs": "dw EarthPowerDescription",
+"moves": "move EFFECT_SP_DEF_DOWN_HIT,    90, GROUND,        SPECIAL,  100, 10,  10      ;EARTH_POWER",
+"names": "li \"EARTH POWER\""
+},
+"EMBER": {
+"anims": "anim_ptr BattleAnim_Ember",
+"descs": "dw EmberDescription",
+"moves": "move EFFECT_BURN_HIT,           40, FIRE,          SPECIAL,  100, 25,  10      ;EMBER",
+"names": "li \"EMBER\""
+},
+"ENCORE": {
+"anims": "anim_ptr BattleAnim_Encore",
+"descs": "dw EncoreDescription",
+"moves": "move EFFECT_ENCORE,              0, NORMAL,        STATUS,   100,  5,   0      ;ENCORE",
+"names": "li \"ENCORE\""
+},
+"ENDURE": {
+"anims": "anim_ptr BattleAnim_Endure",
+"descs": "dw EndureDescription",
+"moves": "move EFFECT_ENDURE,              0, NORMAL,        STATUS,   100, 10,   0      ;ENDURE",
+"names": "li \"ENDURE\""
+},
+"ENERGY_BALL": {
+"anims": "anim_ptr BattleAnim_GigaDrain        ; ENERGY_BALL",
+"descs": "dw EnergyBallDescription",
+"moves": "move EFFECT_SP_DEF_DOWN_HIT,    90, GRASS,         SPECIAL,  100, 10,  10      ;ENERGY_BALL",
+"names": "li \"ENERGY BALL\""
+},
+"ERUPTION": {
+"anims": "anim_ptr BattleAnim_Magnitude        ; ERUPTION",
+"descs": "dw EruptionDescription",
+"moves": "move EFFECT_ERUPTION,            140, GROUND,        PHYSICAL, 100, 10,   0      ;ERUPTION",
+"names": "li \"ERUPTION\""
+},
+"EXTRASENSORY": {
+"anims": "anim_ptr BattleAnim_HiddenPower      ; EXTRASENSORY",
+"descs": "dw ExtrasensoryDescription",
+"moves": "move EFFECT_FLINCH_HIT,         80, PSYCHIC_TYPE,  SPECIAL,  100, 20,  10      ;EXTRASENSORY, unreferenced",
+"names": "li \"EXTRASENSORY\""
+},
+"EXTREMESPEED": {
+"anims": "anim_ptr BattleAnim_Extremespeed",
+"descs": "dw ExtremespeedDescription",
+"moves": "move EFFECT_PRIORITY_HIT,       80, NORMAL,        PHYSICAL, 100, 10,   0      ;EXTREMESPEED",
+"names": "li \"EXTREMESPEED\""
+},
+"FAE_BLADE": {
+"anims": "anim_ptr BattleAnim_PlayRough        ; FAE_BLADE",
+"descs": "dw FaeBladeDescription",
+"moves": "move EFFECT_FAE_BLADE,           140, FAIRY,         PHYSICAL, 100, 10, 100      ;FAE_BLADE",
+"names": "li \"FAE BLADE\""
+},
+"FAINT_ATTACK": {
+"anims": "anim_ptr BattleAnim_FaintAttack",
+"descs": "dw FaintAttackDescription",
+"moves": "move EFFECT_ALWAYS_HIT,         60, DARK,          PHYSICAL, 100, 20,   0      ;FAINT_ATTACK",
+"names": "li \"FAINT ATTACK\""
+},
+"FALSE_SWIPE": {
+"anims": "anim_ptr BattleAnim_FalseSwipe",
+"descs": "dw FalseSwipeDescription",
+"moves": "move EFFECT_FALSE_SWIPE,        40, NORMAL,        PHYSICAL, 100, 40,   0      ;FALSE_SWIPE",
+"names": "li \"FALSE SWIPE\""
+},
+"FIRE_BLAST": {
+"anims": "anim_ptr BattleAnim_FireBlast",
+"descs": "dw FireBlastDescription",
+"moves": "move EFFECT_BURN_HIT,          120, FIRE,          SPECIAL,   85,  5,  10      ;FIRE_BLAST",
+"names": "li \"FIRE BLAST\""
+},
+"FIRE_PUNCH": {
+"anims": "anim_ptr BattleAnim_FirePunch",
+"descs": "dw FirePunchDescription",
+"moves": "move EFFECT_BURN_HIT,           75, FIRE,          PHYSICAL, 100, 15,  10      ;FIRE_PUNCH",
+"names": "li \"FIRE PUNCH\""
+},
+"FIRE_SPIN": {
+"anims": "anim_ptr BattleAnim_FireSpin",
+"descs": "dw FireSpinDescription",
+"moves": "move EFFECT_TRAP_TARGET,        15, FIRE,          SPECIAL,  100, 20,   0      ;FIRE_SPIN",
+"names": "li \"FIRE SPIN\""
+},
+"FLAIL": {
+"anims": "anim_ptr BattleAnim_Flail",
+"descs": "dw FlailDescription",
+"moves": "move EFFECT_REVERSAL,            1, NORMAL,        PHYSICAL, 100, 15,   0      ;FLAIL",
+"names": "li \"FLAIL\""
+},
+"FLAMETHROWER": {
+"anims": "anim_ptr BattleAnim_Flamethrower",
+"descs": "dw FlamethrowerDescription",
+"moves": "move EFFECT_BURN_HIT,           95, FIRE,          SPECIAL,  100, 15,  10      ;FLAMETHROWER",
+"names": "li \"FLAMETHROWER\""
+},
+"FLAME_WHEEL": {
+"anims": "anim_ptr BattleAnim_FlameWheel",
+"descs": "dw FlameWheelDescription",
+"moves": "move EFFECT_FLAME_WHEEL,        60, FIRE,          PHYSICAL, 100, 25,  10      ;FLAME_WHEEL",
+"names": "li \"FLAME WHEEL\""
+},
+"FLASH": {
+"anims": "anim_ptr BattleAnim_Flash",
+"descs": "dw FlashDescription",
+"moves": "move EFFECT_ACCURACY_DOWN_2,     0, NORMAL,        STATUS,   100, 20,   0      ;FLASH",
+"names": "li \"FLASH\""
+},
+"FLASH_CANNON": {
+"anims": "anim_ptr BattleAnim_ZapCannon        ; FLASH_CANNON",
+"descs": "dw FlashCannonDescription",
+"moves": "move EFFECT_SP_DEF_DOWN_HIT,    80, STEEL,         SPECIAL,  100, 10,  10      ;FLASH_CANNON",
+"names": "li \"FLASH CANNON\""
+},
+"FLY": {
+"anims": "anim_ptr BattleAnim_Fly",
+"descs": "dw FlyDescription",
+"moves": "move EFFECT_FLY,                70, FLYING,        PHYSICAL,  95, 15,   0      ;FLY",
+"names": "li \"FLY\""
+},
+"FOCUS_BLAST": {
+"anims": "anim_ptr BattleAnim_ZapCannon        ; FOCUS_BLAST",
+"descs": "dw FocusBlastDescription",
+"moves": "move EFFECT_SP_DEF_DOWN_HIT,   120, FIGHTING,      SPECIAL,   70,  5,  10      ;FOCUS_BLAST",
+"names": "li \"FOCUS BLAST\""
+},
+"FOCUS_ENERGY": {
+"anims": "anim_ptr BattleAnim_FocusEnergy",
+"descs": "dw FocusEnergyDescription",
+"moves": "move EFFECT_FOCUS_ENERGY,        0, NORMAL,        STATUS,   100, 30,   0      ;FOCUS_ENERGY",
+"names": "li \"FOCUS ENERGY\""
+},
+"FORESIGHT": {
+"anims": "anim_ptr BattleAnim_Foresight",
+"descs": "dw ForesightDescription",
+"moves": "move EFFECT_FORESIGHT,           0, NORMAL,        STATUS,   100, 40,   0      ;FORESIGHT",
+"names": "li \"FORESIGHT\""
+},
+"FURY_CUTTER": {
+"anims": "anim_ptr BattleAnim_FuryCutter",
+"descs": "dw FuryCutterDescription",
+"moves": "move EFFECT_FURY_CUTTER,        10, BUG,           PHYSICAL,  95, 20,   0      ;FURY_CUTTER",
+"names": "li \"FURY CUTTER\""
+},
+"FURY_STRIKES": {
+"anims": "anim_ptr BattleAnim_FurySwipes",
+"descs": "dw FurySwipesDescription",
+"moves": "move EFFECT_MULTI_HIT,          15, NORMAL,        PHYSICAL,  85, 20,   0      ;FURY_STRIKES",
+"names": "li \"FURY STRIKES\""
+},
+"FUTURE_SIGHT": {
+"anims": "anim_ptr BattleAnim_FutureSight",
+"descs": "dw FutureSightDescription",
+"moves": "move EFFECT_FUTURE_SIGHT,       80, PSYCHIC_TYPE,  SPECIAL,   90, 15,   0      ;FUTURE_SIGHT",
+"names": "li \"FUTURE SIGHT\""
+},
+"GIGA_DRAIN": {
+"anims": "anim_ptr BattleAnim_GigaDrain",
+"descs": "dw GigaDrainDescription",
+"moves": "move EFFECT_LEECH_HIT,          75, GRASS,         SPECIAL,  100, 10,   0      ;GIGA_DRAIN",
+"names": "li \"GIGA DRAIN\""
+},
+"GLARE": {
+"anims": "anim_ptr BattleAnim_Glare",
+"descs": "dw GlareDescription",
+"moves": "move EFFECT_PARALYZE,            0, NORMAL,        STATUS,    75, 30,   0      ;GLARE",
+"names": "li \"GLARE\""
+},
+"GROWL": {
+"anims": "anim_ptr BattleAnim_Growl",
+"descs": "dw GrowlDescription",
+"moves": "move EFFECT_ATTACK_DOWN,         0, NORMAL,        STATUS,   100, 40,   0      ;GROWL",
+"names": "li \"GROWL\""
+},
+"GROWTH": {
+"anims": "anim_ptr BattleAnim_Growth",
+"descs": "dw GrowthDescription",
+"moves": "move EFFECT_SP_ATK_UP,           0, NORMAL,        STATUS,   100, 40,   0      ;GROWTH",
+"names": "li \"GROWTH\""
+},
+"GUNK_SHOT": {
+"anims": "anim_ptr BattleAnim_SludgeBomb       ; GUNK_SHOT",
+"descs": "dw GunkShotDescription",
+"moves": "move EFFECT_POISON_HIT,        120, POISON,        PHYSICAL,  80,  5,  30      ;GUNK_SHOT",
+"names": "li \"GUNK SHOT\""
+},
+"GUST": {
+"anims": "anim_ptr BattleAnim_Gust",
+"descs": "dw GustDescription",
+"moves": "move EFFECT_GUST,               40, FLYING,        SPECIAL,  100, 35,   0      ;GUST",
+"names": "li \"GUST\""
+},
+"HAIL": {
+"anims": "anim_ptr BattleAnim_Hail",
+"descs": "dw HailDescription",
+"moves": "move EFFECT_HAIL,                0, ICE,           STATUS,   100, 10,   0      ;HAIL",
+"names": "li \"HAIL\""
+},
+"HARDEN": {
+"anims": "anim_ptr BattleAnim_Harden",
+"descs": "dw HardenDescription",
+"moves": "move EFFECT_DEFENSE_UP,          0, NORMAL,        STATUS,   100, 30,   0      ;HARDEN",
+"names": "li \"HARDEN\""
+},
+"HAZE": {
+"anims": "anim_ptr BattleAnim_Haze",
+"descs": "dw HazeDescription",
+"moves": "move EFFECT_RESET_STATS,         0, ICE,           STATUS,   100, 30,   0      ;HAZE",
+"names": "li \"HAZE\""
+},
+"HEADBUTT": {
+"anims": "anim_ptr BattleAnim_Headbutt",
+"descs": "dw HeadbuttDescription",
+"moves": "move EFFECT_FLINCH_HIT,         70, NORMAL,        PHYSICAL, 100, 15,  30      ;HEADBUTT",
+"names": "li \"HEADBUTT\""
+},
+"HEAL_BELL": {
+"anims": "anim_ptr BattleAnim_HealBell",
+"descs": "dw HealBellDescription",
+"moves": "move EFFECT_HEAL_BELL,           0, NORMAL,        STATUS,   100,  5,   0      ;HEAL_BELL",
+"names": "li \"HEAL BELL\""
+},
+"HIDDEN_POWER": {
+"anims": "anim_ptr BattleAnim_HiddenPower",
+"descs": "dw HiddenPowerDescription",
+"moves": "move EFFECT_HIDDEN_POWER,       70, NORMAL,        SPECIAL,  100, 15,   0      ;HIDDEN_POWER",
+"names": "li \"HIDDEN POWER\""
+},
+"HI_JUMP_KICK": {
+"anims": "anim_ptr BattleAnim_HiJumpKick",
+"descs": "dw HiJumpKickDescription",
+"moves": "move EFFECT_JUMP_KICK,          85, FIGHTING,      PHYSICAL,  90, 20,   0      ;HI_JUMP_KICK",
+"names": "li \"HI JUMP KICK\""
+},
+"HORN_ATTACK": {
+"anims": "anim_ptr BattleAnim_HornAttack",
+"descs": "dw HornAttackDescription",
+"moves": "move EFFECT_NORMAL_HIT,         65, NORMAL,        PHYSICAL, 100, 25,   0      ;HORN_ATTACK",
+"names": "li \"HORN ATTACK\""
+},
+"HURRICANE": {
+"anims": "anim_ptr BattleAnim_Twister          ; HURRICANE",
+"descs": "dw HurricaneDescription",
+"moves": "move EFFECT_HURRICANE,         110, FLYING,        SPECIAL,   70, 10,  30      ;HURRICANE",
+"names": "li \"HURRICANE\""
+},
+"HYDRO_PUMP": {
+"anims": "anim_ptr BattleAnim_HydroPump",
+"descs": "dw HydroPumpDescription",
+"moves": "move EFFECT_NORMAL_HIT,        120, WATER,         SPECIAL,   80,  5,   0      ;HYDRO_PUMP",
+"names": "li \"HYDRO PUMP\""
+},
+"HYPER_BEAM": {
+"anims": "anim_ptr BattleAnim_HyperBeam",
+"descs": "dw HyperBeamDescription",
+"moves": "move EFFECT_HYPER_BEAM,        150, NORMAL,        SPECIAL,   90,  5,   0      ;HYPER_BEAM",
+"names": "li \"HYPER BEAM\""
+},
+"HYPER_FANG": {
+"anims": "anim_ptr BattleAnim_HyperFang",
+"descs": "dw HyperFangDescription",
+"moves": "move EFFECT_FLINCH_HIT,         80, NORMAL,        PHYSICAL,  90, 15,  10      ;HYPER_FANG",
+"names": "li \"HYPER FANG\""
+},
+"HYPER_VOICE": {
+"anims": "anim_ptr BattleAnim_Supersonic       ; HYPER_VOICE",
+"descs": "dw HyperVoiceDescription",
+"moves": "move EFFECT_NORMAL_HIT,         90, NORMAL,        SPECIAL,  100, 10,   0      ;HYPER_VOICE",
+"names": "li \"HYPER VOICE\""
+},
+"HYPNOSIS": {
+"anims": "anim_ptr BattleAnim_Hypnosis",
+"descs": "dw HypnosisDescription",
+"moves": "move EFFECT_SLEEP,               0, PSYCHIC_TYPE,  STATUS,    60, 20,   0      ;HYPNOSIS",
+"names": "li \"HYPNOSIS\""
+},
+"ICE_BEAM": {
+"anims": "anim_ptr BattleAnim_IceBeam",
+"descs": "dw IceBeamDescription",
+"moves": "move EFFECT_FREEZE_HIT,         95, ICE,           SPECIAL,  100, 10,  10      ;ICE_BEAM",
+"names": "li \"ICE BEAM\""
+},
+"ICE_PUNCH": {
+"anims": "anim_ptr BattleAnim_IcePunch",
+"descs": "dw IcePunchDescription",
+"moves": "move EFFECT_FREEZE_HIT,         75, ICE,           PHYSICAL, 100, 15,  10      ;ICE_PUNCH",
+"names": "li \"ICE PUNCH\""
+},
+"ICE_SHARD": {
+"anims": "anim_ptr BattleAnim_IcePunch         ; ICE_SHARD",
+"descs": "dw IceShardDescription",
+"moves": "move EFFECT_PRIORITY_HIT,       40, ICE,           PHYSICAL, 100, 30,   0      ;ICE_SHARD",
+"names": "li \"ICE SHARD\""
+},
+"ICICLE_CRASH": {
+"anims": "anim_ptr BattleAnim_IcyWind          ; ICICLE_CRASH",
+"descs": "dw IcicleCrashDescription",
+"moves": "move EFFECT_FLINCH_HIT,         85, ICE,           PHYSICAL,  90, 10,  30      ;ICICLE_CRASH, unreferenced",
+"names": "li \"ICICLE CRASH\""
+},
+"ICY_WIND": {
+"anims": "anim_ptr BattleAnim_IcyWind",
+"descs": "dw IcyWindDescription",
+"moves": "move EFFECT_SPEED_DOWN_HIT,     55, ICE,           SPECIAL,   95, 15, 100      ;ICY_WIND",
+"names": "li \"ICY WIND\""
+},
+"INNER_LIGHT": {
+"anims": "anim_ptr BattleAnim_PsychUp          ; INNER_LIGHT",
+"descs": "dw InnerLightDescription",
+"moves": "move EFFECT_INNER_LIGHT,           0, ELECTRIC,      STATUS,   100,  5,   0      ;INNER_LIGHT",
+"names": "li \"INNER LIGHT\""
+},
+"IRON_HEAD": {
+"anims": "anim_ptr BattleAnim_IronTail         ; IRON_HEAD",
+"descs": "dw IronHeadDescription",
+"moves": "move EFFECT_FLINCH_HIT,         80, STEEL,         PHYSICAL, 100, 15,  30      ;IRON_HEAD",
+"names": "li \"IRON HEAD\""
+},
+"IRON_TAIL": {
+"anims": "anim_ptr BattleAnim_IronTail",
+"descs": "dw IronTailDescription",
+"moves": "move EFFECT_DEFENSE_DOWN_HIT,  100, STEEL,         PHYSICAL,  75, 15,  30      ;IRON_TAIL",
+"names": "li \"IRON TAIL\""
+},
+"KARATE_CHOP": {
+"anims": "anim_ptr BattleAnim_KarateChop",
+"descs": "dw KarateChopDescription",
+"moves": "move EFFECT_NORMAL_HIT,         50, FIGHTING,      PHYSICAL, 100, 25,   0      ;KARATE_CHOP",
+"names": "li \"KARATE CHOP\""
+},
+"LEECH_LIFE": {
+"anims": "anim_ptr BattleAnim_LeechLife",
+"descs": "dw LeechLifeDescription",
+"moves": "move EFFECT_LEECH_HIT,          55, BUG,           PHYSICAL, 100, 15,   0      ;LEECH_LIFE",
+"names": "li \"LEECH LIFE\""
+},
+"LEECH_SEED": {
+"anims": "anim_ptr BattleAnim_LeechSeed",
+"descs": "dw LeechSeedDescription",
+"moves": "move EFFECT_LEECH_SEED,          0, GRASS,         STATUS,    90, 10,   0      ;LEECH_SEED",
+"names": "li \"LEECH SEED\""
+},
+"LEER": {
+"anims": "anim_ptr BattleAnim_Leer",
+"descs": "dw LeerDescription",
+"moves": "move EFFECT_DEFENSE_DOWN,        0, NORMAL,        STATUS,   100, 30,   0      ;LEER",
+"names": "li \"LEER\""
+},
+"LICK": {
+"anims": "anim_ptr BattleAnim_Lick",
+"descs": "dw LickDescription",
+"moves": "move EFFECT_PARALYZE_HIT,       20, GHOST,         PHYSICAL, 100, 30,  30      ;LICK",
+"names": "li \"LICK\""
+},
+"LIFE_DEW": {
+"anims": "anim_ptr BattleAnim_Moonlight        ; LIFE_DEW",
+"descs": "dw LifeDewDescription",
+"moves": "move EFFECT_LIFE_DEW,              0, WATER,         STATUS,   100, 10,   0      ;LIFE_DEW",
+"names": "li \"LIFE DEW\""
+},
+"LIGHT_SCREEN": {
+"anims": "anim_ptr BattleAnim_LightScreen",
+"descs": "dw LightScreenDescription",
+"moves": "move EFFECT_LIGHT_SCREEN,        0, PSYCHIC_TYPE,  STATUS,   100, 30,   0      ;LIGHT_SCREEN",
+"names": "li \"LIGHT SCREEN\""
+},
+"LOCK_ON": {
+"anims": "anim_ptr BattleAnim_LockOn",
+"descs": "dw LockOnDescription",
+"moves": "move EFFECT_LOCK_ON,             0, NORMAL,        STATUS,   100,  5,   0      ;LOCK_ON",
+"names": "li \"LOCK-ON\""
+},
+"LOVELY_KISS": {
+"anims": "anim_ptr BattleAnim_LovelyKiss",
+"descs": "dw LovelyKissDescription",
+"moves": "move EFFECT_SLEEP,               0, NORMAL,        STATUS,    75, 10,   0      ;LOVELY_KISS",
+"names": "li \"LOVELY KISS\""
+},
+"MACH_PUNCH": {
+"anims": "anim_ptr BattleAnim_MachPunch",
+"descs": "dw MachPunchDescription",
+"moves": "move EFFECT_PRIORITY_HIT,       40, FIGHTING,      PHYSICAL, 100, 30,   0      ;MACH_PUNCH",
+"names": "li \"MACH PUNCH\""
+},
+"MAGNITUDE": {
+"anims": "anim_ptr BattleAnim_Magnitude",
+"descs": "dw MagnitudeDescription",
+"moves": "move EFFECT_MAGNITUDE,           1, GROUND,        PHYSICAL, 100, 30,   0      ;MAGNITUDE",
+"names": "li \"MAGNITUDE\""
+},
+"MEAN_LOOK": {
+"anims": "anim_ptr BattleAnim_MeanLook",
+"descs": "dw MeanLookDescription",
+"moves": "move EFFECT_MEAN_LOOK,           0, NORMAL,        STATUS,   100,  5,   0      ;MEAN_LOOK",
+"names": "li \"MEAN LOOK\""
+},
+"MEDITATE": {
+"anims": "anim_ptr BattleAnim_Meditate",
+"descs": "dw MeditateDescription",
+"moves": "move EFFECT_ATTACK_UP,           0, PSYCHIC_TYPE,  STATUS,   100, 40,   0      ;MEDITATE",
+"names": "li \"MEDITATE\""
+},
+"MEGAHORN": {
+"anims": "anim_ptr BattleAnim_Megahorn",
+"descs": "dw MegahornDescription",
+"moves": "move EFFECT_NORMAL_HIT,        120, BUG,           PHYSICAL,  85, 10,   0      ;MEGAHORN",
+"names": "li \"MEGAHORN\""
+},
+"MEGA_DRAIN": {
+"anims": "anim_ptr BattleAnim_MegaDrain",
+"descs": "dw MegaDrainDescription",
+"moves": "move EFFECT_LEECH_HIT,          40, GRASS,         SPECIAL,  100, 20,   0      ;MEGA_DRAIN",
+"names": "li \"MEGA DRAIN\""
+},
+"MEGA_KICK": {
+"anims": "anim_ptr BattleAnim_MegaKick",
+"descs": "dw MegaKickDescription",
+"moves": "move EFFECT_NORMAL_HIT,        120, FIGHTING,      PHYSICAL,  75,  5,   0      ;MEGA_KICK",
+"names": "li \"MEGA KICK\""
+},
+"MEGA_PUNCH": {
+"anims": "anim_ptr BattleAnim_MegaPunch",
+"descs": "dw MegaPunchDescription",
+"moves": "move EFFECT_NORMAL_HIT,         80, FAIRY,         PHYSICAL,  85, 20,   0      ;MEGA_PUNCH",
+"names": "li \"MEGA PUNCH\""
+},
+"METAL_CLAW": {
+"anims": "anim_ptr BattleAnim_MetalClaw",
+"descs": "dw MetalClawDescription",
+"moves": "move EFFECT_ATTACK_UP_HIT,      50, STEEL,         PHYSICAL,  95, 35,  10      ;METAL_CLAW",
+"names": "li \"METAL CLAW\""
+},
+"METRONOME": {
+"anims": "anim_ptr BattleAnim_Metronome",
+"descs": "dw MetronomeDescription",
+"moves": "move EFFECT_METRONOME,           0, NORMAL,        STATUS,   100, 10,   0      ;METRONOME",
+"names": "li \"METRONOME\""
+},
+"MIMIC": {
+"anims": "anim_ptr BattleAnim_Mimic",
+"descs": "dw MimicDescription",
+"moves": "move EFFECT_MIMIC,               0, NORMAL,        STATUS,   100, 10,   0      ;MIMIC",
+"names": "li \"MIMIC\""
+},
+"MINIMIZE": {
+"anims": "anim_ptr BattleAnim_Minimize",
+"descs": "dw MinimizeDescription",
+"moves": "move EFFECT_EVASION_UP,          0, NORMAL,        STATUS,   100, 20,   0      ;MINIMIZE",
+"names": "li \"MINIMIZE\""
+},
+"MIRROR_COAT": {
+"anims": "anim_ptr BattleAnim_MirrorCoat",
+"descs": "dw MirrorCoatDescription",
+"moves": "move EFFECT_MIRROR_COAT,         1, PSYCHIC_TYPE,  SPECIAL,  100, 20,   0      ;MIRROR_COAT",
+"names": "li \"MIRROR COAT\""
+},
+"MIRROR_MOVE": {
+"anims": "anim_ptr BattleAnim_MirrorMove",
+"descs": "dw MirrorMoveDescription",
+"moves": "move EFFECT_MIRROR_MOVE,         0, FLYING,        STATUS,   100, 20,   0      ;MIRROR_MOVE",
+"names": "li \"MIRROR MOVE\""
+},
+"MIST": {
+"anims": "anim_ptr BattleAnim_Mist",
+"descs": "dw MistDescription",
+"moves": "move EFFECT_MIST,                0, ICE,           STATUS,   100, 30,   0      ;MIST",
+"names": "li \"MIST\""
+},
+"MOONBLAST": {
+"anims": "anim_ptr BattleAnim_Moonblast",
+"descs": "dw MoonblastDescription",
+"moves": "move EFFECT_SP_ATK_DOWN_HIT,    95, FAIRY,         SPECIAL,  100, 15,  30      ;MOONBLAST",
+"names": "li \"MOONBLAST\""
+},
+"MOONLIGHT": {
+"anims": "anim_ptr BattleAnim_Moonlight",
+"descs": "dw MoonlightDescription",
+"moves": "move EFFECT_MOONLIGHT,           0, FAIRY,         STATUS,   100,  5,   0      ;MOONLIGHT",
+"names": "li \"MOONLIGHT\""
+},
+"MORNING_SUN": {
+"anims": "anim_ptr BattleAnim_MorningSun",
+"descs": "dw MorningSunDescription",
+"moves": "move EFFECT_MORNING_SUN,         0, NORMAL,        STATUS,   100,  5,   0      ;MORNING_SUN",
+"names": "li \"MORNING SUN\""
+},
+"MUD_SLAP": {
+"anims": "anim_ptr BattleAnim_MudSlap",
+"descs": "dw MudSlapDescription",
+"moves": "move EFFECT_ACCURACY_DOWN_HIT,  20, GROUND,        SPECIAL,  100, 10, 100      ;MUD_SLAP",
+"names": "li \"MUD-SLAP\""
+},
+"NIGHTMARE": {
+"anims": "anim_ptr BattleAnim_Nightmare",
+"descs": "dw NightmareDescription",
+"moves": "move EFFECT_NIGHTMARE,           0, GHOST,         STATUS,   100, 15,   0      ;NIGHTMARE",
+"names": "li \"NIGHTMARE\""
+},
+"NIGHT_SHADE": {
+"anims": "anim_ptr BattleAnim_NightShade",
+"descs": "dw NightShadeDescription",
+"moves": "move EFFECT_LEVEL_DAMAGE,        1, GHOST,         SPECIAL,  100, 15,   0      ;NIGHT_SHADE",
+"names": "li \"NIGHT SHADE\""
+},
+"NIGHT_SLASH": {
+"anims": "anim_ptr BattleAnim_Bite             ; NIGHT_SLASH",
+"descs": "dw NightSlashDescription",
+"moves": "move EFFECT_NORMAL_HIT,         70, DARK,          PHYSICAL, 100, 15,   0      ;NIGHT_SLASH, unreferenced",
+"names": "li \"NIGHT SLASH\""
+},
+"NOURISHMENT": {
+"anims": "anim_ptr BattleAnim_Softboiled",
+"descs": "dw SoftboiledDescription",
+"moves": "move EFFECT_HEAL,                0, NORMAL,        STATUS,   100, 10,   0      ;NOURISHMENT",
+"names": "li \"NOURISHMENT\""
+},
+"OCTAZOOKA": {
+"anims": "anim_ptr BattleAnim_Octazooka",
+"descs": "dw OctazookaDescription",
+"moves": "move EFFECT_ACCURACY_DOWN_HIT,  65, WATER,         SPECIAL,  100, 10,  50      ;OCTAZOOKA",
+"names": "li \"OCTAZOOKA\""
+},
+"OUTRAGE": {
+"anims": "anim_ptr BattleAnim_Outrage",
+"descs": "dw OutrageDescription",
+"moves": "move EFFECT_RAMPAGE,           120, DRAGON,        PHYSICAL, 100, 10,   0      ;OUTRAGE",
+"names": "li \"OUTRAGE\""
+},
+"PAIN_SPLIT": {
+"anims": "anim_ptr BattleAnim_PainSplit",
+"descs": "dw PainSplitDescription",
+"moves": "move EFFECT_PAIN_SPLIT,          0, NORMAL,        STATUS,   100, 20,   0      ;PAIN_SPLIT",
+"names": "li \"PAIN SPLIT\""
+},
+"PAY_DAY": {
+"anims": "anim_ptr BattleAnim_PayDay",
+"descs": "dw PayDayDescription",
+"moves": "move EFFECT_PAY_DAY,            40, NORMAL,        PHYSICAL, 100, 20,   0      ;PAY_DAY",
+"names": "li \"PAY DAY\""
+},
+"PECK": {
+"anims": "anim_ptr BattleAnim_Peck",
+"descs": "dw PeckDescription",
+"moves": "move EFFECT_NORMAL_HIT,         35, FLYING,        PHYSICAL, 100, 35,   0      ;PECK",
+"names": "li \"PECK\""
+},
+"PERISH_SONG": {
+"anims": "anim_ptr BattleAnim_PerishSong",
+"descs": "dw PerishSongDescription",
+"moves": "move EFFECT_PERISH_SONG,         0, NORMAL,        STATUS,   100,  5,   0      ;PERISH_SONG",
+"names": "li \"PERISH SONG\""
+},
+"PETAL_DANCE": {
+"anims": "anim_ptr BattleAnim_PetalDance",
+"descs": "dw PetalDanceDescription",
+"moves": "move EFFECT_RAMPAGE,           120, GRASS,         SPECIAL,  100, 10,   0      ;PETAL_DANCE",
+"names": "li \"PETAL DANCE\""
+},
+"PIN_MISSILE": {
+"anims": "anim_ptr BattleAnim_PinMissile",
+"descs": "dw PinMissileDescription",
+"moves": "move EFFECT_MULTI_HIT,          14, BUG,           PHYSICAL,  85, 20,   0      ;PIN_MISSILE",
+"names": "li \"PIN MISSILE\""
+},
+"PLAY_ROUGH": {
+"anims": "anim_ptr BattleAnim_PlayRough",
+"descs": "dw PlayRoughDescription",
+"moves": "move EFFECT_ATTACK_DOWN_HIT,    90, FAIRY,         PHYSICAL,  90, 10,  10      ;PLAY_ROUGH",
+"names": "li \"PLAY ROUGH\""
+},
+"POISONPOWDER": {
+"anims": "anim_ptr BattleAnim_Poisonpowder",
+"descs": "dw PoisonpowderDescription",
+"moves": "move EFFECT_POISON,              0, POISON,        STATUS,    75, 35,   0      ;POISONPOWDER",
+"names": "li \"POISONPOWDER\""
+},
+"POISON_JAB": {
+"anims": "anim_ptr BattleAnim_Acid             ; POISON_JAB",
+"descs": "dw PoisonJabDescription",
+"moves": "move EFFECT_POISON_HIT,         80, POISON,        PHYSICAL, 100, 20,  30      ;POISON_JAB",
+"names": "li \"POISON JAB\""
+},
+"POISON_STING": {
+"anims": "anim_ptr BattleAnim_PoisonSting",
+"descs": "dw PoisonStingDescription",
+"moves": "move EFFECT_POISON_HIT,         30, POISON,        PHYSICAL, 100, 35,  30      ;POISON_STING",
+"names": "li \"POISON STING\""
+},
+"POWDER_SNOW": {
+"anims": "anim_ptr BattleAnim_PowderSnow",
+"descs": "dw PowderSnowDescription",
+"moves": "move EFFECT_FREEZE_HIT,         40, ICE,           SPECIAL,  100, 25,  10      ;POWDER_SNOW",
+"names": "li \"POWDER SNOW\""
+},
+"POWER_GEM": {
+"anims": "anim_ptr BattleAnim_Ancientpower     ; POWER_GEM",
+"descs": "dw PowerGemDescription",
+"moves": "move EFFECT_NORMAL_HIT,         80, ROCK,          SPECIAL,  100, 20,   0      ;POWER_GEM",
+"names": "li \"POWER GEM\""
+},
+"POWER_WHIP": {
+"anims": "anim_ptr BattleAnim_VineWhip         ; POWER_WHIP",
+"descs": "dw PowerWhipDescription",
+"moves": "move EFFECT_NORMAL_HIT,        120, GRASS,         PHYSICAL,  85, 10,   0      ;POWER_WHIP",
+"names": "li \"POWER WHIP\""
+},
+"PRESENT": {
+"anims": "anim_ptr BattleAnim_Present",
+"descs": "dw PresentDescription",
+"moves": "move EFFECT_PRESENT,             1, NORMAL,        PHYSICAL,  90, 15,   0      ;PRESENT",
+"names": "li \"PRESENT\""
+},
+"PROTECT": {
+"anims": "anim_ptr BattleAnim_Protect",
+"descs": "dw ProtectDescription",
+"moves": "move EFFECT_PROTECT,             0, NORMAL,        STATUS,   100, 10,   0      ;PROTECT",
+"names": "li \"PROTECT\""
+},
+"PSYBEAM": {
+"anims": "anim_ptr BattleAnim_Psybeam",
+"descs": "dw PsybeamDescription",
+"moves": "move EFFECT_CONFUSE_HIT,        65, PSYCHIC_TYPE,  SPECIAL,  100, 20,  10      ;PSYBEAM",
+"names": "li \"PSYBEAM\""
+},
+"PSYCHIC_M": {
+"anims": "anim_ptr BattleAnim_PsychicM",
+"descs": "dw PsychicMDescription",
+"moves": "move EFFECT_SP_DEF_DOWN_HIT,    90, PSYCHIC_TYPE,  SPECIAL,  100, 10,  10      ;PSYCHIC_M",
+"names": "li \"PSYCHIC\""
+},
+"PSYCH_UP": {
+"anims": "anim_ptr BattleAnim_PsychUp",
+"descs": "dw PsychUpDescription",
+"moves": "move EFFECT_SP_ATK_UP_2,         0, NORMAL,        STATUS,   100, 10,   0      ;PSYCH_UP",
+"names": "li \"PSYCH UP\""
+},
+"PSYWAVE": {
+"anims": "anim_ptr BattleAnim_Psywave",
+"descs": "dw PsywaveDescription",
+"moves": "move EFFECT_TRAP_TARGET,        15, PSYCHIC_TYPE,  SPECIAL,  100, 20,   0      ;PSYWAVE",
+"names": "li \"PSYWAVE\""
+},
+"PURSUIT": {
+"anims": "anim_ptr BattleAnim_Pursuit",
+"descs": "dw PursuitDescription",
+"moves": "move EFFECT_PURSUIT,            40, DARK,          PHYSICAL, 100, 20,   0      ;PURSUIT",
+"names": "li \"PURSUIT\""
+},
+"QUICK_ATTACK": {
+"anims": "anim_ptr BattleAnim_QuickAttack",
+"descs": "dw QuickAttackDescription",
+"moves": "move EFFECT_PRIORITY_HIT,       40, NORMAL,        PHYSICAL, 100, 30,   0      ;QUICK_ATTACK",
+"names": "li \"QUICK ATTACK\""
+},
+"RAGE": {
+"anims": "anim_ptr BattleAnim_Rage",
+"descs": "dw RageDescription",
+"moves": "move EFFECT_RAGE,               20, NORMAL,        PHYSICAL, 100, 20,   0      ;RAGE",
+"names": "li \"RAGE\""
+},
+"RAIN_DANCE": {
+"anims": "anim_ptr BattleAnim_RainDance",
+"descs": "dw RainDanceDescription",
+"moves": "move EFFECT_RAIN_DANCE,          0, WATER,         STATUS,    90,  5,   0      ;RAIN_DANCE",
+"names": "li \"RAIN DANCE\""
+},
+"RAPID_SPIN": {
+"anims": "anim_ptr BattleAnim_RapidSpin",
+"descs": "dw RapidSpinDescription",
+"moves": "move EFFECT_RAPID_SPIN,         20, NORMAL,        PHYSICAL, 100, 40,   0      ;RAPID_SPIN",
+"names": "li \"RAPID SPIN\""
+},
+"RAZOR_LEAF": {
+"anims": "anim_ptr BattleAnim_RazorLeaf",
+"descs": "dw RazorLeafDescription",
+"moves": "move EFFECT_NORMAL_HIT,         55, GRASS,         PHYSICAL,  95, 25,   0      ;RAZOR_LEAF",
+"names": "li \"RAZOR LEAF\""
+},
+"RAZOR_WIND": {
+"anims": "anim_ptr BattleAnim_RazorWind",
+"descs": "dw RazorWindDescription",
+"moves": "move EFFECT_TRAP_TARGET,        15, FLYING,        SPECIAL,  100, 20,   0      ;RAZOR_WIND",
+"names": "li \"RAZOR WIND\""
+},
+"RECOVER": {
+"anims": "anim_ptr BattleAnim_Recover",
+"descs": "dw RecoverDescription",
+"moves": "move EFFECT_HEAL,                0, NORMAL,        STATUS,   100, 20,   0      ;RECOVER",
+"names": "li \"RECOVER\""
+},
+"REFLECT": {
+"anims": "anim_ptr BattleAnim_Reflect",
+"descs": "dw ReflectDescription",
+"moves": "move EFFECT_REFLECT,             0, PSYCHIC_TYPE,  STATUS,   100, 20,   0      ;REFLECT",
+"names": "li \"REFLECT\""
+},
+"REST": {
+"anims": "anim_ptr BattleAnim_Rest",
+"descs": "dw RestDescription",
+"moves": "move EFFECT_HEAL,                0, PSYCHIC_TYPE,  STATUS,   100, 10,   0      ;REST",
+"names": "li \"REST\""
+},
+"RETURN": {
+"anims": "anim_ptr BattleAnim_Return",
+"descs": "dw ReturnDescription",
+"moves": "move EFFECT_RETURN,              1, NORMAL,        PHYSICAL, 100, 20,   0      ;RETURN",
+"names": "li \"RETURN\""
+},
+"REVERSAL": {
+"anims": "anim_ptr BattleAnim_Reversal",
+"descs": "dw ReversalDescription",
+"moves": "move EFFECT_REVERSAL,            1, FIGHTING,      PHYSICAL, 100, 15,   0      ;REVERSAL",
+"names": "li \"REVERSAL\""
+},
+"ROAR": {
+"anims": "anim_ptr BattleAnim_Roar",
+"descs": "dw RoarDescription",
+"moves": "move EFFECT_FORCE_SWITCH,        0, NORMAL,        STATUS,   100, 20,   0      ;ROAR",
+"names": "li \"ROAR\""
+},
+"ROCK_BLAST": {
+"anims": "anim_ptr BattleAnim_PinMissile       ; ROCK_BLAST",
+"descs": "dw RockBlastDescription",
+"moves": "move EFFECT_MULTI_HIT,          25, ROCK,          PHYSICAL,  90, 10,   0      ;ROCK_BLAST, unreferenced",
+"names": "li \"ROCK BLAST\""
+},
+"ROCK_SLIDE": {
+"anims": "anim_ptr BattleAnim_RockSlide",
+"descs": "dw RockSlideDescription",
+"moves": "move EFFECT_FLINCH_HIT,         75, ROCK,          PHYSICAL,  90, 10,  30      ;ROCK_SLIDE",
+"names": "li \"ROCK SLIDE\""
+},
+"ROCK_SMASH": {
+"anims": "anim_ptr BattleAnim_RockSmash",
+"descs": "dw RockSmashDescription",
+"moves": "move EFFECT_DEFENSE_DOWN_HIT,   40, STEEL,         PHYSICAL, 100, 15,  50      ;ROCK_SMASH",
+"names": "li \"ROCK SMASH\""
+},
+"ROCK_THROW": {
+"anims": "anim_ptr BattleAnim_RockThrow",
+"descs": "dw RockThrowDescription",
+"moves": "move EFFECT_NORMAL_HIT,         50, ROCK,          PHYSICAL,  90, 15,   0      ;ROCK_THROW",
+"names": "li \"ROCK THROW\""
+},
+"ROLLING_KICK": {
+"anims": "anim_ptr BattleAnim_RollingKick",
+"descs": "dw RollingKickDescription",
+"moves": "move EFFECT_FLINCH_HIT,         60, FIGHTING,      PHYSICAL,  85, 15,  30      ;ROLLING_KICK",
+"names": "li \"ROLLING KICK\""
+},
+"ROLLOUT": {
+"anims": "anim_ptr BattleAnim_Rollout",
+"descs": "dw RolloutDescription",
+"moves": "move EFFECT_ROLLOUT,            30, ROCK,          PHYSICAL,  90, 20,   0      ;ROLLOUT",
+"names": "li \"ROLLOUT\""
+},
+"SACRED_FIRE": {
+"anims": "anim_ptr BattleAnim_SacredFire       ; SACRED_FIRE",
+"descs": "dw SacredFireDescription",
+"moves": "move EFFECT_SACRED_FIRE,         140, FIRE,          PHYSICAL, 100, 10,  50      ;SACRED_FIRE",
+"names": "li \"SACRED FIRE\""
+},
+"SAFEGUARD": {
+"anims": "anim_ptr BattleAnim_Safeguard",
+"descs": "dw SafeguardDescription",
+"moves": "move EFFECT_SAFEGUARD,           0, NORMAL,        STATUS,   100, 25,   0      ;SAFEGUARD",
+"names": "li \"SAFEGUARD\""
+},
+"SANDSTORM": {
+"anims": "anim_ptr BattleAnim_Sandstorm",
+"descs": "dw SandstormDescription",
+"moves": "move EFFECT_SANDSTORM,           0, ROCK,          STATUS,   100, 10,   0      ;SANDSTORM",
+"names": "li \"SANDSTORM\""
+},
+"SCALD": {
+"anims": "anim_ptr BattleAnim_Surf             ; SCALD",
+"descs": "dw ScaldDescription",
+"moves": "move EFFECT_BURN_HIT,           80, WATER,         SPECIAL,  100, 15,  30      ;SCALD",
+"names": "li \"SCALD\""
+},
+"SCARY_FACE": {
+"anims": "anim_ptr BattleAnim_ScaryFace",
+"descs": "dw ScaryFaceDescription",
+"moves": "move EFFECT_SPEED_DOWN_2,        0, NORMAL,        STATUS,    90, 10,   0      ;SCARY_FACE",
+"names": "li \"SCARY FACE\""
+},
+"SCRATCH": {
+"anims": "anim_ptr BattleAnim_Scratch",
+"descs": "dw ScratchDescription",
+"moves": "move EFFECT_NORMAL_HIT,         40, NORMAL,        PHYSICAL, 100, 35,   0      ;SCRATCH",
+"names": "li \"SCRATCH\""
+},
+"SCREECH": {
+"anims": "anim_ptr BattleAnim_Screech",
+"descs": "dw ScreechDescription",
+"moves": "move EFFECT_DEFENSE_DOWN_2,      0, NORMAL,        STATUS,    85, 40,   0      ;SCREECH",
+"names": "li \"SCREECH\""
+},
+"SEED_BOMB": {
+"anims": "anim_ptr BattleAnim_SludgeBomb       ; SEED_BOMB",
+"descs": "dw SeedBombDescription",
+"moves": "move EFFECT_NORMAL_HIT,         80, GRASS,         PHYSICAL, 100, 15,   0      ;SEED_BOMB",
+"names": "li \"SEED BOMB\""
+},
+"SEISMIC_TOSS": {
+"anims": "anim_ptr BattleAnim_SeismicToss",
+"descs": "dw SeismicTossDescription",
+"moves": "move EFFECT_LEVEL_DAMAGE,        1, FIGHTING,      PHYSICAL, 100, 20,   0      ;SEISMIC_TOSS",
+"names": "li \"SEISMIC TOSS\""
+},
+"SELFDESTRUCT": {
+"anims": "anim_ptr BattleAnim_Selfdestruct",
+"descs": "dw SelfdestructDescription",
+"moves": "move EFFECT_SELFDESTRUCT,      200, NORMAL,        PHYSICAL, 100,  5,   0      ;SELFDESTRUCT",
+"names": "li \"SELFDESTRUCT\""
+},
+"SHADOW_BALL": {
+"anims": "anim_ptr BattleAnim_ShadowBall",
+"descs": "dw ShadowBallDescription",
+"moves": "move EFFECT_SP_DEF_DOWN_HIT,    80, GHOST,         SPECIAL,  100, 15,  20      ;SHADOW_BALL",
+"names": "li \"SHADOW BALL\""
+},
+"SHADOW_CLAW": {
+"anims": "anim_ptr BattleAnim_ShadowBall       ; SHADOW_CLAW",
+"descs": "dw ShadowClawDescription",
+"moves": "move EFFECT_NORMAL_HIT,         70, GHOST,         PHYSICAL, 100, 15,   0      ;SHADOW_CLAW",
+"names": "li \"SHADOW CLAW\""
+},
+"SHEER_COLD": {
+"anims": "anim_ptr BattleAnim_Blizzard         ; SHEER_COLD",
+"descs": "dw SheerColdDescription",
+"moves": "move EFFECT_SHEER_COLD,            1, ICE,           SPECIAL,  100,  1,   0      ;SHEER_COLD",
+"names": "li \"SHEER COLD\""
+},
+"SING": {
+"anims": "anim_ptr BattleAnim_Sing",
+"descs": "dw SingDescription",
+"moves": "move EFFECT_SLEEP,               0, NORMAL,        STATUS,    55, 15,   0      ;SING",
+"names": "li \"SING\""
+},
+"SKETCH": {
+"anims": "anim_ptr BattleAnim_Sketch",
+"descs": "dw SketchDescription",
+"moves": "move EFFECT_SKETCH,              0, NORMAL,        STATUS,   100,  1,   0      ;SKETCH",
+"names": "li \"SKETCH\""
+},
+"SKULL_BASH": {
+"anims": "anim_ptr BattleAnim_SkullBash",
+"descs": "dw SkullBashDescription",
+"moves": "move EFFECT_SKULL_BASH,        100, STEEL,         PHYSICAL, 100, 15,   0      ;SKULL_BASH",
+"names": "li \"SKULL BASH\""
+},
+"SKY_ATTACK": {
+"anims": "anim_ptr BattleAnim_SkyAttack        ; SKY_ATTACK",
+"descs": "dw SkyAttackDescription",
+"moves": "move EFFECT_ACCURACY_DOWN_2_HIT, 140, FLYING,        PHYSICAL, 100, 10, 100      ;SKY_ATTACK",
+"names": "li \"SKY ATTACK\""
+},
+"SLAM": {
+"anims": "anim_ptr BattleAnim_Slam",
+"descs": "dw SlamDescription",
+"moves": "move EFFECT_NORMAL_HIT,         80, NORMAL,        PHYSICAL,  75, 20,   0      ;SLAM",
+"names": "li \"SLAM\""
+},
+"SLASH": {
+"anims": "anim_ptr BattleAnim_Slash",
+"descs": "dw SlashDescription",
+"moves": "move EFFECT_NORMAL_HIT,         70, NORMAL,        PHYSICAL, 100, 20,   0      ;SLASH",
+"names": "li \"SLASH\""
+},
+"SLEEP_POWDER": {
+"anims": "anim_ptr BattleAnim_SleepPowder",
+"descs": "dw SleepPowderDescription",
+"moves": "move EFFECT_SLEEP,               0, GRASS,         STATUS,    75, 15,   0      ;SLEEP_POWDER",
+"names": "li \"SLEEP POWDER\""
+},
+"SLEEP_TALK": {
+"anims": "anim_ptr BattleAnim_SleepTalk",
+"descs": "dw SleepTalkDescription",
+"moves": "move EFFECT_SLEEP_TALK,          0, NORMAL,        STATUS,   100, 10,   0      ;SLEEP_TALK",
+"names": "li \"SLEEP TALK\""
+},
+"SLUDGE": {
+"anims": "anim_ptr BattleAnim_Sludge",
+"descs": "dw SludgeDescription",
+"moves": "move EFFECT_POISON_HIT,         65, POISON,        SPECIAL,  100, 20,  30      ;SLUDGE",
+"names": "li \"SLUDGE\""
+},
+"SLUDGE_BOMB": {
+"anims": "anim_ptr BattleAnim_SludgeBomb",
+"descs": "dw SludgeBombDescription",
+"moves": "move EFFECT_POISON_HIT,         90, POISON,        SPECIAL,  100, 10,  30      ;SLUDGE_BOMB",
+"names": "li \"SLUDGE BOMB\""
+},
+"SMOKESCREEN": {
+"anims": "anim_ptr BattleAnim_Smokescreen",
+"descs": "dw SmokescreenDescription",
+"moves": "move EFFECT_ACCURACY_DOWN,       0, NORMAL,        STATUS,   100, 20,   0      ;SMOKESCREEN",
+"names": "li \"SMOKESCREEN\""
+},
+"SOLARBEAM": {
+"anims": "anim_ptr BattleAnim_Solarbeam",
+"descs": "dw SolarbeamDescription",
+"moves": "move EFFECT_SOLARBEAM,         120, GRASS,         SPECIAL,  100, 10,   0      ;SOLARBEAM",
+"names": "li \"SOLARBEAM\""
+},
+"SONICBOOM": {
+"anims": "anim_ptr BattleAnim_Sonicboom",
+"descs": "dw SonicboomDescription",
+"moves": "move EFFECT_STATIC_DAMAGE,      20, NORMAL,        SPECIAL,   90, 20,   0      ;SONICBOOM",
+"names": "li \"SONICBOOM\""
+},
+"SPARK": {
+"anims": "anim_ptr BattleAnim_Spark",
+"descs": "dw SparkDescription",
+"moves": "move EFFECT_PARALYZE_HIT,       65, ELECTRIC,      PHYSICAL, 100, 20,  30      ;SPARK",
+"names": "li \"SPARK\""
+},
+"SPIKES": {
+"anims": "anim_ptr BattleAnim_Spikes",
+"descs": "dw SpikesDescription",
+"moves": "move EFFECT_SPIKES,              0, GROUND,        STATUS,   100, 20,   0      ;SPIKES",
+"names": "li \"SPIKES\""
+},
+"SPIKE_CANNON": {
+"anims": "anim_ptr BattleAnim_SpikeCannon",
+"descs": "dw SpikeCannonDescription",
+"moves": "move EFFECT_MULTI_HIT,          20, STEEL,         PHYSICAL, 100, 15,   0      ;SPIKE_CANNON",
+"names": "li \"SPIKE CANNON\""
+},
+"SPITE": {
+"anims": "anim_ptr BattleAnim_Spite",
+"descs": "dw SpiteDescription",
+"moves": "move EFFECT_SPITE,               0, GHOST,         STATUS,   100, 10,   0      ;SPITE",
+"names": "li \"SPITE\""
+},
+"SPLASH": {
+"anims": "anim_ptr BattleAnim_Splash",
+"descs": "dw SplashDescription",
+"moves": "move EFFECT_SPLASH,              0, NORMAL,        STATUS,   100, 40,   0      ;SPLASH",
+"names": "li \"SPLASH\""
+},
+"SPORE": {
+"anims": "anim_ptr BattleAnim_Spore",
+"descs": "dw SporeDescription",
+"moves": "move EFFECT_SLEEP,               0, GRASS,         STATUS,   100, 15,   0      ;SPORE",
+"names": "li \"SPORE\""
+},
+"STEEL_WING": {
+"anims": "anim_ptr BattleAnim_SteelWing",
+"descs": "dw SteelWingDescription",
+"moves": "move EFFECT_DEFENSE_UP_HIT,     70, STEEL,         PHYSICAL,  90, 25,  10      ;STEEL_WING",
+"names": "li \"STEEL WING\""
+},
+"STOMP": {
+"anims": "anim_ptr BattleAnim_Stomp",
+"descs": "dw StompDescription",
+"moves": "move EFFECT_STOMP,              65, NORMAL,        PHYSICAL, 100, 20,  30      ;STOMP",
+"names": "li \"STOMP\""
+},
+"STONE_EDGE": {
+"anims": "anim_ptr BattleAnim_BoneRush         ; STONE_EDGE",
+"descs": "dw StoneEdgeDescription",
+"moves": "move EFFECT_NORMAL_HIT,        100, ROCK,          PHYSICAL,  80,  5,   0      ;STONE_EDGE",
+"names": "li \"STONE EDGE\""
+},
+"STORM_CALL": {
+"anims": "anim_ptr BattleAnim_Thunder          ; STORM_CALL",
+"descs": "dw StormCallDescription",
+"moves": "move EFFECT_STORM_CALL,          140, ELECTRIC,      SPECIAL,  100, 10,   0      ;STORM_CALL",
+"names": "li \"STORM CALL\""
+},
+"STRENGTH": {
+"anims": "anim_ptr BattleAnim_Strength",
+"descs": "dw StrengthDescription",
+"moves": "move EFFECT_NORMAL_HIT,         80, FIGHTING,      PHYSICAL, 100, 15,   0      ;STRENGTH",
+"names": "li \"STRENGTH\""
+},
+"STRING_SHOT": {
+"anims": "anim_ptr BattleAnim_StringShot",
+"descs": "dw StringShotDescription",
+"moves": "move EFFECT_SPEED_DOWN,          0, BUG,           STATUS,    95, 40,   0      ;STRING_SHOT",
+"names": "li \"STRING SHOT\""
+},
+"STRUGGLE": {
+"anims": "anim_ptr BattleAnim_Struggle",
+"descs": "dw StruggleDescription",
+"moves": "move EFFECT_RECOIL_HIT,         50, NORMAL,        PHYSICAL, 100,  1,   0      ;STRUGGLE",
+"names": "li \"STRUGGLE\""
+},
+"STUN_SPORE": {
+"anims": "anim_ptr BattleAnim_StunSpore",
+"descs": "dw StunSporeDescription",
+"moves": "move EFFECT_PARALYZE,            0, GRASS,         STATUS,    75, 30,   0      ;STUN_SPORE",
+"names": "li \"STUN SPORE\""
+},
+"SUBMISSION": {
+"anims": "anim_ptr BattleAnim_Submission",
+"descs": "dw SubmissionDescription",
+"moves": "move EFFECT_RECOIL_HIT,         80, FIGHTING,      PHYSICAL, 100, 25,   0      ;SUBMISSION",
+"names": "li \"SUBMISSION\""
+},
+"SUBSTITUTE": {
+"anims": "anim_ptr BattleAnim_Substitute",
+"descs": "dw SubstituteDescription",
+"moves": "move EFFECT_SUBSTITUTE,          0, NORMAL,        STATUS,   100, 10,   0      ;SUBSTITUTE",
+"names": "li \"SUBSTITUTE\""
+},
+"SUDDEN_CHILL": {
+"anims": "anim_ptr BattleAnim_SuddenChill",
+"descs": "dw SuddenChillDescription",
+"moves": "move EFFECT_FREEZE,              0, ICE,           STATUS,    85, 20,   0      ;SUDDEN_CHILL",
+"names": "li \"SUDDEN CHILL\""
+},
+"SUNNY_DAY": {
+"anims": "anim_ptr BattleAnim_SunnyDay",
+"descs": "dw SunnyDayDescription",
+"moves": "move EFFECT_SUNNY_DAY,           0, FIRE,          STATUS,    90,  5,   0      ;SUNNY_DAY",
+"names": "li \"SUNNY DAY\""
+},
+"SUPERSONIC": {
+"anims": "anim_ptr BattleAnim_Supersonic",
+"descs": "dw SupersonicDescription",
+"moves": "move EFFECT_CONFUSE,             0, NORMAL,        STATUS,    55, 20,   0      ;SUPERSONIC",
+"names": "li \"SUPERSONIC\""
+},
+"SUPER_FANG": {
+"anims": "anim_ptr BattleAnim_SuperFang",
+"descs": "dw SuperFangDescription",
+"moves": "move EFFECT_SUPER_FANG,          1, NORMAL,        PHYSICAL,  90, 10,   0      ;SUPER_FANG",
+"names": "li \"SUPER FANG\""
+},
+"SURF": {
+"anims": "anim_ptr BattleAnim_Surf",
+"descs": "dw SurfDescription",
+"moves": "move EFFECT_NORMAL_HIT,         95, WATER,         SPECIAL,  100, 15,   0      ;SURF",
+"names": "li \"SURF\""
+},
+"SWAGGER": {
+"anims": "anim_ptr BattleAnim_Swagger",
+"descs": "dw SwaggerDescription",
+"moves": "move EFFECT_SWAGGER,             0, NORMAL,        STATUS,    90, 15, 100      ;SWAGGER",
+"names": "li \"SWAGGER\""
+},
+"SWEET_KISS": {
+"anims": "anim_ptr BattleAnim_SweetKiss",
+"descs": "dw SweetKissDescription",
+"moves": "move EFFECT_CONFUSE,             0, FAIRY,         STATUS,    75, 10,   0      ;SWEET_KISS",
+"names": "li \"SWEET KISS\""
+},
+"SWEET_SCENT": {
+"anims": "anim_ptr BattleAnim_SweetScent",
+"descs": "dw SweetScentDescription",
+"moves": "move EFFECT_EVASION_DOWN,        0, NORMAL,        STATUS,   100, 20,   0      ;SWEET_SCENT",
+"names": "li \"SWEET SCENT\""
+},
+"SWIFT": {
+"anims": "anim_ptr BattleAnim_Swift",
+"descs": "dw SwiftDescription",
+"moves": "move EFFECT_ALWAYS_HIT,         60, NORMAL,        SPECIAL,  100, 20,   0      ;SWIFT",
+"names": "li \"SWIFT\""
+},
+"SWORDS_DANCE": {
+"anims": "anim_ptr BattleAnim_SwordsDance",
+"descs": "dw SwordsDanceDescription",
+"moves": "move EFFECT_ATTACK_UP_2,         0, NORMAL,        STATUS,   100, 30,   0      ;SWORDS_DANCE",
+"names": "li \"SWORDS DANCE\""
+},
+"SYNTHESIS": {
+"anims": "anim_ptr BattleAnim_Synthesis",
+"descs": "dw SynthesisDescription",
+"moves": "move EFFECT_SYNTHESIS,           0, GRASS,         STATUS,   100,  5,   0      ;SYNTHESIS",
+"names": "li \"SYNTHESIS\""
+},
+"TAKE_DOWN": {
+"anims": "anim_ptr BattleAnim_TakeDown",
+"descs": "dw TakeDownDescription",
+"moves": "move EFFECT_RECOIL_HIT,         90, NORMAL,        PHYSICAL,  85, 20,   0      ;TAKE_DOWN",
+"names": "li \"TAKE DOWN\""
+},
+"TELEPORT": {
+"anims": "anim_ptr BattleAnim_Teleport",
+"descs": "dw TeleportDescription",
+"moves": "move EFFECT_TELEPORT,            0, PSYCHIC_TYPE,  STATUS,   100, 20,   0      ;TELEPORT",
+"names": "li \"TELEPORT\""
+},
+"THIEF": {
+"anims": "anim_ptr BattleAnim_Thief",
+"descs": "dw ThiefDescription",
+"moves": "move EFFECT_THIEF,              40, DARK,          PHYSICAL, 100, 10, 100      ;THIEF",
+"names": "li \"THIEF\""
+},
+"THRASH": {
+"anims": "anim_ptr BattleAnim_Thrash",
+"descs": "dw ThrashDescription",
+"moves": "move EFFECT_RAMPAGE,           120, NORMAL,        PHYSICAL, 100, 10,   0      ;THRASH",
+"names": "li \"THRASH\""
+},
+"THUNDER": {
+"anims": "anim_ptr BattleAnim_Thunder",
+"descs": "dw ThunderDescription",
+"moves": "move EFFECT_THUNDER,           120, ELECTRIC,      SPECIAL,   70, 10,  30      ;THUNDER",
+"names": "li \"THUNDER\""
+},
+"THUNDERBOLT": {
+"anims": "anim_ptr BattleAnim_Thunderbolt",
+"descs": "dw ThunderboltDescription",
+"moves": "move EFFECT_PARALYZE_HIT,       95, ELECTRIC,      SPECIAL,  100, 15,  10      ;THUNDERBOLT",
+"names": "li \"THUNDERBOLT\""
+},
+"THUNDERPUNCH": {
+"anims": "anim_ptr BattleAnim_Thunderpunch",
+"descs": "dw ThunderpunchDescription",
+"moves": "move EFFECT_PARALYZE_HIT,       75, ELECTRIC,      PHYSICAL, 100, 15,  10      ;THUNDERPUNCH",
+"names": "li \"THUNDERPUNCH\""
+},
+"THUNDERSHOCK": {
+"anims": "anim_ptr BattleAnim_Thundershock",
+"descs": "dw ThundershockDescription",
+"moves": "move EFFECT_PARALYZE_HIT,       40, ELECTRIC,      SPECIAL,  100, 30,  10      ;THUNDERSHOCK",
+"names": "li \"THUNDERSHOCK\""
+},
+"THUNDER_WAVE": {
+"anims": "anim_ptr BattleAnim_ThunderWave",
+"descs": "dw ThunderWaveDescription",
+"moves": "move EFFECT_PARALYZE,            0, ELECTRIC,      STATUS,   100, 20,   0      ;THUNDER_WAVE",
+"names": "li \"THUNDER WAVE\""
+},
+"TOXIC": {
+"anims": "anim_ptr BattleAnim_Toxic",
+"descs": "dw ToxicDescription",
+"moves": "move EFFECT_TOXIC,               0, POISON,        STATUS,    85, 10,   0      ;TOXIC",
+"names": "li \"TOXIC\""
+},
+"TRANSFORM": {
+"anims": "anim_ptr BattleAnim_Transform",
+"descs": "dw TransformDescription",
+"moves": "move EFFECT_TRANSFORM,           0, NORMAL,        STATUS,   100, 10,   0      ;TRANSFORM",
+"names": "li \"TRANSFORM\""
+},
+"TRI_ATTACK": {
+"anims": "anim_ptr BattleAnim_TriAttack",
+"descs": "dw TriAttackDescription",
+"moves": "move EFFECT_TRI_ATTACK,         80, NORMAL,        SPECIAL,  100, 10,  20      ;TRI_ATTACK",
+"names": "li \"TRI ATTACK\""
+},
+"TWINEEDLE": {
+"anims": "anim_ptr BattleAnim_Twineedle",
+"descs": "dw TwineedleDescription",
+"moves": "move EFFECT_POISON_MULTI_HIT,   40, BUG,           PHYSICAL, 100, 20,  20      ;TWINEEDLE",
+"names": "li \"TWINEEDLE\""
+},
+"TWISTER": {
+"anims": "anim_ptr BattleAnim_Twister",
+"descs": "dw TwisterDescription",
+"moves": "move EFFECT_TWISTER,            40, DRAGON,        SPECIAL,  100, 20,  20      ;TWISTER",
+"names": "li \"TWISTER\""
+},
+"VINE_WHIP": {
+"anims": "anim_ptr BattleAnim_VineWhip",
+"descs": "dw VineWhipDescription",
+"moves": "move EFFECT_NORMAL_HIT,         35, GRASS,         PHYSICAL, 100, 10,   0      ;VINE_WHIP",
+"names": "li \"VINE WHIP\""
+},
+"VITAL_THROW": {
+"anims": "anim_ptr BattleAnim_VitalThrow",
+"descs": "dw VitalThrowDescription",
+"moves": "move EFFECT_ALWAYS_HIT,         70, FIGHTING,      PHYSICAL, 100, 10,   0      ;VITAL_THROW",
+"names": "li \"VITAL THROW\""
+},
+"WATERFALL": {
+"anims": "anim_ptr BattleAnim_Waterfall",
+"descs": "dw WaterfallDescription",
+"moves": "move EFFECT_NORMAL_HIT,         80, WATER,         PHYSICAL, 100, 15,   0      ;WATERFALL",
+"names": "li \"WATERFALL\""
+},
+"WATER_GUN": {
+"anims": "anim_ptr BattleAnim_WaterGun",
+"descs": "dw WaterGunDescription",
+"moves": "move EFFECT_NORMAL_HIT,         40, WATER,         SPECIAL,  100, 25,   0      ;WATER_GUN",
+"names": "li \"WATER GUN\""
+},
+"WATER_PULSE": {
+"anims": "anim_ptr BattleAnim_WaterGun         ; WATER_PULSE",
+"descs": "dw WaterPulseDescription",
+"moves": "move EFFECT_CONFUSE_HIT,        60, WATER,         SPECIAL,  100, 20,  20      ;WATER_PULSE, unreferenced",
+"names": "li \"WATER PULSE\""
+},
+"WHIRLPOOL": {
+"anims": "anim_ptr BattleAnim_Whirlpool",
+"descs": "dw WhirlpoolDescription",
+"moves": "move EFFECT_TRAP_TARGET,        15, WATER,         SPECIAL,  100, 20,   0      ;WHIRLPOOL",
+"names": "li \"WHIRLPOOL\""
+},
+"WILD_CHARGE": {
+"anims": "anim_ptr BattleAnim_Spark            ; WILD_CHARGE",
+"descs": "dw WildChargeDescription",
+"moves": "move EFFECT_RECOIL_HIT,         90, ELECTRIC,      PHYSICAL, 100, 15,   0      ;WILD_CHARGE",
+"names": "li \"WILD CHARGE\""
+},
+"WILL_O_WISP": {
+"anims": "anim_ptr BattleAnim_WillOWisp",
+"descs": "dw WillOWispDescription",
+"moves": "move EFFECT_BURN,                0, FIRE,          STATUS,    85, 20,   0      ;WILL_O_WISP",
+"names": "li \"WILL-O-WISP\""
+},
+"WING_ATTACK": {
+"anims": "anim_ptr BattleAnim_WingAttack",
+"descs": "dw WingAttackDescription",
+"moves": "move EFFECT_NORMAL_HIT,         60, FLYING,        PHYSICAL, 100, 35,   0      ;WING_ATTACK",
+"names": "li \"WING ATTACK\""
+},
+"WRAP": {
+"anims": "anim_ptr BattleAnim_Wrap",
+"descs": "dw WrapDescription",
+"moves": "move EFFECT_TRAP_TARGET,        15, NORMAL,        PHYSICAL, 100, 20,   0      ;WRAP",
+"names": "li \"WRAP\""
+},
+"X_SCISSOR": {
+"anims": "anim_ptr BattleAnim_Cut              ; X_SCISSOR",
+"descs": "dw XScissorDescription",
+"moves": "move EFFECT_NORMAL_HIT,         80, BUG,           PHYSICAL, 100, 15,   0      ;X_SCISSOR",
+"names": "li \"X-SCISSOR\""
+},
+"ZAP_CANNON": {
+"anims": "anim_ptr BattleAnim_ZapCannon",
+"descs": "dw ZapCannonDescription",
+"moves": "move EFFECT_PARALYZE_HIT,      100, ELECTRIC,      SPECIAL,   50,  5, 100      ;ZAP_CANNON",
+"names": "li \"ZAP CANNON\""
+},
+"ZEN_HEADBUTT": {
+"anims": "anim_ptr BattleAnim_Headbutt         ; ZEN_HEADBUTT",
+"descs": "dw ZenHeadbuttDescription",
+"moves": "move EFFECT_FLINCH_HIT,         80, PSYCHIC_TYPE,  PHYSICAL,  90, 15,  20      ;ZEN_HEADBUTT",
+"names": "li \"ZEN HEADBUTT\""
+}
+}

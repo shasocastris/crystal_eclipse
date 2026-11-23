@@ -1,0 +1,144 @@
+ VENUSAUR        spec  STAB SOLARBEAM 120  cov  1  party: BODY_SLAM->HYPER_BEAM, HEADBUTT->HYPER_BEAM, SKULL_BASH->none
+ CHARIZARD       spec  STAB FIRE_BLAST 120  cov  1  party: EARTHQUAKE->MUD_SLAP, OUTRAGE->DRAGONBREATH
+ BLASTOISE       mixe  STAB HYDRO_PUMP 120  cov  6
+ BUTTERFREE      spec  STAB BUG_BUZZ 90   cov  3  party: LEECH_LIFE->BUG_BUZZ
+ BEEDRILL        phys  STAB X_SCISSOR 80   cov  1  party: GIGA_DRAIN->none
+ PIDGEOT         mixe  STAB HYPER_BEAM 150  cov  1
+ RATICATE        phys  STAB DOUBLE_EDGE 120  cov  3
+ FEAROW          phys  STAB DOUBLE_EDGE 120  cov  1
+ ARBOK           phys  STAB POISON_JAB 80   cov  4
+ RAICHU          mixe  STAB THUNDER 120  cov  5
+ SANDSLASH       phys  STAB EARTHQUAKE 100  cov  6  party: SWIFT->SLASH
+ NIDOQUEEN       mixe  STAB EARTHQUAKE 100  cov 11
+ NIDOKING        mixe  STAB EARTHQUAKE 100  cov 11
+ CLEFABLE        spec  STAB MOONBLAST 95   cov  7  party: FURY_STRIKES->HYPER_BEAM
+ NINETALES       mixe  STAB FIRE_BLAST 120  cov  4
+ WIGGLYTUFF      mixe  STAB HYPER_BEAM 150  cov  7
+ VILEPLUME       spec  STAB SOLARBEAM 120  cov  2  party: FAINT_ATTACK->DARK_PULSE
+ PARASECT        phys  STAB X_SCISSOR 80   cov  1  party: PSYBEAM->none, SLUDGE_BOMB->none
+ VENOMOTH        spec  STAB PSYCHIC_M 90   cov  3  party: LEECH_LIFE->BUG_BUZZ, PIN_MISSILE->BUG_BUZZ
+ DUGTRIO         phys  STAB EARTHQUAKE 100  cov  3  party: ANCIENTPOWER->ROCK_SLIDE, SLUDGE_BOMB->none, TRI_ATTACK->SLASH
+ PERSIAN         mixe  STAB HYPER_BEAM 150  cov  5
+ GOLDUCK         spec  STAB HYDRO_PUMP 120  cov  4  party: CROSS_CHOP->none, FURY_STRIKES->HYPER_BEAM, HEADBUTT->HYPER_BEAM, SCRATCH->HYPER_BEAM, WATERFALL->HYDRO_PUMP
+ ARCANINE        mixe  STAB FLARE_BLITZ 120  cov  5
+ POLIWRATH       phys  STAB MEGA_KICK 120  cov  4  party: SURF->WATERFALL
+ ALAKAZAM        spec  STAB PSYCHIC_M 90   cov  3  party: FIRE_PUNCH->none
+ MACHAMP         phys  STAB MEGA_KICK 120  cov  8
+ VICTREEBEL      mixe  STAB SOLARBEAM 120  cov  1
+ TENTACRUEL      mixe  STAB HYDRO_PUMP 120  cov  3
+ GOLEM           phys  STAB EARTHQUAKE 100  cov  4  party: FIRE_BLAST->FIRE_PUNCH
+ RAPIDASH        phys  STAB FLARE_BLITZ 120  cov  2  party: FIRE_BLAST->FLARE_BLITZ, FLAMETHROWER->FLARE_BLITZ
+ SLOWBRO         spec  STAB HYDRO_PUMP 120  cov  5  party: BODY_SLAM->HYPER_BEAM, EARTHQUAKE->MUD_SLAP, HEADBUTT->HYPER_BEAM, IRON_TAIL->none, STRENGTH->none
+ DODRIO          phys  STAB DOUBLE_EDGE 120  cov  1  party: TRI_ATTACK->DOUBLE_EDGE
+ DEWGONG         mixe  STAB BLIZZARD 120  cov  1
+ MUK             phys  STAB POISON_JAB 80   cov  5
+ CLOYSTER        mixe  STAB BLIZZARD 120  cov  1
+ GENGAR          spec  STAB DREAM_EATER 100  cov  5
+ HYPNO           mixe  STAB PSYCHIC_M 90   cov  7
+ KINGLER         phys  STAB CRABHAMMER 90   cov  5  party: BLIZZARD->ICICLE_CRASH, BUBBLE->CRABHAMMER, BUBBLEBEAM->CRABHAMMER, SURF->CRABHAMMER
+ ELECTRODE       spec  STAB THUNDER 120  cov  1  party: HEADBUTT->HYPER_BEAM
+ EXEGGUTOR       spec  STAB SOLARBEAM 120  cov  3  party: HEADBUTT->HYPER_BEAM
+ MAROWAK         phys  STAB EARTHQUAKE 100  cov  7
+ HITMONLEE       phys  STAB MEGA_KICK 120  cov  3  party: SWIFT->DOUBLE_EDGE
+ HITMONCHAN      phys  STAB MEGA_KICK 120  cov  6
+ WEEZING         mixe  STAB SLUDGE_BOMB 90   cov  3
+ KANGASKHAN      phys  STAB DOUBLE_EDGE 120  cov 10  party: SURF->none
+ SEAKING         phys  STAB WATERFALL 80   cov  2
+ STARMIE         spec  STAB HYDRO_PUMP 120  cov  4
+ MR__MIME        spec  STAB MOONBLAST 95   cov  4  party: FURY_STRIKES->HYPER_BEAM
+ JYNX            spec  STAB BLIZZARD 120  cov  2
+ PINSIR          phys  STAB X_SCISSOR 80   cov  3
+ TAUROS          phys  STAB THRASH 120  cov  5
+ GYARADOS        phys  STAB WATERFALL 80   cov  4  party: DRAGONBREATH->none, ICE_BEAM->ICICLE_CRASH, ZAP_CANNON->none
+ LAPRAS          mixe  STAB HYDRO_PUMP 120  cov  6
+!DITTO           mixe  STAB - 0    cov  0
+ VAPOREON        spec  STAB HYDRO_PUMP 120  cov  3  party: BITE->none
+ JOLTEON         spec  STAB THUNDER 120  cov  2  party: DOUBLE_KICK->none
+ FLAREON         phys  STAB FLARE_BLITZ 120  cov  4  party: EMBER->FLARE_BLITZ, FLAMETHROWER->FLARE_BLITZ, SHADOW_BALL->none
+ OMASTAR         spec  STAB HYDRO_PUMP 120  cov  2
+ KABUTOPS        phys  STAB WATERFALL 80   cov  2
+ AERODACTYL      phys  STAB ROCK_SLIDE 75   cov  4
+ SNORLAX         phys  STAB DOUBLE_EDGE 120  cov  9
+ ARTICUNO        mixe  STAB BLIZZARD 120  cov  2
+ ZAPDOS          spec  STAB THUNDER 120  cov  1
+ MOLTRES         spec  STAB FIRE_BLAST 120  cov  2
+ DRAGONITE       phys  STAB OUTRAGE 120  cov  8  party: ICE_BEAM->ICICLE_CRASH, THUNDERBOLT->THUNDERPUNCH
+ MEWTWO          spec  STAB PSYCHIC_M 90   cov  6
+ MEW             mixe  STAB PSYCHIC_M 90   cov 13
+ MEGANIUM        mixe  STAB SOLARBEAM 120  cov  5
+ TYPHLOSION      spec  STAB FIRE_BLAST 120  cov  1  party: EARTHQUAKE->MUD_SLAP, FLAME_WHEEL->FIRE_BLAST, THUNDERPUNCH->none
+ FERALIGATR      phys  STAB CRABHAMMER 90   cov  9  party: BLIZZARD->ICICLE_CRASH, ICE_BEAM->ICICLE_CRASH
+ FURRET          phys  STAB DOUBLE_EDGE 120  cov  6
+ NOCTOWL         spec  STAB HYPER_BEAM 150  cov  1
+ LEDIAN          spec  STAB MOONBLAST 95   cov  2
+ ARIADOS         phys  STAB X_SCISSOR 80   cov  1  party: GIGA_DRAIN->CONSTRICT
+ CROBAT          phys  STAB POISON_JAB 80   cov  3  party: SLUDGE_BOMB->POISON_JAB
+ LANTURN         spec  STAB THUNDER 120  cov  2
+ XATU            spec  STAB PSYCHIC_M 90   cov  3  party: FAINT_ATTACK->none, STEEL_WING->none
+ AMPHAROS        spec  STAB THUNDER 120  cov  1  party: BODY_SLAM->HYPER_BEAM, DYNAMICPUNCH->none, FIRE_PUNCH->none, IRON_TAIL->none, STRENGTH->none
+ BELLOSSOM       mixe  STAB SOLARBEAM 120  cov  2
+ AZUMARILL       mixe  STAB HYDRO_PUMP 120  cov  4
+ SUDOWOODO       phys  STAB ROCK_SLIDE 75   cov  6
+ POLITOED        spec  STAB HYDRO_PUMP 120  cov  3  party: BODY_SLAM->HYPER_BEAM, DYNAMICPUNCH->none, EARTHQUAKE->MUD_SLAP, WATERFALL->HYDRO_PUMP
+ JUMPLUFF        mixe  STAB SOLARBEAM 120  cov  1
+ SUNFLORA        spec  STAB SOLARBEAM 120  cov  2  party: FLAME_WHEEL->EMBER
+ QUAGSIRE        phys  STAB EARTHQUAKE 100  cov  5  party: ANCIENTPOWER->ROCK_SLIDE, ICE_BEAM->ICICLE_CRASH
+ ESPEON          spec  STAB PSYCHIC_M 90   cov  3
+ UMBREON         mixe  STAB DARK_PULSE 80   cov  7
+ SLOWKING        spec  STAB SURF 95   cov  5  party: EARTHQUAKE->MUD_SLAP, HEADBUTT->HYPER_BEAM
+!UNOWN           mixe  STAB PSYWAVE 15   cov  1
+!WOBBUFFET       mixe  STAB - 0    cov  0
+ FORRETRESS      phys  STAB X_SCISSOR 80   cov  2
+ STEELIX         phys  STAB SKULL_BASH 100  cov  4
+ GRANBULL        phys  STAB MEGA_PUNCH 80   cov  6
+ QWILFISH        phys  STAB WATERFALL 80   cov  1
+ SCIZOR          phys  STAB X_SCISSOR 80   cov  3
+ SHUCKLE         mixe  STAB X_SCISSOR 80   cov  4
+ HERACROSS       phys  STAB MEGA_KICK 120  cov  4
+ MAGCARGO        spec  STAB FIRE_BLAST 120  cov  1  party: ROCK_THROW->POWER_GEM
+ CORSOLA         mixe  STAB POWER_GEM 80   cov  4
+ OCTILLERY       mixe  STAB SURF 95   cov  3
+ DELIBIRD        mixe  STAB BLIZZARD 120  cov  1
+ MANTINE         spec  STAB HYDRO_PUMP 120  cov  2
+ SKARMORY        phys  STAB IRON_HEAD 80   cov  0  party: SWIFT->FURY_STRIKES
+ HOUNDOOM        spec  STAB FIRE_BLAST 120  cov  4  party: CRUNCH->DARK_PULSE, IRON_TAIL->none
+ KINGDRA         mixe  STAB OUTRAGE 120  cov  2
+ DONPHAN         phys  STAB EARTHQUAKE 100  cov  3
+!SMEARGLE        mixe  STAB - 0    cov  0
+ HITMONTOP       phys  STAB MEGA_KICK 120  cov  3
+ MILTANK         phys  STAB DOUBLE_EDGE 120  cov  8  party: SHADOW_BALL->none
+ BLISSEY         spec  STAB HYPER_BEAM 150  cov  6  party: BODY_SLAM->HYPER_BEAM
+ RAIKOU          spec  STAB THUNDER 120  cov  1
+ ENTEI           phys  STAB SACRED_FIRE 140  cov  3
+ SUICUNE         spec  STAB HYDRO_PUMP 120  cov  2
+ TYRANITAR       phys  STAB CRUNCH 80   cov  7
+ LUGIA           mixe  STAB AEROBLAST 140  cov 10
+ HO_OH           phys  STAB SACRED_FIRE 140  cov  4
+ CELEBI          mixe  STAB SOLARBEAM 120  cov  2
+ ELECTIVIRE      phys  STAB THUNDERPUNCH 75   cov  6  party: PSYCHIC_M->none, THUNDERBOLT->THUNDERPUNCH
+ MAGMORTAR       spec  STAB FIRE_BLAST 120  cov  3  party: THUNDERPUNCH->THUNDERBOLT
+ AMBIPOM         phys  STAB BODY_SLAM 85   cov  8
+ ANNIHILAPE      phys  STAB MEGA_KICK 120  cov  7
+ HONCHKROW       phys  STAB DRILL_PECK 80   cov  2
+ LEAFEON         phys  STAB SEED_BOMB 80   cov  5  party: SWIFT->DOUBLE_EDGE
+ LICKILICKY      mixe  STAB HYPER_BEAM 150  cov  9
+ MAMOSWINE       phys  STAB EARTHQUAKE 100  cov  4
+ MISMAGIUS       spec  STAB DREAM_EATER 100  cov  4
+ RHYPERIOR       phys  STAB EARTHQUAKE 100  cov  9
+ SYLVEON         spec  STAB MOONBLAST 95   cov  3
+ TOGEKISS        spec  STAB MOONBLAST 95   cov  6
+ WEAVILE         phys  STAB ICICLE_CRASH 85   cov  6
+ YANMEGA         spec  STAB BUG_BUZZ 90   cov  2
+ GLACEON         spec  STAB BLIZZARD 120  cov  2  party: BITE->none
+ GLISCOR         phys  STAB EARTHQUAKE 100  cov  7
+ MAGNEZONE       spec  STAB THUNDER 120  cov  2
+ PORYGON_Z       spec  STAB HYPER_BEAM 150  cov  8
+ SIRFETCH_D      phys  STAB CROSS_CHOP 100  cov  3
+ TANGROWTH       mixe  STAB SOLARBEAM 120  cov  3
+ WYRDEER         mixe  STAB HYPER_BEAM 150  cov  3
+ FARIGIRAF       mixe  STAB PSYCHIC_M 90   cov  6
+ DUDUNSPARC      phys  STAB EARTHQUAKE 100  cov  3
+ URSALUNA        phys  STAB THRASH 120  cov  8
+ CURSOLA         spec  STAB DREAM_EATER 100  cov  3
+ RAICHU_ORANGE   mixe  STAB THUNDER 120  cov  5
+ DRAGONITE_KANTO phys  STAB OUTRAGE 120  cov  8

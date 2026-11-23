@@ -1,0 +1,19 @@
+parties: special coverage for Alakazam, Ampharos, Jolteon and friends
+
+- Alakazam (50 Atk) drops most of its elemental punches. The first
+  punch becomes Shadow Ball and a second one becomes Zap Cannon.
+  Sabrina's two keep Fire Punch.
+- Ampharos: Thunderpunch -> Thunderbolt. The physical Fire Punch / Body
+  Slam / Strength stay: there's no special equivalent.
+- Blue (2) Gengar had no STAB: Shadow Ball and Hypnosis in place of the
+  punches. Only one of Ghost/Dark, since they hit almost the same
+  things.
+- Jolteon: Double Kick / Pin Missile / Bite become Shadow Ball, Thunder
+  Wave or Double Team.
+- Rival1 Haunter: Lick -> Night Shade at Lv25, Hypnosis at Lv50 (it
+  already has Shadow Ball).
+- Flareon: Shadow Ball -> Iron Tail (Blaine 1, Will 2, Tin Tower Sage).
+- Route 43 Butterfree: Headbutt -> Gust (Lv32/38) or Giga Drain
+  (Lv47/52).
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>

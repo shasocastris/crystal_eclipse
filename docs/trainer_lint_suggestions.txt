@@ -1,0 +1,428 @@
+FALKNER (1), Violet Gym  (data/trainers/parties.asm:21)
+  data/trainers/parties.asm:25: error illegal-move: Lv.12 DODUO: can't know RAGE (learns it at Lv.25)
+      fix: -> QUICK_ATTACK [normal physical 40]  (alt: DOUBLE_KICK, RETURN)
+  data/trainers/parties.asm:29: error illegal-move: Lv.12 FARFETCH_D: can't know ROCK_SMASH (learns it at Lv.29)
+      fix: -> STEEL_WING [steel physical 70]  (alt: THIEF, PECK)
+  data/trainers/parties.asm:29: error illegal-move: Lv.12 FARFETCH_D: can't know QUICK_ATTACK (learns it at Lv.14)
+      fix: -> HEADBUTT [normal physical 70]  (alt: RETURN, SWIFT)
+  data/trainers/parties.asm:31: error underleveled: Lv.13 PIDGEOTTO: can't exist below Lv.18
+      fix: raise to Lv.18, or use PIDGEY
+  data/trainers/parties.asm:33: error illegal-move: Lv.13 PIDGEOTTO: can't know QUICK_ATTACK (learns it at Lv.15)
+      fix: -> SCRATCH [normal physical 40]  (alt: RETURN, SWIFT)
+  data/trainers/parties.asm:33: error illegal-move: Lv.13 PIDGEOTTO: can't know WING_ATTACK (learns it at Lv.29 as PIDGEY)
+      fix: -> GUST [flying special 40]  (alt: RETURN, STEEL_WING)
+  data/trainers/parties.asm:33: error illegal-move: Lv.13 PIDGEOTTO: can't know RAZOR_WIND (learns it at Lv.19 as PIDGEY)
+      fix: -> PURSUIT [dark physical 40]  (alt: THIEF, SWIFT)
+FALKNER (2), Violet Gym  (data/trainers/parties.asm:37)
+  data/trainers/parties.asm:61: error illegal-move: Lv.70 PIDGEOT: can't know DRILL_PECK
+      fix: -> FLY [flying physical 70]  (alt: AERIAL_ACE, AIR_SLASH)
+  data/trainers/parties.asm:61: error illegal-move: Lv.70 PIDGEOT: can't know DOUBLE_EDGE
+      fix: -> HYPER_BEAM [normal special 150]  (alt: RETURN, HIDDEN_POWER)
+BUGSY (2), Azalea Gym  (data/trainers/parties.asm:84)
+  data/trainers/parties.asm:96: error illegal-move: Lv.70 PINSIR: can't know EARTHQUAKE
+      fix: -> DOUBLE_EDGE [normal physical 120]  (alt: STRENGTH, FLAIL)
+  data/trainers/parties.asm:96: error illegal-move: Lv.70 PINSIR: can't know BODY_SLAM
+      fix: -> FLAIL [normal physical 1]  (alt: HEADBUTT, RETURN)
+WHITNEY (2), Goldenrod Gym  (data/trainers/parties.asm:135)
+  data/trainers/parties.asm:155: error illegal-move: Lv.70 DONPHAN: can't know ROCK_SLIDE
+      fix: -> ANCIENTPOWER [rock special 60]  (alt: FLAIL, HEADBUTT)
+MORTY (1), Ecruteak Gym  (data/trainers/parties.asm:166)
+  data/trainers/parties.asm:182: error illegal-move: Lv.28 MISDREAVUS: can't know DESTINY_BOND (learns it at Lv.35)
+      fix: -> NIGHTMARE [ghost status]  (alt: SPITE, ATTRACT)
+  data/trainers/parties.asm:182: error illegal-move: Lv.28 MISDREAVUS: can't know NIGHT_SHADE
+      fix: -> SHADOW_BALL [ghost special 80]  (alt: DREAM_EATER, HIDDEN_POWER)
+PRYCE (1), Mahogany Gym  (data/trainers/parties.asm:327)
+  data/trainers/parties.asm:331: error illegal-move: Lv.35 CLOYSTER: can't know SPIKE_CANNON (learns it at Lv.45)
+      fix: -> RAPID_SPIN [normal physical 20]  (alt: ICE_SHARD, SCRATCH)
+PRYCE (2), Mahogany Gym  (data/trainers/parties.asm:347)
+  data/trainers/parties.asm:361: error should-evolve: Lv.70 GIRAFARIG: evolves into FARIGIRAF at Lv.32
+      fix: use FARIGIRAF (moves stay legal)
+CLAIR (1), Blackthorn Gym  (data/trainers/parties.asm:378)
+  data/trainers/parties.asm:384: error should-evolve: Lv.53 DUNSPARCE: evolves into DUDUNSPARC at Lv.36
+      fix: use DUDUNSPARC (moves stay legal)
+  data/trainers/parties.asm:398: error illegal-move: Lv.53 DRAGONAIR: can't know EXTREMESPEED
+      fix: -> SLAM [normal physical 80]  (alt: BODY_SLAM, HEADBUTT)
+CLAIR (2), Blackthorn Gym  (data/trainers/parties.asm:406)
+  data/trainers/parties.asm:422: error illegal-move: Lv.70 GYARADOS: can't know EARTHQUAKE
+      fix: -> BODY_SLAM [normal physical 85]  (alt: ZAP_CANNON, DOUBLE_EDGE)
+BROCK (1), Pewter Gym  (data/trainers/parties.asm:437)
+  data/trainers/parties.asm:457: error illegal-move: Lv.71 KABUTOPS: can't know ROCK_SLIDE
+      fix: -> ROCK_THROW [rock physical 50]  (alt: ANCIENTPOWER, FLAIL)
+  data/trainers/parties.asm:461: error illegal-move: Lv.74 AERODACTYL: can't know DRILL_PECK
+      fix: -> FLY [flying physical 70]  (alt: WING_ATTACK, HEADBUTT)
+  data/trainers/parties.asm:461: error illegal-move: Lv.74 AERODACTYL: can't know OUTRAGE
+      fix: -> DOUBLE_EDGE [normal physical 120]  (alt: FIRE_BLAST, IRON_TAIL)
+MISTY (2), Cerulean Gym  (data/trainers/parties.asm:524)
+  data/trainers/parties.asm:536: error illegal-move: Lv.80 WIGGLYTUFF: can't know DOUBLE_EDGE
+      fix: -> BODY_SLAM [normal physical 85]  (alt: HYPER_BEAM, HYPER_VOICE)
+LT_SURGE (1), Vermilion Gym  (data/trainers/parties.asm:555)
+  data/trainers/parties.asm:559: error illegal-move: Lv.61 RAICHU: can't know SURF
+      fix: -> ZAP_CANNON [electric special 100]  (alt: DYNAMICPUNCH, WILD_CHARGE)
+LT_SURGE (2), Vermilion Gym  (data/trainers/parties.asm:583)
+  data/trainers/parties.asm:587: error illegal-move: Lv.80 RAICHU: can't know SURF
+      fix: -> ZAP_CANNON [electric special 100]  (alt: DYNAMICPUNCH, IRON_TAIL)
+  data/trainers/parties.asm:591: error illegal-move: Lv.80 VICTREEBEL: can't know BODY_SLAM
+      fix: -> SLAM [normal physical 80]  (alt: RETURN, HIDDEN_POWER)
+  data/trainers/parties.asm:603: error illegal-move: Lv.80 QUAGSIRE: can't know ROCK_SLIDE
+      fix: -> ANCIENTPOWER [rock special 60]  (alt: ICE_PUNCH, HEADBUTT)
+ERIKA (1), Celadon Gym  (data/trainers/parties.asm:614)
+  data/trainers/parties.asm:634: error illegal-move: Lv.64 VENUSAUR: can't know EARTHQUAKE
+      fix: -> SKULL_BASH [steel physical 100]  (alt: BODY_SLAM, DOUBLE_EDGE)
+JANINE (2), Fuchsia Gym  (data/trainers/parties.asm:701)
+  data/trainers/parties.asm:723: error should-evolve: Lv.80 GIRAFARIG: evolves into FARIGIRAF at Lv.32
+      fix: use FARIGIRAF (moves stay legal)
+SABRINA (14), Saffron Gym  (data/trainers/parties.asm:760)
+  data/trainers/parties.asm:764: error illegal-move: Lv.80 SANDSLASH: can't know SUBMISSION
+      fix: -> STRENGTH [fighting physical 80]  (alt: COUNTER, DYNAMICPUNCH)
+BLAINE (2), Seafoam Gym  (data/trainers/parties.asm:819)
+  data/trainers/parties.asm:831: error illegal-move: Lv.80 ARCANINE: can't know SOLARBEAM
+      fix: -> DOUBLE_EDGE [normal physical 120]  (alt: OUTRAGE, THRASH)
+  data/trainers/parties.asm:839: error illegal-move: Lv.80 MR__MIME: can't know FIRE_BLAST
+      fix: -> THUNDER [electric special 120]  (alt: DREAM_EATER, FIRE_PUNCH)
+BLUE (1), Viridian Gym  (data/trainers/parties.asm:850)
+  data/trainers/parties.asm:854: error illegal-move: Lv.78 PIDGEOT: can't know DRILL_PECK
+      fix: -> FLY [flying physical 70]  (alt: AERIAL_ACE, AIR_SLASH)
+  data/trainers/parties.asm:866: error illegal-move: Lv.80 GYARADOS: can't know EARTHQUAKE
+      fix: -> BODY_SLAM [normal physical 85]  (alt: ZAP_CANNON, FLAMETHROWER)
+  data/trainers/parties.asm:866: error illegal-move: Lv.80 GYARADOS: can't know IRON_TAIL
+      fix: -> ZAP_CANNON [electric special 100]  (alt: FLAMETHROWER, ICE_BEAM)
+  data/trainers/parties.asm:870: error illegal-move: Lv.79 EXEGGUTOR: can't know BODY_SLAM
+      fix: -> HEADBUTT [normal physical 70]  (alt: RETURN, STOMP)
+  data/trainers/parties.asm:874: error illegal-move: Lv.80 ARCANINE: can't know SOLARBEAM
+      fix: -> FIRE_BLAST [fire special 120]  (alt: DOUBLE_EDGE, OUTRAGE)
+WILL (1), Indigo Plateau  (data/trainers/parties.asm:909)
+  data/trainers/parties.asm:921: error illegal-move: Lv.54 EXEGGUTOR: can't know BODY_SLAM
+      fix: -> HEADBUTT [normal physical 70]  (alt: RETURN, STOMP)
+  data/trainers/parties.asm:927: error should-evolve: Lv.54 GIRAFARIG: evolves into FARIGIRAF at Lv.32
+      fix: use FARIGIRAF (moves stay legal)
+WILL (2), Indigo Plateau  (data/trainers/parties.asm:937)
+  data/trainers/parties.asm:941: error illegal-move: Lv.80 HYPNO: can't know SUBMISSION
+      fix: -> COUNTER [fighting physical 1]  (alt: SEISMIC_TOSS, DYNAMICPUNCH)
+KOGA (1), Indigo Plateau  (data/trainers/parties.asm:968)
+  data/trainers/parties.asm:992: error illegal-move: Lv.56 CROBAT: can't know ROAR
+      fix: -> ATTRACT [normal status]  (alt: DOUBLE_TEAM, ENDURE)
+BRUNO (1), Indigo Plateau  (data/trainers/parties.asm:1027)
+  data/trainers/parties.asm:1043: error illegal-move: Lv.55 ONIX: can't know WRAP
+      fix: -> RAGE [normal physical 20]  (alt: SCRATCH, BIND)
+  data/trainers/parties.asm:1051: error illegal-move: Lv.57 MACHAMP: can't know ROCK_SLIDE
+      fix: -> DRAIN_PUNCH [fighting physical 75]  (alt: FIRE_PUNCH, ICE_PUNCH)
+BRUNO (2), Indigo Plateau  (data/trainers/parties.asm:1055)
+  data/trainers/parties.asm:1063: error illegal-move: Lv.82 MACHAMP: can't know ROCK_SLIDE
+      fix: -> DRAIN_PUNCH [fighting physical 75]  (alt: FIRE_PUNCH, ICE_PUNCH)
+  data/trainers/parties.asm:1067: error illegal-move: Lv.82 GOLEM: can't know SUBMISSION
+      fix: -> STRENGTH [fighting physical 80]  (alt: SEISMIC_TOSS, DYNAMICPUNCH)
+  data/trainers/parties.asm:1071: error illegal-move: Lv.82 EXEGGUTOR: can't know SELFDESTRUCT
+      fix: -> HYPER_BEAM [normal special 150]  (alt: HEADBUTT, RETURN)
+  data/trainers/parties.asm:1075: error illegal-move: Lv.82 GRANBULL: can't know EARTHQUAKE
+      fix: -> TAKE_DOWN [normal physical 90]  (alt: BODY_SLAM, ZAP_CANNON)
+KAREN (1), Indigo Plateau  (data/trainers/parties.asm:1086)
+  data/trainers/parties.asm:1090: error illegal-move: Lv.57 UMBREON: can't know MOONLIGHT (learns it at Lv.59)
+      fix: -> CHARM [fairy status]  (alt: SWEET_KISS, ATTRACT)
+  data/trainers/parties.asm:1094: error illegal-move: Lv.56 VILEPLUME: can't know SPORE
+      fix: -> LEECH_SEED [grass status]  (alt: SLEEP_POWDER, STUN_SPORE)
+KAREN (2), Indigo Plateau  (data/trainers/parties.asm:1114)
+  data/trainers/parties.asm:1122: error illegal-move: Lv.83 SLOWBRO: can't know SUBMISSION
+      fix: -> STRENGTH [fighting physical 80]  (alt: COUNTER, SEISMIC_TOSS)
+  data/trainers/parties.asm:1122: error illegal-move: Lv.83 SLOWBRO: can't know THUNDER_WAVE
+      fix: -> AMNESIA [psychic_type status]  (alt: ATTRACT, BELLY_DRUM)
+  data/trainers/parties.asm:1126: error illegal-move: Lv.83 ELECTRODE: can't know THUNDER_WAVE
+      fix: -> AGILITY [psychic_type status]  (alt: CURSE, DOUBLE_TEAM)
+  data/trainers/parties.asm:1134: error illegal-move: Lv.83 MURKROW: can't know MEAN_LOOK
+      fix: -> ATTRACT [normal status]  (alt: DOUBLE_TEAM, ENDURE)
+CHAMPION (1), Indigo Plateau  (data/trainers/parties.asm:1145)
+  data/trainers/parties.asm:1149: error illegal-move: Lv.58 GYARADOS: can't know EARTHQUAKE
+      fix: -> BODY_SLAM [normal physical 85]  (alt: ZAP_CANNON, FLAMETHROWER)
+  data/trainers/parties.asm:1149: error illegal-move: Lv.58 GYARADOS: can't know IRON_TAIL
+      fix: -> ZAP_CANNON [electric special 100]  (alt: FLAMETHROWER, ICE_BEAM)
+  data/trainers/parties.asm:1153: error illegal-move: Lv.59 DRAGONITE: can't know EARTHQUAKE
+      fix: -> DYNAMICPUNCH [fighting physical 100]  (alt: BODY_SLAM, ZAP_CANNON)
+  data/trainers/parties.asm:1157: error illegal-move: Lv.59 DRAGONITE: can't know EARTHQUAKE
+      fix: -> DYNAMICPUNCH [fighting physical 100]  (alt: IRON_TAIL, ZAP_CANNON)
+  data/trainers/parties.asm:1161: error illegal-move: Lv.58 AERODACTYL: can't know DRILL_PECK
+      fix: -> FLY [flying physical 70]  (alt: WING_ATTACK, HEADBUTT)
+  data/trainers/parties.asm:1161: error illegal-move: Lv.58 AERODACTYL: can't know CRUNCH
+      fix: -> BITE [dark physical 60]  (alt: PURSUIT, HEADBUTT)
+  data/trainers/parties.asm:1169: error illegal-move: Lv.60 DRAGONITE: can't know EARTHQUAKE
+      fix: -> DYNAMICPUNCH [fighting physical 100]  (alt: IRON_TAIL, BODY_SLAM)
+LANCE (5), Indigo Plateau  (data/trainers/parties.asm:1173)
+  data/trainers/parties.asm:1181: error illegal-move: Lv.85 KANGASKHAN: can't know ROCK_SLIDE
+      fix: -> FIRE_PUNCH [fire physical 75]  (alt: ICE_PUNCH, THUNDERPUNCH)
+  data/trainers/parties.asm:1181: error illegal-move: Lv.85 KANGASKHAN: can't know SUBMISSION
+      fix: -> STRENGTH [fighting physical 80]  (alt: COUNTER, REVERSAL)
+RIVAL1 (7), Burned Tower  (data/trainers/parties.asm:1258)
+  data/trainers/parties.asm:1264: error illegal-move: Lv.25 MAGNEMITE: can't know THUNDERSHOCK
+      fix: -> SPARK [electric physical 65]  (alt: THUNDERBOLT, SWIFT)
+RIVAL1 (8), Burned Tower  (data/trainers/parties.asm:1274)
+  data/trainers/parties.asm:1280: error illegal-move: Lv.25 MAGNEMITE: can't know THUNDERSHOCK
+      fix: -> SPARK [electric physical 65]  (alt: THUNDERBOLT, SWIFT)
+RIVAL1 (9), Burned Tower  (data/trainers/parties.asm:1290)
+  data/trainers/parties.asm:1296: error illegal-move: Lv.25 MAGNEMITE: can't know THUNDERSHOCK
+      fix: -> SPARK [electric physical 65]  (alt: THUNDERBOLT, SWIFT)
+RIVAL2 (1), Mt Moon  (data/trainers/parties.asm:1432)
+  data/trainers/parties.asm:1452: error illegal-move: Lv.75 ARCANINE: can't know SOLARBEAM
+      fix: -> FIRE_BLAST [fire special 120]  (alt: DOUBLE_EDGE, OUTRAGE)
+RIVAL2 (4), Indigo Plateau  (data/trainers/parties.asm:1516)
+  data/trainers/parties.asm:1524: error illegal-move: Lv.85 CROBAT: can't know AERIAL_ACE
+      fix: -> WING_ATTACK [flying physical 60]  (alt: FLY, AIR_SLASH)
+RIVAL2 (5), Indigo Plateau  (data/trainers/parties.asm:1544)
+  data/trainers/parties.asm:1552: error illegal-move: Lv.85 CROBAT: can't know AERIAL_ACE
+      fix: -> WING_ATTACK [flying physical 60]  (alt: FLY, AIR_SLASH)
+  data/trainers/parties.asm:1564: error illegal-move: Lv.85 QUAGSIRE: can't know ROCK_SLIDE
+      fix: -> ANCIENTPOWER [rock special 60]  (alt: ICE_PUNCH, HEADBUTT)
+RED (1), Mt Silver  (data/trainers/parties.asm:1624)
+  data/trainers/parties.asm:1628: error illegal-move: Lv.98 PIKACHU: can't know EXTREMESPEED
+      fix: -> SLAM [normal physical 80]  (alt: BODY_SLAM, HEADBUTT)
+  data/trainers/parties.asm:1632: error illegal-move: Lv.88 ESPEON: can't know MOONBLAST
+      fix: -> DAZZLING_GLEAM [fairy special 80]  (alt: MEGA_PUNCH, DREAM_EATER)
+  data/trainers/parties.asm:1636: error illegal-move: Lv.90 SNORLAX: can't know CRUNCH
+      fix: -> MEGA_PUNCH [fairy physical 80]  (alt: STRENGTH, FIRE_PUNCH)
+SCIENTIST (5), Cerulean Base 2  (data/trainers/parties.asm:1697)
+  data/trainers/parties.asm:1703: error illegal-move: Lv.75 GYARADOS: can't know EARTHQUAKE
+      fix: -> BODY_SLAM [normal physical 85]  (alt: ZAP_CANNON, FLAMETHROWER)
+  data/trainers/parties.asm:1703: error illegal-move: Lv.75 GYARADOS: can't know IRON_TAIL
+      fix: -> ZAP_CANNON [electric special 100]  (alt: FLAMETHROWER, ICE_BEAM)
+  data/trainers/parties.asm:1709: error illegal-move: Lv.76 ALAKAZAM: can't know THUNDER_WAVE
+      fix: -> ATTRACT [normal status]  (alt: BARRIER, CURSE)
+SCIENTIST MAX (10), Ruins of Alph Outside  (data/trainers/parties.asm:1756)
+  data/trainers/parties.asm:1765: error illegal-move: Lv.44 DUGTRIO: can't know ROCK_SLIDE
+      fix: -> ANCIENTPOWER [rock special 60]  (alt: MAGNITUDE, RETURN)
+LASS (16), Route 38  (data/trainers/parties.asm:2600)
+  data/trainers/parties.asm:2606: error illegal-move: Lv.49 GOLDUCK: can't know PSYCHIC_M (learns it at Lv.60 as PSYDUCK)
+      fix: -> PSYBEAM [psychic_type special 65]  (alt: ZEN_HEADBUTT, CONFUSION)
+LASS (17), Route 38  (data/trainers/parties.asm:2613)
+  data/trainers/parties.asm:2622: error illegal-move: Lv.55 GOLDUCK: can't know PSYCHIC_M (learns it at Lv.60 as PSYDUCK)
+      fix: -> PSYBEAM [psychic_type special 65]  (alt: ZEN_HEADBUTT, CONFUSION)
+COOLTRAINERM (6), Route 26  (data/trainers/parties.asm:2689)
+  data/trainers/parties.asm:2698: error illegal-move: Lv.51 FLAREON: can't know DIG
+      fix: -> COUNTER [fighting physical 1]  (alt: FLAIL, HEADBUTT)
+COOLTRAINERM (9), Route 26  (data/trainers/parties.asm:2731)
+  data/trainers/parties.asm:2734: error illegal-move: Lv.51 PARASECT: can't know SWORDS_DANCE
+      fix: -> ATTRACT [normal status]  (alt: DOUBLE_TEAM, ENDURE)
+COOLTRAINERM (18), Victory Road  (data/trainers/parties.asm:2837)
+  data/trainers/parties.asm:2841: error illegal-move: Lv.52 MACHAMP: can't know ROCK_SLIDE
+      fix: -> DRAIN_PUNCH [fighting physical 75]  (alt: ICE_PUNCH, THUNDERPUNCH)
+COOLTRAINERM (20), Dragon's Den  (data/trainers/parties.asm:2863)
+  data/trainers/parties.asm:2869: error illegal-move: Lv.51 SEADRA: can't know SURF
+      fix: -> HYDRO_PUMP [water special 120]  (alt: OCTAZOOKA, WATER_GUN)
+COOLTRAINERM (25), Ice Path Hollow  (data/trainers/parties.asm:2921)
+  data/trainers/parties.asm:2938: error should-evolve: Lv.58 DRAGONAIR: evolves into DRAGONITE at Lv.55
+      fix: use DRAGONITE (moves stay legal)
+COOLTRAINERM (26), Ice Path Hollow rematch  (data/trainers/parties.asm:2943)
+  data/trainers/parties.asm:2960: error should-evolve: Lv.73 DRAGONAIR: evolves into DRAGONITE at Lv.55
+      fix: use DRAGONITE (moves stay legal)
+COOLTRAINERF (3), Blackthorn Gym  (data/trainers/parties.asm:2993)
+  data/trainers/parties.asm:2999: error should-evolve: Lv.49 DUNSPARCE: evolves into DUDUNSPARC at Lv.36
+      fix: use DUDUNSPARC (moves stay legal)
+COOLTRAINERF (11), Route 27  (data/trainers/parties.asm:3079)
+  data/trainers/parties.asm:3081: error should-evolve: Lv.52 BULBASAUR: evolves into IVYSAUR at Lv.16
+      fix: use VENUSAUR (moves stay legal)
+  data/trainers/parties.asm:3084: error should-evolve: Lv.52 IVYSAUR: evolves into VENUSAUR at Lv.32
+      fix: use VENUSAUR (moves stay legal)
+COOLTRAINERF (21), Dragon's Den  (data/trainers/parties.asm:3204)
+  data/trainers/parties.asm:3207: error illegal-move: Lv.50 CHARIZARD: can't know TWISTER
+      fix: -> DRAGON_RAGE [dragon special 40]  (alt: DRAGONBREATH, EMBER)
+  data/trainers/parties.asm:3210: error illegal-move: Lv.50 SEADRA: can't know SURF
+      fix: -> HYDRO_PUMP [water special 120]  (alt: OCTAZOOKA, ICE_BEAM)
+  data/trainers/parties.asm:3210: error illegal-move: Lv.50 SEADRA: can't know WHIRLPOOL
+      fix: -> BUBBLE [water special 20]  (alt: WATER_GUN, OCTAZOOKA)
+COOLTRAINERF KELSEY (23), Victory Road  (data/trainers/parties.asm:3237)
+  data/trainers/parties.asm:3253: error illegal-move: Lv.51 CHARIZARD: can't know WING_ATTACK
+      fix: -> FLY [flying physical 70]  (alt: AIR_SLASH, BITE)
+COOLTRAINERF (24), Ice Path 1F  (data/trainers/parties.asm:3257)
+  data/trainers/parties.asm:3263: error illegal-move: Lv.49 SEADRA: can't know SURF
+      fix: -> HYDRO_PUMP [water special 120]  (alt: OCTAZOOKA, WATER_GUN)
+  data/trainers/parties.asm:3265: error should-evolve: Lv.51 DUNSPARCE: evolves into DUDUNSPARC at Lv.36
+      fix: use DUDUNSPARC (moves stay legal)
+POKEMANIAC (5), Route 43  (data/trainers/parties.asm:3517)
+  data/trainers/parties.asm:3521: error underleveled: Lv.32 SLOWBRO: can't exist below Lv.37
+      fix: raise to Lv.37, or use SLOWPOKE
+POKEMANIAC (8), SS Aqua  (data/trainers/parties.asm:3549)
+  data/trainers/parties.asm:3553: error should-evolve: Lv.57 PUPITAR: evolves into TYRANITAR at Lv.55
+      fix: use TYRANITAR (moves stay legal)
+POKEMANIAC (10), Route 43  (data/trainers/parties.asm:3573)
+  data/trainers/parties.asm:3579: error illegal-move: Lv.48 KANGASKHAN: can't know REVERSAL (learns it at Lv.49)
+      fix: -> COUNTER [fighting physical 1]  (alt: SEISMIC_TOSS, STRENGTH)
+POKEMANIAC (11), Goldenrod Tunnel  (data/trainers/parties.asm:3589)
+  data/trainers/parties.asm:3595: error illegal-move: Lv.21 SLOWPOKE: can't know DISABLE (learns it at Lv.29)
+      fix: -> ATTRACT [normal status]  (alt: DOUBLE_TEAM, ENDURE)
+SKIER (1), Mahogany Gym  (data/trainers/parties.asm:4252)
+  data/trainers/parties.asm:4256: error underleveled: Lv.33 DEWGONG: can't exist below Lv.34
+      fix: raise to Lv.34, or use SEEL
+TEACHER (2), Route 15  (data/trainers/parties.asm:4329)
+  data/trainers/parties.asm:4333: error should-evolve: Lv.65 GIRAFARIG: evolves into FARIGIRAF at Lv.32
+      fix: use FARIGIRAF (moves stay legal)
+BUG_CATCHER (6), Azalea Gym  (data/trainers/parties.asm:4410)
+  data/trainers/parties.asm:4416: error should-evolve: Lv.15 METAPOD: evolves into BUTTERFREE at Lv.10
+      fix: use BUTTERFREE (moves stay legal)
+BUG_CATCHER (10), Route 31  (data/trainers/parties.asm:4450)
+  data/trainers/parties.asm:4452: error should-evolve: Lv.14 METAPOD: evolves into BUTTERFREE at Lv.10
+      fix: use BUTTERFREE (moves stay legal)
+  data/trainers/parties.asm:4454: error should-evolve: Lv.14 METAPOD: evolves into BUTTERFREE at Lv.10
+      fix: use BUTTERFREE (moves stay legal)
+  data/trainers/parties.asm:4456: error should-evolve: Lv.15 KAKUNA: evolves into BEEDRILL at Lv.10
+      fix: use BEEDRILL (moves stay legal)
+  data/trainers/parties.asm:4458: error should-evolve: Lv.14 METAPOD: evolves into BUTTERFREE at Lv.10
+      fix: use BUTTERFREE (moves stay legal)
+BUG_CATCHER (17), Route 35  (data/trainers/parties.asm:4500)
+  data/trainers/parties.asm:4509: error illegal-move: Lv.40 VENOMOTH: can't know GUST
+      fix: -> CONFUSION [psychic_type special 50]  (alt: SCRATCH, THIEF)
+BUG_CATCHER (18), Route 35  (data/trainers/parties.asm:4529)
+  data/trainers/parties.asm:4538: error illegal-move: Lv.48 VENOMOTH: can't know GUST
+      fix: -> CONFUSION [psychic_type special 50]  (alt: SCRATCH, THIEF)
+FISHER (7), Route 42  (data/trainers/parties.asm:4634)
+  data/trainers/parties.asm:4636: error underleveled: Lv.32 SEAKING: can't exist below Lv.33
+      fix: raise to Lv.33, or use GOLDEEN
+  data/trainers/parties.asm:4638: error underleveled: Lv.32 SEAKING: can't exist below Lv.33
+      fix: raise to Lv.33, or use GOLDEEN
+FISHER (16), Route 32  (data/trainers/parties.asm:4735)
+  data/trainers/parties.asm:4739: error should-evolve: Lv.21 WOOPER: evolves into QUAGSIRE at Lv.20
+      fix: use QUAGSIRE (moves stay legal)
+FISHER (22), Route 44  (data/trainers/parties.asm:4795)
+  data/trainers/parties.asm:4798: error illegal-move: Lv.58 GOLDUCK: can't know SUPERSONIC
+      fix: -> ATTRACT [normal status]  (alt: DISABLE, DOUBLE_TEAM)
+  data/trainers/parties.asm:4798: error illegal-move: Lv.58 GOLDUCK: can't know FLAIL
+      fix: -> HEADBUTT [normal physical 70]  (alt: RETURN, BODY_SLAM)
+  data/trainers/parties.asm:4801: error illegal-move: Lv.58 SEADRA: can't know SUPERSONIC
+      fix: -> ATTRACT [normal status]  (alt: DISABLE, DOUBLE_TEAM)
+  data/trainers/parties.asm:4801: error illegal-move: Lv.58 SEADRA: can't know WATERFALL
+      fix: -> OCTAZOOKA [water special 65]  (alt: HEADBUTT, RETURN)
+  data/trainers/parties.asm:4801: error illegal-move: Lv.58 SEADRA: can't know FURY_STRIKES
+      fix: -> HEADBUTT [normal physical 70]  (alt: RETURN, BUBBLE)
+SAILOR (4), Olivine Lighthouse  (data/trainers/parties.asm:5317)
+  data/trainers/parties.asm:5320: error illegal-move: Lv.38 KINGLER: can't know CRABHAMMER (learns it at Lv.41 as KRABBY)
+      fix: -> SURF [water special 95]  (alt: BUBBLEBEAM, SLAM)
+  data/trainers/parties.asm:5326: error illegal-move: Lv.40 BLASTOISE: can't know BUBBLEBEAM
+      fix: -> WATER_GUN [water special 40]  (alt: SURF, WATERFALL)
+SAILOR (10), Route 38  (data/trainers/parties.asm:5388)
+  data/trainers/parties.asm:5391: error illegal-move: Lv.38 QUAGSIRE: can't know ANCIENTPOWER (learns it at Lv.43 as WOOPER)
+      fix: -> ROLLOUT [rock physical 30]  (alt: HIDDEN_POWER, DIG)
+SUPER_NERD (13), Mt Mortar, post Waterfall  (data/trainers/parties.asm:5567)
+  data/trainers/parties.asm:5576: error illegal-move: Lv.47 SEADRA: can't know SURF
+      fix: -> HYDRO_PUMP [water special 120]  (alt: OCTAZOOKA, ICE_BEAM)
+  data/trainers/parties.asm:5576: error illegal-move: Lv.47 SEADRA: can't know WATERFALL
+      fix: -> OCTAZOOKA [water special 65]  (alt: FLAIL, HEADBUTT)
+SUPER_NERD (14), Mt Mortar, post Strength  (data/trainers/parties.asm:5580)
+  data/trainers/parties.asm:5583: error illegal-move: Lv.40 BELLOSSOM: can't know GROWTH
+      fix: -> ATTRACT [normal status]  (alt: DOUBLE_TEAM, ENDURE)
+  data/trainers/parties.asm:5589: error illegal-move: Lv.40 SLOWKING: can't know AMNESIA (learns it at Lv.43 as SLOWPOKE)
+      fix: -> REFLECT [psychic_type status]  (alt: REST, TELEPORT)
+GUITARIST (4), Goldenrod Tunnel  (data/trainers/parties.asm:5644)
+  data/trainers/parties.asm:5648: error should-evolve: Lv.21 MARILL: evolves into AZUMARILL at Lv.18
+      fix: use AZUMARILL (moves stay legal)
+HIKER (10), Route 45  (data/trainers/parties.asm:5747)
+  data/trainers/parties.asm:5750: error illegal-move: Lv.49 MAROWAK: can't know MAGNITUDE
+      fix: -> BONE_CLUB [ground physical 65]  (alt: BONEMERANG, EARTHQUAKE)
+  data/trainers/parties.asm:5750: error illegal-move: Lv.49 MAROWAK: can't know SLASH
+      fix: -> HEADBUTT [normal physical 70]  (alt: RETURN, BODY_SLAM)
+HIKER (19), Route 45  (data/trainers/parties.asm:5854)
+  data/trainers/parties.asm:5862: error should-evolve: Lv.55 PUPITAR: evolves into TYRANITAR at Lv.55
+      fix: use TYRANITAR (moves stay legal)
+HIKER (22), Route 33  (data/trainers/parties.asm:5885)
+  data/trainers/parties.asm:5894: error illegal-move: Lv.41 MACHOKE: can't know DIG
+      fix: -> EARTHQUAKE [ground physical 100]  (alt: ROLLING_KICK, COUNTER)
+FIREBREATHER (6), Route 35  (data/trainers/parties.asm:6134)
+  data/trainers/parties.asm:6138: error underleveled: Lv.24 MAGMAR: can't exist below Lv.30
+      fix: raise to Lv.30, or use MAGBY
+JUGGLER (5), Route 26  (data/trainers/parties.asm:6233)
+  data/trainers/parties.asm:6241: error illegal-move: Lv.50 HYPNO: can't know THUNDER_WAVE
+      fix: -> AMNESIA [psychic_type status]  (alt: ATTRACT, BARRIER)
+JUGGLER (6), Victory Road  (data/trainers/parties.asm:6253)
+  data/trainers/parties.asm:6261: error illegal-move: Lv.50 HYPNO: can't know THUNDER_WAVE
+      fix: -> AMNESIA [psychic_type status]  (alt: ATTRACT, BARRIER)
+BLACKBELT_T (5), Cianwood Gym  (data/trainers/parties.asm:6330)
+  data/trainers/parties.asm:6336: error illegal-move: Lv.37 MACHOKE: can't know ROCK_SLIDE
+      fix: -> DRAIN_PUNCH [fighting physical 75]  (alt: FIRE_PUNCH, ICE_PUNCH)
+  data/trainers/parties.asm:6339: error illegal-move: Lv.37 MACHAMP: can't know ROCK_SLIDE
+      fix: -> DRAIN_PUNCH [fighting physical 75]  (alt: FIRE_PUNCH, ICE_PUNCH)
+PSYCHIC_T (1), Victory Road  (data/trainers/parties.asm:6486)
+  data/trainers/parties.asm:6488: error should-evolve: Lv.52 GIRAFARIG: evolves into FARIGIRAF at Lv.32
+      fix: use FARIGIRAF (moves stay legal)
+PSYCHIC_T (4), Route 11  (data/trainers/parties.asm:6522)
+  data/trainers/parties.asm:6526: error should-evolve: Lv.66 GIRAFARIG: evolves into FARIGIRAF at Lv.32
+      fix: use FARIGIRAF (moves stay legal)
+PSYCHIC_T (5), Route 37  (data/trainers/parties.asm:6534)
+  data/trainers/parties.asm:6537: error illegal-move: Lv.27 MISDREAVUS: can't know DESTINY_BOND (learns it at Lv.35)
+      fix: -> NIGHTMARE [ghost status]  (alt: SPITE, ATTRACT)
+PSYCHIC_T (10), Route 27  (data/trainers/parties.asm:6593)
+  data/trainers/parties.asm:6599: error should-evolve: Lv.52 GIRAFARIG: evolves into FARIGIRAF at Lv.32
+      fix: use FARIGIRAF (moves stay legal)
+PSYCHIC_T (11), Saffron Gym  (data/trainers/parties.asm:6603)
+  data/trainers/parties.asm:6607: error should-evolve: Lv.57 GIRAFARIG: evolves into FARIGIRAF at Lv.32
+      fix: use FARIGIRAF (moves stay legal)
+PICNICKER (3), Route 35  (data/trainers/parties.asm:6650)
+  data/trainers/parties.asm:6653: error illegal-move: Lv.22 PIKACHU: can't know GROWL
+      fix: -> ATTRACT [normal status]  (alt: DEFENSE_CURL, ENCORE)
+PICNICKER (16), Route 43  (data/trainers/parties.asm:6797)
+  data/trainers/parties.asm:6800: error illegal-move: Lv.32 CLEFABLE: can't know AMNESIA (learns it at Lv.34 as CLEFAIRY)
+      fix: -> REFLECT [psychic_type status]  (alt: REST, ATTRACT)
+PICNICKER (17), Route 43  (data/trainers/parties.asm:6810)
+  data/trainers/parties.asm:6816: error illegal-move: Lv.38 BUTTERFREE: can't know PSYBEAM (learns it at Lv.40)
+      fix: -> CONFUSION [psychic_type special 50]  (alt: PSYCHIC_M, HIDDEN_POWER)
+PICNICKER (25), Route 34  (data/trainers/parties.asm:6887)
+  data/trainers/parties.asm:6890: error illegal-move: Lv.40 BELLOSSOM: can't know GROWTH
+      fix: -> ATTRACT [normal status]  (alt: DOUBLE_TEAM, ENDURE)
+CAMPER (4), Route 35  (data/trainers/parties.asm:6946)
+  data/trainers/parties.asm:6948: error should-evolve: Lv.22 SANDSHREW: evolves into SANDSLASH at Lv.22
+      fix: use SANDSLASH (moves stay legal)
+  data/trainers/parties.asm:6950: error should-evolve: Lv.23 MARILL: evolves into AZUMARILL at Lv.18
+      fix: use AZUMARILL (moves stay legal)
+  data/trainers/parties.asm:6952: error should-evolve: Lv.22 WOOPER: evolves into QUAGSIRE at Lv.20
+      fix: use QUAGSIRE (moves stay legal)
+CAMPER (12), Route 34  (data/trainers/parties.asm:7034)
+  data/trainers/parties.asm:7036: error should-evolve: Lv.25 GEODUDE: evolves into GRAVELER at Lv.25
+      fix: use GRAVELER (moves stay legal)
+CAMPER (17), Route 2  (data/trainers/parties.asm:7095)
+  data/trainers/parties.asm:7098: error illegal-move: Lv.71 RATICATE: can't know CRUNCH
+      fix: -> BITE [dark physical 60]  (alt: PURSUIT, STRENGTH)
+  data/trainers/parties.asm:7104: error illegal-move: Lv.72 NOCTOWL: can't know PSYCHIC_M
+      fix: -> CONFUSION [psychic_type special 50]  (alt: HYPER_VOICE, AIR_SLASH)
+CAMPER (21), Route 34  (data/trainers/parties.asm:7127)
+  data/trainers/parties.asm:7130: error illegal-move: Lv.40 GOLEM: can't know HARDEN
+      fix: -> ATTRACT [normal status]  (alt: DEFENSE_CURL, DOUBLE_TEAM)
+  data/trainers/parties.asm:7139: error illegal-move: Lv.41 GOLDUCK: can't know PSYCHIC_M (learns it at Lv.60 as PSYDUCK)
+      fix: -> PSYBEAM [psychic_type special 65]  (alt: CONFUSION, ICE_BEAM)
+EXECUTIVEF (1), Team Rocket's Hideout, B2F  (data/trainers/parties.asm:7172)
+  data/trainers/parties.asm:7175: error illegal-move: Lv.32 VILEPLUME: can't know FAINT_ATTACK (learns it at Lv.41)
+      fix: -> RAZOR_LEAF [grass physical 55]  (alt: CUT, RETURN)
+  data/trainers/parties.asm:7178: error illegal-move: Lv.34 MURKROW: can't know DRILL_PECK (learns it at Lv.36)
+      fix: -> FLY [flying physical 70]  (alt: WING_ATTACK, PECK)
+  data/trainers/parties.asm:7183: error underleveled: Lv.33 MUK: can't exist below Lv.38
+      fix: raise to Lv.38, or use GRIMER
+SAGE (12), Tin Tower  (data/trainers/parties.asm:7362)
+  data/trainers/parties.asm:7374: error illegal-move: Lv.45 VICTREEBEL: can't know DOUBLE_EDGE
+      fix: -> HYPER_BEAM [normal special 150]  (alt: RETURN, SOLARBEAM)
+BOARDER (1), Mahogany Gym  (data/trainers/parties.asm:7471)
+  data/trainers/parties.asm:7475: error underleveled: Lv.33 DEWGONG: can't exist below Lv.34
+      fix: raise to Lv.34, or use SEEL
+BOARDER (3), Mahogany Gym  (data/trainers/parties.asm:7491)
+  data/trainers/parties.asm:7493: error underleveled: Lv.32 DEWGONG: can't exist below Lv.34
+      fix: raise to Lv.34, or use SEEL
+KIMONO_GIRL (2), Ecruteak City  (data/trainers/parties.asm:7794)
+  data/trainers/parties.asm:7802: error illegal-move: Lv.28 FLAREON: can't know FLAME_WHEEL
+      fix: -> EMBER [fire special 40]  (alt: COUNTER, FLAIL)
+  data/trainers/parties.asm:7806: error illegal-move: Lv.30 FLAREON: can't know SKULL_BASH
+      fix: -> IRON_TAIL [steel physical 100]  (alt: BODY_SLAM, ZAP_CANNON)
+KIMONO_GIRL (3), Ecruteak City  (data/trainers/parties.asm:7810)
+  data/trainers/parties.asm:7818: error illegal-move: Lv.28 ESPEON: can't know PSYBEAM (learns it at Lv.33)
+      fix: -> CONFUSION [psychic_type special 50]  (alt: PSYCHIC_M, HIDDEN_POWER)
+  data/trainers/parties.asm:7818: error illegal-move: Lv.28 ESPEON: can't know BATON_PASS (learns it at Lv.36 as EEVEE)
+      fix: -> ATTRACT [normal status]  (alt: DOUBLE_TEAM, ENDURE)
+  data/trainers/parties.asm:7822: error illegal-move: Lv.30 ESPEON: can't know TRI_ATTACK (learns it at Lv.36)
+      fix: -> HIDDEN_POWER [normal special 70]  (alt: BODY_SLAM, SWIFT)
+KIMONO_GIRL (4), Ecruteak City  (data/trainers/parties.asm:7826)
+  data/trainers/parties.asm:7834: error illegal-move: Lv.28 UMBREON: can't know FAINT_ATTACK (learns it at Lv.31)
+      fix: -> PURSUIT [dark physical 40]  (alt: COUNTER, CUT)
+  data/trainers/parties.asm:7838: error illegal-move: Lv.30 UMBREON: can't know CONFUSE_RAY (learns it at Lv.35)
+      fix: -> NIGHTMARE [ghost status]  (alt: ATTRACT, CHARM)
+KIMONO_GIRL (5), Ecruteak City  (data/trainers/parties.asm:7842)
+  data/trainers/parties.asm:7850: error illegal-move: Lv.28 VAPOREON: can't know BUBBLEBEAM
+      fix: -> WATER_GUN [water special 40]  (alt: SURF, WATERFALL)
+  data/trainers/parties.asm:7850: error illegal-move: Lv.28 VAPOREON: can't know BATON_PASS (learns it at Lv.36 as EEVEE)
+      fix: -> ATTRACT [normal status]  (alt: DOUBLE_TEAM, ENDURE)
+  data/trainers/parties.asm:7850: error illegal-move: Lv.28 VAPOREON: can't know BARRIER (learns it at Lv.47)
+      fix: -> REFLECT [psychic_type status]  (alt: REST, CHARM)
+TWINS (10), National Park  (data/trainers/parties.asm:8012)
+  data/trainers/parties.asm:8018: error should-evolve: Lv.22 MARILL: evolves into AZUMARILL at Lv.18
+      fix: use AZUMARILL (moves stay legal)
+
+165 error(s), 0 warning(s)

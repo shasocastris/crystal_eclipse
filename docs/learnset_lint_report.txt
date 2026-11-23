@@ -1,0 +1,721 @@
+IVYSAUR  <- BULBASAUR  (data/pokemon/evos_attacks_kanto.asm:184)
+  later    SUNNY_DAY: BULBASAUR Lv.48, IVYSAUR Lv.58 (+10)
+  later    SKULL_BASH: BULBASAUR Lv.51, IVYSAUR Lv.62 (+11)
+  later    GROWTH: BULBASAUR Lv.54, IVYSAUR Lv.66 (+12)
+  later    PETAL_DANCE: BULBASAUR Lv.57, IVYSAUR Lv.70 (+13)
+  later    SYNTHESIS: BULBASAUR Lv.60, IVYSAUR Lv.74 (+14)
+  later    POWER_WHIP: BULBASAUR Lv.63, IVYSAUR Lv.78 (+15)
+VENUSAUR  <- BULBASAUR, IVYSAUR  (data/pokemon/evos_attacks_kanto.asm:211)
+  later    ENERGY_BALL: BULBASAUR Lv.39, VENUSAUR Lv.50 (+11)
+  later    CHARM: BULBASAUR Lv.42, VENUSAUR Lv.55 (+13)
+  later    SOLARBEAM: BULBASAUR Lv.45, VENUSAUR Lv.60 (+15)
+  later    SUNNY_DAY: BULBASAUR Lv.48, VENUSAUR Lv.65 (+17)
+  later    SKULL_BASH: BULBASAUR Lv.51, VENUSAUR Lv.70 (+19)
+  later    GROWTH: BULBASAUR Lv.54, VENUSAUR Lv.75 (+21)
+  later    PETAL_DANCE: BULBASAUR Lv.57, VENUSAUR Lv.80 (+23)
+  later    SYNTHESIS: BULBASAUR Lv.60, VENUSAUR Lv.85 (+25)
+  later    POWER_WHIP: BULBASAUR Lv.63, VENUSAUR Lv.90 (+27)
+CHARMELEON  <- CHARMANDER  (data/pokemon/evos_attacks_kanto.asm:262)
+  later    ANCIENTPOWER: CHARMANDER Lv.45, CHARMELEON Lv.55 (+10)
+  later    AIR_SLASH: CHARMANDER Lv.48, CHARMELEON Lv.59 (+11)
+  later    OUTRAGE: CHARMANDER Lv.51, CHARMELEON Lv.63 (+12)
+  later    FIRE_BLAST: CHARMANDER Lv.54, CHARMELEON Lv.67 (+13)
+CHARIZARD  <- CHARMANDER, CHARMELEON  (data/pokemon/evos_attacks_kanto.asm:286)
+  later    DRAGON_RAGE: CHARMANDER Lv.39, CHARIZARD Lv.50 (+11)
+  later    DRAGON_CLAW: CHARMANDER Lv.42, CHARIZARD Lv.55 (+13)
+  later    ANCIENTPOWER: CHARMANDER Lv.45, CHARIZARD Lv.60 (+15)
+  later    AIR_SLASH: CHARMANDER Lv.48, CHARIZARD Lv.65 (+17)
+  later    OUTRAGE: CHARMANDER Lv.51, CHARIZARD Lv.70 (+19)
+  later    FIRE_BLAST: CHARMANDER Lv.54, CHARIZARD Lv.75 (+21)
+WARTORTLE  <- SQUIRTLE  (data/pokemon/evos_attacks_kanto.asm:334)
+  later    SKULL_BASH: SQUIRTLE Lv.45, WARTORTLE Lv.55 (+10)
+  later    MIRROR_COAT: SQUIRTLE Lv.48, WARTORTLE Lv.59 (+11)
+  later    HYDRO_PUMP: SQUIRTLE Lv.51, WARTORTLE Lv.63 (+12)
+  later    FLASH_CANNON: SQUIRTLE Lv.54, WARTORTLE Lv.67 (+13)
+BLASTOISE  <- SQUIRTLE, WARTORTLE  (data/pokemon/evos_attacks_kanto.asm:358)
+  later    IRON_HEAD: SQUIRTLE Lv.39, BLASTOISE Lv.50 (+11)
+  later    FORESIGHT: SQUIRTLE Lv.42, BLASTOISE Lv.55 (+13)
+  later    SKULL_BASH: SQUIRTLE Lv.45, BLASTOISE Lv.60 (+15)
+  later    MIRROR_COAT: SQUIRTLE Lv.48, BLASTOISE Lv.65 (+17)
+  later    HYDRO_PUMP: SQUIRTLE Lv.51, BLASTOISE Lv.70 (+19)
+  later    FLASH_CANNON: SQUIRTLE Lv.54, BLASTOISE Lv.75 (+21)
+METAPOD  <- CATERPIE  (data/pokemon/evos_attacks_kanto.asm:390)
+  missing  LEECH_LIFE: CATERPIE Lv.8, METAPOD can't learn it
+BUTTERFREE  <- CATERPIE, METAPOD  (data/pokemon/evos_attacks_kanto.asm:400)
+  missing  LEECH_LIFE: CATERPIE Lv.8, BUTTERFREE can't learn it
+  missing  HEADBUTT: METAPOD Lv.15, BUTTERFREE can't learn it
+KAKUNA  <- WEEDLE  (data/pokemon/evos_attacks_kanto.asm:427)
+  missing  LEECH_LIFE: WEEDLE Lv.8, KAKUNA can't learn it
+BEEDRILL  <- KAKUNA, WEEDLE  (data/pokemon/evos_attacks_kanto.asm:437)
+  missing  LEECH_LIFE: WEEDLE Lv.8, BEEDRILL can't learn it
+  missing  HEADBUTT: KAKUNA Lv.15, BEEDRILL can't learn it
+PIDGEOTTO  <- PIDGEY  (data/pokemon/evos_attacks_kanto.asm:475)
+  later    HURRICANE: PIDGEY Lv.54, PIDGEOTTO Lv.65 (+11)
+PIDGEOT  <- PIDGEOTTO, PIDGEY  (data/pokemon/evos_attacks_kanto.asm:495)
+  later    AGILITY: PIDGEY Lv.41, PIDGEOT Lv.52 (+11)
+  later    AIR_SLASH: PIDGEY Lv.47, PIDGEOT Lv.59 (+12)
+  later    MIRROR_MOVE: PIDGEY Lv.51, PIDGEOT Lv.66 (+15)
+  later    HURRICANE: PIDGEY Lv.54, PIDGEOT Lv.78 (+24)
+RATICATE  <- RATTATA  (data/pokemon/evos_attacks_kanto.asm:535)
+  missing  FOCUS_ENERGY: RATTATA Lv.20, RATICATE can't learn it
+PIKACHU  <- PICHU  (data/pokemon/evos_attacks_kanto.asm:634)
+  tm-only  THUNDERPUNCH: PICHU Lv.14, PIKACHU TM/HM/tutor only
+  tm-only  SWEET_KISS: PICHU Lv.16, PIKACHU TM/HM/tutor only
+RAICHU  <- PICHU, PIKACHU  (data/pokemon/evos_attacks_kanto.asm:662)
+  missing  CHARM: PICHU Lv.1, RAICHU can't learn it
+  missing  THUNDERSHOCK: PICHU Lv.1, RAICHU can't learn it
+  missing  LEER: PICHU Lv.4, RAICHU can't learn it
+  missing  QUICK_ATTACK: PICHU Lv.6, RAICHU can't learn it
+  missing  FURY_STRIKES: PIKACHU Lv.13, RAICHU can't learn it
+  tm-only  THUNDERPUNCH: PICHU Lv.14, RAICHU TM/HM/tutor only
+  tm-only  SWEET_KISS: PICHU Lv.16, RAICHU TM/HM/tutor only
+  missing  ENCORE: PIKACHU Lv.17, RAICHU can't learn it
+  missing  SLAM: PIKACHU Lv.20, RAICHU can't learn it
+  missing  REVERSAL: PIKACHU Lv.23, RAICHU can't learn it
+  missing  WILD_CHARGE: PIKACHU Lv.30, RAICHU can't learn it
+  missing  AGILITY: PIKACHU Lv.38, RAICHU can't learn it
+  missing  SPARK: PIKACHU Lv.42, RAICHU can't learn it
+  tm-only  THUNDER: PIKACHU Lv.46, RAICHU TM/HM/tutor only
+  missing  PRESENT: PIKACHU Lv.50, RAICHU can't learn it
+  missing  LIGHT_SCREEN: PIKACHU Lv.56, RAICHU can't learn it
+NIDOQUEEN  <- NIDORAN_F, NIDORINA  (data/pokemon/evos_attacks_kanto.asm:755)
+  missing  GROWL: NIDORAN_F Lv.1, NIDOQUEEN can't learn it
+  missing  SUPERSONIC: NIDORAN_F Lv.4, NIDOQUEEN can't learn it
+  missing  DISABLE: NIDORAN_F Lv.10, NIDOQUEEN can't learn it
+  missing  CHARM: NIDORAN_F Lv.15, NIDOQUEEN can't learn it
+  missing  POISON_STING: NIDORAN_F Lv.17, NIDOQUEEN can't learn it
+  missing  TAKE_DOWN: NIDORAN_F Lv.20, NIDOQUEEN can't learn it
+  missing  FOCUS_ENERGY: NIDORAN_F Lv.27, NIDOQUEEN can't learn it
+  missing  BITE: NIDORAN_F Lv.30, NIDOQUEEN can't learn it
+  missing  FURY_STRIKES: NIDORAN_F Lv.38, NIDOQUEEN can't learn it
+  later    HYPER_VOICE: NIDORAN_F Lv.43, NIDOQUEEN Lv.53 (+10)
+  missing  FAINT_ATTACK: NIDORAN_F Lv.48, NIDOQUEEN can't learn it
+  tm-only  COUNTER: NIDORAN_F Lv.54, NIDOQUEEN TM/HM/tutor only
+NIDOKING  <- NIDORAN_M, NIDORINO  (data/pokemon/evos_attacks_kanto.asm:813)
+  missing  LEER: NIDORAN_M Lv.1, NIDOKING can't learn it
+  missing  SUPERSONIC: NIDORAN_M Lv.4, NIDOKING can't learn it
+  missing  DISABLE: NIDORAN_M Lv.10, NIDOKING can't learn it
+  missing  AMNESIA: NIDORAN_M Lv.15, NIDOKING can't learn it
+  missing  CONFUSION: NIDORAN_M Lv.20, NIDOKING can't learn it
+  missing  FOCUS_ENERGY: NIDORAN_M Lv.23, NIDOKING can't learn it
+  missing  TAKE_DOWN: NIDORAN_M Lv.27, NIDOKING can't learn it
+  missing  FURY_STRIKES: NIDORAN_M Lv.30, NIDOKING can't learn it
+  missing  FAINT_ATTACK: NIDORAN_M Lv.38, NIDOKING can't learn it
+  later    MEGAHORN: NIDORAN_M Lv.43, NIDOKING Lv.53 (+10)
+  tm-only  BODY_SLAM: NIDORAN_M Lv.48, NIDOKING TM/HM/tutor only
+  tm-only  COUNTER: NIDORAN_M Lv.55, NIDOKING TM/HM/tutor only
+CLEFAIRY  <- CLEFFA  (data/pokemon/evos_attacks_kanto.asm:828)
+  missing  CHARM: CLEFFA Lv.1, CLEFAIRY can't learn it
+  later    DISARM_VOICE: CLEFFA Lv.4, CLEFAIRY Lv.30 (+26)
+  missing  COMET_PUNCH: CLEFFA Lv.9, CLEFAIRY can't learn it
+  tm-only  MEGA_PUNCH: CLEFFA Lv.16, CLEFAIRY TM/HM/tutor only
+  tm-only  SWEET_KISS: CLEFFA Lv.18, CLEFAIRY TM/HM/tutor only
+CLEFABLE  <- CLEFAIRY, CLEFFA  (data/pokemon/evos_attacks_kanto.asm:852)
+  missing  CHARM: CLEFFA Lv.1, CLEFABLE can't learn it
+  missing  GROWL: CLEFAIRY Lv.1, CLEFABLE can't learn it
+  missing  SCRATCH: CLEFFA Lv.1, CLEFABLE can't learn it
+  missing  DISARM_VOICE: CLEFFA Lv.4, CLEFABLE can't learn it
+  missing  ENCORE: CLEFAIRY Lv.4, CLEFABLE can't learn it
+  missing  COMET_PUNCH: CLEFFA Lv.9, CLEFABLE can't learn it
+  missing  FURY_STRIKES: CLEFAIRY Lv.13, CLEFABLE can't learn it
+  missing  BELLY_DRUM: CLEFAIRY Lv.16, CLEFABLE can't learn it
+  tm-only  MEGA_PUNCH: CLEFFA Lv.16, CLEFABLE TM/HM/tutor only
+  tm-only  SWEET_KISS: CLEFFA Lv.18, CLEFABLE TM/HM/tutor only
+  missing  MINIMIZE: CLEFAIRY Lv.19, CLEFABLE can't learn it
+  missing  PRESENT: CLEFAIRY Lv.23, CLEFABLE can't learn it
+  tm-only  DEFENSE_CURL: CLEFAIRY Lv.26, CLEFABLE TM/HM/tutor only
+  missing  AMNESIA: CLEFAIRY Lv.34, CLEFABLE can't learn it
+  tm-only  MIMIC: CLEFAIRY Lv.39, CLEFABLE TM/HM/tutor only
+  missing  DAZZLING_GLEAM: CLEFAIRY Lv.53, CLEFABLE can't learn it
+  missing  LIGHT_SCREEN: CLEFAIRY Lv.59, CLEFABLE can't learn it
+  missing  HYPER_VOICE: CLEFAIRY Lv.66, CLEFABLE can't learn it
+NINETALES  <- VULPIX  (data/pokemon/evos_attacks_kanto.asm:881)
+  missing  LEER: VULPIX Lv.1, NINETALES can't learn it
+  missing  DISABLE: VULPIX Lv.10, NINETALES can't learn it
+  tm-only  ROAR: VULPIX Lv.13, NINETALES TM/HM/tutor only
+  missing  FAINT_ATTACK: VULPIX Lv.16, NINETALES can't learn it
+  later    CONFUSE_RAY: VULPIX Lv.19, NINETALES Lv.38 (+19)
+  missing  WILL_O_WISP: VULPIX Lv.19, NINETALES can't learn it
+  missing  FLAIL: VULPIX Lv.22, NINETALES can't learn it
+  missing  HYPNOSIS: VULPIX Lv.28, NINETALES can't learn it
+  later    FLAMETHROWER: VULPIX Lv.31, NINETALES Lv.53 (+22)
+  missing  SPITE: VULPIX Lv.34, NINETALES can't learn it
+  missing  SHADOW_BALL: VULPIX Lv.42, NINETALES can't learn it
+  missing  DARK_PULSE: VULPIX Lv.50, NINETALES can't learn it
+JIGGLYPUFF  <- IGGLYBUFF  (data/pokemon/evos_attacks_kanto.asm:891)
+  missing  CHARM: IGGLYBUFF Lv.1, JIGGLYPUFF can't learn it
+  missing  DISARM_VOICE: IGGLYBUFF Lv.4, JIGGLYPUFF can't learn it
+  missing  COMET_PUNCH: IGGLYBUFF Lv.9, JIGGLYPUFF can't learn it
+  tm-only  MEGA_PUNCH: IGGLYBUFF Lv.16, JIGGLYPUFF TM/HM/tutor only
+  tm-only  SWEET_KISS: IGGLYBUFF Lv.18, JIGGLYPUFF TM/HM/tutor only
+WIGGLYTUFF  <- IGGLYBUFF, JIGGLYPUFF  (data/pokemon/evos_attacks_kanto.asm:910)
+  missing  CHARM: IGGLYBUFF Lv.1, WIGGLYTUFF can't learn it
+  missing  SCRATCH: IGGLYBUFF Lv.1, WIGGLYTUFF can't learn it
+  tm-only  DEFENSE_CURL: JIGGLYPUFF Lv.4, WIGGLYTUFF TM/HM/tutor only
+  missing  DISARM_VOICE: IGGLYBUFF Lv.4, WIGGLYTUFF can't learn it
+  missing  COMET_PUNCH: IGGLYBUFF Lv.9, WIGGLYTUFF can't learn it
+  missing  FAINT_ATTACK: JIGGLYPUFF Lv.12, WIGGLYTUFF can't learn it
+  tm-only  MEGA_PUNCH: IGGLYBUFF Lv.16, WIGGLYTUFF TM/HM/tutor only
+  tm-only  SWEET_KISS: IGGLYBUFF Lv.18, WIGGLYTUFF TM/HM/tutor only
+  tm-only  ROLLOUT: JIGGLYPUFF Lv.19, WIGGLYTUFF TM/HM/tutor only
+  missing  PERISH_SONG: JIGGLYPUFF Lv.22, WIGGLYTUFF can't learn it
+  missing  FURY_STRIKES: JIGGLYPUFF Lv.24, WIGGLYTUFF can't learn it
+  tm-only  REST: JIGGLYPUFF Lv.29, WIGGLYTUFF TM/HM/tutor only
+  missing  PRESENT: JIGGLYPUFF Lv.32, WIGGLYTUFF can't learn it
+  missing  HYPER_VOICE: JIGGLYPUFF Lv.45, WIGGLYTUFF can't learn it
+  missing  DAZZLING_GLEAM: JIGGLYPUFF Lv.51, WIGGLYTUFF can't learn it
+GOLBAT  <- ZUBAT  (data/pokemon/evos_attacks_kanto.asm:938)
+  later    SLUDGE_BOMB: ZUBAT Lv.41, GOLBAT Lv.51 (+10)
+  later    SCREECH: ZUBAT Lv.45, GOLBAT Lv.57 (+12)
+  later    HAZE: ZUBAT Lv.49, GOLBAT Lv.63 (+14)
+  later    POISON_JAB: ZUBAT Lv.53, GOLBAT Lv.69 (+16)
+  later    CRUNCH: ZUBAT Lv.58, GOLBAT Lv.75 (+17)
+GLOOM  <- ODDISH  (data/pokemon/evos_attacks_kanto.asm:980)
+  later    FLAIL: ODDISH Lv.37, GLOOM Lv.47 (+10)
+  later    SEED_BOMB: ODDISH Lv.41, GLOOM Lv.53 (+12)
+  later    GIGA_DRAIN: ODDISH Lv.45, GLOOM Lv.57 (+12)
+  later    ENERGY_BALL: ODDISH Lv.49, GLOOM Lv.62 (+13)
+  later    PETAL_DANCE: ODDISH Lv.54, GLOOM Lv.67 (+13)
+VILEPLUME  <- GLOOM, ODDISH  (data/pokemon/evos_attacks_kanto.asm:1002)
+  missing  ABSORB: GLOOM Lv.1, VILEPLUME can't learn it
+  missing  ACID: GLOOM Lv.9, VILEPLUME can't learn it
+  missing  POISONPOWDER: GLOOM Lv.13, VILEPLUME can't learn it
+  missing  SLEEP_POWDER: GLOOM Lv.17, VILEPLUME can't learn it
+  missing  MOONLIGHT: ODDISH Lv.25, VILEPLUME can't learn it
+  missing  SYNTHESIS: ODDISH Lv.25, VILEPLUME can't learn it
+  missing  RAZOR_LEAF: ODDISH Lv.29, VILEPLUME can't learn it
+  missing  SWORDS_DANCE: ODDISH Lv.33, VILEPLUME can't learn it
+  missing  FLAIL: ODDISH Lv.37, VILEPLUME can't learn it
+  tm-only  GIGA_DRAIN: ODDISH Lv.45, VILEPLUME TM/HM/tutor only
+PARASECT  <- PARAS  (data/pokemon/evos_attacks_kanto.asm:1040)
+  later    SCREECH: PARAS Lv.40, PARASECT Lv.50 (+10)
+  later    GIGA_DRAIN: PARAS Lv.43, PARASECT Lv.55 (+12)
+  later    COUNTER: PARAS Lv.46, PARASECT Lv.60 (+14)
+  later    ENERGY_BALL: PARAS Lv.52, PARASECT Lv.64 (+12)
+VENOMOTH  <- VENONAT  (data/pokemon/evos_attacks_kanto.asm:1084)
+  later    PSYCHIC_M: VENONAT Lv.41, VENOMOTH Lv.52 (+11)
+GOLDUCK  <- PSYDUCK  (data/pokemon/evos_attacks_kanto.asm:1201)
+  later    HYDRO_PUMP: PSYDUCK Lv.52, GOLDUCK Lv.62 (+10)
+  later    FUTURE_SIGHT: PSYDUCK Lv.56, GOLDUCK Lv.67 (+11)
+  later    PSYCHIC_M: PSYDUCK Lv.60, GOLDUCK Lv.72 (+12)
+  later    DARK_PULSE: PSYDUCK Lv.65, GOLDUCK Lv.77 (+12)
+PRIMEAPE  <- MANKEY  (data/pokemon/evos_attacks_kanto.asm:1245)
+  later    MACH_PUNCH: MANKEY Lv.49, PRIMEAPE Lv.59 (+10)
+  later    DRAIN_PUNCH: MANKEY Lv.53, PRIMEAPE Lv.64 (+11)
+  later    THRASH: MANKEY Lv.56, PRIMEAPE Lv.70 (+14)
+ARCANINE  <- GROWLITHE  (data/pokemon/evos_attacks_kanto.asm:1290)
+  missing  BITE: GROWLITHE Lv.1, ARCANINE can't learn it
+  missing  SAFEGUARD: GROWLITHE Lv.14, ARCANINE can't learn it
+  missing  FIRE_SPIN: GROWLITHE Lv.22, ARCANINE can't learn it
+  missing  WILL_O_WISP: GROWLITHE Lv.28, ARCANINE can't learn it
+  tm-only  BODY_SLAM: GROWLITHE Lv.31, ARCANINE TM/HM/tutor only
+  missing  AGILITY: GROWLITHE Lv.42, ARCANINE can't learn it
+  missing  THRASH: GROWLITHE Lv.46, ARCANINE can't learn it
+  tm-only  FLAMETHROWER: GROWLITHE Lv.50, ARCANINE TM/HM/tutor only
+  later    WILD_CHARGE: GROWLITHE Lv.58, ARCANINE Lv.70 (+12)
+POLIWHIRL  <- POLIWAG  (data/pokemon/evos_attacks_kanto.asm:1323)
+  later    HYDRO_PUMP: POLIWAG Lv.54, POLIWHIRL Lv.66 (+12)
+POLIWRATH  <- POLIWAG, POLIWHIRL  (data/pokemon/evos_attacks_kanto.asm:1343)
+  missing  BUBBLE: POLIWHIRL Lv.1, POLIWRATH can't learn it
+  later    HYPNOSIS: POLIWHIRL Lv.7, POLIWRATH Lv.35 (+28)
+  missing  HAZE: POLIWHIRL Lv.16, POLIWRATH can't learn it
+  missing  MIST: POLIWHIRL Lv.16, POLIWRATH can't learn it
+  missing  FURY_STRIKES: POLIWHIRL Lv.19, POLIWRATH can't learn it
+  tm-only  RAIN_DANCE: POLIWAG Lv.25, POLIWRATH TM/HM/tutor only
+  later    LOCK_ON: POLIWAG Lv.28, POLIWRATH Lv.50 (+22)
+  tm-only  BODY_SLAM: POLIWAG Lv.35, POLIWRATH TM/HM/tutor only
+  missing  BELLY_DRUM: POLIWAG Lv.46, POLIWRATH can't learn it
+  later    HYDRO_PUMP: POLIWAG Lv.54, POLIWRATH Lv.65 (+11)
+MACHOKE  <- MACHOP  (data/pokemon/evos_attacks_kanto.asm:1428)
+  later    SCARY_FACE: MACHOP Lv.48, MACHOKE Lv.59 (+11)
+  later    SUBMISSION: MACHOP Lv.54, MACHOKE Lv.65 (+11)
+MACHAMP  <- MACHOKE, MACHOP  (data/pokemon/evos_attacks_kanto.asm:1448)
+  later    SCARY_FACE: MACHOP Lv.48, MACHAMP Lv.59 (+11)
+  later    SUBMISSION: MACHOP Lv.54, MACHAMP Lv.65 (+11)
+WEEPINBELL  <- BELLSPROUT  (data/pokemon/evos_attacks_kanto.asm:1491)
+  missing  ACID: BELLSPROUT Lv.23, WEEPINBELL can't learn it
+VICTREEBEL  <- BELLSPROUT, WEEPINBELL  (data/pokemon/evos_attacks_kanto.asm:1513)
+  missing  VINE_WHIP: WEEPINBELL Lv.1, VICTREEBEL can't learn it
+  missing  GROWTH: WEEPINBELL Lv.6, VICTREEBEL can't learn it
+  missing  ENCORE: WEEPINBELL Lv.8, VICTREEBEL can't learn it
+  missing  WRAP: WEEPINBELL Lv.11, VICTREEBEL can't learn it
+  missing  LEECH_LIFE: WEEPINBELL Lv.13, VICTREEBEL can't learn it
+  missing  POISONPOWDER: WEEPINBELL Lv.17, VICTREEBEL can't learn it
+  missing  STUN_SPORE: WEEPINBELL Lv.19, VICTREEBEL can't learn it
+  missing  SYNTHESIS: WEEPINBELL Lv.20, VICTREEBEL can't learn it
+  missing  ACID: BELLSPROUT Lv.23, VICTREEBEL can't learn it
+  missing  SLUDGE: WEEPINBELL Lv.24, VICTREEBEL can't learn it
+  missing  SWORDS_DANCE: BELLSPROUT Lv.30, VICTREEBEL can't learn it
+  missing  REFLECT: BELLSPROUT Lv.37, VICTREEBEL can't learn it
+  missing  RAZOR_LEAF: BELLSPROUT Lv.42, VICTREEBEL can't learn it
+  missing  POISON_JAB: BELLSPROUT Lv.47, VICTREEBEL can't learn it
+  missing  SLAM: BELLSPROUT Lv.54, VICTREEBEL can't learn it
+MAGNETON  <- MAGNEMITE  (data/pokemon/evos_attacks_kanto.asm:1713)
+  later    ZAP_CANNON: MAGNEMITE Lv.55, MAGNETON Lv.65 (+10)
+CLOYSTER  <- SHELLDER  (data/pokemon/evos_attacks_kanto.asm:1899)
+  missing  SCRATCH: SHELLDER Lv.1, CLOYSTER can't learn it
+  missing  BUBBLEBEAM: SHELLDER Lv.15, CLOYSTER can't learn it
+  missing  RAPID_SPIN: SHELLDER Lv.23, CLOYSTER can't learn it
+  missing  BARRIER: SHELLDER Lv.27, CLOYSTER can't learn it
+  missing  TAKE_DOWN: SHELLDER Lv.34, CLOYSTER can't learn it
+  missing  LEER: SHELLDER Lv.37, CLOYSTER can't learn it
+  missing  CLAMP: SHELLDER Lv.40, CLOYSTER can't learn it
+HAUNTER  <- GASTLY  (data/pokemon/evos_attacks_kanto.asm:1934)
+  later    SLUDGE_BOMB: GASTLY Lv.55, HAUNTER Lv.65 (+10)
+HYPNO  <- DROWZEE  (data/pokemon/evos_attacks_kanto.asm:2014)
+  later    PSYCH_UP: DROWZEE Lv.43, HYPNO Lv.55 (+12)
+  later    FUTURE_SIGHT: DROWZEE Lv.45, HYPNO Lv.60 (+15)
+EXEGGUTOR  <- EXEGGCUTE  (data/pokemon/evos_attacks_kanto.asm:2114)
+  missing  REFLECT: EXEGGCUTE Lv.7, EXEGGUTOR can't learn it
+  missing  LEECH_SEED: EXEGGCUTE Lv.13, EXEGGUTOR can't learn it
+  missing  MOONLIGHT: EXEGGCUTE Lv.22, EXEGGUTOR can't learn it
+  missing  SYNTHESIS: EXEGGCUTE Lv.22, EXEGGUTOR can't learn it
+  missing  STUN_SPORE: EXEGGCUTE Lv.25, EXEGGUTOR can't learn it
+  missing  POISONPOWDER: EXEGGCUTE Lv.31, EXEGGUTOR can't learn it
+  missing  SLEEP_POWDER: EXEGGCUTE Lv.37, EXEGGUTOR can't learn it
+  tm-only  SOLARBEAM: EXEGGCUTE Lv.43, EXEGGUTOR TM/HM/tutor only
+HITMONLEE  <- TYROGUE  (data/pokemon/evos_attacks_kanto.asm:2171)
+  missing  SCRATCH: TYROGUE Lv.1, HITMONLEE can't learn it
+HITMONCHAN  <- TYROGUE  (data/pokemon/evos_attacks_kanto.asm:2190)
+  missing  SCRATCH: TYROGUE Lv.1, HITMONCHAN can't learn it
+  later    HI_JUMP_KICK: TYROGUE Lv.30, HITMONCHAN Lv.47 (+17)
+RHYDON  <- RHYHORN  (data/pokemon/evos_attacks_kanto.asm:2282)
+  later    EARTHQUAKE: RHYHORN Lv.55, RHYDON Lv.65 (+10)
+  later    COUNTER: RHYHORN Lv.58, RHYDON Lv.72 (+14)
+STARMIE  <- STARYU  (data/pokemon/evos_attacks_kanto.asm:2442)
+  missing  HARDEN: STARYU Lv.1, STARMIE can't learn it
+  missing  WATER_GUN: STARYU Lv.7, STARMIE can't learn it
+  tm-only  SWIFT: STARYU Lv.25, STARMIE TM/HM/tutor only
+  missing  MINIMIZE: STARYU Lv.37, STARMIE can't learn it
+  missing  LIGHT_SCREEN: STARYU Lv.43, STARMIE can't learn it
+  missing  HYDRO_PUMP: STARYU Lv.50, STARMIE can't learn it
+JYNX  <- SMOOCHUM  (data/pokemon/evos_attacks_kanto.asm:2493)
+  tm-only  SWEET_KISS: SMOOCHUM Lv.9, JYNX TM/HM/tutor only
+  missing  CONFUSION: SMOOCHUM Lv.21, JYNX can't learn it
+  missing  SING: SMOOCHUM Lv.25, JYNX can't learn it
+MAGMAR  <- MAGBY  (data/pokemon/evos_attacks_kanto.asm:2530)
+  missing  SLUDGE: MAGBY Lv.13, MAGMAR can't learn it
+  later    FLAMETHROWER: MAGBY Lv.31, MAGMAR Lv.41 (+10)
+  later    FIRE_BLAST: MAGBY Lv.43, MAGMAR Lv.57 (+14)
+GYARADOS  <- MAGIKARP  (data/pokemon/evos_attacks_kanto.asm:2596)
+  missing  REVERSAL: MAGIKARP Lv.25, GYARADOS can't learn it
+  missing  FLAIL: MAGIKARP Lv.30, GYARADOS can't learn it
+VAPOREON  <- EEVEE  (data/pokemon/evos_attacks_kanto.asm:2664)
+  missing  GROWL: EEVEE Lv.12, VAPOREON can't learn it
+  missing  GROWTH: EEVEE Lv.16, VAPOREON can't learn it
+  missing  BELLY_DRUM: EEVEE Lv.33, VAPOREON can't learn it
+  missing  BATON_PASS: EEVEE Lv.36, VAPOREON can't learn it
+  missing  TAKE_DOWN: EEVEE Lv.42, VAPOREON can't learn it
+JOLTEON  <- EEVEE  (data/pokemon/evos_attacks_kanto.asm:2682)
+  missing  GROWL: EEVEE Lv.12, JOLTEON can't learn it
+  missing  GROWTH: EEVEE Lv.16, JOLTEON can't learn it
+  missing  BITE: EEVEE Lv.30, JOLTEON can't learn it
+  missing  BELLY_DRUM: EEVEE Lv.33, JOLTEON can't learn it
+  missing  BATON_PASS: EEVEE Lv.36, JOLTEON can't learn it
+  missing  TAKE_DOWN: EEVEE Lv.42, JOLTEON can't learn it
+FLAREON  <- EEVEE  (data/pokemon/evos_attacks_kanto.asm:2700)
+  missing  GROWL: EEVEE Lv.12, FLAREON can't learn it
+  missing  GROWTH: EEVEE Lv.16, FLAREON can't learn it
+  missing  BELLY_DRUM: EEVEE Lv.33, FLAREON can't learn it
+  missing  BATON_PASS: EEVEE Lv.36, FLAREON can't learn it
+  missing  TAKE_DOWN: EEVEE Lv.42, FLAREON can't learn it
+OMASTAR  <- OMANYTE  (data/pokemon/evos_attacks_kanto.asm:2752)
+  later    HYDRO_PUMP: OMANYTE Lv.55, OMASTAR Lv.65 (+10)
+KABUTOPS  <- KABUTO  (data/pokemon/evos_attacks_kanto.asm:2789)
+  later    ANCIENTPOWER: KABUTO Lv.55, KABUTOPS Lv.65 (+10)
+DRAGONITE  <- DRAGONAIR, DRATINI  (data/pokemon/evos_attacks_kanto.asm:2936)
+  later    OUTRAGE: DRATINI Lv.50, DRAGONITE Lv.61 (+11)
+  later    HYPER_BEAM: DRATINI Lv.57, DRAGONITE Lv.75 (+18)
+MEGANIUM  <- BAYLEEF, CHIKORITA  (data/pokemon/evos_attacks_johto.asm:152)
+  later    SWORDS_DANCE: CHIKORITA Lv.46, MEGANIUM Lv.61 (+15)
+  later    SOLARBEAM: CHIKORITA Lv.50, MEGANIUM Lv.66 (+16)
+QUILAVA  <- CYNDAQUIL  (data/pokemon/evos_attacks_johto.asm:195)
+  later    FIRE_BLAST: CYNDAQUIL Lv.50, QUILAVA Lv.60 (+10)
+TYPHLOSION  <- CYNDAQUIL, QUILAVA  (data/pokemon/evos_attacks_johto.asm:214)
+  later    SUBMISSION: CYNDAQUIL Lv.41, TYPHLOSION Lv.53 (+12)
+  later    FLAMETHROWER: CYNDAQUIL Lv.46, TYPHLOSION Lv.60 (+14)
+  later    FIRE_BLAST: CYNDAQUIL Lv.50, TYPHLOSION Lv.68 (+18)
+FERALIGATR  <- CROCONAW, TOTODILE  (data/pokemon/evos_attacks_johto.asm:276)
+  later    CRABHAMMER: TOTODILE Lv.47, FERALIGATR Lv.57 (+10)
+  later    HYDRO_PUMP: TOTODILE Lv.52, FERALIGATR Lv.62 (+10)
+NOCTOWL  <- HOOTHOOT  (data/pokemon/evos_attacks_johto.asm:355)
+  later    DRILL_PECK: HOOTHOOT Lv.47, NOCTOWL Lv.58 (+11)
+  later    DREAM_EATER: HOOTHOOT Lv.50, NOCTOWL Lv.63 (+13)
+LEDIAN  <- LEDYBA  (data/pokemon/evos_attacks_johto.asm:397)
+  later    BUG_BUZZ: LEDYBA Lv.41, LEDIAN Lv.51 (+10)
+  later    DOUBLE_EDGE: LEDYBA Lv.45, LEDIAN Lv.58 (+13)
+CROBAT  <- GOLBAT, ZUBAT  (data/pokemon/evos_attacks_johto.asm:461)
+  later    SLUDGE_BOMB: ZUBAT Lv.41, CROBAT Lv.51 (+10)
+  later    SCREECH: ZUBAT Lv.45, CROBAT Lv.57 (+12)
+  later    HAZE: ZUBAT Lv.49, CROBAT Lv.69 (+20)
+  later    POISON_JAB: ZUBAT Lv.53, CROBAT Lv.63 (+10)
+  later    CRUNCH: ZUBAT Lv.58, CROBAT Lv.75 (+17)
+LANTURN  <- CHINCHOU  (data/pokemon/evos_attacks_johto.asm:502)
+  later    SCREECH: CHINCHOU Lv.42, LANTURN Lv.52 (+10)
+  later    HYDRO_PUMP: CHINCHOU Lv.45, LANTURN Lv.57 (+12)
+  later    THUNDER: CHINCHOU Lv.48, LANTURN Lv.62 (+14)
+TOGETIC  <- TOGEPI  (data/pokemon/evos_attacks_johto.asm:583)
+  missing  POWDER_SNOW: TOGEPI Lv.17, TOGETIC can't learn it
+  missing  DISABLE: TOGEPI Lv.20, TOGETIC can't learn it
+  later    GIGA_DRAIN: TOGEPI Lv.34, TOGETIC Lv.48 (+14)
+  tm-only  MIMIC: TOGEPI Lv.37, TOGETIC TM/HM/tutor only
+  missing  MINIMIZE: TOGEPI Lv.45, TOGETIC can't learn it
+XATU  <- NATU  (data/pokemon/evos_attacks_johto.asm:624)
+  later    DRILL_PECK: NATU Lv.41, XATU Lv.52 (+11)
+  later    PSYCHIC_M: NATU Lv.45, XATU Lv.60 (+15)
+FLAAFFY  <- MAREEP  (data/pokemon/evos_attacks_johto.asm:659)
+  later    LIGHT_SCREEN: MAREEP Lv.33, FLAAFFY Lv.44 (+11)
+  later    ZAP_CANNON: MAREEP Lv.37, FLAAFFY Lv.48 (+11)
+  later    REFLECT: MAREEP Lv.41, FLAAFFY Lv.51 (+10)
+AMPHAROS  <- FLAAFFY, MAREEP  (data/pokemon/evos_attacks_johto.asm:676)
+  later    THUNDERBOLT: MAREEP Lv.21, AMPHAROS Lv.42 (+21)
+  later    SAFEGUARD: MAREEP Lv.25, AMPHAROS Lv.36 (+11)
+  later    THUNDER: MAREEP Lv.29, AMPHAROS Lv.57 (+28)
+  later    LIGHT_SCREEN: MAREEP Lv.33, AMPHAROS Lv.49 (+16)
+  later    ZAP_CANNON: MAREEP Lv.37, AMPHAROS Lv.62 (+25)
+  later    REFLECT: MAREEP Lv.41, AMPHAROS Lv.65 (+24)
+BELLOSSOM  <- GLOOM, ODDISH  (data/pokemon/evos_attacks_johto.asm:694)
+  missing  ABSORB: GLOOM Lv.1, BELLOSSOM can't learn it
+  missing  ACID: GLOOM Lv.9, BELLOSSOM can't learn it
+  missing  POISONPOWDER: GLOOM Lv.13, BELLOSSOM can't learn it
+  missing  SLEEP_POWDER: GLOOM Lv.17, BELLOSSOM can't learn it
+  missing  MOONLIGHT: ODDISH Lv.25, BELLOSSOM can't learn it
+  missing  SYNTHESIS: ODDISH Lv.25, BELLOSSOM can't learn it
+  missing  RAZOR_LEAF: ODDISH Lv.29, BELLOSSOM can't learn it
+  missing  SWORDS_DANCE: ODDISH Lv.33, BELLOSSOM can't learn it
+  missing  FLAIL: ODDISH Lv.37, BELLOSSOM can't learn it
+  tm-only  GIGA_DRAIN: ODDISH Lv.45, BELLOSSOM TM/HM/tutor only
+AZUMARILL  <- MARILL  (data/pokemon/evos_attacks_johto.asm:728)
+  later    FUTURE_SIGHT: MARILL Lv.32, AZUMARILL Lv.42 (+10)
+  later    RAIN_DANCE: MARILL Lv.36, AZUMARILL Lv.48 (+12)
+  later    LIGHT_SCREEN: MARILL Lv.40, AZUMARILL Lv.53 (+13)
+POLITOED  <- POLIWAG, POLIWHIRL  (data/pokemon/evos_attacks_johto.asm:761)
+  missing  BUBBLE: POLIWHIRL Lv.1, POLITOED can't learn it
+  missing  HAZE: POLIWHIRL Lv.16, POLITOED can't learn it
+  missing  MIST: POLIWHIRL Lv.16, POLITOED can't learn it
+  later    RAIN_DANCE: POLIWAG Lv.25, POLITOED Lv.75 (+50)
+  missing  LOCK_ON: POLIWAG Lv.28, POLITOED can't learn it
+  missing  BELLY_DRUM: POLIWAG Lv.46, POLITOED can't learn it
+  later    HYDRO_PUMP: POLIWAG Lv.54, POLITOED Lv.66 (+12)
+SKIPLOOM  <- HOPPIP  (data/pokemon/evos_attacks_johto.asm:802)
+  later    AMNESIA: HOPPIP Lv.49, SKIPLOOM Lv.59 (+10)
+JUMPLUFF  <- HOPPIP, SKIPLOOM  (data/pokemon/evos_attacks_johto.asm:826)
+  later    GIGA_DRAIN: HOPPIP Lv.37, JUMPLUFF Lv.48 (+11)
+  later    SAFEGUARD: HOPPIP Lv.40, JUMPLUFF Lv.53 (+13)
+  later    ENERGY_BALL: HOPPIP Lv.43, JUMPLUFF Lv.58 (+15)
+  later    REFLECT: HOPPIP Lv.46, JUMPLUFF Lv.63 (+17)
+  later    AMNESIA: HOPPIP Lv.49, JUMPLUFF Lv.68 (+19)
+SUNFLORA  <- SUNKERN  (data/pokemon/evos_attacks_johto.asm:880)
+  missing  MEGA_DRAIN: SUNKERN Lv.10, SUNFLORA can't learn it
+  missing  EMBER: SUNKERN Lv.25, SUNFLORA can't learn it
+  missing  SYNTHESIS: SUNKERN Lv.31, SUNFLORA can't learn it
+  missing  FIRE_SPIN: SUNKERN Lv.38, SUNFLORA can't learn it
+  tm-only  GIGA_DRAIN: SUNKERN Lv.46, SUNFLORA TM/HM/tutor only
+QUAGSIRE  <- WOOPER  (data/pokemon/evos_attacks_johto.asm:929)
+  later    ANCIENTPOWER: WOOPER Lv.43, QUAGSIRE Lv.53 (+10)
+  later    HAZE: WOOPER Lv.47, QUAGSIRE Lv.59 (+12)
+ESPEON  <- EEVEE  (data/pokemon/evos_attacks_johto.asm:945)
+  missing  GROWL: EEVEE Lv.12, ESPEON can't learn it
+  missing  GROWTH: EEVEE Lv.16, ESPEON can't learn it
+  missing  BITE: EEVEE Lv.30, ESPEON can't learn it
+  missing  BELLY_DRUM: EEVEE Lv.33, ESPEON can't learn it
+  missing  BATON_PASS: EEVEE Lv.36, ESPEON can't learn it
+  missing  TAKE_DOWN: EEVEE Lv.42, ESPEON can't learn it
+UMBREON  <- EEVEE  (data/pokemon/evos_attacks_johto.asm:964)
+  missing  GROWL: EEVEE Lv.12, UMBREON can't learn it
+  missing  GROWTH: EEVEE Lv.16, UMBREON can't learn it
+  missing  BITE: EEVEE Lv.30, UMBREON can't learn it
+  missing  BELLY_DRUM: EEVEE Lv.33, UMBREON can't learn it
+  missing  BATON_PASS: EEVEE Lv.36, UMBREON can't learn it
+  missing  TAKE_DOWN: EEVEE Lv.42, UMBREON can't learn it
+SLOWKING  <- SLOWPOKE  (data/pokemon/evos_attacks_johto.asm:999)
+  later    AMNESIA: SLOWPOKE Lv.43, SLOWKING Lv.53 (+10)
+SCIZOR  <- SCYTHER  (data/pokemon/evos_attacks_johto.asm:1224)
+  later    RAZOR_WIND: SCYTHER Lv.21, SCIZOR Lv.44 (+23)
+  missing  WING_ATTACK: SCYTHER Lv.30, SCIZOR can't learn it
+  later    DOUBLE_TEAM: SCYTHER Lv.48, SCIZOR Lv.58 (+10)
+MAGCARGO  <- SLUGMA  (data/pokemon/evos_attacks_johto.asm:1349)
+  later    BARRIER: SLUGMA Lv.60, MAGCARGO Lv.70 (+10)
+PILOSWINE  <- SWINUB  (data/pokemon/evos_attacks_johto.asm:1381)
+  later    BODY_SLAM: SWINUB Lv.51, PILOSWINE Lv.63 (+12)
+  later    AMNESIA: SWINUB Lv.55, PILOSWINE Lv.70 (+15)
+OCTILLERY  <- REMORAID  (data/pokemon/evos_attacks_johto.asm:1435)
+  missing  LOCK_ON: REMORAID Lv.5, OCTILLERY can't learn it
+  later    ICE_BEAM: REMORAID Lv.31, OCTILLERY Lv.54 (+23)
+  later    HYPER_BEAM: REMORAID Lv.44, OCTILLERY Lv.70 (+26)
+HOUNDOOM  <- HOUNDOUR  (data/pokemon/evos_attacks_johto.asm:1518)
+  later    WILL_O_WISP: HOUNDOUR Lv.62, HOUNDOOM Lv.72 (+10)
+DONPHAN  <- PHANPY  (data/pokemon/evos_attacks_johto.asm:1573)
+  missing  TAKE_DOWN: PHANPY Lv.25, DONPHAN can't learn it
+  missing  ANCIENTPOWER: PHANPY Lv.29, DONPHAN can't learn it
+  tm-only  ENDURE: PHANPY Lv.41, DONPHAN TM/HM/tutor only
+  tm-only  DOUBLE_EDGE: PHANPY Lv.49, DONPHAN TM/HM/tutor only
+PORYGON2  <- PORYGON  (data/pokemon/evos_attacks_johto.asm:1589)
+  missing  HEADBUTT: PORYGON Lv.24, PORYGON2 can't learn it
+HITMONTOP  <- TYROGUE  (data/pokemon/evos_attacks_johto.asm:1657)
+  missing  SCRATCH: TYROGUE Lv.1, HITMONTOP can't learn it
+BLISSEY  <- CHANSEY  (data/pokemon/evos_attacks_johto.asm:1736)
+  later    METRONOME: CHANSEY Lv.38, BLISSEY Lv.48 (+10)
+  later    DEFENSE_CURL: CHANSEY Lv.41, BLISSEY Lv.58 (+17)
+  later    HEAL_BELL: CHANSEY Lv.45, BLISSEY Lv.68 (+23)
+  later    LIGHT_SCREEN: CHANSEY Lv.49, BLISSEY Lv.73 (+24)
+TYRANITAR  <- LARVITAR, PUPITAR  (data/pokemon/evos_attacks_johto.asm:1841)
+  later    EARTHQUAKE: LARVITAR Lv.50, TYRANITAR Lv.61 (+11)
+  later    HYPER_BEAM: LARVITAR Lv.57, TYRANITAR Lv.75 (+18)
+ELECTIVIRE  <- ELECTABUZZ, ELEKID  (data/pokemon/evos_attacks_extra.asm:34)
+  missing  KARATE_CHOP: ELECTABUZZ Lv.13, ELECTIVIRE can't learn it
+  missing  BARRIER: ELECTABUZZ Lv.21, ELECTIVIRE can't learn it
+  missing  ROLLING_KICK: ELECTABUZZ Lv.30, ELECTIVIRE can't learn it
+  missing  MEDITATE: ELECTABUZZ Lv.42, ELECTIVIRE can't learn it
+MAGMORTAR  <- MAGBY, MAGMAR  (data/pokemon/evos_attacks_extra.asm:49)
+  missing  FIRE_SPIN: MAGMAR Lv.13, MAGMORTAR can't learn it
+  missing  KARATE_CHOP: MAGMAR Lv.16, MAGMORTAR can't learn it
+  tm-only  MEGA_PUNCH: MAGMAR Lv.22, MAGMORTAR TM/HM/tutor only
+  missing  BARRIER: MAGMAR Lv.29, MAGMORTAR can't learn it
+  missing  SCREECH: MAGMAR Lv.37, MAGMORTAR can't learn it
+  later    FIRE_BLAST: MAGBY Lv.43, MAGMORTAR Lv.57 (+14)
+  missing  CONFUSE_RAY: MAGBY Lv.49, MAGMORTAR can't learn it
+  missing  WILL_O_WISP: MAGMAR Lv.53, MAGMORTAR can't learn it
+AMBIPOM  <- AIPOM  (data/pokemon/evos_attacks_extra.asm:64)
+  later    SCREECH: AIPOM Lv.3, AMBIPOM Lv.15 (+12)
+  missing  MUD_SLAP: AIPOM Lv.6, AMBIPOM can't learn it
+  missing  COUNTER: AIPOM Lv.9, AMBIPOM can't learn it
+  later    BATON_PASS: AIPOM Lv.12, AMBIPOM Lv.48 (+36)
+  missing  PURSUIT: AIPOM Lv.16, AMBIPOM can't learn it
+  later    SWIFT: AIPOM Lv.27, AMBIPOM Lv.57 (+30)
+  missing  SPITE: AIPOM Lv.31, AMBIPOM can't learn it
+  missing  FAINT_ATTACK: AIPOM Lv.36, AMBIPOM can't learn it
+ANNIHILAPE  <- MANKEY, PRIMEAPE  (data/pokemon/evos_attacks_extra.asm:76)
+  later    RAGE: PRIMEAPE evo, ANNIHILAPE Lv.41 (+40)
+  tm-only  COUNTER: PRIMEAPE Lv.13, ANNIHILAPE TM/HM/tutor only
+  missing  FAINT_ATTACK: PRIMEAPE Lv.18, ANNIHILAPE can't learn it
+  missing  FURY_STRIKES: PRIMEAPE Lv.21, ANNIHILAPE can't learn it
+  missing  REVERSAL: PRIMEAPE Lv.24, ANNIHILAPE can't learn it
+  missing  FOCUS_ENERGY: PRIMEAPE Lv.27, ANNIHILAPE can't learn it
+  missing  FORESIGHT: MANKEY Lv.30, ANNIHILAPE can't learn it
+  missing  MEDITATE: MANKEY Lv.36, ANNIHILAPE can't learn it
+  later    CROSS_CHOP: MANKEY Lv.39, ANNIHILAPE Lv.49 (+10)
+  missing  ROCK_SLIDE: MANKEY Lv.42, ANNIHILAPE can't learn it
+  missing  SCREECH: MANKEY Lv.45, ANNIHILAPE can't learn it
+  missing  THRASH: MANKEY Lv.56, ANNIHILAPE can't learn it
+  missing  FOCUS_BLAST: PRIMEAPE Lv.75, ANNIHILAPE can't learn it
+HONCHKROW  <- MURKROW  (data/pokemon/evos_attacks_extra.asm:91)
+  missing  QUICK_ATTACK: MURKROW Lv.6, HONCHKROW can't learn it
+  later    PURSUIT: MURKROW Lv.11, HONCHKROW Lv.33 (+22)
+  missing  HAZE: MURKROW Lv.16, HONCHKROW can't learn it
+  missing  NIGHT_SHADE: MURKROW Lv.26, HONCHKROW can't learn it
+  missing  DRILL_PECK: MURKROW Lv.36, HONCHKROW can't learn it
+  tm-only  THIEF: MURKROW Lv.41, HONCHKROW TM/HM/tutor only
+  missing  MIRROR_MOVE: MURKROW Lv.46, HONCHKROW can't learn it
+LEAFEON  <- EEVEE  (data/pokemon/evos_attacks_extra.asm:105)
+  missing  GROWL: EEVEE Lv.12, LEAFEON can't learn it
+  missing  GROWTH: EEVEE Lv.16, LEAFEON can't learn it
+  missing  FLAIL: EEVEE Lv.20, LEAFEON can't learn it
+  missing  QUICK_ATTACK: EEVEE Lv.23, LEAFEON can't learn it
+  missing  CHARM: EEVEE Lv.27, LEAFEON can't learn it
+  missing  BITE: EEVEE Lv.30, LEAFEON can't learn it
+  missing  BELLY_DRUM: EEVEE Lv.33, LEAFEON can't learn it
+  missing  BATON_PASS: EEVEE Lv.36, LEAFEON can't learn it
+  missing  TAKE_DOWN: EEVEE Lv.42, LEAFEON can't learn it
+LICKILICKY  <- LICKITUNG  (data/pokemon/evos_attacks_extra.asm:120)
+  tm-only  DEFENSE_CURL: LICKITUNG Lv.13, LICKILICKY TM/HM/tutor only
+  missing  MAGNITUDE: LICKITUNG Lv.16, LICKILICKY can't learn it
+  missing  BELLY_DRUM: LICKITUNG Lv.22, LICKILICKY can't learn it
+  tm-only  HEADBUTT: LICKITUNG Lv.28, LICKILICKY TM/HM/tutor only
+  later    BODY_SLAM: LICKITUNG Lv.37, LICKILICKY Lv.58 (+21)
+MAMOSWINE  <- PILOSWINE, SWINUB  (data/pokemon/evos_attacks_extra.asm:134)
+  later    ICY_WIND: PILOSWINE evo, MAMOSWINE Lv.20 (+19)
+  missing  ANCIENTPOWER: PILOSWINE Lv.14, MAMOSWINE can't learn it
+  tm-only  ENDURE: PILOSWINE Lv.19, MAMOSWINE TM/HM/tutor only
+  missing  BITE: PILOSWINE Lv.24, MAMOSWINE can't learn it
+  later    TAKE_DOWN: PILOSWINE Lv.28, MAMOSWINE Lv.42 (+14)
+  missing  ROCK_SLIDE: PILOSWINE Lv.32, MAMOSWINE can't learn it
+  later    BLIZZARD: SWINUB Lv.47, MAMOSWINE Lv.60 (+13)
+  tm-only  BODY_SLAM: SWINUB Lv.51, MAMOSWINE TM/HM/tutor only
+  missing  AMNESIA: SWINUB Lv.55, MAMOSWINE can't learn it
+MISMAGIUS  <- MISDREAVUS  (data/pokemon/evos_attacks_extra.asm:148)
+  missing  PSYBEAM: MISDREAVUS Lv.9, MISMAGIUS can't learn it
+  missing  CONFUSE_RAY: MISDREAVUS Lv.13, MISMAGIUS can't learn it
+  later    SHADOW_BALL: MISDREAVUS Lv.16, MISMAGIUS Lv.27 (+11)
+  later    SCREECH: MISDREAVUS Lv.19, MISMAGIUS Lv.33 (+14)
+  later    DAZZLING_GLEAM: MISDREAVUS Lv.23, MISMAGIUS Lv.39 (+16)
+  later    DARK_PULSE: MISDREAVUS Lv.31, MISMAGIUS Lv.49 (+18)
+  later    DESTINY_BOND: MISDREAVUS Lv.35, MISMAGIUS Lv.53 (+18)
+  later    PSYCHIC_M: MISDREAVUS Lv.39, MISMAGIUS Lv.57 (+18)
+  tm-only  PAIN_SPLIT: MISDREAVUS Lv.43, MISMAGIUS TM/HM/tutor only
+RHYPERIOR  <- RHYDON, RHYHORN  (data/pokemon/evos_attacks_extra.asm:164)
+  missing  PURSUIT: RHYHORN Lv.8, RHYPERIOR can't learn it
+  later    ROCK_SLIDE: RHYHORN Lv.16, RHYPERIOR Lv.49 (+33)
+  missing  MAGNITUDE: RHYHORN Lv.25, RHYPERIOR can't learn it
+  missing  CRUNCH: RHYHORN Lv.34, RHYPERIOR can't learn it
+  missing  MEGAHORN: RHYDON Lv.37, RHYPERIOR can't learn it
+  missing  REVERSAL: RHYHORN Lv.43, RHYPERIOR can't learn it
+  missing  TAKE_DOWN: RHYHORN Lv.49, RHYPERIOR can't learn it
+  missing  THRASH: RHYHORN Lv.52, RHYPERIOR can't learn it
+  tm-only  COUNTER: RHYHORN Lv.58, RHYPERIOR TM/HM/tutor only
+SYLVEON  <- EEVEE  (data/pokemon/evos_attacks_extra.asm:177)
+  missing  GROWL: EEVEE Lv.12, SYLVEON can't learn it
+  missing  GROWTH: EEVEE Lv.16, SYLVEON can't learn it
+  missing  FLAIL: EEVEE Lv.20, SYLVEON can't learn it
+  missing  CHARM: EEVEE Lv.27, SYLVEON can't learn it
+  missing  BITE: EEVEE Lv.30, SYLVEON can't learn it
+  missing  BELLY_DRUM: EEVEE Lv.33, SYLVEON can't learn it
+  missing  BATON_PASS: EEVEE Lv.36, SYLVEON can't learn it
+  missing  TAKE_DOWN: EEVEE Lv.42, SYLVEON can't learn it
+TOGEKISS  <- TOGEPI, TOGETIC  (data/pokemon/evos_attacks_extra.asm:192)
+  later    SWIFT: TOGETIC evo, TOGEKISS Lv.16 (+15)
+  missing  CHARM: TOGEPI Lv.1, TOGEKISS can't learn it
+  missing  GUST: TOGETIC Lv.4, TOGEKISS can't learn it
+  missing  METRONOME: TOGEPI Lv.4, TOGEKISS can't learn it
+  missing  MOONLIGHT: TOGEPI Lv.9, TOGEKISS can't learn it
+  missing  DISARM_VOICE: TOGETIC Lv.10, TOGEKISS can't learn it
+  tm-only  SWEET_KISS: TOGEPI Lv.14, TOGEKISS TM/HM/tutor only
+  later    ANCIENTPOWER: TOGETIC Lv.17, TOGEKISS Lv.30 (+13)
+  missing  POWDER_SNOW: TOGEPI Lv.17, TOGEKISS can't learn it
+  missing  DISABLE: TOGEPI Lv.20, TOGEKISS can't learn it
+  tm-only  HEADBUTT: TOGETIC Lv.24, TOGEKISS TM/HM/tutor only
+  missing  GIGA_DRAIN: TOGEPI Lv.34, TOGEKISS can't learn it
+  missing  MIMIC: TOGEPI Lv.37, TOGEKISS can't learn it
+  missing  GROWTH: TOGEPI Lv.42, TOGEKISS can't learn it
+  later    MOONBLAST: TOGEPI Lv.44, TOGEKISS Lv.55 (+11)
+  missing  MINIMIZE: TOGEPI Lv.45, TOGEKISS can't learn it
+  missing  DOUBLE_EDGE: TOGETIC Lv.56, TOGEKISS can't learn it
+WEAVILE  <- SNEASEL  (data/pokemon/evos_attacks_extra.asm:207)
+  missing  BITE: SNEASEL Lv.13, WEAVILE can't learn it
+  later    SCREECH: SNEASEL Lv.17, WEAVILE Lv.49 (+32)
+  missing  SPITE: SNEASEL Lv.29, WEAVILE can't learn it
+  missing  FURY_STRIKES: SNEASEL Lv.33, WEAVILE can't learn it
+  missing  ICE_PUNCH: SNEASEL Lv.37, WEAVILE can't learn it
+  missing  AGILITY: SNEASEL Lv.45, WEAVILE can't learn it
+  missing  REFLECT: SNEASEL Lv.53, WEAVILE can't learn it
+  missing  METAL_CLAW: SNEASEL Lv.57, WEAVILE can't learn it
+YANMEGA  <- YANMA  (data/pokemon/evos_attacks_extra.asm:221)
+  missing  LEECH_LIFE: YANMA Lv.10, YANMEGA can't learn it
+  tm-only  DOUBLE_TEAM: YANMA Lv.13, YANMEGA TM/HM/tutor only
+  missing  SONICBOOM: YANMA Lv.16, YANMEGA can't learn it
+  missing  ROAR: YANMA Lv.19, YANMEGA can't learn it
+  missing  REVERSAL: YANMA Lv.22, YANMEGA can't learn it
+  missing  SUPERSONIC: YANMA Lv.31, YANMEGA can't learn it
+  missing  WING_ATTACK: YANMA Lv.34, YANMEGA can't learn it
+  later    SCREECH: YANMA Lv.37, YANMEGA Lv.49 (+12)
+GLACEON  <- EEVEE  (data/pokemon/evos_attacks_extra.asm:235)
+  missing  MUD_SLAP: EEVEE Lv.8, GLACEON can't learn it
+  missing  GROWL: EEVEE Lv.12, GLACEON can't learn it
+  missing  GROWTH: EEVEE Lv.16, GLACEON can't learn it
+  missing  FLAIL: EEVEE Lv.20, GLACEON can't learn it
+  missing  QUICK_ATTACK: EEVEE Lv.23, GLACEON can't learn it
+  missing  CHARM: EEVEE Lv.27, GLACEON can't learn it
+  missing  BELLY_DRUM: EEVEE Lv.33, GLACEON can't learn it
+  missing  BATON_PASS: EEVEE Lv.36, GLACEON can't learn it
+  missing  TAKE_DOWN: EEVEE Lv.42, GLACEON can't learn it
+GLISCOR  <- GLIGAR  (data/pokemon/evos_attacks_extra.asm:249)
+  missing  RAZOR_WIND: GLIGAR Lv.9, GLISCOR can't learn it
+  missing  HARDEN: GLIGAR Lv.13, GLISCOR can't learn it
+  missing  METAL_CLAW: GLIGAR Lv.17, GLISCOR can't learn it
+  missing  QUICK_ATTACK: GLIGAR Lv.20, GLISCOR can't learn it
+  missing  WING_ATTACK: GLIGAR Lv.24, GLISCOR can't learn it
+  missing  FAINT_ATTACK: GLIGAR Lv.28, GLISCOR can't learn it
+  missing  COUNTER: GLIGAR Lv.32, GLISCOR can't learn it
+  later    SLASH: GLIGAR Lv.36, GLISCOR Lv.49 (+13)
+  missing  SCREECH: GLIGAR Lv.40, GLISCOR can't learn it
+MAGNEZONE  <- MAGNEMITE, MAGNETON  (data/pokemon/evos_attacks_extra.asm:264)
+  missing  TRI_ATTACK: MAGNETON evo, MAGNEZONE can't learn it
+  missing  SPARK: MAGNEMITE Lv.5, MAGNEZONE can't learn it
+  missing  SONICBOOM: MAGNEMITE Lv.13, MAGNEZONE can't learn it
+  later    FLASH: MAGNEMITE Lv.22, MAGNEZONE Lv.55 (+33)
+  missing  LOCK_ON: MAGNEMITE Lv.26, MAGNEZONE can't learn it
+  later    IRON_HEAD: MAGNEMITE Lv.30, MAGNEZONE Lv.40 (+10)
+  tm-only  SWIFT: MAGNEMITE Lv.34, MAGNEZONE TM/HM/tutor only
+  missing  SPIKE_CANNON: MAGNEMITE Lv.43, MAGNEZONE can't learn it
+  later    FLASH_CANNON: MAGNEMITE Lv.48, MAGNEZONE Lv.60 (+12)
+  tm-only  ZAP_CANNON: MAGNEMITE Lv.55, MAGNEZONE TM/HM/tutor only
+PORYGON_Z  <- PORYGON, PORYGON2  (data/pokemon/evos_attacks_extra.asm:280)
+  missing  CONVERSION: PORYGON Lv.1, PORYGON_Z can't learn it
+  missing  CONVERSION2: PORYGON Lv.1, PORYGON_Z can't learn it
+  tm-only  HEADBUTT: PORYGON Lv.24, PORYGON_Z TM/HM/tutor only
+  missing  LOCK_ON: PORYGON2 Lv.28, PORYGON_Z can't learn it
+  tm-only  ZAP_CANNON: PORYGON2 Lv.32, PORYGON_Z TM/HM/tutor only
+  missing  DEFENSE_CURL: PORYGON2 Lv.36, PORYGON_Z can't learn it
+SIRFETCH_D  <- FARFETCH_D  (data/pokemon/evos_attacks_extra.asm:295)
+  missing  MUD_SLAP: FARFETCH_D Lv.5, SIRFETCH_D can't learn it
+  missing  GUST: FARFETCH_D Lv.8, SIRFETCH_D can't learn it
+  missing  QUICK_ATTACK: FARFETCH_D Lv.14, SIRFETCH_D can't learn it
+  missing  FLAIL: FARFETCH_D Lv.23, SIRFETCH_D can't learn it
+  tm-only  ROCK_SMASH: FARFETCH_D Lv.29, SIRFETCH_D TM/HM/tutor only
+  later    AGILITY: FARFETCH_D Lv.33, SIRFETCH_D Lv.55 (+22)
+  missing  MIRROR_MOVE: FARFETCH_D Lv.37, SIRFETCH_D can't learn it
+  missing  AIR_SLASH: FARFETCH_D Lv.45, SIRFETCH_D can't learn it
+  missing  FORESIGHT: FARFETCH_D Lv.50, SIRFETCH_D can't learn it
+  missing  FALSE_SWIPE: FARFETCH_D Lv.55, SIRFETCH_D can't learn it
+TANGROWTH  <- TANGELA  (data/pokemon/evos_attacks_extra.asm:312)
+  missing  CONSTRICT: TANGELA Lv.1, TANGROWTH can't learn it
+  later    SLEEP_POWDER: TANGELA Lv.4, TANGROWTH Lv.25 (+21)
+  missing  CONFUSION: TANGELA Lv.6, TANGROWTH can't learn it
+  missing  ABSORB: TANGELA Lv.10, TANGROWTH can't learn it
+  missing  POISONPOWDER: TANGELA Lv.13, TANGROWTH can't learn it
+  missing  REFLECT: TANGELA Lv.16, TANGROWTH can't learn it
+  missing  VINE_WHIP: TANGELA Lv.19, TANGROWTH can't learn it
+  missing  FLAIL: TANGELA Lv.22, TANGROWTH can't learn it
+  missing  AMNESIA: TANGELA Lv.50, TANGROWTH can't learn it
+WYRDEER  <- STANTLER  (data/pokemon/evos_attacks_extra.asm:326)
+  missing  LEER: STANTLER Lv.1, WYRDEER can't learn it
+  missing  SPITE: STANTLER Lv.3, WYRDEER can't learn it
+  missing  BITE: STANTLER Lv.7, WYRDEER can't learn it
+  later    STOMP: STANTLER Lv.13, WYRDEER Lv.25 (+12)
+  missing  MUD_SLAP: STANTLER Lv.16, WYRDEER can't learn it
+  missing  CONFUSE_RAY: STANTLER Lv.23, WYRDEER can't learn it
+  missing  TAKE_DOWN: STANTLER Lv.27, WYRDEER can't learn it
+  tm-only  PSYCH_UP: STANTLER Lv.31, WYRDEER TM/HM/tutor only
+  missing  DOUBLE_KICK: STANTLER Lv.35, WYRDEER can't learn it
+  missing  LIGHT_SCREEN: STANTLER Lv.39, WYRDEER can't learn it
+  tm-only  REFLECT: STANTLER Lv.49, WYRDEER TM/HM/tutor only
+  missing  DOUBLE_EDGE: STANTLER Lv.53, WYRDEER can't learn it
+  missing  DISABLE: STANTLER Lv.58, WYRDEER can't learn it
+  missing  THRASH: STANTLER Lv.64, WYRDEER can't learn it
+  tm-only  SWAGGER: STANTLER Lv.70, WYRDEER TM/HM/tutor only
+FARIGIRAF  <- GIRAFARIG  (data/pokemon/evos_attacks_extra.asm:339)
+  missing  FAINT_ATTACK: GIRAFARIG Lv.17, FARIGIRAF can't learn it
+  missing  TAKE_DOWN: GIRAFARIG Lv.21, FARIGIRAF can't learn it
+  missing  AGILITY: GIRAFARIG Lv.25, FARIGIRAF can't learn it
+  later    FUTURE_SIGHT: GIRAFARIG Lv.29, FARIGIRAF Lv.41 (+12)
+  missing  PSYBEAM: GIRAFARIG Lv.38, FARIGIRAF can't learn it
+  missing  FORESIGHT: GIRAFARIG Lv.43, FARIGIRAF can't learn it
+  tm-only  PSYCH_UP: GIRAFARIG Lv.54, FARIGIRAF TM/HM/tutor only
+DUDUNSPARC  <- DUNSPARCE  (data/pokemon/evos_attacks_extra.asm:354)
+  later    ANCIENTPOWER: DUNSPARCE Lv.18, DUDUNSPARC Lv.33 (+15)
+  missing  SPITE: DUNSPARCE Lv.22, DUDUNSPARC can't learn it
+  missing  PURSUIT: DUNSPARCE Lv.26, DUDUNSPARC can't learn it
+  missing  SCREECH: DUNSPARCE Lv.30, DUDUNSPARC can't learn it
+  missing  ROCK_SLIDE: DUNSPARCE Lv.34, DUDUNSPARC can't learn it
+  missing  TAKE_DOWN: DUNSPARCE Lv.38, DUDUNSPARC can't learn it
+URSALUNA  <- TEDDIURSA, URSARING  (data/pokemon/evos_attacks_extra.asm:367)
+  missing  LICK: URSARING Lv.8, URSALUNA can't learn it
+  missing  FOCUS_ENERGY: URSARING Lv.12, URSALUNA can't learn it
+  missing  FURY_STRIKES: URSARING Lv.15, URSALUNA can't learn it
+  tm-only  SEISMIC_TOSS: URSARING Lv.19, URSALUNA TM/HM/tutor only
+  missing  FAINT_ATTACK: URSARING Lv.22, URSALUNA can't learn it
+  missing  METAL_CLAW: URSARING Lv.25, URSALUNA can't learn it
+  missing  TAKE_DOWN: TEDDIURSA Lv.33, URSALUNA can't learn it
+  tm-only  COUNTER: TEDDIURSA Lv.40, URSALUNA TM/HM/tutor only
+RAICHU_ORANGE  <- PICHU, PIKACHU  (data/pokemon/evos_attacks_extra.asm:419)
+  missing  CHARM: PICHU Lv.1, RAICHU_ORANGE can't learn it
+  missing  THUNDERSHOCK: PICHU Lv.1, RAICHU_ORANGE can't learn it
+  missing  LEER: PICHU Lv.4, RAICHU_ORANGE can't learn it
+  missing  QUICK_ATTACK: PICHU Lv.6, RAICHU_ORANGE can't learn it
+  missing  FURY_STRIKES: PIKACHU Lv.13, RAICHU_ORANGE can't learn it
+  tm-only  THUNDERPUNCH: PICHU Lv.14, RAICHU_ORANGE TM/HM/tutor only
+  tm-only  SWEET_KISS: PICHU Lv.16, RAICHU_ORANGE TM/HM/tutor only
+  missing  ENCORE: PIKACHU Lv.17, RAICHU_ORANGE can't learn it
+  missing  SLAM: PIKACHU Lv.20, RAICHU_ORANGE can't learn it
+  missing  REVERSAL: PIKACHU Lv.23, RAICHU_ORANGE can't learn it
+  missing  WILD_CHARGE: PIKACHU Lv.30, RAICHU_ORANGE can't learn it
+  missing  AGILITY: PIKACHU Lv.38, RAICHU_ORANGE can't learn it
+  missing  SPARK: PIKACHU Lv.42, RAICHU_ORANGE can't learn it
+  tm-only  THUNDER: PIKACHU Lv.46, RAICHU_ORANGE TM/HM/tutor only
+  missing  PRESENT: PIKACHU Lv.50, RAICHU_ORANGE can't learn it
+  missing  LIGHT_SCREEN: PIKACHU Lv.56, RAICHU_ORANGE can't learn it
+DRAGONITE_KANTO  <- DRAGONAIR, DRATINI  (data/pokemon/evos_attacks_extra.asm:429)
+  later    OUTRAGE: DRATINI Lv.50, DRAGONITE_KANTO Lv.61 (+11)
+  later    HYPER_BEAM: DRATINI Lv.57, DRAGONITE_KANTO Lv.75 (+18)
+
+363 missing, 61 tm-only, 183 later

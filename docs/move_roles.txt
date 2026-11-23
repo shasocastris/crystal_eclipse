@@ -1,0 +1,831 @@
+MOVE ROLES: later-gen moves under review (2026-11-22, branch 97-uber-moves)
+==========================================================================
+
+DECISION LOG (type-by-type review, in moves.asm order)
+------------------------------------------------------
+Process: decisions are only recorded here while the review runs. They are
+applied in ONE pass at the end (one renumber, one learnset/party lint run,
+one save break).
+
+NORMAL (decided 2026-11-22)
+  - HYPER_VOICE: CUT. Remove from the 9 level-up learnsets (Nidoran F line,
+    Clefairy, Jigglypuff, Dodrio, Hoothoot/Noctowl, Politoed); 0 parties.
+  - HORN_ATTACK: RETYPE to POISON physical, 65 power / 100% / 25 PP,
+    EFFECT_POISON_HIT 20%. Mid-tier between Poison Sting 30 and Poison Jab 80.
+    Keep it on the Nidoran M line (Nidoran M, Nidorino, Nidoking).
+    Replace HORN_ATTACK with HEADBUTT at the same level in the other 11
+    learnsets: Rhyhorn, Rhydon, Rhyperior, Goldeen, Seaking, Tauros,
+    Heracross, Swinub, Piloswine, Mamoswine, Donphan. Also swap it to
+    HEADBUTT in the one party that uses it (SWIMMERF (4), Route 41 Seaking).
+    Moves its constant/table rows from NORMAL to the POISON block
+    (between POISON_JAB 80 and POISON_STING 30). Its animation stays.
+    Watch: Tauros already learns HEADBUTT at Lv17, so the swap would give
+    it Headbutt twice. Drop the Lv17 entry (or ask shasocastris) when applying.
+  - Everything else in NORMAL stays as is.
+
+FIGHTING (decided 2026-11-22)
+  - FOCUS_BLAST: CUT. Learners Primeape (75), Machamp (75), Magmortar (65),
+    Sirfetch'd (60); 0 parties.
+  - DRAIN_PUNCH: CUT. Learners Mankey, Primeape, Machop line, Magby line,
+    Annihilape. Replace in 5 parties (suggest CROSS_CHOP): BRUNO (1) and
+    (2) Machamp, COOLTRAINERM (18) Victory Road Machamp, BLACKBELT_T (5)
+    Cianwood Gym Machoke + Machamp. Check those mons don't already carry
+    Cross Chop.
+  - SUBMISSION: power 80 -> 100 (keeps recoil, 100% / 25 PP), so Strength
+    (80, no recoil) no longer dominates it.
+  - Everything else in FIGHTING stays as is. (BULLET_PUNCH is STEEL.)
+
+FOLLOW-UPS (outside the move cut)
+  - DETECT is a dead TM. c962efe32 made it a field move (itemfinder search,
+    EFFECT_DETECT); 6ab3e262a then replaced DETECT with PROTECT in every
+    base_stats tmhm line. TM_DETECT is still an itemball at Lake of Rage
+    (maps/LakeOfRage.asm) but no species can learn it, so the field move is
+    unreachable. Fix: decide who learns it again (likely the old learners,
+    recoverable from 6ab3e262a^). Side effect: Machamp and others now list
+    PROTECT twice in tmhm (harmless).
+  - Rhyhorn learns ROCK_SLIDE twice (Lv16 and Lv37). The second entry
+    probably meant something else; decide what.
+
+FLYING (decided 2026-11-22)
+  - AERIAL_ACE: CUT. Replace with WING_ATTACK at the same level for
+    Gliscor (33), Farfetch'd (17), Sirfetch'd (17). Just drop it from the
+    rest (Butterfree, Pidgey line, Spearow line, Doduo line); 0 parties.
+  - BRAVE_BIRD: CUT. Learners Pidgeot, Fearow, Golbat, Doduo, Dodrio,
+    Crobat, Honchkrow, Sirfetch'd (all Lv57+). One party: FALKNER (2),
+    Violet Gym Dodrio -> BRAVE_BIRD becomes THRASH.
+  - HURRICANE: KEEP (shasocastris: makes the Pidgey line interesting and keeps a
+    high-end Flying move; overrides the earlier cut list).
+  - Everything else in FLYING stays as is.
+
+POISON (decided 2026-11-22)
+  - GUNK_SHOT: CUT. Learners Arbok (65), Tentacruel (70), Muk (80),
+    Victreebel (70); 0 parties.
+  - Victreebel: POISON_JAB replaces GUNK_SHOT at Lv70 (it had no physical
+    Poison move otherwise; Weepinbell gets Poison Jab at 54).
+  - HORN_ATTACK joins this block (see NORMAL).
+  - Everything else in POISON stays as is.
+
+GROUND (decided 2026-11-22)
+  - BULLDOZE: CUT. Unused (no learners, no parties).
+  - EARTH_POWER: CUT. Learners Nidoqueen, Nidoking (Lv83); 0 parties.
+  - Everything else in GROUND stays as is.
+
+ROCK (decided 2026-11-22)
+  - ROCK_BLAST: CUT. Unused.
+  - STONE_EDGE: CUT. Learners Sudowoodo (57), Rhyperior (41), Mamoswine
+    (65), Gliscor (60).
+      Mamoswine: ROCK_SLIDE replaces STONE_EDGE at Lv65 (Piloswine has
+      Rock Slide at 32, Mamoswine's own learnset doesn't).
+      Gliscor: just drop it. Sudowoodo/Rhyperior keep Rock Slide.
+    One party: BUGSY (2), Azalea Gym Sudowoodo -> STONE_EDGE becomes
+    ROCK_SLIDE.
+  - POWER_GEM: KEEP, and add it to the Omanyte line, the only real special
+    Rock-type (Omastar 115 SpA, currently only AncientPower at 54).
+    Suggested levels: Omanyte 40, Omastar 44 (ahead of AncientPower 49/54).
+  - Everything else in ROCK stays as is.
+
+BUG (decided 2026-11-22)
+  - No cuts. X_SCISSOR and BUG_BUZZ stay (keep list).
+  - X_SCISSOR additions (strong physical Bugs that lacked it):
+      Scyther ~Lv21 (matches Scizor), Pinsir ~Lv31-35,
+      Heracross ~Lv30-35 (bridges to Megahorn at 54).
+  - Everything else in BUG stays as is.
+
+GHOST (decided 2026-11-22)
+  - No changes. SHADOW_CLAW stays (Annihilape's only real Ghost attack).
+
+STEEL (decided 2026-11-22)
+  - FLASH_CANNON: KEEP (reverses the earlier cut list; only special Steel
+    move). Magnemite line: FLASH_CANNON takes IRON_HEAD's slot
+    (Magnemite 30, Magneton 33, Magnezone 40); drop their IRON_HEAD and
+    the late FLASH_CANNON entries (48/55/60).
+  - IRON_HEAD: KEEP (only reliable mid-tier physical Steel; Forretress's
+    only Steel level-up move).
+  - BULLET_PUNCH: CUT. Learners Scizor (53), Machop line (44/53/53),
+    Elekid line (21/19/21). Two parties: JASMINE (2) Olivine Gym Scizor
+    and SABRINA (14) Saffron Gym Scizor -> BULLET_PUNCH becomes
+    QUICK_ATTACK (Scizor learns it at Lv1).
+  - Everything else in STEEL stays as is.
+
+CURSE_TYPE: CURSE only, no change.
+
+FIRE (decided 2026-11-22)
+  - No cuts. WILL_O_WISP stays (engine burn demo).
+  - FLARE_BLITZ: ADD. FIRE physical 120 / 100% / 15 PP, recoil (engine's
+    1/4, same as Double-Edge) + 10% burn. New EFFECT_FLARE_BLITZ: an
+    effects.asm script combining the recoil and burn-chance commands (no
+    new battle command). Placeholder animation (Flame Wheel or Fire
+    Blast). Top of the FIRE block. Needs name, description, AI check.
+    Learners: Flareon (no physical Fire at all now, 130 Atk), Arcanine,
+    Rapidash, Entei. Growlithe/Ponyta optional, late. Levels to be set in
+    the apply pass.
+  - Everything else in FIRE stays as is.
+
+WATER (decided 2026-11-22)
+  - AQUA_TAIL: CUT. Unused.
+  - WATER_PULSE: CUT. Unused.
+  - SCALD: CUT. Learners Poliwag line + Politoed, Tentacool line, Slowpoke
+    line (all have Surf/Bubblebeam/Hydro Pump); 0 parties.
+  - AQUA_JET: CUT. Learners Poliwag line (40/45/40), Politoed (39), Seel
+    and Dewgong (7); 0 parties. Seel/Dewgong: WATER_GUN replaces it at Lv7
+    (their first Water move).
+  - Kabutops: add WATERFALL by level-up (~Lv40); it has no physical Water
+    move (115 Atk, no Waterfall HM).
+  - Everything else in WATER stays as is.
+  - Noted, not changed: 24 unevolved Water-types can't learn Surf (only
+    final forms); looks deliberate.
+
+GRASS (decided 2026-11-22)
+  Principle (shasocastris): not every type needs a Thunderbolt-equivalent. Grass
+  keeps Giga Drain (TM, 75, drain) as the reliable special move, with
+  Petal Dance / Solarbeam as the drawback-laden 120s.
+  - ENERGY_BALL: CUT. Petal Dance takes its place:
+      Bulbasaur line: PETAL_DANCE moves into EB's slot (39/46/50), drop the
+        late PD (57/70/80).
+      Oddish/Gloom: same (PD to 49/62, drop 54/67).
+      Vileplume, Bellossom, Meganium: already have PD, just drop EB.
+      Chikorita/Bayleef: PD at 43/51. Bellsprout line: PD at 27/28/30.
+      Hoppip line: PD at 43/51/58. Celebi: PD at 35.
+      Paras/Parasect: just drop EB (physical; get Seed Bomb, below).
+      Mareep line: DROP its Safari tutor entry
+        (data/pokemon/safari_move_tutor_moves.asm, LINE_MAREEP); no
+        replacement. Also update that file's header comment, which cites
+        ENERGY_BALL as its example of a move above ID 255.
+    Parties: ERIKA (1) Venusaur, RIVAL1 (10) Ice Path + RIVAL1 (13)
+    Victory Road Meganium -> PETAL_DANCE; SAGE (10) Tin Tower Victreebel
+    -> PETAL_DANCE or GIGA_DRAIN (whichever trainer_lint accepts).
+  - POWER_WHIP: CUT. Victreebel and Tangrowth get SEED_BOMB instead,
+    earlier (~40 / ~45); Venusaur just drops it.
+  - SEED_BOMB: KEEP. Add to Paras/Parasect (~30s).
+  - Everything else in GRASS stays as is.
+
+ELECTRIC (decided 2026-11-22)
+  - WILD_CHARGE: CUT (overrides the keep list). Learners Pikachu (30),
+    Growlithe (58), Arcanine (70), Rapidash (75), Electivire (65),
+    Magnezone (70) just drop it; 0 parties. Thunderpunch covers physical
+    Electric.
+  - Everything else in ELECTRIC stays as is.
+
+PSYCHIC_TYPE (decided 2026-11-22)
+  - EXTRASENSORY: CUT. Unused.
+  - ZEN_HEADBUTT: CUT (overrides the keep list). Learners Psyduck (44),
+    Golduck (50), Ponyta (53), Rapidash (56), Slowpoke (48), Slowbro (53),
+    Slowking (48) just drop it; 0 parties. Psychic has no physical move
+    afterwards, as in Gen 2.
+  - Everything else in PSYCHIC_TYPE stays as is.
+
+ICE (decided 2026-11-22)
+  - ICICLE_SPEAR: NOT ADDED. The existing (unused) ICICLE_CRASH fills the
+    role instead (85 / 90% / 10 PP, 30% flinch).
+  - ICICLE_CRASH: KEEP and hand out; it takes ICE_SHARD's current slot:
+      Mamoswine ~30, Piloswine ~40, Swinub ~36, Sneasel 41, Weavile 41,
+      Cloyster 15 (evo move).
+  - ICE_SHARD: KEEP as the low-level physical Ice move (40, priority).
+    Where Icicle Crash takes its slot, Ice Shard moves to an earlier level
+    (set in the apply pass). Shellder (8), Jynx (23), Smoochum (17) keep
+    theirs as is.
+  - Everything else in ICE stays as is (SUDDEN_CHILL/HAIL out of scope).
+
+DRAGON (decided 2026-11-22)
+  - DRAGON_CLAW: KEEP. Charmander line keeps it (42/51/55). ADD to the
+    Dratini line (~Dratini 35, Dragonair 38, Dragonite 38, Dragonite_Kanto
+    38): their first physical Dragon move before Outrage (50/56/61).
+  - DRAGON_PULSE: KEEP. ADD to the full Horsea line (Horsea, Seadra;
+    Kingdra keeps 58). Levels in the apply pass (e.g. Horsea ~45,
+    Seadra ~50). Parties (Clair, Rival Kingdra) unchanged.
+  - Everything else in DRAGON stays as is.
+
+DARK (decided 2026-11-22)
+  - SUCKER_PUNCH: NOT ADDED (needs a new battle command + AI in the $0d
+    Effect Commands bank; no gap: Crunch is the reliable 80, Pursuit
+    covers the mind game).
+  - NIGHT_SLASH: CUT. Unused. Also remove it from
+    data/moves/critical_hit_moves.asm.
+  - Honchkrow: add CRUNCH (~45). It had no 80-power physical Dark move.
+  - DARK_PULSE stays (keep list). Everything else in DARK stays as is.
+
+FAIRY (decided 2026-11-22)
+  - FAIRY_WIND: NOT ADDED (Disarm Voice already covers it).
+  - MOONBLAST: KEEP. DISARM_VOICE: KEEP (early special).
+  - DRAIN_KISS: CUT. Unused.
+  - DAZZLING_GLEAM: CUT. Jigglypuff (51), Ledyba (35), Ledian (43) get
+    MOONBLAST in its slot (they had none). Clefairy, Togepi, Togetic,
+    Bellossom, Sylveon, Togekiss already have Moonblast: just drop it.
+    Off-type Espeon, Slowking, Misdreavus, Mismagius, Blissey: just drop it.
+    One party: RED (1), Mt Silver Espeon -> pick a legal replacement in the
+    apply pass.
+  - PLAY_ROUGH: CUT. MEGA_PUNCH takes its level-up slots for Snubbull (34),
+    Granbull (38), Marill (28), Azumarill (36), Jigglypuff (40),
+    Wigglytuff (1). Ledyba/Ledian just drop it. Parties -> MEGA_PUNCH:
+    MORTY (2) Ecruteak Gym Granbull, BRUNO (2) Granbull, SAILOR (10)
+    Route 38 Wigglytuff.
+  - Everything else in FAIRY stays as is.
+
+REVIEW COMPLETE (2026-11-22). Totals:
+  CUT (24): HYPER_VOICE, FOCUS_BLAST, DRAIN_PUNCH, AERIAL_ACE, BRAVE_BIRD,
+    GUNK_SHOT, BULLDOZE, EARTH_POWER, ROCK_BLAST, STONE_EDGE, BULLET_PUNCH,
+    AQUA_TAIL, WATER_PULSE, SCALD, AQUA_JET, ENERGY_BALL, POWER_WHIP,
+    WILD_CHARGE, EXTRASENSORY, ZEN_HEADBUTT, NIGHT_SLASH, DAZZLING_GLEAM,
+    DRAIN_KISS, PLAY_ROUGH
+  ADD (1): FLARE_BLITZ
+  RETYPE (1): HORN_ATTACK (Normal -> Poison)
+  STAT CHANGE (1): SUBMISSION 80 -> 100
+  NOT ADDED: SUCKER_PUNCH, ICICLE_SPEAR, FAIRY_WIND
+  Later-gen moves kept: AIR_SLASH, HURRICANE, POISON_JAB, X_SCISSOR,
+    BUG_BUZZ, POWER_GEM, SHADOW_CLAW, IRON_HEAD, FLASH_CANNON, SEED_BOMB,
+    ICICLE_CRASH, ICE_SHARD, DRAGON_CLAW, DRAGON_PULSE, DARK_PULSE,
+    MOONBLAST, DISARM_VOICE (+ WILL_O_WISP, HAIL, SUDDEN_CHILL, ubers)
+  NUM_ATTACKS: 269 -> 246.
+
+APPLY-PASS CHECKLIST
+  - Per cut move: constants, moves.asm, names.asm, descriptions (pointer +
+    body), anim_ptr row; grep every remaining reference (learnsets, tmhm,
+    parties, battle tower, safari tutor, AI lists, critical_hit_moves,
+    effect code like HURRICANE's) before deleting.
+  - Unreferenced animations/descriptions/effects left behind: delete or
+    keep deliberately.
+  - Learnset edits per type above; keep learnsets in level order; no
+    duplicate entries.
+  - Parties: run utils/trainer_lint.py; fix illegal moves it reports.
+  - Build release + debug; optimize.py diff; save break (moves renumber).
+
+Question: can the moveset shrink to only these later-gen moves?
+  X_SCISSOR BUG_BUZZ DARK_PULSE SUCKER_PUNCH DRAGON_PULSE WILD_CHARGE
+  FAIRY_WIND FLARE_BLITZ AIR_SLASH SHADOW_CLAW ENERGY_BALL ICICLE_SPEAR
+  POISON_JAB ZEN_HEADBUTT POWER_GEM
+
+Assumed out of scope (stay regardless):
+  - the 10 uber/signature moves (AURA_SPHERE ... FAE_BLADE)
+  - HAIL, WILL_O_WISP, SUDDEN_CHILL (engine weather/status demos; HAIL is the
+    only move that sets hail apart from Sheer Cold and overworld weather)
+  - NOURISHMENT, FURY_STRIKES (merges of Gen 1/2 moves)
+
+Typings are the hack's own (Gengar DARK/GHOST, Vileplume DARK/GRASS,
+Blastoise STEEL/WATER, Ho-Oh FAIRY/FIRE, Ariados BUG/GROUND).
+"Learners" = level-up learners plus the Safari tutor; none of these moves
+is a TM/HM/Move Tutor, and there is no egg-move source.
+"Fallback" = the best same-type, same-category move the learner could still
+learn (level-up, TM/HM, tutor) once the cut moves and ubers are gone.
+
+
+KEEP LIST (already in the hack)
+-------------------------------
+
+Move          Type/cat/power          Who uses it                                   Fallback          Role
+AIR_SLASH     Flying special 75       23 learners: Charizard, Pidgeot, Noctowl,     Gust 40           CORE: only real special Flying move
+                                      Togekiss, Xatu, Mantine, Yanmega; 12 parties
+DARK_PULSE    Dark special 80         STAB: Gengar, Houndoom, Vileplume, Umbreon;   none              CORE: only special Dark move
+                                      coverage: Golduck, Porygons, Mismagius; 1 party
+BUG_BUZZ      Bug special 90          Butterfree, Venomoth, Ledian, Yanmega (all    none              CORE: only special Bug move
+                                      special); Beedrill/Venonat learn it but are physical
+POISON_JAB    Poison physical 80      21 learners: Arbok, Muk, Crobat, Qwilfish,    Poison Sting 30   CORE: physical Poison has nothing else
+                                      Nidos, Beedrill; 2 parties
+X_SCISSOR     Bug physical 80         Scizor, Ariados, Parasect, Beedrill (all      Leech Life 55     NEEDED: Megahorn is the only other strong
+                                      physical); 5 parties (Jasmine, Sabrina,                         physical Bug move
+                                      Janine, Rival)
+ENERGY_BALL   Grass special 90        20 learners: Venusaur, Vileplume, Victreebel, SolarBeam 120     NEEDED: strong one-turn Grass special
+                                      Meganium, Jumpluff lines, Celebi; 4 parties  (two turns)
+POWER_GEM     Rock special 80         Magcargo, Corsola/Cursola; 0 parties          AncientPower 60   MODERATE: few special Rock users;
+                                                                                                      Omastar doesn't learn it
+DRAGON_PULSE  Dragon special 85       Kingdra only; 2 parties                       Dragonbreath 60   THIN: right slot, one learner
+WILD_CHARGE   Electric physical 90    Electivire is the only physical Electric      Thunderpunch 75   THIN: Electivire already has Thunderpunch;
+              recoil                  attacker; Arcanine/Rapidash off-type;                           Magnezone learns it but is pure special
+                                      Magnezone mismatched
+SHADOW_CLAW   Ghost physical 70       Annihilape (evo move), Umbreon; 0 parties     Lick 20           THIN BUT REAL: Annihilape is the only
+                                                                                                      physical Ghost-type
+ZEN_HEADBUTT  Psychic physical 80     Rapidash/Ponyta off-type; Slowbro line and    none              WEAKEST: no fully evolved Psychic-type
+                                      Golduck are special; 0 parties                                  in the dex is physical
+
+
+CUT LIST
+--------
+
+Never used anywhere (free to delete):
+  AQUA_TAIL BULLDOZE ROCK_BLAST WATER_PULSE EXTRASENSORY ICICLE_CRASH
+  NIGHT_SLASH DRAIN_KISS
+
+Fill a slot no other move covers (cutting these leaves a real gap):
+
+Move                       Who uses it                                 Parties          What's lost
+MOONBLAST (Fairy sp 95)    Clefable, Mr. Mime, Togekiss, Sylveon,      16 + Safari      Fairy special drops to nothing; most-used
+                           Bellossom, Umbreon                          tutor            move in trainer parties
+FLASH_CANNON (Steel sp 80) Magnezone, Magneton, Blastoise,             0                Only special Steel move; Magnezone (130 SpA)
+                           Porygon2/Z                                                   left with no usable Steel move
+ICE_SHARD (Ice ph 40, pri) Mamoswine, Piloswine, Weavile, Cloyster     0                They have no other physical Ice move;
+                                                                                        ICICLE_SPEAR would take over this role
+SEED_BOMB (Grass ph 80)    Leafeon (110 Atk), Meganium, Bellossom,     1                Leafeon falls back to Razor Leaf 55
+                           Vileplume
+POWER_WHIP (Grass ph 120)  Tangrowth, Victreebel, Venusaur line        0                Tangrowth/Victreebel have no physical Grass
+                                                                                        move; most learners lean special though
+
+Overlap with a move that stays (safe to cut):
+
+Move              Covered by                     Notes
+DAZZLING_GLEAM    Moonblast                      14 learners, 1 party (Red's Espeon); only redundant if Moonblast stays
+HURRICANE         Air Slash                      Pidgey line only
+GUNK_SHOT         Poison Jab                     Victreebel can't learn Poison Jab -> loses physical Poison
+DRAIN_PUNCH       Cross Chop/Mega Kick/DynPunch  5 parties (Bruno, Cianwood blackbelts)
+BRAVE_BIRD        Drill Peck 80                  Raw power only; 1 party
+AERIAL_ACE        Wing Attack 60                 Gliscor has no other physical Flying move
+STONE_EDGE        Rock Slide 75                  1 party (Bugsy's Sudowoodo)
+IRON_HEAD         Iron Tail 100, Steel Wing 70   5 parties; Forretress falls back to Rock Smash 40
+BULLET_PUNCH      Steel Wing                     Scizor priority; 2 parties
+SCALD             Surf, Hydro Pump               Only the burn chance is unique
+AQUA_JET          Waterfall                      Poliwag line has no other physical Water move
+HYPER_VOICE       Tri Attack, Hyper Beam
+PLAY_ROUGH        Mega Punch 80                  Granbull, 3 parties; Ho-Oh is physical Fairy but doesn't learn it
+DRAGON_CLAW       Outrage                        Charizard line only, off-type coverage
+FOCUS_BLAST       none                           Unique slot (Fighting special), but no Fighting-type is special;
+                                                 Magmortar is the only special learner
+EARTH_POWER       none                           Unique slot (Ground special), but no Ground-type is special;
+                                                 Nidoking/Nidoqueen only at Lv 83
+DISARM_VOICE      -                              Fairy special 40, never misses; see FAIRY_WIND below
+
+
+THE FOUR NEW MOVES
+------------------
+
+Move           Would serve                                   Gap it fills
+FLARE_BLITZ    Flareon (130 Atk), Entei, Ho-Oh, Rapidash,    BIG: physical Fire tops out at Fire Punch 75; Sacred Fire
+               Arcanine                                      is now an uber move. Needs a recoil + burn effect.
+ICICLE_SPEAR   Mamoswine, Weavile, Cloyster, Piloswine       REAL: replaces Ice Shard's role; multi-hit effect exists
+SUCKER_PUNCH   Tyranitar, Honchkrow, Weavile                 SMALL: physical Dark already has Crunch 80; adds priority.
+                                                             Only one needing real engine work (fails unless the
+                                                             target chose an attacking move)
+FAIRY_WIND     early Fairy-types                             NONE: Disarm Voice is already Fairy special 40 and never
+                                                             misses; keeping it avoids adding a move
+
+
+TYPE COVERAGE AFTER THE CUT (best 3 non-status moves per type/category)
+-----------------------------------------------------------------------
+
+NORMAL    physical  SELFDESTRUCT 200, THRASH 120, DOUBLE_EDGE 120
+NORMAL    special   HYPER_BEAM 150, TRI_ATTACK 80, HIDDEN_POWER 70
+FIGHTING  physical  MEGA_KICK 120, DYNAMICPUNCH 100, CROSS_CHOP 100
+FIGHTING  special   -
+FLYING    physical  DRILL_PECK 80, FLY 70, WING_ATTACK 60
+FLYING    special   AIR_SLASH 75, GUST 40, RAZOR_WIND 15
+POISON    physical  POISON_JAB 80, POISON_STING 30
+POISON    special   SLUDGE_BOMB 90, SLUDGE 65, ACID 40
+GROUND    physical  EARTHQUAKE 100, BONE_CLUB 65, DIG 60
+GROUND    special   MUD_SLAP 20
+ROCK      physical  ROCK_SLIDE 75, ROCK_THROW 50, ROLLOUT 30
+ROCK      special   POWER_GEM 80, ANCIENTPOWER 60
+BUG       physical  MEGAHORN 120, X_SCISSOR 80, LEECH_LIFE 55
+BUG       special   BUG_BUZZ 90
+GHOST     physical  SHADOW_CLAW 70, LICK 20
+GHOST     special   DREAM_EATER 100, SHADOW_BALL 80, NIGHT_SHADE
+STEEL     physical  SKULL_BASH 100, IRON_TAIL 100, STEEL_WING 70
+STEEL     special   -
+FIRE      physical  FIRE_PUNCH 75, FLAME_WHEEL 60
+FIRE      special   FIRE_BLAST 120, FLAMETHROWER 95, EMBER 40
+WATER     physical  CRABHAMMER 90, WATERFALL 80
+WATER     special   HYDRO_PUMP 120, SURF 95, OCTAZOOKA 65
+GRASS     physical  RAZOR_LEAF 55, VINE_WHIP 35, CONSTRICT 15
+GRASS     special   SOLARBEAM 120, PETAL_DANCE 120, ENERGY_BALL 90
+ELECTRIC  physical  WILD_CHARGE 90, THUNDERPUNCH 75, SPARK 65
+ELECTRIC  special   THUNDER 120, ZAP_CANNON 100, THUNDERBOLT 95
+PSYCHIC   physical  ZEN_HEADBUTT 80
+PSYCHIC   special   PSYCHIC 90, FUTURE_SIGHT 80, PSYBEAM 65
+ICE       physical  ICE_PUNCH 75
+ICE       special   BLIZZARD 120, ICE_BEAM 95, AURORA_BEAM 65
+DRAGON    physical  OUTRAGE 120
+DRAGON    special   DRAGON_PULSE 85, DRAGONBREATH 60, TWISTER 40
+DARK      physical  CRUNCH 80, FAINT_ATTACK 60, BITE 60
+DARK      special   DARK_PULSE 80
+FAIRY     physical  MEGA_PUNCH 80, COMET_PUNCH 18
+FAIRY     special   -   (FAIRY_WIND / DISARM_VOICE 40 if one is kept)
+
+
+TAKEAWAYS
+---------
+
+- Real gaps the cut would open: Fairy special (Moonblast), Steel special
+  (Flash Cannon), physical Grass for Leafeon/Tangrowth (Seed Bomb).
+- Weakest moves on the keep list: ZEN_HEADBUTT, WILD_CHARGE, DRAGON_PULSE
+  each have one real user or none. Drop them too, or hand them out wider.
+- Strongest new additions: FLARE_BLITZ and ICICLE_SPEAR. FAIRY_WIND is
+  redundant with DISARM_VOICE.
+- Cutting renumbers moves and breaks saves (moves are stored by index).
+
+
+PER-MOVE BREAKDOWN
+==================
+Columns: species, how learned, types, base Atk, base SpA, lean (phys/spec/
+mixed, >10 apart), STAB or coverage, alt = fallback move if this one goes.
+"parties:" = trainer parties (data/trainers/parties.asm) using the move.
+
+## X_SCISSOR  BUG PHYSICAL 80pw 100% NORMAL_HIT
+  BEEDRILL     Lv50    BUG/POISON         atk  80 sat  45 phys  STAB alt=CUT 50
+  PARAS        Lv34    BUG/GRASS          atk  70 sat  45 phys  STAB alt=LEECH_LIFE 55
+  PARASECT     Lv41    BUG/GRASS          atk  95 sat  60 phys  STAB alt=LEECH_LIFE 55
+  SPINARAK     Lv41    BUG/GROUND         atk  60 sat  40 phys  STAB alt=LEECH_LIFE 55
+  ARIADOS      Lv44    BUG/GROUND         atk  90 sat  60 phys  STAB alt=LEECH_LIFE 55
+  SCIZOR       Lv21    BUG/STEEL          atk 130 sat  55 phys  STAB alt=CUT 50
+  parties: JASMINE (1), Olivine Gym:SCIZOR, JASMINE (2), Olivine Gym:SCIZOR, JANINE (1), Fuchsia Gym:ARIADOS, SABRINA (14), Saffron Gym:SCIZOR, RIVAL2 (6), Indigo Plateau:PARASECT
+
+## BUG_BUZZ  BUG SPECIAL 90pw 100% SP_DEF_DOWN_HIT 10%
+  BUTTERFREE   Lv46    BUG/FLYING         atk  45 sat  80 spec  STAB alt=none
+  BEEDRILL     Lv55    BUG/POISON         atk  80 sat  45 phys  STAB alt=none
+  VENONAT      Lv57    BUG/POISON         atk  55 sat  40 phys  STAB alt=none
+  VENOMOTH     Lv63    BUG/PSYCHIC_TYPE   atk  65 sat  90 spec  STAB alt=none
+  LEDYBA       Lv41    BUG/FAIRY          atk  20 sat  40 spec  STAB alt=none
+  LEDIAN       Lv51    BUG/FAIRY          atk  35 sat  55 spec  STAB alt=none
+  YANMA        Lv40    BUG/FLYING         atk  65 sat  75 mixed STAB alt=none
+  YANMEGA      Lv41    BUG/FLYING         atk  76 sat 116 spec  STAB alt=none
+
+## DARK_PULSE  DARK SPECIAL 80pw 100% FLINCH_HIT 20%
+  VULPIX       Lv50    FIRE               atk  41 sat  50 mixed cov  alt=none
+  VILEPLUME    Lv79    DARK/GRASS         atk  80 sat 100 spec  STAB alt=none
+  PSYDUCK      Lv65    WATER              atk  52 sat  65 spec  cov  alt=none
+  GOLDUCK      Lv77    WATER              atk  82 sat  95 spec  cov  alt=none
+  GRIMER       Lv50    POISON             atk  80 sat  40 phys  cov  alt=none
+  MUK          Lv51    POISON             atk 105 sat  65 phys  cov  alt=none
+  GASTLY       Lv35    GHOST              atk  35 sat 100 spec  cov  alt=none
+  HAUNTER      Lv37    GHOST              atk  50 sat 115 spec  cov  alt=none
+  GENGAR       Lv38    DARK/GHOST         atk  65 sat 130 spec  STAB alt=none
+  UMBREON      Lv55    DARK               atk  65 sat  60 mixed STAB alt=none
+  MISDREAVUS   Lv31    GHOST              atk  60 sat  85 spec  cov  alt=none
+  HOUNDOUR     Lv58    DARK/FIRE          atk  60 sat  80 spec  STAB alt=none
+  HOUNDOOM     Lv66    DARK/FIRE          atk  90 sat 110 spec  STAB alt=none
+  PORYGON2     Lv45    NORMAL             atk  80 sat 105 spec  cov  alt=none
+  HONCHKROW    Lv49    DARK/FLYING        atk 125 sat 105 phys  STAB alt=none
+  MISMAGIUS    Lv49    GHOST              atk  60 sat 105 spec  cov  alt=none
+  PORYGON_Z    Lv45    NORMAL             atk  80 sat 135 spec  cov  alt=none
+  parties: BLUE (2), Viridian Gym:HOUNDOOM
+
+## DRAGON_PULSE  DRAGON SPECIAL 85pw 100% NORMAL_HIT
+  KINGDRA      Lv58    DRAGON/WATER       atk  95 sat  95 mixed STAB alt=DRAGONBREATH 60
+  parties: CLAIR (2), Blackthorn Gym:KINGDRA, RIVAL2 (1), Mt Moon:KINGDRA
+
+## WILD_CHARGE  ELECTRIC PHYSICAL 90pw 100% RECOIL_HIT
+  PIKACHU      Lv30    ELECTRIC           atk  55 sat  50 mixed STAB alt=THUNDERPUNCH 75
+  GROWLITHE    Lv58    FIRE               atk  70 sat  70 mixed cov  alt=none
+  ARCANINE     Lv70    FIRE               atk 110 sat 100 mixed cov  alt=none
+  RAPIDASH     Lv75    FIRE               atk 100 sat  80 phys  cov  alt=none
+  ELECTIVIRE   Lv65    ELECTRIC           atk 123 sat  95 phys  STAB alt=THUNDERPUNCH 75
+  MAGNEZONE    Lv70    ELECTRIC/STEEL     atk  70 sat 130 spec  STAB alt=none
+
+## AIR_SLASH  FLYING SPECIAL 75pw 95% FLINCH_HIT 30%
+  CHARMANDER   Lv48    FIRE               atk  52 sat  60 mixed cov  alt=none
+  CHARMELEON   Lv59    FIRE               atk  64 sat  80 spec  cov  alt=none
+  CHARIZARD    Lv65    FIRE/FLYING        atk  84 sat 109 spec  STAB alt=none
+  PIDGEY       Lv47    FLYING/NORMAL      atk  45 sat  35 mixed STAB alt=GUST 40
+  PIDGEOTTO    Lv55    FLYING/NORMAL      atk  60 sat  50 mixed STAB alt=GUST 40
+  PIDGEOT      Lv59    FLYING/NORMAL      atk  80 sat  70 mixed STAB alt=GUST 40
+  ZUBAT        Lv37    FLYING/POISON      atk  45 sat  30 phys  STAB alt=GUST 40
+  GOLBAT       Lv45    FLYING/POISON      atk  80 sat  65 phys  STAB alt=GUST 40
+  FARFETCH_D   Lv45    FLYING/NORMAL      atk  65 sat  58 mixed STAB alt=GUST 40
+  HOOTHOOT     Lv35    FLYING/NORMAL      atk  30 sat  36 mixed STAB alt=GUST 40
+  NOCTOWL      Lv41    FLYING/NORMAL      atk  50 sat  76 spec  STAB alt=GUST 40
+  CROBAT       Lv45    FLYING/POISON      atk  90 sat  70 phys  STAB alt=GUST 40
+  TOGEPI       Lv28    FAIRY              atk  20 sat  40 spec  cov  alt=GUST 40
+  TOGETIC      Lv32    FAIRY/FLYING       atk  40 sat  80 spec  STAB alt=GUST 40
+  NATU         Lv37    FLYING/PSYCHIC_TYPE atk  50 sat  70 spec  STAB alt=none
+  XATU         Lv44    FLYING/PSYCHIC_TYPE atk  75 sat  95 spec  STAB alt=none
+  HOPPIP       Lv31    FLYING/GRASS       atk  35 sat  35 mixed STAB alt=none
+  SKIPLOOM     Lv35    FLYING/GRASS       atk  45 sat  45 mixed STAB alt=none
+  JUMPLUFF     Lv38    FLYING/GRASS       atk  55 sat  55 mixed STAB alt=none
+  DELIBIRD     Lv26    FLYING/ICE         atk  55 sat  65 mixed STAB alt=none
+  MANTINE      Lv40    FLYING/WATER       atk  40 sat  80 spec  STAB alt=GUST 40
+  TOGEKISS     Lv37    FAIRY/FLYING       atk  50 sat 120 spec  STAB alt=none
+  YANMEGA      Lv17    BUG/FLYING         atk  76 sat 116 spec  STAB alt=GUST 40
+  parties: FALKNER (2), Violet Gym:CHARIZARD, FALKNER (2), Violet Gym:TOGETIC, MORTY (2), Ecruteak Gym:MANTINE, PRYCE (2), Mahogany Gym:DELIBIRD, CLAIR (2), Blackthorn Gym:CHARIZARD, WILL (1), Indigo Plateau:XATU, CHAMPION (1), Indigo Plateau:CHARIZARD, RIVAL2 (1), Mt Moon:XATU, RED (1), Mt Silver:CHARIZARD, BIRD_KEEPER (19), Route 44:TOGETIC, SAGE (11), Tin Tower:XATU, SAGE (12), Tin Tower:XATU
+
+## SHADOW_CLAW  GHOST PHYSICAL 70pw 100% NORMAL_HIT
+  UMBREON      Lv47    DARK               atk  65 sat  60 mixed cov  alt=none
+  ANNIHILAPE   Lvevo   FIGHTING/GHOST     atk 115 sat  50 phys  STAB alt=none
+
+## ENERGY_BALL  GRASS SPECIAL 90pw 100% SP_DEF_DOWN_HIT 10%
+  BULBASAUR    Lv39    GRASS/POISON       atk  49 sat  65 spec  STAB alt=SOLARBEAM 120
+  IVYSAUR      Lv46    GRASS/POISON       atk  62 sat  80 spec  STAB alt=SOLARBEAM 120
+  VENUSAUR     Lv50    GRASS/POISON       atk  82 sat 100 spec  STAB alt=SOLARBEAM 120
+  ODDISH       Lv49    GRASS/POISON       atk  50 sat  75 spec  STAB alt=SOLARBEAM 120
+  GLOOM        Lv62    GRASS/POISON       atk  65 sat  85 spec  STAB alt=SOLARBEAM 120
+  VILEPLUME    Lv47    DARK/GRASS         atk  80 sat 100 spec  STAB alt=SOLARBEAM 120
+  PARAS        Lv52    BUG/GRASS          atk  70 sat  45 phys  STAB alt=SOLARBEAM 120
+  PARASECT     Lv64    BUG/GRASS          atk  95 sat  60 phys  STAB alt=SOLARBEAM 120
+  BELLSPROUT   Lv27    GRASS/POISON       atk  75 sat  70 mixed STAB alt=SOLARBEAM 120
+  WEEPINBELL   Lv28    GRASS/POISON       atk  90 sat  85 mixed STAB alt=SOLARBEAM 120
+  VICTREEBEL   Lv1/30  GRASS/POISON       atk 105 sat 100 mixed STAB alt=SOLARBEAM 120
+  CHIKORITA    Lv43    GRASS              atk  49 sat  49 mixed STAB alt=SOLARBEAM 120
+  BAYLEEF      Lv51    GRASS              atk  62 sat  63 mixed STAB alt=SOLARBEAM 120
+  MEGANIUM     Lv51    GRASS              atk  82 sat  83 mixed STAB alt=SOLARBEAM 120
+  MAREEP       tutor   ELECTRIC           atk  40 sat  65 spec  cov  alt=none
+  BELLOSSOM    Lv47    FAIRY/GRASS        atk  80 sat  90 mixed STAB alt=SOLARBEAM 120
+  HOPPIP       Lv43    FLYING/GRASS       atk  35 sat  35 mixed STAB alt=SOLARBEAM 120
+  SKIPLOOM     Lv51    FLYING/GRASS       atk  45 sat  45 mixed STAB alt=SOLARBEAM 120
+  JUMPLUFF     Lv58    FLYING/GRASS       atk  55 sat  55 mixed STAB alt=SOLARBEAM 120
+  CELEBI       Lv35    GRASS/PSYCHIC_TYPE atk 100 sat 100 mixed STAB alt=SOLARBEAM 120
+  parties: ERIKA (1), Celadon Gym:VENUSAUR, RIVAL1 (10), Ice Path 1F:MEGANIUM, RIVAL1 (13), Victory Road:MEGANIUM, SAGE (10), Tin Tower:VICTREEBEL
+
+## POISON_JAB  POISON PHYSICAL 80pw 100% POISON_HIT 30%
+  BEEDRILL     Lv40    BUG/POISON         atk  80 sat  45 phys  STAB alt=POISON_STING 30
+  EKANS        Lv48    POISON             atk  60 sat  40 phys  STAB alt=POISON_STING 30
+  ARBOK        Lv51    POISON             atk  85 sat  65 phys  STAB alt=POISON_STING 30
+  NIDORAN_F    Lv34    POISON             atk  47 sat  40 mixed STAB alt=POISON_STING 30
+  NIDORINA     Lv41    POISON             atk  62 sat  55 mixed STAB alt=POISON_STING 30
+  NIDOQUEEN    Lv33    GROUND/POISON      atk  82 sat  75 mixed STAB alt=none
+  NIDORAN_M    Lv34    POISON             atk  57 sat  40 phys  STAB alt=POISON_STING 30
+  NIDORINO     Lv41    POISON             atk  72 sat  55 phys  STAB alt=POISON_STING 30
+  NIDOKING     Lv33    GROUND/POISON      atk  92 sat  85 mixed STAB alt=POISON_STING 30
+  ZUBAT        Lv53    FLYING/POISON      atk  45 sat  30 phys  STAB alt=none
+  GOLBAT       Lv69    FLYING/POISON      atk  80 sat  65 phys  STAB alt=none
+  VENONAT      Lv50    BUG/POISON         atk  55 sat  40 phys  STAB alt=none
+  VENOMOTH     Lv57    BUG/PSYCHIC_TYPE   atk  65 sat  90 spec  cov  alt=none
+  BELLSPROUT   Lv47    GRASS/POISON       atk  75 sat  70 mixed STAB alt=none
+  WEEPINBELL   Lv54    GRASS/POISON       atk  90 sat  85 mixed STAB alt=none
+  TENTACOOL    Lv47    POISON/WATER       atk  40 sat  50 mixed STAB alt=POISON_STING 30
+  TENTACRUEL   Lv52    POISON/WATER       atk  70 sat  80 mixed STAB alt=POISON_STING 30
+  GRIMER       Lv36    POISON             atk  80 sat  40 phys  STAB alt=none
+  MUK          Lv36    POISON             atk 105 sat  65 phys  STAB alt=none
+  CROBAT       Lv63    FLYING/POISON      atk  90 sat  70 phys  STAB alt=none
+  QWILFISH     Lv31    POISON/WATER       atk  95 sat  55 phys  STAB alt=POISON_STING 30
+  parties: CLAIR (2), Blackthorn Gym:NIDOKING, RIVAL2 (6), Indigo Plateau:NIDOKING
+
+## ZEN_HEADBUTT  PSYCHIC_TYPE PHYSICAL 80pw 90% FLINCH_HIT 20%
+  PSYDUCK      Lv44    WATER              atk  52 sat  65 spec  cov  alt=none
+  GOLDUCK      Lv50    WATER              atk  82 sat  95 spec  cov  alt=none
+  PONYTA       Lv53    FIRE               atk  85 sat  65 phys  cov  alt=none
+  RAPIDASH     Lv56    FIRE               atk 100 sat  80 phys  cov  alt=none
+  SLOWPOKE     Lv48    PSYCHIC_TYPE/WATER atk  65 sat  40 phys  STAB alt=none
+  SLOWBRO      Lv53    PSYCHIC_TYPE/WATER atk  75 sat 100 spec  STAB alt=none
+  SLOWKING     Lv48    PSYCHIC_TYPE/WATER atk  75 sat 100 spec  STAB alt=none
+
+## POWER_GEM  ROCK SPECIAL 80pw 100% NORMAL_HIT
+  SLUGMA       Lv55    FIRE               atk  40 sat  70 spec  cov  alt=none
+  MAGCARGO     Lv64    FIRE/ROCK          atk  50 sat  80 spec  STAB alt=none
+  CORSOLA      Lv44    ROCK/WATER         atk  55 sat  65 mixed STAB alt=ANCIENTPOWER 60
+  CURSOLA      Lv48    GHOST              atk  95 sat 110 spec  cov  alt=ANCIENTPOWER 60
+  CORSOLA_KANTO Lv44    GHOST              atk  55 sat  65 mixed cov  alt=ANCIENTPOWER 60
+
+## HYPER_VOICE  NORMAL SPECIAL 90pw 100% NORMAL_HIT
+  NIDORAN_F    Lv43    POISON             atk  47 sat  40 mixed cov  alt=HIDDEN_POWER 70
+  NIDORINA     Lv51    POISON             atk  62 sat  55 mixed cov  alt=HIDDEN_POWER 70
+  NIDOQUEEN    Lv53    GROUND/POISON      atk  82 sat  75 mixed cov  alt=HYPER_BEAM 150
+  CLEFAIRY     Lv66    FAIRY              atk  45 sat  60 spec  cov  alt=HIDDEN_POWER 70
+  JIGGLYPUFF   Lv45    FAIRY/NORMAL       atk  45 sat  45 mixed STAB alt=HIDDEN_POWER 70
+  DODRIO       Lv80    FLYING/NORMAL      atk 110 sat  60 phys  STAB alt=HYPER_BEAM 150
+  HOOTHOOT     Lv44    FLYING/NORMAL      atk  30 sat  36 mixed STAB alt=HIDDEN_POWER 70
+  NOCTOWL      Lv53    FLYING/NORMAL      atk  50 sat  76 spec  STAB alt=HYPER_BEAM 150
+  POLITOED     Lv51    WATER              atk  75 sat  90 spec  cov  alt=HYPER_BEAM 150
+
+## DRAIN_PUNCH  FIGHTING PHYSICAL 75pw 100% LEECH_HIT
+  MANKEY       Lv53    FIGHTING           atk  80 sat  35 phys  STAB alt=MEGA_KICK 120
+  PRIMEAPE     Lv64    FIGHTING           atk 105 sat  60 phys  STAB alt=MEGA_KICK 120
+  MACHOP       Lv25    FIGHTING           atk  80 sat  35 phys  STAB alt=MEGA_KICK 120
+  MACHOKE      Lv25    FIGHTING           atk 100 sat  50 phys  STAB alt=MEGA_KICK 120
+  MACHAMP      Lv25    FIGHTING           atk 130 sat  65 phys  STAB alt=MEGA_KICK 120
+  MAGMAR       Lv17    FIRE               atk  95 sat 100 mixed cov  alt=DYNAMICPUNCH 100
+  MAGBY        Lv15    FIRE               atk  75 sat  70 mixed cov  alt=DYNAMICPUNCH 100
+  MAGMORTAR    Lv16    FIRE               atk  95 sat 125 spec  cov  alt=CROSS_CHOP 100
+  ANNIHILAPE   Lv33    FIGHTING/GHOST     atk 115 sat  50 phys  STAB alt=CROSS_CHOP 100
+  parties: BRUNO (1), Indigo Plateau:MACHAMP, BRUNO (2), Indigo Plateau:MACHAMP, COOLTRAINERM (18), Victory Road:MACHAMP, BLACKBELT_T (5), Cianwood Gym:MACHOKE, BLACKBELT_T (5), Cianwood Gym:MACHAMP
+
+## FOCUS_BLAST  FIGHTING SPECIAL 120pw 70% SP_DEF_DOWN_HIT 10%
+  PRIMEAPE     Lv75    FIGHTING           atk 105 sat  60 phys  STAB alt=none
+  MACHAMP      Lv75    FIGHTING           atk 130 sat  65 phys  STAB alt=none
+  MAGMORTAR    Lv65    FIRE               atk  95 sat 125 spec  cov  alt=none
+  SIRFETCH_D   Lv60    FIGHTING           atk 135 sat  68 phys  STAB alt=none
+
+## BRAVE_BIRD  FLYING PHYSICAL 120pw 100% RECOIL_HIT
+  PIDGEOT      Lv81    FLYING/NORMAL      atk  80 sat  70 mixed STAB alt=FLY 70
+  FEAROW       Lv65    FLYING/NORMAL      atk  90 sat  61 phys  STAB alt=DRILL_PECK 80
+  GOLBAT       Lv81    FLYING/POISON      atk  80 sat  65 phys  STAB alt=WING_ATTACK 60
+  DODUO        Lv65    FLYING/NORMAL      atk  85 sat  35 phys  STAB alt=DRILL_PECK 80
+  DODRIO       Lv68    FLYING/NORMAL      atk 110 sat  60 phys  STAB alt=DRILL_PECK 80
+  CROBAT       Lv81    FLYING/POISON      atk  90 sat  70 phys  STAB alt=FLY 70
+  HONCHKROW    Lv57    DARK/FLYING        atk 125 sat 105 phys  STAB alt=FLY 70
+  SIRFETCH_D   Lv72    FIGHTING           atk 135 sat  68 phys  cov  alt=PECK 35
+  parties: FALKNER (2), Violet Gym:DODRIO
+
+## AERIAL_ACE  FLYING PHYSICAL 60pw 100% ALWAYS_HIT
+  BUTTERFREE   Lv34    BUG/FLYING         atk  45 sat  80 spec  STAB alt=none
+  PIDGEY       Lv37    FLYING/NORMAL      atk  45 sat  35 mixed STAB alt=WING_ATTACK 60
+  PIDGEOTTO    Lv43    FLYING/NORMAL      atk  60 sat  50 mixed STAB alt=WING_ATTACK 60
+  PIDGEOT      Lv46    FLYING/NORMAL      atk  80 sat  70 mixed STAB alt=FLY 70
+  SPEAROW      Lv41    FLYING/NORMAL      atk  60 sat  31 phys  STAB alt=DRILL_PECK 80
+  FEAROW       Lv45    FLYING/NORMAL      atk  90 sat  61 phys  STAB alt=DRILL_PECK 80
+  FARFETCH_D   Lv17    FLYING/NORMAL      atk  65 sat  58 mixed STAB alt=FLY 70
+  DODUO        Lv41    FLYING/NORMAL      atk  85 sat  35 phys  STAB alt=DRILL_PECK 80
+  DODRIO       Lv49    FLYING/NORMAL      atk 110 sat  60 phys  STAB alt=DRILL_PECK 80
+  GLISCOR      Lv33    FLYING/GROUND      atk  95 sat  45 phys  STAB alt=none
+  SIRFETCH_D   Lv17    FIGHTING           atk 135 sat  68 phys  cov  alt=PECK 35
+
+## HURRICANE  FLYING SPECIAL 110pw 70% HURRICANE 30%
+  PIDGEY       Lv54    FLYING/NORMAL      atk  45 sat  35 mixed STAB alt=AIR_SLASH 75
+  PIDGEOTTO    Lv65    FLYING/NORMAL      atk  60 sat  50 mixed STAB alt=AIR_SLASH 75
+  PIDGEOT      Lv78    FLYING/NORMAL      atk  80 sat  70 mixed STAB alt=AIR_SLASH 75
+
+## GUNK_SHOT  POISON PHYSICAL 120pw 80% POISON_HIT 30%
+  ARBOK        Lv65    POISON             atk  85 sat  65 phys  STAB alt=POISON_JAB 80
+  VICTREEBEL   Lv70    GRASS/POISON       atk 105 sat 100 mixed STAB alt=none
+  TENTACRUEL   Lv70    POISON/WATER       atk  70 sat  80 mixed STAB alt=POISON_JAB 80
+  MUK          Lv80    POISON             atk 105 sat  65 phys  STAB alt=POISON_JAB 80
+
+## BULLDOZE  GROUND PHYSICAL 60pw 100% SPEED_DOWN_HIT 100%
+
+## EARTH_POWER  GROUND SPECIAL 90pw 100% SP_DEF_DOWN_HIT 10%
+  NIDOQUEEN    Lv83    GROUND/POISON      atk  82 sat  75 mixed STAB alt=MUD_SLAP 20
+  NIDOKING     Lv83    GROUND/POISON      atk  92 sat  85 mixed STAB alt=MUD_SLAP 20
+
+## STONE_EDGE  ROCK PHYSICAL 100pw 80% NORMAL_HIT
+  SUDOWOODO    Lv57    ROCK               atk 100 sat  30 phys  STAB alt=ROCK_SLIDE 75
+  MAMOSWINE    Lv65    GROUND/ICE         atk 130 sat  70 phys  cov  alt=ROLLOUT 30
+  RHYPERIOR    Lv41    GROUND/ROCK        atk 140 sat  55 phys  STAB alt=ROCK_SLIDE 75
+  GLISCOR      Lv60    FLYING/GROUND      atk  95 sat  45 phys  cov  alt=none
+  parties: BUGSY (2), Azalea Gym:SUDOWOODO
+
+## ROCK_BLAST  ROCK PHYSICAL 25pw 90% MULTI_HIT
+
+## IRON_HEAD  STEEL PHYSICAL 80pw 100% FLINCH_HIT 30%
+  SQUIRTLE     Lv39    WATER              atk  48 sat  50 mixed cov  alt=SKULL_BASH 100
+  WARTORTLE    Lv47    WATER              atk  63 sat  65 mixed cov  alt=SKULL_BASH 100
+  BLASTOISE    Lv50    STEEL/WATER        atk  83 sat  85 mixed STAB alt=SKULL_BASH 100
+  SANDSLASH    Lv67    GROUND             atk 100 sat  45 phys  cov  alt=IRON_TAIL 100
+  ARCANINE     Lv80    FIRE               atk 110 sat 100 mixed cov  alt=IRON_TAIL 100
+  MAGNEMITE    Lv30    ELECTRIC/STEEL     atk  35 sat  95 spec  STAB alt=SPIKE_CANNON 20
+  MAGNETON     Lv33    ELECTRIC/STEEL     atk  60 sat 120 spec  STAB alt=SPIKE_CANNON 20
+  PINECO       Lv29    BUG                atk  65 sat  35 phys  cov  alt=ROCK_SMASH 40
+  FORRETRESS   Lv30    BUG/STEEL          atk  90 sat  60 phys  STAB alt=ROCK_SMASH 40
+  STEELIX      Lv42    GROUND/STEEL       atk  85 sat  55 phys  STAB alt=SKULL_BASH 100
+  SCIZOR       Lv65    BUG/STEEL          atk 130 sat  55 phys  STAB alt=STEEL_WING 70
+  SKARMORY     Lv43    FLYING/STEEL       atk  80 sat  40 phys  STAB alt=STEEL_WING 70
+  MAGNEZONE    Lv40    ELECTRIC/STEEL     atk  70 sat 130 spec  STAB alt=none
+  SIRFETCH_D   Lv43    FIGHTING           atk 135 sat  68 phys  cov  alt=STEEL_WING 70
+  parties: FALKNER (2), Violet Gym:SKARMORY, CHUCK (2), Cianwood Gym:SANDSLASH, JASMINE (1), Olivine Gym:FORRETRESS, JASMINE (2), Olivine Gym:SCIZOR, SABRINA (14), Saffron Gym:SCIZOR
+
+## BULLET_PUNCH  STEEL PHYSICAL 40pw 100% PRIORITY_HIT
+  MACHOP       Lv44    FIGHTING           atk  80 sat  35 phys  cov  alt=ROCK_SMASH 40
+  MACHOKE      Lv53    FIGHTING           atk 100 sat  50 phys  cov  alt=ROCK_SMASH 40
+  MACHAMP      Lv53    FIGHTING           atk 130 sat  65 phys  cov  alt=ROCK_SMASH 40
+  ELECTABUZZ   Lv19    ELECTRIC           atk  83 sat  95 spec  cov  alt=IRON_TAIL 100
+  SCIZOR       Lv53    BUG/STEEL          atk 130 sat  55 phys  STAB alt=STEEL_WING 70
+  ELEKID       Lv21    ELECTRIC           atk  63 sat  65 mixed cov  alt=none
+  ELECTIVIRE   Lv21    ELECTRIC           atk 123 sat  95 phys  cov  alt=ROCK_SMASH 40
+  parties: JASMINE (2), Olivine Gym:SCIZOR, SABRINA (14), Saffron Gym:SCIZOR
+
+## FLASH_CANNON  STEEL SPECIAL 80pw 100% SP_DEF_DOWN_HIT 10%
+  SQUIRTLE     Lv54    WATER              atk  48 sat  50 mixed cov  alt=none
+  WARTORTLE    Lv67    WATER              atk  63 sat  65 mixed cov  alt=none
+  BLASTOISE    Lv75    STEEL/WATER        atk  83 sat  85 mixed STAB alt=none
+  MAGNEMITE    Lv48    ELECTRIC/STEEL     atk  35 sat  95 spec  STAB alt=none
+  MAGNETON     Lv55    ELECTRIC/STEEL     atk  60 sat 120 spec  STAB alt=none
+  PORYGON2     Lv60    NORMAL             atk  80 sat 105 spec  cov  alt=none
+  MAGNEZONE    Lv60    ELECTRIC/STEEL     atk  70 sat 130 spec  STAB alt=none
+  PORYGON_Z    Lv57    NORMAL             atk  80 sat 135 spec  cov  alt=none
+
+## AQUA_TAIL  WATER PHYSICAL 90pw 90% NORMAL_HIT
+
+## AQUA_JET  WATER PHYSICAL 40pw 100% PRIORITY_HIT
+  POLIWAG      Lv40    WATER              atk  50 sat  40 mixed STAB alt=none
+  POLIWHIRL    Lv45    WATER              atk  65 sat  50 phys  STAB alt=none
+  POLIWRATH    Lv40    FIGHTING/WATER     atk  85 sat  70 phys  STAB alt=WATERFALL 80
+  SEEL         Lv7     WATER              atk  45 sat  45 mixed STAB alt=WATERFALL 80
+  DEWGONG      Lv7     ICE/WATER          atk  70 sat  70 mixed STAB alt=WATERFALL 80
+  POLITOED     Lv39    WATER              atk  75 sat  90 spec  STAB alt=WATERFALL 80
+
+## SCALD  WATER SPECIAL 80pw 100% BURN_HIT 30%
+  POLIWAG      Lv31    WATER              atk  50 sat  40 mixed STAB alt=HYDRO_PUMP 120
+  POLIWHIRL    Lv35    WATER              atk  65 sat  50 phys  STAB alt=HYDRO_PUMP 120
+  POLIWRATH    Lv30    FIGHTING/WATER     atk  85 sat  70 phys  STAB alt=HYDRO_PUMP 120
+  TENTACOOL    Lv36    POISON/WATER       atk  40 sat  50 mixed STAB alt=HYDRO_PUMP 120
+  TENTACRUEL   Lv38    POISON/WATER       atk  70 sat  80 mixed STAB alt=HYDRO_PUMP 120
+  SLOWPOKE     Lv38    PSYCHIC_TYPE/WATER atk  65 sat  40 phys  STAB alt=WATER_GUN 40
+  SLOWBRO      Lv40    PSYCHIC_TYPE/WATER atk  75 sat 100 spec  STAB alt=HYDRO_PUMP 120
+  POLITOED     Lv30    WATER              atk  75 sat  90 spec  STAB alt=HYDRO_PUMP 120
+  SLOWKING     Lv38    PSYCHIC_TYPE/WATER atk  75 sat 100 spec  STAB alt=SURF 95
+
+## WATER_PULSE  WATER SPECIAL 60pw 100% CONFUSE_HIT 20%
+
+## POWER_WHIP  GRASS PHYSICAL 120pw 85% NORMAL_HIT
+  BULBASAUR    Lv63    GRASS/POISON       atk  49 sat  65 spec  STAB alt=RAZOR_LEAF 55
+  IVYSAUR      Lv78    GRASS/POISON       atk  62 sat  80 spec  STAB alt=RAZOR_LEAF 55
+  VENUSAUR     Lv90    GRASS/POISON       atk  82 sat 100 spec  STAB alt=RAZOR_LEAF 55
+  VICTREEBEL   Lv80    GRASS/POISON       atk 105 sat 100 mixed STAB alt=none
+  LICKILICKY   Lv55    NORMAL             atk  85 sat  80 mixed cov  alt=none
+  TANGROWTH    Lv65    GRASS              atk 100 sat 110 mixed STAB alt=none
+
+## SEED_BOMB  GRASS PHYSICAL 80pw 100% NORMAL_HIT
+  ODDISH       Lv41    GRASS/POISON       atk  50 sat  75 spec  STAB alt=RAZOR_LEAF 55
+  GLOOM        Lv53    GRASS/POISON       atk  65 sat  85 spec  STAB alt=RAZOR_LEAF 55
+  VILEPLUME    Lv35    DARK/GRASS         atk  80 sat 100 spec  STAB alt=none
+  CHIKORITA    Lv31    GRASS              atk  49 sat  49 mixed STAB alt=RAZOR_LEAF 55
+  BAYLEEF      Lv35    GRASS              atk  62 sat  63 mixed STAB alt=RAZOR_LEAF 55
+  MEGANIUM     Lv35    GRASS              atk  82 sat  83 mixed STAB alt=RAZOR_LEAF 55
+  BELLOSSOM    Lv35    FAIRY/GRASS        atk  80 sat  90 mixed STAB alt=none
+  LEAFEON      Lv44    GRASS              atk 110 sat  60 phys  STAB alt=RAZOR_LEAF 55
+  parties: KIMONO_GIRL (8), Route 30:LEAFEON
+
+## EXTRASENSORY  PSYCHIC_TYPE SPECIAL 80pw 100% FLINCH_HIT 10%
+
+## ICICLE_CRASH  ICE PHYSICAL 85pw 90% FLINCH_HIT 30%
+
+## ICE_SHARD  ICE PHYSICAL 40pw 100% PRIORITY_HIT
+  SHELLDER     Lv8     WATER              atk  65 sat  45 phys  cov  alt=none
+  CLOYSTER     Lv15    ICE/WATER          atk  95 sat  85 mixed STAB alt=none
+  JYNX         Lv23    ICE/PSYCHIC_TYPE   atk  50 sat 115 spec  STAB alt=ICE_PUNCH 75
+  SNEASEL      Lv41    DARK/ICE           atk  95 sat  35 phys  STAB alt=ICE_PUNCH 75
+  SWINUB       Lv36    GROUND/ICE         atk  50 sat  30 phys  STAB alt=none
+  PILOSWINE    Lv40    GROUND/ICE         atk 100 sat  60 phys  STAB alt=none
+  SMOOCHUM     Lv17    ICE/PSYCHIC_TYPE   atk  30 sat  85 spec  STAB alt=ICE_PUNCH 75
+  MAMOSWINE    Lv30    GROUND/ICE         atk 130 sat  70 phys  STAB alt=none
+  WEAVILE      Lv41    DARK/ICE           atk 120 sat  45 phys  STAB alt=none
+
+## DRAGON_CLAW  DRAGON PHYSICAL 80pw 100% NORMAL_HIT
+  CHARMANDER   Lv42    FIRE               atk  52 sat  60 mixed cov  alt=OUTRAGE 120
+  CHARMELEON   Lv51    FIRE               atk  64 sat  80 spec  cov  alt=OUTRAGE 120
+  CHARIZARD    Lv55    FIRE/FLYING        atk  84 sat 109 spec  cov  alt=OUTRAGE 120
+
+## NIGHT_SLASH  DARK PHYSICAL 70pw 100% NORMAL_HIT
+
+## PLAY_ROUGH  FAIRY PHYSICAL 90pw 90% ATTACK_DOWN_HIT 10%
+  JIGGLYPUFF   Lv40    FAIRY/NORMAL       atk  45 sat  45 mixed STAB alt=MEGA_PUNCH 80
+  WIGGLYTUFF   Lv1     FAIRY/NORMAL       atk  70 sat  75 mixed STAB alt=MEGA_PUNCH 80
+  LEDYBA       Lv29    BUG/FAIRY          atk  20 sat  40 spec  STAB alt=COMET_PUNCH 18
+  LEDIAN       Lv35    BUG/FAIRY          atk  35 sat  55 spec  STAB alt=COMET_PUNCH 18
+  MARILL       Lv28    FAIRY/WATER        atk  20 sat  20 mixed STAB alt=MEGA_PUNCH 80
+  AZUMARILL    Lv36    FAIRY/WATER        atk  50 sat  50 mixed STAB alt=MEGA_PUNCH 80
+  SNUBBULL     Lv34    FAIRY              atk  80 sat  40 phys  STAB alt=MEGA_PUNCH 80
+  GRANBULL     Lv38    FAIRY              atk 120 sat  60 phys  STAB alt=MEGA_PUNCH 80
+  parties: MORTY (2), Ecruteak Gym:GRANBULL, BRUNO (2), Indigo Plateau:GRANBULL, SAILOR (10), Route 38:WIGGLYTUFF
+
+## MOONBLAST  FAIRY SPECIAL 95pw 100% SP_ATK_DOWN_HIT 30%
+  CLEFAIRY     Lv43    FAIRY              atk  45 sat  60 spec  STAB alt=none
+  CLEFABLE     Lv1     FAIRY              atk  70 sat  85 spec  STAB alt=none
+  MR__MIME     Lv51    FAIRY/PSYCHIC_TYPE atk  45 sat 100 spec  STAB alt=none
+  MEW          Lv60    PSYCHIC_TYPE       atk 100 sat 100 mixed cov  alt=none
+  CHIKORITA    tutor   GRASS              atk  49 sat  49 mixed cov  alt=none
+  TOGEPI       Lv44    FAIRY              atk  20 sat  40 spec  STAB alt=none
+  TOGETIC      Lv52    FAIRY/FLYING       atk  40 sat  80 spec  STAB alt=none
+  BELLOSSOM    Lv41    FAIRY/GRASS        atk  80 sat  90 mixed STAB alt=none
+  UMBREON      Lv39    DARK               atk  65 sat  60 mixed cov  alt=none
+  HO_OH        Lv44    FAIRY/FIRE         atk 130 sat 110 phys  STAB alt=none
+  SYLVEON      Lv57    FAIRY              atk  65 sat 110 spec  STAB alt=none
+  TOGEKISS     Lv55    FAIRY/FLYING       atk  50 sat 120 spec  STAB alt=none
+  parties: FALKNER (2), Violet Gym:TOGETIC, WHITNEY (2), Goldenrod Gym:MR__MIME, ERIKA (1), Celadon Gym:BELLOSSOM, ERIKA (2), Celadon Gym:BELLOSSOM, BLAINE (2), Seafoam Gym:CLEFABLE, BLAINE (2), Seafoam Gym:MR__MIME, RIVAL2 (2), Mt Moon:UMBREON, RIVAL2 (6), Indigo Plateau:CLEFABLE, BIRD_KEEPER (19), Route 44:TOGETIC, COOLTRAINERF (16), Route 44:BELLOSSOM, EXECUTIVEM (2), Lav Radio Tower 5F:CLEFABLE, PICNICKER (16), Route 43:CLEFABLE, PICNICKER (17), Route 43:CLEFABLE, PICNICKER (20), Route 43:CLEFABLE, PICNICKER (26), Route 43:CLEFABLE, MEDIUM (3), Cianwood City:UMBREON
+
+## DAZZLING_GLEAM  FAIRY SPECIAL 80pw 100% NORMAL_HIT
+  CLEFAIRY     Lv53    FAIRY              atk  45 sat  60 spec  STAB alt=none
+  JIGGLYPUFF   Lv51    FAIRY/NORMAL       atk  45 sat  45 mixed STAB alt=none
+  LEDYBA       Lv35    BUG/FAIRY          atk  20 sat  40 spec  STAB alt=none
+  LEDIAN       Lv43    BUG/FAIRY          atk  35 sat  55 spec  STAB alt=none
+  TOGEPI       Lv40    FAIRY              atk  20 sat  40 spec  STAB alt=none
+  TOGETIC      Lv40    FAIRY/FLYING       atk  40 sat  80 spec  STAB alt=none
+  BELLOSSOM    Lv78    FAIRY/GRASS        atk  80 sat  90 mixed STAB alt=none
+  ESPEON       Lv58    PSYCHIC_TYPE       atk  65 sat 130 spec  cov  alt=none
+  SLOWKING     Lv58    PSYCHIC_TYPE/WATER atk  75 sat 100 spec  cov  alt=none
+  MISDREAVUS   Lv23    GHOST              atk  60 sat  85 spec  cov  alt=none
+  BLISSEY      Lv63    NORMAL             atk  10 sat  75 spec  cov  alt=none
+  MISMAGIUS    Lv39    GHOST              atk  60 sat 105 spec  cov  alt=none
+  SYLVEON      Lv44    FAIRY              atk  65 sat 110 spec  STAB alt=none
+  TOGEKISS     Lv44    FAIRY/FLYING       atk  50 sat 120 spec  STAB alt=none
+  parties: RED (1), Mt Silver:ESPEON
+
+## DRAIN_KISS  FAIRY SPECIAL 50pw 100% LEECH_HIT
+
+## DISARM_VOICE  FAIRY SPECIAL 40pw 100% ALWAYS_HIT
+  CLEFAIRY     Lv30    FAIRY              atk  45 sat  60 spec  STAB alt=none
+  CLEFFA       Lv4     FAIRY              atk  25 sat  45 spec  STAB alt=none
+  IGGLYBUFF    Lv4     FAIRY/NORMAL       atk  30 sat  40 mixed STAB alt=none
+  TOGEPI       Lv11    FAIRY              atk  20 sat  40 spec  STAB alt=none
+  TOGETIC      Lv10    FAIRY/FLYING       atk  40 sat  80 spec  STAB alt=none
+  SYLVEON      Lvevo   FAIRY              atk  65 sat 110 spec  STAB alt=none
+
+APPLIED on branch 98-move-review (2026-11-22), one commit per type:
+  9bbaf1b7a NORMAL   78abce45d FIGHTING  f0f54a513 FLYING   54f185dc6 POISON
+  0a215f11e GROUND   7aa6afc6b ROCK      630630ce0 BUG      (GHOST: no commit)
+  30c33bab6 STEEL    7ec81351c FIRE      ccef335e3 WATER    76c753600 GRASS
+  0262be7a5 ELECTRIC b5a12e04d PSYCHIC   62f4e5785 ICE      38089241a DRAGON
+  818fabe06 DARK     ec45aa0d4 FAIRY
+  NUM_ATTACKS 269 -> 246 ($f6). Metronome now takes its 8-bit path.
+
+  Deviations from the log above:
+  - FALKNER (2) Dodrio: Brave Bird -> DOUBLE_EDGE, not Thrash (Dodrio
+    can't learn Thrash; Double-Edge is the same 120 recoil hit).
+  - DRAIN_PUNCH parties: every mon already had Cross Chop or was too low
+    for it. Bruno (1) + Victory Road Cooltrainer -> DYNAMICPUNCH,
+    Bruno (2) -> SUBMISSION, Cianwood blackbelts (Lv37) -> VITAL_THROW.
+  - SUBMISSION's rows moved up after CROSS_CHOP (strongest-first order).
+  - RED (1) Espeon: Dazzling Gleam -> SHADOW_BALL.
+  - SAGE (10) Victreebel: Energy Ball -> PETAL_DANCE (legal).
+  - Mirror Move's `jmp ResetTurn` became `jr` (Effect Commands shrank).
+
+  Levels chosen in the apply pass (review these):
+  - FLARE_BLITZ: Flareon 45, Arcanine 55, Entei 56, Rapidash 58.
+    Growlithe/Ponyta: not given it.
+  - SEED_BOMB: Victreebel 40, Tangrowth 45, Paras 30, Parasect 34.
+  - POWER_GEM: Omanyte 40, Omastar 44.
+  - X_SCISSOR: Scyther 21, Pinsir 34, Heracross 30.
+  - ICE_SHARD moved earlier: Swinub/Piloswine 17, Mamoswine 15,
+    Sneasel/Weavile 19, Cloyster 1.
+  - DRAGON_CLAW: Dratini 40, Dragonair/Dragonite/Dragonite_Kanto 42.
+  - DRAGON_PULSE: Horsea 47, Seadra 55.
+  - CRUNCH: Honchkrow 45. WATERFALL: Kabutops 40.
+
+  Left as is, for shasocastris:
+  - BattleAnim_BoneRush is now unreferenced (was Stone Edge's). Kept for
+    possible reuse (e.g. Bonemerang); delete if not wanted.
+  - Victreebel learns PETAL_DANCE at 1 and 30, mirroring the old Energy
+    Ball pair.
+  - Not play-tested; Flare Blitz's effect script is untested in battle.

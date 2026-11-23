@@ -1,0 +1,119 @@
+PARTY REVIEW: data/trainers/parties.asm (started 2026-11-22, after branch 98-move-review)
+=========================================================================================
+Group by group in file order. Decisions are logged here and applied later
+on a new branch. Helper: python3 docs/party_review/view.py <Group|label> -v
+
+DECISION LOG
+------------
+FALKNER (1)  no change.
+FALKNER (2)  TOGETIC -> TOGEKISS (same item and moves).
+             GLIGAR -> GLISCOR (same item and moves).
+             PIDGEOT -> HURRICANE, AIR_SLASH, STEEL_WING, QUICK_ATTACK
+               (Drill Peck and Double-Edge were illegal).
+             Charizard (Earthquake) and Skarmory left as is.
+BUGSY (1)    Beedrill: Giga Drain -> LEECH_LIFE, Miracle Seed -> POISON_BARB.
+BUGSY (2)    Scyther: Twineedle -> X_SCISSOR (stays Scyther; Scizor is Jasmine's/Sabrina's).
+             Pinsir -> X_SCISSOR, SUBMISSION, DOUBLE_EDGE, SWORDS_DANCE.
+             Quagsire: Ancientpower -> ICE_PUNCH. Off-type mons kept.
+
+PASS 1 (2026-11-22, branch 99-party-review, STAGED not committed)
+-----------------------------------------------------------------
+shasocastris: "make your recommended changes, just stage them". Script:
+docs/party_review/apply_pass1.py; full edit list: docs/party_review/pass1_log.txt
+(121 edits). Rules:
+  1. Every illegal move fixed (lint: 10 errors -> 0).
+       Whitney (2) Donphan Rock Slide -> ROLLOUT; Morty (1) Misdreavus ->
+       Confuse Ray, MEAN_LOOK, Psybeam, SHADOW_BALL; Pryce (1) Cloyster
+       Spike Cannon -> ICICLE_CRASH; Clair (1) Dragonair Extremespeed ->
+       BODY_SLAM; Clair (2) Gyarados Earthquake -> THRASH.
+  2. Same-type, wrong-category attacks swapped for the right-category
+     same-type move, only where legal and not already known:
+       Sludge Bomb -> Poison Jab (Crobat, Arbok, Muk, Beedrill)
+       Flamethrower/Fire Blast -> Flare Blitz (Flareon, Rapidash)
+       Surf/Bubblebeam/Bubble -> Waterfall (Kabutops, Quagsire, Gyarados,
+         Qwilfish, Feraligatr); Waterfall -> Surf (Starmie, Mantine)
+       Leech Life/Pin Missile -> Bug Buzz (Butterfree, Venomoth)
+       Razor Leaf -> Petal Dance (Venusaur, Vileplume)
+       Crunch/Faint Attack -> Dark Pulse (Houndoom, Vileplume)
+       Ice Punch -> Ice Beam (Jynx); Fly/Peck/Drill Peck/Wing Attack ->
+         Air Slash (Charizard, Xatu, Mantine); Spike Cannon -> Flash
+         Cannon (Magneton); Ancientpower -> Rock Slide (Tyranitar,
+         Aerodactyl); Rock Slide -> Power Gem (Magcargo); Ice Beam/
+         Blizzard -> Icicle Crash (Piloswine); Giga Drain -> Seed Bomb
+         (Parasect, Leafeon); Vine Whip -> Giga Drain (Tangela); Comet
+         Punch -> Moonblast (Ledian)
+     Plus Koga (2) Ariados Psybeam -> X_SCISSOR (its only attack) and
+     Lance (5) Dragonite Dragonbreath -> OUTRAGE.
+  3. Overdue evolutions on leader/E4/executive/rival teams at Lv60+
+     (31 mons; Togekiss, Gliscor, Mamoswine, Rhyperior, Steelix,
+     Magnezone, Electivire, Magmortar, Porygon-Z, Tangrowth, Ursaluna,
+     Wyrdeer, Mismagius, Honchkrow, Annihilape, Weavile, Crobat).
+     Not evolved: Bugsy/Blue Scyther, Red's Pikachu, and everything
+     below Lv60 (Rival1's Golbat/Haunter/Kadabra/Magneton stay).
+  Falkner (2) Charizard/Skarmory/Dodrio left as is, per shasocastris.
+
+OPEN: left for a decision (docs/party_review/left.txt, 115 mons)
+  Off-type moves in the wrong category, with no same-type swap:
+  - Elemental punches / Body Slam / Strength on special mons: Ampharos
+    (11), Alakazam (9), Gengar, Jynx. Their special coverage pool is thin
+    (Thunder, Zap Cannon, Hyper Beam, Future Sight, Dream Eater).
+  - Jolteon Double Kick / Pin Missile (7), Flareon Shadow Ball (5),
+    Gyarados Ice Beam / Zap Cannon / Dragonbreath, Dodrio Tri Attack,
+    Skarmory Swift, Headbutt on special mons, Feraligatr Blizzard/Ice Beam.
+  - Low-level sets with no right-category option yet (Rival1 Lv25
+    Haunter Lick, Magnemite Spark/Scratch, Croconaw Water Gun).
+  - Typhlosion (Rival1 11/14) has Flamethrower + Flame Wheel.
+  Also not touched: species choices on generic trainers, levels, items.
+
+PASS 1 committed as 855d19515 (with shasocastris's edits: Pidgeot Extremespeed,
+Misdreavus Destiny Bond, Clair (1) Dragonair Extremespeed kept although
+illegal; Beedrill reverted; Brock (1) Onix, ExecM (2) Golbat kept;
+Bruno (2) Annihilape Shadow Claw).
+
+OPEN LIST, round 1 (staged): Alakazam option (b), Ampharos Thunderpunch
+-> Thunderbolt, Blue (2) Gengar Shadow Ball + Hypnosis. Rule from shasocastris:
+give Gengar a Ghost OR a Dark move, never both.
+OPEN LIST, round 2 (staged with round 1): Jolteon, Rival1 Haunter,
+Flareon, Butterfree as recommended. shasocastris kept Fire Punch on Sabrina's
+Alakazams.
+FUTURE_SIGHT purged (unstaged, separate commit): move + engine code.
+2026-11-22: another session committed the FUTURE_SIGHT cut (3f58ca73a)
+and restored DETECT as a player-facing move (80feb7fe6). Staged pass 2
+now includes the 3 Alakazam FUTURE_SIGHT -> ZAP_CANNON lines. TM/tutor
+proposal: CRUNCH moves from the DETECT TM to TM13 SWEET_KISS (Route 39
+farmhouse).
+
+TM/TUTOR REWORK applied + staged 2026-11-22 (docs/commit_msg.txt), with
+6 forced party swaps (Mimic/Defense Curl/Nightmare/Sweet Kiss users).
+OPEN LIST, round 3 (staged with the TM/tutor change, docs/commit_msg.txt): 25 swaps that
+use the new TMs/tutors. Ice special -> ICICLE_CRASH on physical
+Gyarados/Feraligatr/Dragonite/Kingler (Gyarados Zap Cannon too); Crobat
+Sludge Bomb -> Poison Jab; Magmortar Thunderpunch -> Thunderbolt; Lance
+Dragonite Thunderbolt -> Thunderpunch; Kingler special water -> X-Scissor
+/ Crunch; Swift/Surf filler -> Rock Slide (Kangaskhan, Hitmonlee,
+Sandslash) or X-Scissor (Leafeon); Parasect Psybeam -> X-Scissor; Ariados
+Giga Drain -> Poison Jab; Scientist Max Dugtrio Ancientpower -> Rock
+Slide, Tri Attack -> Shadow Claw (Sludge Bomb kept). Clair's Gyarados
+keeps Dragonbreath (theme). Bugsy's Beedrill keeps Giga Drain (Lv20,
+Miracle Seed). candidates.py: 94 -> 72 lines.
+OPEN LIST, round 4 (staged with round 3): 23 swaps.
+  Dodrio Tri Attack -> Double-Edge (Lt Surge 2, Bird Keepers 17/19;
+  Falkner's left as before). Vileplume Faint Attack -> Sludge Bomb (Erika,
+  ExecF 2/3; Dark Pulse not legal). Exeggutor Headbutt -> Giga Drain
+  (Blue 1, Will 1). Blue (2) Houndoom Crunch -> Sludge Bomb, Miltank
+  Shadow Ball -> Ice Punch. Will (2) Electivire Thunderbolt ->
+  Thunderpunch (keeps Psychic for Will's theme). Venomoth Leech Life /
+  Pin Missile -> Sludge Bomb (Koga 1, Bug Catcher 17, Medium 5). Chansey/
+  Blissey Headbutt/Body Slam -> Seismic Toss. Seadra Headbutt ->
+  Smokescreen (Dragon's Den) / Ice Beam (Fisher 22). Galen Golem Fire
+  Blast -> Fire Punch. Kimono: Vaporeon Bite -> Shadow Ball, Glaceon Bite
+  -> Swift, Flareon (L30) Shadow Ball -> Double-Edge.
+  LEFT (no good legal option or kept on purpose): all Ampharos; Falkner,
+  Bugsy, Morty, Clair, Sabrina keeps; Rival2 Parasect + Scientist Max
+  Dugtrio Sludge Bomb; Rival1 Magnemite/Croconaw/Typhlosion; Skarmory
+  Swift x4; Rapidash x4 (Flame Wheel would be a downgrade, Flare Blitz
+  not legal yet); Karen Electrode Headbutt (no Explosion); Jolteon Double
+  Kick (no Thunder Wave at 30); Flareon L28 Ember / L30 Flamethrower;
+  Butterfree Leech Life x3; Magcargo Rock Throw x2; Mr. Mime, Slowpoke,
+  Sunflora, Houndour (low-level, sidegrades only); Sailor 4 Kingler Surf.
+  candidates.py: 72 -> 51 lines.

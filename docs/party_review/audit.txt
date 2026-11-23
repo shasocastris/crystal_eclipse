@@ -1,0 +1,448 @@
+FALKNER (1), Violet Gym            Lv12 DODUO       wrongcat(phys 85/35) MUD_SLAP:grou
+FALKNER (2), Violet Gym            Lv70 CHARIZARD   wrongcat(spec 84/109) EARTHQUAKE:grou
+FALKNER (2), Violet Gym            Lv70 DODRIO      wrongcat(phys 110/60) TRI_ATTACK:norm
+FALKNER (2), Violet Gym            Lv70 TOGETIC     overdue->TOGEKISS
+FALKNER (2), Violet Gym            Lv70 GLIGAR      overdue->GLISCOR
+FALKNER (2), Violet Gym            Lv70 PIDGEOT     illegal DRILL_PECK,DOUBLE_EDGE
+BUGSY (1), Azalea Gym              Lv18 BUTTERFREE  wrongcat(spec 45/80) LEECH_LIFE:bug
+BUGSY (1), Azalea Gym              Lv20 BEEDRILL    wrongcat(phys 80/45) GIGA_DRAIN:gras
+BUGSY (2), Azalea Gym              Lv70 SCYTHER     overdue->SCIZOR
+BUGSY (2), Azalea Gym              Lv70 PINSIR      illegal EARTHQUAKE,BODY_SLAM
+BUGSY (2), Azalea Gym              Lv70 QUAGSIRE    wrongcat(phys 85/65) ANCIENTPOWER:rock
+WHITNEY (2), Goldenrod Gym         Lv70 DONPHAN     illegal ROCK_SLIDE
+MORTY (1), Ecruteak Gym            Lv30 GENGAR      wrongcat(spec 65/130) THIEF:dark
+MORTY (1), Ecruteak Gym            Lv28 MISDREAVUS  illegal DESTINY_BOND,NIGHT_SHADE
+MORTY (2), Ecruteak Gym            Lv70 MISDREAVUS  overdue->MISMAGIUS
+CHUCK (2), Cianwood Gym            Lv70 AMPHAROS    wrongcat(spec 75/115) DYNAMICPUNCH:figh,FIRE_PUNCH:fire
+CHUCK (2), Cianwood Gym            Lv70 URSARING    overdue->URSALUNA
+JASMINE (2), Olivine Gym           Lv70 RAPIDASH    wrongcat(phys 100/80) FLAMETHROWER:fire
+JASMINE (2), Olivine Gym           Lv70 SLOWBRO     wrongcat(spec 75/100) EARTHQUAKE:grou
+JASMINE (2), Olivine Gym           Lv70 STANTLER    overdue->WYRDEER
+PRYCE (1), Mahogany Gym            Lv35 CLOYSTER    illegal SPIKE_CANNON
+PRYCE (1), Mahogany Gym            Lv36 PILOSWINE   wrongcat(phys 100/60) BLIZZARD:ice
+PRYCE (2), Mahogany Gym            Lv70 QUAGSIRE    wrongcat(phys 85/65) ICE_BEAM:ice
+PRYCE (2), Mahogany Gym            Lv70 PILOSWINE   wrongcat(phys 100/60) ICE_BEAM:ice; overdue->MAMOSWINE
+CLAIR (1), Blackthorn Gym          Lv53 DRAGONAIR   illegal EXTREMESPEED
+CLAIR (2), Blackthorn Gym          Lv70 CHARIZARD   wrongcat(spec 84/109) EARTHQUAKE:grou
+CLAIR (2), Blackthorn Gym          Lv70 RHYDON      overdue->RHYPERIOR
+CLAIR (2), Blackthorn Gym          Lv70 GYARADOS    illegal EARTHQUAKE; wrongcat(phys 125/60) ICE_BEAM:ice,DRAGONBREATH:drag
+CLAIR (2), Blackthorn Gym          Lv70 AMPHAROS    wrongcat(spec 75/115) BODY_SLAM:norm,FIRE_PUNCH:fire
+BROCK (1), Pewter Gym              Lv73 ONIX        overdue->STEELIX
+BROCK (1), Pewter Gym              Lv73 RHYDON      overdue->RHYPERIOR
+BROCK (1), Pewter Gym              Lv71 KABUTOPS    wrongcat(phys 115/65) SURF:wate
+BROCK (2), Pewter Gym              Lv80 RHYDON      overdue->RHYPERIOR
+BROCK (2), Pewter Gym              Lv80 URSARING    overdue->URSALUNA
+MISTY (1), Cerulean Gym            Lv73 QUAGSIRE    wrongcat(phys 85/65) SURF:wate
+MISTY (1), Cerulean Gym            Lv73 FERALIGATR  wrongcat(phys 105/79) BLIZZARD:ice
+MISTY (2), Cerulean Gym            Lv70 AMPHAROS    wrongcat(spec 75/115) IRON_TAIL:stee
+LT_SURGE (1), Vermilion Gym        Lv60 MAGNETON    overdue->MAGNEZONE
+LT_SURGE (1), Vermilion Gym        Lv62 JOLTEON     wrongcat(spec 65/110) DOUBLE_KICK:figh,PIN_MISSILE:bug
+LT_SURGE (1), Vermilion Gym        Lv62 ELECTABUZZ  overdue->ELECTIVIRE
+LT_SURGE (2), Vermilion Gym        Lv80 DODRIO      wrongcat(phys 110/60) TRI_ATTACK:norm
+LT_SURGE (2), Vermilion Gym        Lv80 JOLTEON     wrongcat(spec 65/110) DOUBLE_KICK:figh,PIN_MISSILE:bug
+LT_SURGE (2), Vermilion Gym        Lv80 QUAGSIRE    wrongcat(phys 85/65) ICE_BEAM:ice,ANCIENTPOWER:rock
+LT_SURGE (2), Vermilion Gym        Lv80 PORYGON2    overdue->PORYGON_Z
+ERIKA (1), Celadon Gym             Lv63 TANGELA     wrongcat(spec 55/100) BIND:bug; overdue->TANGROWTH
+ERIKA (1), Celadon Gym             Lv63 VILEPLUME   wrongcat(spec 80/100) FAINT_ATTACK:dark,RAZOR_LEAF:gras
+ERIKA (1), Celadon Gym             Lv64 VENUSAUR    wrongcat(spec 82/100) SKULL_BASH:stee
+JANINE (1), Fuchsia Gym            Lv66 CROBAT      wrongcat(phys 90/70) SLUDGE_BOMB:pois
+JANINE (1), Fuchsia Gym            Lv67 ARBOK       wrongcat(phys 85/65) SLUDGE_BOMB:pois
+JANINE (1), Fuchsia Gym            Lv67 VENOMOTH    wrongcat(spec 65/90) PIN_MISSILE:bug
+JANINE (2), Fuchsia Gym            Lv80 CROBAT      wrongcat(phys 90/70) SLUDGE_BOMB:pois
+SABRINA (1), Saffron Gym           Lv61 SLOWBRO     wrongcat(spec 75/100) EARTHQUAKE:grou
+SABRINA (1), Saffron Gym           Lv63 VENOMOTH    wrongcat(spec 65/90) LEECH_LIFE:bug
+SABRINA (1), Saffron Gym           Lv63 ALAKAZAM    wrongcat(spec 50/135) ICE_PUNCH:ice,FIRE_PUNCH:fire
+SABRINA (14), Saffron Gym          Lv80 ALAKAZAM    wrongcat(spec 50/135) FIRE_PUNCH:fire,THUNDERPUNCH:elec
+SABRINA (14), Saffron Gym          Lv80 TYPHLOSION  wrongcat(spec 84/109) EARTHQUAKE:grou,THUNDERPUNCH:elec
+SABRINA (14), Saffron Gym          Lv80 SLOWKING    wrongcat(spec 75/100) EARTHQUAKE:grou
+BLAINE (1), Seafoam Gym            Lv76 FLAREON     wrongcat(phys 130/95) FLAMETHROWER:fire,SHADOW_BALL:ghos
+BLAINE (1), Seafoam Gym            Lv76 MAGCARGO    wrongcat(spec 50/80) ROCK_SLIDE:rock
+BLAINE (1), Seafoam Gym            Lv77 RAPIDASH    wrongcat(phys 100/80) FIRE_BLAST:fire
+BLAINE (1), Seafoam Gym            Lv77 MAGMAR      overdue->MAGMORTAR
+BLAINE (2), Seafoam Gym            Lv80 VILEPLUME   wrongcat(spec 80/100) FAINT_ATTACK:dark
+BLAINE (2), Seafoam Gym            Lv80 RAPIDASH    wrongcat(phys 100/80) FIRE_BLAST:fire
+BLUE (1), Viridian Gym             Lv79 ALAKAZAM    wrongcat(spec 50/135) THUNDERPUNCH:elec,FIRE_PUNCH:fire
+BLUE (1), Viridian Gym             Lv78 RHYDON      overdue->RHYPERIOR
+BLUE (1), Viridian Gym             Lv80 GYARADOS    wrongcat(phys 125/60) ZAP_CANNON:elec
+BLUE (1), Viridian Gym             Lv79 EXEGGUTOR   wrongcat(spec 95/125) HEADBUTT:norm
+BLUE (2), Viridian Gym             Lv85 GENGAR      wrongcat(spec 65/130) ICE_PUNCH:ice,FIRE_PUNCH:fire
+BLUE (2), Viridian Gym             Lv85 SCYTHER     overdue->SCIZOR
+BLUE (2), Viridian Gym             Lv85 PILOSWINE   wrongcat(phys 100/60) ICE_BEAM:ice; overdue->MAMOSWINE
+BLUE (2), Viridian Gym             Lv85 HOUNDOOM    wrongcat(spec 90/110) CRUNCH:dark,IRON_TAIL:stee
+BLUE (2), Viridian Gym             Lv85 MILTANK     wrongcat(phys 80/40) SHADOW_BALL:ghos
+WILL (1), Indigo Plateau           Lv54 EXEGGUTOR   wrongcat(spec 95/125) HEADBUTT:norm
+WILL (2), Indigo Plateau           Lv80 ELECTABUZZ  overdue->ELECTIVIRE
+WILL (2), Indigo Plateau           Lv80 FLAREON     wrongcat(phys 130/95) FIRE_BLAST:fire,SHADOW_BALL:ghos
+WILL (2), Indigo Plateau           Lv80 XATU        wrongcat(spec 75/95) DRILL_PECK:flyi,FAINT_ATTACK:dark
+WILL (2), Indigo Plateau           Lv80 MANTINE     wrongcat(spec 40/80) WATERFALL:wate,WING_ATTACK:flyi
+KOGA (1), Indigo Plateau           Lv54 GLIGAR      overdue->GLISCOR
+KOGA (1), Indigo Plateau           Lv55 VENOMOTH    wrongcat(spec 65/90) LEECH_LIFE:bug
+KOGA (1), Indigo Plateau           Lv55 MUK         wrongcat(phys 105/65) SLUDGE_BOMB:pois
+KOGA (1), Indigo Plateau           Lv56 CROBAT      wrongcat(phys 90/70) SLUDGE_BOMB:pois,HYPER_BEAM:norm
+KOGA (2), Indigo Plateau           Lv81 MAGMAR      overdue->MAGMORTAR
+KOGA (2), Indigo Plateau           Lv81 ARIADOS     wrongcat(phys 90/60) PSYBEAM:psyc
+KOGA (2), Indigo Plateau           Lv81 STANTLER    overdue->WYRDEER
+BRUNO (1), Indigo Plateau          Lv55 ONIX        overdue->STEELIX
+BRUNO (2), Indigo Plateau          Lv82 PRIMEAPE    overdue->ANNIHILAPE
+BRUNO (2), Indigo Plateau          Lv82 URSARING    overdue->URSALUNA
+KAREN (1), Indigo Plateau          Lv57 GENGAR      wrongcat(spec 65/130) THIEF:dark
+KAREN (1), Indigo Plateau          Lv56 MURKROW     overdue->HONCHKROW
+KAREN (1), Indigo Plateau          Lv58 HOUNDOOM    wrongcat(spec 90/110) CRUNCH:dark
+KAREN (2), Indigo Plateau          Lv83 SLOWBRO     wrongcat(spec 75/100) STRENGTH:figh
+KAREN (2), Indigo Plateau          Lv83 ELECTRODE   wrongcat(spec 50/80) HEADBUTT:norm
+KAREN (2), Indigo Plateau          Lv83 MURKROW     overdue->HONCHKROW
+KAREN (2), Indigo Plateau          Lv83 MISDREAVUS  overdue->MISMAGIUS
+CHAMPION (1), Indigo Plateau       Lv58 GYARADOS    wrongcat(phys 125/60) ZAP_CANNON:elec
+CHAMPION (1), Indigo Plateau       Lv58 CHARIZARD   wrongcat(spec 84/109) EARTHQUAKE:grou
+LANCE (5), Indigo Plateau          Lv85 KANGASKHAN  wrongcat(phys 95/40) HYPER_BEAM:norm
+LANCE (5), Indigo Plateau          Lv85 AERODACTYL  wrongcat(phys 105/60) HYPER_BEAM:norm,ANCIENTPOWER:rock
+LANCE (5), Indigo Plateau          Lv85 DRAGONITE   wrongcat(phys 134/100) HYPER_BEAM:norm,ICE_BEAM:ice,THUNDERBOLT:elec,DRAGONBREATH:drag
+LANCE (5), Indigo Plateau          Lv85 FERALIGATR  wrongcat(phys 105/79) HYPER_BEAM:norm,SURF:wate,BLIZZARD:ice
+LANCE (5), Indigo Plateau          Lv85 TYRANITAR   wrongcat(phys 134/95) HYPER_BEAM:norm
+RIVAL1 (7), Burned Tower           Lv25 HAUNTER     wrongcat(spec 50/115) LICK:ghos
+RIVAL1 (7), Burned Tower           Lv25 MAGNEMITE   wrongcat(spec 35/95) SCRATCH:norm,SPARK:elec
+RIVAL1 (8), Burned Tower           Lv25 HAUNTER     wrongcat(spec 50/115) LICK:ghos
+RIVAL1 (8), Burned Tower           Lv25 MAGNEMITE   wrongcat(spec 35/95) SCRATCH:norm,SPARK:elec
+RIVAL1 (8), Burned Tower           Lv26 QUILAVA     wrongcat(spec 64/80) QUICK_ATTACK:norm
+RIVAL1 (9), Burned Tower           Lv25 HAUNTER     wrongcat(spec 50/115) LICK:ghos
+RIVAL1 (9), Burned Tower           Lv25 MAGNEMITE   wrongcat(spec 35/95) SCRATCH:norm,SPARK:elec
+RIVAL1 (9), Burned Tower           Lv26 CROCONAW    wrongcat(phys 80/59) WATER_GUN:wate
+RIVAL1 (10), Ice Path 1F           Lv51 GOLBAT      overdue->CROBAT
+RIVAL1 (10), Ice Path 1F           Lv50 MAGNETON    overdue->MAGNEZONE
+RIVAL1 (10), Ice Path 1F           Lv50 HAUNTER     wrongcat(spec 50/115) LICK:ghos; overdue->GENGAR
+RIVAL1 (11), Ice Path 1F           Lv51 GOLBAT      overdue->CROBAT
+RIVAL1 (11), Ice Path 1F           Lv50 MAGNETON    overdue->MAGNEZONE
+RIVAL1 (11), Ice Path 1F           Lv50 HAUNTER     wrongcat(spec 50/115) LICK:ghos; overdue->GENGAR
+RIVAL1 (11), Ice Path 1F           Lv51 TYPHLOSION  wrongcat(spec 84/109) QUICK_ATTACK:norm,FLAME_WHEEL:fire
+RIVAL1 (12), Ice Path 1F           Lv51 GOLBAT      overdue->CROBAT
+RIVAL1 (12), Ice Path 1F           Lv50 MAGNETON    overdue->MAGNEZONE
+RIVAL1 (12), Ice Path 1F           Lv50 HAUNTER     wrongcat(spec 50/115) LICK:ghos; overdue->GENGAR
+RIVAL1 (13), Victory Road          Lv52 SNEASEL     overdue->WEAVILE
+RIVAL1 (13), Victory Road          Lv53 MAGNETON    overdue->MAGNEZONE
+RIVAL1 (13), Victory Road          Lv53 KADABRA     overdue->ALAKAZAM
+RIVAL1 (14), Victory Road          Lv52 SNEASEL     overdue->WEAVILE
+RIVAL1 (14), Victory Road          Lv53 MAGNETON    overdue->MAGNEZONE
+RIVAL1 (14), Victory Road          Lv53 KADABRA     overdue->ALAKAZAM
+RIVAL1 (14), Victory Road          Lv54 TYPHLOSION  wrongcat(spec 84/109) QUICK_ATTACK:norm,FLAME_WHEEL:fire
+RIVAL1 (15), Victory Road          Lv52 SNEASEL     overdue->WEAVILE
+RIVAL1 (15), Victory Road          Lv53 MAGNETON    overdue->MAGNEZONE
+RIVAL1 (15), Victory Road          Lv53 KADABRA     overdue->ALAKAZAM
+RIVAL2 (1), Mt Moon                Lv75 JOLTEON     wrongcat(spec 65/110) PIN_MISSILE:bug
+RIVAL2 (1), Mt Moon                Lv75 RHYDON      overdue->RHYPERIOR
+RIVAL2 (2), Mt Moon                Lv75 TYPHLOSION  wrongcat(spec 84/109) THUNDERPUNCH:elec,EARTHQUAKE:grou
+RIVAL2 (3), Mt Moon                Lv75 JOLTEON     wrongcat(spec 65/110) PIN_MISSILE:bug
+RIVAL2 (3), Mt Moon                Lv75 AMPHAROS    wrongcat(spec 75/115) STRENGTH:figh,FIRE_PUNCH:fire
+RIVAL2 (3), Mt Moon                Lv75 HOUNDOOM    wrongcat(spec 90/110) CRUNCH:dark
+RIVAL2 (3), Mt Moon                Lv75 FERALIGATR  wrongcat(phys 105/79) ICE_BEAM:ice
+RIVAL2 (4), Indigo Plateau         Lv85 CROBAT      wrongcat(phys 90/70) SLUDGE_BOMB:pois
+RIVAL2 (4), Indigo Plateau         Lv85 RHYDON      overdue->RHYPERIOR
+RIVAL2 (4), Indigo Plateau         Lv85 GENGAR      wrongcat(spec 65/130) THIEF:dark
+RIVAL2 (5), Indigo Plateau         Lv85 CROBAT      wrongcat(phys 90/70) SLUDGE_BOMB:pois
+RIVAL2 (5), Indigo Plateau         Lv85 AMPHAROS    wrongcat(spec 75/115) STRENGTH:figh,FIRE_PUNCH:fire
+RIVAL2 (5), Indigo Plateau         Lv85 QUAGSIRE    wrongcat(phys 85/65) ANCIENTPOWER:rock
+RIVAL2 (5), Indigo Plateau         Lv85 TYPHLOSION  wrongcat(spec 84/109) THUNDERPUNCH:elec,EARTHQUAKE:grou
+RIVAL2 (6), Indigo Plateau         Lv85 SNEASEL     overdue->WEAVILE
+RIVAL2 (6), Indigo Plateau         Lv85 PARASECT    wrongcat(phys 95/60) GIGA_DRAIN:gras,SLUDGE_BOMB:pois
+RIVAL2 (6), Indigo Plateau         Lv85 FERALIGATR  wrongcat(phys 105/79) ICE_BEAM:ice
+RED (1), Mt Silver                 Lv98 PIKACHU     overdue->RAICHU_ORANGE
+RED (1), Mt Silver                 Lv93 CHARIZARD   wrongcat(spec 84/109) OUTRAGE:drag,EARTHQUAKE:grou
+SCIENTIST (4), Cerulean Base 2     Lv75 MAGNETON    overdue->MAGNEZONE
+SCIENTIST (5), Cerulean Base 2     Lv75 PORYGON2    overdue->PORYGON_Z
+SCIENTIST (5), Cerulean Base 2     Lv75 GYARADOS    wrongcat(phys 125/60) ZAP_CANNON:elec
+SCIENTIST (6), Ruins of Alph Outsi Lv44 SLOWBRO     wrongcat(spec 75/100) HEADBUTT:norm
+SCIENTIST (6), Ruins of Alph Outsi Lv44 ELECTRODE   wrongcat(spec 50/80) ROLLOUT:rock,SELFDESTRUCT:norm
+SCIENTIST (6), Ruins of Alph Outsi Lv44 ALAKAZAM    wrongcat(spec 50/135) ICE_PUNCH:ice
+SCIENTIST NIELS (8), Ruins of Alph Lv44 ALAKAZAM    wrongcat(spec 50/135) THUNDERPUNCH:elec
+SCIENTIST NIELS (8), Ruins of Alph Lv44 MAGNETON    wrongcat(spec 60/120) SPIKE_CANNON:stee
+SCIENTIST MAX (10), Ruins of Alph  Lv44 JOLTEON     wrongcat(spec 65/110) PIN_MISSILE:bug,BITE:dark
+SCIENTIST MAX (10), Ruins of Alph  Lv44 DUGTRIO     wrongcat(phys 80/50) ANCIENTPOWER:rock,SLUDGE_BOMB:pois,TRI_ATTACK:norm
+SCIENTIST JAYJAY (12), Ruins of Al Lv44 MAGNETON    wrongcat(spec 60/120) SPIKE_CANNON:stee
+SCIENTIST (15), Mt. Moon B2        Lv73 MAGNETON    overdue->MAGNEZONE
+SCIENTIST (15), Mt. Moon B2        Lv74 PORYGON     overdue->PORYGON2
+SCHOOLBOY (2), Route 15            Lv65 MAGNETON    overdue->MAGNEZONE
+SCHOOLBOY (2), Route 15            Lv66 MAGNETON    overdue->MAGNEZONE
+SCHOOLBOY (5), Route 1             Lv71 ELECTABUZZ  overdue->ELECTIVIRE
+SCHOOLBOY (5), Route 1             Lv72 MAGMAR      overdue->MAGMORTAR
+SCHOOLBOY (8), Route 25            Lv67 TANGELA     overdue->TANGROWTH
+SCHOOLBOY (11), SS Aqua            Lv57 MAGNETON    overdue->MAGNEZONE
+SCHOOLBOY (12), SS Aqua            Lv55 AIPOM       overdue->AMBIPOM
+SCHOOLBOY (12), SS Aqua            Lv57 PORYGON     overdue->PORYGON2
+SCHOOLBOY (20), National Park      Lv42 ELECTRODE   wrongcat(spec 50/80) ROLLOUT:rock
+SCHOOLBOY (22), Route 36           Lv42 XATU        wrongcat(spec 75/95) PECK:flyi
+SCHOOLBOY (22), Route 36           Lv39 TANGELA     wrongcat(spec 55/100) VINE_WHIP:gras,BIND:bug
+SCHOOLBOY (24), Route 38           Lv50 MAGNETON    overdue->MAGNEZONE
+SCHOOLBOY (24), Route 38           Lv50 URSARING    overdue->URSALUNA
+BIRD_KEEPER (12), Route 27         Lv52 FARFETCH_D  overdue->SIRFETCH_D
+BIRD_KEEPER (14), Route 27         Lv55 FARFETCH_D  overdue->SIRFETCH_D
+BIRD_KEEPER (15), Route 13         Lv67 FARFETCH_D  overdue->SIRFETCH_D
+BIRD_KEEPER (17), Route 27         Lv59 FARFETCH_D  overdue->SIRFETCH_D
+BIRD_KEEPER (17), Route 27         Lv59 DODRIO      wrongcat(phys 110/60) TRI_ATTACK:norm
+BIRD_KEEPER (18), Route 44         Lv54 TOGETIC     overdue->TOGEKISS
+BIRD_KEEPER (19), Route 44         Lv58 DODRIO      wrongcat(phys 110/60) TRI_ATTACK:norm
+BIRD_KEEPER (19), Route 44         Lv58 TOGETIC     overdue->TOGEKISS
+LASS (1), Goldenrod Gym            Lv23 CHANSEY     wrongcat(spec 5/35) HEADBUTT:norm
+LASS (2), Goldenrod Gym            Lv21 EEVEE       overdue->LEAFEON
+LASS (9), Celadon Gym              Lv61 TANGELA     overdue->TANGROWTH
+LASS (10), Route 38                Lv36 SKARMORY    wrongcat(phys 80/40) SWIFT:norm
+LASS (10), Route 38                Lv36 AMPHAROS    wrongcat(spec 75/115) BODY_SLAM:norm,THUNDERPUNCH:elec
+LASS (14), Route 38                Lv41 SKARMORY    wrongcat(phys 80/40) SWIFT:norm
+LASS (14), Route 38                Lv41 AMPHAROS    wrongcat(spec 75/115) BODY_SLAM:norm,THUNDERPUNCH:elec
+LASS (16), Route 38                Lv49 SKARMORY    wrongcat(phys 80/40) SWIFT:norm
+LASS (16), Route 38                Lv49 AMPHAROS    wrongcat(spec 75/115) BODY_SLAM:norm,FIRE_PUNCH:fire
+LASS (17), Route 38                Lv55 SKARMORY    wrongcat(phys 80/40) SWIFT:norm
+LASS (17), Route 38                Lv55 AMPHAROS    wrongcat(spec 75/115) BODY_SLAM:norm,FIRE_PUNCH:fire
+COOLTRAINERM (4), Blackthorn Gym   Lv50 SEADRA      overdue->KINGDRA
+COOLTRAINERM (6), Route 26         Lv51 KINGLER     wrongcat(phys 130/50) BUBBLEBEAM:wate
+COOLTRAINERM (6), Route 26         Lv51 FLAREON     wrongcat(phys 130/95) FLAMETHROWER:fire
+COOLTRAINERM (7), Route 26         Lv57 KINGLER     wrongcat(phys 130/50) SURF:wate,BLIZZARD:ice
+COOLTRAINERM (7), Route 26         Lv57 FLAREON     wrongcat(phys 130/95) FLAMETHROWER:fire,FIRE_SPIN:fire
+COOLTRAINERM (8), Route 45         Lv49 SKARMORY    wrongcat(phys 80/40) MUD_SLAP:grou
+COOLTRAINERM (10), Route 26        Lv64 KINGLER     wrongcat(phys 130/50) SURF:wate
+COOLTRAINERM (10), Route 26        Lv64 FLAREON     wrongcat(phys 130/95) MUD_SLAP:grou,FLAMETHROWER:fire
+COOLTRAINERM (11), Route 27        Lv51 MAGNETON    overdue->MAGNEZONE
+COOLTRAINERM (12), Route 27        Lv51 STANTLER    overdue->WYRDEER
+COOLTRAINERM (16), SS Aqua         Lv55 TANGELA     overdue->TANGROWTH
+COOLTRAINERM (17), Route 25        Lv69 RHYDON      overdue->RHYPERIOR
+COOLTRAINERM (20), Dragon's Den    Lv51 SEADRA      wrongcat(spec 65/95) HEADBUTT:norm; overdue->KINGDRA
+COOLTRAINERM (22), Mt. Moon        Lv73 RHYDON      overdue->RHYPERIOR
+COOLTRAINERF (1), Union Cave, post Lv33 EEVEE       overdue->LEAFEON
+COOLTRAINERF (2), Lake of Rage     Lv36 AMPHAROS    wrongcat(spec 75/115) THUNDERPUNCH:elec,BODY_SLAM:norm
+COOLTRAINERF (9), Route 26         Lv52 RAPIDASH    wrongcat(phys 100/80) FLAMETHROWER:fire
+COOLTRAINERF (9), Route 26         Lv52 RAPIDASH    wrongcat(phys 100/80) FIRE_BLAST:fire
+COOLTRAINERF (10), Route 27        Lv51 ELECTABUZZ  overdue->ELECTIVIRE
+COOLTRAINERF (11), Route 27        Lv52 VENUSAUR    wrongcat(spec 82/100) RAZOR_LEAF:gras
+COOLTRAINERF (11), Route 27        Lv52 VENUSAUR    wrongcat(spec 82/100) RAZOR_LEAF:gras
+COOLTRAINERF (11), Route 27        Lv52 VENUSAUR    wrongcat(spec 82/100) BODY_SLAM:norm,RAZOR_LEAF:gras
+COOLTRAINERF (12), Route 26        Lv55 RAPIDASH    wrongcat(phys 100/80) FLAMETHROWER:fire
+COOLTRAINERF (12), Route 26        Lv55 RAPIDASH    wrongcat(phys 100/80) FIRE_BLAST:fire
+COOLTRAINERF (18), Route 26        Lv58 RAPIDASH    wrongcat(phys 100/80) FLAMETHROWER:fire
+COOLTRAINERF (18), Route 26        Lv58 RAPIDASH    wrongcat(phys 100/80) FIRE_BLAST:fire
+COOLTRAINERF (19), Route 27        Lv52 ELECTABUZZ  overdue->ELECTIVIRE
+COOLTRAINERF (20), Route 27        Lv57 STARMIE     wrongcat(spec 75/100) WATERFALL:wate
+COOLTRAINERF (20), Route 27        Lv57 ELECTABUZZ  overdue->ELECTIVIRE
+COOLTRAINERF (21), Dragon's Den    Lv50 CHARIZARD   wrongcat(spec 84/109) FLY:flyi
+COOLTRAINERF (21), Dragon's Den    Lv50 SEADRA      overdue->KINGDRA
+COOLTRAINERF GALEN (22), Victory R Lv51 CROBAT      wrongcat(phys 90/70) SLUDGE_BOMB:pois
+COOLTRAINERF GALEN (22), Victory R Lv51 ALAKAZAM    wrongcat(spec 50/135) FIRE_PUNCH:fire,ICE_PUNCH:ice
+COOLTRAINERF GALEN (22), Victory R Lv52 GOLEM       wrongcat(phys 110/55) FIRE_BLAST:fire
+COOLTRAINERF KELSEY (23), Victory  Lv50 AMPHAROS    wrongcat(spec 75/115) FIRE_PUNCH:fire
+COOLTRAINERF KELSEY (23), Victory  Lv51 CHARIZARD   wrongcat(spec 84/109) EARTHQUAKE:grou,FLY:flyi
+COOLTRAINERF (26), Ice Path Hollow Lv52 SEADRA      overdue->KINGDRA
+COOLTRAINERF (26), Ice Path Hollow Lv52 GLIGAR      overdue->GLISCOR
+BEAUTY (11), Glitter & Grace       Lv26 MR__MIME    wrongcat(spec 45/100) FURY_STRIKES:norm
+BEAUTY (14), Celadon Gym           Lv61 WEEPINBELL  overdue->VICTREEBEL
+POKEMANIAC (8), SS Aqua            Lv58 RHYDON      overdue->RHYPERIOR
+POKEMANIAC (10), Route 43          Lv48 KANGASKHAN  wrongcat(phys 95/40) SURF:wate
+POKEMANIAC (10), Route 43          Lv47 BLISSEY     wrongcat(spec 10/75) ROLLOUT:rock,BODY_SLAM:norm
+POKEMANIAC (11), Goldenrod Tunnel  Lv21 SLOWPOKE    wrongcat(phys 65/40) WATER_GUN:wate,CONFUSION:psyc
+POKEMANIAC (14), Route 43          Lv52 LICKITUNG   overdue->LICKILICKY
+POKEMANIAC (14), Route 43          Lv53 KANGASKHAN  wrongcat(phys 95/40) SURF:wate
+POKEMANIAC (14), Route 43          Lv52 BLISSEY     wrongcat(spec 10/75) ROLLOUT:rock,BODY_SLAM:norm
+POKEMANIAC (14), Route 43          Lv53 PORYGON     overdue->PORYGON2
+POKEMANIAC (16), Blackthorn City   Lv50 MISDREAVUS  overdue->MISMAGIUS
+POKEMANIAC (16), Blackthorn City   Lv50 PARASECT    wrongcat(phys 95/60) GIGA_DRAIN:gras,PSYBEAM:psyc
+POKEMANIAC (17), Mt. Moon          Lv73 LICKITUNG   overdue->LICKILICKY
+GRUNTM (1), Slowpoke Well          Lv15 EEVEE       overdue->LEAFEON
+GRUNTM (5), Cerulean Base 2        Lv75 HAUNTER     overdue->GENGAR
+GRUNTM (6), Cerulean Base 1        Lv75 GOLBAT      overdue->CROBAT
+GRUNTM (7), Cerulean Base 2        Lv75 GOLBAT      overdue->CROBAT
+GRUNTM (8), Cerulean Base 1        Lv75 HAUNTER     overdue->GENGAR
+GRUNTM (8), Cerulean Base 1        Lv76 MISDREAVUS  overdue->MISMAGIUS
+GRUNTM (10), Cerulean Base 1       Lv75 GOLBAT      overdue->CROBAT
+GRUNTM (11), Saffron Underground S Lv73 MAGNETON    overdue->MAGNEZONE
+GRUNTM (13), Saffron Underground S Lv73 MISDREAVUS  overdue->MISMAGIUS
+GRUNTM (13), Saffron Underground S Lv73 RHYDON      overdue->RHYPERIOR
+GRUNTM (14), Saffron Underground W Lv73 GOLBAT      overdue->CROBAT
+GRUNTM (15), Saffron Underground W Lv73 MAGNETON    overdue->MAGNEZONE
+GRUNTM (26), Lav Radio Tower 5F    Lv69 GOLBAT      overdue->CROBAT
+GRUNTM (27), Lav Radio Tower 5F    Lv68 MISDREAVUS  overdue->MISMAGIUS
+GRUNTM (30), Lav Radio Tower 5F    Lv69 GOLBAT      overdue->CROBAT
+GRUNTM (30), Lav Radio Tower 5F    Lv69 PRIMEAPE    overdue->ANNIHILAPE
+GRUNTM (31), Route 24              Lv69 MAGNETON    overdue->MAGNEZONE
+GRUNTM (31), Route 24              Lv69 GOLBAT      overdue->CROBAT
+GRUNTM (32), Lav Radio Tower 3F    Lv69 GOLBAT      overdue->CROBAT
+GRUNTM (34), Lav Radio Tower 3F    Lv68 MAGNETON    overdue->MAGNEZONE
+GRUNTM (35), Lav Radio Tower 4F    Lv68 GOLBAT      overdue->CROBAT
+GRUNTM (36), Lav Radio Tower 4F    Lv69 GOLBAT      overdue->CROBAT
+GRUNTM (36), Lav Radio Tower 4F    Lv69 RHYDON      overdue->RHYPERIOR
+GRUNTM (37), Lav Radio Tower 4F    Lv68 MAGNETON    overdue->MAGNEZONE
+GRUNTM (38), Mt. Moon B2           Lv73 GOLBAT      overdue->CROBAT
+GRUNTM (39), SS Aqua               Lv56 GOLBAT      overdue->CROBAT
+GRUNTM (41), SS Aqua, posing as a  Lv56 GOLBAT      overdue->CROBAT
+GRUNTM (41), SS Aqua, posing as a  Lv57 MACHOKE     overdue->MACHAMP
+GENTLEMAN (3), Vermilion Gym       Lv57 MAGNETON    overdue->MAGNEZONE
+GENTLEMAN (4), Route 26            Lv51 FARFETCH_D  overdue->SIRFETCH_D
+SKIER (3), Ice Path 1F             Lv49 PILOSWINE   wrongcat(phys 100/60) ICY_WIND:ice,MUD_SLAP:grou
+SKIER (3), Ice Path 1F             Lv48 JYNX        wrongcat(spec 50/115) ICE_PUNCH:ice
+SKIER (4), Ice Path B1F            Lv48 JYNX        wrongcat(spec 50/115) ICE_PUNCH:ice
+TEACHER (2), Route 15              Lv64 AIPOM       overdue->AMBIPOM
+BUG_CATCHER (9), SS Aqua           Lv58 SCYTHER     overdue->SCIZOR
+BUG_CATCHER (17), Route 35         Lv38 LEDIAN      wrongcat(spec 35/55) COMET_PUNCH:fair
+BUG_CATCHER (17), Route 35         Lv38 ARIADOS     wrongcat(phys 90/60) GIGA_DRAIN:gras
+BUG_CATCHER (17), Route 35         Lv40 VENOMOTH    wrongcat(spec 65/90) LEECH_LIFE:bug
+BUG_CATCHER (18), Route 35         Lv46 LEDIAN      wrongcat(spec 35/55) COMET_PUNCH:fair
+BUG_CATCHER (18), Route 35         Lv46 ARIADOS     wrongcat(phys 90/60) GIGA_DRAIN:gras
+FISHER (11), Route 44              Lv48 GYARADOS    wrongcat(phys 125/60) DRAGON_RAGE:drag,SURF:wate
+FISHER (20), Route 44              Lv53 SEADRA      overdue->KINGDRA
+FISHER (22), Route 44              Lv58 SEADRA      wrongcat(spec 65/95) HEADBUTT:norm; overdue->KINGDRA
+FISHER (24), Route 32              Lv42 QWILFISH    wrongcat(phys 95/55) SURF:wate
+FISHER (25), Route 42              Lv50 QWILFISH    wrongcat(phys 95/55) SURF:wate
+SWIMMERM (1), Route 19             Lv71 SEADRA      overdue->KINGDRA
+SWIMMERM (14), Route 19            Lv71 SEADRA      overdue->KINGDRA
+SWIMMERM (21), Cerulean Gym        Lv72 SEADRA      overdue->KINGDRA
+SAILOR (4), Olivine Lighthouse     Lv38 KINGLER     wrongcat(phys 130/50) BUBBLE:wate,SURF:wate
+SAILOR (4), Olivine Lighthouse     Lv38 QWILFISH    wrongcat(phys 95/55) BUBBLEBEAM:wate
+SAILOR (9), SS Aqua                Lv58 MACHOKE     overdue->MACHAMP
+SAILOR (10), Route 38              Lv38 QUAGSIRE    wrongcat(phys 85/65) SURF:wate
+SAILOR (10), Route 38              Lv38 SUNFLORA    wrongcat(spec 75/105) FLAME_WHEEL:fire
+SAILOR (12), Olivine Lighthouse    Lv51 POLIWHIRL   overdue->POLIWRATH
+SUPER_NERD (6), Route 8            Lv62 PORYGON2    overdue->PORYGON_Z
+SUPER_NERD (7), Route 8            Lv59 LICKITUNG   overdue->LICKILICKY
+SUPER_NERD (7), Route 8            Lv61 MAGNETON    overdue->MAGNEZONE
+SUPER_NERD (8), Route 25           Lv67 MAGNETON    overdue->MAGNEZONE
+SUPER_NERD (8), Route 25           Lv69 PORYGON2    overdue->PORYGON_Z
+SUPER_NERD (9), SS Aqua            Lv55 MAGNETON    overdue->MAGNEZONE
+SUPER_NERD (9), SS Aqua            Lv58 PORYGON2    overdue->PORYGON_Z
+SUPER_NERD (13), Mt Mortar, post W Lv47 AMPHAROS    wrongcat(spec 75/115) THUNDERPUNCH:elec,BODY_SLAM:norm,STRENGTH:figh
+SUPER_NERD (13), Mt Mortar, post W Lv47 SANDSLASH   wrongcat(phys 100/45) SWIFT:norm
+SUPER_NERD (14), Mt Mortar, post S Lv40 SLOWBRO     wrongcat(spec 75/100) IRON_TAIL:stee,EARTHQUAKE:grou,STRENGTH:figh
+SUPER_NERD (15), Mt. Moon          Lv73 MAGNETON    overdue->MAGNEZONE
+SUPER_NERD (15), Mt. Moon          Lv74 PORYGON     overdue->PORYGON2
+GUITARIST (1), SS Aqua             Lv57 ELECTABUZZ  overdue->ELECTIVIRE
+GUITARIST (2), Vermilion Gym       Lv57 MAGNETON    overdue->MAGNEZONE
+GUITARIST (2), Vermilion Gym       Lv57 ELECTABUZZ  overdue->ELECTIVIRE
+HIKER (8), Route 45                Lv50 RHYDON      overdue->RHYPERIOR
+HIKER (10), Route 45               Lv49 MAROWAK     wrongcat(phys 80/50) MUD_SLAP:grou
+HIKER (10), Route 45               Lv49 DUGTRIO     wrongcat(phys 80/50) MUD_SLAP:grou
+HIKER (10), Route 45               Lv49 QUAGSIRE    wrongcat(phys 85/65) SURF:wate,ANCIENTPOWER:rock
+HIKER (15), Route 9                Lv68 RHYDON      overdue->RHYPERIOR
+HIKER (16), Route 13               Lv66 GLIGAR      overdue->GLISCOR
+HIKER (17), Route 10               Lv68 RHYDON      overdue->RHYPERIOR
+HIKER (19), Route 45               Lv55 PILOSWINE   overdue->MAMOSWINE
+HIKER (20), Route 45               Lv60 PILOSWINE   wrongcat(phys 100/60) BLIZZARD:ice; overdue->MAMOSWINE
+HIKER (20), Route 45               Lv60 DUGTRIO     wrongcat(phys 80/50) MUD_SLAP:grou
+HIKER (20), Route 45               Lv60 MAGCARGO    wrongcat(spec 50/80) ROCK_SLIDE:rock
+HIKER (20), Route 45               Lv60 TYRANITAR   wrongcat(phys 134/95) ANCIENTPOWER:rock
+HIKER (23), Mt. Moon               Lv74 RHYDON      overdue->RHYPERIOR
+HIKER (24), Mt. Moon               Lv74 RHYDON      overdue->RHYPERIOR
+BIKER (1), Route 17                Lv62 MAGMAR      overdue->MAGMORTAR
+BIKER (2), Route 17                Lv63 ELECTABUZZ  overdue->ELECTIVIRE
+BIKER (3), Route 8                 Lv59 MAGMAR      overdue->MAGMORTAR
+BIKER (3), Route 8                 Lv60 MURKROW     overdue->HONCHKROW
+BIKER (4), Route 8                 Lv60 MAGMAR      overdue->MAGMORTAR
+BIKER (5), Route 8                 Lv59 MAGMAR      overdue->MAGMORTAR
+BIKER (5), Route 8                 Lv60 MURKROW     overdue->HONCHKROW
+BIKER (6), Route 17                Lv62 MAGMAR      overdue->MAGMORTAR
+BIKER (7), Route 17                Lv63 MAGMAR      overdue->MAGMORTAR
+BIKER (8), Route 17                Lv62 MURKROW     overdue->HONCHKROW
+BIKER (8), Route 17                Lv63 MAGMAR      overdue->MAGMORTAR
+BIKER (9), Route 17                Lv63 MAGMAR      overdue->MAGMORTAR
+BIKER (9), Route 17                Lv63 MURKROW     overdue->HONCHKROW
+BURGLAR (1), Saffron Underground S Lv60 MAGMAR      overdue->MAGMORTAR
+BURGLAR (3), SS Aqua               Lv57 GLIGAR      overdue->GLISCOR
+BURGLAR (3), SS Aqua               Lv58 MAGMAR      overdue->MAGMORTAR
+BURGLAR (4), Ice Path Hollow       Lv51 MURKROW     overdue->HONCHKROW
+BURGLAR (4), Ice Path Hollow       Lv53 SNEASEL     overdue->WEAVILE
+FIREBREATHER (1), Route 3          Lv71 MAGMAR      overdue->MAGMORTAR
+FIREBREATHER (4), Route 3          Lv72 MAGMAR      overdue->MAGMORTAR
+FIREBREATHER (9), Ice Path Hollow  Lv50 MAGMAR      overdue->MAGMORTAR
+JUGGLER (2), SS Aqua               Lv55 MACHOKE     overdue->MACHAMP
+JUGGLER (2), SS Aqua               Lv57 MAGMAR      overdue->MAGMORTAR
+JUGGLER (4), Victory Road          Lv51 ELECTRODE   wrongcat(spec 50/80) SELFDESTRUCT:norm
+JUGGLER (4), Victory Road          Lv51 ELECTRODE   wrongcat(spec 50/80) SELFDESTRUCT:norm
+JUGGLER (4), Victory Road          Lv52 ALAKAZAM    wrongcat(spec 50/135) THUNDERPUNCH:elec,FIRE_PUNCH:fire
+JUGGLER (5), Route 26              Lv51 ALAKAZAM    wrongcat(spec 50/135) FIRE_PUNCH:fire,ICE_PUNCH:ice
+JUGGLER (6), Victory Road          Lv50 ELECTRODE   wrongcat(spec 50/80) SELFDESTRUCT:norm
+BLACKBELT_T (3), Dark Cave, Blackt Lv50 ONIX        overdue->STEELIX
+BLACKBELT_T (3), Dark Cave, Blackt Lv52 HITMONLEE   wrongcat(phys 120/35) MUD_SLAP:grou,SWIFT:norm
+BLACKBELT_T (9), SS Aqua           Lv55 MACHOKE     overdue->MACHAMP
+BLACKBELT_T (9), SS Aqua           Lv58 PRIMEAPE    overdue->ANNIHILAPE
+BLACKBELT_T (9), SS Aqua           Lv58 URSARING    overdue->URSALUNA
+BLACKBELT_T (10), Ice Path Hollow  Lv52 URSARING    overdue->URSALUNA
+BLACKBELT_T (10), Ice Path Hollow  Lv53 PILOSWINE   overdue->MAMOSWINE
+EXECUTIVEM (2), Lav Radio Tower 5F Lv70 GOLBAT      overdue->CROBAT
+EXECUTIVEM (2), Lav Radio Tower 5F Lv70 ELECTRODE   wrongcat(spec 50/80) ROLLOUT:rock,SELFDESTRUCT:norm
+EXECUTIVEM (2), Lav Radio Tower 5F Lv70 RHYDON      overdue->RHYPERIOR
+EXECUTIVEM (3), Saffron Undergroun Lv75 HOUNDOOM    wrongcat(spec 90/110) CRUNCH:dark
+EXECUTIVEM (3), Saffron Undergroun Lv75 ALAKAZAM    wrongcat(spec 50/135) FIRE_PUNCH:fire,ICE_PUNCH:ice
+EXECUTIVEM (3), Saffron Undergroun Lv75 ARBOK       wrongcat(phys 85/65) SLUDGE_BOMB:pois
+EXECUTIVEM (5), SS Aqua            Lv59 GOLBAT      overdue->CROBAT
+PSYCHIC_T (1), Victory Road        Lv50 STANTLER    overdue->WYRDEER
+PSYCHIC_T (6), Route 39            Lv37 SLOWBRO     wrongcat(spec 75/100) BODY_SLAM:norm
+PSYCHIC_T (8), Route 44            Lv49 XATU        wrongcat(spec 75/95) STEEL_WING:stee
+PSYCHIC_T (8), Route 44            Lv49 SLOWKING    wrongcat(spec 75/100) HEADBUTT:norm
+PICNICKER (3), Route 35            Lv22 HOUNDOUR    wrongcat(spec 60/80) BITE:dark,RAGE:norm
+PICNICKER (3), Route 35            Lv23 FLAAFFY     wrongcat(spec 55/80) SCRATCH:norm
+PICNICKER (16), Route 43           Lv32 BUTTERFREE  wrongcat(spec 45/80) LEECH_LIFE:bug,HEADBUTT:norm
+PICNICKER (16), Route 43           Lv32 STARMIE     wrongcat(spec 75/100) RAPID_SPIN:norm
+PICNICKER (17), Route 43           Lv38 BUTTERFREE  wrongcat(spec 45/80) LEECH_LIFE:bug,HEADBUTT:norm
+PICNICKER (20), Route 43           Lv47 BUTTERFREE  wrongcat(spec 45/80) LEECH_LIFE:bug,HEADBUTT:norm
+PICNICKER (21), Route 46           Lv44 RAPIDASH    wrongcat(phys 100/80) FIRE_SPIN:fire
+PICNICKER (25), Route 34           Lv46 VENUSAUR    wrongcat(spec 82/100) RAZOR_LEAF:gras,HEADBUTT:norm
+PICNICKER (26), Route 43           Lv52 BUTTERFREE  wrongcat(spec 45/80) LEECH_LIFE:bug,HEADBUTT:norm
+CAMPER (6), Route 25               Lv68 URSARING    overdue->URSALUNA
+CAMPER (8), Route 9                Lv68 PRIMEAPE    overdue->ANNIHILAPE
+CAMPER (15), Dark Cave, Violet, po Lv38 MAGCARGO    wrongcat(spec 50/80) ROCK_THROW:rock
+CAMPER (15), Dark Cave, Violet, po Lv38 VILEPLUME   wrongcat(spec 80/100) RAZOR_LEAF:gras
+CAMPER (16), Route 2               Lv72 BEEDRILL    wrongcat(phys 80/45) SLUDGE_BOMB:pois
+CAMPER (17), Route 2               Lv72 CROBAT      wrongcat(phys 90/70) SLUDGE_BOMB:pois
+CAMPER (21), Route 34              Lv44 MAGCARGO    wrongcat(spec 50/80) ROCK_THROW:rock
+EXECUTIVEF (1), Team Rocket's Hide Lv32 VILEPLUME   wrongcat(spec 80/100) RAZOR_LEAF:gras
+EXECUTIVEF (1), Team Rocket's Hide Lv38 MUK         wrongcat(phys 105/65) SLUDGE_BOMB:pois
+EXECUTIVEF (2), Ruins of Alph Outs Lv48 ARBOK       wrongcat(phys 85/65) SLUDGE_BOMB:pois
+EXECUTIVEF (2), Ruins of Alph Outs Lv48 VILEPLUME   wrongcat(spec 80/100) FAINT_ATTACK:dark
+EXECUTIVEF (2), Ruins of Alph Outs Lv50 MURKROW     overdue->HONCHKROW
+EXECUTIVEF (2), Ruins of Alph Outs Lv49 MUK         wrongcat(phys 105/65) SLUDGE_BOMB:pois
+EXECUTIVEF (3), Cerulean Base 3    Lv75 ARBOK       wrongcat(phys 85/65) SLUDGE_BOMB:pois
+EXECUTIVEF (3), Cerulean Base 3    Lv75 VILEPLUME   wrongcat(spec 80/100) FAINT_ATTACK:dark
+EXECUTIVEF (3), Cerulean Base 3    Lv75 MURKROW     overdue->HONCHKROW
+EXECUTIVEF (3), Cerulean Base 3    Lv76 MUK         wrongcat(phys 105/65) SLUDGE_BOMB:pois
+SAGE (10), Tin Tower               Lv45 GENGAR      wrongcat(spec 65/130) THIEF:dark
+SAGE (10), Tin Tower               Lv45 FLAREON     wrongcat(phys 130/95) FLAMETHROWER:fire,SHADOW_BALL:ghos
+SAGE (11), Tin Tower               Lv45 GENGAR      wrongcat(spec 65/130) THIEF:dark
+MEDIUM (3), Cianwood City          Lv42 CROBAT      wrongcat(phys 90/70) SLUDGE_BOMB:pois
+MEDIUM (4), Cianwood City          Lv42 JYNX        wrongcat(spec 50/115) ICE_PUNCH:ice
+MEDIUM (5), Cianwood City          Lv42 VENOMOTH    wrongcat(spec 65/90) PIN_MISSILE:bug
+MEDIUM (6), Saffron Gym            Lv57 MISDREAVUS  overdue->MISMAGIUS
+BOARDER (4), Ice Path B1F          Lv49 SNEASEL     wrongcat(phys 95/35) ICY_WIND:ice
+BOARDER (6), Ice Path Hollow       Lv52 PILOSWINE   overdue->MAMOSWINE
+BOARDER (6), Ice Path Hollow       Lv52 SNEASEL     overdue->WEAVILE
+BOARDER (7), Ice Path Hollow 1F    Lv50 SNEASEL     overdue->WEAVILE
+POKEFANM (4), Route 13             Lv65 PIKACHU     overdue->RAICHU_ORANGE
+POKEFANM (4), Route 13             Lv65 PIKACHU     overdue->RAICHU_ORANGE
+POKEFANM (4), Route 13             Lv66 PIKACHU     overdue->RAICHU_ORANGE
+POKEFANM (4), Route 13             Lv66 PIKACHU     overdue->RAICHU_ORANGE
+POKEFANM (4), Route 13             Lv66 PIKACHU     overdue->RAICHU_ORANGE
+POKEFANM (9), SS Aqua              Lv55 SNEASEL     overdue->WEAVILE
+POKEFANM (9), SS Aqua              Lv58 PILOSWINE   overdue->MAMOSWINE
+POKEFANM (11), Route 12            Lv65 MAGNETON    overdue->MAGNEZONE
+POKEFANM (11), Route 12            Lv66 JOLTEON     wrongcat(spec 65/110) DOUBLE_KICK:figh,PIN_MISSILE:bug
+POKEFANM (11), Route 12            Lv67 ELECTRODE   wrongcat(spec 50/80) SELFDESTRUCT:norm
+POKEFANM (14), Route 6             Lv59 RHYDON      overdue->RHYPERIOR
+POKEFANM (14), Route 6             Lv60 URSARING    overdue->URSALUNA
+KIMONO_GIRL (2), Ecruteak City     Lv28 EEVEE       overdue->LEAFEON
+KIMONO_GIRL (2), Ecruteak City     Lv28 FLAREON     wrongcat(phys 130/95) EMBER:fire,MUD_SLAP:grou
+KIMONO_GIRL (2), Ecruteak City     Lv30 FLAREON     wrongcat(phys 130/95) FLAMETHROWER:fire,SHADOW_BALL:ghos
+KIMONO_GIRL (3), Ecruteak City     Lv28 EEVEE       overdue->LEAFEON
+KIMONO_GIRL (4), Ecruteak City     Lv28 EEVEE       overdue->LEAFEON
+KIMONO_GIRL (5), Ecruteak City     Lv28 EEVEE       overdue->LEAFEON
+KIMONO_GIRL (5), Ecruteak City     Lv30 VAPOREON    wrongcat(spec 65/110) BITE:dark
+KIMONO_GIRL (6), Ecruteak City     Lv28 EEVEE       overdue->LEAFEON
+KIMONO_GIRL (6), Ecruteak City     Lv30 JOLTEON     wrongcat(spec 65/110) DOUBLE_KICK:figh
+KIMONO_GIRL (7), Ice Path B2F Blac Lv49 EEVEE       overdue->LEAFEON
+KIMONO_GIRL (7), Ice Path B2F Blac Lv49 GLACEON     wrongcat(spec 60/130) BITE:dark
+KIMONO_GIRL (8), Route 30          Lv49 EEVEE       overdue->LEAFEON
+KIMONO_GIRL (8), Route 30          Lv49 LEAFEON     wrongcat(phys 110/60) GIGA_DRAIN:gras,SWIFT:norm
+TWINS (7), SS Aqua                 Lv55 URSARING    overdue->URSALUNA
+TWINS (8), SS Aqua                 Lv57 URSARING    overdue->URSALUNA
+POKEFANF (5), SS Aqua              Lv57 MISDREAVUS  overdue->MISMAGIUS
+GRUNTF (3), Saffron Underground    Lv73 MISDREAVUS  overdue->MISMAGIUS
+GRUNTF (4), Cerulean Base 1        Lv75 GOLBAT      overdue->CROBAT
+ROCKET GRUNTF (9), Ruins of Alph A Lv43 MUK         wrongcat(phys 105/65) SLUDGE_BOMB:pois
+GRUNTF (11), Lav Radio Tower 3F    Lv68 MISDREAVUS  overdue->MISMAGIUS
+GRUNTF (12), Lav Radio Tower 4F    Lv68 GOLBAT      overdue->CROBAT
+GRUNTF (12), Lav Radio Tower 4F    Lv68 MURKROW     overdue->HONCHKROW
+GRUNTF (12), Lav Radio Tower 4F    Lv69 MISDREAVUS  overdue->MISMAGIUS
+GRUNTF (13), Lav Radio Tower 4F    Lv69 GOLBAT      overdue->CROBAT
+GRUNTF (14), Mt. Moon B2           Lv73 GOLBAT      overdue->CROBAT
+GRUNTF (15), Mt. Moon B2           Lv73 GOLBAT      overdue->CROBAT

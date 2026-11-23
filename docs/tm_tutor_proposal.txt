@@ -1,0 +1,108 @@
+TM / TUTOR PROPOSAL: deliver physical coverage (2026-11-22)
+===========================================================
+Goal: instead of trimming trainer sets to fit thin movepools, give mons
+access to the right-category coverage moves through TMs and the Viridian
+drink tutor. Physical coverage is the thin side: these moves are level-up
+only today: Rock Slide, Crunch, Shadow Claw, X-Scissor, Poison Jab,
+Icicle Crash, Seed Bomb, Dragon Claw.
+
+Budget: the per-species TM/HM/tutor bitfield is (50 + 8 + 17 + 7) / 8 =
+10 bytes = 80 bits, 75 used. Up to 5 more tutors are free; past 80 every
+species grows by a byte. TM swaps cost nothing.
+
+
+1. TM SWAPS (same TM number, same location, new move)
+-----------------------------------------------------
+TM    now            learners parties  where              becomes
+TM50  NIGHTMARE      55       3        Route 31           SHADOW_CLAW (70)
+TM40  DEFENSE_CURL   96       9        Mt Mortar 2F       ROCK_SLIDE (75)
+TM13  SWEET_KISS     268      3        Route 39 Farmhouse CRUNCH (80)
+
+- Order of access: Shadow Claw before Violet (same power as Headbutt),
+  Rock Slide mid-game in Mt Mortar, Crunch at the Route 39 farmhouse.
+- DETECT stays: it is a player-facing item-detect move now (another
+  session restored its TM, 80feb7fe6).
+- Defense Curl loses its TM, but the Rollout users that care (Miltank,
+  Donphan line, Geodude line) learn it by level-up anyway.
+- Route 31 and the Route 39 farmhouse NPC text may name the old moves;
+  check and rewrite (18-char rule).
+
+Kept on purpose: SWEET_SCENT (field move), FURY_CUTTER (Bugsy's theme),
+MUD_SLAP (Falkner's), HIDDEN_POWER, ENDURE, SLEEP_TALK.
+Spare TMs if more is wanted later: TM21
+PAIN_SPLIT (2), TM09 PSYCH_UP (11). Candidates: DRAGON_CLAW, or
+DARK_PULSE (special Dark is also level-up only).
+
+
+2. VIRIDIAN DRINK TUTOR (unlocks after the trainer house; endgame)
+------------------------------------------------------------------
+Drink        now                                      proposed
+Fresh Water  Seismic Toss, Counter, Mimic, Reflect    Seismic Toss, Counter, Reflect, Substitute
+Soda Pop     Body Slam, Substitute, Tri Attack,       Body Slam, Tri Attack, Mega Punch, X_SCISSOR
+             Mega Punch
+Lemonade     Swords Dance, Double-Edge, Mega Kick     Swords Dance, Double-Edge, Mega Kick, POISON_JAB
+Berry Juice  Pay Day, Teleport, Nourishment           Teleport, Nourishment, ICICLE_CRASH, SEED_BOMB
+
+- Dropped: MIMIC (1 party), PAY_DAY (3; Meowth keeps it by level-up).
+- Added: X_SCISSOR, POISON_JAB, ICICLE_CRASH, SEED_BOMB.
+- Fresh Water becomes the utility tier, the rest attack tiers.
+- Tutors 17 -> 19, bitfield 77/80 bits: no growth.
+- Teleport kept for its field use.
+
+
+3. WHO GETS THEM (SETTLED 2026-11-22 with shasocastris; data in docs/movepool/proposal.py)
+--------------------------------------------------------------------
+Every list = all level-up learners (whole lines) + the named lines.
+shasocastris's calls: keep lists lean; Eeveelutions get grants one species at a
+time (moves don't carry across the Eevee line).
+
+ROCK_SLIDE (TM)   draft unchanged: Kabutops, Omastar, Shuckle, Dugtrio,
+                  Quagsire, Donphan, Nidoking/queen, Gliscor, Ursaluna,
+                  Kangaskhan, Machamp, Hitmons, Tauros, Snorlax, Pinsir,
+                  Heracross
+CRUNCH (TM)       Gyarados, Weavile, Snorlax, Typhlosion, Kingler,
+                  Raticate, Aerodactyl, Mamoswine; UMBREON ONLY (not Eevee)
+SHADOW_CLAW (TM)  Weavile, Sandslash, Gliscor, Charizard, Feraligatr,
+                  Persian, Nidoking/queen, Ursaluna, Tyranitar,
+                  Kangaskhan, Gengar, Scizor, Typhlosion, Dugtrio,
+                  Ambipom, Rhyperior
+X_SCISSOR (tutor) Sandslash, Kingler, Gliscor, Weavile, Crobat, Shuckle,
+                  Forretress, Kabutops; LEAFEON ONLY
+POISON_JAB (tutor) Weezing, Gliscor, Gengar, Weavile, Machamp, Ariados,
+                  Seaking (Dugtrio keeps Sludge Bomb)
+ICICLE_CRASH (tutor) draft unchanged: Dewgong, Lapras, Gyarados,
+                  Dragonite (+Kanto), Feraligatr, Kingler, Quagsire,
+                  Nidoking
+SEED_BOMB (tutor) Jumpluff, Exeggutor, Celebi, Sunflora, Snorlax, Ambipom
+EXTRA             THUNDERBOLT -> Magmortar line. No Flamethrower/
+                  Thunderbolt for Alakazam, Ampharos, Typhlosion.
+
+Party sets this unlocks (examples from the open list):
+  Gyarados Ice Beam -> Icicle Crash; Dodrio/Dugtrio special filler ->
+  Rock Slide or Crunch; Feraligatr Blizzard -> Icicle Crash; Kingler
+  Surf -> Crunch or X-Scissor; Flareon/Miltank Shadow Ball -> Shadow
+  Claw (if granted); Crobat Sludge Bomb (low level) -> Poison Jab;
+  Parasect Sludge Bomb -> Seed Bomb or Poison Jab.
+
+Not solved by this: special Fighting (Jolteon Double Kick, Ampharos
+Dynamicpunch) and physical Psychic. Both slots were emptied by the move
+cut (Focus Blast, Zen Headbutt). Special-side coverage is already
+delivered by TMs and the Goldenrod tutors (Flamethrower, Thunderbolt,
+Ice Beam); granting those to Alakazam/Ampharos is a pure compat edit.
+
+
+4. WHAT CHANGES IN CODE
+-----------------------
+- constants/item_constants.asm: tm/mt entries (TM_NIGHTMARE ->
+  TM_SHADOW_CLAW etc.); every TM_* reference (map items, marts,
+  catch_rate_items) follows the rename.
+- data/moves/tmhm_moves.asm follows the constants.
+- data/pokemon/base_stats/*.asm: drop the retired moves from every tmhm
+  line, add the new ones per section 3.
+- maps/ViridianRetiredChampionHouse.asm: menus, loadmoveindex, menu text.
+- Route 31 / Route 39 farmhouse / Mt Mortar NPC text.
+- No save-layout change (bitfield size unchanged).
+
+Suggested order: agree on 1 and 2 -> build the coverage-matrix tool ->
+settle the section 3 lists species by species -> apply -> re-run the
+party open list with the new options.
