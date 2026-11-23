@@ -280,6 +280,9 @@ DragonShrineElder1Script:
 	iftrue .ReceivedDratini
 	checkevent EVENT_GOT_DRATINI
 	iffalse .GiveDratini
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .Tutor
+.ElderTalk:
 	checkevent EVENT_BEAT_RIVAL_IN_MT_MOON
 	iftrue .BeatRivalInMtMoon
 	writetext DragonShrineClairsGrandfatherText
@@ -301,6 +304,34 @@ DragonShrineElder1Script:
 	setevent EVENT_GOT_DRATINI
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_7
 	writetext DragonShrineSymbolicDragonText
+	waitbutton
+	closetext
+	end
+
+.Tutor:
+	writetext DragonShrineTutorAskText
+	yesorno
+	iffalse .ElderTalk
+	special ExtremespeedMoveTutor
+	ifequal FALSE, .TutorTaught
+	ifequal 1, .TutorNoMove
+	ifequal 3, .TutorAlreadyKnows
+	sjump .ElderTalk
+
+.TutorTaught:
+	writetext DragonShrineTutorTaughtText
+	waitbutton
+	closetext
+	end
+
+.TutorNoMove:
+	writetext DragonShrineTutorNoMoveText
+	waitbutton
+	closetext
+	end
+
+.TutorAlreadyKnows:
+	writetext DragonShrineTutorAlreadyKnowsText
 	waitbutton
 	closetext
 	end
@@ -612,6 +643,36 @@ DragonShrineSymbolicDragonText:
 
 	para "entrusted with"
 	line "one."
+	done
+
+DragonShrineTutorAskText:
+	text "You have become"
+	line "the CHAMPION."
+
+	para "Our clan teaches"
+	line "its dragons a"
+	cont "move of great"
+	cont "speed."
+
+	para "Shall I teach"
+	line "EXTREMESPEED?"
+	done
+
+DragonShrineTutorTaughtText:
+	text "Your dragon moves"
+	line "as swift as the"
+	cont "wind now."
+	done
+
+DragonShrineTutorNoMoveText:
+	text "Only DRATINI and"
+	line "its kin can learn"
+	cont "this technique."
+	done
+
+DragonShrineTutorAlreadyKnowsText:
+	text "That dragon"
+	line "already knows it."
 	done
 
 DragonShrineClairsGrandfatherText:

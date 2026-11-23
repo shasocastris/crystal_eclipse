@@ -117,6 +117,7 @@ SpecialsPointers::
 	add_special DeityMoveTutor
 	add_special SafariZoneMoveTutor
 	add_special OutrageMoveTutor
+	add_special ExtremespeedMoveTutor
 	add_special OmanyteChamber
 	add_special BattleTowerAction
 	add_special DisplayUnownWords

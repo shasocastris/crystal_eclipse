@@ -20,6 +20,12 @@ DEF SAFARI_TUTOR_ALREADY_KNOWS   EQU 3
 DEF SAFARI_TUTOR_NO_ROOM         EQU 4
 DEF SAFARI_TUTOR_CANCEL          EQU 5
 
+ExtremespeedMoveTutor:
+; Same flow and result codes, but teaches EXTREMESPEED to the species in
+; ExtremespeedTutorSpecies with no evolution-line gate.
+	ld a, 2
+	jr SafariZoneMoveTutor.start
+
 OutrageMoveTutor:
 ; Same flow and result codes, but teaches OUTRAGE to the species in
 ; OutrageTutorSpecies with no evolution-line gate.
@@ -66,9 +72,19 @@ SafariZoneMoveTutor:
 	ld a, b
 	and a
 	jr z, .safari
-	call CheckOutrageTutorSpecies
+	dec a
+	jr nz, .extremespeed
+	ld hl, OutrageTutorSpecies
+	call CheckTutorSpeciesList
 	jr nc, .no_move
 	ld de, OUTRAGE
+	jr .teach
+
+.extremespeed
+	ld hl, ExtremespeedTutorSpecies
+	call CheckTutorSpeciesList
+	jr nc, .no_move
+	ld de, EXTREMESPEED
 	jr .teach
 
 .safari
@@ -186,13 +202,15 @@ GetSafariZoneMoveTutorMove:
 	and a ; carry clear
 	ret
 
-; Output: carry set if wCurPartySpecies is in OutrageTutorSpecies.
-CheckOutrageTutorSpecies:
+; Input: hl = species list (dw indexes, -1 terminated).
+; Output: carry set if wCurPartySpecies is in the list.
+CheckTutorSpeciesList:
+	push hl
 	ld a, [wCurPartySpecies]
 	call GetPokemonIndexFromID
 	ld d, h
 	ld e, l
-	ld hl, OutrageTutorSpecies
+	pop hl
 .loop
 	ld a, [hli]
 	ld c, a
@@ -228,6 +246,13 @@ OutrageTutorSpecies:
 	dw LARVITAR
 	dw PUPITAR
 	dw TYRANITAR
+	dw -1
+
+ExtremespeedTutorSpecies:
+	dw DRATINI
+	dw DRAGONAIR
+	dw DRAGONITE
+	dw DRAGONITE_KANTO
 	dw -1
 
 ; Check that every species in a given evolutionary line has been caught.
